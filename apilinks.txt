@@ -1,0 +1,25 @@
+1.  Upload File Read All Data And Upload Server
+http://127.0.0.1:8000/BulkOrderUpload
+
+2.Upload Data On Server Read And Upload API Generating Section
+https://rappidx.com/Admin_1/API/bulkorderuploadAPI_Share_Upload.php
+
+3.
+https://rappidx.com/Admin_1/API/bulkorderuploadAPI_Share_Upload_Generate.php
+
+4.
+https://rappidx.com/Admin_1/bulkorderuploadAPI.php
+
+5.
+http://127.0.0.1:8000/Order_Live_Status
+
+
+http://127.0.0.1:8000/BulkOrderUpload
+
+https://rappidx.com/Admin_1/API/DeleteOrder.php
+
+http://127.0.0.1:8000/Order_Live_Status
+
+
+Delete API is Very important
+Implemented Only Checking Pending

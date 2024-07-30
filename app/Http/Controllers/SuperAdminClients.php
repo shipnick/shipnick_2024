@@ -1,0 +1,556 @@
+<?php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\AdminLoginCheck;
+use App\Models\SuperAdminLoginCheck;
+use App\Models\financial;
+use App\Models\billing;
+use App\Models\couriers;
+use App\Models\courierlist;
+use App\Models\bulkorders;
+use App\Models\courierpermission;
+use App\Models\Allusers;
+use App\Models\price;
+
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\DB;
+
+class SuperAdminClients extends Controller
+{
+    public function AllClient(){
+        $userid = session()->get('UserLoginid');
+        $params = AdminLoginCheck::where('usertype','admin')
+                                    ->where('spid',$userid)
+                                    ->orderby('id','DESC')
+                                    ->get();
+        return view('super-admin.Clients.AllNew',['params'=>$params]);
+    }
+
+// Courier Assign
+    public function CourierAssign(Request $req){        
+    $couriername = $req->currentcourierno;
+    $userid = $req->userid;
+    // $couriername = couriers::where('courierid',$courierid)->first();
+    // $details = Allusers::where('id',$userid)->first();
+    if($couriername == "intargos"){
+            $a = Allusers::where('id',$userid)->update(['Intargos'=>1,'intargos_active'=>1,'Nimbus'=>0,'nimbus_active'=>0]);
+        }
+
+    if($couriername == "nimbus"){
+            $a = Allusers::where('id',$userid)->update(['Intargos'=>0,'intargos_active'=>0,'Nimbus'=>1,'nimbus_active'=>1]);
+        }
+
+    if($couriername == "0"){
+            $a = Allusers::where('id',$userid)->update(['Intargos'=>0,'intargos_active'=>0,'Nimbus'=>0,'nimbus_active'=>0]);
+        }
+}
+// Coureir Assign 
+
+    public function NewClient(){
+    	return view('super-admin.Clients.ClientNew');
+    }
+    public function NewClientAdd(Request $req){ 
+        $userid = session()->get('UserLoginid');
+        $qdata = AdminLoginCheck::where('username',$req->email)->first();
+        if(empty($qdata['id'])){
+   // 
+        $usernameemail = $req->email;
+        if(!file_exists("Profiles/$usernameemail")){
+            mkdir("Profiles/$usernameemail");
+        }
+        $profilepic = $req->file('profilepic');
+        if(!is_null($profilepic)){
+            $img = $profilepic->getClientOriginalName();
+            $profilepic->move("Profiles/$usernameemail/",$img);
+        }else{
+            $img = "";
+        }
+
+        $query = new AdminLoginCheck();
+        $query->spid = $userid;
+        $query->username = $req->email;
+        $query->password = $req->password;
+        $query->name = $req->companyname;
+        $query->mobile = $req->mobile;
+        $query->companyname = $req->companyname;
+        $query->profilepic = $img;
+        $query->status = 1;
+        $query->usertype = "admin";
+        $query->save();
+
+        $req->session()->flash('status','New Admin added');
+        return redirect('/super-new-admin');
+// 
+        }else
+        {
+            $req->session()->flash('status','Email already exist');
+            return redirect('/super-new-admin');
+        }
+    }
+
+    public function ClientEdit(Request $req,$id){
+        $params = AdminLoginCheck::where('id',$id)->first();
+        return view('super-admin.Clients.ClientEdit',['params'=>$params]);
+    }
+
+    public function ClientUpdate(Request $req){
+        $usernameemail = $req->email;
+        if(!file_exists("Profiles/$usernameemail")){
+            mkdir("Profiles/$usernameemail");
+        }
+        $profilepic = $req->file('profilepic');
+        if(!is_null($profilepic)){
+            echo $img = $profilepic->getClientOriginalName();
+            $profilepic->move("Profiles/$usernameemail/",$img);
+            AdminLoginCheck::where('id',$req->customerid)->update(['profilepic' => $img]);
+        }
+
+        AdminLoginCheck::where('id',$req->customerid)
+            ->update([
+                'username'=>$req->email,
+                'password'=>$req->password,
+                'name'=>$req->companyname,
+                'mobile'=>$req->mobile,
+                'companyname'=>$req->companyname,
+                'status'=>'1'
+            ]);
+        $req->session()->flash('status','Admin details updated');
+        return redirect("/super-new-admin-edit/$req->customerid");
+    }
+
+
+// Client Details
+public function ClientSetting(Request $req,$id){
+    $params = AdminLoginCheck::where('id',$id)->first();
+    return view('super-admin.Setting.all',['params'=>$params,'id'=>$id]);
+}
+public function ClientFinancial(Request $req,$id){
+    $params = financial::where('adminid',$id)->get();
+    return view('super-admin.Setting.financial',['params'=>$params,'id'=>$id]);
+}
+public function ClientBilling(Request $req,$id){
+    $params = billing::where('adminid',$id)->get();
+    return view('super-admin.Setting.billing',['params'=>$params,'id'=>$id]);
+}
+public function ClientCouriers(Request $req,$id){
+    $lists = couriers::get();
+    $params = courierlist::where('active_flg',1)
+                            ->orderby('name','ASC')->orderby('cl_name','ASC')->get();
+    $couriers = courierpermission::get();
+    $permissions = courierpermission::where('user_id',$id)->get();
+    return view('super-admin.Setting.couriers',['params'=>$params,'couriers'=>$couriers,'permissions'=>$permissions,'id'=>$id,'lists'=>$lists]);
+}
+public function ClientPassword(Request $req,$id){
+    $params = AdminLoginCheck::where('id',$id)->first();
+    return view('super-admin.Setting.changepass',['params'=>$params,'id'=>$id]);
+}
+// Client Details
+// Courier Assign
+public function ClientCourierPermissions(Request $req){        
+    $code = $req->code;
+    $courier = $req->courier;
+    $userid = $req->userid;
+    $value = $req->value;
+    $courieridno = $req->courieridno;
+    
+    
+    $courierexistsornot = courierpermission::where('courier_code',$code)
+                                    ->where('courier_by',$courier)
+                                    ->where('user_id',$userid)
+                                    ->get();
+    if(count($courierexistsornot)){
+        courierpermission::where('courier_code',$code)
+                                ->where('courier_by',$courier)
+                                ->where('user_id',$userid)
+                                ->update(['admin_flg'=>$value]);
+    }else{
+        $query = new courierpermission();
+        $query->courier_idno = $courieridno;
+        $query->courier_code = $code;
+        $query->courier_by = $courier;
+        $query->user_id = $userid;
+        $query->admin_flg = $value;
+        $query->user_flg = "0";
+        $query->save();
+    }
+}
+// Courier Assign
+
+
+
+// Merchant Summary
+    public function MerchantSummary(){
+        return view('super-admin.Clients.summary');
+    }
+    public function MerchantSummarySearch(Request $req){
+        $fromdate = $req->startdatefrom;
+        $fromdate = date('Y-m-d',strtotime($fromdate));
+        // echo "<br>";
+        $todate = $req->enddatefrom;
+        $todate = date('Y-m-d',strtotime($todate));
+        // exit();
+        $params = bulkorders::where('Awb_Number','!=','')
+                            ->where('order_cancel',null)
+                            ->whereBetween('Rec_Time_Date', array($fromdate,$todate))
+                            ->distinct()
+                            ->get('User_Id');
+
+        $userwiseorder = array();
+        foreach($params as $param){
+            // echo "<br>";
+            // echo "User Id : ";
+            $userid = $param->User_Id;
+            // echo " Total NO : ";
+            $totalorders = bulkorders::where('User_Id',$userid)
+                            ->where('Awb_Number','!=','')
+                            ->where('order_cancel',null)
+                            ->whereBetween('Rec_Time_Date', array($fromdate,$todate))
+                            ->count('Single_Order_Id');
+            $usernameis = Allusers::where('id',$userid)->distinct()->get('name');
+            foreach($usernameis as $usernamei){
+                $username = $usernamei->name;
+            }
+            $userwiseorder[] = array("userid"=>$userid,"username"=>$username,"totalno"=>$totalorders);
+        }
+
+        // echo "<pre>";
+        // print_r($userwiseorder);
+        // echo "</pre>";
+        // exit();
+        $totalusers = count($userwiseorder);
+        $alltotalno = count($params);
+        return view('super-admin.Clients.summarysearch',['params'=>$userwiseorder,'alltotalno'=>$alltotalno,"totalusers"=>$totalusers]);
+    }
+// Merchant Summary
+// Courier Edit
+    public function CourierEdit(Request $req,$id){
+        $params = couriers::orderby('courierid','DESC')->get();
+        $users = Allusers::where('id',$id)->first();
+        return view('super-admin.Clients.ClientCourierUpdat',['params'=>$params,"Userid"=>$id,'users'=>$users]);
+    }
+
+    public function CourierEditupt(Request $req){        
+        $courierid = $req->currentcourierno;
+        $userid = $req->userid;
+        $couriername = couriers::where('courierid',$courierid)->first();
+        $details = Allusers::where('id',$userid)->first();
+        // echo "In : ";
+        // echo $details['Intargos'];
+        // echo "Ni : ";
+        // echo $details['Nimbus'];
+        // echo " : ";
+        if($couriername['name'] == "Intargos"){
+            // echo "<br> Intargos <br> ";
+            if($details['Intargos']==1){
+                $a = Allusers::where('id',$userid)->update(['Intargos'=>0,'intargos_active'=>0]);
+                // echo " :Yes : ";
+                // print_r($a);
+            }else{
+                $a = Allusers::where('id',$userid)->update(['Intargos'=>1,'intargos_active'=>1]);
+                // echo " | No : ";
+                // print_r($a);
+                // echo " : ";
+            }
+        }
+
+        if($couriername['name'] == "Nimbus"){
+            // echo "<br> Nimbus <br> ";
+            if($details['Nimbus']==1){
+                $a = Allusers::where('id',$userid)->update(['Nimbus'=>0,'nimbus_active'=>0]);
+                // echo " :Yes : ";
+                // print_r($a);
+            }else{
+                $a = Allusers::where('id',$userid)->update(['Nimbus'=>1,'nimbus_active'=>1]);
+                // echo " | No : ";
+                // print_r($a);
+                // echo " : ";
+            }
+        }
+        // return "updated";
+    }
+// Courier Edit
+
+
+
+
+    public function Couriers(){ 
+        
+        
+        $params = couriers::orderby('courierid','DESC')->get();
+        return view('super-admin.Couriers.AllNew',['params'=>$params]);
+    }
+   
+    public function model($name)
+    {
+        $admin = DB::table('admin')->where($name,  1)->get();
+        
+      
+        return view("super-admin.Couriers.admin-list",['intargos'=>$admin]);
+    }
+    public function api_assing(Request $req){
+        
+        $userida = $req->id;
+        $crtusers = AdminLoginCheck::where('usertype','admin')
+                                    ->where('id',$userida)
+                                    ->first();
+                                    
+        $params = couriers::orderby('courierid','DESC')->get();
+        $params1 =  price::where('admin_id',$userida)->get();
+        return view('super-admin.Couriers.api-list', ['params' => $params, 'crtusers' => $crtusers,],compact('params1'));
+    }
+    
+    
+    public function api_assing_update(Request $req){
+        
+        $courname = $req->courname;
+        $userida = $req->clientidisause;
+        
+        $crtusers = AdminLoginCheck::where('usertype','admin')
+                                    ->where('id',$userida)
+                                    ->first();
+        if(empty($crtusers[$courname])){
+            $crtusers = AdminLoginCheck::where('usertype','admin')
+                                    ->where('id',$userida)
+                                    ->update([$courname=>1]);
+        }elseif($crtusers[$courname]==0){
+            $crtusers = AdminLoginCheck::where('usertype','admin')
+                                    ->where('id',$userida)
+                                    ->update([$courname=>1]);
+        }elseif($crtusers[$courname]==1){
+            $crtusers = AdminLoginCheck::where('usertype','admin')
+                                    ->where('id',$userida)
+                                    ->update([$courname=>0]);
+        }
+                         
+                         
+                                    
+            //                         ->update([
+            //     'name'=>$req->couriername,
+            //     'email'=> $req->email
+            // ]);
+
+        // return view('super-admin.Couriers.api-list',['params'=>$params,'crtusers'=>$crtusers]);
+        
+        return redirect("/super-courier-assign/$userida");
+    }
+
+    public function CouriersAdd(){
+        return view('super-admin.Couriers.ClientNew');
+    }
+    public function CouriersAddupt(Request $req){
+        $qdata = couriers::where('email',$req->email)->first();
+        if(empty($qdata['courierid'])){
+   // 
+        $usernameemail = $req->email;
+        if(!file_exists("Couriers/$usernameemail")){
+            mkdir("Couriers/$usernameemail");
+        }
+        $profilepic = $req->file('profilepic');
+        if(!is_null($profilepic)){
+            $img = $profilepic->getClientOriginalName();
+            $profilepic->move("Couriers/$usernameemail/",$img);
+        }else{
+            $img = "";
+        }
+
+        $query = new couriers();
+        $query->name = $req->couriername;
+        $query->email = $req->email;
+        $query->logo = $img;
+        $query->save();
+
+        $req->session()->flash('status','New courier added');
+        return redirect('/courier-new');
+// 
+        }else
+        {
+            $req->session()->flash('status','Email already exist');
+            return redirect('/courier-new');
+        }
+    }
+
+    
+
+    public function CouriersEdit(Request $req,$id){
+        $params = couriers::where('courierid',$id)->first();
+        return view('super-admin.Couriers.ClientMainEdit',['params'=>$params]);
+    }
+
+    public function CouriersEditupt(Request $req){
+
+        $usernameemail = $req->email;
+        if(!file_exists("Couriers/$usernameemail")){
+            mkdir("Couriers/$usernameemail");
+        }
+        $profilepic = $req->file('profilepic');
+        if(!is_null($profilepic)){
+            $img = $profilepic->getClientOriginalName();
+            $profilepic->move("Couriers/$usernameemail/",$img);
+            couriers::where('courierid',$req->courieridis)->update(['logo'=> $img]);
+        }
+
+        couriers::where('courierid',$req->courieridis)
+            ->update([
+                'name'=>$req->couriername,
+                'email'=> $req->email
+            ]);
+        $req->session()->flash('status','Courier details updated');
+        return redirect("/courier-edit/$req->courieridis");
+    }
+
+    
+    public function CourierPrice(Request $req,$id){
+        $params = couriers::where('courierid',$id)->first();
+        return view('super-admin.Couriers.ClientEdit',['params'=>$params]);
+    }
+
+    public function CourierPriceupt(Request $req){
+        couriers::where('courierid',$req->courieridis)
+            ->update([
+                'fbupto'=>$req->weightslap,
+                'fbwithcity'=>"0",
+                'fbwithstate'=>$req->withstate,
+                'fbwithzone'=>$req->withzone,
+                'fbmtetrotometro'=>$req->metrotometro,
+                'fbrestofindia'=>$req->restofindia,
+                'fbextralocation'=>$req->extralocation,
+                'fbspecaildestination'=>$req->special,
+                'fbcodcharge'=>$req->codcharge,
+                'fbcodchargepersent'=>$req->codpersent,
+                'faupto'=>$req->aweightslap,
+                'fawithcity'=>"0",
+                'fawithstate'=>$req->awithstate,
+                'fawihtzone'=>$req->awithzone,
+                'fametrotometro'=>$req->ametrotometro,
+                'faresttoindia'=>$req->arestofindia,
+                'faextralocation'=>$req->aextralocation,
+                'faspecialdestination'=>$req->aspecial,
+                'facodcharge'=>$req->acodcharge,
+                'facodchargepersent'=>$req->acodpersent,
+                'rbupto'=>$req->rweightslap,
+                'rpwihtcity'=>"0",
+                'rbwithstate'=>$req->rwithstate,
+                'rbwithzone'=>$req->rwithzone,
+                'rbmetrotometro'=>$req->rmetrotometro,
+                'rbresttoindia'=>$req->rrestofindia,
+                'rbextralocation'=>$req->rextralocation,
+                'rbspeciladestination'=>$req->rspecial,
+                'rbcodcharge'=>$req->rcodcharge,
+                'rbcodchargepersent'=>$req->rcodpersent,
+                'raupto'=>$req->raweightslap,
+                'rawithcity'=>"0",
+                'rawithstate'=>$req->rawithstate,
+                'rawithzone'=>$req->rawithzone,
+                'rametrotometro'=>$req->rametrotometro,
+                'raresttoindia'=>$req->rarestofindia,
+                'raextralocation'=>$req->raextralocation,
+                'raspecialdestination'=>$req->raspecial,
+                'racodcharge'=>$req->racodcharge,
+                'racodchargepersent'=>$req->racodpersent
+            ]);
+        $req->session()->flash('status','Courier price update');
+        return redirect("/courier-priceing/$req->courieridis");
+    }
+    public function add_rate_list()
+    {
+        return view('super-admin.Couriers.add-rate');
+    }
+    public function super_admin_rate_add(Request $request)
+    {
+       
+        // dd($request->all());
+
+        $query = new price();
+            $query->courier_name = $request->courier;
+            $query->weight = $request->weight;
+            $query->fwda = $request->fwd1;
+            $query->fwdb = $request->fwd2;
+            $query->fwdc = $request->fwd3;
+            $query->fwdd = $request->fwd4;
+            $query->fwde = $request->fwd5;
+            $query->fwdf = $request->fwd6;
+            $query->fwdg = $request->fwd7;
+            $query->fwdh = $request->fwd8;
+            $query->rtoa = $request->rto1;
+            $query->rtob = $request->rto2;
+            $query->rtoc = $request->rto3;
+            $query->rtod = $request->rto4;
+            $query->rtoe = $request->rto5;
+            $query->rtof = $request->rto6;
+            $query->wta = $request->add1;
+            $query->wtb = $request->add2;
+            $query->wtc = $request->add3;
+            $query->wtd = $request->add4;
+            $query->wte = $request->add5;
+            $query->wtf = $request->add6;
+            $query->admin_id = $request->admin_id;
+            
+            $query->save();
+
+            return redirect('/super-all-admin');
+
+    }
+     public function editRate($id)
+    {
+        $price = Price::find($id);
+
+        if (!$price) {
+            // Handle the case where the price is not found (optional)
+            return redirect()->route('rate-list.index')->with('error', 'Price not found.');
+        }
+
+        return view('super-admin.rate-list.rate-edit', compact('price'));
+    }
+    public function updateEditRate(Request $request)
+    {
+        
+
+            // dd($request->all());
+            $query = price::find($request->admin_id);
+            $query->fwda = $request->fwd1;
+            $query->fwdb = $request->fwd2;
+            $query->fwdc = $request->fwd3;
+            $query->fwdd = $request->fwd4;
+            $query->fwde = $request->fwd5;
+            $query->fwdf = $request->fwd6;
+            $query->fwdg = $request->fwd7;
+            $query->fwdh = $request->fwd8;
+            $query->rtoa = $request->rto1;
+            $query->rtob = $request->rto2;
+            $query->rtoc = $request->rto3;
+            $query->rtod = $request->rto4;
+            $query->rtoe = $request->rto5;
+            $query->rtof = $request->rto6;
+            $query->wta = $request->add1;
+            $query->wtb = $request->add2;
+            $query->wtc = $request->add3;
+            $query->wtd = $request->add4;
+            $query->wte = $request->add5;
+            $query->wtf = $request->add6;
+            
+    
+            $query->save();
+    
+            return redirect()->back();
+        
+
+    }
+    public function RateDelete($id) 
+    {
+        
+        
+        $data = price::where('id',  $id)->delete();
+
+        if ($data) {
+            return redirect()->back()->with("success", "Delete  successsfully");
+        } else {
+            return redirect()->back()->with("success", "not delete  successsfully");
+        }
+        
+    }
+
+
+
+}
+
