@@ -784,11 +784,7 @@ return view('UserPanel.PlaceOrder.BulkOrderAjax',['params'=>$params,'allriders'=
                 $prodqlty = trim($value[11]);
                 $productvalue = trim($value[12]);
                 $Productsku = trim($value[13]);
-                if ($value[14] == "PP" || $value[14] == "Prepaid") {
-                    $paymentmode = "Prepaid";
-                } else {
-                    $paymentmode = "COD";
-                }
+                $paymentmode = (strtolower($value[14]) === 'cod') ? 'COD' : 'Prepaid';
                 // $paymentmode = strtoupper(trim($value[10]));
 
 
