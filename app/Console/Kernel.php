@@ -83,6 +83,13 @@ class Kernel extends ConsoleKernel
                 OrderStatusUpdate_XPREBEE::dispatch($order->toArray())->onQueue('order_status');
             }
         })->name('status_update_XPREBEE')->description('Schedules status update job for orders in Xpressbee api')->everyFourMinutes();
+
+
+        // Now start Job Queue Worker
+        $schedule->command('queue:work --queue=order_status --timeout=60 --tries=1 --once')
+        ->everyMinute()
+        ->withoutOverlapping()
+        ->sendOutputTo(storage_path() . '/logs/order_status_jobs.log');
     }
 
     /**
