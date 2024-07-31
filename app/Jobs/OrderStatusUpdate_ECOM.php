@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\bulkorders;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -9,8 +10,6 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
-use App\Models\bulkorders;
-use Illuminate\Support\Facades\Log;
 
 class OrderStatusUpdate_ECOM implements ShouldQueue
 {
@@ -37,10 +36,6 @@ class OrderStatusUpdate_ECOM implements ShouldQueue
      */
     public function handle()
     {
-
-
-
-
         $crtidis = $this->order['Awb_Number']; // Assuming this is the correct AWB number
         file_put_contents('order_status.txt', "\n\nECom status update for $crtidis : ", FILE_APPEND);
         bulkorders::where('Awb_Number', $crtidis)->update(['order_status' => '1']);
@@ -65,7 +60,7 @@ class OrderStatusUpdate_ECOM implements ShouldQueue
                 if ($xml !== false) {
                     // echo $crtidis;
                     $status = (string)$xml->object->field[11];
-                    
+
                     echo "\n$crtidis : $status\n";
 
                     $status2 = (string)$xml->object->field[14];
@@ -79,10 +74,6 @@ class OrderStatusUpdate_ECOM implements ShouldQueue
                     ];
 
                     bulkorders::where('Awb_Number', $crtidis)->update($updateData);
-
-
-
-                    // $completedOrders++; // Increment counter for completed orders
                 } else {
                     return response()->json(['error' => 'Failed to parse XML'], 500);
                 }

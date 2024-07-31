@@ -252,6 +252,12 @@ class UserSearchOrder extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+
+    /**
+     * Updates order Status (Xpressbee)
+     * @api_method GET
+     * @api_url /order-update-status3
+     */
     public function orderStatus3()
     {
 
