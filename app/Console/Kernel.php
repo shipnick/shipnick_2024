@@ -86,7 +86,7 @@ class Kernel extends ConsoleKernel
 
 
         // Now start Job Queue Worker
-        $schedule->command('queue:work --queue=order_status --timeout=60 --tries=1 --once')
+        $schedule->command('queue:work --queue=order_status --timeout=60 --tries=1 --once')->name('order_status_worker')->description("Process job from order_status queue")
         ->everyMinute()
         ->withoutOverlapping()
         ->sendOutputTo(storage_path() . '/logs/order_status_jobs.log');
