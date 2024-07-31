@@ -51,7 +51,7 @@ class Kernel extends ConsoleKernel
                 $schedule->job(new OrderStatusUpdate_ECOM($param->toArray()), 'order_status');
                 // OrderStatusUpdate_ECOM::dispatch($param->toArray())->onQueue('order_status');
             }
-        })->hourly();
+        })->name('status_update_ECOM')->description('Schedules status update job for orders in ECOM api')->hourly();
     }
 
     /**
