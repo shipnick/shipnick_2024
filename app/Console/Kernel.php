@@ -53,7 +53,7 @@ class Kernel extends ConsoleKernel
             foreach ($params as $param) {
                  OrderStatusUpdate_ECOM::dispatch($param->toArray())->onQueue('order_status');
             }
-        })->name('status_update_ECOM')->description('Schedules status update job for orders in ECOM api')->everyMinute();
+        })->name('status_update_ECOM')->description('Schedules status update job for orders in ECOM api')->everyFiveMinutes();
 
         // Xpressbee order status update JOBs (In future this will be moved in Command)
         $schedule->call(function () {
@@ -82,7 +82,7 @@ class Kernel extends ConsoleKernel
             foreach ($orders as $order) {
                 OrderStatusUpdate_XPREBEE::dispatch($order->toArray())->onQueue('order_status');
             }
-        })->name('status_update_XPREBEE')->description('Schedules status update job for orders in Xpressbee api')->hourly();
+        })->name('status_update_XPREBEE')->description('Schedules status update job for orders in Xpressbee api')->everyFourMinutes();
     }
 
     /**
