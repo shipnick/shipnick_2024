@@ -1,0 +1,4 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+sat01,PRABIR DUTTA,C/O AJIT KR DUTTA,,GUWAHATI,Assam,781029,7099032151,Crystals,1,Prepaid,0,0.5,13,13,13,1800,1800,HID0063
+sat02,Aashwini,B 53 room no 7 government colony bandra East Mumbai,,Mumbai,Maharashtra,400051,8425010056,Crystals,1,Prepaid,0,0.5,13,13,13,1800,1800,HID0063
+sat03,Shrushti,"B-2B, Om Building, 8th floor, 814, B.B. Nakahse Marg, M.P.Mills Compound, Tardeo, Mumbai - ",,Mumbai,Maharashtra,400034,7506243668,Crystals,1,Prepaid,0,0.5,13,13,13,1800,1800,HID0063

@@ -1,0 +1,5 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+1,diksha Kanodiya ,"B -72 , sms green valley, nearby kdg hospital, Shipra path, mansarovar , Jaipur (Rajasthan)",,Jaipur ,RJ,302020,8279201391,,,Candles,1,999,Combo of candles,PP,0,1,13,13,13,1000,1000,HID0069
+2,Aruna das,"Mirabai road, A-zone durgapur -4",Near st.ptr school,burdwan,WB,713204,9382427956,,,Crystals,1,999,Crystals,PP,0,0.5,13,13,13,1000,1000,HID0069
+3,Shreya gupta,"Xavier's urbtech chhaprauli , sector 168  infront of shiv Nadar school. ","Tower - marriot ,1807",Noida,UP,201306,8960507971,,,Crystals,1,999,Crystals,PP,0,0.5,13,13,13,1000,1000,HID0069
+4,Saniya Mansuri,"108,chaman colony ,kagzi mohalla ,sanganer jaipur",,Jaipur ,RJ,302029,6377289137,,,Crystals,1,999,Crystals,PP,0,0.5,13,13,13,1000,1000,HID0069

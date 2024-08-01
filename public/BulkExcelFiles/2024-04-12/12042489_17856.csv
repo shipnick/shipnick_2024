@@ -1,0 +1,4 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+982734,KINFRA MEGA FOOD PARK,KINFRA MEGA FOOD PARK,"Kozhippara, Palakkad",Kanjikode,KERALA,678557,9497678941,LIP BALM*2,1,PP,0,0.5,13,13,13,999,999,HID0044
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,

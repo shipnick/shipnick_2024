@@ -1,0 +1,28 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+#SHO1001,Mohan Kocherla,"New colony 2 nd Street, Suit",destination address1,Rajanagaram,AP,533294,7893495547,,,COMBO OF 3 checked Shirts - M,1,999,,COD,999,0.5,13,13,13,999,999,HID0076
+#SHO1002,Aadesh Shukla,"Milanpuram, Arjunganj, 2",,Lucknow,UP,226002,9455078391,,,COMBO OF 3 checked Shirts - M,1,999,,COD,999,0.5,13,13,13,999,999,HID0077
+#SHO1003,sravanthi pedda,"Sc colony, sc colony",,Santhavurity,AP,532148,7207946972,,,COMBO OF 3 checked Shirts - XXL,1,999,,COD,999,0.5,13,13,13,999,999,HID0078
+#SHO1004,Ritesh singh,"Panagar road bhesa dehi gawo, Ni",,Jabalpur,MP,483220,9329282131,,,COMBO OF 3 checked Shirts - XL,1,999,,COD,999,0.5,13,13,13,999,999,HID0079
+#SHO1005,Ashu Max,"Kamdara, Kamdara talab",,Kamdara,JH,835227,9771746224,,,COMBO OF 3 checked Shirts - M,1,999,,COD,999,0.5,13,13,13,999,999,HID0080
+#SHO1006,Mir Arif,"F32 Bumbrath, Bumbrath",,Kulgam,JK,192231,6005921917,,,COMBO OF 3 checked Shirts - L,1,999,,COD,999,0.5,13,13,13,999,999,HID0081
+#SHO1007,Prabhat Yadav,"jiyamau Manas Nagar Colony Hazratganj, Pta nhi",,Lucknow,UP,226001,8840216998,,,COMBO OF 3 checked Shirts - L,1,999,,COD,999,0.5,13,13,13,999,999,HID0082
+#SHO1008,Debashis Boruah,"Titabor Titabar-Borholla-Nagabat Road, Po: urangial",,Borholla,AS,785631,9365862908,,,COMBO OF 3 checked Shirts - M,1,999,,COD,999,0.5,13,13,13,999,999,HID0083
+#SHO1010,Aamir Ali,"Hardu Dalwan Chari E Sharief, Dalwan",,Srinagar,JK,191112,6005878266,,,COMBO OF 3 checked Shirts - XL,1,999,,COD,999,0.5,13,13,13,999,999,HID0084
+#SHO1011,Jay prakash,"Bahmhinidih Sara gao rodh rohda, Amnedkar chawk ke pass",,Janjgir  Champa,CG,495660,6266714964,,,COMBO OF 3 checked Shirts - XL,1,999,,COD,999,0.5,13,13,13,999,999,HID0085
+#SHO1013,Nandukrishnan Krishnan,"Nagiyarkulangara, Old archana teater",,Haripad,KL,690532,8589954126,,,COMBO OF 3 checked Shirts - XL,1,999,,COD,999,0.5,13,13,13,999,999,HID0086
+#SHO1015,Virendra Kumar,"Udaipur Ramgarh road, Udaipur Ramgarh road",,Udaipur Ramgarh road,CG,497116,7999604212,,,COMBO OF 3 checked Shirts - XL,1,999,,COD,999,0.5,13,13,13,999,999,HID0087
+#SHO1016,Chamra Lunna,"Ganga Village, A block",,Itanagar,AR,791111,8729974617,,,COMBO OF 3 checked Shirts - XL,1,999,,COD,999,0.5,13,13,13,999,999,HID0088
+#SHO1017,Vr Sakthi,"107 group house Street kambur, Kambur",,Villege,TN,604101,9025422607,,,COMBO OF 3 checked Shirts - L,1,999,,COD,999,0.5,13,13,13,999,999,HID0089
+#SHO1018,Zulafqar Ali,"Kalal khas b, Middle school ghain",,Rajauri,JK,185132,7298476030,,,COMBO OF 3 checked Shirts - XL,1,999,,COD,999,0.5,13,13,13,999,999,HID0090
+#SHO1019,Pankaj Srivastav,"Ajnara homes 16b noida extension greater noida tower K flat no. K12A03, Ajnara homes 16b noida extension greater noida tower K flat no. K12A03",,Noida,UP,201318,7007052981,,,COMBO OF 3 checked Shirts - M,1,999,,COD,999,0.5,13,13,13,999,999,HID0091
+#SHO1020,Chaitanya Kumar,"Garnimitta, Godavandla palli",,Garnimitta,AP,517213,9160369446,,,COMBO OF 3 checked Shirts - M,1,999,,COD,999,0.5,13,13,13,999,999,HID0092
+#SHO1021,Bathula Naveen,"Gandi Maisamma berhampet, Bust Stop",,Hyderabad,TS,500043,9502842013,,,COMBO OF 3 checked Shirts - M,1,999,,COD,999,0.5,13,13,13,999,999,HID0093
+#SHO1022,Arpit Thakur,"Madhya Pradesh Narsinghpur jile, Gadrwara",,Gadrwara chichli road dighori,MP,487551,8305613410,,,COMBO OF 3 checked Shirts - M,1,999,,COD,999,0.5,13,13,13,999,999,HID0094
+#SHO1023,Gowtham gowtham,"4/89 East Street melkaraipatty palani, Mbc",,Palani,TN,624617,9345536356,,,COMBO OF 3 checked Shirts - L,1,999,,COD,999,0.5,13,13,13,999,999,HID0095
+#SHO1025,Izhar Ahmed,"Mangloora kunzer, Gulmarg road near mangloora Bharat petrol pump",,Srinagar,JK,193404,7006511848,,,COMBO OF 3 checked Shirts - M,1,999,,COD,999,0.5,13,13,13,999,999,HID0096
+#SHO1026,Hari suthan Suthan,"MGR Nagar rajakmangalam, Rajakkamangalam",,Nagercoil,TN,629502,9360408169,,,COMBO OF 3 checked Shirts - L,1,999,,COD,999,0.5,13,13,13,999,999,HID0097
+#SHO1027,Aswin Sivan,"Pittappillil agenies, St Thomas orthodox valiya pally umayattukara",,ALAPPUZHA,KL,689102,9846570275,,,COMBO OF 3 checked Shirts - L,1,999,,COD,999,0.5,13,13,13,999,999,HID0098
+#SHO1028,Narinder Singh,"Naik Oceanic Export pvt LTD M-5  MIDC Taloja . Navi Mumbai 410208, Near Glenmark pharma",,Navi Mumbai,MH,410208,8360238075,,,COMBO OF 3 checked Shirts - XL,1,999,,COD,999,0.5,13,13,13,999,999,HID0099
+#SHO1029,Dhanush B,"Gangaiamman Koil Street Gangai Amman Colony Vadapalani, Motor plaza",,Chennai,TN,600026,9566147330,,,COMBO OF 3 checked Shirts - M,1,999,,COD,999,0.5,13,13,13,999,999,HID0100
+#SHO1030,Madhav Korada,"Bhogapuram mukkam polamamba temple, Polamamba temple bhogapuram mukkam",,Vijayanagaram,AP,535216,7075691583,,,COMBO OF 3 checked Shirts - M,1,999,,COD,999,0.5,13,13,13,999,999,HID0101
+#SHO1031,Baadal Topno,"Basia Rd, Kumhari talab chawk",,Kumhari,JH,835229,8521831695,,,COMBO OF 3 checked Shirts - XXL,1,999,,COD,999,0.5,13,13,13,999,999,HID0102

@@ -1,0 +1,3 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+GKV01,Kavitha Kavitha,Krishika ladies PG  Basavanagara main road Whitefield bangalore  ,destination address1,BANGALORE,KARNATAKA,560066,8431054901,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+GKV02,goyal Ruchika,House no56 country home colony samrala road khanna  Near razza hotel khanna  ,,KHANNA,PUNJAB,141401,9779838927,Clothing,1,COD,1399,500,10,10,6,1399,1399,HID0027

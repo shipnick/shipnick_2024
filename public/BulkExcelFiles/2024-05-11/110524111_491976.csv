@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+22,Aashwini,"B 53 room no 7 government colony bandra East Mumbai,400051 ",,Mumbai ,MH,400051,8425010056,,,crystals,1,1800,Crystal,PP,0,0.5,13,13,13,1300,1800,HID0069

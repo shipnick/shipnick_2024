@@ -1,0 +1,9 @@
+Order_ID*,Customer_Name*,Address*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(Kg)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+EVDAY5673605,Deepak,"Tentuliadia, 17c",Bhadrak,ORISSA,756164,8917576199,I series watch,1,COD,100,400,1,1,1,100,100,HID000
+EVDAY5672992,Revathy,"Kunnath Sreenilayam Maruthorvattom P.O Cherthala Alappuzha , House",Alappuzha,KERALA,688539,9747183862,I series watch,1,COD,100,400,1,1,1,100,100,HID000
+EVDAY5673176,Asif,"Line bazar, 110",Siwan,BIHAR,841438,9572421825,I series watch,1,COD,100,400,1,1,1,100,100,HID000
+EVDAY5673509,Firoj,"Kalyanpur madhubani, Gopalaganj",Siwan,BIHAR,841405,7277954905,I series watch,1,COD,100,400,1,1,1,100,100,HID000
+EVDAY5672858,Raghavendra," Vill gaini po tuturakhi ps uphara dis Aurangabad Bihar , No",Gaya,BIHAR,824235,8102478850,I series watch,1,COD,100,400,1,1,1,100,100,HID000
+EVDAY5672870,Ayush,"Barwatoli college road lohardaga jharkhand, Barwatoli lohardaga",Lohardaga,JHARKHAND,835305,7004227569,I series watch,1,COD,100,400,1,1,1,100,100,HID000
+EVDAY5672872,Rohit,"Manoli, Manoli",Sawai Madhopur,RAJASTHAN,322028,6376881665,I series watch,1,COD,100,400,1,1,1,100,100,HID000
+EVDAY5672876,Digambar,"A/p Bhimanagar , School",Pandharpur,MAHARASHTRA,413212,7387421455,I series watch,1,COD,100,400,1,1,1,100,100,HID000

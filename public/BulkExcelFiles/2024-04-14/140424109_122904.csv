@@ -1,0 +1,722 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+37959,natraj s,Nanjundappa building bussto meti0alya tavarekere 562130,Nanjundappa building bussto meti0alya tavarekere 562130,Bangalore,KA,562130,8970752223,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37957,khatana Akash,Ajeetpura kathumar alwar,Ajeetpura kathumar alwar,Titpuri kathumar road Laxmangarh,RJ,321605,7665978914,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37956,Kumar Mahesh,12-1-346/3 Asif nagar sitrambagh,12-1-346/3 Asif nagar sitrambagh,Hyderabad,TS,500006,8341043116,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37955,Harish Harish,D Mart Partp nagar Haldighati get Jaipur,D Mart Partp nagar Haldighati get Jaipur,Jaipur,RJ,302033,9079911922,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37954,Diya Diya,Jijamata bank chakan ambethan chowk 410501 pune,Jijamata bank chakan ambethan chowk 410501 pune,Pune,MH,410501,9975141704,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37953,patvekar Aiman,Balaji nagar dhanwadi pune,Balaji nagar dhanwadi pune,Pune,MH,411043,8668472190,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37952,Pradeep Pradeep,Near UCO Bank sardarpura b road jodhpur,Near UCO Bank sardarpura b road jodhpur,Jodhpur,RJ,342001,9664025227,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37951,sabar Payal,At/Po:-Tolana,At/Po:-Tolana,Gunupur,OR,765022,7978593455,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37950,vishnoii Pradeep,Sardarpura b road UCO Bank near vande mataram hostel Jodhpur,Sardarpura b road UCO Bank near vande mataram hostel Jodhpur,Jodhpur,RJ,342001,9664025227,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37949,Shekhar Shekhar,Hanuman nagar frecnh,Hanuman nagar frecnh,Jodhpur feecah Hanuman nagar,RJ,342801,7232043863,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37948,Dhanraj Jadhav,Thurkapally shameerpet mandal medchal district Hyderabad,Thurkapally shameerpet mandal medchal district Hyderabad,Hyderabad,TS,500078,8465010024,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37947,usain .N Zaheer,329,329,Tenkasi,TN,627811,6380074529,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37946,prasad Jagranth,Bedmakka,Bedmakka,Hazarabag,JH,825313,9931944644,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37945,Hariom Hariom,Relaxo unit 8 sector 37 4B indester Estate Bhadurgarh,Relaxo unit 8 sector 37 4B indester Estate Bhadurgarh,Jhajjar,HR,124507,8398915075,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37944,Sibbhu Sibbhu,Sarvan path madham Marg mansarovar,Sarvan path madham Marg mansarovar,Jaipur,RJ,302020,9057290327,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37943,Chandrashekhargk Chandrashekhargk,Gopalapura,Gopalapura,Mysore,KA,570008,9916409194,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37942,Pasrija Ruchi,50 chandi ki taksal,50 chandi ki taksal,Jaipur,RJ,302002,9950396000,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37941,patel Sana,Dani corporate park kalina GST Road Santacruz,Dani corporate park kalina GST Road Santacruz,Mumbai,MH,400098,9004402360,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37940,momin Ayesha,"1, sehjad park , behind nasim parlour, fatehwadi tower,Sarkhej road, ahemdabad","1, sehjad park , behind nasim parlour, fatehwadi tower,Sarkhej road, ahemdabad",Ahemdabad,GJ,380055,9998545533,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37939,bi Ameena,First floor 2nd F main road bhoopasandra Bangalore 94,First floor 2nd F main road bhoopasandra Bangalore 94,Bangalore,KA,560094,9945973614,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37938,KHAN ZAHID,Amrodha,Amrodha,Kanpur Dehat,UP,209112,9838341545,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37937,ArunElangovan.E ArunElangovan.E,"RRD TEX company, dharapuram to tripper main roadu , kundadam 4roadu.","RRD TEX company, dharapuram to tripper main roadu , kundadam 4roadu.",Dharapuram,TN,638703,907621154,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37936,amreen Sayyed,Balaji mandir pipe road kurla west,Balaji mandir pipe road kurla west,Mumbai,MH,400070,8779915103,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37935,Kumar Singh Rajesh,Khamriya hardo Patti,Khamriya hardo Patti,Bahraich,UP,272824,9918898700,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37934,RAMESH BIJALBHAI MAKWANA,TALUKA HEALTH OFFICE BAVLA,TALUKA HEALTH OFFICE BAVLA,Bavla,GJ,382220,9099064077,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37933,RAMESH BIJALBHAI MAKWANA,TALUKA HEALTH OFFICE BAVLA,TALUKA HEALTH OFFICE BAVLA,Bavla,GJ,382220,9099064077,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37932,rawat rawat,21 ashok nagar bhopal,21 ashok nagar bhopal,Bhopal,MP,462023,8319877210,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37931,khanra Sukdev,Vill po Bamanpukur ps minakha,Vill po Bamanpukur ps minakha,Minakha,WB,743425,8918799194,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37930,Zoya Zoya,Infantry road shivaji nagar,Infantry road shivaji nagar,Bangalore,KA,560001,8088219663,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37929,jatav Arun,Bheem nagar Karauli,Bheem nagar Karauli,Karauli,RJ,322241,9468735805,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37928,singh Jasvir,Vill.bara pind po.bharatgarh  teh& dist.roopnagar Ropar,Vill.bara pind po.bharatgarh  teh& dist.roopnagar Ropar,Ropar,PB,140114,7986727028,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37927,Singh Kiran,"Chhatrachhaya colony, pithampur m.p.","Chhatrachhaya colony, pithampur m.p.",Pithampur,MP,454775,9752405057,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37926,sahoo Arun,Hootel wood said,Hootel wood said,Hyderabad,TS,500027,9692468537,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37925,Rebari Rebari,Berunath mandir ke pass,Berunath mandir ke pass,Partapur,RJ,327022,7850961383,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37924,Ray Satyajit,Pada sie school,Pada sie school,Cuttack,AP,754003,7852993128,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37923,Barath Barath,"Barath, s/o karunanithi, Nadar street, Singipuram, Valappadi (t. K),salem","Barath, s/o karunanithi, Nadar street, Singipuram, Valappadi (t. K),salem",Salem,TN,636115,7598825473,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37922,Yadav Kamlesh,House 96 Krishna vihar colony,House 96 Krishna vihar colony,Jaipur,RJ,302015,9887150306,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37921,kumar Sunil,Bhurkunda hospital collony,Bhurkunda hospital collony,Bhurkunda,JH,829106,9631770699,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37920,Kalyan G.vijay,"Ambati silks,syam nagar,tikkel road, Vijayawada","Ambati silks,syam nagar,tikkel road, Vijayawada",Vijayawada,AP,520010,9666196629,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37919,Kumar Parveen,Alpha city Get no 2 Karnal house no 1167 satet Haryana Karnal,Alpha city Get no 2 Karnal house no 1167 satet Haryana Karnal,Alpha city Karnal get no  2 distic Karnal Haryana,HR,132041,8569894126,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37918,Kumar Praveen,Vision library shastri nagar barmer,Vision library shastri nagar barmer,Barmer,RJ,344001,7014669922,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37917,kumar Varun,Pedha pulipaka sc calani,Pedha pulipaka sc calani,Vijayawada,AP,'52001,6302165001,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37916,Surendra Surendra,E zone school Shastri nagar barmer,E zone school Shastri nagar barmer,Barmer,RJ,344001,8875134489,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37915,Vishal Vishal,नाशिक,नाशिक,नाशिक,MH,420001,7073950929,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37914,Ashok Ashok,Tirupati sk hotel korlagunta,Tirupati sk hotel korlagunta,Tirupati,AP,517501,8686038630,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37913,Laxmanna Laxmanna,123446690,123446690,Kurnool,AP,'1234,6302789798,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37912,Sakat Santosh,Sakat,Sakat,Rajgarh,RJ,301408,8094801724,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37911,Kumar Vijay,Badahara,Badahara,Gonda,UP,271312,9984843851,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37910,Meena Suresh,"Arora kased , mandrayal, karauli","Arora kased , mandrayal, karauli",Karauli,RJ,322251,9001287810,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37909,Pinki Pinki,Vpo lakaria,Vpo lakaria,Rohtak,HR,124107,9350748282,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37908,paigude Soham,Loni kalbhor station road smata nagar near water tank,Loni kalbhor station road smata nagar near water tank,Pune,MH,412201,7796301720,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37907,Mohan Mohan,श्री कृष्णा ई मित्र गिड़ा,श्री कृष्णा ई मित्र गिड़ा,Gida,RJ,344037,8302912165,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37906,Kalavathi Kalavathi,M.hanumapuram,M.hanumapuram,Muradi,AP,515865,7893997327,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37905,Lohith Lohith,"1-74, lemallepadu","1-74, lemallepadu",Guntur,AP,522212,6301972900,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37904,Kumar Sachin,Morma lakhisarai,Morma lakhisarai,Patna,BR,811311,9570908964,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37903,G.ANJANEYULU G.ANJANEYULU,"5-76, Gururaolingampally, maganoor Mandal, narayanpeta, Telangana, 509352","5-76, Gururaolingampally, maganoor Mandal, narayanpeta, Telangana, 509352",Makthal,TS,509352,8897379827,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37902,SAIDAVALI SAIDAVALI,Narasaraopet,Narasaraopet,Narasaraopet,AP,522602,6281065656,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37901,Poonam Poonam,Sindhi colony mear v go nits wheelers road Frazer town,Sindhi colony mear v go nits wheelers road Frazer town,Bangalore,KA,560005,9886192642,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37900,yase Kuku,Near North police station  kohima,Near North police station  kohima,Kohima,NL,797001,9378065191,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37899,Sumit Sumit,Chc pirtand hospital Giridih,Chc pirtand hospital Giridih,Giridih,JH,825108,7017459313,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37898,Raman Magan Dobak,At.Kothariya .Ta.Dhanpur Dist Dahod,At.Kothariya .Ta.Dhanpur Dist Dahod,Dhanpur,GJ,389380,9979701946,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37897,Dishang Dishang,Khodiyar So.T Govardhan Chowk 150.Feet Rig Road Street with Momai Pan,Khodiyar So.T Govardhan Chowk 150.Feet Rig Road Street with Momai Pan,Rajkot,GJ,360004,9924600020,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37896,Shahenaz Shahenaz,Pothia basti,Pothia basti,Pothia,BR,855117,8446699553,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37895,naidu Sangam,madhavadhara birla junction near kunchumamba temple,madhavadhara birla junction near kunchumamba temple,Vishakha,AP,530007,9618515276,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37894,Abhay Abhay,Kasam  saray,Kasam  saray,Amroha,UP,244231,9690407255,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37893,Azra Azra,"Sumaiya Makda Mannat Raza nagar-3, Near Raza Masjid,Nehrunagar,Raiya Road,Rajkot,Gujarat-","Sumaiya Makda Mannat Raza nagar-3, Near Raza Masjid,Nehrunagar,Raiya Road,Rajkot,Gujarat-",Rajkot,GJ,360007,9724077704,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37892,sewda Pawan,"Anupama medical college, near by daffodils world school, jiven nagar sanwali circle sikar","Anupama medical college, near by daffodils world school, jiven nagar sanwali circle sikar",Sikar,RJ,332021,8852035918,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37891,Pathade Pathade,Dilip Pathade sarmik nagar satpur nashik,Dilip Pathade sarmik nagar satpur nashik,Nashik,MH,422012,8600337531,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37890,Krishna Gurung Hari,Mangan,Mangan,DAC ROAD Mangan,SK,737116,9593971390,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37889,SUNILKUMARSINGH8 SUNILKUMARSINGH8,Jamshedpur Kadma Shastri Nagar block number one holding number 113,Jamshedpur Kadma Shastri Nagar block number one holding number 113,Kadma Jamshedpur,JH,831005,831001,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37888,Khan Aaliya,"SCF 40, Lower Ground Floor, Sector 16A","SCF 40, Lower Ground Floor, Sector 16A",Faridabad,HR,121002,9953690513,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37887,Saniyasheikh Saniyasheikh,Samta Nagar malka kaluni nari road uppalwadhi Nagpur,Samta Nagar malka kaluni nari road uppalwadhi Nagpur,Nagpur,MH,440026,9970419723,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37886,Shamnad Shamnad,Mundappallil kizhakkathil,Mundappallil kizhakkathil,Karunagappally,KL,690544,9645391276,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37885,Merchant Merchant,"Ahmed tower , fancy market","Ahmed tower , fancy market",Mumbai,MH,400027,8433851616,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37884,Veerababu Kambala,"Kattunga Village oc colony Street, Atreyapuram mandalam","Kattunga Village oc colony Street, Atreyapuram mandalam",Ravulapalam,AP,533235,8106791311,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37883,Heena Heena,Neela classic apt. Floor:103 North lalaguda Shanti Nagar,Neela classic apt. Floor:103 North lalaguda Shanti Nagar,Hyderabad,TS,500017,9030038069,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37882,Safina Safina,Near forest training school valpoi Goa,Near forest training school valpoi Goa,Valpoi,GA,403506,7498554187,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37881,Kumar Anil,Adarsh Nagar,Adarsh Nagar,Prayagraj,UP,211016,9918572091,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37880,Nagaraju Reddepogu,Chintakunta main road,Chintakunta main road,Markpuram,AP,523329,9381959318,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37879,sufiya hashimi Syeda,I.k main road alipur near abbas street 11 cross near tank abbas ashurkhana,I.k main road alipur near abbas street 11 cross near tank abbas ashurkhana,Alipur,KA,561213,9740924537,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37878,Kaur Gurpreet,"#8, mathura colony, patiala-147001, Punjab, India","#8, mathura colony, patiala-147001, Punjab, India",Patiala,PB,147001,8437610139,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37877,Kaiputra Gourango,Maheswarput badu barasat. 24pgs   kol 128,Maheswarput badu barasat. 24pgs   kol 128,Kolkata,WB,700128,7980161820,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37876,Ranjeet Ranjeet,Qtr No 134/3 Airforce Station,Qtr No 134/3 Airforce Station,Sirohi,RJ,307501,8575010101,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37875,M Murugan,No.4/62.ganthi street sikkarayaburam kunrathur Chennai 600069,No.4/62.ganthi street sikkarayaburam kunrathur Chennai 600069,Chennai,TN,600069,9600237627,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37874,malik Saheba,Samastipur manjil Shahkund Bhagalpur,Samastipur manjil Shahkund Bhagalpur,Bhagalpur,BR,813108,7273084786,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37873,ahmad Tasdeek,Sirouli Kalan kiccha u.s Nagar,Sirouli Kalan kiccha u.s Nagar,Sirouli Kalan kiccha u.s Nagar,DL,263148,7455059481,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37872,Choudhary Ashok,Hathidey Ajitgad Sikar Rajasthan,Hathidey Ajitgad Sikar Rajasthan,Ajitgad,RJ,332707,9983033082,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37871,venkata Vinodkumar Avula,Dhodium,Dhodium,Jammalamadugu,AP,516432,6281001020,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37870,ahmad Tasdeek,Sirouli Kalan kiccha u.s Nagar,Sirouli Kalan kiccha u.s Nagar,Sirouli Kalan kiccha u.s Nagar,DL,263248,7455059481,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37869,parmar madina,zehra complex khanvel dadra and Nagar haveli,zehra complex khanvel dadra and Nagar haveli,silvassa,,396230,7359227529,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37868,Kanagaraj Kanagaraj,10.kamacthiammankovil.st.samayapuram.trichy,10.kamacthiammankovil.st.samayapuram.trichy,TRICHY,TN,621112,9688713982,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37867,Vinay Vinay,Gandhinagar dream India school khargone,Gandhinagar dream India school khargone,Khargone,MP,451441,7583010213,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37866,Khatun Khatun,Rampur shidholi  harpur  sahjanwa gkp,Rampur shidholi  harpur  sahjanwa gkp,Utar pradesh,UP,273209,8052886528,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37865,सिंह संजय,अतरी उसरी लेडियारी कोरांव इलाहाबाद,अतरी उसरी लेडियारी कोरांव इलाहाबाद,इलाहाबाद,UP,212106,7000687152,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37864,Naushaba Naushaba,"Naramau ,near jama masjid","Naramau ,near jama masjid",Naramau,UP,209217,6307580155,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37863,balasaheb Shinde Arjun,Station road parbhani,Station road parbhani,Parabhani,MH,431402,9284722821,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37862,Marimuthu Marimuthu,"1 54 D G.H Road, sankagiri","1 54 D G.H Road, sankagiri",Sankagiri,TN,637301,7604959330,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37861,manojkumar manojkumar,"At,po-pipodara ta-Dhanpur dist-Dahod","At,po-pipodara ta-Dhanpur dist-Dahod",Dhanpur,GJ,389382,9687821892,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37860,P Karthick,Dharapuram chinnakadaiveethi,Dharapuram chinnakadaiveethi,Dharapuram,TN,638656,9342801873,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37859,Rodrigues Remediana,293 padamse bldg 3rd floor room no 42 princess street near parse dairy,293 padamse bldg 3rd floor room no 42 princess street near parse dairy,Mumbai,MH,400002,9702495287,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37858,Prabu Prabu,Ragu tailor kalaivaanar kalani anna nagar west,Ragu tailor kalaivaanar kalani anna nagar west,Chennai,TN,600002,6384850820,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37857,Devaram Devaram,बाड़मेर,बाड़मेर,बाडमेर,AS,454545,6375887984,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37856,Kumari Divya,Delivery wherehouse chotala road near khel stadium risalu panipat haryana,Delivery wherehouse chotala road near khel stadium risalu panipat haryana,Panipat,HR,132104,9835779799,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37855,Shazia Shazia,Urban nest society undri chowk,Urban nest society undri chowk,Pune,MH,411060,8208784062,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37854,agwan Salma,Flat no: 305 Wing: I  building name: Raj nagar gautam nagar S. V. Road jogeswari west,Flat no: 305 Wing: I  building name: Raj nagar gautam nagar S. V. Road jogeswari west,Mumbai,MH,400102,7045403029,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37853,Gandhi Gandhi,L 123 Krishna Paradise kunhadi Kota,L 123 Krishna Paradise kunhadi Kota,Kota,RJ,324008,9586196968,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37852,Masane Praful,"Housing society, Dhamangaon rly","Housing society, Dhamangaon rly",Dhamangaon rly,MH,444709,9637736649,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37851,Krishna Krishna,Nimboliadaa BC boys hostel near pan Mahal SBI ATM opposite,Nimboliadaa BC boys hostel near pan Mahal SBI ATM opposite,Hyderabad,TS,500027,8317633672,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37850,Venkatesh Vemula,Enkoor,Enkoor,Khammam,TS,507168,9177110982,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37849,Nashraalam Nashraalam,Islamnagar bhikanpur Bhagalpur,Islamnagar bhikanpur Bhagalpur,Bhagalpur,BR,812001,7070741494,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37848,singh Parmod,Shop no 6 Hanuman hotel Shilphata,Shop no 6 Hanuman hotel Shilphata,Thana,MH,400612,8450974736,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37847,Nashra Nashra,Bhagalpur bhikanpur barapuria islamnagar near by Dr khali house,Bhagalpur bhikanpur barapuria islamnagar near by Dr khali house,Bhagalpur,BR,812001,7070741494,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37846,Siddiqui Tabbu,Jawahar Nagar kamalganj nagar panchayat guest house,Jawahar Nagar kamalganj nagar panchayat guest house,Kamalganj frukhabad,UP,209724,9935586283,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37845,NH Muhasna,Neduvally House Vellikulangara (po)  Vellikulangara,Neduvally House Vellikulangara (po)  Vellikulangara,Chalakkudy,KL,806699,8301811332,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37844,Chandana Chandana,Gullahalli village sulibele hoskote taluk Bangalore rural,Gullahalli village sulibele hoskote taluk Bangalore rural,Bangalore rural,KA,562114,9606376969,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37843,सिंह बाला सुरेंद्र,बाला डंडा रोड पर होटल रावली ढाणी होटल वाला,बाला डंडा रोड पर होटल रावली ढाणी होटल वाला,306401,RJ,306401,9664749333,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37842,Ajml Ajml,Brawr marbl pryawrn rude kisahngrh,Brawr marbl pryawrn rude kisahngrh,Kisangrh,RJ,305801,9785647673,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37841,Abdul Razak Mujawar,"46/370D, Bhudwarpet,knl","46/370D, Bhudwarpet,knl",Kurnool,AP,518002,8686144734,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37840,vipion vipion,vill kayampur,vill kayampur,patna,BR,803102,7479609161,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37839,Rasheed Abdul,1/2duraisamyst,1/2duraisamyst,Chennai,TN,600023,9382119874,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37838,chaudhary Amit,Bajgarhi sasni road iglas Aligarh,Bajgarhi sasni road iglas Aligarh,Aligarh,UP,202124,6398141519,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37837,Singh A Jagmail,Near city heart convent school,Near city heart convent school,Ratia,HR,125051,9992548476,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37836,Gurjar Mansingh,snehdeep iti collage mahaveer nagar nasiya colony,snehdeep iti collage mahaveer nagar nasiya colony,Gangapur city,RJ,322201,8690281267,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37835,gujjar Harkesh,Chaksu mamodiya chamber,Chaksu mamodiya chamber,Chaksu,RJ,303902,9468708712,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37834,Naseema Naseema,1 main 4 cross  lahirapalya near Sagar clinic hospital ganganahalli,1 main 4 cross  lahirapalya near Sagar clinic hospital ganganahalli,Bangalore,KA,560039,8618425038,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37833,Gurjar Mansingh,snehdeep iti collage mahaveer nagar nasiya colony,snehdeep iti collage mahaveer nagar nasiya colony,Gangapur city,RJ,322201,8690281267,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37832,khan Shanwaz,Krishna nagar adani gate dahanu west,Krishna nagar adani gate dahanu west,Mumbai,MH,401602,9021410665,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37831,Ramkumar Ramkumar,Ganj Barkheda damoh,Ganj Barkheda damoh,Damoh,MP,470673,8889427079,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37830,Kumar Yogesh,Nagla sadasukh roopuspur Firozabad Uttar Pradesh,Nagla sadasukh roopuspur Firozabad Uttar Pradesh,Firozabad,UP,283203,8171469002,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37829,Banu Ulmaz,Hosa honna pura hosahalli post shimoga,Hosa honna pura hosahalli post shimoga,Shimoga,KA,577202,6360553855,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37828,g Lasya,RV Nagar Temple Street house number 99 Kodungaiyur,RV Nagar Temple Street house number 99 Kodungaiyur,Chennai,TN,'118,9566625079,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37827,Purabiya Naresh,Celebration City centre South Bopal A2 block office namber-433,Celebration City centre South Bopal A2 block office namber-433,Ahmedabad,GJ,380058,9904493483,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37826,M.saravanakumar M.saravanakumar,Sannathuputhukudi,Sannathuputhukudi,Kayathar,TN,627353,8220380805,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37825,Alure Alure,101 bhawani peth angrshah takiya pune Maharashtra,101 bhawani peth angrshah takiya pune Maharashtra,Pune,MH,411002,9322705778,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37824,choudhary Kamal,Hotel black and white Dantaramgarh,Hotel black and white Dantaramgarh,Dantaramgarh,RJ,332703,9460679494,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37823,Jabir Jabir,A p vijayabara atonagar 5 rod,A p vijayabara atonagar 5 rod,Ato nagar 5,AP,520007,8950926748,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37822,Rajesh Rajesh,Kothapudi,Kothapudi,Machilipatam,AP,521001,9912760768,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37821,thakur Vikrant,Tatarpur post office barna kala  govardhan,Tatarpur post office barna kala  govardhan,Mathura,UP,281502,7060161196,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37820,Yadav Sandeep,Pipra madan gopal,Pipra madan gopal,Deoria,UP,274405,9565754513,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37819,Siva Siva,Pileru,Pileru,Pileru Sainik Nagar saibaba school pileru,AP,517214,7330810532,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37818,reddy Raju,Feb-57,Feb-57,Telanganna,AP,502228,7288928718,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37817,Sayyed Sayyed,"Flat no.004, building no. 94, Shree Balaji CHS New Mhada colony, pmgp mankhurd west.","Flat no.004, building no. 94, Shree Balaji CHS New Mhada colony, pmgp mankhurd west.",Mumbai,MH,400043,9819728892,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37816,singh Rabbit,Talwindi khuman,Talwindi khuman,Amritsar,PB,143502,8872505196,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37815,Alvira Alvira,262' rajendra nagar near alankar cinema b/h sabras hotal m.g road bardoli,262' rajendra nagar near alankar cinema b/h sabras hotal m.g road bardoli,Bardoli,GJ,394601,9978654487,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37814,S Boopalan,"3/209,First Floor, Nakkireen street, JJ Nagar, Mugappair East, Chennai 600037","3/209,First Floor, Nakkireen street, JJ Nagar, Mugappair East, Chennai 600037",Chennai,TN,600037,9444502559,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37813,Sandeep Sandeep,Rajasthan library dabla road,Rajasthan library dabla road,Kotputli,RJ,303105,9587440784,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37812,Rahish Rahish,Phalod,Phalod,Mas,RJ,342301,9772988176,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37811,Janardhanareddy K.,Kurnool. Dist. Mantralayam. Vagarur.,Kurnool. Dist. Mantralayam. Vagarur.,Yemmiganur,AP,518319,8688085908,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37810,banshalmanisha7@gmail.com Manisha,Sector 7 market Bikaner basement shop number 21,Sector 7 market Bikaner basement shop number 21,7 Honda market,AS,'112,8368572062,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37809,Ghanwat Ayush,Gajanan chalk phaltan 330 kasba peth,Gajanan chalk phaltan 330 kasba peth,Phaltan,MH,415523,7249327257,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37808,Lubna Lubna,Hp petrol pump ke pass,Hp petrol pump ke pass,Dehradun,UK,248001,6395789801,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37807,rai Anurag,Basant vihar at back side of HDFC Bank,Basant vihar at back side of HDFC Bank,Jabalpur,MP,482003,9630909322,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37806,ashok Pothuganti,Raju peta village giddaluru madalam,Raju peta village giddaluru madalam,Ogulu,AP,533421,9391771458,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37805,Azeez Azeez,Prachara 888 turf,Prachara 888 turf,Chavakkad,KL,680506,9388080888,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37804,Prinsing Prinsing,Vaiga automobiles,Vaiga automobiles,Anchal,KL,691306,9946796932,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37803,prajapat prajapat,Ranila,Ranila,Ranila,RJ,322211,9785941533,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37802,kumar Meena Mukesh,Rzg401 gali no-6 Rajnagar part 2 palam colony new Delhi Near kali mata mandir,Rzg401 gali no-6 Rajnagar part 2 palam colony new Delhi Near kali mata mandir,New Delhi,DL,110077,8467011114,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37801,Jereesha Jereesha,Payyambalam Sreerosh bay heights flat,Payyambalam Sreerosh bay heights flat,Kannur,KL,670001,9895018686,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37800,Sharma Anju,Jamalpur sarpanch colony Ludhiana Punjab,Jamalpur sarpanch colony Ludhiana Punjab,Ludhiana,PB,141010,9115607563,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37799,Bhatia Gagandeep,Hotel The Park Gate mohali near Tdi Business centre,Hotel The Park Gate mohali near Tdi Business centre,Mohali,PB,160055,7340908130,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37798,Kaur Satveer,Skh metals Limited Udyog vihar sector 18 gate no 4,Skh metals Limited Udyog vihar sector 18 gate no 4,Gurgaon,HR,122015,7973448635,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37797,singh Lokendra,Geeta ashram kdr Shop,Geeta ashram kdr Shop,Jaisalmer,RJ,345001,8905869592,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37796,gurjar Satendra,Kalitor,Kalitor,Ashoknagar,MP,473335,8251052441,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37795,Jaswant Jaswant,Jfc jogmaya food corner rk circle udaipur,Jfc jogmaya food corner rk circle udaipur,Udaipur,RJ,313001,8955620122,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37794,Sakeena Sakeena,devesandra.kr.puram,devesandra.kr.puram,Bengaluru,KA,560036,9980914978,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37793,Farul Farul,Theobarma,Theobarma,Bangalure,KA,560038,6909568785,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37792,qureshi Neha,N.h. 8haywe tapi hotel rod grin velly Pani pilant ke upar ru.3,N.h. 8haywe tapi hotel rod grin velly Pani pilant ke upar ru.3,Ankleshwar,GJ,393001,9548342408,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37791,Hashimi Sufiya,I.k main road alipur near abbas street 11 cross,I.k main road alipur near abbas street 11 cross,Alipur,KA,561213,9740924537,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37790,Drashti Drashti,Shivay palace hostel near rudra corner,Shivay palace hostel near rudra corner,Anand,GJ,388120,8140992909,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37789,ladies collection Vrindam,Krishna nagar near Desh rakhsak kankhal haridwar uttarakhand,Krishna nagar near Desh rakhsak kankhal haridwar uttarakhand,Kankhal haridwar,UK,249408,9520003100,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37788,Femida Femida,"Femida Shaikh ,dahi Halima scotiye, Ahemdabad road, balasinor","Femida Shaikh ,dahi Halima scotiye, Ahemdabad road, balasinor",Balasinor,GJ,388255,7600555374,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37787,balan R,"09, thirumudi chetty street,opposite ammaiyar Kovil temple, karaikal","09, thirumudi chetty street,opposite ammaiyar Kovil temple, karaikal",Karaikal,PY,609602,6381297191,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37786,sultan Seema,Hamsika krupa flat no 4 plot no 23 garodia nagar ghatkopar E,Hamsika krupa flat no 4 plot no 23 garodia nagar ghatkopar E,Mumbai,MH,400077,9967149993,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37785,dhayal Naveen,Shivrana ka bass,Shivrana ka bass,Laxmangharh,RJ,332311,9024170097,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37784,Khan Khan,Mumtaz aptm kk road 1st rabodi,Mumtaz aptm kk road 1st rabodi,Thane,MH,400601,9137533761,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37783,sultan Seema,Hamsika krupa flat no 4 plot no 23 garodia nagar ghatkopar E Mumbai,Hamsika krupa flat no 4 plot no 23 garodia nagar ghatkopar E Mumbai,Mumbai,MH,400077,9967149993,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37782,Pandey Rajendra,Old MPEB chandla road lavkushnagar,Old MPEB chandla road lavkushnagar,Lavkushnagar,MP,471515,9754764623,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37781,Jyoti Jyoti,47 - Rana Partap colony,47 - Rana Partap colony,Sri Ganganagar,RJ,335001,7014175710,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37780,Sangya Sangya,Xroad Gandhari,Xroad Gandhari,Kamareddy,TS,503145,9908668189,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37779,manikanta Bachanaboina,Patha annasamudram,Patha annasamudram,Thipurathakam,AP,523326,6300395335,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37778,Dastagir Dastagir,Kothaguda,Kothaguda,Kandukur,TS,501359,9177780670,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37777,mani Chander,"186 vikas nagar, Gali no 4,Kanhiya dairy,","186 vikas nagar, Gali no 4,Kanhiya dairy,",Yamuna nagar,HR,135001,9729887030,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37776,shaikh Naushad,"Kuldeep aangan,c wing,2nd floor,flat no.8,nehru nagar,pimpri pune","Kuldeep aangan,c wing,2nd floor,flat no.8,nehru nagar,pimpri pune",Pune,MH,411018,9325241259,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37775,choudhary Shriram,Kantiya khinwsar Nagaur Rajasthan,Kantiya khinwsar Nagaur Rajasthan,Nagaur,RJ,341028,8503971927,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37774,A A,At k,At k,Paranda,MH,413502,9422004740,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37773,Lal Nangal Mohan,नांगल मोड़,नांगल मोड़,लालसोट,RJ,303503,7878277502,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37772,kumar komare Toman,"Adjal ,post-seoni","Adjal ,post-seoni","Mohala,manpur",CG,491229,6263224448,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37771,kalyan Tagaram,Naguluru,Naguluru,Mylavaram,AP,521456,9030461205,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37770,Shaikh Shaikh,Wadala antophill sector 2 near by power house,Wadala antophill sector 2 near by power house,Mumbai,MH,400037,9821366938,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37769,rao Murlidhar,Jagdambha revaedeng Works Cherai,Jagdambha revaedeng Works Cherai,Jodhpur tinvary,RJ,342306,7424835914,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37768,Ratnakarsahu Ratnakarsahu,Polasara,Polasara,Polasara,OR,761105,9511610727,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37767,rao Jasraj,K-390 Shiv basti masuriya jodhpur rajasthan,K-390 Shiv basti masuriya jodhpur rajasthan,Jodhpur,RJ,342003,8764343811,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37766,jawach Suraiya,Marward appartment housing board chopansni 14vsector,Marward appartment housing board chopansni 14vsector,Jodhpur,RJ,342001,7062559438,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37765,Nagaraj Nagaraj,Kaliamman kovil street,Kaliamman kovil street,Theni,TN,625603,6381774043,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37764,Sheikh Arshad,At wadsa desaiganj gadchiroli,At wadsa desaiganj gadchiroli,Wadsa,MH,441207,7666733709,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37763,Malek Malek,Vmc flat room 23. Block 2. Santosh nagar,Vmc flat room 23. Block 2. Santosh nagar,Vadodara,GJ,391135,8780924072,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37762,Insiya Insiya,487 M.G Road Indore,487 M.G Road Indore,Indore,MP,452007,9926052997,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37761,Parasuram. Parasuram.,Nagar Panchayat dost pur Kashi anandpuri Hanuman Mandir ke samne purani sabji mandi,Nagar Panchayat dost pur Kashi anandpuri Hanuman Mandir ke samne purani sabji mandi,Sultanpur,UP,228131,9795589193,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37760,nanaware Dinesh,Lata arun building rupeenagar talawade nigdi,Lata arun building rupeenagar talawade nigdi,PUNE pimpri chinchwad,MH,411062,9823442255,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37759,Kumar Rakesh,Junpat,Junpat,Junpat,UP,201308,9569669213,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37758,yadav Chennaiah,Obliyapalli,Obliyapalli,MBNR,TS,509204,8125236431,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37757,Kumar Rakesh,Junpat,Junpat,Junpat pulis chauki,UP,201308,9569669213,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37756,Nisha Nisha,Govt college of nursing Sskm hospital campus Kolkata West Bengal,Govt college of nursing Sskm hospital campus Kolkata West Bengal,Kolkata,WB,'70020,6006109011,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37755,Rahul Rahul,Bhawan bahadur nagar,Bhawan bahadur nagar,Siyana,UP,203402,7017527055,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37754,Arvind Kamli,Nagar Palika Samiti Unjha,Nagar Palika Samiti Unjha,Unjha,GJ,384140,9998686225,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37753,Paramesh Paramesh,Peddanahalli,Peddanahalli,Gubbi,KA,572220,9902741703,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37752,meena Krishan,On rood baad SALAMPUR,On rood baad SALAMPUR,Gangapur city,RJ,322202,7852096423,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37751,misal Amol,Room -04 laxman Mahalunge Chawl .near shiv mandir penkarpada,Room -04 laxman Mahalunge Chawl .near shiv mandir penkarpada,Mira -Bhyander,MH,401107,9594992881,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37750,Taniya Taniya,Novelty hyundai,Novelty hyundai,Gurdaspur,PB,143521,8146082532,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37749,hii sarjeet,Saini Chopra Valmiki Mandir Chhindwara road,Saini Chopra Valmiki Mandir Chhindwara road,Meerut,UP,222250,8534011068,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37748,thirupathireddy Rondla,Muppidipally sarvareddipally gangadhara karimnagar,Muppidipally sarvareddipally gangadhara karimnagar,Karimnagar,TS,505531,6304496924,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37747,Gurjar Lokesh,Choth ka barwada,Choth ka barwada,Sawai Madhopur,RJ,322702,6350142502,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37746,Fiza Fiza,4416 ghate gate takiya Adam sha amratpuri ki mori jumma bazar,4416 ghate gate takiya Adam sha amratpuri ki mori jumma bazar,Jaipur,RJ,302003,8949710935,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37745,Baji Baji,Repalle,Repalle,Repalle,AP,522262,9515171614,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37744,R R,Inootru mangalam k pettai post kulithalai Karur,Inootru mangalam k pettai post kulithalai Karur,Kulithalai,TN,639105,9047975077,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37743,naik H S Prathap,Hogarehalli,Hogarehalli,Birur,KA,577116,7676098745,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37742,saham Bosa,Yanlo,Yanlo,Longding,AR,792131,8730992856,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37741,ghodke Zafar,Parichay department store,Parichay department store,Mumbai,MH,400092,8668786671,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37740,Kumar Ramesh,फलोदी खारा,फलोदी खारा,फलोदी,RJ,345023,7665332827,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37739,asmit Choudhary,BPO chhapura khurad shahpura,BPO chhapura khurad shahpura,Shahpura,RJ,303103,7891706678,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37738,Kottakotasrinivasulu Kottakotasrinivasulu,Jutmill colony*2line*guntur,Jutmill colony*2line*guntur,Guntur,AP,522004,6302672065,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37737,SRIKANTH DANDU,Kadapa New bus stand  madhura nagar,Kadapa New bus stand  madhura nagar,Kadapa,AP,516004,7661823938,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37736,Upadhyay Upadhyay,Myorabad near niRanjan genral store,Myorabad near niRanjan genral store,Prayagraj,UP,211002,7081414356,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37735,nagendra nagendra,Allmuar,Allmuar,Allagdda,AP,518543,7095902006,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37734,harun Mo,37 Dariyapur Chandpur Bijnor Uttar Pradesh,37 Dariyapur Chandpur Bijnor Uttar Pradesh,Dariyapur,UP,246761,9012901242,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37733,Meena Bablu,Galad kalan,Galad kalan,Bonli,RJ,322030,6367343766,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37732,Pavan Pavan,Eguva thambalapalli,Eguva thambalapalli,Kalasapadu,AP,516217,8688211307,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37731,Chaudhary Satyendra,"Village - bajhera khurd ,post - siras,teh.- weir","Village - bajhera khurd ,post - siras,teh.- weir",Bharatpur,RJ,321408,7690944063,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37730,begum Shamshiya,"Near milk dairy ,Mysore road ,bherya","Near milk dairy ,Mysore road ,bherya",Mysore,KA,571601,7483248534,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37729,thakur Jagannath,Sihla souria dandkhora katihar,Sihla souria dandkhora katihar,Katihar,BR,854107,8292305773,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37728,Danadgala Danadgala,High school komarabanda,High school komarabanda,Kodad,TS,508206,8297137611,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37727,Mdnaeem Mdnaeem,PadaM,PadaM,PADAM,BR,847226,7644093190,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37726,Preeti Preeti,5f/46 near moongfali chowk,5f/46 near moongfali chowk,Faridabad,HR,121001,9599511037,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37725,indoliya Rahul,Jhahagerpur,Jhahagerpur,Bharatpur,RJ,321028,6377140648,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37724,Parihar Sonia,District court solan,District court solan,Solan,HP,173212,9816843391,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37723,ms Rangu,"Details Ranganatha Teju  Whitefield samethanahalli nearby ganesh temple .560067  Whitefield samethanahalli nearby ganesh temple 560067,  Bengaluru","Details Ranganatha Teju  Whitefield samethanahalli nearby ganesh temple .560067  Whitefield samethanahalli nearby ganesh temple 560067,  Bengaluru",Bengaluru,KA,560067,6362911782,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37722,Choudhary Goshai,Gagadi,Gagadi,Jodhpur,RJ,342306,7023134036,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37721,yadav swamy,Anantharaopally bus stop,Anantharaopally bus stop,Gajwel,TS,502278,7032268641,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37720,yadav Swamy,Anantharaopally,Anantharaopally,Gajwel,TS,502278,7032268641,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37719,Fiza Fiza,Road no : 7 saibaba chawl shivaji nagar slum govandi Mumbai Maharashtra,Road no : 7 saibaba chawl shivaji nagar slum govandi Mumbai Maharashtra,Mumbai,MH,400043,7400128565,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37718,Sahin Sahin,205 mehfooz complex tandalja vadodara,205 mehfooz complex tandalja vadodara,Vadodara,GJ,390012,8488872405,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37717,Kumar mehta Ratnesh,"Nawada more ,garhwa ,opp bskd school","Nawada more ,garhwa ,opp bskd school",Garhwa,JH,822114,8873194015,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37716,khan Bhati Ishu,57.bhati cottage alpha City.,57.bhati cottage alpha City.,Hanumangarh,RJ,335513,7015065104,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37715,raaj Aarish,Jokihat,Jokihat,Araria,BR,854329,9717433246,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37714,Pahujani Pahujani,Guru Nanak Nagar Raebareli,Guru Nanak Nagar Raebareli,Raebareli,UP,229001,7084131620,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37713,Sharma Sharma,News rajganj near Kabir Mandir 1401,News rajganj near Kabir Mandir 1401,Jalandhar,PB,144007,8968325994,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37712,Madhan Madhan,10/23 1ststreet kansapuram ettayapuram,10/23 1ststreet kansapuram ettayapuram,Tutucorin,TN,628902,7339335744,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37711,Himani Himani,Gurdaspur /jahaj chowk,Gurdaspur /jahaj chowk,Gurdaspur,PB,143521,8559035772,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37710,manohar manohar,"2-50/3 venkatraopet, metpally","2-50/3 venkatraopet, metpally",Metpally,TS,505325,6301181293,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37709,Fathima Fathima,Padne kaipad,Padne kaipad,Kasaragod,KL,671312,7558804892,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37708,Sunil Sunil,Kalichedu Sai Baba temple,Kalichedu Sai Baba temple,Nellore,AP,524409,7093927228,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37707,yadav Shivam,Dakore purana thana,Dakore purana thana,Dakore purana thana,UP,255123,8858092284,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37706,qureshi Sheebu,"514, anarkali mohalla malagarh,bulandshahr","514, anarkali mohalla malagarh,bulandshahr",Malagarh bulandshahr,UP,203001,8979798398,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37705,saini Pilot,Jaipur,Jaipur,Jaipur,RJ,302021,8441832807,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37704,Lavdiya Mehul,"Jay dwarkadhis janral store ,Ardoi ,Bharvad vas ,Ardoi ,Rajkot ,gujrat","Jay dwarkadhis janral store ,Ardoi ,Bharvad vas ,Ardoi ,Rajkot ,gujrat",Rajkot,GJ,360030,8128863528,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37703,मीना महावीर,मैन जालुकी चौराया कैचकी का बास नगर,मैन जालुकी चौराया कैचकी का बास नगर,गाव,RJ,321205,6375405679,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37702,Muskan Muskan,City public school akbarpur kanpur,City public school akbarpur kanpur,Kanpur,UP,209101,8299354259,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37701,yadav Ashok,LADIPURA,LADIPURA,Jaipur,RJ,303120,8302768045,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37700,HARISH BABU BD,S.K PALEM,S.K PALEM,TADIPATRI,AP,515411,6301975977,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37699,Manjumanju Manjumanju,Maravanji Thanda,Maravanji Thanda,577213,KA,178215,8296178215,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37698,Emanvel Emanvel,11.avadi main road.paruthi petu,11.avadi main road.paruthi petu,Avadi,TN,600071,9840381072,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37697,Kumar Mukesh,Post -soyla teh.-baori,Post -soyla teh.-baori,Jodhpur,RJ,342026,9166538526,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37696,Manjumanju Manjumanju,Maravanji Thanda,Maravanji Thanda,577214,KA,178215,8296178215,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37695,Halima Halima,Royal garden indrapuri near samanpura Raja bazar flat 403 royal garden,Royal garden indrapuri near samanpura Raja bazar flat 403 royal garden,Patna,BR,800014,9142872275,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37694,Akhilesh Akhilesh,Deorhi bajar ayodhya ayurvedic hospital,Deorhi bajar ayodhya ayurvedic hospital,Ayodhya,UP,224189,9235105536,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37693,Meena Meena,Bundi,Bundi,Nanda bura colony,RJ,323802,9610646812,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37692,Gaware Gaware,Baburaw nagar shirur Pune,Baburaw nagar shirur Pune,Shirur,MH,412210,9561568269,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37691,Zainab Zainab,"1-33-220/4, flat no 407, 4th floor, mehboob manzil, trimulgherry, r.t.c colony, Secunderbad","1-33-220/4, flat no 407, 4th floor, mehboob manzil, trimulgherry, r.t.c colony, Secunderbad",Secunderbad,TS,500015,9959362483,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37690,christober christober,Pn road  mettupalayam tirupur,Pn road  mettupalayam tirupur,Tirupur,TN,641602,9876543210,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37689,Verma Verma,1640 baba harish chandra marg near raisar plaza,1640 baba harish chandra marg near raisar plaza,Jaipur,RJ,302001,7375055053,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37688,LALWANI ASTHA,Raheja residency avani vihar raipur L block 101,Raheja residency avani vihar raipur L block 101,Raipur,CG,492001,7828623300,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37687,Shravan Shravan,Beawar,Beawar,ब्यावर,RJ,305901,7424803280,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37686,Paarit Paarit,Chandigarh City centre,Chandigarh City centre,Zirakpur,PB,140603,7717479060,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37685,prakash Om,Mahadev residency Sivlar rod barmer,Mahadev residency Sivlar rod barmer,Barmer,RJ,344001,9414623810,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37684,Srinivasan Srinivasan,No 8 kanappa Samy nagar 2 street kavangarai,No 8 kanappa Samy nagar 2 street kavangarai,Chennai,TN,600066,8248406849,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37683,shivhare84 Anita,"Akhlavya hostal,rampur (chaper)jabalpur house no112","Akhlavya hostal,rampur (chaper)jabalpur house no112",Jabalpur,MP,482002,8452089002,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37682,Ilungkail Ilungkail,Peren,Peren,Peren,NL,797101,8287407122,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37681,Kumar Amit,Hardua chikasi hamirpur,Hardua chikasi hamirpur,Rath,UP,210430,8127340665,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37680,Singh Harinder,Omicron 1A Block.C.81 Greater noida,Omicron 1A Block.C.81 Greater noida,Greater noida,UP,201310,9582472109,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37679,Ravi.gurjar Ravi.gurjar,Panjab,Panjab,Zirakpur,CH,140006,7396583270,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37678,Raj Raj,Botanical garden burfigar green trends unisex selone,Botanical garden burfigar green trends unisex selone,Hydrabad,TS,500080,7207472454,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37677,gurme Amar,Yashodip hotel Nanded road latur,Yashodip hotel Nanded road latur,Latur,MH,413512,7058907290,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37676,Rajananda Prasad T,"Pather Gudda,Near Ganesh Temple","Pather Gudda,Near Ganesh Temple",Port Blair,AN,744105,9474219850,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37675,raju raju,Botanical garden burfigar green trends unisex selone,Botanical garden burfigar green trends unisex selone,Hydrabad,TS,500080,7207472454,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37674,bhardhwaj Suresh,Samoon,Samoon,Indora,HP,176403,8894388145,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37673,Manish Gurjar Dangash,"Singhaniya dahra, Shirt",Singhaniya dahra,Hindaun City,RJ,322230,9024427269,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37672,Bhushan Sharma Bharat,H no 596 A Street no 5 Guru Nanak Nagar Patiala,H no 596 A Street no 5 Guru Nanak Nagar Patiala,Patiala,PB,147001,9855777752,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37671,Gurjar Jitesh,Singhaniya dahra,Singhaniya dahra,Hindaun City,RJ,322230,9024427269,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37670,Ramesh Ramesh,Iipm collage,Iipm collage,Rourkela,OR,770034,9861057534,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37669,Reddy JAGADISHWAR,Siddipet,Siddipet,Siddipet blackoffices,TS,502114,9701804936,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37668,Shariff Shariff,S bingipura lake road ashraya layout near gangamma temple 28/A GAUSIYA MANZIL,S bingipura lake road ashraya layout near gangamma temple 28/A GAUSIYA MANZIL,BENGALURU URBAN,KA,560100,7406738223,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37667,Mahek Mahek,Makhdoom Jada rudauli,Makhdoom Jada rudauli,Rudauli,UP,224120,9956238856,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37666,Venkatesh Venkatesh,Chennareddy palli,Chennareddy palli,Maddur,TS,509411,9704325821,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37665,walia Sahil,Jamalpur bank colony,Jamalpur bank colony,Ludhiana,PB,141001,9878507049,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37664,Hafsa Hafsa,59A-21/5-3 Keerthi towers T2 RR Gardens patamata,59A-21/5-3 Keerthi towers T2 RR Gardens patamata,Vijayawada,AP,520007,7386087507,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37663,Govindaraj Govindaraj,409 sokkanthar malaiyur patlur po,409 sokkanthar malaiyur patlur po,Erode,TN,638314,9952822852,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37662,Rambabu Rambabu,Anajipuram penpahad suryapet,Anajipuram penpahad suryapet,Suryapet,TS,508213,9542450899,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37661,meena Sonu,Village kuttin salwari post salwari district alwar,Village kuttin salwari post salwari district alwar,Kherli,RJ,301035,7878591683,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37660,Turshani Turshani,Regency garden Appartment flat no 203 near sapne garden Ulhasnager 3,Regency garden Appartment flat no 203 near sapne garden Ulhasnager 3,Ulhasnngar,MH,421003,8007350206,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37659,begum Safiya,Shaheen Nagar,Shaheen Nagar,Hyderabad,TS,500005,9390223196,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37658,Ravindra Ravindra,Ner bas sand tarbksyshwar shir Samantha salun,Ner bas sand tarbksyshwar shir Samantha salun,Tarbkshwar 422212,MH,422212,9404003602,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37657,Ratan Singh Daw,Mohalla ratanpuri Shiv Mandir banaya tahsilganj district Bareilly,Mohalla ratanpuri Shiv Mandir banaya tahsilganj district Bareilly,Bareilly,UP,243504,8923565377,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37656,Bhaskar Bhaskar,Long drive cars medipally uppal,Long drive cars medipally uppal,Hyderabad,TS,500039,6303789372,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37655,Dk Dk,Alwar Kati ghati,Alwar Kati ghati,Alwar,RJ,301001,9660705830,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37654,Rakesh Rakesh,Stadium nagar bharatpur,Stadium nagar bharatpur,Bharatpur,RJ,321001,7014540297,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37653,Saini Purushottam,Krishna Sagar patrakaar Om bakery Jaipur,Krishna Sagar patrakaar Om bakery Jaipur,Jaipur,RJ,302020,7665434994,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37652,Bushra Bushra,Super industry Mehndi sarai 11/1179gli no 2 saharanpur up,Super industry Mehndi sarai 11/1179gli no 2 saharanpur up,Saharanpur,UP,247001,6397093631,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37651,Yogendra Yogendra,Stadium nagar bharatpur,Stadium nagar bharatpur,Bharatpur,RJ,321001,8741035742,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37650,Bushra Bushra,Super industry Mehndi sarai 11/1179gli no 2 saharanpur up,Super industry Mehndi sarai 11/1179gli no 2 saharanpur up,Saharanpur,UP,247001,6397093631,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37649,Kumar yadav M.p.pavan,Bharthi villa. Plot no 59  18-382/1 malikarjunanagar malkangiri rly station,Bharthi villa. Plot no 59  18-382/1 malikarjunanagar malkangiri rly station,Secunderabad,TS,500047,7396111307,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37648,shah Purvi,C 304 vandematram city gota,C 304 vandematram city gota,Ahmedabad,GJ,382481,8849242899,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37647,Ramakrishna Ramakrishna,Ongole,Ongole,Arava colony,AP,523001,9553044848,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37646,S.Bheemarao S.Bheemarao,Mallampet indramma colony,Mallampet indramma colony,Hydarabad,TS,502325,9000857939,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37645,srinu Ch,Mothadaka,Mothadaka,Guntur,AP,522016,9000377644,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37644,Harish Ravula,Ramanepatha,Ramanepatha,Khammam,TS,507003,9391343975,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37643,paramesh Arun Kumar Deeravath,Mailaram kind Thanda mandal bomalaramaram Post hajipur distric yadadri bhongir,Mailaram kind Thanda mandal bomalaramaram Post hajipur distric yadadri bhongir,Mailaram kind Thanda,TS,508126,9010937111,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37642,Nongsiej GG,Reliance tower,Reliance tower,City,ML,793019,9774442578,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37641,Thakur Chhotelal,Vill.Bahanwada dist narshigpur mp pincode 48721,Vill.Bahanwada dist narshigpur mp pincode 48721,Kareli,MP,487221,7089737606,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37640,Sahill Sahill,JAITU,JAITU,JAITU,PB,151202,9888744322,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37639,asif reza Mohammad,Rani chowk jama masjid ke near,Rani chowk jama masjid ke near,Araria,BR,854329,9279078850,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37638,sharma Chanchal,"Flat no. 201, Bldg. Jandig lake view.  opp. varal lake bhiwandi","Flat no. 201, Bldg. Jandig lake view.  opp. varal lake bhiwandi",Bhiwandi maharashtra,MH,421302,7014382057,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37637,Dhaneshwari Dhaneshwari,"1042/B/5/B/Plot no 6, Arun Sarnaik Nagar, Near Indraprastha Prestige, Ring Road Kolhapur Maharashtra 416011","1042/B/5/B/Plot no 6, Arun Sarnaik Nagar, Near Indraprastha Prestige, Ring Road Kolhapur Maharashtra 416011",KOLHAPUR,MH,416011,9860677968,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37636,Kumar Yadav Mukesh,"Bhonawas, paota, (kotputli)","Bhonawas, paota, (kotputli)",Jaipur,RJ,303106,7042124910,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37635,Fernandes Sergio,St curz ponda. Kurtarkar Nagari,St curz ponda. Kurtarkar Nagari,Ponda,GA,403401,9890396408,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37634,bandi Babu,Vinayaka nagar kadalabalu,Vinayaka nagar kadalabalu,Hagaribommana halli,KA,583212,8150896860,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37633,cs Deepak,Opposit boys junior collage. Jia bim nagara road. Arkalgud (t) hassan (d),Opposit boys junior collage. Jia bim nagara road. Arkalgud (t) hassan (d),Arkalgud,KA,573201,7259822209,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37632,mangave Sammed,Ap pattankudi,Ap pattankudi,Nipani,KA,591238,7676902108,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37631,Mavi Jitender,Tila Shahbajpur Loni GZB,Tila Shahbajpur Loni GZB,Loni GZB,UP,201102,9891916066,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37630,Parshuram Parshuram,Nagar Panchayat dosh kajiyana uttari ward number 6 Hanuman Mandir ke samne purane sabhi Mandir,Nagar Panchayat dosh kajiyana uttari ward number 6 Hanuman Mandir ke samne purane sabhi Mandir,Sultanpur,UP,228131,9795589193,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37629,Takkalaki Sangamesh,Rakkasagi,Rakkasagi,Muddebihal,KA,586129,8884034178,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37628,Alan.r Alan.r,Sirunallur vil.pudhupalayam post. Venbakam   thaluk.   Thiruvanamalai  dt..,Sirunallur vil.pudhupalayam post. Venbakam   thaluk.   Thiruvanamalai  dt..,Cheyyar,TN,631701,6382885365,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37627,Ajmeri Rajendra,Chakravacha sanver road Ujjain,Chakravacha sanver road Ujjain,Shakar Vasa sanver road Ujjain,MP,456010,9893134234,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37626,Tannidi Lakshmi,2-116 Radhey palam (Village),2-116 Radhey palam (Village),Rajahmundry,AP,533341,8897774794,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37625,Khan Sahil,Bukharaka,Bukharaka,Badkali,HR,122108,7419210801,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37624,Nagesh Nagesh,Rajeshwar Nagar,Rajeshwar Nagar,Solapur,MH,413002,9922427243,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37623,H H,Ch ch y,Ch ch y,Batjyi,KA,571422,6666665329,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37622,Anbalagan Anbalagan,14.5.28ஆலத்துறான்பட்டி,14.5.28ஆலத்துறான்பட்டி,கன்னிவாடி,TN,624705,9751470985,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37621,Ramar Ramar,Edaiyarpalaiyam,Edaiyarpalaiyam,Kovai,TN,641015,7418181822,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37620,Siva Siva,43.10.19,43.10.19,Rjy,AP,'53310,9381122326,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37619,Shaiju Shaiju,"Palathingal house po kandasakadavu,","Palathingal house po kandasakadavu,",Thrissur,KL,680613,9207804039,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37618,Mansoor Mansoor,Qureshi,Qureshi,Nirmal,TS,504106,9908867861,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37617,Annie Annie,304 Royal appartment kohe e fiza opposite kk convent sochool Ahmedabed palace road,304 Royal appartment kohe e fiza opposite kk convent sochool Ahmedabed palace road,Bhopal,MP,462001,9713199978,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37616,Kumar Ranjan,At+po Orlaha b kothi Purnia bihar,At+po Orlaha b kothi Purnia bihar,Purnia,BR,854203,6205103245,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37615,ahmed ahmed,8-1-402/a/30 mini gulshan colony shaikpet,8-1-402/a/30 mini gulshan colony shaikpet,Hyderabad,TS,500008,8686844414,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37614,khan Amrin,M.4 building flat no 112 daulat nagar 3 no relif road Santacruz West near sndt University,M.4 building flat no 112 daulat nagar 3 no relif road Santacruz West near sndt University,Mumbai,RJ,400054,7738604003,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37613,Kaushik Kalash,Bilaspur,Bilaspur,Bilaspur,CG,495001,7224031978,Clothing,1,COD,249,0.5,13,13,13,249,249,HID0065
+37612,yadav yadav,334 jiyamau near Radha Krishna mandir,334 jiyamau near Radha Krishna mandir,LUCKNOW,UP,226001,9616065017,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37611,lakhani Aniza,Zillion sparsh C603 tarsali opposite dawat hotel,Zillion sparsh C603 tarsali opposite dawat hotel,Vadodara,GJ,390009,8830275240,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37610,Anika Anika,"Raza lime depot,azmi nagar gate no 7, malwani Malad ,Mumbai 95","Raza lime depot,azmi nagar gate no 7, malwani Malad ,Mumbai 95",Mumbai,MH,400095,9819351463,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37609,meena Yogesh,Hcl gate number 3,Hcl gate number 3,Noida,UP,201301,6350342783,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37608,Kumar Rajeev,S/O Gian Chand vpo kauli kauli kauli Patiala Punjab,S/O Gian Chand vpo kauli kauli kauli Patiala Punjab,PATIALA,PB,140701,9592348530,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37607,Zainab Zainab,Ghatkopar (w) parsiwadi  near rathod medical,Ghatkopar (w) parsiwadi  near rathod medical,Mumbai,MH,400086,9833578819,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37606,Mushtaque Mushtaque,68/1B Bania pukur road Kolkata 700014,68/1B Bania pukur road Kolkata 700014,Kolkata,WB,700014,9339944501,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37605,Roshan Roshan,No 1 9th cross,No 1 9th cross,Bangalore,KA,560046,9886167918,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37604,Sahoo Hrushikesh,Mahatab road,Mahatab road,Cuttack,OR,753012,7978061538,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37603,mukherjee Saswati,179 2nd floor front Ashoka enclave part 1 sec 34 faridabad haryana,179 2nd floor front Ashoka enclave part 1 sec 34 faridabad haryana,Faridabad,HR,121003,9650255545,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37602,Arshiya Arshiya,Janta colony gillberthill road near bhavans collage andheri west,Janta colony gillberthill road near bhavans collage andheri west,Mumbai,MH,400058,8369636508,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37601,Dhillon Dhillon,Krishna enclave Ramgarh Buddha Zirakpur,Krishna enclave Ramgarh Buddha Zirakpur,Chandigarh,CH,140603,7889149072,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37600,tekwani tekwani,398 opposite Pragati school Tata Jaipur,398 opposite Pragati school Tata Jaipur,Jaipur,RJ,302016,8233641485,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37599,Hanotiya Ggc Ravi,The waffle co Raja park Ramada hotel Jaipur,The waffle co Raja park Ramada hotel Jaipur,Jaipur,RJ,302004,7073266732,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37598,Si Si,JJ Inotel Hotel palakonda road rajam,JJ Inotel Hotel palakonda road rajam,Rajam,AP,532127,7981028734,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37597,Fatima Fatima,Aks building 1st main 1st cross near pulse clinic j cross new gurupanpalya Bannerghatta road Bangalore,Aks building 1st main 1st cross near pulse clinic j cross new gurupanpalya Bannerghatta road Bangalore,Bangalore,KA,560029,9535638142,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37596,Manglani Rajkumar,plot no 34 patarkar colony shree kirshna nagar road ameritpuri villas jaipur,plot no 34 patarkar colony shree kirshna nagar road ameritpuri villas jaipur,jaipur,RJ,302034,8003124766,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37595,Munshi Shabnam,Paddhari,Paddhari,Paddhari,GJ,360110,9106627897,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37594,Munshi Shabnam,Paddhari,Paddhari,Paddhari,GJ,360110,9106627897,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37593,Singh Gurpreet,L3/897 Name dav cloni sultwind rood Amritsar Punjab,L3/897 Name dav cloni sultwind rood Amritsar Punjab,Amritsar,PB,143001,7009314893,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37592,Pradipyadav Pradipyadav,Bhagwan das mahto lodge,Bhagwan das mahto lodge,Patna,BR,800006,9007792162,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37591,Aqsa Aqsa,Aman colony makka masjid asoura Hapur,Aman colony makka masjid asoura Hapur,Hapur,UP,245101,7505883655,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37590,Gupta Vinay,Bhikhampur road Deoria near petrol pump ke pass,Bhikhampur road Deoria near petrol pump ke pass,Deoria,UP,274001,8115685206,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37589,Chordia Chordia,6/52 Diwan Rama road Purasawakam chennai,6/52 Diwan Rama road Purasawakam chennai,Chennai,TN,600084,9840223665,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37588,kumar. R Anil,Hudugur village. D palya obali. Gowribidhnur talluk. Chikkaballapura distik.,Hudugur village. D palya obali. Gowribidhnur talluk. Chikkaballapura distik.,Gowribidhnur. Hudugur,KA,561206,9164072288,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37587,Garg Aarti,347guru kripa building Clark colony,347guru kripa building Clark colony,Indore,MP,452001,8358931348,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37586,Singh. Darshan. Singh. Buttar. Kala. PATi. Bullar Sokha.,Sokha. Singh. Darshan. Singh. Buttar. Kala. PATi. Bullar,Sokha. Singh. Darshan. Singh. Buttar. Kala. PATi. Bullar,Moga,PB,142040,9592670240,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37585,meena Rekhram,Near tinku ki dukan Shri ram coloni katti gatti alwar,Near tinku ki dukan Shri ram coloni katti gatti alwar,Alwar,RJ,301001,8619593764,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37584,kumar Bera Mahendra,Plot no-24 kh no 26/107 Ramdev Nager Nandari jodhpur,Plot no-24 kh no 26/107 Ramdev Nager Nandari jodhpur,Jodhpur,RJ,342015,9413930196,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37583,Mahani Mahani,Rajas courtyard ft.no.509 new friends colony attapur near icbm college,Rajas courtyard ft.no.509 new friends colony attapur near icbm college,Hyderabad,TS,500048,6309463155,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37582,पटेल Gajju,alwar ramgad khuteta kall gurjar बास,alwar ramgad khuteta kall gurjar बास,Alwar,RJ,301001,7742253062,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37581,kumar Raj,H.no232 street no.6d near Bobby karyana store,H.no232 street no.6d near Bobby karyana store,Sunam,PB,148028,9814305479,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37580,अच्युत शेरखाने विलास,मुक्काम पोस्ट राळेरास तालुका बार्शी जिल्हा सोलापूर,मुक्काम पोस्ट राळेरास तालुका बार्शी जिल्हा सोलापूर,सोलापूर,MH,413402,9075704634,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37579,behera behera,At/po-chhagaon.dist.-cuttack.neer singhannath temple.gurudijhatia rly station,At/po-chhagaon.dist.-cuttack.neer singhannath temple.gurudijhatia rly station,Cuttack,OR,754028,9337872012,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37578,Setia Setia,"New madho nagar, near new Cambridge school","New madho nagar, near new Cambridge school",Sahranpur,UP,247001,9690458441,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37577,S Naidu D,"Opp Ramalayam street, juttada village, chodavaram mandal, Anakapalli dist,","Opp Ramalayam street, juttada village, chodavaram mandal, Anakapalli dist,",Visakhapatnam,AP,531026,8374533787,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37576,mavjibhai kapadiya Nileshbhai,Moti kunkavav,Moti kunkavav,Moti kunkavav,GJ,365650,9925425667,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37575,Azimbibi Azimbibi,Wadi moti whorvadbadi masjid paas,Wadi moti whorvadbadi masjid paas,Vadodara,GJ,390017,7383816892,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37574,Qureshi Meraj,Sriram yousufguda,Sriram yousufguda,Hyderabad,TS,500034,7801005106,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37573,Sajan Sajan,Nalaghar,Nalaghar,Nalaghar,HP,174101,7986068477,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37572,Sitaram Sitaram,Meena seemla mahandipur balaji,Meena seemla mahandipur balaji,Balaji,RJ,303509,9785930543,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37571,Parveen Reshma,Sheikh white house near jumma masjid kana surathkal,Sheikh white house near jumma masjid kana surathkal,Mangalore,KA,575014,9986762490,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37570,Kumari Kumari,Chunna bhatta chowk,Chunna bhatta chowk,Ranchi,JH,834001,7050167620,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37569,Neha Neha,7 khair nagar police chowki Meerut,7 khair nagar police chowki Meerut,Meerut,UP,250002,8126188300,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37568,shafi Mohammed,1/535 balaganasar naka nagar7/St padiyanallur ch 52rr,1/535 balaganasar naka nagar7/St padiyanallur ch 52rr,Chennai,TN,600052,9566174516,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37567,കെ വി നൗഷാദ്.,കീരിന്റ് വളപ്പിൽ. പുറങ്കര. വടകര ബീച്ഛ്,കീരിന്റ് വളപ്പിൽ. പുറങ്കര. വടകര ബീച്ഛ്,Koyikod,KL,673103,9895351414,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37566,Mahendra Mahendra,Lalana paota,Lalana paota,Jaipur,RJ,303136,8209362401,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37565,raj patil Basava,Ksrtc,Ksrtc,Kushtagi,KA,583277,9738727770,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37564,sontkkae Arun,चौफुला,चौफुला,पुणे,MH,412203,8087127642,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37563,Khelitoli Khelitoli,Project colony above taxi stand,Project colony above taxi stand,Zunheboto,NL,798620,6009809224,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37562,babbu Shaikh,"Flat number 2 Renuka residency, Datta Nagar Raju mutton backside Amrutha Nashik","Flat number 2 Renuka residency, Datta Nagar Raju mutton backside Amrutha Nashik",Nashik,MH,422003,8999600383,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37561,Raju Basava,Annarugudem (vi) thallada(m),Annarugudem (vi) thallada(m),Khammam ( dt) thallada(m),TS,507168,9704971456,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37560,Shankar Shankar,Kodad,Kodad,Kodad,TS,'50206,9494643758,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37559,Mohh Mohh,CBN de,CBN de,Nandyal,AP,518533,905775645,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37558,khan Mahak,Charbba,Charbba,Dehradun,UK,248197,6395147191,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37557,Usha Usha,H.no.73 Krishna enclave sanghera barnala,H.no.73 Krishna enclave sanghera barnala,Barnala,PB,148101,9417900429,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37556,Berillelalitha Berillelalitha,RR Colony,RR Colony,Bhadrathri Kothagudem district illandu,TS,507123,9493908636,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37555,షేక్షావలి షేక్షావలి,కొండవీడు,కొండవీడు,పల్నాడు జిల్లా,AP,522529,9703356108,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37554,mehta Dhirendra,Chas bokaro,Chas bokaro,Bokaro,JH,827001,6202315801,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37553,Yadav Santosh,Shramik bihar colony kosampali,Shramik bihar colony kosampali,Raigarh,CG,496001,9691063206,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37552,Qureshi Shabnam,Thane mumbra Kaisa choki Rashid compound screen apartment 1 floor room no 101 Maharashtra,Thane mumbra Kaisa choki Rashid compound screen apartment 1 floor room no 101 Maharashtra,Thane,MH,400612,9653394701,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37551,BISHNOI PC,Naya Wada,Naya Wada,Sanchore,RJ,343029,9024996782,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37550,kumar Rahul,"Village neenjher, tashil shapura, distick jaipur","Village neenjher, tashil shapura, distick jaipur",Shapura,RJ,303103,7568056874,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37549,bhaskar bhaskar,Sripalli,Sripalli,Amalapuram,AP,533211,9553090640,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37548,Karuna Karuna,"16/12, moulsiri road, Shipra suncity, Indirapuram ghaziabad up","16/12, moulsiri road, Shipra suncity, Indirapuram ghaziabad up",Ghaziabad,UP,201014,8744844286,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37547,gurjar Manish,Dhabhai petroleum harsolaw,Dhabhai petroleum harsolaw,Gotan,RJ,342902,9875225430,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37546,Nazar Nazar,Abdullah kinattumukk koliyacood vinjaramood tvm,Abdullah kinattumukk koliyacood vinjaramood tvm,Tvm,KL,'69567,9645775551,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37545,Gulfishan Gulfishan,Sa 16/92 M-19-K Amanpuri colony varanasi,Sa 16/92 M-19-K Amanpuri colony varanasi,Varanasi,UP,221007,6387731167,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37544,kumar Dayanand,Hiraman pur,Hiraman pur,School,BR,800111,8863840863,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37543,Mayavi Mayavi,Inchakkudy house asamannoor post odakkaly,Inchakkudy house asamannoor post odakkaly,Odakkaly,KL,683549,9446756100,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37542,Suri Sadhu,Narasannapeta,Narasannapeta,Narasannapeta,AP,532421,8886141910,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37541,Narayan a Surya,Jammu,Jammu,Narasannapeta,AP,532421,8886141910,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37540,Kaur Gurpreet,"Guru Nanak Colony, Pehowa","Guru Nanak Colony, Pehowa",Pehowa,HR,136128,9996168668,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37539,rajput Sopnil,Sendhwa,Sendhwa,West Nimar,MP,516666,7828636544,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37538,Malothu Malothu,Suryapet,Suryapet,Suryapet,TS,508213,8466007177,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37537,Gophane Gophane,Bhavaninagar kharakhana road,Bhavaninagar kharakhana road,Pune,MH,413104,9404704682,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37536,Malothu Malothu,Jammigada suryapet,Jammigada suryapet,Suryapet,TS,508213,8466007177,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37535,Singh Vaibhav,Bhatiyo ke pol kaparda,Bhatiyo ke pol kaparda,Jodhpur,RJ,342605,8302117275,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37534,Pandu Pandu,Denduluru,Denduluru,Denduluru,AP,534432,7386652170,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37533,Vinoth Vinoth,594 murugar Kovil steet,594 murugar Kovil steet,Thiruvannamalai,TN,606603,7010018645,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37532,T.pariyasamy T.pariyasamy,1/2a Narth Arasanatam,1/2a Narth Arasanatam,Villaesh,TN,637020,9626077095,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37531,Charu Charu,123 Gobind Valley,123 Gobind Valley,Ropar,PB,140001,9814015984,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37530,yadav Deepak,Aliganj,Aliganj,Aliganj,UP,207247,9119722673,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37529,Kumar Besra Jitendra,36down town madhapur,36down town madhapur,Madhapur,TS,500081,9155203878,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37528,Govindappa Govindappa,Gullahali majara Kothur Budikote,Gullahali majara Kothur Budikote,Bangarpet,KA,563129,9844600620,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37527,Rana Sita,Sersa Rai kundli,Sersa Rai kundli,Sonipat,HR,131028,8930660596,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37526,Csahuja Csahuja,R14/127 raj nagar,R14/127 raj nagar,Ghaziabad,UP,201002,8447711724,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37525,Ganesh Ganesh,1/32mutharamman Kovil street,1/32mutharamman Kovil street,Thoothukudi,TN,608802,9597613635,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37524,Mr.Mehta Mr.Mehta,"#883,sector-7","#883,sector-7",Panchkula,HR,134109,9815434584,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37523,basha Mahaboob,Bashastreet near one town kurnool,Bashastreet near one town kurnool,Kurnool,AP,518001,9347625646,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37522,Ansari Tahreem,J18/7 salarpura Bari bazaar jaitpura Varanasi,J18/7 salarpura Bari bazaar jaitpura Varanasi,Varanasi,UP,221001,9795858674,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37521,Kalakanagoud Kalakanagoud,Kaatral,Kaatral,Gajendragad,KA,583236,9686834152,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37520,Syedsohail Syedsohail,Johulapuram,Johulapuram,Kurnool,AP,518001,8639670511,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37519,Ram Ram,Opp  kakatiya medical college  Warangal,Opp  kakatiya medical college  Warangal,Warangal,TS,506002,9705542025,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37518,jetu jetu,padasala,padasala,Osian,RJ,342311,6375684998,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37517,Kumar Naveen,V p o Rattangarh KKR haryana,V p o Rattangarh KKR haryana,Shahabad markanda,HR,136135,9991824056,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37516,Manoharan.p Manoharan.p,94.1.Arinar.anna.st,94.1.Arinar.anna.st,Ammapet.selam,TN,636003,9994050840,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37515,Alam Abuzar,Tariyama eid gah chowk,Tariyama eid gah chowk,Simri bakhtiyar pur,BR,852127,9142149580,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37514,Manisha Jain,Plot no 7&8 sail colony Bowenpally Near warangal rice store bapujinagar Shanti Niketan appt,Plot no 7&8 sail colony Bowenpally Near warangal rice store bapujinagar Shanti Niketan appt,Secunderabad,TS,500011,9399951000,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37513,Bist Bist,Graviti Pharma Pvt Ltd lakdaram isnapur,Graviti Pharma Pvt Ltd lakdaram isnapur,Isnapur,TS,502307,9849109056,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37512,Kumar Santosh,Udaipur Varanasi Azamgarh road,Udaipur Varanasi Azamgarh road,Varanasi,UP,221101,9919045983,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37511,Rahul Rahul,The gulmohar garden kukas,The gulmohar garden kukas,Jaipur,RJ,302028,9887447391,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37510,Kasturi Kasturi,Gollapali.p/khariya.aska.ganjam.odissa,Gollapali.p/khariya.aska.ganjam.odissa,Aska,OR,761111,8144328260,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37509,lightwala lightwala,Chowk bazar wada chawta near national bakery muskan palace 5th floor 503,Chowk bazar wada chawta near national bakery muskan palace 5th floor 503,Surat,GJ,395003,9726121431,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37508,Luniya Luniya,203Ecr road Injambakkam,203Ecr road Injambakkam,Chennai,TN,600041,9962152000,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37507,PATEL SINOD,Padao chauraha chaorasiya katara padao,Padao chauraha chaorasiya katara padao,Mughalsarai,UP,221008,8737825498,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37506,HariKrishna HariKrishna,1-41 settipalli Village &post,1-41 settipalli Village &post,Tirupati,AP,517506,9848648887,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37505,singh Harshwardhan,Mata ka than jagdamba calony 2 street,Mata ka than jagdamba calony 2 street,Jodhpur,RJ,342304,8094530003,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37504,Akhil Akhil,Sattenapalli  railway road,Sattenapalli  railway road,Guntur,AP,522403,9032219719,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37503,Muni naik Ramavathu,Rentachithala mallavaram,Rentachithala mallavaram,Andra Pradesh,AP,522421,9182647157,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37502,namdev devare Vyankati,Bus stand bhokar dist nanded,Bus stand bhokar dist nanded,Bhokar,MH,431801,9545110744,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37501,Mushtaq Mushtaq,98/1B Bania pukur road Kolkata 700014,98/1B Bania pukur road Kolkata 700014,Kolkata,DL,700014,9339944501,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37500,Fatema Fatema,"123,kamu yakub bldg, 2nd flr, room no 25,underiya street,chowki mohalla,m s ali roada","123,kamu yakub bldg, 2nd flr, room no 25,underiya street,chowki mohalla,m s ali roada",Mumbai,MH,400008,9769877751,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37499,Negi Negi,Reckong peo  main bazaar near jagat complex,Reckong peo  main bazaar near jagat complex,Reckong Peo,HP,172107,7018754302,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37498,Ravi Gunjji,Sattanpalli,Sattanpalli,Sattanpalli,AP,522403,8309561199,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37497,Shaikh Shaikh,"38/A, dada bhai chawl , behind rangoli time complex , dr baba saheb ambedkar road","38/A, dada bhai chawl , behind rangoli time complex , dr baba saheb ambedkar road",Mumbai,MH,400012,9833328754,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37496,Kumar meena Surendra,Chandwaji jodhpur mister Bandar,Chandwaji jodhpur mister Bandar,Jaipur,RJ,303104,9664446578,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37495,Shekar Shekar,Bhuchinelly,Bhuchinelly,Zaheerabad,TS,502220,8179885957,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37494,Ramanjaneyulu G.,Narasaropeta,Narasaropeta,Narasaraopet,AP,522613,6303346595,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37493,भोलु भोलु,टुमपार चौराहा,टुमपार चौराहा,272264,BR,272164,8174895509,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37492,gurjar gurjar,Indra colony karauli,Indra colony karauli,Karauli,RJ,322242,6367518949,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37491,Venkatarao Nainala,Inamanamellore,Inamanamellore,Ongole,AP,523211,9949952095,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37490,Aarti Aarti,217 c block model town sec 126 mohali,217 c block model town sec 126 mohali,Sas nagar,PB,140301,8506906768,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37489,Manikandan Manikandan,Selam 15 kichipalayam Saniyac Kundu main road,Selam 15 kichipalayam Saniyac Kundu main road,Selam,TN,600015,9487970332,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37488,kaushal Ishu,Rain basera lal bag kaithu,Rain basera lal bag kaithu,Shimla,HP,171001,7876178027,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37487,SRIKANTH ROKULA,PARIMALA COLONY ROAD NO:1. OPP: SBI PARIMALA COLONY BRANCH,PARIMALA COLONY ROAD NO:1. OPP: SBI PARIMALA COLONY BRANCH,"HANMKONDA,WARANGAL",AN,506370,9985096398,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37486,Reddy Kiran,Govt hospital near ahoblim road,Govt hospital near ahoblim road,Allagadda,AP,518543,6281270220,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37485,Vansh Vansh,Surya gas godam,Surya gas godam,Meerut,UP,'12345,8445106534,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37484,Angel Angel,Bhuiyadih Shanti nagr,Bhuiyadih Shanti nagr,Jamshedpur,JH,831009,9471133915,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37483,Mohapatra Satyabrata,"Samrat niwas, Bajrang Nagar, Near Sub-Jail","Samrat niwas, Bajrang Nagar, Near Sub-Jail",Chatrapur,OR,751020,7978156849,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37482,Yesuraju Yesuraju,Bandagattu,Bandagattu,Gonagandla,AP,518465,9398533133,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37481,Yesuraju Yesuraju,Banddagattu (g) Devanakondda (m) kurnool (d),Banddagattu (g) Devanakondda (m) kurnool (d),Banddagattu (g),AP,518465,9398533133,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37480,Kumar Pintu,Chata more,Chata more,Aurangabad e,BR,824102,7061789422,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37479,Priti Priti,H6/37 outer circle road South park bistupur jamshedpur,H6/37 outer circle road South park bistupur jamshedpur,Jamshedpur,JH,831001,9304870208,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37478,Roy Bapi,Bishnupur,Bishnupur,Bishnupur,WB,722122,8918615900,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37477,Happy Happy,Barotti,Barotti,Hoshiarpur,PB,146024,9876411500,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37476,bishnoi Krishna,B 29 amardeep complex falashruti nagar near Patel super market station road Bharuch,B 29 amardeep complex falashruti nagar near Patel super market station road Bharuch,Bharuch,GJ,392001,9521644529,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37475,Gurjar Dharmichand,Balaji dhram kanta Baghera Choraya kekri,Balaji dhram kanta Baghera Choraya kekri,Kekri,RJ,305412,9057525191,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37474,Sakshi Sakshi,Fatehabad jagjivan pura,Fatehabad jagjivan pura,Fatehabad,HR,125050,8222876455,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37473,Hussain Sartaj,Uttar Pradesh Lakhimpur khiri Eidgah road aawam telecom ke pass,Uttar Pradesh Lakhimpur khiri Eidgah road aawam telecom ke pass,Lakhimpur khiri up,UP,262701,8787266934,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37472,kolpe Vishal,Hangewadi Nhavra road hangewadi,Hangewadi Nhavra road hangewadi,Anagar,MH,414701,9172563661,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37471,kolpe Vishal,Hangewadi Nhavra road hangewadi,Hangewadi Nhavra road hangewadi,A.nagar,MH,414701,9172563661,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37470,Srinuvas Srinuvas,Rajam pogeri village,Rajam pogeri village,SRIKAKULAM,AP,532148,9866426779,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37469,Raju Raju,Purvak plaza Jagat farm RJ jewellers,Purvak plaza Jagat farm RJ jewellers,Greater Noida,UP,201309,8178919145,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37468,singh Jagveer,Village salemgarh tehsil moonak district Sangrur Punjab,Village salemgarh tehsil moonak district Sangrur Punjab,Salemgarh,PB,148033,9041139719,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37467,Safeena Safeena,Mahanagr civil hospital near mandir,Mahanagr civil hospital near mandir,Lucknow,UP,226006,7054392131,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37466,Moideen Labeeba,New kakkadam hoise ichilangod,New kakkadam hoise ichilangod,Kasaragod,KL,671324,9497883823,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37465,Anam Anam,Sarai bhaleem rajputaan meerut,Sarai bhaleem rajputaan meerut,Meerut,UP,250002,8439324046,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37464,Pavanyadav Pavanyadav,Kurtala gopalpura,Kurtala gopalpura,Kurtala gopalpura,UP,285121,9936830192,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37463,Sheikh Arshad,At wadsa desaignaj gadchiroli,At wadsa desaignaj gadchiroli,Wadsa,MH,441207,7666733709,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37462,Hid Hid,Dr bhimram abhektar school ढोमपुर,Dr bhimram abhektar school ढोमपुर,Badlapur,UP,222125,9766256211,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37461,meena Veersingh,RSA herboceutical company sitapura jaipur,RSA herboceutical company sitapura jaipur,Jaipur,RJ,302033,7340596528,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37460,Sudheesh Sudheesh,P.o.muliyar,P.o.muliyar,Kasaragod,KL,671542,9037375959,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37459,Babu Suresh,"Gopalanagar 1St lane,opp-church,ongole","Gopalanagar 1St lane,opp-church,ongole",Ongole,AP,523001,9948866429,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37458,reddy Yugandhar,Bengaluru,Bengaluru,Bengaluru,KA,560037,9550420343,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37457,Sunil Sunil,Dhamtan sahib dist jind teh narwana,Dhamtan sahib dist jind teh narwana,Narwana,HR,126116,9373652802,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37456,nagar Chandan,Utkal hall,Utkal hall,Berhampur,OR,760002,7735337606,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37455,Mahi Mahi,Jain Hospital khanna,Jain Hospital khanna,Khanna,PB,141401,6283518885,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37454,choudhary Raj,Dudu,Dudu,Jaipur,RJ,303008,9983614417,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37453,singh 3 Fateh,V.k.i fire road no 1,V.k.i fire road no 1,Jaipur,RJ,302012,7742101967,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37452,meena Prakash,Jdvvnl AEN office Ahore,Jdvvnl AEN office Ahore,Ahore,RJ,307029,9950610505,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37451,Srihari Srihari,Jadcherla badepally SBI Bank,Jadcherla badepally SBI Bank,Mahbubnagar,TS,509301,8639835104,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37450,Srinivas Srinivas,Bhainsa,Bhainsa,Bhainsa,TS,504103,8106418967,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37449,Mahi Mahi,Bihar samastipur tajpur manchaha sut calecsen rajdhani rod,Bihar samastipur tajpur manchaha sut calecsen rajdhani rod,Samastipur,BR,848131,9102503084,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37448,Anjum D Zeba,"#54A,5th cross CVP block ward no 34 1st Main Road, rt nagar post, krishnappa block","#54A,5th cross CVP block ward no 34 1st Main Road, rt nagar post, krishnappa block",Bangalore,KA,560032,9035273468,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37447,Kumar Rakesh,Ramkrishana nagr,Ramkrishana nagr,Patna,BR,800026,8235638463,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37446,zishan Mohd,Karula Khwaja Nagar Muradabad,Karula Khwaja Nagar Muradabad,Muradabad,UP,244001,8865094382,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37445,Kumar meena Anil,Gopi nath mandir ke pass,Gopi nath mandir ke pass,Jaipur,RJ,302001,8058073046,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37444,Shaikh Shaikh,Haripura gummaj wali masjid near abu chacha chikan shop,Haripura gummaj wali masjid near abu chacha chikan shop,surat,GJ,395003,9978239083,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37443,dhar Poulomi,"House of Rekha seal, M20, BT road, opposite sarbobharotiyo trinomul congress club. Benachity durgapur","House of Rekha seal, M20, BT road, opposite sarbobharotiyo trinomul congress club. Benachity durgapur",Durgapur,WB,713213,9004997291,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37442,Rajarapu Rajarapu,Yellareddyguda near padala law college,Yellareddyguda near padala law college,Yellareddyguda oposite Law college,TS,500018,6304686978,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37441,Amer Amer,Ahmed Masjid,Ahmed Masjid,Bohdan,TS,503185,8885026991,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37440,shaikh Naseem,Khana compound Bhim nagar Malad Malwani west gate no 6,Khana compound Bhim nagar Malad Malwani west gate no 6,Mumbai,MH,400095,9326977761,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37439,S SIVAKUMAR,Sathapadi,Sathapadi,Virudhachalam,TN,606103,9626067964,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37438,Manoj Manoj,Gulbaitekara Badhiya Dev Mandir Puja falet,Gulbaitekara Badhiya Dev Mandir Puja falet,Ahmedabad,GJ,380015,9724393712,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37437,Ganpat Ganpat,Sadormangla,Sadormangla,Bangalore,KA,560067,9916245736,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37436,Singh Baldev,Kuftadhar HPSEBL Shimla,Kuftadhar HPSEBL Shimla,Shimla,HP,171003,8219701196,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37435,kumar Bittu,Alipur ular,Alipur ular,Patna,BR,801102,9102468901,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37434,Tasneem Tasneem,Meena nagar/ bhongir,Meena nagar/ bhongir,Hyderabad,TS,243784,9030769786,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37433,kumar Bittu,Alipur ular,Alipur ular,Patna,BR,801102,9102468901,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37432,anjum Sofiya,Tulsipur Ram nagar Hanuman mandir gali madrash ke pass,Tulsipur Ram nagar Hanuman mandir gali madrash ke pass,Rajnandgaon,CG,491441,9098561615,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37431,methani Bhavna,Sadhu Vaswani Nagar house no.156 4 B Landmark: natural wing park,Sadhu Vaswani Nagar house no.156 4 B Landmark: natural wing park,"Adipur, gandhidham",GJ,370205,8780175151,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37430,Kumar Laxman,Chw forge pvt ltd unit1 maliwada gaziyabad,Chw forge pvt ltd unit1 maliwada gaziyabad,Gaziyabad,UP,201001,9540086150,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37429,cs Deepak,Oppsit boys junior collage. Jai bim nagara road. Arkalgud (t). Hassan (d)...,Oppsit boys junior collage. Jai bim nagara road. Arkalgud (t). Hassan (d)...,Arkalgud (t) hassan (d)....,KA,573201,7259822209,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37428,Neha Neha,Chota para Bristol chowk janta colony golden I hotel,Chota para Bristol chowk janta colony golden I hotel,Raipur,CG,492001,8454037895,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37427,M G Ganesh,"Sulibele , hoskote","Sulibele , hoskote","Hoskote, banglore",KA,562129,8431985256,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37426,Kantharaju Kantharaju,Kurubarahalli,Kurubarahalli,Tumkur in,KA,572138,6362173432,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37425,Gopi Sirigiri,Thallada,Thallada,Thallada,TS,507167,8919784887,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37424,Osman ali Naima,8-1-398/pm/227,8-1-398/pm/227,Hyderabad,TS,000000,7032707348,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37423,khan Menshu,Kashi Ram lulai chanit Lucknow,Kashi Ram lulai chanit Lucknow,Lucknow,UP,226028,8887783684,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37422,Kumar Kumar,Sundarpatti,Sundarpatti,Motiha,BR,845414,8102050288,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37421,S goud M,Thumalasugur,Thumalasugur,Nagarkarnool,TS,000025,8897598300,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37420,Tuba Tuba,#10 2nd main road 1st block east jaynagar Byrasandra Bangalore 560011,#10 2nd main road 1st block east jaynagar Byrasandra Bangalore 560011,Bangalore,KA,560011,9380696820,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37419,Prakash Prakash,Bachupalli svm grand hotel,Bachupalli svm grand hotel,Hyderabad,TS,500090,8978876137,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37418,Riya Riya,Plot no 27 dadi ka fatak near Diwakar public schooo deep nagar jaipur,Plot no 27 dadi ka fatak near Diwakar public schooo deep nagar jaipur,JAIPUR,RJ,302039,8114431410,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37417,Chand Ramesh,Village dhani batota,Village dhani batota,Narnaul,HR,123001,9466535221,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37416,Appala naidu B.,Rvr camp 5in colloony rvr comp ocp3 ramagundam telangana,Rvr camp 5in colloony rvr comp ocp3 ramagundam telangana,Ramagundam,TS,505209,6300960810,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37415,sarkar Nuralam,Ruhi,Ruhi,Baharampur,WB,742302,9635122620,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37414,Tabassum Tabassum,37 sansar Appartment 37 topsia road,37 sansar Appartment 37 topsia road,Kolkata,WB,700039,9123924317,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37413,Siddu Siddu,Government hospital tukkanatti,Government hospital tukkanatti,Gokak,KA,591224,8792167578,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37412,tandi Dinesh,Urja ram tandi.tandiyo ki dhani badliya.jodhpur.lunawas kallan.rajasrhan,Urja ram tandi.tandiyo ki dhani badliya.jodhpur.lunawas kallan.rajasrhan,Jodhpur,RJ,342001,7734049084,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37411,Jahid.tyagi Jahid.tyagi,Bahrora.katheor.meerut,Bahrora.katheor.meerut,Meerut,UP,250106,9412453797,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37410,sheikh Shahid,Plot no 15 lok Bhartiya Nagar zinhabhai takli Nagpur,Plot no 15 lok Bhartiya Nagar zinhabhai takli Nagpur,Nagpur,MH,440030,9372395293,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37409,Sudhakar Sudhakar,1/82 jagir reddi patti salem _5,1/82 jagir reddi patti salem _5,Tamilnadu,TN,636302,7806951849,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37408,Sudheer Sudheer,Sudheer.Achu.vaniyapurayil,Sudheer.Achu.vaniyapurayil,Thodupuza.edavetty,KL,685588,9895365170,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37407,Chandra Radhe,Bhutiya,Bhutiya,Shakti,CG,465690,7999978112,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37406,Shahina Syed,Chhote Masjid ke pass Rajgarh MP byavara,Chhote Masjid ke pass Rajgarh MP byavara,Rajgarh MP,MP,465661,9109796596,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37405,Vijayaraj Vijayaraj,3/94 kumaragiri,3/94 kumaragiri,தூத்துக்குடி,TN,628716,6383784149,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37404,kumar NITISH,Shivalik college of engineering,Shivalik college of engineering,Singhniwala,UK,248197,7209647683,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37403,Firoz Firoz,Chhindwara,Chhindwara,Chhindwara,MP,480001,9691793366,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37402,meersa Sk,Halal dum biryani,Halal dum biryani,Narasarao pet,AP,522601,8688337916,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37401,Firoz Firoz,Chhindwara,Chhindwara,Chhindwara,MP,480001,9691793366,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37400,Arockiasamy Arockiasamy,"Kknagar,kalayarkoil","Kknagar,kalayarkoil",Kalayarkoil,TN,630551,6379987726,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37399,goel Sushma,"93,Narkeldanga Main Road phool bagan kadapara rare earth Tower 3 20B","93,Narkeldanga Main Road phool bagan kadapara rare earth Tower 3 20B",Kolkata,WB,700054,9830089351,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37398,Vinod Kumar K,13-3-714/2,13-3-714/2,HYDERABAD,TS,500006,8143500020,Clothing,1,COD,1499,0.5,13,13,13,1499,1499,HID0065
+37397,Pandey Aparna,Uttari pateri umari short,Uttari pateri umari short,Satna,MP,485001,9399254041,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37396,Paulsamy Paulsamy,190 csi street ponnapuram,190 csi street ponnapuram,Dharapuram,TN,638657,9942124317,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37395,Sreenu T.,"Valluru, opposite Valuramma temple, Tangutur mandel, ongole, prakasam","Valluru, opposite Valuramma temple, Tangutur mandel, ongole, prakasam",Ongole Valluru village,AP,523272,9989427096,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37394,S.mastan S.mastan,Nambulapula kunta,Nambulapula kunta,Nambulapula kunta,AP,515521,9866897803,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37393,Singh Harman,Lakhimpur Kheri nighasan singahi bhirora,Lakhimpur Kheri nighasan singahi bhirora,Nighasan,UP,262905,9653033476,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37392,Osum Taba,Doimukh,Doimukh,India,AR,791112,8099610272,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37391,yadav Richa,"108 Mangal murti nagar,Bangali sqare","108 Mangal murti nagar,Bangali sqare",Indore,MP,452001,8103797574,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37390,Santhosh Santhosh,Muttathara Ponnara school,Muttathara Ponnara school,Tvm,KL,695009,9633750367,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37389,Dabbu Dabbu,Bhusawar. Ghatri .taragwan,Bhusawar. Ghatri .taragwan,Bhusawar,RJ,321409,6375594718,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37388,SINGH SUKHDEV,SULCHANI,SULCHANI,NARNAUND,HR,125038,9992258785,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37387,Lal gadri Bheru,Gadri molha,Gadri molha,Bhilwara,RJ,311802,9370712961,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37386,kollakarthika kollakarthika,Bhavani Hospital Rd,Bhavani Hospital Rd,Vijayawada,AP,520012,9676128656,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37385,Banerjee Sasanka,Narayanpur Motinagar,Narayanpur Motinagar,Kolkata,WB,700136,7003602764,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37384,chitturi anand,Peddamberpet,Peddamberpet,Pedda Amberpet,TS,501505,9963045672,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37383,Kumar Vinay,Horil Chapra,Horil Chapra,Shahpur,BR,802165,8862937439,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37382,parída Prasañt9⁹⁹a,Ekdal po padmabatipúr,Ekdal po padmabatipúr,Talcher,OR,759103,9348473688,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37381,Ankita Ankita,Singhkian vala mohalla sunam h no 249 ward no 1 sunam,Singhkian vala mohalla sunam h no 249 ward no 1 sunam,Sunam,PB,148028,8054201199,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37380,PRASATH.R PRASATH.R,"15/1, JAYALAKSHMI NAGAR 2ND STREET, GOLDEN NAGAR","15/1, JAYALAKSHMI NAGAR 2ND STREET, GOLDEN NAGAR",TIRUPPUR,TN,641607,9994767664,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37379,Roy Beena,Nirmalya Thachoorku nu Avanavancherry,Nirmalya Thachoorku nu Avanavancherry,Attingal,KL,695101,9567099870,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37378,Sakthi Sakthi,"4/144 Pillaiyar Kovil Street,Pudur","4/144 Pillaiyar Kovil Street,Pudur",Tirunelveli,TN,627851,9688587918,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37377,karthik Ar,"Baba metta, home no,:335,opposit vigyana bharathi school","Baba metta, home no,:335,opposit vigyana bharathi school",Vizianagaram,AP,535002,6300491831,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37376,Aqeel Aqeel,Amoli kla ramnagar Barabanki Uttar Pradesh,Amoli kla ramnagar Barabanki Uttar Pradesh,Barabanki,UP,225240,6394643521,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37375,Rangrej Rangrej,New bazar chomu,New bazar chomu,Chomu,RJ,303702,9672918360,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37374,Vinay Vinay,Irkigudem,Irkigudem,Irkigudem,TS,508355,8309468730,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37373,ખાન સોહિલ,પાલનપુર નવાગંજ,પાલનપુર નવાગંજ,પાલનપુર,GJ,385001,8200177992,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37372,dhere Saurav,Ycm hospital near bjs school back said get pimpri,Ycm hospital near bjs school back said get pimpri,Pimpri,MH,411018,7219580926,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37371,swamy merugu Linga,Velej..Jajiredygudem dst.. suryapeta,Velej..Jajiredygudem dst.. suryapeta,Paleturu,TS,508222,6303029009,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37370,B.Rambabu B.Rambabu,Nimmatorlawada,Nimmatorlawada,Srikakulam,AP,532185,8465962112,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37369,Behera Chandrasekhar,"At,Mukameswer, po, uttampur di,Cuttack","At,Mukameswer, po, uttampur di,Cuttack",Cuttack,OR,753011,9937070155,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37368,Chouhan Manisha,Birla gram nagda e block Makan no. 407,Birla gram nagda e block Makan no. 407,Nagda junction,MP,456331,8839051622,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37367,Mahera Mahera,Ibrahimpur 1 cross near gousiya madrasa old hubli,Ibrahimpur 1 cross near gousiya madrasa old hubli,Hubli,KA,580009,8660807910,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37366,kumar Alkesh,Saifai shahjahanpur kalpna nand college,Saifai shahjahanpur kalpna nand college,Safai,UP,206130,8006150352,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37365,Gopinath Gopinath,Siva mani Tiffin sentar Sampat nagar RamNaam shetram mein road Guntur,Siva mani Tiffin sentar Sampat nagar RamNaam shetram mein road Guntur,City,AP,'2424,6304178579,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37364,Ahmad Zubair,L635 Sahstri nagar near Santosh hospital hapur road meerut,L635 Sahstri nagar near Santosh hospital hapur road meerut,Meerut,UP,250002,9058075974,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37363,MORE TUKARAM,Aaba ksk अक्कलकोट,Aaba ksk अक्कलकोट,Akkalkot,MH,413216,7972447570,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37362,Kuldeep Kuldeep,Lohawat,Lohawat,Jodhpur,RJ,342302,6376139640,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37361,Ayyappa Ayyappa,Katheru,Katheru,Rajahmundry,AP,533105,8096895506,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37360,Sukhvirk Sukhvirk,Powayan,Powayan,Shahjahanpur,UP,242401,8739099302,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37359,Lakshmi Lakshmi,"Lakshmi Nagar,  2nd street, PN Road, Tirupur","Lakshmi Nagar,  2nd street, PN Road, Tirupur",Tirupur,TN,641602,9994473555,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37358,Yadav Omkar,Salori PRAYAGRAJ,Salori PRAYAGRAJ,Pragyaraj,UP,211002,8881067005,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37357,rajesh Dasari,Singannagudem,Singannagudem,Agitipalli,AP,521211,8074808018,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37356,Gupta Dhanvi,"Moh. Ramlila l, Mathur Road, Baheri","Moh. Ramlila l, Mathur Road, Baheri",Bareilly,UP,243201,8218913953,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37355,Bhojwal Pooja,Deoria sonughat,Deoria sonughat,Deoria,UP,274001,8115861276,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37354,वसीम वसीम,नूहू जीला मवात,नूहू जीला मवात,Nuh,HR,122107,9671838285,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37353,Sive Gudu S.,Gop to konark rod begunia market,Gop to konark rod begunia market,Konark,OR,752001,9692894017,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37352,Lokesh Lokesh,Hassan b m road near smart bazar,Hassan b m road near smart bazar,Hassan,KA,573201,9663223691,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37351,khana Suhana,Ward no.19 mewati mohal Akbarpur kanpur dehat,Ward no.19 mewati mohal Akbarpur kanpur dehat,Akbarpur,UP,209101,7007522174,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37350,unnisa Ishrath,Old mallapur,Old mallapur,Hyderabad,TS,500001,8897262322,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37349,Mahto Surendra,Shivam कलेक्शन turup  Ranchi Jharkhand,Shivam कलेक्शन turup  Ranchi Jharkhand,Ranchi,JH,835103,7462011224,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37348,Dinesh Dinesh,Ukeri bhuda,Ukeri bhuda,मंडावर,RJ,301409,7424859896,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37347,Raju Burile Roshan,Nikade bhavn,Nikade bhavn,Highanghat,MH,442301,9284169267,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37346,Kumar Singh Ankit,ESAF small finance Bank Panckoshi Sarnath road Varanasi,ESAF small finance Bank Panckoshi Sarnath road Varanasi,Varanasi,UP,221007,7905099438,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37345,Mudhiraj Harish,Jillelaguda satya sai nagar colony R.no 11,Jillelaguda satya sai nagar colony R.no 11,Hyderabad,TS,500097,9014898275,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37344,tajmul islam Sk,Purba Medinipur,Purba Medinipur,Panskura,KA,721152,7430943886,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37343,Meena Meena,Mundli,Mundli,Jaipur,RJ,303908,7568029141,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37342,Sanjay Sanjay,Ramkishan colony naya bas,Ramkishan colony naya bas,Alwar,RJ,301001,8619152830,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37341,Meena Meena,Ramkishan colony naya bas,Ramkishan colony naya bas,Alwar,RJ,301001,8619152830,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37340,Meena Meena,Ramkishan colony,Ramkishan colony,Alwar,RJ,301001,8619152830,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37339,pal Arvind,Singrauli men road selvar doaler Hotel near ke paas chahiye madhay Pradesh Singrauli,Singrauli men road selvar doaler Hotel near ke paas chahiye madhay Pradesh Singrauli,Singrauli men road selvar doaler Hotel near ke paas chahiye madhay Pradesh Singrauli,MP,486889,7611179336,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37338,Dineshkumar Dineshkumar,Putukkottai.illuppur.kathavampatti.ayyanar kovil,Putukkottai.illuppur.kathavampatti.ayyanar kovil,Illuppur,TN,622001,7806855345,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37337,Hemu Hemu,Dc-1123 Dabua colony,Dc-1123 Dabua colony,Faridabad,HR,121001,9953137317,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37336,mahesh Chintha,Thondalvai,Thondalvai,Nkp,TS,508254,9989627516,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37335,Jayachandra Jayachandra,Hina two wheeler showroom by pass Nellore road Badvel.kadapa.ap.,Hina two wheeler showroom by pass Nellore road Badvel.kadapa.ap.,Badvel,AP,516227,9398538376,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37334,Ahuja Neha,1207 sector 7 extension near Vivekananda school,1207 sector 7 extension near Vivekananda school,Gurgaon,HR,122001,9711126851,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37333,longjam Thajanganbi,Khurai Puthiba leikai imphal east,Khurai Puthiba leikai imphal east,Imphal,MN,795010,8837421434,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37332,Ayesha Ayesha,"9, Near Jayshree Balaji Apartment, Idgha hills, Bhopal","9, Near Jayshree Balaji Apartment, Idgha hills, Bhopal",Bhopal,MP,462001,9993035349,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37331,Alka Alka,"E-001, Raheja , Atlantis","E-001, Raheja , Atlantis",Gurgaon,HR,122002,8800366769,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37330,Abhishek Abhishek,Chandar nagar maldhan chaur ramnagar,Chandar nagar maldhan chaur ramnagar,Nainital,UK,244715,7088712265,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37329,Kishan Kishan,Ic colony borivali best,Ic colony borivali best,Mumbai,MH,400103,9820338441,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37328,Pradhan Sunil,Lava kera rod  saraitoli chouk,Lava kera rod  saraitoli chouk,Kotba,CH,496245,7987264261,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37327,Priyanka Priyanka,Khushal homez,Khushal homez,Gurugram,HR,122001,7011070587,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37326,Singh Manjeet,Bholath,Bholath,Bholath,PB,144622,8146529151,Clothing,1,COD,699,0.5,13,13,13,699,699,HID0065
+37325,Nakir Md,Minikappil near riffayae jumamasjid,Minikappil near riffayae jumamasjid,vengara,KL,676304,8590118730,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37324,Karan Karan,Dhamotar,Dhamotar,Ratlam,MP,457222,9752660028,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37323,Lal Bairwa Rinku,"NH-21 ,Vill-sanwas, post-mariyada, tel-sikrai, dist-dausa, state-Rajasthan,","NH-21 ,Vill-sanwas, post-mariyada, tel-sikrai, dist-dausa, state-Rajasthan,",Bandikui,RJ,303326,9530229635,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37322,brahmam Guru,"B.v.r nagar , Badvel","B.v.r nagar , Badvel","BADVEL, kadapa",AP,516227,9014396024,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37321,Pintu Pintu,Mandal,Mandal,Bhilwara,RJ,311403,9079028439,Clothing,1,COD,799,0.5,13,13,13,799,799,HID0065
+37320,Agrawal Agrawal,43 bag chhingamal bank of india wali gali firozabsd,43 bag chhingamal bank of india wali gali firozabsd,Firozabad,UP,283203,7983708612,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37319,saha Rahul,Sahapur bajar,Sahapur bajar,Islam pur,WB,733210,8695315893,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37318,Minu Minu,Baglur main road tamil nadu,Baglur main road tamil nadu,Malur,TN,563130,7483312975,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37317,Dukiya Harish,Gotan,Gotan,Gotan,RJ,342902,8690132792,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37316,Meena Manju,A3 rainbow colony budhsinghpura sanganer,A3 rainbow colony budhsinghpura sanganer,Jaipur,RJ,302017,7852892392,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37315,Mohit Mohit,Shop no.44 punchat bhawan civil line gurugram,Shop no.44 punchat bhawan civil line gurugram,Gurugram,HR,122001,8178204002,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37314,Raktade Raktade,Shirguppi tal nipani,Shirguppi tal nipani,Nipani,KA,591237,8356088729,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37313,iqra Sayyad,Shankar seth road 180 ghorpadi peth Pune 42,Shankar seth road 180 ghorpadi peth Pune 42,Pune 42,MH,411042,9284163321,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37312,Kalusig.rathod Kalusig.rathod,Sitavada boriya,Sitavada boriya,Partij,GJ,383205,6352322040,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37311,Navas Navas,Sadath manzil,Sadath manzil,Attingal,KL,695103,7736426214,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37310,Bhardwaj Bhardwaj,Uttam nagar loharu road chara mandi,Uttam nagar loharu road chara mandi,Bhiwani,HR,127021,8816027026,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37309,kumar Devender,"Nagla charandas  near cho, hospital","Nagla charandas  near cho, hospital",Noida,DL,201304,9818831363,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37308,Prakash Bhanu,Khammam Dmart jublipura,Khammam Dmart jublipura,Khammam,TS,507001,9346430570,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37307,Kumar Kumar,Basava Patna,Basava Patna,Village,KA,573113,9980746853,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37306,Jitesh Jitesh,Ambika library,Ambika library,Jaipur,RJ,302015,6608960009,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37305,Chauhan Parul,Chauhan boutique gumma near bus stop gumma,Chauhan boutique gumma near bus stop gumma,Gumma,HP,171202,9671128738,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37304,Kumar Bipin,Kali asthan Piroe,Kali asthan Piroe,Bihar,BR,844114,7493945865,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37303,Yusuf Yusuf,Chapirevula (v)nandyal(m),Chapirevula (v)nandyal(m),Nandyal,AP,518502,9705082764,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37302,Krish Krish,44/573-1,44/573-1,Rayachoty,AP,516269,9533853388,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37301,jabir Md,Chakla ne Malli Supaul near Majid ward number 26,Chakla ne Malli Supaul near Majid ward number 26,Supaul,BR,852131,6201782697,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37300,Nareshkumar Nareshkumar,Chhichhrana,Chhichhrana,Gohana,HR,131301,9813718634,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37299,Krishna lal Sunilkambojtech,Bansal Hospital Sirsa Haryana,Bansal Hospital Sirsa Haryana,Sirsa,HR,125055,8607523697,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37298,choudhary Subhi,Mahadev mandir bhatnokha,Mahadev mandir bhatnokha,Nagaur,RJ,341028,9783101807,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37297,Hasina Bano Begu,Lukerganj prayagraj darbari vidyawati school,Lukerganj prayagraj darbari vidyawati school,Prayagraj,UP,211016,8052154099,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37296,yadav Shubham,Rayan Mustafabad jaunpur,Rayan Mustafabad jaunpur,Jaunpur,UP,222143,9026289687,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37295,Sonal Sonal,New Shakti vihar gali no.4 rudrapur,New Shakti vihar gali no.4 rudrapur,Rudrapur,UK,263153,9548541551,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37294,Krishna Krishna,Ujjelli,Ujjelli,Ujjelli,TS,509208,9010144930,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37293,Dayal Sain Deen,A 304 saraswati Nagar basni jodhpur,A 304 saraswati Nagar basni jodhpur,Jodhpur,RJ,342005,9460551199,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37292,Yogesh Yogesh,Fabbra chok gangapur city,Fabbra chok gangapur city,Gangapur city,RJ,322201,9667628717,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37291,kaushik Suraj,Semri Post office Singhri Bilaspur cg...495442,Semri Post office Singhri Bilaspur cg...495442,Ratanpur Bilaspur,CG,495442,6264330463,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37290,Valli Showkat,Raju Nagar colony pillar,Raju Nagar colony pillar,Piler,AP,517214,9704680557,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37289,Harry Harry,Barkat nager gali no 2near by SBI atm,Barkat nager gali no 2near by SBI atm,Jaipur,RJ,302050,9079755684,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37288,Saumya Saumya,20/10 benajhabar purani lal colony idgah,20/10 benajhabar purani lal colony idgah,Kanpur,UP,208002,9129504002,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37287,Yadav Ashok,Kotturu ujjaini circle,Kotturu ujjaini circle,Kotturu,KA,583134,6363905972,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37286,Mani Sundaresan,Gurubavanigunda,Gurubavanigunda,Therupathur,TN,635852,7358847167,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37285,Sharma Nitin,1195 Vivekanand nagar Ghaziabad,1195 Vivekanand nagar Ghaziabad,Ghaziabad,UP,201002,7011608181,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37284,Magaram Magaram,Rampura chowk udaipur,Rampura chowk udaipur,Udaipur,RJ,323001,7851057442,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37283,Kumar Rajesh,Adhivakta colony sign dham manjhanpur Kaushambi Uttar Pradesh,Adhivakta colony sign dham manjhanpur Kaushambi Uttar Pradesh,Manjhanpur Kaushambi,UP,212207,6388878349,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37282,khan Bismilla,1/64 palli vasal street,1/64 palli vasal street,Ramanathapuram,TN,623521,720092708,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37281,Krishna Krishna,Ujjelli,Ujjelli,Ujjelli,TS,509208,9010144930,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37280,sujit sahu,Madan mohan pada,Madan mohan pada,Angul,OR,759122,7894420379,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37279,Beja Bhagaban,Khariaguda men rod,Khariaguda men rod,Khariaguda,OR,761209,8984631125,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37278,Kinjal Kinjal,"A-302 ,sidhivinayak green,near j.b Dimond school,pasodra,Surat","A-302 ,sidhivinayak green,near j.b Dimond school,pasodra,Surat",Surat,GJ,394184,8469039510,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37277,kumar kumar,Belwara,Belwara,Saharsa,BR,852106,7667721795,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37276,hafezi hafezi,1/2077 nanpura barahajari street Jafar sahid dargah k paas,1/2077 nanpura barahajari street Jafar sahid dargah k paas,Surat,GJ,395001,7575037642,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37275,Kumar Manoj,Dr colony sivil Laine Rudrapur,Dr colony sivil Laine Rudrapur,Rudrapur,UK,263153,8006752625,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37274,golakoti Surendra,T CHALLAPALLI,T CHALLAPALLI,Amalapuram,AP,533213,9391900032,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37273,Patil Patil,Bhavya beauty planet karbhav  road,Bhavya beauty planet karbhav  road,भिवंडी,MH,421302,9373046368,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37272,kumawat gagan,near SVM college bhaija ki dhani jobner,near SVM college bhaija ki dhani jobner,jaipur,RJ,303328,9887298932,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37271,Vijayalakshmi Vijayalakshmi,1421 c block New kanniyaman nager mori avadi,1421 c block New kanniyaman nager mori avadi,Chennai,TN,600055,7358434397,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37270,jamwal Meenakshi,Jhajjar kotli (dami),Jhajjar kotli (dami),Jammu,JK,181221,9596710114,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37269,naveen Konda,Naleshwar,Naleshwar,Nizamabad,TS,503246,8106015081,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37268,Ashish Ashish,Rupouli bhawanipur,Rupouli bhawanipur,Purnia,BR,854204,7004562909,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37267,Rajpal Rajpal,Soyala jodhpur rajasthan,Soyala jodhpur rajasthan,JODHPUR,RJ,342029,7877060347,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37266,Kumar T.pavan,"HH63+2G6, Unnamed Road, Thumukunta, Devarayamjal, Telangana 500078","HH63+2G6, Unnamed Road, Thumukunta, Devarayamjal, Telangana 500078",Sahmeerpeet,TS,500078,7702303812,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37265,Ak Jubairiya,Ak house (po) Kakkayangad,Ak house (po) Kakkayangad,Iritty,KL,670673,8590233420,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37264,Roopesh Roopesh,Cholakkal,Cholakkal,Areecod,KL,673639,9567188869,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37263,Murali Murali,"Vekatapuram Village, kasirala post, yedamari mandal, chittoor Distinct","Vekatapuram Village, kasirala post, yedamari mandal, chittoor Distinct",Village,AP,517422,8897209950,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37262,Kumar Gurjar Sandeep,Gurjar flex printers kotputli,Gurjar flex printers kotputli,Kotputli,RJ,303105,7742617316,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37261,sohana Diwan,Wagodiya Navi nagari st depo pacchad,Wagodiya Navi nagari st depo pacchad,Wagodiya,GJ,391760,7359683694,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37260,CHOUDHARY CHOUDHARY,Keru,Keru,JODHPUR,RJ,342420,7877807297,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37259,arya Abhishek,Ramnagar maldhan chair chandar nagar,Ramnagar maldhan chair chandar nagar,Nainital,JH,447015,7088712265,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37258,CHOUDHARY CHOUDHARY,Keru,Keru,JODHPUR,RJ,342024,7877807297,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37257,diwan Sohana,Wagodiya Navi nagari st depo pacchad,Wagodiya Navi nagari st depo pacchad,Wagodiya,GJ,391760,7359683694,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37256,Muskan Muskan,32 chaksha nagar near vidhan sabha defence colony road dehradun,32 chaksha nagar near vidhan sabha defence colony road dehradun,Dehradun,UK,248001,7088504544,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37255,diwan Sohana,Wagodiya Navi nagari st depo pacchad,Wagodiya Navi nagari st depo pacchad,Wagodiya,GJ,391760,7359683694,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37254,verma verma,Ho 23 street no 7 Kirti Nagar back side of grain market,Ho 23 street no 7 Kirti Nagar back side of grain market,Hoshiarpur,PB,146001,9779137566,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37253,Suresh Suresh,Mahadev shop mundwara,Mahadev shop mundwara,Sikar,RJ,332023,9649444736,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37252,Kumar Patel Pawan,"S2/414 Phase II,Krish City Tapukera, Bhiwadi","S2/414 Phase II,Krish City Tapukera, Bhiwadi",Alwer,RJ,301019,8565875077,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37251,sivaram sivaram,Vignan university,Vignan university,Guntur,AP,522213,7337206197,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37250,prajapat Rakesh,Thuni ahiran chaksu jaipur,Thuni ahiran chaksu jaipur,Jaipur,RJ,303901,6377723104,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37249,Nishu Nishu,"Room no 86 ,bk no 30 follower Line near dhanmantri hospital","Room no 86 ,bk no 30 follower Line near dhanmantri hospital",Thane,MH,421001,9021872774,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0065
+37248,m Kabeer,Kochuthattaparamb thuravoor po cherthala aalappuzha,Kochuthattaparamb thuravoor po cherthala aalappuzha,ALAPPUZHA,KL,688532,9037477523,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37247,Sreeramulu Sreeramulu,Marrimakula palli,Marrimakula palli,Marrimakula palli,AP,517297,7013029275,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37246,Basavaraj Basavaraj,Bapuji Nagar Chitradurga NH 13,Bapuji Nagar Chitradurga NH 13,Chitradurga,KA,577528,9916632377,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37245,Ansari Ansari,Mominpur kardhana near halwai talab,Mominpur kardhana near halwai talab,Varanasi,UP,221307,6388265352,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37244,Ganesh Ganesh,Hajipoor (m) nasurlabad (d)kamareddy,Hajipoor (m) nasurlabad (d)kamareddy,Banswada,TS,503301,9390242634,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37243,M.srinivas M.srinivas,19-8-36.kurumwda.Ragasaipet,19-8-36.kurumwda.Ragasaipet,Wgl,TS,506002,9133149495,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37242,jagan Savara,Pattlogam,Pattlogam,Mandasa,AP,532243,8106072340,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37241,Patel Patel,India bull mega mall jodhpur,India bull mega mall jodhpur,Jodhpur,RJ,342005,9116346377,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37240,Velumani Velumani,4/29 cittepalaiyam irumborai,4/29 cittepalaiyam irumborai,Mettupalayam,TN,638459,8148918113,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37239,Patel Rahul,India bull mega mall jodhpur,India bull mega mall jodhpur,Jodhpur,RJ,342005,9116346377,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065
+37238,Aryan Aryan,Mairwa dham,Mairwa dham,Mairwa,BR,841239,9199609039,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0065

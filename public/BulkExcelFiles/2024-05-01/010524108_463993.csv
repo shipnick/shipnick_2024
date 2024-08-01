@@ -1,0 +1,15 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+7204316,Standard,Zubein Buhariwalla,"13 floor  , little heights ,",MUMBAI,MAHARASHTRA,400050,9820024537,,,bD BD TC 60Zoyava Magic Moss,1,999,,PP,0,0.5,13,13,13,999,999,HID0053
+7927519,Standard,Shivam Dixit,I-370,NEW DELHI,DELHI,110041,8810330481,,,WD WD WC60Alpha GPC Choline,1,999,,PP,0,0.5,13,13,13,999,999,HID0053
+3061963,Standard,Ashish Sinkar,"A-1/B-6, First Floor, Avadhoot Nagar, Dahisar East",MUMBAI,MAHARASHTRA,400068,9769393311,,,bd bd tc 60Zoyava Shilajit,1,999,,PP,0,0.5,13,13,13,999,999,HID0053
+6049119,Standard,Siva Nantham,"4/2-Thennilai East, Pugalur Taluk",KARUR,TAMIL NADU,639206,9025100177,,,bd bd wc120 GABA NUTRAHARMONY,1,999,,PP,0,0.5,13,13,13,999,999,HID0053
+6876339,Standard,Prabhleen,02 Gulab Robert Complex,MUMBAI,MAHARASHTRA,400005,9877244011,,,wd wd tc 60 D3 K2 Vitamin!!,1,999,,PP,0,0.5,13,13,13,999,999,HID0053
+4364360,Standard,Nayim Shahdhar,"Shahdhar Manzil, Rangar Stop Khanyar",SRINAGAR,JAMMU & KASHMIR,190002,7006477746,,,WD WD TC 120Nattokinas DOOBLE WOOD,1,999,,PP,0,0.5,13,13,13,999,999,HID0053
+1854738,Standard,Maheshwar Desai,"Bldg A5, Room No 12, Balaji Krupa CHS",Navi Mumbai,MAHARASHTRA,400706,9769315233,,,WDWDTC60Oregano Nutraceuticals,1,999,,PP,0,0.5,13,13,13,999,999,HID0053
+4816369,SecondDay,Purnima,Lal sarak,HANSI,HARYANA,125033,7404476210,,,bd bd tc 60,1,999,,PP,0,0.5,13,13,13,999,999,HID0053
+2362764,SecondDay,Rahul,Rampura mohalla,HANSI,HARYANA,125033,7404476210,,,bd bd tc 60,1,999,,PP,0,0.5,13,13,13,999,999,HID0053
+5685149,SecondDay,Deepak,994/4,HANSI,HARYANA,125033,7404476210,,,bd bd tc 60,1,999,,PP,0,0.5,13,13,13,999,999,HID0053
+5261101,SecondDay,Hunny,Dadal park,HANSI,HARYANA,125033,7404476210,,,bd bd tc 60,1,999,,PP,0,0.5,13,13,13,999,999,HID0053
+1017113,SecondDay,Purnima,Lal sarak,HANSI,HARYANA,125033,7404476210,,,WDWD WC 60Vitamin B1,1,999,,PP,0,0.5,13,13,13,999,999,HID0053
+1025105,SecondDay,Rahul,Rampura mohalla,HANSI,HARYANA,125033,7404476210,,,WDWD WC 60Vitamin B1,1,999,,PP,0,0.5,13,13,13,999,999,HID0053
+6305113,SecondDay,Sourav,Lal sarak,HANSI,HARYANA,125033,7404476210,,,WDWD WC 60Vitamin B1,1,999,,PP,0,0.5,13,13,13,999,999,HID0053

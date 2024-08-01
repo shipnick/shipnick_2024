@@ -1,0 +1,339 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+#81755,Venkatesh Venkatesh,Gonadhavi,Gonadhavi,Village,AP,525863,9121910842,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81385,jaliya Mohan,Nagjiri,Nagjiri,Ujjain,MP,456010,9752048051,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81326,Amaresh Amaresh,Umali hosur,Umali hosur,Manvi,KA,584143,9945159555,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81177,mothad Mansoor,Chinna turakapalem,Chinna turakapalem,Narasaraopeta,AP,522601,9346583017,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#82089,shah Gaurav,Godhra road dahod,Godhra road dahod,DOHAD,GJ,389151,7283814970,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#82086,Yadav Umesh,Parsada,Parsada,Bilaspur,CH,491251,8435822920,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#82085,Sayabann Sayabann,Hurali chikan alli,Hurali chikan alli,Bengaluru,KA,586002,9901376379,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#82082,Ghosh Mithun,Agartala bishalgarh,Agartala bishalgarh,Agartala,TR,799102,8837395239,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#82070,Anshu Anshu,Naka,Naka,Lucknow,UP,226004,9651528156,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#82068,Rohitash Rohitash,Rijccc,Rijccc,Gurugram,UP,122101,7065685938,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#82064,Mohit Mohit,Gardan view,Gardan view,Sura,GJ,395009,9925122827,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#82061,Raj Priyanshu,Sadar than chatra,Sadar than chatra,Chatra,JH,825401,6204100105,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#82060,Jangeera sidhu Dr.,Sooch  Bathinda,Sooch  Bathinda,Bathinda Punjab,PB,517351,7814887950,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#82059,javed Mohammad,Adilabad,Adilabad,Adilabad,TS,504001,8341510275,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#82057,naresh L,Narsaipally,Narsaipally,Naresh,TS,509401,9398286771,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#82055,Styuh Styuh,Kjggyuuih,Kjggyuuih,Blopur,WB,998745,2698266983,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#82054,kumar saw Manjit,Jitpur,Jitpur,Dhanbad,JH,828309,9386597088,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#82053,Rajesh Rajesh,G.mamidada,G.mamidada,G.mamidada,AP,533344,9390899080,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#82052,GNANESHWAR GNANESHWAR,Narayankhed,Narayankhed,Narayankhed,TS,502286,6301441293,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#82048,Babal Babal,Kalyanpura,Kalyanpura,Makrana,RJ,341302,8094093591,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#82043,Subash Remya,Assarivettil,Assarivettil,Kothamagalam,KL,686691,9562077728,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#82042,lal Banshi,Balgi,Balgi,Korba,CG,495454,8821837323,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#82037,Behera Behera,Kapasia,Kapasia,Bolagarh,OR,752066,9668737304,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#82031,Ganesh Ganesh,Amangal,Amangal,Amangal,TS,509321,9121226994,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#82029,pal ramavatr,R,R,3,AN,221101,9653030984,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#82025,Ashraf Mohd,Muntajipur,Muntajipur,Prayagraj,UP,221505,840050167,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#82021,Sivan Sivan,Sks pahayannur,Sks pahayannur,Pazhayannur,KL,680587,9961142819,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#82017,Satish Satish,Peddagantada,Peddagantada,VISAKHAPATANAM,AP,530044,9666911313,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#82014,Sankar Sankar,Mookkareddipatti,Mookkareddipatti,Mookkareddipatti,TN,636905,8667297814,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#82011,Khan Khan,Station road,Station road,Bhadohi,UP,221401,8777735974,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#82008,kanwer Jyoti,Vashali utsav Jaipur,Vashali utsav Jaipur,Jaipur,RJ,302021,9351936333,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#82007,Vignesh Vignesh,Panapakkam,Panapakkam,Prem Nagar,TN,632531,8220256155,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#82006,Mastram Mastram,Kodahi,Kodahi,Bahraich,UP,271902,6386015133,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81997,Uma Uma,Anubu nagar B S N L,Anubu nagar B S N L,Mana madurai,TN,630606,9025182371,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81995,kumar saday Arvind,Rerince gate no.2,Rerince gate no.2,Bharuch,GJ,392130,9316823692,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81981,kisku Raghunath,Nichuapada,Nichuapada,Baripada,OR,757018,8093639854,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81980,Meena Abhishek,Bus stand salawad,Bus stand salawad,Salawad,RJ,322215,7850018837,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81976,singh singh,Takhawan,Takhawan,Jalesar,UP,207302,7435896396,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81974,paparao K,NTR nagar mallapur,NTR nagar mallapur,Hyderabad,TS,500076,7032609017,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81973,ms Rajesh,Moonamkaraveli cmc24 ചേർത്തല po ആലപ്പുഴ,Moonamkaraveli cmc24 ചേർത്തല po ആലപ്പുഴ,Cherthala,KL,688524,9995551337,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81971,Vikram Vikram,Ajavada chokdi,Ajavada chokdi,Ajavada chokdi,GJ,385566,8799401595,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81968,Kumar Randheer,Kankapura,Kankapura,Kankapura,KA,562117,8296484894,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81961,sivakumar Pabattula,Kavuluru,Kavuluru,Kondapalli,AP,521228,9908166456,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81960,kumar Vinoth,Pallala kuppam,Pallala kuppam,Pernampat,TN,635803,8618950586,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81957,kumar Prahlad,Katauna LAX Me dj,Katauna LAX Me dj,Bihar,BR,805130,704243041,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81955,Saydalli Saydalli,B arlikate,B arlikate,B arlikate,KA,581207,9986054790,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81951,Kumar Prem,Kalamalla,Kalamalla,Proddtur,AP,516310,8555982868,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81948,Srinivas P.,Palamakula Palli villege,Palamakula Palli villege,Chittoor,AP,517429,9916149831,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81945,Kashyap Saurav,Mokama patna,Mokama patna,Patna,BR,803302,7870629602,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81943,Singh BP,Majri thekedara,Majri thekedara,Ropar,PB,140001,8283037839,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81940,Salim Shaikh Faruk,Pratappur badi,Pratappur badi,Aurangabad,MH,423702,8459320407,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81935,Shailesh Shailesh,Ramlapur,Ramlapur,Jaunpur,UP,222161,8933997211,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81938,Shiju Shiju,Vattakkuzhi chempalam,Vattakkuzhi chempalam,Nedumkandom,KL,685551,9656106592,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81933,Sheeja Sheeja,Arun favanam,Arun favanam,Karunagappally,KL,690518,9642524713,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81931,Salunkhe Sambhaji,At post Chore Tal Karad,At post Chore Tal Karad,Karad,MH,415109,9823143519,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81928,Amit Amit,Panchwati hat sabour,Panchwati hat sabour,Bhagalpur,BR,813210,9504532128,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81925,Khaja Khaja,Kadapa,Kadapa,Y.S.R.,AP,516001,9182740646,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81924,G.giddaiah G.giddaiah,Gorant6,Gorant6,Kurnool,AP,518468,9014312207,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81918,yasir yasir,nadapuram vanimal,nadapuram vanimal,kozikode,KL,673506,7558864275,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81911,dhaya dhaya,Pedhabommanapalli,Pedhabommanapalli,Shanthipurm,AP,517423,8328440016,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81908,Das Litu,Khatuasahi,Khatuasahi,Kharanga,OR,756131,9348050578,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81901,Hira Hira,Gajipur,Gajipur,223001,UP,223001,8858500185,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81900,vikram pawar Ankosh,At giroli post p natha,At giroli post p natha,Giroli,MH,443103,9370782692,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81899,Kandhukuri Shesu,Padapudi.rajupalem,Padapudi.rajupalem,G.Mami Dada,AP,533344,9603017740,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81897,Jitendara Jitendara,Kuchoira,Kuchoira,Ghazipur,UP,233224,9590160445,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81894,ahmmad Salu,Palli ayyathu,Palli ayyathu,Karunagappally,KL,690518,9625413854,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81893,Nanjunda Nanjunda,Segaranahalli,Segaranahalli,Holanaraseputa,KA,573211,7090870299,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81892,das Mukul,Takagachh,Takagachh,Cooch behar,WB,736179,9635459014,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81890,Sukhvinder Sukhvinder,Pani pat,Pani pat,Panipat,HR,132103,9416308707,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81889,Dhariwal Dhariwal,Kanchanpur ghopla,Kanchanpur ghopla,Meerut,UP,250103,8171787624,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81886,kadakol Najeer,House colony,House colony,Sankeshwar,KA,591313,7204068477,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81881,kumar uprade Krishna,Dongargaon,Dongargaon,Lanji,MP,481224,9826879423,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81880,Tarun Tarun,Seethammadhara,Seethammadhara,Visakhapatnam,AP,530013,8074348594,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81877,Deepak Deepak,Vpo jhagroli,Vpo jhagroli,Mahendergarh,HR,123034,9050742853,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81873,Asif Mohd,Ashfaq Ullah nagar,Ashfaq Ullah nagar,Lucknow,UP,226020,6391197212,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81870,Javed Javed,Super State karoand,Super State karoand,Bhopal,MP,482037,9309520286,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81862,sivanagalakshmi Kokkiligadda,Mahanadu seethanagaram,Mahanadu seethanagaram,Tadeoalli,AP,522501,9133059945,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81859,Anji Anji,Nustulapur,Nustulapur,Karimnagar,TS,505481,8978590650,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81858,Suresh S,Krishnunipalem,Krishnunipalem,Rajamahendravaram,AP,533286,7673945633,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81855,Yadav Deepak,Beena g,Beena g,Beena g,MP,470226,6267947863,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81853,Ganesh V,Koru konda palam,Koru konda palam,Vizianagaram,AP,535214,7396281053,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81852,v Sekar,"A. K. Nagar, gudalur","A. K. Nagar, gudalur",Gudalur,TN,643212,8807057549,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81846,kumar Daljit,Mehandpur,Mehandpur,S B s Nagar,PB,144526,8437666791,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81843,Pawan Pawan,Naudiha,Naudiha,PALAMU,JH,822113,8709858515,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81841,Hosamani Chandru.,Chandru. Hosamani. Govanal,Chandru. Hosamani. Govanal,Laxameshvar,KA,581118,9686110230,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81840,Aaditya Aaditya,Raypur road Dehradun,Raypur road Dehradun,Saharanpur,UK,248001,9761021256,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81839,RAVI S,Kamareddy.vidya Nagar,Kamareddy.vidya Nagar,Kamareddy,TS,503111,7997517136,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81838,Shubham Shubham,Ghulewadi,Ghulewadi,Sangamner,MH,422608,7040584086,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81837,goud Rajesh,Juni indore jabran colony,Juni indore jabran colony,Indore,MP,452007,9827725940,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81836,Nagarjunareddy Nagarjunareddy,"Suraramjeedmatall, pocaku","Suraramjeedmatall, pocaku",Hyderabab,AN,500500,9908715489,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81835,AMBATT REJI,Manjapra Church Road,Manjapra Church Road,Manjapra,KL,683581,6238663793,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81834,shelar Pramod,Old panvel,Old panvel,Panvel,MH,410206,9969241006,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81832,Upendhar Upendhar,Aitipamula,Aitipamula,Hyd,TS,508205,6305320557,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81831,Nagaraja Nagaraja,N Devarahalli,N Devarahalli,Challakere,KA,522577,9164951883,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81828,Ganesh Uddapa,Varadayapalli,Varadayapalli,G.v sathram,AP,516172,9346480722,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81826,Binder Binder,Kangnabet,Kangnabet,Balachaur,PB,144521,6280358112,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81821,kirala Mahesh,Pedduru village,Pedduru village,Parvathipuram manyam,AP,535463,6302346153,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81819,Pradeeshkumar Pradeeshkumar,Kundothara house,Kundothara house,Ernakulam,KL,682502,9946289556,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81815,kumar panda Suresh,"Ramnagar pada,","Ramnagar pada,",Bhawanipatna,OR,766001,7008114008,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81814,Shivu Shivu,Karnataka Mysore,Karnataka Mysore,Mysore,KA,570028,8095133373,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81812,khandekar Pravin,Pandharpur,Pandharpur,Pandharpur,MH,430002,9529128372,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81811,s Lingappa,562127 manniganahalli,562127 manniganahalli,Manniganahalli,KA,562127,9113552043,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81809,Sonu Sonu,V.p.o mehtiana,V.p.o mehtiana,Hoshiarpur,PB,146001,7087383249,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81808,Rajesh Rajesh,Secendrabad,Secendrabad,Kims hospital secendrabad,TS,500003,9490672843,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81805,Moideen Moideen,Periyattadukkam,Periyattadukkam,671318,KL,671318,9895889893,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81802,Behera Madhaba,Balichhai,Balichhai,Aska,OR,761115,9638767969,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81799,Ramasamy Ramasamy,"Vandigate, ddk nagar","Vandigate, ddk nagar",Chidhamparam,TN,608001,6382825119,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81797,Sudarsanan Sudarsanan,Kartik A Nivas,Kartik A Nivas,Paravur,KL,691334,8111909547,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81796,KEERTHI KEERTHI,Bommuluru kandrika,Bommuluru kandrika,Bommuluru kandrika,AP,521105,9515694299,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81793,Hariprasadvadlapalli Hariprasadvadlapalli,Tegacherala,Tegacherala,Nellore,AP,524414,7989157900,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81790,Arun Arun,"VKC, nallalam","VKC, nallalam",Kozhikode,KL,673027,7397295661,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81785,Kumar Bhim,Ragubirgadh,Ragubirgadh,Kaimur,BR,821106,6202564824,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81784,Ravikumar Ravikumar,Gollapalli,Gollapalli,Golepally,TS,508250,9866593540,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81783,Shiva Shiva,Surampalim,Surampalim,Indian,AP,255215,9346407569,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81781,Haresh Haresh,Cavand,Cavand,Amareli,GJ,365435,9998888589,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81779,Kaja Kaja,Palakkad,Palakkad,Palakkad,KL,678004,7034879721,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81778,Kaja Kaja,Palakkad,Palakkad,Palakkad,KL,678004,7034879724,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81773,krishna Vamshi,Kapraipally,Kapraipally,Pochamapally,TS,508284,9848632737,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81772,islam Majharul,Dolapara,Dolapara,Islampur,WB,733207,8001533886,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81766,Ramanareddy Ramanareddy,Vaanaja.sccolny,Vaanaja.sccolny,Vaanaja,AP,535273,9493238338,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81762,Hammir Hammir,Chichrasar,Chichrasar,Sedwa,RJ,344706,8005673888,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81760,ningegowda mn,Manigere Village,Manigere Village,MANDYA,KA,571422,9880523499,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81754,Vijayakumar Vijayakumar,Ellapatty,Ellapatty,Ellapatti,TN,624712,9003746787,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81747,yadav Ankit,SAINJANI,SAINJANI,Budaun,UP,243601,7818869687,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81743,Oraon Sohrai,Kaimbo tawar,Kaimbo tawar,Kaimbo,JH,835214,6203003244,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81739,Chakri Chakri,2-95-2017,2-95-2017,Mastan nagar,AP,500033,8247512931,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81738,Prabhakar Kavali,Kasipuram,Kasipuram,Rayadurgam,AP,515867,9182617035,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81734,Tejveer Tejveer,Ahrola navaji,Ahrola navaji,Junawai kashipur,UP,243722,9761392427,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81731,yadav Omprakash,Kainthari,Kainthari,Dholpur,RJ,308027,9509545152,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81730,Suresh Suresh,Bhagya Nagar,Bhagya Nagar,Guntakal,AP,515801,7306954418,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81728,kumar Sevendra,Nina ghad nagra,Nina ghad nagra,Jhansi,UP,284202,8707494179,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81721,SANKAR PANDA SIVA,"Kanheipur, jajpur,jajpur.","Kanheipur, jajpur,jajpur.",Jajpur,OR,755019,7653063463,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81698,Ashok Rangu,Pathakommugudam,Pathakommugudam,Mancherial,TS,504215,9959703893,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81697,Kumar Kumar,Mallampally,Mallampally,Palakurthy,AP,506317,7671847662,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81696,K N |,Koodathinkal Mattanod,Koodathinkal Mattanod,KOZHIKODE,KL,673527,7306658241,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81695,Preetham Preetham,Balgeri,Balgeri,Government schoolGovernment school,KA,562159,7975335962,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81688,Gopichand Gopichand,Ramalayam,Ramalayam,Gopalamvaripalem,AP,523301,6301053166,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81686,Firoz Shaik,Venkatapuram,Venkatapuram,Atmakur,AP,518422,9701086084,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81679,mallikarjuna mallikarjuna,Kotthegala,Kotthegala,T narasipura,KA,571124,9980736830,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81674,Ranga Ranga,Sathanur,Sathanur,Kurnool,AP,518313,6300125361,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81670,namdev Rohit,Post kahani seoni,Post kahani seoni,Kahani,MP,480999,7566857448,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81668,Kumar Kumar,Zapthishivanoor,Zapthishivanoor,RAmayampet,TS,502248,6305461908,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81667,Singh Chauhan Karmveer,Ncc office kushmi,Ncc office kushmi,Gorakhpur,UP,273002,9889245338,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81664,T Harish,Namdibandi,Namdibandi,Hosapete,KA,583222,9019313906,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81661,Rana Rana,Sapnawat,Sapnawat,Hapur,UP,245101,7668693908,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81659,T GOPAL.,Melekote,Melekote,Bengalore,KA,561205,9972348804,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81658,singha Sukumar,Deocherra,Deocherra,Dharmanagar,TR,799250,9862316041,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81655,Umesh Umesh,Singnor,Singnor,Jhunjhunu,RJ,333032,9694065200,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81651,sahu Tarakkanta,Luchaki bahal,Luchaki bahal,Sambalapura,OR,767020,6372828640,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81650,goud goud,Kondareddynagar,Kondareddynagar,Kurnool,AP,518006,7013416194,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81648,Pardeep Pardeep,Hisar hansi,Hisar hansi,Hansi,HR,125033,9896213883,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81646,Yadav Sanjay,Rohad,Rohad,Bahadurgarh,HR,124501,8901586029,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81642,b singh L,Jagirha,Jagirha,Jagirha,BR,841423,9523995366,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81641,seth Shivam,Tamar,Tamar,Tamar,JH,835225,9341366134,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81639,reddy reddy,Y. Koduru,Y. Koduru,Yerraguntla,AP,516309,6305116170,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81637,Rao Rao,2-2-242,2-2-242,Hyderabad,TS,500013,9849169393,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81636,st st,Parashurampura,Parashurampura,Parashurampura,KA,577538,8722550020,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81635,kumar pandey Amit,Maheshganj,Maheshganj,Pratapgarh,UP,230128,9721502046,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81633,Manish Manish,H. No. 697,H. No. 697,Rohtak,HR,124001,8607414728,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81626,Rajesh K.,Jeedimettla,Jeedimettla,Hyderabd,TS,500055,9440973976,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81624,Kumar munda Parmeshwar,Madhuban,Madhuban,Girdhie,JH,825329,9113121203,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81620,Kumar v Sathish,Hosur,Hosur,Hosur,TN,635109,8682046064,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81617,labana chandu,vpo bichhiwada डूंगरपुर,vpo bichhiwada डूंगरपुर,dungarpur,RJ,314801,9166630811,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81611,Sudi Sudi,ಗದಗ,ಗದಗ,Gadag,KA,582101,8310494164,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81609,Majeed Shaikh,10-5-300/24/1,10-5-300/24/1,Hyderabad,TS,500028,6300253771,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81608,Kumar devatwal Dharmesh,Maheshwara kalan dausa,Maheshwara kalan dausa,Dausa,RJ,303303,8104018643,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81607,Ajay Ajay,Balotra,Balotra,Balotra,RJ,344022,9649001644,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81602,Nagaraj Nagaraj,Alladurg,Alladurg,Village,TS,502269,8247586713,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81593,Harinder Harinder,Sadatpur,Sadatpur,Muzaffarpur,BR,843108,6280639283,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81592,Harish Harish,Sanchor,Sanchor,Sanchor,RJ,343041,6378729298,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81587,punnase Umesh,Dapora,Dapora,Burhanpur,MP,450445,9589931127,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81586,chonde Achut,Naigaon,Naigaon,Naigaon,MH,431709,9399017320,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81583,U.REDDYSEKHAR U.REDDYSEKHAR,PILERU,PILERU,Pileru,AP,517214,9618408911,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81582,Dilip Dilip,New colline muradhi,New colline muradhi,Dhanbad,JH,828306,9955324462,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81581,Ranjith kumar P,Srinivsarao pet,Srinivsarao pet,Guntur,AP,522004,9110336987,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81579,Varikuppallakumar Varikuppallakumar,Chalavanikunta,Chalavanikunta,Nalgonda,TS,508373,8790020721,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81577,Vinod Vinod,Ramadugu,Ramadugu,Haliya,TS,508278,6305975761,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81576,keer Sunil,Gawadi,Gawadi,Sivni malwa,MP,461223,9827828185,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81573,srikanth srikanth,Jaffarpali,Jaffarpali,Parigi,TS,501501,9704975492,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81565,Raghu Raghu,Pargi,Pargi,Vikarabad,TS,501501,9553358852,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81557,reddy Aravind,Ayyavaripalli,Ayyavaripalli,Ranipet,TS,509357,9010115151,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81556,reddy Aravind,Ayyavaripalli,Ayyavaripalli,Ranipet,TS,509357,8688229516,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81545,dalayi Narendra,Thummapala,Thummapala,Visakha,AP,531032,9000710358,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81542,Suresh Suresh,Edapetty,Edapetty,Kalpetta,KL,673321,9633221951,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81540,Bose Bose,Kalwakurthi,Kalwakurthi,Kalwakurthi,TS,509324,9014680279,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81537,Ramaswamy Ramaswamy,Janam Palli,Janam Palli,Koder,TS,590102,9010400392,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81536,Rakesh Rakesh,Chunabilari,Chunabilari,Paradip,OR,754142,9456632711,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81534,vijay Kumar H,Talamari,Talamari,Raichur,KA,584140,9686182869,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81528,Mehra Mehra,Pantaloon,Pantaloon,Dehradun,UK,248001,8057414237,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81523,yadav Vipin,Khanpur,Khanpur,Ghazipur,UP,233223,9792558999,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81522,Wankhede Pravin,Waluj  midc,Waluj  midc,Arungabad,MH,431136,7972616040,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81520,Tiwari Sandeep,Sarai bairiya khera,Sarai bairiya khera,Raebareli,UP,229215,7753982281,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81519,Sarika Sarika,Umrah kotha,Umrah kotha,Difharmchi,MH,413501,9552335508,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81516,venkatesh Parichala,Rettapalli,Rettapalli,Gudur,AP,524410,9553807726,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81514,Manraj Manraj,Kustala,Kustala,sawai madhopur,RJ,322001,9414636540,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81513,Ranaprathap Ranaprathap,Gudur,Gudur,Gudur,TS,506134,8978302714,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81511,Raju Raju,Shamshabad,Shamshabad,Hyderabad,TS,501218,8712510090,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81510,Sandeep Sandeep,Naushara,Naushara,Gonda,UP,271202,9555259626,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81504,Y Patil Sidagouda,Kerur,Kerur,Chikodi,KA,591213,8088622488,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81503,Muthupandi Muthupandi,Karikkaranpudur,Karikkaranpudur,Palani,TN,624615,9976008685,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81502,Guna Guna,Kovai,Kovai,Kovai,TN,641017,8098545781,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81496,Prasannakumar Prasannakumar,Tanukuwada,Tanukuwada,Kakinada,AP,533468,9030285554,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81495,kabadi Ravi,Kim cinema hall,Kim cinema hall,Surat,GJ,394110,9313098917,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81494,Saved Saved,Jama masjid,Jama masjid,Parbhani,MH,431540,9021951990,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81493,Aameer Aameer,Bhaipura,Bhaipura,Bulandshahr,UP,203001,9368580446,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81490,Siddu Siddu,Vanasthalipuram,Vanasthalipuram,Hyderabad,TS,500070,8179817304,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81484,Sahu Sahu,Lalitpu,Lalitpu,Lalitpu,UP,284403,9415186959,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81479,Raju D.Srinivasa.,"ACB office, Eluru","ACB office, Eluru",Eluru,AP,534007,9948125644,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81477,Mani Mani,Kanmanoor,Kanmanoor,Mahabub Nagar,TS,509351,9951138051,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81474,chinnayya swamy Pasupuleti,Burugupudi,Burugupudi,Burugupudi,AN,533435,8639785755,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81472,Minz Minz,At/po-Kadobahal,At/po-Kadobahal,Rourkela,OR,770033,8260611876,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81471,v patil Laxmiputra,Jamaga j,Jamaga j,Aland,KA,585302,9972710273,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81468,Bansode Bansode,Kallamb,Kallamb,Select City,MH,413507,8379808460,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81465,kumar Sunil,Jupadu bunglow,Jupadu bunglow,Jupadu bunglow,AP,518401,9177169076,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81463,satyanarayana T,Nandivada,Nandivada,Krishna,AP,521321,7989163992,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81462,K G Shivakumar,Nagamangala,Nagamangala,Nagamangala,KA,571418,9880667557,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81461,miku miku,apanekipa,apanekipa,ramnagaram,KA,652109,7873234107,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81458,Lakhwinder Lakhwinder,Kansuha khurd,Kansuha khurd,Patiala,PB,147001,7973977900,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81452,Godara Mahendra,Narwa Kall,Narwa Kall,खींवसर,RJ,341025,6378830831,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81444,Singh Singh,Lilhauraवार्ड haidergarh,Lilhauraवार्ड haidergarh,Haidergarh,UP,225124,9450940644,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81443,kapase Santosh,Rashivade bk,Rashivade bk,Kolhapur,MH,416211,8329818161,,,Clothing,1,599,Fan Pleated Two-Piece Set - Black / S,COD,599,0.5,13,13,13,599,599,HID0097
+#81439,Silu Silu,Kaluni goda,Kaluni goda,Dhenkanal,OR,759016,7735996940,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81434,Deepak Deepak,Narnaul (Hasanpur ),Narnaul (Hasanpur ),Narnaul,HR,123001,9817659078,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81432,Dinesh Dinesh,Baghora,Baghora,Sitarganj,UK,262405,9568408848,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81431,Thirumavalavan G.,South street Arur,South street Arur,Sankarapuram,TN,606402,9843063839,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81430,Jitendarsharma Jitendarsharma,Bhadukamohall,Bhadukamohall,Bassi,RJ,303301,9983985194,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81428,Prasad M.,Kaklilur,Kaklilur,Kaikuluru chavalupadu Guda Road,AP,521333,8179520885,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81427,Rafi Mohammed,Sultanpur Lodhi,Sultanpur Lodhi,Sultanpur Lodhi,PB,144626,6239003436,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81423,vasif Sk,Chimakurthy,Chimakurthy,Chimakurthy,AP,523226,8008051658,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81417,Ashok Ashok,Kohar bhiwani,Kohar bhiwani,Bhiwani,HR,127111,8930732781,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81412, swamy Siddayya,Ramasandra,Ramasandra,Bangalore,KA,560060,9611139952,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81406,vasant bhai Vaghasiya,Pasodara gam,Pasodara gam,Surat Gujarat,GJ,395006,9727142604,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81405,alam Samaser,रजिस्ट्री ऑफिस केसरिया,रजिस्ट्री ऑफिस केसरिया,रजिस्ट्री ऑफिस केसरिया,BR,845424,9708174323,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81404,hemlal hemlal,giroudpuri darra,giroudpuri darra,Giroudpuri,CG,493344,7247024479,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81403,Akhil Akhil,Duddeda,Duddeda,Siddipet,TS,502277,7093942930,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81399,medtturu Chandra,Kakanur,Kakanur,Nandyal,AP,518502,9949413365,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81396,Rana Amit,Bamrauli katara,Bamrauli katara,Bamrauli katara,UP,282006,8193986642,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81395,santh Sri,Dhandukaranahalli,Dhandukaranahalli,Palacode,TN,636808,7339520881,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81386,Ramesh Ramesh,Dhoolpally,Dhoolpally,Village,TS,500001,7981634853,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81394,deo Sudam,Jajapur manatira,Jajapur manatira,Jajapur,OR,755026,7873103951,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81393,Ganesh Ganesh,Pachod,Pachod,Pachod,MH,431105,9112141851,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81387,Sudarshanraju Sudarshanraju,Undi,Undi,Bhimavaram,AP,534199,9705810179,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81384,Valluru.madhu Valluru.madhu,Budanam,Budanam,Spsr.nellore,AP,524410,9398337858,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81383,kumar Vijay,Nattaypalem post bhpv,Nattaypalem post bhpv,Visakhapatnam,AP,530012,9347289475,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81382,Nandhakumar Nandhakumar,Nadupatti.op.kattmipatti,Nadupatti.op.kattmipatti,Nadpatti,TN,636351,6381818153,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81377,Nadeem Nadeem,Rampur,Rampur,Deharadu Uttarakhand,UK,248197,8868054856,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81375,Bharath Kumar Errolla,Ranampalli,Ranampalli,Ranampalli,TS,503188,7780238969,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81372, singh JasVir,DASUYA,DASUYA,DASUYA,AN,144205,9541623689,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81367,kuntal Rohit,Sonkh mathura,Sonkh mathura,Sonkh,UP,281123,7505672024,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81365,dalli Ramakrishna,Lakkavaram post,Lakkavaram post,Jangareddygudem,AP,534451,9515198033,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81362,ram Vishana,मेगा हाईवे  बालोतरा रोड सिणधरी,मेगा हाईवे  बालोतरा रोड सिणधरी,Sindhari,RJ,344033,9725275287,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81361,Idrees Idrees,Haldaur,Haldaur,Bijnor,UP,246726,7738713470,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81359,singh Abhishek,Kashay,Kashay,कुशनगर,UP,274402,9137616394,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81357,yadav Bhola,Balrampur,Balrampur,Bhola,AR,212502,9125348093,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81350,FARUQUE MD,Mohammadichak,Mohammadichak,Tajpur,BR,848130,7209706748,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81349,Mahanta Baishnaba,Raikala,Raikala,Kendujhar,OR,758031,9437379334,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81347,Sk.Sharuk Sk.Sharuk,Giravelli,Giravelli,Dahegam,TS,504219,8008773979,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81345,Suresh Suresh,చింతకాయమండ,చింతకాయమండ,చింతకాయమండా,AP,515465,9573702515,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81343,Singh Kuldeep,Kaliri ronija,Kaliri ronija,Nadbai bharatpur,RJ,321602,6377268747,,,Clothing,1,599,"'-VIP LINK2 , UPTO 5XL SUMMER NEW MEN'S LOP-UP HOLLOW SHORT-SLEEVED POLO SHIRT ICE SILK - 3XL -fits 75-85kg / black",COD,599,0.5,13,13,13,599,599,HID0097
+#81342,Ramesh Ramesh,खेतड़ी,खेतड़ी,H,RJ,333503,9001542402,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81341,Kamesh Kamesh,Jan-86,Jan-86,Podalakuru,AP,524345,8143997071,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81337,Venkat Venkat,G m. Ppali,G m. Ppali,Vikota,AP,517424,8639365745,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81335,yadav Jitendra,Davra dinara,Davra dinara,Shivpuri,MP,473665,8359909079,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81330,Richhpal Richhpal,Sindhlas,Sindhlas,NAGAUR,RJ,341514,9799740486,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81328,chinnaiah K,Clowpet 5line,Clowpet 5line,Ongole,AP,523001,7702059192,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81323,venkatarao Potta,Mvp colan,Mvp colan,Vizig,AP,530017,8555964467,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81322,Khan Sonu,Bdokhr,Bdokhr,Prayagraj,UP,212306,9555449075,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81321,Parjapat Sambu,Shungreskul.k.pas,Shungreskul.k.pas,Sawaimadhopur,RJ,322001,7849852306,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81320,moham sethi himansu,Baghamari,Baghamari,khordha,OR,752061,8594939291,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81316,seth seth,Bimala,Bimala,Dhenkanal,OR,758076,6371289236,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81312,Arjun Arjun,Rolay,Rolay,Indor,MP,450301,7999773450,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81309,Ravi Ravi,Kundurpi,Kundurpi,Kundurpi,AP,515766,8897463338,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81305,Anjuru Balakrishna,Kotamita,Kotamita,Nellor,AP,524001,9346228856,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81301,Rajendra SomvanShi Yuvraj,Khanderav nagar,Khanderav nagar,Jalgon,MH,425001,8999258989,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81298,Ammu Bathu,Madhanambedu,Madhanambedu,Sathya vedu,AP,517588,7093264076,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81297,singh Lokendra,Singna mod,Singna mod,Agra,UP,282007,8272838959,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81296,Ganesh Jai,Govt hospital,Govt hospital,Jalakandapuram,TN,636501,9578273326,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81294,Singh Singh,Gandhinagar thana,Gandhinagar thana,Ambikapur,CG,497001,8817896776,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81289,Narsamaulu Narsamaulu,"M,b,n,r","M,b,n,r",600,TS,509001,9000863312,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81279,Ramesh R,Midani,Midani,Hyd,TS,500035,9014273806,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81283,SINGH KULDEEP_,Vill khairabad,Vill khairabad,Ropar,PB,140111,7300176527,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81281,sarkar Prabir,Nayanpur,Nayanpur,Teliamura,TR,799205,7629931259,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81280,JADHAV RAMESHWAR,Beed,Beed,Beed,MH,431122,7066710570,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81277,vishnu Doma,Bharavapalam,Bharavapalam,Bharavapalam,AP,533464,9573244503,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81276,Kumar Brijesh,Derma rode Babuganj,Derma rode Babuganj,Pratapgarh,UP,230126,9532947000,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81272,ujagra Sonba,Kothul,Kothul,Shrigonda,MH,413728,9923800207,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81268,ravat dinesh,Nagel,Nagel,Danta,GJ,385120,8849263417,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81267,"Raka,prasad,jena Raka,prasad,jena",Balipatana,Balipatana,Bhubansur,OR,752102,9040711168,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81265,sarkar Prabir,Nayanpur,Nayanpur,41,TR,799205,7629026642,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81261,hudda Prakash,Sedva,Sedva,Bhada,RJ,344706,7073322780,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81259,kumar Munna,Kalibag,Kalibag,Bettiah,BR,845438,9709803049,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81258,Venkatgiri Venkatgiri,Mutyampet mallapur,Mutyampet mallapur,Metpally,TS,505331,7659850991,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81254,Lal Chaudhary Shankar,Keriya Kalan,Keriya Kalan,Sarwad,RJ,305412,6377048380,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81252,Vinoth Vinoth,Lalpet kankirupu,Lalpet kankirupu,Kattumannarkolil,TN,608303,7418240978,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81250,Vilash Vilash,Khawash,Khawash,Seoni,MP,480881,9644153511,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81246,Dharmveersingh Dharmveersingh,Rampur katampur,Rampur katampur,Aligarh,UP,202127,7088053475,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81243,Dora Dora,Sivajinagar,Sivajinagar,Palasa,AP,532221,9618906040,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81238,Rathore Rathore,Khanwar rol nagaur,Khanwar rol nagaur,Nagaur Rajasthan,RJ,341027,9782333198,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81237,Sarathkumar Sarathkumar,Rajalakshmi traders,Rajalakshmi traders,oddanchatram,TN,624619,9790357402,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81235,kashinadam Ch,Kattangoor,Kattangoor,Village,TS,508205,9912353426,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81233,Reddy Ganesh,Dundiepalem,Dundiepalem,Village,AP,522211,6281032990,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81230,Toppo Toppo,Jhowdanga,Jhowdanga,Gaighata,WB,743245,8757607910,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81226,laxman laxman,Vi sarafpally,Vi sarafpally,Sangareddy,TS,502273,9676202081,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81225,PABDA VIRDHARAM,KAPOORDI BARMER,KAPOORDI BARMER,BARMER,RJ,344001,6376834285,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81222,kumar Vijay,Mahuwabag,Mahuwabag,PATNA,BR,801506,9386544488,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81221,khan khan,Amroha,Amroha,Amroha,UP,244221,9634036608,,,Clothing,1,599,Trendy Rich shirts pack - XXXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81219,gangwar vijay,guldiya dhimar,guldiya dhimar,nawabganj,UP,262406,9917413168,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81218,Gangadhar Gangadhar,Madanapalli,Madanapalli,Madanapalli,AP,517325,9390077689,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81217,Madhavi Madhavi,Chilakaluripet,Chilakaluripet,Manukondavaripalem,AP,522616,8106163566,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81213,Kumar Singh Santosh,Bihari mill anaith,Bihari mill anaith,Ara,BR,802302,9015512710,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81210,Kardile Kardile,Renapur,Renapur,Renapur,MH,413527,7620300159,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81209,deepak singh Dr,Mohni pur,Mohni pur,Ikuna,UP,271845,8127739427,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81208,Venkatesh Venkatesh,Mar-98,Mar-98,Ghanpur station,TS,506301,9989627326,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81206,Prasar Prasar,Narhan,Narhan,Narhan,BR,848211,7979902038,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81204,Chandrasekhar K.,Palanadu,Palanadu,Narasaraopet,AP,522601,9885145627,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81202,Mahesh Mahesh,Hunsur,Hunsur,Hunsur,KA,571105,8123050593,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81188,Vikki S,Gudipala,Gudipala,Gudipala,AP,517132,7981938189,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81185,hari babu Karanam,Lumburu village.,Lumburu village.,Palakonda,AP,532440,9063590661,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81183,Kumar mandal Vijay,Astesanrodsatgamajamui,Astesanrodsatgamajamui,Jamui,BR,811307,7004950006,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81182,B.mahesh B.mahesh,Ineimerlia.v.lj.pamur.mdl,Ineimerlia.v.lj.pamur.mdl,Shirts,AP,523000,9346816678,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81181,mule sureshreddy,Krishna Reddy colony,Krishna Reddy colony,Hyderabad,TS,500086,9505291178,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81180,khan Azim,Ganj stet,Ganj stet,Jagtial,TS,505327,9502916716,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81176,Soni Arvind,Prithvi Ganj,Prithvi Ganj,Banswada,RJ,327001,9660116820,,,Clothing,1,599,Trendy Rich shirts pack - XXL,COD,599,0.5,13,13,13,599,599,HID0097
+#81175,Amol Amol,आनंदवाडी,आनंदवाडी,Latur Maharashtra,MH,413512,8830302621,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81172,Marimuthu Marimuthu,Cinnaselam,Cinnaselam,Cinnaselam,TN,606302,9150840451,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81171,Najim Najim,R d m p,R d m p,Dondaicha,MH,425408,8459785496,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81170,gurjar Hariom,Pinto park,Pinto park,Gwalior,MP,555555,9244930865,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097
+#81165,Saju.cv Saju.cv,Cvhousepulingome,Cvhousepulingome,Payyanur,KL,670511,9207889226,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81161,Ganga prathap Kakarla,Agadur,Agadur,Pulivendhula,AP,516421,9573778221,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81157,Tejas Tejas,Ranjangaon ganpati,Ranjangaon ganpati,Shirur,MH,412209,7517410707,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81152,bhargava bhargava,Nai sadak Bialra,Nai sadak Bialra,"Bilara, Jodhpur",RJ,342602,9166800616,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81147,Jogarao Jogarao,Reddy colany,Reddy colany,Hyderabad,TS,500049,9959954284,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81146,Amaresh Amaresh,At Hulkihal,At Hulkihal,KARATAGI,KA,583229,7090614360,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0097
+#81145,Srivalli Srivalli,Karumanchi,Karumanchi,Ongole,AP,523272,8374442752,,,Clothing,1,599,Trendy Rich shirts pack - L,COD,599,0.5,13,13,13,599,599,HID0097
+#81142,Charan Charan,Cherlpalli,Cherlpalli,Cherlpalli,TS,505526,8341952738,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81711,Subbu Subbu,41-1/14-980 krishnalanka ranadheernagar,41-1/14-980 krishnalanka ranadheernagar,Vijayawada,AP,520013,7569757419,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81584,Surinder Surinder,Bhart nagar fzrcity,Bhart nagar fzrcity,Ferozepur,PB,152002,8148888560,,,Clothing,1,599,Trendy Rich shirts pack - XL,COD,599,0.5,13,13,13,599,599,HID0097
+#81306,ramasamy Gunapathy,"K6/6Yelco colony plaza ,prakash nagar, jameshpur tatanagar","K6/6Yelco colony plaza ,prakash nagar, jameshpur tatanagar",Jameshpur,JH,831004,9790868247,,,Clothing,1,599,Trendy Rich shirts pack - S,COD,599,0.5,13,13,13,599,599,HID0097

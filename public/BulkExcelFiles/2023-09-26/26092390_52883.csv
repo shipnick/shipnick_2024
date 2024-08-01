@@ -1,0 +1,44 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+TMC219,paik Shilpa,C/702 vedant nakhshtra rameshwadi  Near church road  ,,THAAANE,MAHARASHTRA,421503,7977542854,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC220,Saini Sanskar,Saini Paints   Hardware Store  Near Dholana Bus Stand  Ghaziabad Road  ,,GHAZIABAD,UTTAR PRADESH,203408,8077832251,Clothing,1,COD,1299,500,10,10,6,1299,1299,HID0027
+TMC221,dickey Cheering,55/1  Gandhi road bimakali Kali road  ,,RAMPUR BUSHAHR,HIMACHAL PRADESH,172034,7876766516,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC222,Sneha Sneha,Rajiv gandhi govt engg college nagrota bagwan  Near jgotra pg  ,,MOHALI,PUNJAB,176047,7876678997,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC223,Sejal Sejal,Plot no 55  Krishna Vihar  first floor  Opp Kalpataru residency  milind nagar road  forest society  ,,KALYAN,MAHARASHTRA,421301,7678048559,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC224,azar Muhammed,Near ava ice plant  Cherangai Kadapuram    Light house road  ,,KASARAGOD,KERALA,671124,9072055007,Clothing,1,COD,1399,500,10,10,6,1399,1399,HID0027
+TMC225,Nivetha Nivetha,13/3  Pillaiyar kovil street  Nesapakkam  ,,CHENNAI,TAMIL NADU,600078,6382894071,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC226,yadav Ayushi,Hi54 harmu housing colony  Harmu housing colony Hi54 near Sandeep general Store  ,,RANCHI,JHARKHAND,834002,7209630039,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC227,Anilkumar Gopika,Suseela sadanam ladies hostel   Sachivothamapuram  kurichy PO changanassery  ,,KOTTAYAM,KERALA,686532,9895107744,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC228,kazi Anabiya,A202  Shah complex3  Sector 13  Palm beach road  ,,VASHI,MAHARASHTRA,400705,9152280075,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC229,singh Ankita,Block No 201/A  Mehera industrial compound V1 building  Andheri Kurla road Sakinaka  ,,MUMBAI,MAHARASHTRA,400072,8779906366,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC230,Rajwani Rajwani,Shweta pg bihari sabji mandi  Sector 13 rajeev nagar  ,,GURGAON,HARYANA,122021,7088249221,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC231,zaki Maryam,Gs  Goenka university Sohna road  Gd goenka  ,,GURGAON,HARYANA,122103,9958086177,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC232,Rekha Rekha,Abhilasha Girls hostel complex  Maharshi Dayanand University Delhi bye pass  ,,ROHTAK,HARYANA,124001,8950912144,Clothing,1,COD,1399,500,10,10,6,1399,1399,HID0027
+TMC233,S RAJ SAYOOJYA,safalyam cheruthuruthy  pudussery  pudussery manappady   kundkaad road    first home  ,,TRICHUR,KERALA,679531,9544030946,Clothing,1,COD,799,500,10,10,6,799,799,HID0027
+TMC234,Sia Sia,111 Ishta city apartments  Hyderabad Attapur Hyderguda  ,,HYDERABAD,TELANGANA,500048,7780232605,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC235,Sharma Tanya,295/7  near bikaner mishthan bhandar   govindpuri  haridwar  Same  ,,HARDWAR,UTTARAKHAND,249402,9897879346,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC236,Bhavesh Bhavesh,Vijay cok pase Station Road Nasit sales bajuma  Rudra battery  ,,AMRELI,GUJARAT,365440,9662776741,Clothing,1,COD,1399,500,10,10,6,1399,1399,HID0027
+TMC237,Saloni Saloni,Mumbai dahisar kokanipada  Kokanipada last busstop 297  ,,MUMBAI,MAHARASHTRA,400068,8928002428,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC238,Bhoir Bhoir,Shanti sagar g wing 1st floor narpoli gaon bhiwandi  Near saibaba mandir narpoli gaon  ,,BHIWANDI,MAHARASHTRA,421302,7378898479,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC239,Ekta Ekta,427 second floor  Modern valley block c  ,,MOHALI,PUNJAB,140301,9350367417,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC240,azim Rifat,Panchav pandav chowk  Kayasthwara  ,,SAHARANPUR,UTTAR PRADESH,247554,6398099523,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC241,Behera Debasmita,Near satyasita bhawan  Symphony mall  ,,BHUBANESHWAR,ODISHA,752101,6372338683,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC242,tekwani Juhi,Shree radhe traders  Shastri chowk  ,,SATNA,MADHYA PRADESH,485001,8839248398,Clothing,1,COD,1399,500,10,10,6,1399,1399,HID0027
+TMC243,Kaushal Shreya,502  Kaveri Ladies hostel  BMCRI  Victoria hospital  near Tipu Sultan  ,,BANGALORE,KARNATAKA,560002,9667683365,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC244,Khan Khan,United cooperative society opposite Army institute of law 68 temple road  United cooperative society opposite Army institute of law 68  ,,CHANDIGARH City,CHANDIGARH,160068,8360815902,Clothing,1,COD,1299,500,10,10,6,1299,1299,HID0027
+TMC245,Arora Bhumika,house no 1017  second floor  b block  greenfields colony  sector 43  Faridabad  House number 709C    top floor    BSNL QuarterS  ,,FARIDABAD,HARYANA,121003,6280008740,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC246,ali R Shuib,Arfat nagar 10   2main road  Oldhudgalli maysore road  ,,BANGALORE,KARNATAKA,560026,8123346573,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC247,Pitrubhakta Srushti,DY Patil girls hostel Priyadarshini building  room no  302A  Ayyappa road  sector 5  Nerul  ,,THANE,MAHARASHTRA,400706,8261080457,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC248,Arshiya Arshiya,2411 MMRDA Dosti  Dosti mumbra dist thane  ,,MUMBRA,MAHARASHTRA,400612,8652300838,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC249,Jishika Jishika,1611 A sector 38 B  Opposite fire station  ,,CHANDIGARH,PUNJAB,160036,6283422804,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC250,Rajput Uma,Room no   115  Working Nurses Hostel  W  N  H   AIIMS BATHINDA  Dabwali Road  ,,BHATINDA,PUNJAB,151001,9810545635,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC251,Singla Navya,Flat no 1202  F block  Durga petals  ,,BANGALORE,KARNATAKA,560037,9599914011,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC252,r Ramya,4th floor east wing Indian bank  Raheja towers M G road  ,,BANGALORE,KARNATAKA,560001,9611633074,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC253,Preethamalini Preethamalini,No  12/527  8 th Street  veerabhadra nagar  Ram naga flats  medavakkam  ,,CHENNAI,TAMIL NADU,600100,7305591153,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC254,Namchipa Jigmed,House no 45 16A  Sec 16A  ,,CHANDIGARH,PUNJAB,160015,8219558531,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC255,Kachroo Shefali,House no  20  Lane no  11  Gurha keran  Barnai Jammu  Barnai  ,,JAMMU,JAMMU   KASHMIR,181123,6005095348,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC256,khadka Kanishka,Shree ram nagar tuljai serenity greens lane number 3 opposite of bank of baroda  Near tuljai park wing no   CA 104  ,,SHAHAPUR,MAHARASHTRA,421601,8793125504,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC257,Mishra Yashika,S705  eden   Godrej garden city  ,,AHMEDABAD,GUJARAT,382481,7987070401,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC258,sirvi Dimple,F9H6 HP5 Hyderabad  Telangana  Hafeezpet Aditya nagar opposite to hero showroom near new apostolic church  ,,HYDERABAD,TELANGANA,500049,9347016983,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC259,Thakur Mohit,Golden tower 2  6th floor 6B  near katani sweets Mohali Punjab  6B  ,,MOHALI,PUNJAB,140308,7018706182,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC260,Sarker Janmoni,Palavakkam  Periyar salai door no 3/64A  Dr   Radhakrishnan Street  Infront of Roja matching  store  ,,CHENNAI,TAMIL NADU,600041,8822835128,Clothing,1,COD,899,500,10,10,6,899,899,HID0027
+TMC261,kotian Disha,Nl6  bldg no12  room no07 Shreyash apartment sector 15 nerul  Nl6  bldg no12  room no07 Shreyash apartment sector 15 nerul  ,,THANE,MAHARASHTRA,400706,8850862580,Clothing,1,COD,899,500,10,10,6,899,899,HID0027

@@ -1,0 +1,60 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+#44876,meena Dilkush,Annada seti,,Jaypur,RJ,328026,7878687152,,,Clothing,1,599,Trendy Rich shirts pack - M,COD,599,0.5,13,13,13,599,599,HID0071
+#44461,Deepak Deepak,Bhitavara bypass,,Fathepur,UP,212601,9026013273,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45559,Hs Janardhan,Hanumatapura ,,Machenahalli,KA,561211,9741336332,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45547,Chandra mouli G,Jimidi peta ,,Rayagada,OR,765002,9938152274,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45514,das Biju,Look& see  kollam kundrA,,Kollam kundara,KL,691501,8075635676,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45425,narasimhulu Ganjappagari G,Bramhanapalli,,Puttaparthy,AP,515134,8919570713,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45423,Sopan Sopan,Ugoan khed ,,Nifhad,MH,422304,7020131053,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45397,Vijay Vijay,Laxmi nagar,,Hungund,KA,587112,9916889202,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45389,Venkatrao.B Venkatrao.B,Perlavaripalem,,Chirala,AP,523157,6300572881,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45384,sai sai,kovur ,,nellore,AP,524137,6301819927,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45376,Gowrinaidu Kadumula,Regati ,,Vizayangram,AP,535101,9848918388,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45372,nagendra nagendra,rajampeta,,kadapa,AP,516115,6303463358,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45360,Nivash Nivash,Kunnathur,,Tiruppur,TN,638103,9894593981,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45348,ayubi Naushwanaz,Kamar pool,,Kolkata,WB,743368,6200778056,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45337,thakur Santosh,Sipara matkhan,,Patna,BR,800020,7479860481,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45314,Ansari Ansari,Dodabasti,,Bengaluru,KA,560056,9590970977,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45285,Laxman Laxman,Karanchoupali ,,Nandurbar,MH,425412,9376563707,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45276,masud alam Sekh,Jodhagachh,,Islampur,WB,733202,9886053674,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45268,Sakkeerhussin Sakkeerhussin,Kavumkadayil ,,Kollam,KL,690524,8606049967,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45205,Harikrishna Harikrishna,NCC RAOD,,Mangalagiri,AP,522503,9391039194,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45202,dilip raut Sumedh,Himaytnagar,,Nanded,MH,431802,8799801771,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45200,Bhai Manoj,Zalod road,,Fatepura,GJ,389172,8160104498,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45191,Anusha Anusha,College road,,Amarvathi,AP,522020,9032308676,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45178,Sanjay Sanjay,Aau,,Phalodi,RJ,342311,8209690661,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45169,saha Prem,Bindu bazar,,Kalingpong,WB,734503,9475758264,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45136,Meena Ravindra,Gangapur city,,Gangapur city,RJ,322201,9636347574,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45082,Ram Saroj,Kamal pur,,Darbhnga,BR,847203,8340235571,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45039,Lal bheel Bajrang,Dashhra maidan bakani,,Bakani,RJ,326022,9669318169,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45027,Sameul Sameul,Gudipude,,Sattena palli,AP,522402,9110310585,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#45004,Pasupuleti Mutyalu,Nad junction ,,Visakhapatnam,AP,5300009,8520025651,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44992,G.venkaiah G.venkaiah,NaryanapurAm,,Nellore,AP,524152,6302344416,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44927,Sai harsha patnam,Padma nagar,,Renigunta,AP,517526,8142610558,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44908,v ratnam G,Ramannapalam,,Devarapalli,AP,534313,9866589752,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44893,Kumar ji Sanjay,Asif nagar,,Haydraba,TS,50002,9381025612,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44878,Arfan Arfan,Sdar Bazar,,Makrana,RJ,341505,8949004479,,,Clothing,1,598,,COD,598,0.5,13,13,13,598,598,HID0071
+#44809, reddy Anil,Nidhanapuram,,Madhira,TS,507203,9951654409,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44790,Singh Narendra,"Sundrargad,od",,"S,n,g",OR,770020,9827309604,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44770,Suganya Suganya,Pulikulam,,Green garden,TN,601204,9566445912,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44768,Gangadhar Gangadhar,Ghinakakani,,Mangalagiri,AP,522503,7287969389,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44765,ramakrishnan Shiju,Pradhani,,Vadakkenchery,KL,678683,9947454488,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44764,Santoshrawat Santoshrawat,Gauchar,,Chamoli,UK,246429,9536387281,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44751,Behera Amareswar,Jogswrpuru,,Nimapada,OR,752107,7978176730,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44750,meerasa Sk,Narasarao pet,,BC caleni,AP,522601,8688337916,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44727,Majhi Purushottam,Kolabira,,Jharsuguda.kolabira,OR,768213,8018982031,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44706,kumar Rajesh,Dhani Bhaloth,,Buhana,RJ,333515,9467199470,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44602,Rushirajsinh Rushirajsinh,Global paddhari,,Paddhari,GJ,360110,9023550054,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44586,Meher Dingar,Chuladhara gaon ,,Patnagarh,OR,767025,6370397448,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44574,parkash singh Vinay,Kothiya bihta,,Aara tarari,BR,802209,8920045406,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44573,Ramkumar Ramkumar,Udpur  gelewa,,Jaunpur,AR,233141,8400079440,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44551,Simrashahruk Simrashahruk,Kamalpur,,Bulandshahr,UP,203001,7060163830,,,Clothing,1,598,,COD,598,0.5,13,13,13,598,598,HID0071
+#44549,Karuppusamy V.,Kothayam,,Oddanchatram,TN,624614,9739737829,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44545,Ragu Ragu,Gurugapatti,,Krishnnageri,TN,635304,9489410664,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44526,Ahuja Ahuja,R k colony ,,Fatehabad,HR,125050,9416348163,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44505,Muniyappan Muniyappan,Sunampeati,,Dharapuri,TN,636068,9965818957,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44492,pempasherpa456789@gmail.com pempasherpa456789@gmail.com,Bhakutar,,Rongli,SK,737131,8159041557,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44489,bishnoi Anil,Lachhiwad ,,Sanchore,RJ,343041,9509154312,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44480,Simanchal Simanchal,Tumbrala,,NABARANGPUR,OR,764071,6371266371,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44462,Dharanish Dharanish,Kallimandhyam,,Oddanchatram,TN,624619,8148299894,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071
+#44438,Narasimha Bala,Nagayapalli. ,,proddatur,AP,516360,8978141902,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID0071

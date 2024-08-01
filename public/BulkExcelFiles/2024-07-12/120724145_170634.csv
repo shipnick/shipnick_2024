@@ -1,0 +1,4 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+403-5281970-6413962,Dharamender,Bhaini Maharaj Pur,Bhaini maharaj pur,MAHAM,HARYANA,124112,9.42E+09,,,S305,1,439,S305,PP,0,0.5,15,12,6,439,439,HID00122
+407-0331634-4558739,Jassy,H. No. 112,"Modian mohalla, chota school(elementary school)",Purani sirhind,PUNJAB,140406,9.95E+09,,,S138,1,699,S138,PP,0,0.5,15,12,6,699,699,HID00122
+,,,,,,,,,,,,,,,,,,,,,,

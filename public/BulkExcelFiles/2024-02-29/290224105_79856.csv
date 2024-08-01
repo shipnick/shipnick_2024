@@ -1,0 +1,3 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+14305,Sambana Pydiraju,Co.op.bank. near mohini theatre.గాజువాక,Co.op.bank. near mohini theatre.గాజువాక,Visakhapatnam,AP,530026,7386330486,Clothing,1,COD,598,0.5,13,13,13,598,598,HID0050
+14281,thakur Arvind,अब्दुल्लागंज जबलपुर रोड सागर कंपनी,अब्दुल्लागंज जबलपुर रोड सागर कंपनी,अब्दुल्लागंज,MP,464551,9993468122,Clothing,1,COD,599,0.5,13,13,13,599,599,HID0050

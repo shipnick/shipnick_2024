@@ -1,0 +1,57 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+111000101,Ashwini umesh more,208 2nd floor shrinatha heights,Kilbil School,PUNE,MAHARASHTRA,411041,9552991646,GI-WJEA-LHKX,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000102,Akhil Dadi,"pno 160, opposite ramdev store, ground floor,Shilpa Avenue",Hydernagar,HYDERABAD,TELANGANA,500085,7989604308,CleanNutraceuticalsTheanineVitaminC,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000103,Shraddha Jaiswal,"Flat 303, Adithya Soigne Apartment, Cynosure Block","Jagdish Nagar, New Thippasandra",BENGALURU,KARNATAKA,560075,9986766731,CleanNutraceuticalsDIMVitamins-01,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000104,Bharti Sahu,Back side of petrol pump,,PITHORA,CHHATTISGARH,493551,8435570201,AWK01,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000105,Nirvik creation,"301,RBS - Terrace","3rd floor,Opel House,Besides Tapi Arcade,abrama Road",SURAT,GUJARAT,394105,7383030129,Plant Based Collagen,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000106,Rajesh taorem,287,"New cachar road, NH 37 , Patsoi Part - 1 Field no. 2 Awang l",IMPHAL,MANIPUR,795001,7005208657,AW003,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000107,Pratheep T,"Veliezhathu Veedu,thannimoodu junction ,Chavara,kollam",Chavara,CHAVARA,KERALA,691585,9745407778,GI-WJEA-LHKX,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000108,surya klsv,"D Wing, Flat 1202, Premier Exotica, 1, Kirol Road",Kurla West,MUMBAI,MAHARASHTRA,400070,9008389988,CleanNutraceuticalsTheanineVitaminC,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000109,Shibani Staney,"302, valentine apartment, Ic colony , Behind  holy cross rd,",Borivali West,Mumbai 400103,MAHARASHTRA,400103,9930769003,WDWD 60TC Dr. Berg D3 K2 Vitamin,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000110,Pruthvi Raj Rajagopal,M.U.E.C Society near SBI Mangalagangothri near Mangalore uni,Mangalagangothri,ULLAL,KARNATAKA,574199,9632926881,WDWD WC120PureB Complete,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000111,Lohith Y R,"No.11, Sri Lakshmi Venkateshwara Nilaya, Telecom Layout",Bharath Nagar 2nd Stage,BENGALURU,KARNATAKA,560091,8892110313,BD BD 60B CAP LumaNutritionMagnesiumGlyc,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000112,Sangharsh,"H.No:3-5-179/1/A,Road No.5","Krishna Nagar Colony,Moulali,Hyderabad-500040",HYDERABAD,TELANGANA,500040,9000933262,WDWD WC120PureB Complete,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000113,Manoj Subramaniam,F 402 Samrajya Apartments,Fatehgunj,VADODARA,GUJARAT,390002,9824262154,bd bd wc120 GABA NUTRAHARMONY,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000115,Chaitanya suvanam,"Satyam building Flat #6, 2nd Floor, Juhu Tara road",Juhu Tara road,MUMBAI,MAHARASHTRA,400049,9594944096,CleanNutraceuticalsProstateSupplement-01,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000116,Sunil kumar,"Street no. 12, house no. ( 8142/1)  (gurpal nagar, daba road","Street no.  12,  gurpal nagar, daba road, Ludhiana",LUDHIANA,PUNJAB,141014,8054365349,DrBergNutritionalsvitk1-01,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000117,Monikaraj,Dhasaradha nagar,"Vembakkam, Ponneri",PONNERI,TAMIL NADU,601204,9840204347,Naturenutrition-001,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000118,Raj prabhu,Raja bakery,Yaadhava street,PODALAKUR,ANDHRA PRADESH,524345,9394444399,HGLB-008,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000119,Bandi Aparna,Shiridi hills,Gajularamaram,HYDERABAD,TELANGANA,500055,8179122113,1 nude 1,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000120,Monish,Karthika,Near govt khadhi board,NEYYATTINKARA,KERALA,695121,7012389405,packof 16 !!,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000121,Kamlesh rawat,"A/69 Jatiya Hills, Shastri Nagar","data nagar, Lohagal Village, jatiya hills",Ajmer,RAJASTHAN,305001,9024052652,dermaroller 1,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000122,Priyanka katke,House,Shatri chowk bagichecya samor naldurg,NALDURG,MAHARASHTRA,413602,9834327267,PACKOF 4 !,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000123,Nipun Dwivedi,"4/10,Housing Board",Housing Board,Balotra,RAJASTHAN,344022,9413936676,1 nude 1,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000124,Apoorva More,"B-201,aashadhi co-operative society","Dudh naka, opp to v-care dental",KALYAN,MAHARASHTRA,421304,8691933841,1 nude 1,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000125,Shareen,"91,35th main road, near silk board, Near bank of Baroda","KAS officers colony, 2nd stage btm layout",BENGALURU,KARNATAKA,560076,8121826412,honey & fruit,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000126,Darshan patel,"16 tapovan society, geetanjali chokadi",House,NADIAD,GUJARAT,387002,8849228591,packof 16 !!,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000127,Shrutika Tarekar,"Plot no 30,behind ram fabrication, chitnis nagar",umred road,NAGPUR,MAHARASHTRA,440024,9527186016,nude*2,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000128,Bimla Solanki,Bolani Busstand,Bolani,BALAGODA,ODISHA,758037,7609058359,PACKOF 4 !,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000129,Raman,201 mainroad Avarikkadu vetharaniyam,Main road,NAGAPATTINAM,TAMIL NADU,614806,9786392969,packof 16 !!,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000130,Anima Sinhamahapatra,Bandagal,"Simlapal,Bandagal",Bankura,WEST BENGAL,722151,9339360973,packof 16 !!,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000131,VINITA SHARMA C/O PRATAP CHAND SHARMA,"House number 87 , Hari Nagar Gali No 2","Shradha puri Phase 1 ,kankerkhera",MEERUT,UTTAR PRADESH,250001,9368604314,packof 16 (),1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000132,Preet pal Kaur,Vill basoya disst hoshiarpur,vill basoya,HOSHIARPUR,PUNJAB,144202,9855393246,packof 16 !!,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000133,Priya Bharathi,97 Near kaaliamman Kovil,"Therkukkadu, Narasingapuram",ATTUR,TAMIL NADU,636108,7708407493,PACKOF 4 !,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000134,Syed Khalid Ali,Syed manjil.,Balaganj,HOSHANGABAD,MADHYA PRADESH,461001,7723993631,derma,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000135,SHRUTHY,"Kanjirathod lane, Karukulangara, Irinjalakuda","Thrissur, Kerala",Irinjalakuda,KERALA,680121,9645726944,packof 16 (),1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000136,L P JOSHI,"601 NEEL SIDHI ARCADE, SECTOR-12",kHARGHAR,RAIGARH,MAHARASHTRA,410210,9022838770,nude$$,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000137,Pranav Kumar,Govinda Complex,GM Road,PATNA,BIHAR,800004,7463946607,pack of 16 !,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000138,Martin K,C/o Suraj Auto Sales  I. K. Building Shop No IK-1,Manikuni Bus Stop Bangalore Calicut Highway,Sultan Bathery,KERALA,673592,9930613644,WD WD TC 90Dr. Berg Gallbladder,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000139,Pinky,Keinou Thongkha Mamang Leikai Near LP School,Tiddim Road,NAMBOL,MANIPUR,795134,8119038026,nude$$,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000140,Shanidha k k,Kovval house south chithari,Electric office south chithari,Hosdurg,KERALA,671316,8078895745,PACKOF 4 !,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000141,aditibedi,Flat no 504 Shree hari residency Virtual Hydrom,Sheew hari residency,ROORKEE,UTTARAKHAND,247667,8950597710,PACKOF 4 !*4,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000142,Rajni Verma,House no17,Jawala nagar maqsudan,JALANDHAR,PUNJAB,144008,6280536821,derma,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000143,Amit kumar Agarwala,"House No.140,B D Tower, Mahajan path,Rajiv Gandhi road",Jyotikuchi,GUWAHATI,ASSAM,781034,7086286304,PACKOF 4 !,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000144,Nishitha Lobo,"Reena Lobo,Tellis compound",Tc road thokkotu,ULLAL,KARNATAKA,575020,7353634460,1 nude 1,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000145,Syeda zoya naaz,8-4-369/211/65/69B Bharat Nagar,Bharat Nagar Borabanda Hyderabad,HYDERABAD,TELANGANA,500018,7569006132,1 nude *2,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000146,Senthil kumaran,"D3-4, Ramco cement",Govindapuram Town ship,ARIYALUR,TAMIL NADU,621713,9894952673,hello kitty pinkl,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000147,Suresh kumar murmu,196,"Dhajwa, Dhab",DOMCHANCH,JHARKHAND,825407,9934598265,packof 16 !!,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000148,Devika,59-5-5,P&t colony,RAJAHMUNDRY,ANDHRA PRADESH,533105,7995495901,hello kitty pinkl,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000149,Sunena,Apollo hospital,,NEW DELHI,DELHI,110076,9813163169,nude,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000150,iqra siddiquie,"C wing ,302 Sunrock bldg opp arkam masjid",Hyderi Chowkh,THANE,MAHARASHTRA,401107,9326215238,1 nude 1,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000151,Kaynat Aziz,Near Qadri masjid dargah Sharif road Bahraich,Next to the Qadri masjid,BAHRAICH,UTTAR PRADESH,225201,9170994216,PACKOF 4 !,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000152,Daksh Agarwal,G-115 udai path,Shyam nagar,JAIPUR,RAJASTHAN,302019,8740914605,fixer,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000153,RAGINI MOHITE,Sainath chawl committee,"Ambedkar nagar,Appa pada Malad East",MUMBAI,MAHARASHTRA,400097,8976329130,1 nude 1,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000154,Rohan Maria Das,2/374 (Small gate) first floor,"Ram Chandhra Colony, Manapakkam",CHENNAI,TAMIL NADU,600125,7025977803,1 nude 1,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000155,Varun Arora,"21051, Tower 21","Prestige Lakeside Habitat, Varthur Main Road, Gunjur",BENGALURU,KARNATAKA,560087,9958230049,wd wd tc 60  D3 K2 Vitamin,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000156,Powrna,"50,M.k.Ayyan street",Virudhunagar,Virudhunagar,TAMIL NADU,626001,8973336119,fixer,1,PREPAID,0,0.5,13,13,13,999,0,HID0053
+111000157,Rakesh,"8/2,5/1","6th Street,Rajiv Gandhi nagar",CHENNAI,TAMIL NADU,600118,7845718372,dermaroller 1,1,PREPAID,0,0.5,13,13,13,999,0,HID0053

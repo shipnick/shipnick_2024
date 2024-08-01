@@ -1,0 +1,50 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+79249002,Ijak Ijak ,Anneboinapalli,,Prakasam,Andhra Pradesh,523115,9908464347,,,Clothing,1,599,new,COD,599,0.5,13,13,13,599,599,HID00100
+79249012,K.murugesan K.murugesan ,4/271. Vasantha Nagar thaiyour,,Kanchipuram,Tamil Nadu,603103,9790764133,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249014,K.murugesan K.murugesan ,4/271. Vasantha Nagar. Thaiyour,,Kanchipuram,Tamil Nadu,603103,9790764133,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249018,K.murugesan K.murugesan ,4/271. Vasantha Nagar .Yhaiyour,,Kanchipuram,Tamil Nadu,603103,9790764133,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249024,SAHNI PINTOO ,Khan tour travel harpur chowk maharajganj,,Maharajganj,Uttar Pradesh,273301,7355538780,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249026,Singh sendhav Vijendra ,Matmor tahsil bagli jila dewas,,Dewas,Madhya Pradesh,455227,9993657439,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249033,Meena Lekhraj ,Sikari,,Dausa,Rajasthan,303509,9571011516,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249038,Sabari Saravanan ,Sr pharmacy,,Kanchipuram,Tamil Nadu,631604,6384091458,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249039,Kumar Jyotishi Sanjeev ,Bamebari,,Kendujhar,Odisha,758034,9337156978,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249040,Raveendran Raveendran ,Kallingal (H)  Athikkad  Erangimagad  (po),,Malappuram,Kerala,679329,9745580373,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249042,dharviya Ramesh. ,kaniya.  pan.  gokulnagar.   jakat.  naka,,Jamnagar,Gujarat,361006,9624743982,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249043,Kumar Mulasunil ,49/157 chrukupally colony  chintal,,Hyderabad,Telangana,500054,9848841055,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249044,Madanaseker T ,Chinna Malkapuram,,Kurnool,Andhra Pradesh,518222,6281152772,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249046,Kumar Ajay ,Fatuha near new model school,,Patna,Bihar,803201,6207800085,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249047,sahu Laxman ,Raipur tikrapara nandi chowk,,Raipur,Chhattisgarh,492015,7898743936,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249048,Nagaraj Nagaraj ,"42/3 Srinivasa residency Annapurna stores, Mohan Kumar Nagar, yashwantpur",,Bangalore,Karnataka,560022,7386181844,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249050,patil Aakash ,Hotel sapphero Shirdi,,Ahmed Nagar,Maharashtra,423109,9689272018,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249051,R.james R.james ,"9, Elango Street, Periyar Nagar, Kamaraj Nagar Avadi Chennai",,Tiruvallur,Tamil Nadu,600071,8610403940,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249054,S Ponnuchamy ,Near mythili store ismayil nagar mangammapettai,,Vellore,Tamil Nadu,631003,9597427839,,,Clothing,1,599,,COD,599,0.5,13,13,13,599,599,HID00100
+79249056,pk Ashoka ,Pattasomanahalli pandavapura,,Mandya,Karnataka,571434,9945197461,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249057,sangenahalli Nataraja ,Sangenahalli hiriuyr Chitradurga,,Chitradurga,Karnataka,577545,9535749909,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249060,T. V . Paulson ,Thekkeparambil,,Ernakulam,Kerala,682509,9847515161,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249061,yadav Manish ,Shadipur sirkoni Jaunpur,,Jaunpur,Uttar Pradesh,222136,8188830452,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249067,Hukmaram Hukmaram ,Unchawra,,Barmer,Rajasthan,344701,7300290773,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249068,Hitesh Hitesh ,"Naganesi feshan hub, kawas",,Barmer,Rajasthan,344035,9782415747,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249069,MdAzam MdAzam ,pirror no 06 HP petrol pump opp Madrasha shivrampally Hyderabad,,K.V.Rangareddy,Telangana,500052,9392166018,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249070,MAURYA MAURYA ,Prince Book Dipo Fakhar Pur,,Bahraich,Uttar Pradesh,271902,9450097111,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249071,Chawhan Chawhan ,Anantpur,,Belgaum,Karnataka,591212,9900232177,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249073,V G Automobile K ,Salem main road,,Salem,Tamil Nadu,636138,9047227287,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249077,Jineesh Jineesh ,Neerattinmel,,Kannur,Kerala,670741,9846205966,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249078,Praveenkumar Praveenkumar ,"No.414 bajanai Kovil Street, thappur Village",,Vellore,Tamil Nadu,632505,7397522972,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249079,saharawat Arvind ,Bhokarheri,,Muzaffarnagar,Uttar Pradesh,251316,8191959567,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249084,Shanigari Shanigari ,H_no 1_47 Ahemadipur village Gajwel Mondal Siddipet District plncode 502278 TS,,Medak,Telangana,502278,6118020230,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249086,Chouhan Chouhan ,Govt school sanganer Jaipur,,Jaipur,Rajasthan,302029,9680620015,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249087,Parti Baiju ,Ayithara,,Kannur,Kerala,670643,9447733565,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249088,hussain Nasir ,Distt nuh mewat haryana new bas adda lanter road kumhar mholla gurudat cilinic,,Gurgaon,Haryana,122107,9671881436,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249091,Ali Nabab ,Sardhana Meerut,,Meerut,Uttar Pradesh,250342,8923777746,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249093,singh Amar ,Ganeshpura,,Lalitpur,Uttar Pradesh,284404,9793301840,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249094,Kalyan Kalyan ,Gadwal,,Mahabub Nagar,Telangana,509125,9154485333,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249097,Singh Brajpal ,Chaubepur,,Kanpur Nagar,Uttar Pradesh,209203,9559864205,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249104,pradhani Tanka ,Lanjigarh,,Kalahandi,Odisha,766027,9938980283,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249105,Tate Tate ,Songaon baramati pune,,Pune,Maharashtra,413102,8999087044,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249106,Rahul Shashi ,B. Bommasandra,,Kolar,Karnataka,561206,7026875750,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249107,singh Gurlal ,"Sherpur khadar, purquazi",,Muzaffarnagar,Uttar Pradesh,251327,6399841404,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249113,YADAV BRIJESH ,VILL SOFIPUR POST MADHOPUR DHARANG LALGANJ AZAMGARH,,Azamgarh,Uttar Pradesh,276202,7619995590,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249117,shaikh Mahaboob ,H p Urdu school Chaudhari Nagar gali number 2,,Latur,Maharashtra,413512,9970997748,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249121,Kumar Rajesh ,Ferozepur zerka,,Gurgaon,Haryana,122104,9050898875,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249123,Kumar Pandey Brajesh ,Nanda mura shiv mandir,,Siwan,Bihar,841203,6203514323,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100
+79249125,Manjitlakra Manjitlakra ,Manderiyadem modell Iscool,,Sundergarh,Odisha,770017,8117938532,,,shirt,1,599,,Prepaid,0,0.5,13,13,13,599,599,HID00100

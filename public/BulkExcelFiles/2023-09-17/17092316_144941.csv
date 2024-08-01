@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(Kg)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+25831,userne,Plot 126 Ground Floor Toshika Niwas Sector 46 In front of Guru Nank Park,Delhi,state,122001,9876543219,mobile,1,COD,10,10,10,10,10,10,10,HID0022

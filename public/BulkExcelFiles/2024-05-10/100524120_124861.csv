@@ -1,0 +1,11 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+#DBS4014,Bhupendra Chaudhary,"Besha, Gram pagara",destination address1,Sagar,MP,470002,9691085418,,,CLOTHING,1,999,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4016,Nitin Sharma,"Nandbag colony gali.1 s.D, Nandbag",,Indore,MP,452015,7748065216,,,CLOTHING,1,999,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4025,Jones Alwin,"Chennai, Moovendar Street",,Chennai,TN,600078,8110965453,,,CLOTHING,1,999,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4027,Sonjoy Boro,"Bhulagang, Near BSF camp",,Nayabasti,ML,793107,9862057323,,,CLOTHING,1,999,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4028,Jagadish Pavan,"Bata Store Whitefields, Near bata show room",,"Kondapur, Hyderabad",TS,500081,9949671741,,,CLOTHING,1,999,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4036,Azad Najar,"Dandmoha, Najar mohla",,Baramulla,JK,193101,9797848649,,,CLOTHING,1,999,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4038,Jagan Yadav,"Saroor Nagar Lake Road Number 18 Saroor Nagar East, Hyd",,Hyderabad,TS,500035,6304371043,,,CLOTHING,1,999,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4043,Vishal Oraon,"Chardi ranchi, Chardi school",,Ranchi,JH,834006,8789174260,,,CLOTHING,1,999,COMBO OF 3 checked Shirts - XXL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4049,Tanseer Mantoo,"Guridraman, Larnoo",,Anantnag,JK,192202,9596086535,,,CLOTHING,1,999,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4055,Abhay Thapliyal,"Ghasiya Mahadev Mandir National Highway 7, Shringar garhwal",,Srinagar,UK,246174,7895708533,,,CLOTHING,1,999,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078

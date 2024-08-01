@@ -1,0 +1,3 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+1010,Shrey,Super drinks kathera bazar jwalapur haridwar (,haridwar,Haridwar,uttrakhand,249407,9897910171,Decoration material,1,COD,80,1500,30,20,10,2000,2000,HID0026
+1111,Anmol,"A-5/805, panchsheel greens 2 near ek murti ithaira mode noida extension noida 201305",noida,Noida,Uttar Pradesh,201305,9058685676,Decoration material,1,COD,80,1500,30,20,10,2000,2000,HID0026

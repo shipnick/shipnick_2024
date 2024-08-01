@@ -1,0 +1,2 @@
+Awb_No*,Order_No*,Item_Name*,PickUp_Date*,Order_Status*,Courier_Remark,Last_Status_date*,Delivery_Date,FirstScanDate*,FirstAttemptDate,EDD*,Origin_City*,Origin_pincode*,Destination_City*,Destination_Pincode*,Client_Name*,Customer_Contact*,Customer_Name*,Payment_Mode*,COD_Amount,Order_Ageing*,AttemptCount,CourierName*,RTO_Date,RTOReason,ZoneName*
+123,ORD011,Item 1,23-11-2022,Delivered,,12-03-2022,,23-02-2022,23-11-2022,23-02-2022,Delhi,110023,Delhi,110033,Client 1,9856321407,customer 1,COD,0,None,1,Nimbus,,,Zone1

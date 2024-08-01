@@ -1,0 +1,8 @@
+Order_ID*,Customer_Name*,Address*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(Kg)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+Test 1,Deepak,"Tentuliadia, 17c",Bhadrak,ORISSA,756164,8917576199,Red Colour Shirt,1,COD,99,0.3,1,1,1,99,99,HID007
+Test 2,Revathy,"Kunnath Sreenilayam Maruthorvattom P.O Cherthala Alappuzha , House",Alappuzha,KERALA,688539,9747183862,Red Colour Shirt,1,COD,99,0.3,1,1,1,99,99,HID007
+Test 3,Asif,"Line bazar, 110",Siwan,BIHAR,841438,9572421825,Red Colour Shirt,1,COD,99,0.3,1,1,1,99,99,HID007
+Test 4,Firoj,"Kalyanpur madhubani, Gopalaganj",Siwan,BIHAR,841405,7277954905,Red Colour Shirt,1,COD,99,0.3,1,1,1,99,99,HID007
+Test 5,Raghavendra," Vill gaini po tuturakhi ps uphara dis Aurangabad Bihar , No",Gaya,BIHAR,824235,8102478850,Red Colour Shirt,1,COD,99,0.3,1,1,1,99,99,HID007
+Test 6,Ayush,"Barwatoli college road lohardaga jharkhand, Barwatoli lohardaga",Lohardaga,JHARKHAND,835305,7004227569,Red Colour Shirt,1,COD,99,0.3,1,1,1,99,99,HID007
+Test 7,Rohit,"Manoli, Manoli",Sawai Madhopur,RAJASTHAN,322028,6376881665,Red Colour Shirt,1,COD,99,0.3,1,1,1,99,99,HID007

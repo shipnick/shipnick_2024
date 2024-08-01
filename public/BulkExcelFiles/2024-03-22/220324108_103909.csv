@@ -1,0 +1,6 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+8243505,Sumit Pal Singh,"First Floor B14, Ramnagar Colony, Mohaddipur",In front of Chawla Resturant,GORAKHPUR,UTTAR PRADESH,273008,7838608083,wd wd tc 60 vitb+ dberg-01,1,PP,0,0.5,13,13,13,999,999,HID0053
+0125115,mohsin mala,26/3 bhose panchgani,,panchgani,MAHARASHTRA,412805,9890560728,WDWDBC60DIHYDROBERBERINEDOUBLEWOOD-01,1,PP,0,0.5,13,13,13,999,999,HID0053
+1901153,Puneet Mahajan,9 Shivshanti Bhavan,146 MK Road Churchgate,Mumbai,MAHARASHTRA,400020,9967552187,WDWDBC60DIHYDROBERBERINEDOUBLEWOOD-01,1,PP,0,0.5,13,13,13,999,999,HID0053
+0249153,Sivaram s/o Raja Gopalan,"C144-145, Sreevatsa Gardens","Mettupalyam Road, Thudiyalur",Coimbatore,Tamil Nadu,641034,9994974482,WDWDBC60DIHYDROBERBERINEDOUBLEWOOD-01,1,PP,0,0.5,13,13,13,999,999,HID0053
+3912355,Arun Sharma,"254, E T Hostel","Sector-2, BHEL Ranipur",Haridwar,Uttarakhand,249403,9917100030,WDWDBC60DIHYDROBERBERINEDOUBLEWOOD-01,1,PP,0,0.5,13,13,13,999,999,HID0053

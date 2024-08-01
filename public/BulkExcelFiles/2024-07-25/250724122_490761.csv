@@ -1,0 +1,4 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+5362719,Mohini Dutt,"802 Somerset,opp  D Mart,Central Avenue","Hiranandani Gardens,Powai",MUMBAI,MAHARASHTRA,400076,9820038440,,,WD WD 180wc TMG Double Wood,1,999,,PP,0,0.5,13,13,13,999,999,HID0096
+8451548,HRushikesh,Mnr Hospital gate,"Mnr Nagar, fazawadi",EDDUMAILARAM,TELANGANA,502285,8985485629,,,wd wd 120wc Vitamin Bronson,1,999,,PP,0,0.5,13,13,13,999,999,HID0096
+7848340,Bijay kumar sinha,mata vaishno devi nagar phase-2 argora-kathal more road,pundag ranchi,RANCHI,JHARKHAND,834004,8084325351,,,WDWD60TC B-Complexequi.life,1,999,,PP,0,0.5,13,13,13,999,999,HID0096

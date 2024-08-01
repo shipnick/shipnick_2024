@@ -1,0 +1,5 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+DUS01,Ashwini Jadhav,"B 53 room no 7 government colony bandra East Mumbai, 400051 , Maharashtra",0,Mumbai,Maharashtra,400051,8425010056,Crystal ,1,PP,0,500,10,10,6,5000,5000,HID0031
+DUS02,Kumar sambhav,"House no. 110/11/02 ,2nd floor room no 1, sudarshan cinema road",,Gautm Nagar,Delhi,110049,8586952831,Crystal ,1,PP,0,500,10,10,6,5000,5000,HID0031
+DUS03,diksha Kanodiya ,"307, Gayatri Nagar - A , maharani farm, durgapura, Jaipur (Rajasthan)",0,Jaipur ,RJ,302018,8279201391,Crystal ,1,PP,0,1000,10,10,6,5000,5000,HID0031
+DUS04,Shoba Iyer, Neha Homestay ,"Ro Baragrain Bihal , 14 Mile stone  ","Teh. Manali , district Kullu  ",HP,175129,9840484993,Crystal ,1,PP,0,500,10,10,6,5000,5000,HID0031

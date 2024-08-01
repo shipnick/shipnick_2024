@@ -1,0 +1,3 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+Jy001,Chandana,"Opposite to bluevilla building, jakat naka , kalwad road take left lane of opposite to good will Fabian, dhanori, Pune, Maharashtra, 411032,",,PUNE,MAHARASHTRA,411032,9502710696,Crystal ,1,PP,0,500,10,10,6,5000,5000,HID0031
+Jy002,Thamarai,"Plot no :12 , venkatesan illam Padmavathy nagar VOC 2nd street Near SAN academy Velachery Chennai -600047,",,CHENNAI,TAMIL NADU,600047,9688036903,Crystal ,1,PP,0,500,10,10,6,5000,5000,HID0031

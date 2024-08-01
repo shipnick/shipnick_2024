@@ -1,0 +1,3 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+7018715,Ankit,Trikona park,Hansi,HANSI,HARYANA,125033,7497078266,,,wC-60WDWDAlphaDouble,1,999,,PP,0,0.5,13,13,13,999,999,HID0084
+2848354,Sajib,M B road Fouzdarypatty,Nagaon Assam,Nagaon,ASSAM,782001,8638474157,,,WD WD 120WC  Vitamin D3 K2,1,999,,PP,0,0.5,13,13,13,999,999,HID0084

@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(Kg)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+3490,MR Likham Jaat ,VPO-Mokhab Mehar Nath Market Distt-Barmer Near By-Tannot Rai Vidhya Mandir Rajasthan ,Barmer,Rajasthan,344701,6350646350,MEDICINE,1,COD,2000,0.5,10,8,10,2000,2000,HID0012

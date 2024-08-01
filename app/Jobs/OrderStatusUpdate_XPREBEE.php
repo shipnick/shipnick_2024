@@ -10,6 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 class OrderStatusUpdate_XPREBEE implements ShouldQueue
@@ -41,16 +42,20 @@ class OrderStatusUpdate_XPREBEE implements ShouldQueue
         bulkorders::where('Awb_Number', $awbNumber)->update(['order_status' => 'upload']);
 
         try {
-            $response = Http::withoutVerifying()->withHeaders([
-                'Content-Type' => 'application/json',
-            ])->post('https://shipment.xpressbees.com/api/users/login', [
-                'email' => 'shipnick11@gmail.com',
-                'password' => 'Xpress@5200',
-            ]);
 
-            $responseic = $response->json(); // Decode JSON response
-            $xpressbeetoken = $responseic['data']; // Extract token from response data
-            $xpressbeetoken;
+            $xpressbeetoken = Cache::remember('xpressbee_token', 300, function () {
+                $response = Http::withoutVerifying()->withHeaders([
+                    'Content-Type' => 'application/json',
+                ])->post('https://shipment.xpressbees.com/api/users/login', [
+                    'email' => 'shipnick11@gmail.com',
+                    'password' => 'Xpress@5200',
+                ]);
+
+                $responseic = $response->json(); // Decode JSON response
+                $xpressbeetoken = $responseic['data']; // Extract token from response data
+                return $xpressbeetoken;
+            });
+            
 
             // $xpressbeetoken = $this->getXpressbeeToken();
 

@@ -1,0 +1,3 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+new 17oct02,Arti,A - 30/1 Anand vihar uttam nagar opposite metro pillar no. 695,0,Delhi,Delhi,110059,9717457281,crystals,1,PP,0,500,10,10,6,2000,1999,HID0031
+new 17oct03,Preeti,426-i basant Avenue first floor near ajanta public school,0,Amritsar ,Punjab,143001,7508485525,crystals,1,PP,0,500,10,10,6,2000,1999,HID0031

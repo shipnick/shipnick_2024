@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+jadnov3,N.jeyarani,"Gnavel colony West Street, Teppakulam South",Teppakulam South,Madurai ,Tamilnadu,625009,9994991262,BAGS,1,PP,0,500,7,6,5,1000,1000,HID0039

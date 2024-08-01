@@ -1,0 +1,11 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+#1867,Vipin Vipin,"Near maharaja hotel jhiriya word no06rewa low college ke pichhe, Low college ke pichhe","Near maharaja hotel jhiriya word no06rewa low college ke pichhe, Low college ke pichhe",Rewa,MP,486001,9131755269,Handmade Italian High Shoes - 8 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2068,Narendar Narendar,"1ekarli bagawas, Ekarli bagawa","1ekarli bagawas, Ekarli bagawa",barmer,RJ,344026,9509589145,Handmade Italian High Shoes - 10 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2069,Shubham kumar sahani,"Saipur shiva mandir 231, Saipur, sahada, Balasore","Saipur shiva mandir 231, Saipur, sahada, Balasore",Balasore,OR,756002,7327074754,Handmade Italian High Shoes - 6 / Tan,1,COD,999,1000,10,12,10,999,999,HID0035
+#2070,Wahid ali,"Hafua balram, Hafua balram","Hafua balram, Hafua balram",Kushinagar,UP,274409,7080512955,Handmade Italian High Shoes - 10 / Tan,1,COD,999,1000,10,12,10,999,999,HID0035
+#2071,Pappu Kumar,"41 baddiha 2, Jamua  Mirzaganj baddiha 2","41 baddiha 2, Jamua  Mirzaganj baddiha 2",Giridih,JH,815315,9798237946,Handmade Italian High Shoes - 7 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2072,Himanshu singh,"Amirta hardoi, Shahabad","Amirta hardoi, Shahabad",Bhadevna,UP,241125,6307172021,Handmade Italian High Shoes - 9 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2073,Akash Kumar Singh,"Railway Crossing Sarpatipur, Sarayiyanat","Railway Crossing Sarpatipur, Sarayiyanat",Prayagraj,UP,221505,9415572774,Handmade Italian High Shoes - 6 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2074,Musharraf Musharraf,"House no. 174, Hajibagh Hmt","House no. 174, Hajibagh Hmt",Srinagar,DL,190012,9149672810,Handmade Italian High Shoes - 6 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2075,Atish Atish,"Ranjangaon, Kamlapur fata","Ranjangaon, Kamlapur fata",City,MH,431105,9370326231,Handmade Italian High Shoes - 7 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2076,Gopal Gopal,"Undavi bhavnagar, Bhavnagar","Undavi bhavnagar, Bhavnagar",Bhavnagar,GJ,364240,9016989796,Handmade Italian High Shoes - 7 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035

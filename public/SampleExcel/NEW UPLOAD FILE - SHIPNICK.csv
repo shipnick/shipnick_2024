@@ -1,0 +1,3 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+1111,test name,destination address,destination address1,city,state,111111,9999999999,,,Product Nmae,1,nedw,new,COD,1,0.5,1,1,1,1,1,HID000
+2222,test name,destination address,destination address1,city,state,111111,9999999999,,,Product Nmae,1,,,PP,0,0.5,1,1,1,1,1,HID000

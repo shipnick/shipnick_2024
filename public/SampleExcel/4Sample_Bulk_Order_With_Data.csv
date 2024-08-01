@@ -1,0 +1,2 @@
+Order ID,Customer Name,Address ,Customer City,Customer State,Pincode,Mobile,Product Name,Quantity,Order Type,COD AMOUNT,Weight,Length (Cm),Breadth (Cm),Height (Cm),Invoice Value,Total Amount,pickup_id,pickup_name,pickup_mobile,pickup_pincode,pickup_address,pickup_state,pickup_city
+12345,user name,destination address,,,,111111,9999999999,Product Nmae,COD / PP,0,,,0,0,0,0,0,hub name,9999999999,111111,hub shop address,state,city

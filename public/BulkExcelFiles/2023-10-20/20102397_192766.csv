@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+#2069,Shubham kumar sahani,"Saipur shiva mandir 231, Saipur, sahada, Balasore","Saipur shiva mandir 231, Saipur, sahada, Balasore",Balasore,OR,756002,7327074754,Handmade Italian High Shoes - 6 / Tan,1,COD,999,1000,10,12,10,999,999,HID0035

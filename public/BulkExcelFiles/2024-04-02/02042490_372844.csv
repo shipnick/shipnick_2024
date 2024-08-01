@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+32447,Sameerbabu Sameerbabu,Kalachiraparayanpallth,Kalachiraparayanpallth,Vengad. Park,KL,679338,9745378253,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0062

@@ -1,0 +1,4 @@
+Customer Name,Customer Address,Customer State,Customer City,Customer Mobile,Customer Pin,Actual Weight,Total Amount,Item name,Quantity,COD Amount,Invoice Value,Additional Details
+a,85,delhi,delhi,987654,110020,25,25,prod 1,1,10,12,1
+b,25,kolkata,kolkata,6543121,110021,30,300,prod 2,2,20,10,2
+c,36,baglore,baglore,258963,110022,35,350,prod 3,3,5,5,3

@@ -1,0 +1,12 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+#2069,Shubham kumar sahani,"Saipur shiva mandir 231, Saipur, sahada, Balasore","Saipur shiva mandir 231, Saipur, sahada, Balasore",Balasore,OR,756002,7327074754,Handmade Italian High Shoes - 6 / Tan,1,COD,999,1000,10,12,10,999,999,HID0035
+#2072,Himanshu singh,"Amirta hardoi, Shahabad","Amirta hardoi, Shahabad",Bhadevna,UP,241125,6307172021,Handmade Italian High Shoes - 9 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2073,Akash Kumar Singh,"Railway Crossing Sarpatipur, Sarayiyanat","Railway Crossing Sarpatipur, Sarayiyanat",Prayagraj,UP,221505,9415572774,Handmade Italian High Shoes - 6 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2074,Musharraf Musharraf,"House no. 174, Hajibagh Hmt","House no. 174, Hajibagh Hmt",Srinagar,DL,190012,9149672810,Handmade Italian High Shoes - 6 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2075,Atish Atish,"Ranjangaon, Kamlapur fata","Ranjangaon, Kamlapur fata",City,MH,431105,9370326231,Handmade Italian High Shoes - 7 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2076,Gopal Gopal,"Undavi bhavnagar, Bhavnagar","Undavi bhavnagar, Bhavnagar",Bhavnagar,GJ,364240,9016989796,Handmade Italian High Shoes - 7 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2077,Krishna Kumar,"Near by Nandan residansi, Hongsandra   bustop","Near by Nandan residansi, Hongsandra   bustop",Bummanhulli,KA,380039,9686857218,Handmade Italian High Shoes - 6 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2078,Vivek Vivek,"Shitapur road hardoi gram &post bharayal, U p hardoi","Shitapur road hardoi gram &post bharayal, U p hardoi",Bharayal,UP,380039,7518007699,Handmade Italian High Shoes - 6 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2079,Vivek Vivek,"Shitapur road hardoi bharayal, pnb bank Bharayal","Shitapur road hardoi bharayal, pnb bank Bharayal",Hardoi bharayal,UP,241121,7518007966,Handmade Italian High Shoes - 7 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035
+#2080,HABIZUR Rahman,"Piyazbari, Makrijhora","Piyazbari, Makrijhora",Dhubri,AS,783349,9957192972,Handmade Italian High Shoes - 8 / Tan,1,COD,999,1000,10,12,10,999,999,HID0035
+#2081,Rohit Rohit,"Bawana industrieal area sec-1 block -I 80, Near Gaol chakkar","Bawana industrieal area sec-1 block -I 80, Near Gaol chakkar",Delhi,DL,110039,9315194731,Handmade Italian High Shoes - 7 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035

@@ -1,0 +1,3 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+0130apr,Pushparaj Amin," Mahavir Kunj, A/12, near Vidyavardani Engineering college, vasai west.",,Vasai,MH,401202,8806113320,,,crystals,1,1800,Bracelet,PP,0,0.5,13,13,13,1800,1800,HID0069
+767g,Dhanlaxmi Medical and General Store ,"Shop No.A/153, Indira Nagar, opposite Ganiban co-operative society, 60 feet road, Dharavi, Mumbai",,Mumbai,MH,400017,9664749459,,,crystals,1,1800,Bracelet,PP,0,0.5,13,13,13,1800,1800,HID0069

@@ -1,0 +1,17 @@
+Consignee Name*,"Consignee Mobile*
+10 Digits Only","Consignee Phone
+Digits Only","Consignee Email
+Email Type",Consignee Address 1*,Consignee Address 2,"Pincode*
+6 Digit Only",Invoice/Ref Num,"Express Type*
+air/surface","NDD
+y/n",Product Name*,"Product Quantity*
+Value >=1","Product Value*
+Value  >= 0.1",SKU,Product Category,"Extra Charges
+Value >= 0","COD Amount*
+Value  >= 0","Shipment Weight*
+Value >= 0.1","Shipment Length*
+Value >= 0.1","Shipment Width*
+Value >= 0.1","Shipment Height*
+Value >= 0.1",Pickup Address Id*,Return Address Id,Seller Id
+Shamshad ansari,7063017740,,,"Ar complex 2nd floor, sabji mandi bari kothi, durga mandir near haji hotel, ",,855107,,AIR,,crystal,1,1500,,,,0,0.5,5,7,5,17213,,
+Sunil Kumar Manrai,9677222035,,,"C-12, Ground Floor, Shri Krishna Greens, Near Rukmani Vihar","Vrindavan-Chhatikara Road,",281121,,AIR,,crystal,1,1500,,,,0,0.5,5,7,5,17213,,

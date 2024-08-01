@@ -1,0 +1,5 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+TW01,Tejaswini ,8/308 bhogipura Shahganj nearby city hospital ,a,Agra,Uttar Pradesh,282010,8265850992,Crystals,1,PP,0,500,10,10,8,2000,2000,HID0031
+TW02,Anmol,"A-5/805, panchsheel greens 2 near ek murti ithaira mode noida extension  ",,Noida,Uttar Pradesh,201305,9058685676,Decoration item,1,PP,0,1500,30,30,20,6000,6000,HID0032
+Tw03,Satakshi ,C-7 shakti nagar near mahila Mahavidyalaya jagjeetpur road kankhal haridwar ,,Haridwar,uttrakhand,249408,8755169982,Decoration item,1,PP,0,2000,30,30,20,6000,6000,HID0032
+TW04,Shrey,Super drinks kathera bazar jwalapur haridwar ,,Haridwar,uttrakhand,249407,9897910171,Decoration item,1,PP,0,1500,30,30,20,6000,6000,HID0032

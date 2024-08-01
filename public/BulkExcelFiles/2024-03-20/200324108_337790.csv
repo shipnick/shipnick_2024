@@ -1,0 +1,4 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+809915,Shiny,"202, 2nd Floor, Sumukha Maple Groove, Yelenahalli Main Road","Akshayanagar,  Begur-hulimavu road, Bangalore",BENGALURU,KARNATAKA,560068,7755904818,WDWDBC60DIHYDROBERBERINEDOUBLEWOOD-0*2,1,PP,0,0.5,13,13,13,1599,1599,HID0053
+216364,Arunachala,"500, 1st Main, 3rd Cross, Royal County Layout","Jambu Savari Dinne, JP NAGAR 8th Phase",Bengaluru,KARNATAKA,560083,9845125199,WDWDBC60DIHYDROBERBERINEDOUBLEWOOD-0*3,1,PP,0,0.5,13,13,13,2499,2499,HID0053
+245953,Shanmugam,1,Cheyyur Parthasarathy street,Chennai,TAMIL NADU,600011,9840003022,WDWDBC60DIHYDROBERBERINEDOUBLEWOOD-0*3,1,PP,0,0.5,13,13,13,2499,2499,HID0053

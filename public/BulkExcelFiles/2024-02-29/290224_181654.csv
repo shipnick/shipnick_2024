@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address1*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(Kg)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+13450,Praveen Rao Praveen Rao,SWAN MILLBLDG B 1 R No 1202 TJ RD,SWAN.MILLBLDG.B.1.R.No.1202.TJ.RD,CiTi,MH,'15,9967987460,Clothing,1,COD,598,0.5,13,13,13,598,598,HID0043

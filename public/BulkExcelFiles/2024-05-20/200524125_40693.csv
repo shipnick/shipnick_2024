@@ -1,0 +1,3 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+240340,Santosh Reddy Palvai,"H.No: 3-18-116, 1st Floor","Pragathi Nagar, Ramanthapur",Hyderabad,TELANGANA,500013,9848414811,,,WD WD 120 WC D3 K2 Vitamin,1,999,,PP,0,0.5,13,13,13,999,999,HID0082
+567558,Yatin arora,f-5/23 krishna nagar,,Delhi,DELHI,110051,9999199259,,,WD WD 120 WC D3 K2 Vitamin,1,999,,PP,0,0.5,13,13,13,999,999,HID0082

@@ -1,0 +1,5 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+4635560,Shashikant Bhoir,204,"At kakadwal,",KALYAN,MAHARASHTRA,421306,9372068416,,,ANK00001,1,999,,PP,0,0.5,13,13,13,999,999,HID0096
+1845965,Irshad Khan,Bda gao get bhar,Mastar coolune,MUMBAI,MAHARASHTRA,400001,6387081801,,,ANK00001,1,999,,PP,0,0.5,13,13,13,999,999,HID0096
+4145975,Satnam Mehra,I D Steel  phase 9 plot no 636,Phase 9  I.N.D,MOHALI,PUNJAB,160055,9592009396,,,ANK00001,1,999,,PP,0,0.5,13,13,13,999,999,HID0096
+1113121,Viji,Apr-38,Valandur,Uasaliimpatti,TAMIL NADU,625535,8825759330,,,ANK00001,1,999,,PP,0,0.5,13,13,13,999,999,HID0096

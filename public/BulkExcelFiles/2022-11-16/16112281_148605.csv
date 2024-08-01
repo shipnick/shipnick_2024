@@ -1,0 +1,5 @@
+Order_ID*,Customer_Name*,Address*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(Kg)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+1,Test 1,Sowndarya VA                                                                        14 NS RESIDENCY  RAMASWAMY NAGAR  KAMARAJAR ROAD  SINGANALLUR COIMBATORE-641005 TAMILNADU                           MOB: 9790773846,COIMBATORE,TAMILNADU,641005,9790773846,Product Nmae,1,PP,0,0.3,16,13,5,500,1,HID0018
+2,Test 2, Tarun Sachdeva      A2 2 Signature Global City Sector 35 Karnal 132001       MOB  9953340999,Haryana,Haryana,132001,9953340999,Product Nmae,1,PP,0,0.3,16,13,5,500,1,HID0018
+3,Test 3,Manesh Singh Ramola    B 17 Janki Nagar society Opp anandvan complex  Gorwa  Vadodara - 390016  Mob:6352047482,Vadodara,Gujrat,390016,6352047482,,1,PP,0,0.3,16,13,5,500,1,HID0018
+4,Test 4,Ms. Monalisa     C/o - Satya Prakash   S.K Sadan  Mitra Mandal colony  Phase- 2  (Near Pooja Clinic) Beur  Anishabad  Patna - 800002. Mob: 7838208501, Anishabad,Patna ,800002,7838208501,,1,PP,0,0.3,16,13,5,500,1,HID0018

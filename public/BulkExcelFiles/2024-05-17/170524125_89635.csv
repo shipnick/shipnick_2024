@@ -1,0 +1,3 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+689908,Balasubramaniyam,Apr-91,"Main road, jedarpalayam, p.velur",NAMAKKAL,TAMIL NADU,637213,7845108858,,,WD WD 120 WC D3 K2 Vitamin,1,999,,PP,0,0.5,13,13,13,999,999,HID0082
+828311,Siddu,Kenchikoppa circle,Nyamathi taluk Kenchikoppa village,DAVANAGERE,KARNATAKA,577223,7829843622,,,RW500,1,999,,PP,0,0.5,13,13,13,999,999,HID0082
