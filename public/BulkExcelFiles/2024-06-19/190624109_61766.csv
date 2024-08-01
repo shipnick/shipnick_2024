@@ -1,0 +1,796 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+2848,Ajay Sahoo,"Shankar pur dhiasahi bhaghabat mandira Cuttack, Odisha 753012
+","WEST GODAVARI, Arunachal Pradesh 534211  Tanuku",Hyderabad,Telangana,502307,6000895291,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3182,Raj Raj,"#30/31 nature wood pack, somashettihalli , behind yashas vidhyakendra school Banglore, Karnataka 560090
+Banglore, Karnataka 560090
+ ","Shankar pur dhiasahi bhaghabat mandira Cuttack, Odisha 753012
+",Jhinjhana, Uttar Pradesh ,247773,7060986504,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3167,Suresh Kumar Gunda,"Village Sarkoriya Post beswan tes.iglash dis.aligarh Beswan, Uttar Pradesh 202145
+","#30/31 nature wood pack, somashettihalli , behind yashas vidhyakendra school Banglore, Karnataka 560090
+Banglore, Karnataka 560090
+ ",Guntur, Andhra Pradesh,522003,9703162888,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3180,Praveen Praveen,"Thirumala giri edulaparre thanda Thirumalagiri, Telangana 508223
+","Village Sarkoriya Post beswan tes.iglash dis.aligarh Beswan, Uttar Pradesh 202145
+",Eluru, Andhra Pradesh,534001,9505486202,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3063,Kamlesh Kamlesh,"Sai nagar raibag Raibag Rural, Karnataka 
+","Thirumala giri edulaparre thanda Thirumalagiri, Telangana 508223
+",Cheekhli,Rajasthan,314026,9982140143,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3144,Anand Anand,"Badakodanda Bhanjanagar, Odisha 761125
+","Sai nagar raibag Raibag Rural, Karnataka 
+",Hyderabad,", Telangana",500039,9848580318,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2708,Mohd Muzaffar,"At. Bazar sawangi Aurangabad, Maharashtra 431111
+","Badakodanda Bhanjanagar, Odisha 761125
+",Kota,Rajasthan,324002,8058115511,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2724,Chandregowda Chandregowda,"A.v.nagaram thondangi ( m)Kkd d Annavaram, Andhra Pradesh 
+ ","At. Bazar sawangi Aurangabad, Maharashtra 431111
+",Bangarpet,Karnataka,563114,9964773344,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2904,Ramjilal Meena,"????????? ????? ?????? ??????, Uttar Pradesh
+","A.v.nagaram thondangi ( m)Kkd d Annavaram, Andhra Pradesh 
+ ",Rahimnager Tonk,Rajasthan,304504,6378783618,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2897,Krishan Nama,"At Kalmnuri Kalmnuri, Maharashtra 431702
+","????????? ????? ?????? ??????, Uttar Pradesh
+",Rudijala,Tripura,799115,8420494247,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2880,Sabu Pulimath,"At Kaliyare ta Jambusar Jambusar, Gujarat 392155
+","At Kalmnuri Kalmnuri, Maharashtra 431702
+",pattom,Kerala,695004,9946956744,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2877,Varma Varma,"Venchiryal Mulkal, Telangana 503218
+","At Kaliyare ta Jambusar Jambusar, Gujarat 392155
+",Konapur,Telangana,505539,9390032342,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2876,Avinash Kumar,"Madeva mandir ka pass ramsani Madeva mandir ka pass ramsani
+","Venchiryal Mulkal, Telangana 503218
+",Pohalli Meerut, Uttar Pradesh,250341,8969810173,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2863,Dev Gurjar,"Triveni nagar Jaipur, Rajasthan ","Madeva mandir ka pass ramsani Madeva mandir ka pass ramsani
+",Uchain,Rajasthan,321302,7023847432,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2852,Harshit singh,"?????????????  Perumbavoor, Kerala 683545
+","Triveni nagar Jaipur, Rajasthan ",KolkataKolkata,West Benga,700060,7980209500,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2837,Vikram Singh,"Kale kaylni alandi pune Pune, Maharashtra 412105
+","?????????????  Perumbavoor, Kerala 683545
+",BARMER,Rajasthan,344011,9983213205,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2631,Subair Subair,"5/166krishna mager uthumalai Thirunelveli, Tamil Nadu
+","Kale kaylni alandi pune Pune, Maharashtra 412105
+",MALAPPURAM,Kerala,673640,9745929610,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2641,BHAWANI SHANKAR SHARMA,"Ranchi enterprises lohra kochha gali Ranchi, Jharkhand 834001
+","5/166krishna mager uthumalai Thirunelveli, Tamil Nadu 
+",Jaipur,Rajasthan,303603,7073930201,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2660,Shibu m,"Yeshwantraopet Yeldurthy, Telangana 502109
+","Ranchi enterprises lohra kochha gali Ranchi, Jharkhand 834001
+",Adimaly,Kerala,685561,9074798039,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2671,Bhaska Nayak,"Village karoli tehsil behravnda mohchingpura Dausa, Rajasthan 303501
+","Yeshwantraopet Yeldurthy, Telangana 502109
+",Puri,Odisha,752013,6370596313,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2674,Dilip Bighane,"Bethel pulimoottil,mukkanjira paippad p o changanassery  
+","Village karoli tehsil behravnda mohchingpura Dausa, Rajasthan 303501
+",Nagpur,Maharashtra,440013,7972125074,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2677,Ashok Ashok,"Sri Krishna boys hostel near annamacharya college venkatapuram  Rentigunta,
+","Bethel pulimoottil,mukkanjira paippad p o changanassery  
+",Bhubaneswar,Odisha,751010,7008868426,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2688,Shankar Shankar,"Bal Nagar Montessori school ke samne Shri Lakshmi general Store 
+","Sri Krishna boys hostel near annamacharya college venkatapuram  Rentigunta,
+",Warangal,Telangana,506002,9704444619,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2394,Anilkumar Anilkumar,"Chvanvadi lasuran Junction, Maharashtra 
+","Bal Nagar Montessori school ke samne Shri Lakshmi general Store 
+",Kozhikode,Kerala,673303,9961244115,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2400,Pradeep alawa,"callecter office.naspur mancherial, Telangana 
+","Chvanvadi lasuran Junction, Maharashtra 
+",Barwani,Madhya Pradesh,451551,8718868723,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2410,Sisodiya Ranjitsinh,"Niravari colony dharwad  Dharwad, Karnataka 
+","callecter office.naspur mancherial, Telangana 
+",Keshod,Gujarat,362227,7096362264,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2413,Kallepalli Mutyalu,"Kailasm S H M ount PO, Kerala 686006
+","Niravari colony dharwad  Dharwad, Karnataka 
+",Polamuru, Andhra Pradesh,534238,7013225278,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2417,Ramkee Ramkee,"Islam.pra.taun.cooki.dolpur Dolpur, Rajasthan 
+","Kailasm S H M ount PO, Kerala 686006
+",Coimbatore, Tamil Nadu,641201,9688510879,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2470,Ilyash Ilyash,"Lakhomes Apartment nandakumar line near nexora Ernakulam,
+","Islam.pra.taun.cooki.dolpur Dolpur, Rajasthan 
+",Godda,Jharkhand,814155,7319890340,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2592,Vaitheeswaran Vaitheeswaran,"Sugam hospital panthalkudi Aruppukottai taluk, 
+","Lakhomes Apartment nandakumar line near nexora Ernakulam,
+",Chennai, Tamil Nadu ,600053,9345426069,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2615,Hyderali ,"at.kanerav ta.valia di bharuch Valia, Gujarat 
+","Sugam hospital panthalkudi Aruppukottai taluk, 
+",Manjeri, Kerala ,676123,9895660904,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3138,Karan Walhekar,"3,509,Health camp ovalley road gudaglur  Tamil Nadu
+","at.kanerav ta.valia di bharuch Valia, Gujarat 
+",Pune,Maharashtra ,412211,9021668020,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3136,Ranjeet Ranjeet,"Puthuveetu villai Attoor, Tamil Nadu
+","3,509,Health camp ovalley road gudaglur  Tamil Nadu
+",Karlu,Rajasthan ,341026,7877234730,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3105,Mansi Mansi,"Shiv mandhir PATNA, Bihar 
+","Puthuveetu villai Attoor, Tamil Nadu
+",Puri,Odisha ,752001,7978781857,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3142,Jagdish Malviya,"Madina Nagar Atlati road Bijapur Bijapur, Karnataka 
+","Shiv mandhir PATNA, Bihar 
+",Bhopal, Madhya Pradesh,462023,9425019139,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2742,Asraf Asraf,"ANAND COMPLAX DRCV RAMAN  Ambikapur, Chhattisgarh 
+
+","Madina Nagar Atlati road Bijapur Bijapur, Karnataka 
+",Aliganj,Uttar Pradesh,207247,8057565808,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2579,Sekar Sekar,"T p s rod Osmanabad, Maharashtra 
+","ANAND COMPLAX DRCV RAMAN  Ambikapur, Chhattisgarh 
+
+",Chengalattu, Tamil Nadu,603111,9380651555,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2366,Brajabandhu Brajabandhu,"181meghwalo ka vas parewar Jaisalmer, Rajasthan 
+","T p s rod Osmanabad, Maharashtra 
+",Bhuban,Odisha,759017,8480690213,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2383,kishor Ankam ," Netaji nagar Nagpur, Maharashtra 
+","181meghwalo ka vas parewar Jaisalmer, Rajasthan 
+",Amaravathi,Andhra Pradesh,522020,8688361918,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2472,Hanamant Badare,"Bhawani steel. Canter piller Piller, Andhra Pradesh 
+"," Netaji nagar Nagpur, Maharashtra 
+",Belgavi,Karnataka,590006,9741759695,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2652,Kanhaiya Kanhaiya,"b12 seemanagr near om furniture tadwadi rander road  surat, Gujarat 
+","Bhawani steel. Canter piller Piller, Andhra Pradesh 
+",Prayagraj,Uttar Pradesh,211001,7080457148,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2864,Marlolu Raju,"1/31 nallasivam Street vellalore Coimbatore Coimbatore, 
+","b12 seemanagr near om furniture tadwadi rander road  surat, Gujarat 
+",Mahabubnagar,Telangana,509001,9000903027,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2844,Saravanan Saravanan,"Kottarathil Kottayam, Kerala 686636
+","1/31 nallasivam Street vellalore Coimbatore Coimbatore, 
+",Madurai, Tamil Nadu,625016,9600554848,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2842,Alfaiz Alfaiz,"PatiRaj chawl Yadav Nagar Sahakar Road Jogeshwari West Mumbai, 
+","Kottarathil Kottayam, Kerala 686636
+",Kota,Rajasthan,324005,9358189045,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2827,Sonu Sonu,"Kottezhath house Cherthala., Kerala 688531
+","PatiRaj chawl Yadav Nagar Sahakar Road Jogeshwari West Mumbai, 
+", Ram pur,Uttar Pradesh ,244921,8958310338,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2826,Roman Osian,"A34 2/2 Sit 4, Uttar Pradesh 101020
+","Kottezhath house Cherthala., Kerala 688531
+",Jodhpur,Rajasthan,342007,8290026621,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2801,Raghupathi ,"??????? ????? ??????? ???? ???????? ???? ??? ??? ??? ???????, Uttar Pradesh 
+","A34 2/2 Sit 4, Uttar Pradesh 101020
+",Balussery,Kerala,673612,9947659814,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2798,Kamlesh choudhary,,"??????? ????? ??????? ???? ???????? ???? ??? ??? ??? ???????, Uttar Pradesh 
+",jaipur,Rajasthan,302029,8306599803,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2796,Kola.udaykumar Kola.udaykumar,,,Vijayawada, Andhra Pradesh,520002,9948109699,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2787,Nandkishor Yadav,,,Bathinda,Punjab,151001,7080008346,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2786,Sushil Sushil,,,Vijaynagar,Rajasthan,335704,7568448289,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2934,Ummer Ummer,,,Majeri,Kerala ,976123,9995413497,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2917,Subhash Ratwan,,,Rohru,Himachal Pradesh,171208,9816892516,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3087,Mukesh kumar,,,Muzaffarpur,Bihar ,842002,6200095595,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3081,Dhiraj Dhiraj,,,Maharashtra,Maharashtra,400052,9594200377,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3071,Vijay Vijay,,,Maravankuttai,Tamil Nadu,638314,6374990681,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2517,Skumar Skumar,,,LUCKNOW, Uttar Pradesh,226028,9910691038,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2524,Shree Ram,,,Dhorimanna, Rajasthan,344704,9672196124,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2568,Ravinder Ravinder,,,???????????, Telangana,505152,9398895694,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2572,Jayaprakash Jayaprakash,,,Nattalam, Tamil Nadu ,629165,8098063160,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2414,Sunil chavhan,,,Pune,Maharashtra,412301,9398420601,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2467,Deepak Deepak,,,Nawada,Bihar,805104,8210394519,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2584,Puran Puran,,,Falna,Rajasthan,306116,9998925537,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3033 ,ThippeshA ThippeshA,,,Bangalore,Karnataka,560068,8147123682,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3030 ,Ramalan Ramalan,,,CHENNAI Karaikudi,Tamil Nadu,630001,8015173287,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3016,Akb welding works,,,Chennai,Tamil Nadu,600044,9176456590,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3015,Jagannath mandal,,,Raighar,Odisha ,764074,8455846741,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3008,PAVAN PHAILWAN,,,SIRPUR KAGAZ NAGAR,Telangana ,504296,7981925223,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2998,Sunil Kumar,,,Pedda pappur,Andhra Pradesh,515445,9492323064,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2992,sunny sunny,,,Shivpuri,Madhya Pradesh,473551,9893995778,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2985,M. Yadagiri Giri,,,Hyderabad,Telangana ,501508,9704304942,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2937,Ravinder Thakur Thakur,,,Ludhiana,Punjab ,141001,9780512533,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2922,Ramadevi Ramadevi,,,Madanapalli,Andhra Pradesh,517325,7893006210,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2678,Samanath Majhi,,,Kumuliput,Odisha,764055,7978829205,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3060,Sakthi Sakthi,,,Chennai,Tamil Nadu,600042,7845820577,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3062,Vasudevan. Vasudevan.,,, Coimbatore,Tamil Nadu,641031,9843599060,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2828,P.mahendrababu P.mahendrababu,,,Santhinagar, Andhra Pradesh,523291,9951145856,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3056 ,Ashish Mahto,,,Ranchi,Jharkhand ,835217,6299021451,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3054 ,P.mahendrababu P.mahendrababu,,,Santhinagar,Andhra Pradesh,523291,8919211590,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3053,P.mahendrababu P.mahendrababu,,,Santhinagar,Andhra Pradesh,523291,9951145859,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3051 ,Ramesh Ramesh,,,Shabad,Telangana ,509217,7569929754,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3050 ,Rajat Kumar kar,,,Balangir,Odisha ,767001,7749985005,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3049 ,Rafi sathar,,,Trivandrum,Kerala ,695584,8891551361,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3048,Praveen Praveen,,,Changanacherry,Kerala ,686106,9037026617,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3047 ,Rajkumar s,,,ERNAKULAM,Kerala ,682018,8300809891,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3046 ,Ravinder Reddy,,,Bhupalpally,Telangana ,506169,9666057935,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3044 ,M.A Suresh,,,City Coimbatore,Tamil Nadu,641005,8270514085,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3043 ,Aman Aman,,,Ranchi,Jharkhand ,834005,6207569421,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3042 ,Athram Naresh,,,Bareguda,Telangana ,504299,9110709735,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3040 ,Haridas v A,,,Palloor,Puducherry ,673310,9074676779,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3039 ,Rasheed.m Rasheed.m,,,Nilamburkarulai,Kerala ,679330,9745625156,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3038 ,Harinath Harinath,,,Banglore,Karnataka ,560036,7330969913,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3037,Kh.khagemba singh,,,Kumbi,Manipur ,795133,7628889592,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3036 ,Ramniwas garhwal,,,Dhule,Maharashtra ,404001,8308940840,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3035 ,K.sagar babu,,,Narasaraopet, Andhra Pradesh,522601,6305483070,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3032 ,Umesh Singh,,,Champawat,Uttarakhand ,262523,9258247625,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3031,Sushil kumar yadav,,,Etawah,Uttar Pradesh ,206002,9058708170,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3027 ,Yogesh Pawar,,,Yawal,Maharashtra ,425301,9970108130,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3026 ,Dayal Mahato,,,Dhanbad,Jharkhand ,828305,8210771943,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3025 ,Shaik Zameer,,,Hyderabad,Telangana ,500059,9949983907,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3024 ,Sachin Sachin,,,Secunderabad Sharma hote, Uttar Pradesh ,203206,9897798983,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3020 ,Ettireddy Mahipal reddy,,,SIDDIPET,Telangana ,505528,9542650770,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3019,Anthony Swamy R,,,KA,Karnataka ,573201,8088747083,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3018,K charan,,,Dammapeta,Telangana ,507306,9390004087,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3017,Sai Sai,,,Punganur,Andhra Pradesh,517257,7997636757,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3014,Vediayppan Vediayppan,,,Krishnagiri,Tamil Nadu,635101,9943739228,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3013,Munivenakatarayappa Munivenakatarayappa,,,Katargupta Halli,Karnataka ,563125,9900974893,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3012,Basavaraju Basavaraju,,,Bettdhapura,Karnataka ,571102,9740944204,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3010,Jagannatha B,,,Bangarpet,Karnataka ,563114,9740168696,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3007,Nagaraju.c.g Nagaraju.c.g,,,Bangalore,Karnataka ,560076,9743370119,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3005,Ravali Ravali,,,Hanumakonda,Telangana ,506001,9652459213,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3004,Sunil.v Sunil.v,,,Angamaly,Kerala ,683572,9539440089,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3003,Ragolu Arjuna Rao,,,Vizanagaram,Andhra Pradesh,532127,9618987607,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3002,Mahesh Mahesh,,,Boyapally Gate Rd,Telangana ,509001,6201343528,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3000,Deepak Deepak,,,Ratalam,Madhya Pradesh,457336,7425903712,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2999,Venkatesh Venkatesh,,,Karur, Tamil Nadu,639001,9952481362,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2996,Amit Amit,,,Bankura, West Bengal ,722101,9382011264,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2995,Lalit kumar,,,Amritsar,Punjab ,143001,7508016740,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2994,ABDUL BHAI HAJI BHAI SINDHI,,,MAHESANA,Gujarat ,384002,9638119704,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2993,Anil Anil,,,Umarkhed,Maharashtra ,445206,8767898129,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2990,Gaddam santosh,,,SR school apojet, Andhra Pradesh,506112,8096178291,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2988,Sonu sahu,,,Bemetara,Chhattisgarh ,491335,7000891364,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2987,Noushad Noushad,,,Sooranad kollam,Kerla,690522,9745023370,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2986,Rishi Rishi,,,Uppa,Andhra Pradesh,531077,9391904402,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2984,Tarun Kumar Kurre,,,Lawan,Chhattisgarh,493526,7999034513,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2982,Ashok kumar,,,Mamdot,Punjab ,152023,9417162554,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2981,Shaitan Singh,,,Kadthal,Telangana ,509358,7878397815,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2978,Mukesh Mukesh,,,Nithara,Assam ,303103,8003783197,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2977,Kumar reddy,,,Pandilla palli,Andhra Pradesh,523184,8125704540,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2974,Dal hasam,,,Manavadar,Gujarat ,362630,9925695565,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2973,Muzammil Muzammil,,,Meerut,Uttar Pradesh ,250501,8630483651,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2971,Bapi Mondal,,,Berul,West Bengal ,732138,7797322904,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2970,Paramasivam Paramasivam,,,Rajapalayam,Tamil Nadu ,626139,9786900775,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2969,Chinnasamy Chinnasamy,,,Tamil Nadu,Tamil Nadu,639102,7010694738,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2968,Jaswoshri pati,,,Cuttack,Odisha ,753001,6371694484,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2967,Madan kahtik,,,Bagot,Rajasthan ,341512,9571453500,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2966,Dev Dev,,,Sarangarh,Chhattisgarh ,496450,7354025581,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2965,Rajit kumar Yadav,,,Puranpur,Uttar Pradesh,262122,9720865877,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2964,Deepak Deepak,,,PUNE,Maharashtra ,411046,8222783976,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2963,SHANTILAL SHANTILAL,,,Pratapgaru,Rajasthan ,312605,7340201490,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2962,Mani Lugun,,,Nuwagan,Odisha ,770035,8223019704,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2961,Manjunatha Manjunatha,,,Doddaballapur,Karnataka ,561205,8095969217,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2960,K Narayana Rao,,,Hyd,Telangana ,500059,6309639349,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2959,Rafeek Rafeek,,,Gudiyatham, Tamil Nadu,635806,8870903709,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2958,PADMANABHA C,,,Bengaluru,Karnataka,560064,9972259422,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2957,Rafi Hussain,,,West Bengal Darjeeling costume, West Bengal ,734203,9002486829,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2956,Mahendra Mahendra,,,Nagpur,Maharashtra ,440024,8624975961,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2955,Prakash Prakash,,,Jodhpur,Rajasthan ,342001,7357881450,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2954,???????????.?? ???????????.??,,,Kerala ,Kerala ,688527,6282546329,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2953,Ramchandar nagar,,,Bhopal,Madhya Pradesh ,462030,7999850922,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2952,Shailesh yadav,,,Manipur ,Manipur   ,455336,9993765500,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2951,Adarsh katiyar,,,FARRUKHABAD, Uttar Pradesh ,209625,9450202498,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2950,PRABHU PRABHU,,,Vyasarpadi ,Tamil Nadu,600039,9884924161,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2949,Ravi shakya,,,Gurgaon ,Haryana ,122001,8383803811,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2948,Laddu kumar,,,Bhagalpur,Bihar,853205,7973047997,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2947,Vicky yadav,,,Bhatinda,Punjab ,151001,7860491434,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2946,Kr pintu,,,Saran,Bihar ,841101,9693286004,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2945,Anil Kumar Sharma,,,Jhunjhunu,Rajasthan ,333023,7005810258,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2944,Hrushikesh Pradhan,,,Kendrapara,Odisha ,754212,9178703920,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2943,A. Raja,,,Ramanathapuram,Tamil Nadu ,623525,9025333842,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2942,Vipin Vipin,,,Ratlam, Madhya Pradesh ,457001,9726156574,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2941,Durga Prasad jagat,,,Jharsuguda,Odisha ,768202,8658202660,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2940,dambur Dhar Sahoo,,,Chennai,Tamil Nadu ,600042,9658117392,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2939,SOURAV MANDAL,,,Uttar Bhakuria,West Bengal,854113,9775697549,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2938,Chinna Chinna,,,Namakkal, Tamil Nadu,637001,7200754001,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2935,T.anil T.anil,,,Ghanpur ,Telangana ,501644,6300031009,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2933,Marni Abhimanyudu,,,Samalkota,Andhra Pradesh,533440,8008076014,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2932,Samba shiva,,,Gadwal,Telangana ,509153,6309010390,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2931,P .Ellappan,,,Maramalainagar,Tamil Nadu,603209,8682981134,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2930,Vipin kumar,,,PURBA BARDHAMAN,Bihar ,805103,6295817638,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2929,Goldi Goldi,,,Berla,Chhattisgarh ,491332,7747987075,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2928,Rajan Sharma,,,Allahabad,Uttar Pradesh,212302,8787038809,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2927,Santosh Kumar Majhi,,,Keonjher,Odisha ,758014,9692645517,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2926,Ranjit Kumar,,,Brahmanpad,Odisha ,762028,7008853205,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2925,Resham Sidhu,,,Nihal Singh wala,Punjab ,142055,9780883805,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2924,Manga Manga,,,Jaldhar,Punjab ,144629,9814295203,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2923,Balamurugan Balamurugan,,,Puducherry,Puducherry ,605009,9843760905,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2921,Sadashiv Sadashiv,,,Bbl,Karnataka ,586215,9370481068,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2920,Surendra ved,,,Bandhikui,Rajasthan ,303313,9887557898,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2919,Ajaya barik,,,Dhenkanal,Odisha ,759027,9861037144,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2916,Mheeeboobpasha Mheeeboobpasha,,,Bijapur,Karnataka ,586101,9590992100,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2915,C jafar,,,Hospet,Karnataka ,583201,9110663140,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3100,Pankaj wankhade,,,Wardha,Maharashtra ,442001,7038601716,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3099,Vikas Vikas,,,Mumbai,Maharashtra ,400095,8898877774,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3098,Sathish Sathish,,,Cheyyar,Tamil Nadu,604407,9940783530,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3097,Arshad Arshad,,,Mumbai,Maharashtra ,400008,9146306525,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3096,yash yash,,,rajkot,Gujarat ,360001,9157073104,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3095,Harsha Harsha,,,Visakhapatnam,Andhra Pradesh,530007,8688904810,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3094,Surendra Surendra,,,chennai,Tamil Nadu,600095,8778004633,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3093,Mohit Mohit,,,Jaipur ,Rajasthan ,302015,7374043479,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3092,KARTIK KARTIK,,,RANGA REDDY,Telangana ,500032,8688922950,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3091,???? ????,,,Namakkal, Andaman and Nicobar Islands,637211,9025571513,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3090,Dinesh Dinesh,,,Dodhpur,Rajasthan ,342306,9521575682,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3089,Nesa prince,,,Nagercoil,Tamil Nadu ,629003,6380929165,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3088,Anku Anku,,,Hamirpur,Himachal Pradesh,176042,8894932996,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3084,Pappu Kumar,,,Dheat,Bihar ,845420,8809146278,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3082,Pantlajana Pantlajana,,,RAJAM, Andhra Pradesh ,532127,8179076181,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3080,Bisu Das,,,Bhubaneswar,Odisha ,751006,9861554348,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3079,Jainarayan paswan,,,Hazaribagh,Jharkhand,825413,7739875559,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3078,TV RAMAN,,,Hyderabad,Telangana ,500045,7702327439,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3076,Dharm singh,,,Dhand,Rajasthan ,303313,6378907163,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3075,Firoz Shaik,,,Mydukur,Andhra Pradesh ,516172,9032907274,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3073,Phool Chand Nisahd,,,SULTANPUR,Uttar Pradesh,228145,9651339818,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3072,Rahul Rahul,,,Lothkunta,Andhra Pradesh ,500015 ,7674837707,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3070,Challa Rajendraprasad ,,,hyderabad,Telangana ,500020,9010542070,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2485,Yerriswmy Yerriswmy,,,Hospet,Karnataka,583223,9900211128,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2486,Deepak Deepak,,,Tamilnadu tiruchirapalli, Tamil Nadu,620002,9929127258,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2487,Ajay chandrakant chopade,,,Karanja ghadge,", Maharashtra",442203,8007059805,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2488,K Naveen Kumar,,,Village,Andhra Pradesh,504304,9542243613,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2489,Manish Manish,,,JAIPUR, Rajasthan ,303901,9571584491,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2490,Santosh Santosh,,,Bhubaneswar, Odisha,751010,7608949693,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2491,Neetesh Pandey,,,Rehli, Madhya Pradesh,470227,7000825163,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2492,M.sakthivel M.sakthivel,,,Pudukkottai, Tamil Nadu,622502,6374559605,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2493,Karnakar Karnakar,,,Kodukundla,Telangana,502312,9949919023,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2494,Omaram Prajpat,,,Dechu, Rajasthan,342314,7023648558,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2495,Drx.Pankaj Kumar Mishra,,,Gonda,Uttar Pradesh ,271311,9984575455,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2496,Partha sarthi T,,,Srinivaspur, Karnataka,563135,9901898612,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2498,Narayan sethy,,,????????????, Odisha,754134,7978468900,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2499,Kulvir Kulvir,,,SIRSA, Haryana,125101,9306166943,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2500,Ashraf Ashraf,,,Nattukal,Kerala,678583,9605415903,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2501,Satyam Satyam,,,Rasulabad, Uttar Pradesh,209306,8178815264,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2502,Arun Arun,,,Nagavi,Karnataka,586123,9113889573,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2503,Srikanth Srikanth,,, Narasaraopet, Andhra Pradesh,522601,6301335438,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2504,Sunu Sunu,,,Chengannr, Kerala,689508,8943108494,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2505,Chakradhar Chakradhar,,,Bbs, Odisha,751201,9019357885,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2507,Mohan.k Mohan.k,,,Chennai,Tamil Nadu,600002,7305499966,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2508,Nagesh Nagesh,,,RaichurRaichur, Karnataka,584101,9535476646,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2509,Arun kumar,,,Tembhurni, Maharashtra,413211,7888621543,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2510,M.chandrasekhar M.chandrasekhar,,,Nagalapuram city,tripura,628904,8330906968,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2511,Ramswaroop Ramswaroop,,,Tunwa sikar, Rajasthan,332026,8239263824,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2513,Umesh buneti,,,Gurumitkal, Karnataka,585214,9972919948,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2514,Gajendra Gajendra,,,Pipar City, Rajasthan,342601,9024573708,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2515,Sathish Sathishkumar,,,Tirupur, Tamil Nadu,641606,9994682035,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2516,Krishna Krishna,,,?????, Maharashtra,401602,9226975343,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2518,Vinod Vinod,,,Raichur, Karnataka,584101,8197250259,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2519,Sanjay Sanjay,,,SINGRAULI, Madhya Pradesh,486892,7828068039,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2520,Kumar p,,,chennai, Tamil Nadu,600017,9941311835,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2521,Soni Kalpesh Harishbhai,,,Navsari, Gujarat,396445,7990753070,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2522,Mallinath Mallinath,,,Pune, Maharashtra,411003,9637812855,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2523,Zakir Ansari,,,MUMBAI SUBURBAN, Maharashtra,400095,7738294007,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2525,P. Srinivasarao,,,U. Metta,Andhra Pradesh,532122,9952114408,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2526,Venkat krishna,,,Gandimiasamma, Telangana ,500043,7901258186,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2527,Ajambar singh,,,Korba, Chhattisgarh,495674,8839952492,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2528,SekarSamarajan SekarSamarajan,,,Bangalore, Karnataka,562125,8122245586,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2530,Shiva Kumar,,,Malkangiri Secundrabad, Telangana ,500040,9381158973,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2531,Subbarao Subbarao,,,Srikakulam, Andhra Pradesh,532001,8499002173,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2532,Ganesan Ganesan,,,Karaikudi, Tamil Nadu,630001,9566724209,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2533,Santosh Santosh,,,Sitapur, Uttar Pradesh,261125,8858827624,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2534,Naresh Naresh,,,Pamudurthi, Andhra Pradesh,515154,6305860609,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2535,Parmeshwar LAL,,,Ajmer,Rajasthan,305001,7877078356,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2537,Hariom Hariom,,,Sawai Madhopur, Rajasthan ,322001,9672290200,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2538,Harvinder singh,,,Nighasan, Uttar Pradesh,262903,8299849379,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2539,Ajay gujjar,,,Kota, Rajasthan,424001,9352139564,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2540,Mahendra Mahendra,,,Banavara, Karnataka,573112,8431934334,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2541,kathir vel,,,Anthiyur,Tamil Nadu,638501,9976302921,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2543,Upendra Upendra,,,Ambikapur, Chandigarh,497001,8516097662,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2544,Virendra Virendra,,,Jaipur,Rajasthan,302020,8441919604,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2545,B Rana,,,Sukida jajpur,Odisha,755018,8144086736,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2547,?????? ?????,,,?????, Maharashtra,431102,7219484360,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2549,BANDU Pawar,,,Mumbai,Maharashtra,400012,7715934714,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2551,Vannela Vannela,,,Rajarampally,Telangana,505526,8919399190,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2552,Anil Anil,,,Ghaziabad,Uttar Pradesh,201013,9312855409,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2553,Jithin Raju,,,Pala, Kerala ,686578,8921572136,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2554,Laxman... Laxman...,,,Visakhapatnam,Andhra Pradesh,531163,7815867439,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2556,Rockey singh,,,Pratapgarh, Uttar Pradesh,230402,6394909399,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2557,Suresh Chand jatav,,,KOTA, Rajasthan ,324004,9571998533,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2559,Jabir khan,,,Laxmangarh, Rajasthan,332318,8440994784,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2560,Ajay Kumar bhoi,,,Cuttack, Odisha ,754003,9583303200,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2561,Sunilnanda Sunilnanda,,,Hanmakonda, Telangana,506001,7396650770,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2562,Sasheendran Sasheendran,,,Mahe, Kerala,673310,8281709788,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2564,Surjeet Surjeet,,,Etah,Uttar Pradesh,207248,7838119471,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2565,Sindhuja Sindhuja,,,Villukuri, Tamil Nadu,629180,9345033093,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2566,Yogesh Yogesh,,,Krpete, Karnataka ,571605,9902188445,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2567,Kishor Aulwar,,,Mul,Maharashtra,441226,9834591864,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2569,RATI KRISHNA NANDA,,,Raj Nagar Extension.,Uttar Pradesh,201017,9861889956,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2570,SIRIKONDA SHEKHAR,,,Khammam, Telangana,570170,7386502415,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2571,Bhimrao.Bhagat Bhimrao.Bhagat,,,Nagpur, Maharashtra,441122,8208198925,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2573,Amrik Amrik,,,Nurpur bedi, Punjab,140119,9815715319,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2574,Nathuram Patel,,,Banglore, Karnataka,560047,9900723040,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2576,Taru Taru,,,Ahmedabad, Gujarat,306931,7984929722,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2577,Mohit Mohit,,,Bhaniyana , Rajasthan,345021,8000742554,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2578,Rakesh kumar sain Rakesh kumar,,,Shrimadhopur, Andaman and Nicobar Islands,332715,9660317531,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2580,Indra jeet,,,Bhinga, Uttar Pradesh,271831,73472642945,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2343,Jayakrishnan nair AR,,,Vizhickathodu,Kerala,686518,9961062343,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2344,Bokke Bokke,,,Kanskapura,Karnataka,562117,9740850190,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2345,Shivkumar Shivkumar,,,Kutakpur,Uttar Pradesh,283125,6396738240,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2346,Mukhtar Mukhtar,,,Auraiya,Bihar ,845418,6201295540,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2347,Sundra k n k r pura h d kote Mysore distiv,,,Karnataka,Karnataka,571114,9845742812,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2348,Lakhawa dehri,,,Amrapara,Jharkhand ,814111,9279159376,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2349,"Hareesh,P Hareesh,P",,,Calicut,Kerala,673328,8137084215,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2350,Surajit Ray,,,Garhbeta,West Bengal,721121,9647240310,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2351,Ramu Ramu,,,Machavaram,Andhra Pradesh ,533462,9491292211,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2352,Suresh Suresh,,,Gattuppal,Telangana,508253,9848897420,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2353,Gajendra medhavi,,,Davanagere,Karnataka,577601,8660059022,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2354,Manash Manash,,,Soro,Odisha,756045,80188848396,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2355,Chinthakuntha Madhu Chinthakuntha Madhu,,,Mallaipally,Telangana ,509120,9966864199,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2357,Suresh Suresh,,,Balakistapur,Telangana,509103,9347847193,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2358,Prabhuswamy. B S.,,,K. R. Pete town,Karnataka,571426,9740025226,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2359,Seetharaman Seetharaman,,,Rauntana Karur, Tamil Nadu ,639002,9842532666,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2360,Gaurav teli,,,Kurla,Maharashtra,400070,7559472121,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2362,Khadirun Khadirun,,,Anantapur,Andhra Pradesh,515001,8688675769,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2363,Ajeet Kumar yadav,,,Kodarma,Jharkhand,825318,9123268046,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2364,R k,,,Itahar,Bihar,733143,9810012345,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2365,kuldeep singh,,,Bareilly, Uttar Pradesh,243001,8881404949,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2368,Lakhan gurjar Pancholi,,,Dausa,Rajasthan,303509,9587212487,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2369,Srinu pagutla1 pagutla1,,,Andhra Pradesh ,Andhra Pradesh ,521214,9666052042,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2370,Kundan Kundan,,,SIKAR,Rajasthan,332001,9660818685,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2372,Abdul samad.mujahid,,,Bangalore,Karnataka,560050,7411759841,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2373,Mustak ahmed,,,RAMANAGARA,Karnataka,562109,9900861724,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2374,Subham sahu,,,Banarpal,Odisha,759128,9861538103,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2375,NAGABUSHANRAO NAGABUSHANRAO,,,Anandapuram,Andhra Pradesh,530052,8125950973,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2376,Mahendra Mahendra,,,Goilkera,Jharkhand,833103,6202733877,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2377,Suresh Ray,,,Chapar,Bihar,841301,9122054910,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2378,Khoman sahu,,,Patan,Chandigarh,491111,6261828859,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2379,Sundar saini,,,Panipat,Haryana,132103,9416012926,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2381,Narayan jerambhai,,,Jamanagar,Gujarat,3610006,9913936011,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2382,Mohammed Hafeez,,,Hyderabad,Telangana,500064,9390653822,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2384,Saleem Saleem,,,RJ,Rajasthan,333053,9053445468,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2385,Chhotu Chhotu,,,Ghohd,Madhya Pradesh,477116,7354965928,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2386,NAGARAJU NAGARAJU,,,Tamil Nadu,Tamil Nadu,635109,9787001129,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2387,Dr.Ashik Dr.Ashik,,,KAYAMKULAM,Kerala,690505,8281208052,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2388,Gaurav singh,,,Hardoi,Uttar Pradesh ,241123,7753862863,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2389,Rajat Rajat,,,panipat,Haryana,132103,8708322283,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2390,Vishnu Rajput,,,Chhata Rural ,Andhra Pradesh ,281401,8979637925,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2391,Manish verma,,,Omexi,Rajasthan,302026,7849828656,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2393,Pawan Pawan,,,Mogana,Rajasthan,313204,8769279317,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2395,KUMARA D K,,,Nyamthi,Andaman and Nicobar Islands,577223,8150879209,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2397,Suryakanta Suryakanta,,,Bangalore,Karnataka,560076,9663758103,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2398,Akshay talmale,,,Pavni,Maharashtra,441910,7666434326,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2399,Mahesh mala,,,Gulabarga,Karnataka,586217,8549018570,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2402,Sumit yadav,,,Katihar,Bihar,854105,6203145272,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2403,Mani Mani,,,Thiruppuvanam,Tamil Nadu,630611,9787409209,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2404,Rajuraju Rajuraju,,,KISHANGANJ,Bihar,855101,6239676639,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2405,Ajith Ajith,,,Kuttichal,Kerala,695574,8848677019,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2406,Rahul Sahu,,,BHAWANIAPATAN,Odisha,766031,7008864286,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2408,Shekar Shekar,,,Hi-tech city,Telangana,500081,9603867268,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2411,Mahesh. Mahesh.,,,odaaratt???,Kerala,691512,7510891787,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2412,Harendra Harendra,,,Rajeev collony,Haryana,121004,9015457949,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2415,Alavi Alavi,,,Vengara,Kerala,676304,9497544742,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2416,Dinesh Kumar,,,Dausa,Rajasthan,303325,9929099342,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2418,prasad prasad,,, Andhra Pradesh, Andhra Pradesh,535001,8688776176,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2419,Vikash mishra,,,Darbhanga,Bihar,860004,8002554230,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2420,Rushikesh Dadarav bagade,,,Solapur,Maharashtra,413404,9272041738,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2421,Sanjeeva Reddy sheri,,,Telangana,Telangana,501503,9121556233,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2422,Niraj kumar verma,,,Purnea,Bihar,854302,9110045442,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2423,Jagdish narendra dakhore,,,WASHIM,Maharashtra,444404,9881870519,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2424,Sanju Sanju,,,Alwar,Rajasthan,301402,9587341368,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2425,K???????? K????????,,,Vijayawada,Andhra Pradesh ,520000,8341020735,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2426,NAVDEEP SINGH,,,Amritsar,Punjab,143001,9888565948,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2427,BIJU P S,,,Pookkottumpadam,Kerala,679332,9656222788,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2428,Shivu Shivu,,,Malavalli,Karnataka,571430,7899782714,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2429,Yash Choudhary,,,Delhi,"Delhi,",110094,9711895364,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2430,Ravi Ravi,,,KATIHAR,Bihar,854116,7667219712,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2431,Yadagiri Yadagiri,,,Singidi,Andhra Pradesh,532456,8919355161,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2432,Krishanamraju Krishanamraju,,,Guntur,Andhra Pradesh,522237,9494920884,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2433,Ramkeshmeena Ramkeshmeena,,,Bhusawar,Rajasthan,321407,6378022201,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2434,Rameshan tc,,,Vadakara,Kerala,673105,9495412642,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2435,Sanjay Show,,,West Bengal ,West Bengal ,735101,8391948438,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2436,Hemanta Hemanta,,,Jamankira,Andaman and Nicobar Islands,768107,9337498184,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2438,lahu lahu,,,dhule,Maharashtra,424001,8805355931,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2439,Mekala srinivas,,,Elkalapally,Telangana ,505188,7036320123,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2440,Mainul Hoque,,,Malda, West Bengal,732125,9647997715,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2441,Srinivasan Srinivasan,,,Tirupattur,Tamil Nadu ,635654,8754306557,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2442,Nagaraj Nagaraj,,,Bangalore,Karnataka,560001,8892266111,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2443,Naveen Naveen,,,Gurgaon,Haryana,122503,9728013896,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2444,Rajendhar Rajendhar,,,Metpally,Telangana,505325,7997658397,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2446,Mohammad Ismail,,,Shorapur,Karnataka,585224,7259575733,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2447,K.senthilkumar K.senthilkumar,,,THIRUVARUR,Tamil Nadu,614001,8012613376,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2448,Gopalakrishnan. B,,,Chanthavila,Kerala,695584,9947622088,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2450,Banti.kumar Banti.kumar,,,Rajgir,Bihar,803116,7667151889,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2451,VijayNajarani VijayNajarani,,,GIR SOMNATH,Gujarat,362150,6354500904,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2452,Maksood Maksood,,,BAREILLY,Uttar Pradesh ,243123,9312855469,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2453,Ravi Bhushan,,,Bikramganj,Bihar,802212,8804735835,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2454,Ashraf Ashraf,,,puthyngadi,Kerala,670304,8129141765,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2457,Korutla yugendara chary,,,Vanakayagudem,Telangana,505474,8179784518,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2458,Ananth.v Ananth.v,,,Jamunamarathu,Tamil Nadu ,635703,8270713265,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2460,Ajay Ajay,,,Jaipur,Rajasthan,302032,8619176029,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2461,Sony queen,,,Hanmakonda,Telangana,506001,9515374030,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2462,Aruri Madhu,,,Warangal,Telangana,506003,9515517207,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2463,Umesh Kumar Singh,,,Ghazipur, Uttar Pradesh,243222,9415571460,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2465,Ramesh Ramesh,,,Sandur,Karnataka,583119,8660362962,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2466,Maru..prakash.bhai Maru..prakash.bhai,,,Bhavngar,Gujarat,364240,9904570091,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2468,Vinni Vinni,,,Keladi,Andaman and Nicobar Islands,744302,7760227544,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2469,Mahesh Sodi,,,Bijapur,Chhattisgarh,494447,8578984623,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2473,Narinder Garg,,,PANIPAT,Haryana,132103,7015611848,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2474,Karan singh,,,Jodhpur,Rajasthan,342025,8209555013,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2475,Puttaswamy R,,,BANGALORE,Karnataka,560103,9916068890,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2476,Stephen Stephen,,,Gerugambakkam,Tamil Nadu,600122,7395964440,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2477,Shaikmohamed Shaikmohamed,,,Tamil Nadu,Tamil Nadu,32006,8248762836,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2478,Jaram Singh,,,KANGRA, Himachal Pradesh,176206,9816423985,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2479,Narpat Kumar,,,Gudamalani,Rajasthan,344031,9166565194,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2480,Mani Mani,,,Thoothukkudi,Tamil Nadu,628502,9080241463,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2481,B anvesh,,,Ambaji peta,Andhra Pradesh,533231,7601069681,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2482,Mehul Mehul,,,Gondal,Gujarat,360311,9924435547,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2483,Putta Rajesh,,,Warangal,Telangana,506002,9014812143,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2581,Vijeesh Vijeesh,,,Perinthalmanna,Kerala,679322,9846616216,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2582,Ray singh,,,CHITTORGARH,Rajasthan,312901,7974225984,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2583,Pankaj Burde,,,NAGPUR,Maharashtra,44003,9960375920,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2585,Bed lal,,,Rajnandgaon,Chhattisgarh ,491441,7000949143,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2586,VINOD VINOD,,,Banswada bagidora, Rajasthan,327606,8696046885,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2587,Ravindra Gurjar,,,Karauli ,Rajasthan ,322241,8239455685,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2588,Ramesh Ramesh,,,Tirupur, Tamil Nadu,641654,9597045758,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2589,Manjunathareddy.G.L Manjunathareddy.G.L,,,TqKolar.Disti.kVillage,Karnataka ,563161,9845314750,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2590,Ramesh Kumar,,,Mh, Maharashtra ,401202,9173918043,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2591,Shomil Gupta,,,Dehradun, Uttarakhand,248006,9990303943,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2593,SIRANJEEVIPREM KARTHIK,,,????????, Tamil Nadu,630561,8148949104,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2594,Pankaj Pankaj,,,Panvel, Maharashtra ,410206,7896704857,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2595,Sanjeet Sanjeet,,,Deoria, Uttar Pradesh,274202,7052483431,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2596,Krishna Krishna,,,Krishna, Rajasthan,302006,6378895023,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2597,Sathik Sathik,,,Cheenai, Tamil Nadu,600088,9514748977,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2599,Santhosh kumar,,,Chennai,Tamil Nadu,600062,9087305703,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2600,Sudheer Sudheer,,,WEST GODAVARI,Andhra Pradesh,534312,8466941419,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2601,Muthuraju ,,,Bangalore, Karnataka,560078,9986708082,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2602,Upender yadav,,,BalliaUp,Uttar Pradesh,277503,6306165765,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2603,Vaan vasanthi,,,Hyderabad,Andhra Pradesh ,500253,9502629415,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2604,Naga Naga,,,Chirala, Andhra Pradesh,523181,9030861501,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2605,Naveen ,,,???????? City,Telangana,503212,9912376068,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2606,Vikas Verma,,,Sitapur, Uttar Pradesh,261001,6307719250,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2607,Bijaya ,,,Berhampur,",Odisha",760001,7847981007,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2608,Dilip ,,,Dungarpur, Rajasthan,314001,7073516659,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2609,Kanuku.yadagiri Kanuku.yadagiri,,,H.y.d,Telangana,500031,8499903883,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2611,Krishna Krishna,,,Pokarn, Rajasthan,345823,7732946794,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2612,Roshan,,,SONBHADRA,", Uttar Pradesh",231222,6394909217,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2613,S.britto S.britto,,,Puthukkottai,Tamil Nadu,622001,9787248936,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2614,Anil,,,Sairam, Andaman and Nicobar Islands,520001,9912586077,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2616,Shaik Salman,,,Kurnool,Andhra Pradesh,518001,9063942984,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2617,Biju. Biju.,,,Malayampadi,Kerala,670674,9645332099,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2618,Gurmeet Singh ghumaan,,,Bathinda,Punjab,151001,9815016117,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2619,Bhaskar Raut,,,pimpalgaon,Maharashtra,431211,9422992393,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2620,Prabhu Prabhu,,,Attur, Tamil Nadu,636105,6380551363,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2621,Kumar Ajay,,,Dhanbad,Jharkhand,828131,9801575050,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2622,Nithish rajath gowda,,,Nelamangala,Karnataka,562123,9008293555,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2623,Mohan Kumar,,,Ghatsila,Jharkhand,832303,9241336634,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2625,Muthuraj Muthuraj,,,Covai,Tamil Nadu,641002,9994100570,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2627,Narpat dangi,,,Jodhpur,Rajasthan,342309,8000195421,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3139,Pabba Abhilash kumar,,,Hyderabad,Telangana ,500061,7780728211,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3137,Vasu TEELA,,,Makkuva,Andhra Pradesh,535547,6309521960,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3134,P.Praneeth P.Praneeth,,,Rajamahendravaram,Andhra Pradesh,533107,9154700134,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3133,Subhasis Sha,,,Balasore,Odisha ,756001,9438847378,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3131,Manoj Kumar,,,Jhanjharpur,Bihar ,847403,9709513039,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3130,Nil Nil,,,Pune,Maharashtra ,411018,9561431539,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3129,Kabeer. Kabeer.,,,Pandikkad,Kerala ,679325,7306066648,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3128,Vishal Singh,,,Jaipur,Rajasthan ,302022,7891984314,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3127,ShAnkAr rao,,,Arunachal Pradesh,Arunachal Pradesh,532214,9000304183,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3126,Santu kr Das,,,Malda,West Bengal,732121,9614335567,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3125,Govind Govind,,,Belauli bhojipur mau,Uttar Pradesh ,221602,6388591872,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3124,A.ponsekar A.ponsekar,,,Madathur, Tamil Nadu,623008,8681931041,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3123,D.sadguru murty,,,Jaggampeta,Andhra Pradesh,533435,9948520082,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3121,"Sonu Meena
+",,,Japuar,Rajasthan ,302019,8302575122,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3119,Gopi Gopi,,,Garhshankar,Punjab ,144529,9855362454,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3118,Rajendra nayak,,,Khurda,Odisha ,751010,9937383944,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3117,??????? ????,,,?????,Sikkim ,304025,9024438686,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3116,Shyoji Shyoji,,,Pune,Maharashtra ,411014,8290199556,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3115,Dilchand Dilchand,,,Barkagaon,Jharkhand ,825311,9608356721,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3114,Vipul Vipul,,,Ahmedabad,Gujarat ,380015,9228148400,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3113,? prakash,,,MAHABUBABAD,Telangana ,560163,9701018582,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3112,Akash Ghanavadkar,,,Pune,Maharashtra ,412205,7666471243,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3111,Hulikantaraya Huli,,,Garepal,Bihar ,585212,9901285515,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3110,Dev Dev,,,Bina,Madhya Pradesh,470113,9770431843,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3109,Jatavath Chandar,,,Devarakonda nalagonda,Devarakonda nalagonda,508243,9381023384,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3108,Sanjeet mitwal,,,Indore,Madhya Pradesh ,452016,9300508535,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3107,Akhilesh Yadav,,,Mumbai,Maharashtra ,400103,8097236749,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3106,Om pitroda,,,Ahmedabad,Gujarat ,380026,8128914837,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3104,Karuppasamy Karuppasamy,,,Rajapalayam,Tamil Nadu ,626188,6369282309,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3103,Vikas khede,,,Bhopal, Madhya Pradesh ,462023,7999531010,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3102,MD Amjad Hossain,,,Kolkata, West Bengal,700141,7044646211,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3101,Manikandan Manikandan,,,Thiruvarur,Tamil Nadu,609503,8610837249,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2628,Sathish Sathish,,,Pennnakaram,Tamil Nadu,636810,9113572856,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2629,Ponthapalli srinuvasrao,,,Visakhapatnam,Andhra Pradesh,530029,9032206573,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2630,Raj yadav,,,Ambernath,Maharashtra,421501,8862061014,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2632,Tek chand bains,,,Una,Himachal Pradesh,174303,8219059653,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2633,Mathew Mathew,,,Thachampara,Kerala,678593,8848400695,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2635,Roshan Lakra,,,Bilaspur,Chhattisgarh,495223,9301614172,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2637,Deshraj Deshraj,,,Nangal choudhry,Haryana,123023,8901386476,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2638,Nirwair Singh Kalsi,,,Jhansi,Uttar Pradesh,284001,9889627202,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2639,Dayanand Dayanand,,,Bangalore,Karnataka,560010,9448446813,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2640,BISHAL BIHAR,,,Bhawanipatna,Odisha,766001,9178569975,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2642,Venkatraman Venkatraman,,,Paramakudi,Tamil Nadu,623707,9360461076,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2643,bhasipallimahesh,,,Raketla, Andhra Pradesh,515822,6303862025,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2644,S.povas S.povas,,,Alagkudi,Tamil Nadu,622304,7904311315,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2645,Raja Raja,,,Adoni,Andhra Pradesh,518301,9949141885,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2646,Mohan kumar,,,Sathyamangalam, Tamil Nadu,638401,9942414211,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2647,M Dinesh,,,Karur, Tamil Nadu,639114,7418842239,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2648,Bachan ji kumar,,,Buxar,bihar,802119,9631487949,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2649,shivanna y m,,,Mysore,Karnataka,570020,9900959639,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2650,Adil Adil,,,Gonda City,Uttar Pradesh,271001,9129172600,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2651,Rajendar saini,,,Julana,Haryana,121001,8290847262,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2653,KIRANA PRADHAN,,,????????,Odisha,762104,8280659600,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2654,Karthi Karthi,,,kottanathampatty,Tamil Nadu,625106,8438747074,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2655,SURYA NARAYAN THANAPATI,,,Sonepur,Odisha,767019,9556882164,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2656,Deepak kumar,,,Sultanpur,Uttar Pradesh,228161,9919413749,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2657,Ñagaraju Ñagaraju,,,?????????,Telangana,500003,8639664626,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2658,Gurukiran Gurukiran,,,Bangalore,Karnataka,560035,8792041127,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2659,Kanchana devi,,,Salem,Tamil Nadu,637504,8680940339,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2663,?????? ??????????,,,??????????????????,Andhra Pradesh ,534028,8341592259,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2664,Sochit Sochit,,,Saharsa,Bihar,852202,6207655038,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2665,Beepeta Satish,,, Sadashiv peth,Telangana,502291,9701556297,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2666,Nagaraju Raju,,,?????????????,Telangana,500003,8639446426,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2668,Sar0j Sar0j,,,Ranchi,Jharkhand,834003,9931137906,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2670,Rajbir Rajbir,,,Kkd,Haryana,131402,9991018903,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2672,Nandkumar Nandkumar,,,Bagbahra,Chhattisgarh,493449,8435472399,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2673,Kamlesh kumar,,,Dhanu,Rajasthan,344702,9982438329,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2675,Shivateja palthya,,,BODHAN,Telangana,530185,6309353584,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2676,Brijesh kumar yadav,,,Prayagraj,Uttar Pradesh,212401,6387284570,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2679,Ravi Ravi,,,Dhanota,Rajasthan,303804,7737567350,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2681,Aneesh Aneesh,,,Kollam,Kerala,691536,7902658487,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2685,Kamlesh Kamlesh,,,Damoh,Madhya Pradesh,470775,9893166729,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2686,Sachiin Sachiin,,,west Diva,Maharashtra,400601,8404936006,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2689,Kallappa narayan dukare,,,Belgaum,Karnataka,5900014,9945873383,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2690,Madhu Madhu,,,Kadapa,Andhra Pradesh,516001,7989097835,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2691,Rakesh Rakesh,,,Sawar,Madhya Pradesh,453551,2994560139,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2692,Vikash singh,,,Banaura,Bihar,841409,7250115342,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2693,Akshay hokam,,,Gadhchiroli,Maharashtra,442605,8788452815,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2694,Sanjoy Sanjoy,,,Tripura,"Tripura,",799212,8798220799,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2695,S.srinu S.srinu,,,Rajanagaram, Andhra Pradesh,533297,9701363937,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2696,Velpula Shankar Shankar,,,Warangal,Telangana,506002,9700080092,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3183,Vimal Vimal,,,Chennai,Tamil Nadu,600091,9884004052,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3184,Manjunatha Manjunatha,,,Bengaluru,Karnataka,560053,9066279780,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3186,Ajeet Kumar,,,Marwan chok,Bihar,843113,9031937444,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3187,Pavan MR,,,Chikkagaluru,Karnataka,577101,7022520061,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3188,Harish Harish,,,Vijayapura hobal,Karnataka,562135,8310886502,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3189,Shiv Kumar,,,Aligarh, Uttar Pradesh,202001,8859318416,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3190,Mohd saleem,,,Hadrabad,Telangana,500064,8978628168,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3164,Wilson Wilson,,,Pathanamthitta,Kerala,689647,9946676201,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3163,?????? ??????,,,???????,Karnataka,685571,9526487359,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3162,Ashok Dodiya,,,Ahmedabad,Gujarat,380024,9979551971,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3161,Sudesh pk,,,Kannnur,Kerala,670622,9074334663,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3160,Totan das,,,Ranir bazar,Tripura,799035,7640916739,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3165,Suresh Kumar,,,Trichy, Tamil Nadu,620017,9543584858,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3168,Pradeep sadasivam,,,Tiruppur,Tamil Nadu,641602,9952420510,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3169,Pradipdas Pradipdas,,,Ankapur, Telangana,50072,8637812483,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3170,Martiush Momin,,,Tura,Meghalaya,794101,9862207843,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3171,Ayyappan Ayyappan,,,Kallakurich,Tamil Nadu,606207,9787760040,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3172,Prabash ,,,Vadakkenchery, Kerala ,678685,9946787475,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3173,Arpit,,,Ghaziabad,Uttar Pradesh,201009,9354331636,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3174,Jeevith k,,,Maglore, Karnataka,574339,8147883505,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3175,Ankit ,,,Raipur,Chandigarh,492001,9340064057,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3176,Naveenstoner19@gmail.com,,,Nizamabad, Telangana ,530069,7207755636,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3177,Dasari Mahesh,,,Sirigiripadu, Andhra Pradesh,522613,8367506909,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3178,Naveenstoner19@gmail.com,,,Nizamabad,Telangana,530069,7207755363,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3057,Sumesh kk,,,Chittarikkal KASARAGOD,Kerala,671326,9446989211,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3058,Neetesh Neetesh,,,jaipur,Rajasthan,302029,9983857855,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3059,Rinku Rout,,,godipali sarankul,Odisha ,752080,9438200602,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3061,Sunny Sunny,,,Mukherjee Nagar,delhi,110009,8607086823,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3065,Soyal Soyal,,,Gumagan Hingna,Maharashtra,441122,8817113552,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3066,M.narasimharao M.narasimharao,,,Sattenapall,Andhra Pradesh,522403,8074597104,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3067,Lakkappa hulli,,,Gokak,Karnataka,591307,7996563165,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3068,Dandu srisailam,,,Anthapur,Andhra Pradesh, 515001,8790164688,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3069,jitendra jitendra,,, nashik nashik,Maharashtra,422005,9713722761,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3152,???????? V,,,???????? ?????? ????????,Kerala,671317,9567816884,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3153,Rupendra Rupendra,,,Narayanpur,Chhattisgarh,494661,7067812013,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3154,Ramu Ramu,,,Hyderabad,Telangana,500095,7207035437,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3155,Veeranki eswar,,,Vuyyuru,Andhra Pradesh,521165,8341238290,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3156,Preet Preet,,,zirakpur,Punjab,140604,9729868179,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3157,Alavendra Singh parmar Royal,,,Gondal,Gujarat,360311,8630719103,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3158,Rudra Majhi,,,Gudesira,Odisha,768038,7205021998,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3159,Hanuman bishnoi,,,Jodhpur,Rajasthan,342007,7976533794,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3143,Sidharth kumar,,,Gurgaon, Haryana,122414,8102548774,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3145,Alzaid Alzaid,,,Varanasi, Uttar Pradesh,221001,7785030993,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3146,Durga Prasad,,,Vijayawada,", Andhra Pradesh ",520013,9004732333,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3147,Sankranthi Srinivasulu,,,Naidupet, Andhra Pradesh,524126,6303974073,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3148,Murali.M Murali.M,,,Alasetty village,Tamil Nadu,635107,8778074236,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3149,Subbireddy Subbireddy,,,Kadapa, Andhra Pradesh,516237,9390601436,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+3150,Mahaveer,,,Bhilwara, Rajasthan,311001,9079144431,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2731,P.sakthivel P.sakthivel,,,Nagamagalam trichy -12,", Tamil Nadu",620012,8015195138,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2732,Rinku Rinku,,,Gwalior, Madhya Pradesh,474004,9399683260,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2733,Lalchand Lalchand,,,Chhapar, Rajasthan ,331802,7742093276,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2734,Abhijeet singh,,,Lucknow, Uttar Pradesh,226008,9140267681,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2735,Mohan yadav,,,KODERMA,Jharkhand,825418,6375221452,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2736,M D SHAH,,,Mumbai, Maharashtra,400069,9869231780,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2737,Gurpreet Gurpreet,,,muktsar,Punjab,152026,9988769819,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2738,B.srinivas B.srinivas,,,Nizamabad,Telangana ,503175,8790049554,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2739,Gururaj ,,,Kalburgi, Karnataka ,585213,9108175586,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2740,Mukesh ,,,Eranakulam,Kerala,682016,8531875459,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2741,Narayan Birla,,,Bhikangaav,Madhya Pradesh,451331,6260346693,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2744,Mo Shahjade,,,Bhognipur, Uttar Pradesh ,209112,8957982824,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2745,Pawan,,,Palwal, Haryana ,121102,7414831761,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2747,Babbu ,,,Panipat,Haryana ,132103,9255574816,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2748,Ali Ali,,,VIJAYAPURA,Karnataka ,586115,9663444613,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2750,Soumyaranjan ,,,Bhubaneswar.ganganagar, Odisha,751003,845904127,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2702,Raghu Raghu,,,Kurnool,Andhra Pradesh ,518216,9000250525,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2703,Vinod kalekar,,,Pune,Maharashtra,412412,9021044878,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2704,Vikas Vikas,,,Sonepat,Haryana,131029,8950506021,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2705,Nilkanth d ardad,,,Aurangabad,Maharashtra,431136,8237144440,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2706,Gopi Ram,,,Hisar,Haryana,125001,9728911982,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2707,Sumit Sumit,,,Kunda,Uttar Pradesh,230202,8009288958,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2709,Ram Prasanth,,,Madurai,Tamil Nadu,625214,9962632830,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2710,Hariom Singh,,,Karimnagar,Andhra Pradesh ,505001,6375364217,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2711,Sekar Sekar,,,Tuticorin,Tamil Nadu,628003,7871870534,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2713,JayesH JayesH,,,Junagadh,Andaman and Nicobar Islands,362001 ,9925191128,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2715,Jameel Jameel,,, Uttar Pradesh, Uttar Pradesh,207246,8077391552,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2718,Intzar Intzar,,,BUDAUN,Uttar Pradesh ,243723,9012090030,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2720,Sunil Kumar Meena,,,Jaipur,Rajasthan,303305,8290154675,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2721,Revathi Revathi,,,Madarpakkam,", Tamil Nadu",601202,7397184686,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2722,Pappu singh,,,Lucknow,Uttar Pradesh ,226003,9839759162,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2723,R.T.Haralayya R.T.Haralayya,,,Indi,Karnataka,586209,7676568534,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2725,Joji Joji,,,IDUKKI,Kerala,685609,9446746957,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2726,Durjan Durjan,,,Hindaun,Rajasthan,322234,9664145936,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2728,Arvind Arvind,,,Lalitpur,Uttar Pradesh,284402,842397787,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2729,Jagannath rout,,,Cuttack,Odisha,754023,9861864021,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2913 ,T.kadirappa T.kadirappa,,,Chowdeplli,Andhra Pradesh ,517257,9573199494,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2912 ,Appu Appu,,,ambasamudram,Tamil Nadu,627401,9401048287,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2911 ,C Santosh raju,,,Anantapur,Andhra Pradesh,515001,8297197473,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2910 ,MUNNA MUNNA,,,Chirkunda,Bihar,828202,9693705762,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2909 ,Santosh Santosh,,,Bengalore,Karnataka,560082,9011224220,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2908,Sandeep Sandeep,,,agra,", Uttar Pradesh",282007,8958877807,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2907,Manju K,,,kolar Tekal,Karnataka,563137,9900183327,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2906,Kuyya krishna,,,Medak,Telangana,502255,9640936824,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2905,Yelagandula Shivashankar,,,Hyderabad,Telangana,508284,9640830790,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2902,Siddeswar Siddeswar,,,Uravakonda,Andhra Pradesh,515822,8555941667,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2900,Mourougapoubady ,,,KARAIKAL,Puducherry,609606,9976595239,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2899,Suresh kumar S ( Nursing Officer),,,Tiruvallur,Tamil Nadu,600054,9952441736,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2898,madhu sathwikprasad,,,naidupeta,Andhra Pradesh ,524126,8121977701,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2896,shailendra chouhan,,,Sehore, Andaman and Nicobar ,466001,8770077302,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2895,Sunilbhai raval,,,Tarashli,Gujarat,391220,8160436851,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2894,Sonu yadav,,,Sumaoli,Madhya Pradesh ,476221,8770649682,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2892,Sunilkumar T.S,,,Thrissur,Kerala,680622,7025168478,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2891,Golu baghel,,,Alampur, Madhya Pradesh,400614,9691908904,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2890,Kanthasamy R,,,vadalur,Tamil Nadu,607303,9486517051,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2889,Anoop Yadav,,, Ayodhya,Uttar Pradesh ,224208,9718790171,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2888,VIJAY VIJAY,,,RANCHI,Jharkhand,829205,8252237177,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2887,"B.N.chaurasiya
+",,,Farrukhabad,Uttar Pradesh,209625,7275085626,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2885,Kanu kumar bala ,,,Umerkote,Odisha,764073,9938715856,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2884,Pravin Lokhande,,, Katraj  Pune,Maharashtra,411046,9960509709,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2883,Parmeshwar Bhakar,,,Didwana,Rajasthan,341506,9103153680,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2882,Sakharam dawar,,,Manawar,", Madhya Pradesh",454449,9993634169,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2879,Pandurang Nandi,,,Gokak,Karnataka,591224,7019384883,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2878,Nagaraj ,,,Mumbai,Maharashtra,400065,9076964495,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2874,Saidireddy ,,,Gurrappaguda,Telangana,508374,9010213032,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2873,Thumu. Muthilingam,,,Bharathbenz,Telangana,501505,7893654584,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2872,Santosh Kumar,,,chouraha,Madhya Pradesh,486886,7247208546,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2871,Samudrala mahesh,,,Karimnagar,Telangana,505001,9949483561,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2870,Breezer salon,,,Nagpur,Maharashtra,440012,9922093626,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2869,I.Ayyanar I.Ayyanar,,,Madurai,Tamil Nadu ,625018,9940875671,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2867,Nithiyanandham ,,,lakshmipuram,Tamil Nadu,600044,9042229119,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2866,Vadlamudisrinuvasarao ,,,Temayapalam,Andhra Pradesh,523201,9666535338,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2865,Shoaib Khan,,,Sagmnyra,Maharashtra,422604,7028547086,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2862,Pravat ranjan,,,Cuttack,Odisha,754028,9337872012,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2861,"Bipul,Roy Bipul,Roy",,,Mhabristan,Assam,734404,7866853818,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2860,J. Sreenivasulu Reddy,,,Proddatur,Andhra Pradesh,9492229817,9492229817,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2859,Chaman sahu,,,Jamul,Chhattisgarh,490024,8103062409,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2856,Arun Arun,,,Eral,Tamil Nadu ,628752,6380285470,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2855,Yerrampalli anjali,,,Kadapa,Andhra Pradesh,513506,7013835280,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2854,Kerba chavan,,,Pune,Maharashtra,411046,9970902743,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2853,Sk Afreedh,,,Krishna, Andhra Pradesh,521312,7013296048,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2851,Ravi Gupta,,,Bhandar,Jharkhand,822124,6204315236,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2850,Sandeep jakkali,,,Lakkinenigudem,Telangana,508255,6281777904,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2849,Shiva,,,Maddur Mandya,Karnataka,571429,9663036316,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2847,M. Muni,,,Movva,Andhra Pradesh ,521136,9949514858,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2846,G.ravikumar G.ravikumar,,,GODAVARI,Arunachal Pradesh,534211,9908253379,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2840,Saroj kumar nayak,,,Cuttack,Odisha,753012,7873556394,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2839,Aravind kumar,,,Banglore,Karnataka,560090,9553286365,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2838,Neeraj Neeraj,,,Beswan,Uttar Pradesh,202145,9012823409,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2836,BHANOTH RAJU,,,Thirumalagiri,Telangana,508223,9951502928,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2832,Somu Somu,,,Sai nagar,Karnataka,591317,9008344302,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2831,M1maheswar M1maheswar,,,Bhanjanagar,Odisha,761125,9937526077,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2830,Nilesh Gavali,,,Aurangabad,Maharashtra,431111,9766182022,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2825,Bodapati sathi Babu,,,Annavaram, Andhra Pradesh ,533449,9581978549,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2824,ARVIND DUBEY,,,??????,Uttar Pradesh,222131,9451962522,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2823,Pavan Pavan,,,Kalmnuri,Maharashtra,431702,9130445153,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2822,Gaurang patel,,,Jambusar,Gujarat,392155,9925969619,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2819,Naveen Naveen,,,Mulkal,Telangana,503218,8328499737,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2818,Prakash ,,,Sojat,Rajasthan ,306104,9587099717,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2817,Mukesh Kumar,,,Jaipur,Rajasthan,302019,7221957506,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2816,Yeldhokuriakose ,,,Perumbavoor,Kerala,683545,9947172002,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2815,Bharat Katkar,,,alandi pune,Maharashtra,412105,7507102010,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2814,Karthick Karthick,,,Thirunelveli,Tamil Nadu ,627860,8973214067,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2813,Dhirendra mahto,,,Ranchi,Jharkhand,834001,9153692778,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2812,G praveen,,,Yeldurthy,Telangana,502109,9010519469,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2810,Akshay Akshay,,,mohchingpura,Rajasthan,303501,7378139670,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2809,Gopakumar Gopakumar,,,changanassery,Kerala,686548,9544311211,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2808,Manoj Manoj,,,venkatapuram,Andhra Pradesh,517520,9100285240,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2805,Rajesh Rajesh,,,Bal Nagar chauk,Andhra Pradesh,509202,9704491078,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2803,Appaso Tanpure,,,Chvanvadi,Maharashtra,413114,8600253770,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2800,B.laxminarayana ,,,naspur,Telangana,504208,8317660080,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2799,Rames Rames,,,Dharwad,Karnataka,580008,7022655421,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2797,Girikumar Girikumar,,,ount PO,Kerala,686006,9447119638,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2795,Irfan Irfan,,,Dolpur,Rajasthan,800032,6378734292,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2794,Saleem Saleem,,,Ernakulam,Kerala,682011,9496281909,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2793,Ravindran Ravindran,,,panthalkudi, Tamil Nadu,626113,9442759554,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2791,Vasava sahadevbhai chandubhai,,,Valia,Gujarat,393135,9909473462,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2790,Chandran Chandran,,,gudaglur,Tamil Nadu,643211,9486530110,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2788,Sibin Sibin,,,Puthuveetu,Tamil Nadu,629177,9750787151,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2786,Manish yadav,,,PATNA,Bihar,801503,7061314682,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2785,Nisar jahagirdar,,,Bijapur,Karnataka,586102,8618050418,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2784,Sudarshan Sudarshan,,,Ambikapur,Chhattisgarh,497001,6267375766,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2783,Dadarao Ragaram Dhaygude,,,Osmanabad,Maharashtra,413501,9423087407,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2782,Padmaram Padmaram,,,Jaisalmer,Rajasthan,345001,9413951841,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2781,Chandu Chandu,,,Nagpur,Maharashtra,440035,9764602815,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2780,Dungaram Dungaram,,,Bhawani,Andhra Pradesh,517214,7413951251,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2779,BHARAT KUMAR,,,surat,Gujarat,395009,9870001889,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2778,Aswath Aswath,,,nallasivam,Tamil Nadu,641111,9789217833,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2777,dileep kumar,,,Kottayam,Kerala,686636,7560988004,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2776,Dharmendra kumar Maurya,,, West Mumbai,Maharashtra,400102,9324952542,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2774,Santosh Santosh,,,Cherthala.,Kerala,688531,9387363615,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2773,Ramkishor Ramkishor,,,Sit 4 , Uttar Pradesh,101020,9389880730,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062
+2772,???? ???? ?????,,,Lal Ganj basera,Uttar Pradesh,229206,9453284549,,,Clothing,1,,,COD,599,0.5,13,13,13,599,599,HID0062

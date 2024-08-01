@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(Kg)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+TB01,Shivam,io nexa,Delhi,Delhi,110091,7011155867,Dell A1,1,COD,100,1,10,12,15,100,100,HID0010

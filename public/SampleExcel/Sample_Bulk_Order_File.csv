@@ -1,0 +1,2 @@
+Order ID,* Customer Name,* Address ,* Customer City,* Customer State,* Pincode,* Mobile,* Product Name,* Quantity,* Order Type,* COD AMOUNT,* Weight,* Length (Cm),* Breadth (Cm),* Height (Cm),* Invoice Value,* Total Amount,* Hub ID
+12345,user name,destination address,city,state,111111,9999999999,Product Nmae,1,COD / PP,1,0,0,0,0,0,1,HID001

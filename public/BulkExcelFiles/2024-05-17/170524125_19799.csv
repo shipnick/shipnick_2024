@@ -1,0 +1,10 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+9887518,G N V Raju,SDC (IAP) F 26 ist floor IDOC building,Kongarkalan,HYDERABAD,TELANGANA,501510,9490310949,,,WDWDTC-60Double Dihydro,1,0,,PP,0,0.5,13,13,13,999,999,HID0082
+4087538,Deepthi B M,"T0300c Block 3 Pashmina Waterfront, Old Madras Road",Bhattarahalli,BENGALURU,KARNATAKA,560049,9035813428,,,WDWDTC-180irshDouble,1,0,,PP,0,0.5,13,13,13,999,999,HID0082
+4087538,Deepthi B M,"T0300c Block 3 Pashmina Waterfront, Old Madras Road",Bhattarahalli,BENGALURU,KARNATAKA,560049,9035813428,,,TC-90BDBDnutraSaffron01,1,0,,PP,0,0.5,13,13,13,999,999,HID0082
+4087538,Deepthi B M,"T0300c Block 3 Pashmina Waterfront, Old Madras Road",Bhattarahalli,BENGALURU,KARNATAKA,560049,9035813428,,,WDWDTC-60Double Dihydro*4,1,0,,PP,0,0.5,13,13,13,999,999,HID0082
+0387514,Ankur kakkar,"Flat no E -804 , 8th floor","M2K county flats , sector 5",DHARUHERA,HARYANA,123106,9873712887,,,WD WD WC 60ADK Vitamin*11,1,0,,PP,0,0.5,13,13,13,999,999,HID0082
+0133929,Nazir khan,"14-75,near eedamma temple,","Street no 6,balapur x road,rci road",HYDERABAD,TELANGANA,500058,8897416734,,,WDWDTC-60DoubleNad*2,1,0,,PP,0,0.5,13,13,13,999,999,HID0082
+2104353,Swapnil,Intellect design arena office near siruseri Chennai,Sipcot It Park siruseri,CHENNAI,TAMIL NADU,600130,,,,WD WD WC60  Alpha GPC,1,0,,PP,0,0.5,13,13,13,999,999,HID0082
+3405967,Ritu Malaviya,"First floor, Mahamiya Hospital","Bawari Gate, Fatehpur Shekhawati",FATEHPUR,RAJASTHAN,332301,9828377201,,,WD WD WC60  Alpha GPC,1,0,,PP,0,0.5,13,13,13,999,999,HID0082
+4870767,Anuja Kohli Mariwala,"Oberoi 360 West, Apt 2803","Dr Annie Besant Road , Hanuman Nagar",MUMBAI,MAHARASHTRA,400025,9769455526,,,WDWDTC-120DoubleApigenin,1,0,,PP,0,0.5,13,13,13,999,999,HID0082

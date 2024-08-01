@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(Kg)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+PHIN001,Aryan,"lajpat nagar, delhi",delhi,delhi,110071,7418523695,motorola,1,COD,10,1,10,10,2,10,10,HID000

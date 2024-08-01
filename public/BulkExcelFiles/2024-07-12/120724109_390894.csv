@@ -1,0 +1,505 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+#1797,Dipak Mundhva Dipak,Cotila bamanbor,,SURENDRANAGAR,GJ,363520,9824175521,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1793,JOGENDRA JOGENDRA,Barigora near Chhota Kali mandir,,Jamshedpur,JH,831016,7979051315,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1791,Rakesh Rakesh,"3Cent,Anthoniyar puram, near ambedkar silali, Thoothukudi",,Thoothukudi,TN,628002,9344039245,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1779,Vinod kawduji Tupe,Balaji Nagar Extension manewada road near Trisharan Budha vihar and gajanan mandir Nagpur,,Nagpur,MH,440027,9822001148,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1778,Jinu sasidren sreedevi bhavan mudakkall West kollam,Nethaji nagar 34,,Town,KL,691001,7594086979,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1892,Mohdmoin Mohdmoin,Plot number 294,,Hyderabad,TS,500053,9059376867,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1864,Dev pal,"Taluja diagnostic and surgical ,",,Raipur,CG,492001,8839618522,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1860,V_d 9208,Hathijan,,Amdavad,GJ,382445,6356089208,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1809,Gumadi Nagaraju,ONGC road angara kapileshwarpuram mandalam Ambedkar konaseema Jilla Andhra Pradesh,,Villag,AP,533307,8374191250,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2116,Dinesh patel,Dhamna payak,,Mauranipur,UP,284204,7080149609,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2110,Arfat Arfat,Topchi wada,,Meerut,UP,250002,9528290761,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2063,Suraj Singh,ताहिरपुर बघवार,,Azamgarh,UP,276122,6393414170,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2060,DEVA RAM,Police thana shergarh,,Shergarh,RJ,342022,9772181246,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2045,Karan Karan,Vijay garden,,Jamshedpur,JH,831017,9155043699,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2040,Ravindra Bhardwaj,TV Tower Avadh aspataal Bhargav Chakki Wali Gali,,Shivpuri,MP,473551,9303096773,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2023,Kailash Vaghade,Pachmatha mandir ke pass,,Jabalpur,MP,482003,9131159722,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2021,Navinsinh Tomar,Sardar Patel Ring Road Odhav Industrial Estate Odhav,,Ahmedabad,GJ,382415,7600372277,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2014,Naresh kumar Meena,Louts villa yellow building jagatpura jaipur,,Jaipur,RJ,302017,9001888500,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2002,Ajithkumar Ajithkumar,"13, kannithoopu Keelatheru Needamangalam",,Needamangalam,TN,614404,7540099248,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1988,Shravankumar Shravankumar,BVVS CAMPUS BAGALAKOT,,BAGALKOTE,KA,587115,9632601277,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1987,Sumit Sumit,Near chandimandir,,Lalitpur,UP,284403,9451504724,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1979,Rajkrishnan. ca,"Chamaparambil, (house)",,Thrissur,KL,680517,9526941270,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1952,Kalai Kalai,House no 98,,Cuddllore,TN,607002,9789637232,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1944,Roshan.   Patel,Bhamurighat,,Jasiaihar,MP,470125,9977743979,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1942,Medida Rup Chandra Babu,Mid valley city mangalagiri atmakur,,GUNTUR,AP,522503,7093102555,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1941,Gungi Gungi,10-124 ankamma colony,,Inkollu,AP,523167,8790591229,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2324,Vikram Vikram,Sanjay pump,,Thakuri Chak,BR,851131,9608084351,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2299,Mugesh Mugesh,EP office kadachalandhar,,Madurai,TN,625107,9585880025,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2285,kamalpandiya620@gmail.com kamalpandiya620@gmail.com,"8, melavattam thiruvaiyaru",,Thiruvaiyaru,TN,613204,6385676706,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2284,Manoj Manoj,Vijaya digital,,Guntur,AP,522002,9553258879,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2273,Gujjula Gujjula,Khan coly market,,Kadapa,AP,516001,7075281393,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2264,Ravi Kumart,House no 9/2,,SAGAR,KA,577401,9900890088,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2233,K. Urukundu,enagandla,,Kurnool,AP,518462,7569946479,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2219,Dayaram gujer,Devnagar Baroda,,Shakkarghd,RJ,311203,9610510910,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2189,Siva Siva,4/99 Nadu muthampalayam,,Villupuram,TN,605601,9994945435,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2188,Raghawendra Singh,Gangahara,,Ballia,UP,277506,7380762280,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2177,Gopalakrishnan gopal,Jawagar ground,,TIRUNELVELI,TN,627002,9894331037,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2085,Vikky Kumar,Kushmari Riga sitamarhi,,Kushmari,BR,843327,8651243846,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2036,Mansukh Mansukh,Surendarnagar,,Surenadarnagar,GJ,363410,9824113187,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1835,Anand Anand,111 near kalikamba temple,,Hoskote,KA,562114,9113812560,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - 4xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2420,Hemant chahal,"Village garhwala urf amanullapur, post sahanpur ,haridwar road",,Najibabad,UP,246749,6395197649,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2408,Kommu Sugleev,5-137 Brahma Naidu colony,,Karempudi మండలం,AP,522614,9030445523,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2407,Sidharth Kamble,Season mall,,Hadapsar,MH,411028,8971179716,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2372,Vivek Vivek,3 ashiwary nagar p.n pudur,,P N Pudur,TN,641041,9942259862,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2370,Rohit Pal,villeghe dhansua post center jail fathegarh,,fathegarh,UP,209601,9198247043,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2355,Prabhakar Prabhakar,Madikeri Market Coimbatore,,Coimbatore,TN,641105,7358752191,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2329,Janku ram Mahilane,Jio tower gali Gadapali Durug,,Bhatgaon,CG,493222,8966082850,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2507,senthimurugan senthimurugan,No1520 Anna Nagar VAO OFFICE NEAR thunder road sivagangai,,Sivagangai,TN,630561,8675609551,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2479,Ratheesh. Ratheesh.,Jabbarkadavu bridge,,Iritty,KL,670703,9747289780,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2477,Krishna Murthy m,Kaypee electronic pvt Ltd,,Dobespet,KA,562111,8970564108,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2432,Sd Sd,Nasaroapet,,Guntur,AP,522601,6305413679,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - 4xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2430,Sathish Sathish,"2/296, south street, pandiyur",,Pandiyur,TN,623705,9360885698,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2426,KANHU KANHU,First gate Dighapandi road 132 KV electric office doodh colony,,Berhampur,OR,760002,8018825564,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2425,Krishna Krishna,Shri Guru jambheshwar hotel dasva road Bhinmal,,Bhinmal,RJ,343029,7568566207,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2176,Ramarao chavakula,"Chavakula,Ramarao. S/O.Narasimhamuriti Gorintada  Agurru(post) Palakol  (madalam) Pachama godavari  (A.P)m",,cash delvari,AP,534260,9390790679,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2513,ADITYA NARAYAN SARANGI,"AT - NAGASPUR, POST - CHARIRAKABA, BLOCK - NISCHINTAKOILI,",,Cuttack,OR,754293,7978672441,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2512,Sekar Sekar,46/1 kamaraj nagar. Kannampalaiyam sulur,,Coimbatore,TN,641402,9791912276,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2511,Ashok Ashok,304 farmers Mahadev nagar,,Jodhpur,RJ,342306,9587735049,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2510,Sushilkumar lokappa vaggenavar,J. M. Road opp jamiya masjid bijapur,,Bijapur,KA,586101,8904111241,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2509,Balaji Balaji,Gudalur the nilgiris,,Gudalur,TN,643212,9345656119,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2508,Manish Kumar Swami,Gathala dhaba markhi,,Radawas,RJ,303801,7610096722,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2506,Prabhath Prabhath,Green garden layout manipla county road,,Bengaluru,KA,560068,9900116569,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2505,Sk.zain sk.wajid,Chin Sawari Jila Parishad High School,,Highway main road,MH,431701,9021958259,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2504,Hari Hari,Tiruppur iduvampallayam road iduvai,,Tiruppur,TN,641601,9597789166,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - 4xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2503,Malli Valluri,Vinayaka temple 6/111-1,,Town,AP,521207,9701084446,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2502,Babu Babu,Babu Muniyasamy house,,Ramanathapuram,TN,623501,8838716364,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2501,Selvaraj Selvaraj,"49,Irudaya Andavar St.,",,VELLORE,TN,632059,9843320560,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2500,Manoj kumar,Best corporation private limited company,,Tiruppur,TN,641652,7550226559,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2499,arunkumar arunkumar,uka vegetable,,Pollachi,TN,642103,9080189419,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2498,Ramani naresh,8-89 pathapadu v mogalthur m West Godavari,,Bhimavaram,AP,534281,9676742632,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2497,suresh babu H D,Manjunatha haspaatel Rood,,Chickballapur,KA,562101,9845074424,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2496,Dhaneesh Dhaneesh,"Adambil house, post Balla,",,Kanhangad,KL,671531,7736799371,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2494,Rifaqat Ali,H.9 Tolwali masjid bhudwara bhopal,,Bhopal Madhya pradesh,MP,462001,9827253347,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2493,Pradeep harne,Hadipsir pune malvade 17 nile rod malvade Hanuman mandir,,PUNE,MH,411028,8956939393,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2492,Mahesh Mahesh,Narasamma nilayam,,Hyderabad,TS,500050,8328674988,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2491,Vinoth Vinoth,"3/815 vaniya street ,",,Thanjavur,TN,613504,9626099823,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2489,R. Mohan,Postoffice,,Madhugiri,KA,572133,7795080670,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2482,Mithun dilip,At mahuli po bhuli,,Washim,MH,444404,9209091795,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2481,Thyagarajan T N,Thyagarajan Tn Mangalathuputhan veedu Ezhukone p.o,,Kottarakara,KL,691505,9656770825,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2480,Govind Govind,Latur nanded road Maharashtra.karegaon,,Nanded,MH,431708,7498583173,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2478,Naresh Naresh,C 302 SS felicity home's,,Bengaluru,KA,560066,7204614354,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2476,Sukesh m k,Near Village office,,Kannur,KL,670143,6282579904,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2475,Pandurang Pandurang,at post panutre tal panhala,,marathi shala,MH,416204,9860778213,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2474,Sandip Kumar Dhara,12/2  Bindhyabasini Tala,,Kolkata,WB,700057,9674536044,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2472,Meeran Meeran,Old tasmark santhu.B.p.Agragaram.erode.5,,Erode,TN,638005,9043815175,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2470,Pratheesh Pratheesh,"1398, Vandikattu street",,Tirupur,TN,641687,9087142068,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2469,KAMALKANNAN KAMALKANNAN,பிள்ளையார் கோயில் தெரு கீழ்ப்பாப்பாடி.திருவம்படு.விழுப்புரம்.தமிழ்நாடு,,VILLUPURAM,TN,604205,8489619250,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2468,Satendra Singh,Kakarari devri road agra,,Agra,UP,282009,9837330750,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2467,Abhijith B,Asarichira,,Alappuzha,KL,688523,6235398085,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2465,Ramzath Ramzath,Kavintekizhakkathil,,KOLLAM,KL,690525,8113807889,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2464,Dhanalakshmanan Dhanalakshmanan,M s colony,,Tirupur,TN,641605,9524610824,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2463,Ketha Naganjaneyulu,Kodamanchili Main Rd,,Kodamanchili,AP,534269,9705446060,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2461,Istekhar Istekhar,140 ashara colony,,Moradabad,UP,244001,8445883290,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2460,Ziaudeen Ziaudeen,183A dharga opp,,Pallapatti,TN,639205,7708633213,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2459,Rasheed p,Pariyadka house,,Puttur,KA,574201,7090087467,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2458,Aravind Aravind,Canara bank,,Bangalore,KA,560003,7996828343,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2457,Abdul Abdul,Dhuliyan police Station Super Market   kali mundir 77,,Dhuliyan,WB,742202,8298324807,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2456,Avnindra Mishra,New Raut wadi  boiser,,Boiser palghar,MH,401501,7385043507,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2455,Athmakuri Anvesh,Godavarikani 7-4-317/6 bapuji nagar,,Godavarikani,TS,505209,9948260728,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2454,Venkatesh Venkatesh,2-1-63/1 periyanagam Kovil Street ayikudi,,Ayikudi,TN,627852,9500678742,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2452,Dilip chouhan,33 shiker ji coloni gram nayta mundla indor,,Indor,MP,452020,9669883444,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2451,Pradip Mehta,"Nani Parekh Seri,",,Morbi,GJ,363641,9925727020,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2449,Moithy Moithy,Thottathilhouse,,KOZHIKODE,KL,673525,9846520255,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2448,Kartik Kartik,Shree vishwakarma bhawan,,Parbatsar,RJ,341512,8529657859,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2446,Shivakumar K,School hattira,,Thogarsi,KA,577433,9916621174,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2445,Nagaraj Sayannavar,176 Parasapur,,Hubli,KA,580024,9964704689,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2442,Dhanush Dhanush,"2/88, nallagoundam palayam, pilikkalpalayam",,Village /vinayaga area,TN,637213,7539979486,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2439,Venkatesh B itakannavar,Shri shiddeshwar tempal road bilagi,,City,KA,587116,9353496632,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2438,Chand suraj,Hno 1707New valmiki colony,,Karnal,HR,132001,9306924574,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2437,Babbu Sheikh,"Brahman House, Ward No. 5, Men Road,",,At. Pls. Narkhede,MH,441304,9960743009,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2434,M.RAMESH KUMAR,Saraswati warehouse Ambedkar Street pasingapuram Pothumpu ( po) madurai,,Village,TN,625018,9976232922,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2433,Rakesh Sandha,Baba bhuman shah khad center shajrana,,Fazilka,PB,152121,9915350108,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2429,Ma.shakeel Ma.shakeel,Multani.colony,,Bidar,KA,585401,8880470597,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2427,Sreenivasan M B,"ICTS, Amrita Viswa Vidyapeetham",,Vallikkavu,KL,690525,9447491631,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2424,Kotti navahu,Building 3_3,,Town,AP,533447,7569250364,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2422,Ravikannan Ravikannan,No 35 jayakrishan nagar othiyanpet villanoor,,Pondicherry,TN,605110,9566828161,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2421,Manikuttan. Manikuttan.,Nandanam.puthusseribhagom,,Enath,KL,691554,9747654248,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2419,Yogendra kumar,Salawatpur urf Karkauri,,Sambhal,UP,243727,9675101219,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2417,Bodapati Sasi Kumar,Peda palakaluru  mallavaram,,Town,AP,522009,8374989828,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2415,Chandra shekar,Sri satyasai district hindupur mandal malugur village,,Town,AP,515212,6281032657,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2412,Kamal Kamal,Vill. Chaguwal,,Gurdaspur,PB,143521,9056333462,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - 4xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2410,BOVAS J,REJI BAKERY,,VALAKOM,KL,691532,9446264218,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2406,Mahesh Mahesh,Cherukuwada,,Undi,AP,534199,9912470127,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2405,Fakrudheen Ali ahmmad,Arabian travels kuttiyil building perumpilavu,,Perumpilavu,KL,680519,9562218159,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2403,Raju Modhwadiya,Radhe stor navagam,,PORBANDAR,GJ,360575,6352829228,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2402,Gulshan Gulshan,Nagjhar ram ram mandir ke pas,,Gov,CG,495691,6284489830,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2401,Anoop light company,Pure Shiva Tiwari ward number 6,,Musafirkhana,UP,227813,8604859852,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2400,Balendra Parmar,Andharipura,,Nadiad,GJ,387355,9327993403,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2398,Soundar Soundar,Barathan tile mart,,Keeranatham,TN,641035,9585338441,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2397,Kapil mogha,Pandwadi fri Bombay elekstenek,,Dheradun,UK,248007,6395597867,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2396,Suresh Kumar,GRG Building,,Ettumanoor,KL,686631,7558003869,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2395,Prahalad N Dhn dhndhukiya,Hari darshan sosayti 752 753,,Surat,GJ,395004,9879470244,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2394,S.mathanagopal S.mathanagopal,கூப்பிநாயக்கப்பட்டி. Po,,Kuppinayankkanpatti,TN,625520,9787128754,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2393,Suresh Suresh,No. 6.F2.thirumalai flats.,,Chennai,TN,600091,8939154344,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2391,Goverdhan Goverdhan,RR cricket academy Radha Krishna,,Sikar,RJ,332001,9950708158,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2390,Dhilip Kumar,Karthigeyapuram bus stop,,Gudiyatham,TN,632602,9597401114,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2389,Basavaraj Basavaraj,Power grid Raichur in  lingasugu Road ️,,Raichur,KA,584101,8197469490,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2388,Mohmmad shafik mansuri,Life line medical Sadri road baghana,,Neemuch,MP,458441,9826448947,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2387,Ragul K,Door no: 121,,Ariyalur,TN,621851,6379677912,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2383,Sivaprasad vg,Vadakedathuparambil(h),,Kottyayam,KL,686015,9446661532,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2382,A.ganesh kumar,"2/44,barathiyar road , m.k.palayam, ganapathy",,COIMBATORE,TN,641006,9842334120,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2381,Keshav Baweja,3g/25 nit Faridabad,,Faridabad,HR,121001,7011017064,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - 4xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2380,Hassan khan,jaroli sher pur,,Hardoy,UP,241301,9082944627,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2379,Veerendra Veerendra,"Karidikonda, Devanakonda, Kurnool District",,Kurnool,AP,518001,1122989595,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2378,Posi Velpuri,"4-69 ,12 VA vard",,WEST GODAVARI,AP,534302,7729067665,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2377,Vimal Vimal,85 iyyapan illam,,Chengam,TN,606709,6379854044,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2376,K Venkataramana,Annamayagala kadapa Rayachot botalachuru,,Kadapa,AP,516269,9000838378,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2373,nagaraj ki,Sunshine children home and school of SDA kalkere horamauv and school of SDA kalkere horamauv Bangalore 43,,Bangalore,KA,560043,9343612005,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2366,Sameer Sameer,Amma plaza muthoot finance bank near fresh cakes bakery malagala  banglore,,Banglore,KA,560072,9164050313,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2365,Shiv Thakur,House no 138 gali no 4 bidhuna auraiya uttar pradesh,,Bidhuna,UP,206243,8953271742,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2363,Suresh Ahuja,C/201.radhe.radhe.flat.nr.ravi.darshan.society.maya.cinema.road.kubernagar.ahmedabd,,Ahmedabad,GJ,382340,9484513405,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2362,Shahanawaj ansari,राष्ट्रिय इंटर कॉलेज भलसवागाज (हरिद्वार),,भलसवागाज,UK,247668,8077541024,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2361,Sameer op,"Sameer op kuniyal house kurinjaliyode, po villiyappalli",,Badaka,KL,673542,8089262192,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2359,Darshah  Shah,B/6 Janod nager soc,,Vadodara,GJ,390022,9574302427,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2357,PARMAR PRASHANT BHAI,Sterling hospital,,Vadodara,GJ,390007,9601154195,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2356,Nawazish jamal,LIG 234 KDA  bazar,,Jajmau kanpur,UP,208010,7398263848,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2350,Guri Guri,102 near Ravi sama kriyana store,,ABOHAR,PB,152128,9319589305,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2348,Vinod tayade,Aaswari socycit,,Panvel,MH,410208,9702510029,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2346,Uttam chandra,Ganj tiraha badamalhera,,Badamalhera,MP,471311,7974852502,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2345,P. Kannan,Doddabirakallu nagaraj building,,Bagalore,KA,560073,9740908285,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2344,Tadvi Rakeshbhai abhesing,Tadvi faliyu gam motivav,,Dhudiya,GJ,389146,8320480461,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2343,Sharwanram Sharwanram,Harkanada hatundi baori jodhpur,,Jodhpur,RJ,342312,9636462841,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2342,Manish lakra,Garakata Rajhadand Kunkuri,,Kunkuri,CG,496225,8839020442,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2340,Kamilabegum Kamilabegum,2/3 Gandhi nagar,,Trichy,TN,620013,7708541263,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - 4xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2337,Dinesh Dinesh,9-34-11/c kbn college,,Vijayawada,AP,520001,7032652548,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2336,Narasimman Narasimman,Selliyamman export Pallipalayam,,638008,TN,638008,9092426645,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2335,Lokesh Lokesh,First floor,,Padappai,TN,601301,7305797410,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2331,Madhusudhanan Madhusudhanan,Madhusudhanan karackkattu perumbanachy,,Changanacheery,KL,686536,8281528389,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2330,Roshan kumar Patel,Janjgir Champa Chhattisgarh,,Bamhnidih,CG,495660,7222979850,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2328,Deva Deva,Lakshmi street,,Tiruppur,TN,641604,9363584047,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2325,Chetan Chetan,"C-202, Nilkantha hight, abrama road",,Surat,GJ,394101,7874123636,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2323,Sachu Sachu,"Karukaparambil house, punnapra po, Alappuzha",,Punnapra,KL,688004,6282690490,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2321,MD Shakil,Taj masjid ke nikat c p s school ke samne,,Azad chowk samastipur,BR,848101,8873751996,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2320,Ashok Rambhou sonawane,Manjri kh shaviji choke manjri kh,,Pune,MH,412307,7057199005,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2319,Sikandar Sikandar,Mirza pur hat per nawada,,NAWADA,BR,805110,7050360347,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2318,narayanaswamy narayanaswamy,#35 Arehalli,,anekal,KA,562106,9353141188,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2317,Manjunath Manjunath,Universal company,,Kelamagalam,TN,635111,6362649510,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2316,Sathish DH,Sathish DH deshahalli,,Maddur,KA,571429,7090319886,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2315,Babu Babu,Tharakamparambil,,THRISSUR,KL,680697,9895062581,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2313,Jana Jana,"83, nehru Street mathagadi Karaikal",,Karaikal,TN,609602,7598759864,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2310,Deepak Kumar,Sanateghari power house,,Balasore,OR,756036,9556142958,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2309,Elangovan Elangovan,"212,KPL NAGAR",,TIRUCHENGODU,TN,637214,9487328435,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2308,Mr ajay,14 sudham nagar 7th cross Bangalore Karnataka,,Bangalore,KA,560027,9341451742,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2307,Ravi g chandel  shanidham  apartment block n.,Shaidham apartment bolok n 205 Ukedirod dahod,,Dahod gujrat,GJ,389160,2727762428,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2305,Govind singh,"Khadiyali nadi band ,gudamalani",,Band,RJ,344033,7878262150,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2304,Siva Siva,Taluk office,,Perambalur,TN,621212,6382366062,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2302,Dhayanithi Dhayanithi,1/58  kamatchiamman Kovil street machanur,,Vellore,TN,632209,9047072470,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2301,Kayala srinivasu,"Good morning car travels, HANUMAN peta, vijayawada-3",,KRISHNA,AP,520003,9494050595,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2300,Srithar Srithar,Maruthur South.mathiyanthoppu,,Vetharanyam,TN,614714,8148271003,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2298,Manikandan Manikandan,Chitode Amman clg...,,Erode,TN,638102,6379498811,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2296,Vakkash patel,Mota borsara masjid faleu,,Kim,GJ,394110,9512099739,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2295,Balram Balram,78/27 A mori Dara ganj,,Prayag raj,UP,211006,9369863862,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2294,Rajavel Rajavel,"240,East street,Aranoor,Siruvalur po",,Ariyalur,TN,621704,8072416375,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2292,Palakolanu Tharun kumar,Pondicherry University chinna kalapet,,Kalapet,TN,605014,9391041734,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2290,Aakash Aakash,Paravakkottai,,Mannargudi,TN,614015,9087851161,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2288,S.Viswambharan S.Viswambharan,Viswambharan ChiramelPalackasseril Aranoottimangalam P O Mavelikara,,Mavelikara,KL,690110,9495508023,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2287,Rahul Rahul,Sati asthan Mainpura get no..44,,Patna,BR,800001,7564815259,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2283,Ajay patole,Pattrdhi gov nashik,,Nashik,MH,422010,7709388042,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2281,Gulab yadav,Rayatwary CRC miners quarter s36,,Chandrapur,MH,442401,8459864701,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2280,G Manohar,26/868 guruvaiah thota,,Proddatur,AP,516360,7794885793,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2278,Hanamanta V,Yallapur road beerappana gudi,,Doddur,KA,582116,8660219135,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2277,Nandhu Nandhu,"No.9 ramasamy appartment,veriyam palayam",,Kalapatti,TN,641048,9047215150,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2275,Abdulkalamasath Abdulkalamasath,Aarumugam hospital back side govindapuram,,Dindigul,TN,624001,9384426825,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2272,G ganesh,No 9 thirumagal street kamparajapuram thiruvam,,thiruvalam,TN,632515,8608452713,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2270,Govardhan Govardhan,Ragimakulapalli,,Ramasamudram,AP,517417,8328350370,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2269,Bhairu Bhairu,Kanta Store fancy,,Malpura,RJ,304504,8209163442,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2265,Tushar kuwar,Amar colony,,Nandurbar,MH,425412,8208491152,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2263,SAVITHRI SAVITHRI,Krishna veni nagar chenchuguda Tulasi Nagar Kukatpally,,Telengana,TS,500072,8790126080,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2262,Satish Kumar,Misty kirana store road number 27 Shri Krishna Nagar,,Bihar Patna,BR,800001,9798894043,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2260,Jayakumar Jayakumar,Cmcnewoaulbrandbuildopp,,Vellore,TN,632004,9585324498,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2259,Suresh Suresh,Mahavir jens palars sala,,Dhamnod,MP,454552,9754945971,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2257,sreejith n r,Naduvilpurakkal House,,Thrissur,KL,680631,9744060346,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2256,Rajeev Singh,शाहजहांपुर,,SHAHJAHANPUR,UP,242001,9453075013,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2255,Manoj Manoj,Haripura vidisha,,Vidisha,MP,464001,6261663718,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2254,Pawan Pawan,Inffont of ramesh hardware Pali road,,Umaria,MP,484661,9424775451,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2253,Mohammad Apsara mobina,Vijayawada Krishna Lanka,,City Vijayawada,AP,520013,8688753649,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2252,Vijay Vijay,Damro buliding 4th floor Mpeda qc lab,,Nellore,AP,524003,8688555020,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2251,surabindu surabindu,SURABHI kizhakkemala Thuvakkode,,Kozhikode,KL,673304,7994974943,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2250,Guru Moorthi,Manthikulam vilakku karvanar post madurai 14,,Madurai,TN,625014,7806833523,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2249,Sandip b BAGTHRIYA,Matru krupa,,Gondal,GJ,360311,9898112001,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2248,Dheeraj kumar,Bhabhua bihar,,Kaimur,BR,821101,7903363471,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2247,Bhikaji Narayan,At.Tunki ta.sangrampur dis.buldhana,,BULDHANA,MH,444204,9325992148,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2245,Sunil Sunil,Vijayawada mogal Rajpuram Amma kalyanmandapam,,Town,AP,520010,8019324974,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2244,Rajat kasera,Teliya ganj tatai road,,Mirzapur,UP,231001,9628753525,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2243,Karthik Karthik,Player Kovil,,Aruppukottai,TN,626105,7603940388,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2241,Javed saeed,Brij raj  katra,,Ghanta ghar mirzapur,UP,231001,6393020523,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2240,Jamaludheen Jamaludheen,Moochi kottathil  house vadakumpuram po mavanfiyur,,Valanchery mavandiyoor,KL,676552,9846585414,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2237,Chandrachari k mayachari  makanur t/ Ranebennur d/Haveri,Makanur doddamardi,,Harihar,KA,581123,9164015117,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2236,sohansingh sohansingh,mb hospital,,udaipur,RJ,313011,8233062925,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2234,Prashant Prashant,"93/b,pratap ganj peth satara",,SATARA,MH,415002,9822744207,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2232,संदीप विक्रम इंगळे,सरकारी दवाखाना समोर,,साखरखेर्डा,MH,443202,7083056106,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2231,Abhay Patel,Verma tent house harsos varanasi,,Varanasi,UP,221302,9559730143,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2230,Malek aarif Bhai Ismail Bhai,At.post ranu.ta.padra dist.baroda,,Gujrat Baroda,GJ,391445,7486889893,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2227,Ranisharma Ranisharma,Wad no 4 sahuli Siva mandir ke pass,,Siwan,BR,841286,9594481312,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2226,MANIGANDAN MANIGANDAN,Vallipattu,,Vaniyambadi,TN,635752,8838113004,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2225,Sakshi sha,2 Balaghat karpuri Nagar ward no 15 Gali no 4,,Muzaffarpur,BR,842001,7368842851,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2224,Prashanth r,#456 4th cross,,Yashwant pura benglore,KA,590016,8147803886,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2223,G Mahendra,4/1 rampuram Village,,Anantpur,AP,515405,7569395795,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2220,Raju Raju,Kanakaveedu,,Yemmiganur,AP,518343,9160201870,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2217,Bhole Chaudhary,City nursing home dhanoli jagner road agra,,Agra,UP,282001,7055872537,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2216,Rohit Rundla,Ward no. rundla ki dhani,,Jaipur,RJ,302013,7851947028,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2215,Ankaiah Vembadi,Sanjay Gandhi Colony Road Akkarampalle,,Tirupati,AP,517501,9948978392,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2214,Tadpada kiritKumar MaheshBhai,"Moraj , tarapur",,Anand,GJ,388180,9913102262,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2213,Konkali prabhu,Chandragiri Nagar chervasta,,Hyderabad Chandragiri Nagar,TS,500055,6303233280,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2212,Shashi kant,Globe Toyota kurukshetra,,Piple,HR,136118,8607814046,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2210,'--munna --munna,Gulujipali Katarkela jamankira sambalpur,,Kuchinda,OR,768107,9668783276,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2208,imran imran,विजयनगर कालका रोड कबड्डी की दुकान,,रेवाड़ी,HR,123401,8630525378,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2207,Govindegowda Govindegowda,St josefh school,,Hunsur,KA,571105,9743094985,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2206,Hiren Hiren,"Patthergate, Nani kharvavad",,Vadodra,GJ,390001,8980849209,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2204,V.ankaiah V.ankaiah,Sanjeva ghadi colony koralagunta tirupati,,Tirupati,AP,517501,9948978372,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2203,Raja Raja,NO 12 ANNA STREET,,Tamil nadu,TN,620010,8838391254,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2200,palani velstyle,Andipalayam CETP PLANT andipalayam post thirupur,,Thirupur,TN,641687,7502441039,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2198,Jitendra  saroj,Sadhoram khandwa jalesarganj Pratapgarh,,Pratapgarh,UP,230132,9559491376,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2196,Dileepkumar Dileepkumar,Kalliyattumattathil,,Kottayam,KL,686521,9495596900,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2195,A.dhanaraju A.dhanaraju,K. Buduguntapalli,,Koduru,AP,516101,7659057453,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2192,Karthi Karthi,30.car north srreet,,Thiruvarur,TN,614102,9159866023,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2191,Sudhakar Sudhakar,Kamachi  Emission Testing  Centre  Chettiarpettai vill kanchipuram,,Kanchipuarm,TN,631552,8754821161,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2187,Aravind. P,MM Apartments. Near Health Centre,,Calicut,KL,673317,7780701186,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2186,Ripudaman Singh,"H Tower Flat 405 , Raheja Atharva",,Gurgaon,HR,122001,9871445327,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2185,rajesh rajesh,1/22 north street,,Ramanathapuram,TN,623120,9626566626,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2184,Shermohmmadmasuri Shermohmmadmasuri,Mohwbusstand,,Ratlami,MP,457001,9752581634,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2183,Arvind singh,F 22 fast floor parking n 2 transport nagar LDA colony kanpur road Lucknow,,Lucknow,UP,226012,7007476195,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2182,Raghab Raghab,Gauri bhaban,,Chandbali,OR,756132,8339882399,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2181,Mase Mase,Bukkapatnam,,Satya Sai dist,AP,515144,6301452885,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2180,VIKASH SAINI,Vikash medical guhala,,Neem ka thana,RJ,332706,8058935586,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2179,Krishna nishad,Sport college road koilawaha gkp,,Gkp,UP,273003,9653023093,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2178,Suresh Suresh,Kanmani company,,Tirupur,TN,641602,6380393240,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2173,Shivam Vishwkarma,Hatta Bus stand,,Hatta,MP,470775,8839544119,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2172,Kalicharan Rajak,Villge pabra,,Ragnathpur,WB,723133,9734727682,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2168,Pavan Pavan,Gupta park,,Nellore,AP,524001,7780181392,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2166,Bhanwar Lal,R5/337 STPS colony Suratgarh,,Suratgarh,RJ,335804,9468626686,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2163,Yogesh Pawar,Plot no 76,,Nashik,MH,422103,7498432272,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2162,Mohamed thamim,Shoe garage,,Salem,TN,636008,9361260180,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2160,Nagaraj E,336.west street.a ng u he trip ala yam(Post)panruti,,Panruti,TN,607106,9344356408,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2157,R.KATHIRVEL R.KATHIRVEL,8/626 AVP LAYOUT ANGERIPALAYAM TIRUPUR,,Tirupur,TN,641603,9942542199,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2156,Prashant purohit,Purohit mohalla Nayagaon,,Neemuch,MP,458468,9165667550,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2155,Rajesh dewasi,House no. 36 hans vihar,,Jaipur,RJ,302029,9664116403,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2153,Durgashankar Gurjar,Chatarganj Puliya ke niche nh52 highway,,Chatarganj/bundi,RJ,323023,8824580797,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2152,Mahalingam Mahalingam,568/1.murukan Kovil sret Ramanasramam post thiruvannamali,,Thiruvannamali,TN,606601,8668000821,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2151,Naresh Naresh,Max Life Insurance,,Civil Lines Jhansi,UP,284001,7905547924,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2149,KARAMVIR yadav,HNO -200 V.P.O TEEKLI,,GURUGRAM,HR,122101,9953322122,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2147,Pramod subhash vibhute,Shivneri apartment shirala,,Shirala,MH,415408,9960321388,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2145,Venkata Venkata,"4-148, katteveram",,Tenali,AP,522202,9491335986,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2144,Sroff complex apposit really fatak,Flat no 42 sroff complex,,Billimora,GJ,396321,9537900675,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2143,p.selvakumar p.selvakumar,"20,manthakarai, st, s. Pudur, post",,Nagapattinam,TN,612203,9751236243,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2142,Vinod Kumar Meena,Shiv mandir near,,Chachawali dhani,RJ,333501,9784981740,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2141,Chirag Chirag,Mahatma gandhi group of college sabalpura sikar,,Pura Ki Dhani,RJ,332001,9460029075,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2139,Rakesh Nana Hire,Galan ku Tal Pachora,,Pachora,MH,424202,9960088596,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2137,Vijay Kumar,Nri layout 1st main 3rd cross chikkanajudappa layout puttappa building,,Bangalore,KA,560043,9740668026,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2135,Samsudheen Samsudheen,15 159 apart,,Mankada,KL,679324,9497578499,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2134,Ashish Ashish,B2 noida sec 44,,GAUTAM BUDDHA NAGAR,UP,201303,8006221872,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2132,Kumar Kumar,Saravanan vel building,,ERODE,TN,638001,9025809510,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - 4xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2131,Suresh Kumar,Thekke Nagappattil house,,VAYALAR CHERTHALA Alappuzha,KL,688536,7907697673,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2128,Ahamad sard,Vamiki crakal kanakagiri,,Kanakagiri,KA,583283,9740752967,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2127,RAJAPPAN N K,Nedumpala house. 370,,Mallappally,KL,689588,9744774066,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2125,Thangaraja Thangaraja,006.kalayarkoil,,Kalayarkovil,TN,630551,9342761179,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2123,Mahanthesh C,S/O Sanna Gudadappa ambedkar Nagara AK Colony 6th ward Holagundi Huvina Hadagali (T) Vijaya Nagara (D),,Hoovina Hadagali,KA,583219,8217683667,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2115,Mani Mani,Apartment,,Pilathu,TN,624802,8610558544,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2114,Santosh soren,Bhagalpur road dudhani dumka mahindra shoroom,,Dumka,JH,814101,6203366081,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2113,Sanat sahu,Coal mine found fund  bilaspur  Chhattisgarh,,Bilaspur,CG,495006,8349497154,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2111,Rohit yadav,Ho.no-236/26,,Etawah,UP,206001,9045787843,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2105,Ramesh saini,Near H P gas godown स्टेडियम road Narnaul,,Narnaul,HR,123001,9416906463,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2104,G.venkatesh G.venkatesh,RBR Garments,,Triuppur,TN,641605,9176375808,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2103,Anil Anil,As855555555,,Jasrana,UP,283136,9719710105,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2102,Renjith p cheriyen,Renjith evoor .com,,Evoor south,KL,690505,9846365988,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2101,Shyam Shyam,No 28 rajaji ngar 3 street,,Tamabram,TN,600073,8072169108,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2100,Sreenivasulu Reddy Gudisi,Malepadu madanapalli anna mayya,,CHITTOOR,AP,517325,9177739660,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2099,Rekhrajmeena Rekhrajmeena,21 gora Nagar jhotwara wala sanganer Jaipur,,JAIPUR,RJ,302029,6376263533,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2098,Girish Girish,Hosalli  Hosalli road Landmark: Near raghavendra temple  District: yadagir,,Yadgiri,KA,585202,9900774235,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2097,Mariyan mohmad,Rander pachlioli old jamiya bilding farst falor room no 9,,Surat,GJ,395005,6355885847,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2096,Rajesh Rajesh,Dhorera mafi Ambedkar park,,Bareilly,UP,243006,8449099636,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2095,Sadiq Sadiq,Ghosh masjid,,ChikballapurChikballapur,KA,562105,9844527525,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2093,Jitendra bhikhaibhai,Badarpur road,,Palanpur,GJ,385520,9724591457,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2091,Abimon N John,"Chempaleth house,Oonnukal, Pathanamthitta",,Pathanamthitta,KL,689647,9447118702,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2088,Manjunatha.S Manjunatha.S,#555 vajamangala varuna hobli mysore,,MYSURU,KA,570028,8123432387,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2087,Sohelkhan Sohelkhan,Haldouni mord ridha hospital,,Noida,UP,201306,9999151286,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2086,Pankaj  Raghuwanshi,Tata guesthouse,,Khutai,MP,470117,8349755659,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2083,ABDUL REHMAN ABDUL khadarbb,Door number 30.  Mustafa  Nagar.   Pallipadai.  Chidambaram,,Chidambaram,TN,608001,8754780786,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2082,Irfan Irfan,C/701. Paradice flat. Opp. Luxuriya falt,,Ahmedabad,GJ,380055,9662257575,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2081,Mandavaraju Yadagiri,28-177/1/1,,Town,TS,500055,9948737259,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2080,Amjad Amjad,2183 moti masjid ghazizbad,,Ghaziabad,UP,201001,9654352801,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2079,Vengatesh Vengatesh,Collector office back side,,Perambalur,TN,621212,6380438835,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2077,Bhoopsing Bhoopsing,Moi bhari po. Moipurani dis. Jhunjhunu,,Singhana,RJ,333516,9929914652,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2075,Nijas Nijas,Niyar block office,,Other,KL,673592,9744052349,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2074,Samrjeet singh,Near post office umari road,,Umari,MP,485446,8878440558,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2073,Backer Amana,Amana Mobiles,,Pattambi,KL,679305,9746397429,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2072,Dinesh Acharya,No.12 kaveri nilaya Devaiah Narayanappa Layout Banjara Layout Horamavu Agara Bangaluru,,Bangalore,KA,560043,9880856487,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2071,Pramod Arjun Khilare,Sector 23 plot no 176 ulve near Shettys restro,,Ulve Navi Mumbai,MH,410206,9930076970,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2069,Abhi abhi,Jalapuri 36,,MYSURU,KA,570019,9035788398,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2068,Vilas waghmare,Chapora jila Burhanpur,,vilaswaghmare760@gmail.com,MP,450445,7440550837,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2067,Prakash Prakash,"27,navakkadu",,Tiruppur,TN,638103,9384315982,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2066,Roopender Roopender,Village badoli fbd,,Faridabad,HR,121003,9818196523,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2064,RITIK DEWANGAN,House no -43k,,Rajnandgaon,CG,491441,6267754843,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2062,Shahavudeen S,"S A S BUILDING, Thundathil.P.O, Karyavattom,",,Kazhakoottom,KL,695581,6282500042,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2059,Dr.Aravindh Dr.Aravindh,"Ground floor,",,Nagapattinam,TN,611102,6382581071,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2056,Bhupesh Nehra,Dhani Shamli Pritam Puri  neemkathana,,Neemkathani,RJ,332708,9784173834,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2054,Karthikeyan Karthikeyan,11 moinraad Sivagiri,,Rajapalaiyam,TN,627757,6369557396,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2053,Durgesh Parmar,48B Bijasan colony near nalva road nandurbar,,Nandurbar,MH,425412,9970760502,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2052,Atamaram Drade,Sonpet Rood Sangam,,BEED,MH,431515,9370450041,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2050,Dolamani Nial,at-bharuamunda post -bender PS-KHAPRAKHOL DIST-BALANGIR,,Balangir,OR,767038,9348645650,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2049,Jabir.mansuri Jabir.mansuri,Gram.funga.distik.anuppur.m.p,,ANUPPUR,MP,484224,7509244587,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2047,jeeva jeeva,"6/238,kamaraj street",,Tirunelveli,TN,627002,8220723522,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2046,Ram shankar Singh,"Cp 11, KIA showroom",,Faizabad road Lucknow,UP,226010,9696669310,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2042,mahendra singh gurjar,Pot  number 66,,Jaipur gajsinghpura,RJ,303002,7073071301,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2039,Vijay Vijay,Behind Yavatmal urban bank,,YAVATMAL,MH,445305,9822967889,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2038,Vijay Vijay,"Flash technology, E-block old no 29,new no 20 mahatma gandhi street, mmda colony, arumbakkam chennai 106",,Chennai,TN,600106,8838572935,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2035,Sandeep Sandeep,"Bhaluha ,post.bhaluhi , district.kushinagar",,Kushinagar,UP,274149,9721694320,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2034,Xavier Xavier,Credence car care,,Chennai,TN,600100,9551868633,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2032,Beereddy Kirankumarreddy,9 line reddynagar narasaropet,,Narasaraopet,AP,522601,6303476706,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2029,Venugopalan Venugopalan,Ottamavungal. H. Shangaram. Padi. Po. Chengala. Via,,Kasagod,KL,671541,8590855889,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2025,Prince dhal,Haryana Organic A Unit of Globus spirits limited,,Haryana,HR,132101,9773516116,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2022,Bala Bala,Kodangipatti,,Karur,TN,639005,6382096673,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2019,Pavanandam Pavanandam,5/846 pudhuvazvu Nagar,,Sivagangai,TN,630561,9843991405,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2017,Kumarcm Kumarcm,Chikakalabalu Harohalli kottagalu post Ramanagara,,Karnataka,KA,562117,9632543239,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2016,satisharavalapalli satisharavalapalli,Kolla complex  4/100,,Vemageri,AP,533125,9603788428,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2012,Mareedu Mareedu,House no 4-37,,Eluru,AP,534007,9100796531,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - 4xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2011,Ratnesh tiwari,Gram post mudha,,Satna,MP,485441,9589662628,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#2010,Geetha Geetha,SP. Illam. VIP Nagar. Karimangalam. Taluk. Dharmapuri. District. Karimangalam,,DHARMAPURI,TN,635111,8870790995,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2008,Iliyash Iliyash,Manronajan clab ka picha sunaro ka kua,,Churu,RJ,331001,9521492209,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#2007,Manjeet Manjeet,House no.320,,Jhajjar,HR,124108,9992789987,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2006,Santosh Santosh,Jayanti nagar near verma atta chakki durg,,Durg,CG,491001,7674234030,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2005,Hsnif Rowther,Idichandiparambil Royal housing no. 83,,Changanacherry,KL,686101,8848332317,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#2003,Manjeet Manjeet,House no. 320,,Jhajjar,HR,124108,7015880917,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#2001,Sanjay malviya,Somwariya bajar shajapur,,Shajapur,MP,465001,7000432005,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#2000,Kishor Kishor,Sai square,,Surat,GJ,395009,9265162682,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1999,Magendiran Magendiran,1/80 road y,,Arni,TN,632313,8695953032,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1998,Anke. Ramakrishna,Kothacheruvu.villege. 2/189,,Kothacheruvu,AP,515133,8985504194,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1997,Prameet Prameet,Vijay nagar m r 4 road,,Jabalpur,MP,482002,9300055569,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1995,Santhosh kumar,13/2 kasipalayam vijayapuram post tirupur,,Tirupur,TN,641606,7397023706,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1994,Syed Syed,Sangam veg  traders  shop no =94,,Kolar,KA,563101,7204504787,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1993,Chote baba,Pipalgon jodhitola,,Kirnapur,MP,481222,6300931644,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1992,Dj Ajay Meena,Green Nagar kirana store New Loha Mandi Road Shankar Vihar Extension Jamna Puri,,Jaipur,RJ,302013,8619176029,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1991,Ajay meena,House no .305 green nagar Loha Mandi road machda jaipur rajasthan,,Jaipur,RJ,302013,8952069876,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1990,Ramsan Ramsan,Township colony,,Trivandrum,KL,695521,7907870023,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1986,manjunathBR manjunathBR,103 BTpura4th cross near kodanda Rama temple sahakara Nagar Post Bangalore 92,,Bangalore,KA,560092,9148450577,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1985,Ganesh Ganesh,Gotti పల్లి village,,Visakhapatnam,AP,530004,9493633875,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1984,Prafulla raithatha Prafulla,Hanuman para gali Word no.4,,BARGARH.padampur,OR,768036,9853670891,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1981,Anbukumar Anbukumar,6/B 2 Mk Radha Avenue VGP Golden Beach,,600014,TN,600014,9003104639,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1978,S murugan,C4C Home,,Chennai,TN,600128,9176436969,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1976,Ravi Kumar Reddy,Balaji house,,Nalmagala,KA,562123,9640990971,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1975,Charan Charan,Sv reddy iit neet institute in kbhp,,Hyderabad,TS,500072,8143148843,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1974,J Jagadiswar,Ana Purana Nagar  near mango market,,Berhampur  dist Ganjam  odisa,OR,760009,6370549929,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1971,R LENIN,42/63 RAJAJI 9TH STREET,,THIRUMANGALAM,TN,625706,8807296273,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1970,Vaka Venkatarao,"Nallapadu road Maharshi dayanandh nagar 2nd line Dr.n.88-7-2492/1,maharshi dayanandh nagar 2nd ,sai santosh school back side,opp.reddy college ,nallapadu road,guntur,522004",,Guntur,AP,522004,7569763800,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1969,Sahil Sahil,Kukra muzaffar Nagar,,Muzaffarnagar,UP,251001,8958968448,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1967,Pawan Mishra,Dicky Public School Khudaganj Shahjahanpur block Road,,Khudaganj SPN,UP,242305,9795033831,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1966,Akila Akila,Ooty market ooty market ooty market,,Nilgiri,TN,643001,8489708242,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1965,Santosh Balushan,New Munda jambori road Khushi park Poonam furniture ke pass,,Jalna,MH,431203,9175915559,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1964,Sangram Das,SINGITALI  ParadeepLock 7 Jagatasinghpur FC,,Paradeep,OR,754141,9937176155,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1962,Rajesh kumar,Shop no 16,,Bhiwani,HR,127309,7056715715,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1961,Vinoth Vinoth,Holiday home Resort,,Kodaikanal,TN,624103,9384222263,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1959,jojo Varghese,Puthuparambil,,Mallappally,KL,689581,9605614562,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1956,Shiva krishna G,STR EM HSCHOOL,,Vijayawada,AP,520001,7569432004,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1954,Sreedharreddy Sreedharreddy,Aliyabad hyd near flaknuma,,Hyd,TS,500053,9030264070,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1951,Ibrahim Ibrahim,Quaithamelath St 130B/3,,Katayanallur,TN,627751,6384500968,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1948,JASWINDER SINGH,KAMALJIT CEMENT STORE PUNJAB KHANNA BIJA,,KHANNA  BIJA,PB,141401,9056133004,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1946,Praveen k thomas,Praveen k Thomas keethappally hous kanjiram kanjirappuzha pottaassery .po,,Other,KL,678598,7012714031,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1945,Sai Sai,Charuv centru,,Vijayawada,AP,520012,9989894934,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1943,v krishna,RVR @ JC College of Engneering,,guntur,AP,522019,6302561155,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1939,Gaurilal Gaurilal,Nasirabad housing board Gokul dham koloni,,Nasirabad,RJ,305401,8955442485,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1937,Mahavir Prasad dewangan,Near town school ward no 8 Champa,,Champa,CG,495671,9669872560,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1936,Kannan Kannan,Jayarathana exports mangalm road parppalyam,,Tiruppur,TN,641604,8428198294,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1935,Pargat Singh,Pargat Singh son baldev Singh Village veela teja sub division batata malewal road near gurudwara baba Nandan ji,,GURDASPUR,PB,143513,8872673189,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1934,ANILKUMAR ANILKUMAR,Unnikrishna bhavan,,Vithura PO,KL,695551,9497391456,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1933,Afsal arshid,Afsal arshid.. kanjirappally.po..parakadave..10 acre road,,Kottayam.kanjirapppally,KL,686508,9526784848,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1931,Vignesh Vignesh,Thandarapattu main road  kilchettipattu,,Thiruvannamalai,TN,606707,6383475142,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1930,Ajay Ajay,"Manas agro industries and Infrastructure ltd. Khursapar Bela, tah Umrer dist Nagpur",,Nagpur,MH,441108,9890124260,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1929,Fathima Siyad,Shiyas manzil keralapuram nalumukk,,Kollam,KL,691504,8891348165,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1926,shakeer shakeer,Baithulnoorthazamnorthchathannoor po,,Kollam,KL,691572,9895732973,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1922,Kaptan Kaptan,Gulkandi school ke samne Khatana gali,,Gangapur city,RJ,322201,7023150200,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1921,Santhoshkumar Santhoshkumar,Krishna Arcadmuppthadom,,ERNAKULAM,KL,683110,8129807146,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - 4xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1920,MERIN MERIN,"Babu villa .Kallimel po mavelikara, Allapuzha",,Mavelikara,KL,690509,7356516889,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1919,Sakthi Sakthi,Sathanoor hospital,,Kakkaiyadi,TN,614101,8098272862,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1918,Vivek Vivek,Kela Devi bath,,Barnahal,UP,205261,8923698557,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1915,Ramesh Ramesh,"3080, 3rd Main Rd",,Chittoor,AP,517124,7416533314,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1914,Akhil Akhil,D.kalkere,,D.kalakere,KA,572221,8197805086,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - 4xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1913,Sandeep rawat,Pohari bypass road ghoda chauraha shivpurizg lu tg bn9,,Shivpuri (mp),MP,473793,8640018005,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1912,Jitendra Jitendra,34 manawer,,Manawer,MP,454446,9630400378,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1908,Sanubabu Sanubabu,Nadanam  nattarako am,,Thiruvanathapuram,KL,695541,9207108750,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1906,RAVI KUMAR MEENA,Machadi nayapura 137,,Todabhim,RJ,321611,9509064074,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1905,Ashwani Ashwani,Rohta bypass,,MEERUT,UP,250502,8810245167,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - 4xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1902,A.BARAGATHULLA Raja,16a sekizar st,,PONDICHERRY,PY,605003,7904599510,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - 4xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1901,Maahi Maahi,Kanpur  garva,,Udaipur,RJ,313003,9983621243,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1900,ravi kumar,D no 76/9/10262,,Kurnool,AP,518003,9666419499,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1898,Jupaka Saivamshi,8-2-601 Lenin Nagar,,Godavarikhani,TS,505209,9866160600,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1897,karthic karthic,"48, Dream city",,coimbatore,TN,641107,9944217744,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1896,Ankit Kumar,House num 23,,Patna,BR,800008,8210017304,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1894,Nayeem Nayeem,nayeem86@gmail.com,,Chennai,TN,600023,9094877671,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1893,Mg vinod,"Mg vinod, thekkethu chirakkadavu East po",,Kottayam,KL,686520,9744388788,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1891,TAMILARASAN T,somayanur,,"Nanjundapuram, Somayanur",TN,641108,8682895518,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1890,Vishal Bairwa,Barh mahawataan,,Chaksu,RJ,303901,9461125146,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1888,Chauhan Santosh,Gram aur post mattiyon near New police chauki,,Jila Gazipur Uttar Pradesh,UP,233226,8960026256,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - 4xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1887,Baldev Bhai koil patel,Gaon rajoda sikyotar Mandir,,Ahmedabad,GJ,382220,7043502945,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1885,Shubham singh,Gairwaha Rakba,,Junpur,UP,223103,8736801263,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1884,Kartik Dipak Ramanuj,Shreeji Opposite Alavi Co-operative Bank,,Vadodara,GJ,390017,9662415761,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1882,dudalavenkateswarlu dudalavenkateswarlu,"chittamur,thirupathu(dist)",,chittamur,AP,524127,8328409490,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1881,Vignesh Vignesh,Chinthamani street,,Musiri trichy,TN,621211,9585184838,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1877,Bhimraj Bhimraj,Holichok bhinmal,,bhinmal,RJ,343029,8949318293,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1876,D Purna Chandra,2/100-1-10. Chodidukkulu,,Pedanaa,AP,521366,9963507761,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1875,Saurabh Saurabh,I G Marg Ayodhya Nagar Society,,Nadiad,GJ,387002,9427117040,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1874,Mohammed Mustafa Mustafa,Gudallveru,,Town,AP,521331,9182820040,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1872,Raman Raman,Ganiana road street no 6,,Muktsar,PB,152026,7355309303,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1871,Sangeetha Sangeetha,VAO OFFICE,,Kallakurichi,TN,606202,7305995956,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1870,Yenni sivakrishna,Chandiputuga village kaviti mandalam srikakulam district,,Chandiputuga,AP,532322,6300242366,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1869,SRIRAM R,14 BRANCH POST MASTER,,SRIMUSHNAM,TN,608703,9940712719,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1868,Dayal chand,Vill bhudla dist rewaari haryana,,REWARI,HR,123401,7988785464,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1867,A.Ramaiah A.Ramaiah,Amayyappa sabhi tank cleaning,,Karaikudi,TN,630002,8220278992,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1866,Anil  k varghese,M A RAthanasius college of Engeerning,,Eranakulam,KL,686691,7510796630,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1863,Jami Ranga Rao,Gandhi nagar 1st lane 36E Street lane koraput odisha,,Koraput,OR,764020,9937231599,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1862,M.PRABHU M.PRABHU,"M.PRABHU, S/O, R. MARGESAN, NO.175/G3, KANNADHASAN STREET, THANGAM NAGAR, GUDIYATHAM, VELLORE DIST. 632 602",,"GUDIYATHAM, VELLORE DIST.",TN,632602,9092196915,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1861,Mohan Ramachandran,"9/74a thiyahi pallanisami nager 2streed,",,Tirupur,TN,641602,9443141979,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1859,Rajinder koshyari,27 jagjivan jivan Ram nagar Indore,,Indore,MP,452011,9340722610,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1858,Arunkumar Arunkumar,Mudalapalya,,BENGALURU RURAL,KA,562123,9036163406,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1856,Subbarayudu Subbarayudu,1-124 udiripikonda,,Anantapur,AP,515711,6304937969,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1855,Nilesh popat thakare,Talwade digar,,Satana,MH,423301,9527839651,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1854,Ve nkatesh,Jariganalli,,Bangalore,KA,560062,8892600167,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1853,Tamilsevlan Tamilsevlan,1/74 kinatru street,,Arcot tk ranipet district,TN,632503,6369507718,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1851,Raghavendra Raghavendra,Nesto stay,,Bengaluru,KA,560029,9686628797,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1850,SADU HANSDAH,A/127.at/po-soso.via- bahalda dist- maurbhanj.odishs,,Rairangpur.bahalda,OR,757046,8198491782,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1847,Raghav Raghav,Valkhed phata dindori nashik,,Nashik,MH,422202,7745894436,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1846,Varadharajan Varadharajan,Kk pudur,,Coimbatore,TN,641038,8428466666,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1845,Vijay goud,"Near PAV Towers-VI, SBI Colony, Nandyal town",,Nandyal,AP,518501,9000750087,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1844,Rahul Singh,Kaleda sikandara Dausa,,Dausa,RJ,303326,8233796471,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1842,Shunmugaraj Shunmugaraj,5/41  sakkammalpuram,,Thoothukudi,TN,628105,6385544395,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1841,Rajesh Rajesh,3/33 Babunagar Marayoor,,Marayoor,KL,685620,6381864238,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1840,B.Vijayendra B.Vijayendra,Gutulapalli (v) sachvalayam,,Bethamcherla,AP,518598,8688077310,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1839,Kishor Kishor,"446,gaytri flate",,Bharuch,GJ,392012,9898268714,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1836,Pavan Pavan,Appinapalli cross room no 13,,Palamaner,AP,517408,7337373700,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1834,RAJASHEKAR RAJASHEKAR,Holenerasipura,,Town,KA,573210,9945632413,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1833,Rajendran Rajendran,Sreepatham house,,Ernakulam,KL,683562,7975155571,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1832,Gafar Gafar,Nandur ghat Beed,,Nandur.,MH,431126,9096472329,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1831,Harikrishna Harikrishna,Sambepalli Mandal Settipalli village,,Rayachoti,AP,516215,9642607917,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1828,Sanjay Sanjay,MP Gali post office Ke samne Degana,,Degana,RJ,341503,8947055119,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1824,Iyyappan Iyyappan,28natrajapurem North Street puduvayal,,Puduvayal,TN,630108,8825704936,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1823,Raj kekan,Khandoba mandir devdhahifal,,Beed,MH,431128,9011703737,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1822,Karunakaran Karunakaran,Kannan warrier HAL ayyappan temple Vimanapura bangalore 560017,,Bangalore,KA,560017,9035902966,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1821,Santhosh s,Naraiyur village murugan kovil,,Truvannmalai,TN,606754,7812850864,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1820,Kavin Kavin,Koneripatti pirivu,,Ammapatti erode  district,TN,638311,3604857766,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1819,Tinku Tinku,"96,a, green avenue nagar Gajsinghpura ajmer road jaipur",,Jaipur,RJ,302021,8209662821,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1818,P.prakash P.prakash,Radha gas service main rod,,Nellikuppam,TN,607105,9042325433,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1817,Selladurai Selladurai,"4/30,vaikkal St,main rood  sikkavalam",,Nagappattinam,TN,611108,9965672836,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1816,Sivan kalai,"Bharathi Men's Hostel, chinna chokkikulam,",,Madurai,TN,625002,9150497980,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1814,Karthi R,51a 6th ward,,Palani,TN,624613,8680086775,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1811,Dilip Dilip,Patlu Kiya,,Chunar,UP,231306,9026713821,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1807,Pandhiri lakshmip,"House 4,90",,Kakinada,AP,533006,7013039706,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1806,Mohamed Iqubal,Chatanchira munduparanba,,Malappuram,KL,676509,9645771324,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1805,Sugumar Sugumar,"366 anna street, virupatchipuram, vellore",,VELLORE,TN,632002,9791326414,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1804,Sonu sahu,Sejpur gopalpur piranarod ahemdabad maruti mobail enterprise,,Ahemdabad,GJ,382315,7435020256,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1803,Sawai Beniwal,Baba ramdev bus stand,,Jodhpur Rajasthan,RJ,342306,7976008314,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1802,M Bharath,Sri sai sathya hospital,,Kurnool,AP,518001,7036709968,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1800,Bharathi. G Bharathi,எம் தாதம்பட்டி . ஈட்டியம்பட்டி. அரூர். தர்மபுரி,,அரூர்,TN,636903,9047315544,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1799,Vishal Vishal,Sardar palika nagr od movari rod,,ANAND,GJ,388001,8141861839,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1798,Aniket dolas,Rajgurunagar khed rakshe wadi,,Pune,MH,410505,9325523420,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1796,Anand Tiwari,148/7 firoza Ghandhi nagar indore,,Indore,MP,452001,9993700307,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - 4xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1792,Harcharan preet Singh,"27-A-2, Ideal lane",,Amritsar,PB,143001,9814898760,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065
+#1789,Jalal Jalal,Pulimoottil house  CMC 32 cherthala,,Cherthala,KL,688524,8943243061,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1788,Anilkumar Anilkumar,Vazhottupoika veedu panthalacode p o,,Thiruvanthapuram,KL,695028,7306918441,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1787,D.Ramesh D.Ramesh,"H.no-75/24,kuruvava street, Kallur, kurnool",,Kurnool,AP,518003,9885778939,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - l,COD,599,0.5,13,13,13,599,599,HID0065
+#1786,Premkumar Premkumar,117 sivaraj nager vasur,,Tiruvannamalai,TN,606803,8667531298,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - m,COD,599,0.5,13,13,13,599,599,HID0065
+#1785,Uthrakumar Uthrakumar,Valanadu /123,,Saththirakudi,TN,623527,7338955914,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1784,Tejas Tejas,बेकराई नगर यशराज सोसायटी,,Pune,MH,411028,9021739267,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1783,Nazeer Nazeer,Jama masjid Mustafa Nagar,,Hyderabad,TS,500053,8074225106,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xxxl,COD,599,0.5,13,13,13,599,599,HID0065
+#1777,Karthi vel,13 asarimar north st,,Vadasery   Nagercoil,TN,629001,9843893675,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - xl,COD,599,0.5,13,13,13,599,599,HID0065
+#1776,Sreenu Lucky,Kvm Boys Hostel,,Gagaram Chanda nagar,TS,500050,7794909284,,,Clothing,1,599,Casual Simple Fashion Imported Cotton Shirt Pick of 3 - s,COD,599,0.5,13,13,13,599,599,HID0065

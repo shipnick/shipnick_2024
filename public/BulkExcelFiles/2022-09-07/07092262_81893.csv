@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(Kg)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+3540,Mr.Sampath,Door No-771 Chengam Post-Kuppanatham Distt-Tiruvannamalai Tamil Nadu Landmark-New Bus Stand ,Tiruvannamalai,Tamil Nadu,606710,9655123729,MEDICINE,1,COD,3000,0.5,10,8,10,3000,3000,HID0012

@@ -1,0 +1,82 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+9345900,M. Karthika,9,Chinatrangkarai steet,Kudavasal,TAMIL NADU,612601,9585764873,LIP BALM,1,PP,0,0.5,13,13,13,999,999,HID0053
+6880323,sheetal galagali,"Lifestyle pg   Kanaka Nagar, Veerannapalya, Nagavara, Bengal","Lifestyle pg   Kanaka Nagar, Veerannapalya, Nagavara, Bengal",BENGALURU,KARNATAKA,560045,9663876358,LIP BALM,1,PP,0,0.5,13,13,13,999,999,HID0053
+7995558,Debraj Sarkar,"Flat No.303, Third Floor, No.17, Elegant Home, 5th Cross Rd","Baroda Bank Colony, J.P. Nagar 7th Phase",BENGALURU,KARNATAKA,560078,9046922194,WD B DHKN WC  ADVANCE B Complex,1,PP,0,0.5,13,13,13,999,999,HID0053
+6596363,Sonika,"Near Halwan Hospital, Bsnl Office, Pilani, Rajasthan",,PILANI,RAJASTHAN,333031,7849900162,LIP BALM,1,PP,0,0.5,13,13,13,999,999,HID0053
+1409957,SARVESH JOTHI,"NO 3, 5TH CROSS","SUNDAR NAGAR, K K NAGAR",TIRUCHIRAPPALLI,TAMIL NADU,620021,8754050600,GS-ET6Y-N8WM,1,PP,0,0.5,13,13,13,999,999,HID0053
+7262740,Niti Singh,"Villa F -142, Central Park flower valley",Sector 33.,SOHNA,HARYANA,122103,9871657648,WD B DHKN WC  ADVANCE B Complex,1,PP,0,0.5,13,13,13,999,999,HID0053
+7060364,Praveen Keta,"1608, Block 3a, Smr Vinay Fountain Head","Metro Water Works Road, Hafeezpet",HYDERABAD,TELANGANA,500049,8688725290,BMM-001,1,PP,0,0.5,13,13,13,999,999,HID0053
+7817109,Aman bawa,At Alpha Chandigarh hospital,Nh 05,MORINDA,PUNJAB,140413,6280899956,GS-ET6Y-N8WM,1,PP,0,0.5,13,13,13,999,999,HID0053
+6517119,Virendra Gupta,"A-403, Devpreet Complex",Bodakdev,AHMEDABAD,GUJARAT,380054,8982361586,GS-ET6Y-N8WM,1,PP,0,0.5,13,13,13,999,999,HID0053
+8221942,Raghul,38,Thiruvalluvar nagar extension ramanathapuram,COIMBATORE,TAMIL NADU,641045,9894055548,GS-ET6Y-N8WM,1,PP,0,0.5,13,13,13,999,999,HID0053
+9001963,Garima garg,"B-181, Ashok nagar",Near ddps school,GHAZIABAD,UTTAR PRADESH,201001,8826270054,GS-ET6Y-N8WM,1,PP,0,0.5,13,13,13,999,999,HID0053
+9913168,Archana Shankar,I-3 Jungpura Extension,,NEW DELHI,DELHI,110014,9811079148,WD B DHKN WC  ADVANCE B Complex,1,PP,0,0.5,13,13,13,999,999,HID0053
+8358723,B Divakar,"5-166,venkateswara puram","NG palli,Madanapalli",MADANAPALLE,ANDHRA PRADESH,517325,9844140360,GS-ET6Y-N8WM,1,PP,0,0.5,13,13,13,999,999,HID0053
+0093149,Ramesh VK,"Flat No. 706, KM 30","Jaypee Kosmos, Sector 134",NOIDA,UTTAR PRADESH,201304,7997073993,LIP BALM*2,1,PP,0,0.5,13,13,13,999,999,HID0053
+2789166,sonam,Jakhu mohalla,Bham,GARHSHANKAR,PUNJAB,146103,8427647925,LIP BALM*2,1,PP,0,0.5,13,13,13,999,999,HID0053
+5501146,lintu chacko james,"MIG HNO.57, Telangana housing board colony",Road no.10,HYDERABAD,TELANGANA,501359,7045482846,LIP BALM,1,PP,0,0.5,13,13,13,999,999,HID0053
+8030763,Ayesha sogay,"904, building no 1 , Sadguru complex","Kanakia, mira road",THANE,MAHARASHTRA,401107,9324449700,selenium,1,PP,0,0.5,13,13,13,999,999,HID0053
+0649927,Agrim Gupta,Gupta auto parts,"Pathari road,bus stand ,thakur colony,mandi bamora",BAMORA,MADHYA PRADESH,464240,7999754338,GS-ET6Y-N8WM,1,PP,0,0.5,13,13,13,999,999,HID0053
+9674760,Pavithra. Jayakumar,"No, 155","Vadhiyar street, chinnacheri.",Vellore,TAMIL NADU,635804,8220319861,LIP BALM,1,PP,0,0.5,13,13,13,999,999,HID0053
+8712338,Santosh kumar gupta,B-918 gali no 12,"2, Nd Pusta, Sonia Vihar",delhi,DELHI,110094,9650046006,GS-ET6Y-N8WM,1,PP,0,0.5,13,13,13,999,999,HID0053
+9492323,Kajal bhatt,193 shanti nagar B gujar ki thadi,Shanti nagar,JAIPUR,RAJASTHAN,302019,8290617623,LIP BALM,1,PP,0,0.5,13,13,13,999,999,HID0053
+7691566,Abhilash Vithlani,601/2 Gulistan 12JP Road 7 Bungalows Versova,,Mumbai,Maharashtra,400061,9821601924,selenium,1,PP,0,0.5,13,13,13,999,999,HID0053
+2049118,Mithlesh Kumar,74,Lal sarak,HANSI,HARYANA,125033,9369837125,WD WD TC 90Dr. Berg Gallbladder New,1,PP,0,0.5,13,13,13,999,999,HID0053
+9849143,Vikash mandal,Daddal park,Hansi near gurudwara,HANSI,HARYANA,125033,9812304227,WD WD TC 90Dr. Berg Gallbladder New,1,PP,0,0.5,13,13,13,999,999,HID0053
+1168317,Mahidev singh,Multan colony,Hansi,HANSI,HARYANA,125033,9588994804,WD WD TC 90Dr. Berg Gallbladder New,1,PP,0,0.5,13,13,13,999,999,HID0053
+8613951,Pradeep Kumar,336/10 near arya smaj,"Sharda Class Hansi, Bus Stand",HANSI,HARYANA,125033,9997455412,WD WD TC 90Dr. Berg Gallbladder New,1,PP,0,0.5,13,13,13,999,999,HID0053
+7832325,Shiv,"Near Union Bank Of, India, Killa Bazar",Police Chowki,HANSI,HARYANA,125033,7435936883,WD WD TC 90Dr. Berg Gallbladder New,1,PP,0,0.5,13,13,13,999,999,HID0053
+0334719,Aman,Bus stand,Barwa,Barwa,HARYANA,127045,9369837125,wd wd tc 60 D3 K2 Vitamin!!,1,PP,0,0.5,13,13,13,999,999,HID0053
+8094755,Trilochan Singh Amit Sandhu,"Flat No. C-1302,Shyam sanvi apartments",Chandkheda,Ahemdabad,GUJARAT,382424,6364254352,BD BDWC120Korean Red Panax,1,PP,0,0.5,13,13,13,999,999,HID0053
+4413160,Karun arora,Daddal park,Hansi near gurudwara,HANSI,HARYANA,125033,9812304227,wd wd tc 60 D3 K2 Vitamin!!,1,PP,0,0.5,13,13,13,999,999,HID0053
+6737134,Rahul,Multan colony,Hansi,HANSI,HARYANA,125033,9588994804,wd wd tc 60 D3 K2 Vitamin!!,1,PP,0,0.5,13,13,13,999,999,HID0053
+9051513,Mohit duhan,336/10 near arya smaj,"Sharda Class Hansi, Bus Stand",HANSI,HARYANA,125033,9997455412,wd wd tc 60 D3 K2 Vitamin!!,1,PP,0,0.5,13,13,13,999,999,HID0053
+2619566,Himanshu,"Near Union Bank Of, India, Killa Bazar",Police Chowki,HANSI,HARYANA,125033,7435936883,wd wd tc 60 D3 K2 Vitamin!!,1,PP,0,0.5,13,13,13,999,999,HID0053
+7379540,Ashraf Khan,"Jasdenwalla Building, 3rd. Floor, Flat No. 301-302","Maulana Azad Road, Opp. Jhula maidan",MUMBAI,MAHARASHTRA,400011,8097068300,wd wd tc 60 D3 K2 Vitamin!!*10,1,PP,0,0.5,13,13,13,999,999,HID0053
+5865111,Mumtaz Ahmad Najar,Bhat Mohalla quil,Quil,BANDIPORE,JAMMU & KASHMIR,193502,7889726294,WDWD WC 60Vitamin B1,1,PP,0,0.5,13,13,13,999,999,HID0053
+5641127,Anupma Srivastav,Dharmendra Singh kirana store,Visheswarganj,BAHRAICH,UTTAR PRADESH,271821,9792451450,WD WD TC 90Dr. Berg Gallbladder!,1,PP,0,0.5,13,13,13,999,999,HID0053
+4363560,Priya Aggarwal,13,Near bus stand,PATRAN,PUNJAB,147105,6283500409,WD WD TC 90Dr. Berg Gallbladder!,1,PP,0,0.5,13,13,13,999,999,HID0053
+4144314,Lita Nair,"4-1001, Wing 4, 9th Floor, Shriram Summitt","Golahalli Main Road, Electronic City Phase 1",BENGALURU,KARNATAKA,560100,9895589062,wd wd tc 60 Dihydroberberine Supplement*2,1,PP,0,0.5,13,13,13,999,999,HID0053
+7205113,DR. PRIYANKA VINI LALL,"E-5, PARAS KUNJ APARTMENT,",MAHEWA PURAB PATTI,PRAYAGRAJ,UTTAR PRADESH,211007,9125570967,WDWD TC60Resveratrol Clean,1,PP,0,0.5,13,13,13,999,999,HID0053
+4095510,Kishore,"Ponmuthunagar Chettinayakanpatti Road, Collectorate Post",Chettinayakanpatti,DINDIGUL,TAMIL NADU,624004,9042923705,WDWD TC60Resveratrol Clean,1,PP,0,0.5,13,13,13,999,999,HID0053
+1457944,Preethi,Kirloskar Institute of advanced Management studies,Yantrapur,HARIHAR,KARNATAKA,577601,6361263190,wd wd tc 60 D3 K2 Vitamin,1,PP,0,0.5,13,13,13,999,999,HID0053
+4214703,shweta,"4,kingstreet richmond road",richmond town,BENGALURU,KARNATAKA,560025,9916702323,BD BD TC 60Zoyava Magic Moss*2,1,PP,0,0.5,13,13,13,999,999,HID0053
+9187537,Aman,Bus stand,Barwa,Barwa,HARYANA,127045,9369837125,WD WD WC 90 Cod Liver Oil,1,PP,0,0.5,13,13,13,999,999,HID0053
+6085933,Akshat sachdewa,Daddal park,Hansi near gurudwara,HANSI,HARYANA,125033,9812304227,WD WD WC 90 Cod Liver Oil,1,PP,0,0.5,13,13,13,999,999,HID0053
+5332353,Aaditya,Multan colony,Hansi,HANSI,HARYANA,125033,9588994804,WD WD WC 90 Cod Liver Oil,1,PP,0,0.5,13,13,13,999,999,HID0053
+5861164,Himanshu,336/10 near arya smaj,"Sharda Class Hansi, Bus Stand",HANSI,HARYANA,125033,9997455412,WD WD WC 90 Cod Liver Oil,1,PP,0,0.5,13,13,13,999,999,HID0053
+8697100,Suryansh,"Near Union Bank Of, India, Killa Bazar",Police Chowki,HANSI,HARYANA,125033,7435936883,WD WD WC 90 Cod Liver Oil,1,PP,0,0.5,13,13,13,999,999,HID0053
+2202706,R.SARAVANAN,"301, AKSHAYA APARTMENTS","50, PACHAIYAPPAS COLLEGE HOSTEL ROAD,","Chetpet, chennai",TAMIL NADU,600031,9840785959,transparent & white nails & 2 glue,1,PP,0,0.5,13,13,13,999,999,HID0053
+3241166,Bhoomika A,"#2729/60, 9th cross, Vidyanagar Davanagere",,Davanagere,KARNATAKA,577005,9380532631,wd wd tc 60 D3 K2 Vitamin,1,PP,0,0.5,13,13,13,999,999,HID0053
+8259518,laxman,"Flat no: 64A, House No: 647/5C, Srinivasa Sai Nilayam,","Ramakrishna Street, Gayatri Nagar, Kukatpally",HYDERABAD,TELANGANA,500072,9505101893,WD WD YC 60Liver Cleanse,1,PP,0,0.5,13,13,13,999,999,HID0053
+9821911,Anuj Verma,"B-006, Palm Riviera Apartments","Sidhra, Jammu",JAMMU,JAMMU & KASHMIR,180019,9858507683,wd wd tc 90 L Tyrosine 1000m,1,PP,0,0.5,13,13,13,999,999,HID0053
+8171545,Vivekananda Das,"Bangiya Gramin Vikash Bank, Saldiha Branch",Saldiha,PURULIYA,WEST BENGAL,722173,8926021667,lip balm,1,PP,0,0.5,13,13,13,999,999,HID0053
+9425955,C Nazareth,"B/19 J S JONES, ACEVIL","Alupuram, IAC Road, Kalamassery",Kochi,KERALA,683501,9966649907,wd wd tc 60 Dihydroberberine Supplement,1,PP,0,0.5,13,13,13,999,999,HID0053
+4982751,Anurag Gupta,"House No.1010, First Floor","Phase 4, Sector 59",Mohali,PUNJAB,160059,9041099454,wd wd tc 60 D3 K2 Vitamin!!,1,PP,0,0.5,13,13,13,999,999,HID0053
+5429139,Radhika Sharma,Tanushree Girls Hostel,"Geeta Bhawan, Manorama Ganj",Indore,MADHYA PRADESH,452001,9140482801,3 LIP BALM,1,PP,0,0.5,13,13,13,999,999,HID0053
+1350724,VIKAS CHOPRA,"A 192 Amrapali Leisure Valley, Tech Zone 4",Greater Noida West,GHAZIABAD,UTTAR PRADESH,201009,9899778317,transparent & white nails & 2 glue,1,PP,0,0.5,13,13,13,999,999,HID0053
+9141126,John Wesley,"No. 13A, Royal Arcade,",Near Abhirami Garden,MATHIGIRI,TAMIL NADU,635110,7639955226,WD WD TC 120  NattokinaseDOUBLW,1,PP,0,0.5,13,13,13,999,999,HID0053
+6769944,Vikrant,MBD mall rajguru nagar ferozpurr road.Ludhiana,MBD MALL RAJGURU NAGAR.LUDHIANA,LUDHIANA,PUNJAB,141012,8264568388,transparent & white nails & 2 glue,1,PP,0,0.5,13,13,13,999,999,HID0053
+9885948,Jitendra kutal,"H2 601  phase 3, vihang valley","Kasarwadavali, GB road, behind hypercity",THANE,MAHARASHTRA,400615,9769135526,WART 1,1,PP,0,0.5,13,13,13,999,999,HID0053
+8559502,Shiamak Davar,"41 A (BLOCK )Paradise Apartments 44, Nepeansea Road",Nepeansea Road,MUMBAI,MAHARASHTRA,400006,9769019900,WD WD TC 90Ashwagandha Capsules,1,PP,0,0.5,13,13,13,999,999,HID0053
+3093968,Heleena maria (1st year bsc),"Rvm college of nursing,laxmakapally ,siddipet ,mulugu, medak","Rvm college of nursing, laxmakapally, siddipet mulugu, Telan",MEDAK,TELANGANA,502279,9133343733,3 LIP BALM*2,1,PP,0,0.5,13,13,13,999,999,HID0053
+8349114,Sarvat Amin,"12, Southern Avenue,",Maharani Bagh ( opp i/24 ),NEW DELHI,DELHI,110065,9810116190,WDWDWC100 Selenium 200,1,PP,0,0.5,13,13,13,999,999,HID0053
+2811514,Ray & Anusha,"APH1 Mantri Splendor, Hennur Bagalur Rd",Kotanur Gedalahalli,BENGALURU,KARNATAKA,560077,9886180645,wd wd tc90 Beet Root Capsules,1,PP,0,0.5,13,13,13,999,999,HID0053
+7337952,Sarita Jain,201 A2 bilding pavan putra residensy,Kalher bhiwandi,BHIWANDI,MAHARASHTRA,421302,9680480008,lip balm,1,PP,0,0.5,13,13,13,999,999,HID0053
+5839513,Johnson k paul,Kummamkottil house,Paingottoor p o,KOTHAMANGALAM,KERALA,686671,9446208755,wd wd tc 60 D3 K2 Vitamin!!,1,PP,0,0.5,13,13,13,999,999,HID0053
+1805913,Kanishka Kandpal,"House no. 334, Sector 27","Near Icici Bank, Pradhikaran, Nigdi",Pune,MAHARASHTRA,411044,9457370358,transparent & white nails & 2 glue,1,PP,0,0.5,13,13,13,999,999,HID0053
+2592364,Chitra Nagwanshi,"102, near chuna bhatta",Vikrampur Road,Burhar,MADHYA PRADESH,484110,9755081898,wd wd tc 60 D3 K2 Vitamin,1,PP,0,0.5,13,13,13,999,999,HID0053
+2013125,PROBIR ROY,"I-1695, (FIRST FLOOR)",CHITTARANJAN PARK,NEW DELHI,DELHI,110019,9818211960,wd wdtc90Clean Nutrac Saw Palmetto,1,PP,0,0.5,13,13,13,999,999,HID0053
+6981956,harshit jain,B-26 rose apartment sector 14 extention rohini,,rohini,DELHI,110085,9650725547,wd wd tc 60 D3 K2 Vitamin,1,PP,0,0.5,13,13,13,999,999,HID0053
+8436344,Simran Patel,"201, 18th C Main, Hal 2nd Stage, Indiranagar",,Bengaluru,KARNATAKA,560008,9305326340,transparent & white nails & 2 glue,1,PP,0,0.5,13,13,13,999,999,HID0053
+6624317,Yuvi exportsPO7302811928,A-80,Ark city,Meerut,UTTAR PRADESH,250001,7302811928,BD BD TC 60Zoyava Magic Moss*8,1,PP,0,0.5,13,13,13,999,999,HID0053
+3956350,Poonam Rani,"B-341 Ashok Nagar, Street 3","Mandoli Road, Shahdara",NEW DELHI,DELHI,110093,9650873715,wd wd tc 60 D3 K2 Vitamin!!,1,PP,0,0.5,13,13,13,999,999,HID0053
+3877136,Sanjay,Basaveshwara nagara 1 St cross,town,HIRIYUR,KARNATAKA,577598,9916653710,wd wdtc90Clean Nutrac Saw Palmetto,1,PP,0,0.5,13,13,13,999,999,HID0053
+0299515,Akraant,Bungalow no.-1 Dorabjee Paradise,N.I.B.M. Road Mohammad wadi,PUNE,MAHARASHTRA,411060,8600150515,transparent & white nails & 2 glue,1,PP,0,0.5,13,13,13,999,999,HID0053
+7179533,JULIET,"516, 5th Floor, Building no.6, Sunshine green park phase 2,","Fatherwadi, Vasai East",VASAI VIRAR,MAHARASHTRA,401208,9619375178,transparent & white nails & 2 glue,1,PP,0,0.5,13,13,13,999,999,HID0053
+7909919,Ashiwini k,"221/A,4th A cross,5th block","BSK 3rd stage,Bhuvaneshwari nagar",BENGALURU,KARNATAKA,560080,7026520060,packof 5,1,PP,0,0.5,13,13,13,999,999,HID0053
+9664327,RAJESH UJWAL,"805, SHASTRI NAGAR",DADABARI,KOTA,RAJASTHAN,324009,9413341235,wd wd tc 60 Dihydroberberine Supplement,1,PP,0,0.5,13,13,13,999,999,HID0053
+9013943,SHUBHENDU ROY,Indranarayanpur burujpara gangarampur,Gangarampur,GANGARAMPUR,WEST BENGAL,733124,9091280290,lip balm,1,PP,0,0.5,13,13,13,999,999,HID0053
+9408365,Anju Rajawat,Badal Agrawal house,Near kumaro ka mandir and HR foods,JHALAWAR,RAJASTHAN,326001,7339792027,lip balm*2,1,PP,0,0.5,13,13,13,999,999,HID0053
+4950748,Hengwalo Khing,SCERT office,High school Area,KOHIMA,NAGALAND,797001,8014061441,BD BD BC 60 Primal Gut Restore,1,PP,0,0.5,13,13,13,999,999,HID0053
+1930755,Sulaiman Shoaib,"Hafeez Residency, 6th Floor, 8-1-346/23, Sabza Colony",Tolichowki,HYDERABAD,TELANGANA,500008,9885301348,WDWDTC 60AshwagaMAcaCleanNutraceuticals!,1,PP,0,0.5,13,13,13,999,999,HID0053

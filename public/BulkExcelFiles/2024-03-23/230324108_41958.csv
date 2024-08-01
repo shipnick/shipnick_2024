@@ -1,0 +1,4 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+3373106,keshav,lal sdk hansi,near ram pura school,HANSI,HARYANA,125033,9817206203,WD WD WC 90 Cod Liver Oil,1,PP,0,0.5,13,13,13,999,999,HID0053
+3373107,Sunil Kumar,992/4Near Ram pura school hansi,Near sst chemical,HANSI,HARYANA,125033,8307622172,WD WD WC 90 Cod Liver Oil,1,PP,0,0.5,13,13,13,999,999,HID0053
+3373108,Shyna,Arya school,335/10,HANSI,HARYANA,125033,9817206203,WD WD WC 90 Cod Liver Oil,1,PP,0,0.5,13,13,13,999,999,HID0053

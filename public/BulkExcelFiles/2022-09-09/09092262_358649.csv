@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(Kg)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+3557,Mr.Sakil ,Ward No 04 Vpo  Bharewale Distt Jaisalmer Rajasthan Near By Siksha Karmi School,Jaisalmer,Rajasthan,345028,9772937913,MEDICINE,1,COD,2500,0.5,10,8,10,2500,2500,HID0012

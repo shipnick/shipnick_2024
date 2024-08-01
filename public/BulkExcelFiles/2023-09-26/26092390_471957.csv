@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+147800,test, main road Whitefield bangalore,destination address1,BANGALORE,KARNATAKA,560066,999999999,Clothing,1,COD,899,500,10,10,6,899,899,HID0025

@@ -1,0 +1,9 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+1002716,ksshitej jauharri,"D-104 , gayatri niwas, andheria more,chattarpur",,NEW DELHI,DELHI,110074,9310233025,,,WD WD 60 WC Clean,1,999,,PP,0,0.5,13,13,13,999,999,HID0096
+0196347,Vansh,"Tirkona , park , Hansi",,Hansi,HARYANA,125033,9812304227,,,LB005,1,999,,PP,0,0.5,13,13,13,999,999,HID0096
+1820357,Vansh,"Tirkona , park , Hansi",,Hansi,HARYANA,125033,9812304227,,,LB004,1,999,,PP,0,0.5,13,13,13,999,999,HID0096
+0605906,Vansh,"Tirkona , park , Hansi",,Hansi,HARYANA,125033,9812304227,,,LB003,1,999,,PP,0,0.5,13,13,13,999,999,HID0096
+3436360,Vansh,"Tirkona , park , Hansi",,Hansi,HARYANA,125033,9812304227,,,LB006,1,999,,PP,0,0.5,13,13,13,999,999,HID0096
+5153162,Ingarsal,"No..138, Dr.Radhakrishnan Street, T.V.Puram",Ponneri,Near by James school,Tamilnadu,601204,9789891973,,,WD WD 60 WC Resveratrol,1,999,,PP,0,0.5,13,13,13,999,999,HID0096
+5169944,Tavlin Singh,"2/867, ward 2, Krishan nagar mohalla",Behind UCO bank,BANGA,PUNJAB,144505,7657883007,,,WD WD 90 WC Zero Ultra,1,999,,PP,0,0.5,13,13,13,999,999,HID0096
+3085946,Vishwanath Karandikar,"F-602, RAJ LEGACY","LBS MARG, Vikhroli west",mumbai,MAHARASHTRA,400083,9702120123,,,WD WD 60 WC Ashwagandha,1,999,,PP,0,0.5,13,13,13,999,999,HID0096

@@ -1,0 +1,3 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+1251516,Shivam Singh Rathore,"H-1703, samridhi grand avenue",Techzone 4 Noida Extension,,GREATER NOIDA,201306,9160112407,,,WD WD WC60 Dihydroberberine,1,999,,PP,0,0.5,13,13,13,999,999,HID0084
+8270730,Aman singh bhatti,31,Nawan pind bhatthe,,KAPURTHALA,144601,8725920120,,,WD WD 120WC PhosphatidylSerine,1,999,,PP,0,0.5,13,13,13,999,999,HID0084

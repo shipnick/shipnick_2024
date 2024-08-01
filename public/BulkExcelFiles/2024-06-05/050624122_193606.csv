@@ -1,0 +1,4 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+0513935,Narinder Singh,"Symphonia, Flat B 1601","B Block, Vaishali Nagar, Behind Mall of Jaipur near Melodia",JAIPUR,RAJASTHAN,302021,7042967432,,,wdwd100wcMagnesium Double Wood,1,999,,PP,0,0.5,13,13,13,999,999,HID0096
+8908306,Tafseer Ahmed,52-G ( Ground floor ),"Sector-7, Jasola Vihar",NEW DELHI,DELHI,110025,9582417061,,,WD WD 90 WC Zero Ultra,1,999,,PP,0,0.5,13,13,13,999,999,HID0096
+0644362,Akshay Kumar,"KH. NO. 323/268 Ground Floor,Street No. 4,Village Mukundpur","Gali Number 4, mukundpur, part 2",New Delhi,DELHI,110042,8006305718,,,WD WD 90 WC Zero Ultra,1,999,,PP,0,0.5,13,13,13,999,999,HID0096

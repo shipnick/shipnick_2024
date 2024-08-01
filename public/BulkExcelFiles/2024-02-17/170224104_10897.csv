@@ -1,0 +1,15 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+12,Sajad Ahmad wani Sajad ahmad,"Boonura pulwana, Home",Boonura pulwana,Pulwana,JK,192301,7006703749,Sajad Ahmad wani Sajad ahmad,1,COD,799,500,12,1,1,799,799,HID0045
+13,Rashid Ashraf,Litter pu,Litter pu,Litter,JK,192305,7889757703,Rashid Ashraf,1,COD,799,500,12,1,1,799,799,HID0045
+14,Raj Lamani,"Near padaki Hospetal yankati building Horapet galli Muddebibal, Muddebihal",Near padaki Hospetal yankati building Horapet galli Muddebibal,Vijayapur,KA,586212,9353442658,Raj Lamani,1,COD,799,500,12,1,1,799,799,HID0045
+15,Imtiyaz Bhat,"Nussu badragund, Badragund",Nussu badragund,Qazigund,JK,192221,7051689171,Imtiyaz Bhat,1,COD,799,500,12,1,1,799,799,HID0045
+16,Hisham muhammad Hisham,"St. Gregorios Hospital Chapel,  Hospital",St. Gregorios Hospital Chapel,Thiruvalla,KL,689626,9633887142,Hisham muhammad Hisham,1,COD,799,500,12,1,1,799,799,HID0045
+17,Irfan  Goni,"E.P 301, Dalpatian Jammu, 180001","E.P 301, Dalpatian Jammu, 180001",Jammu ,JK,180001,8493881576,Irfan  Goni,1,PP,0,500,12,1,1,799,0,HID0045
+18,Amrit Pal,"Nandpur kesho sirhnd road patiala, Anaj mandi Nandpur kesho",Nandpur kesho sirhnd road patiala,Patiala,PB,147001,9517237025,Amrit Pal,1,PP,0,500,12,1,1,799,0,HID0045
+19,Priyansh Netam,Rajnandgaon tiranga School,Rajnandgaon tiranga School,Rajnandgaon,CG,491441,7587099018,Priyansh Netam,1,PP,0,500,12,1,1,799,0,HID0045
+20,Saddam Khan,Tajpur kodra,Tajpur kodra,Tajpur,UP,224001,8756538119,Saddam Khan,1,PP,0,500,12,1,1,799,0,HID0045
+21,Saiprasad Kallepurwar,"H no 123 Shankar Nager Cidco Nanded, Near Indira Gandhi college",H no 123 Shankar Nager Cidco Nanded,Nanded,MH,431605,7720007796,Saiprasad Kallepurwar,1,COD,799,500,12,1,1,799,799,HID0045
+22,Suzain Saboon,Untoo hamam sopore,Untoo hamam sopore,Sopore,JK,193201,7889831835,Suzain Saboon,1,COD,799,500,12,1,1,799,799,HID0045
+23,Abrar qureshi Qureshi,"Gaddi goddam near police station nagpur, Police station",Gaddi goddam near police station nagpur,Nagpur,MH,440001,8483854128,Abrar qureshi Qureshi,1,COD,799,500,12,1,1,799,799,HID0045
+24,Md  Shahajade ,"Dusaoti , Saidabad ",Dusaoti ,Allahabad ,UP,221508,9598799695,Md  Shahajade ,1,COD,799,500,12,1,1,799,799,HID0045
+25,furkaan bhat,"Baramulla - Srinagar Road, near petrol pumb",Baramulla - Srinagar Road,Kanispora,JK,193101,9149469192,furkaan bhat,1,COD,799,500,12,1,1,799,799,HID0045

@@ -1,0 +1,6 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+9153108,GONSALVES,"B-401, SAI COMPLEX, NEW LINK ROAD,","KANDARPADA, DAHISAR (WEST)",MUMBAI,MAHARASHTRA,400068,9167296448,,,SeaMossZoyavaBDBDBC-18*3,1,999,,PP,0,0.5,13,13,13,999,999,HID0081
+4487562,Syed akther Hussain,140/29 kings colony shastri puram road,Near excel age. school,HYDERABAD,TELANGANA,500052,9392108761,,,DrbergD3K2VITWDWDTC-60,1,999,,PP,0,0.5,13,13,13,999,999,HID0081
+6985103,TANVI,201 Shree Samartha Krupa  Vulkan Health Club Gym,Sec20 nerul,NAVI MUMBAI,MAHARASHTRA,400706,9833621346,,,SeaMossZoyavaBDBDBC-180,1,999,,PP,0,0.5,13,13,13,999,999,HID0081
+9068349,Jyoti Puri,"3A, Walker Apartment","9th Mile, Rishi Road",KALIMPONG,WEST BENGAL,734301,9874234023,,,RAlphaDealSuppleWDWDTC-120,1,999,,PP,0,0.5,13,13,13,999,999,HID0081
+4737961,Ayesha,"First floor, corner building, behind makka masjid",Rahamathnagar,MULBAGAL,KARNATAKA,563131,8050265675,,,AlphaGPCDoublewoodWDWDTC-60,1,999,,PP,0,0.5,13,13,13,999,999,HID0081

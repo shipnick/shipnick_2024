@@ -1,0 +1,5 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+8470760,Harjit Singh,Ward no12,Begowal,Bhulath,PUNJAB,144621,9876171422,,,bd bd bc 90n Shilajit popu,1,999,,pp,0,0.5,13,13,13,999,999,HID0053
+9053951,ANSARI AMJAD,FLAT -306 ..3rd FLOOR .....ARMAN BLDG -02...A WING,HALL ROAD .... CHRISTIAN VILLAGE.....KURLA WEST,MUMBAI,MAHARASHTRA,400070,9930059989,,,WD WD TC 90  L Tyrosine,1,999,,pp,0,0.5,13,13,13,999,999,HID0053
+6385129,MOHAMED RABI,"98,Katchapura Street",Edalakudy,KANYAKUMARI,TAMIL NADU,629002,9443258340,,,WD WD TC 120  Bronson Milk T,1,999,,pp,0,0.5,13,13,13,999,999,HID0053
+8537111,Subham Hospital,Subham Hospital & Diagnostic Centre Pvt Ltd,Nara Narayan Road,KOCH BIHAR,WEST BENGAL,736101,9002759405,,,WD WD YC 60Liver Cleanse,1,999,,pp,0,0.5,13,13,13,999,999,HID0053

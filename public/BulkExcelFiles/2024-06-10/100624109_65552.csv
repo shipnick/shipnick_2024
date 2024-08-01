@@ -1,0 +1,4 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+5688313,TEST 1,"Jonley House,","Jonley House,",PALAI,KERALA,686651,8217792462,,,wd wd 120wc Vitamin D3 K2 Dr. Berg,1,nedw,new,PP,0,0.5,10,10,10,599,599,HID0098
+7330721,TEST 2,975,975,Ajjampura,KARNATAKA,577547,9380470301,,,wd wd 60 wc Alpha GPC Choline,1,nedw,new,PP,0,0.5,10,10,10,599,599,HID0097
+1382710,TEST 3,"Dangwal Bhavan, Above Surya hotel","Dangwal Bhavan, Above Surya hotel",Nainital,UTTARAKHAND,263002,7028510272,,,wd wd 60 wc Alpha GPC Choline,1,nedw,new,PP,0,0.5,10,10,10,599,599,HID0080

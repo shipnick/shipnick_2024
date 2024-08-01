@@ -1,0 +1,32 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+#BDS5001,Vamsi Krishna,"Karnool Road Maruti Nagar Ongole, Billding",destination address1,Ongole Prakasam district,AP,523002,6300539311,,,CLOTHING,1,999,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5002,Malesh Yadav,"APMC Vasna Road Sanklit Nagar Juhapura, 12",,Ahmedabad,GJ,380055,9649650801,,,CLOTHING,1,999,COMBO OF  checked Shirts - XXL,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5003,Mahfooz Aalam,"Sir per Wadi, Vsm college",,Nipani,KA,591237,9529465461,,,CLOTHING,1,999,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5004,Amit Machar,"Meghnagar rambhapur road padwal peles ke samne, Amit",,India,MP,457779,9399617014,,,CLOTHING,1,999,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5006,Charan Raj,"Devender Nagar Mahadevpur Colony, Yadadri homes 2nd floor near sanganitra school",,Hyderabad,TS,500055,8919987050,,,CLOTHING,1,999,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5007,Abhishek Yadav,"Khijuriya, Sonaray Thari",,Deoghar,JH,814150,9142066591,,,CLOTHING,1,999,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5008,Shiva Netam,"Ramakrishna Mission ITI, Narayanpur, Chhattisgarh Sonpur Road, R.K.M ITI",,Narayanpur,CG,494661,6267649942,,,CLOTHING,1,999,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5010,Ch suresh Ch suresh,"Rayagada district jkpur, Jk pur",,3,OR,765017,7848030305,,,CLOTHING,1,999,COMBO OF  checked Shirts - XXL,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5011,Sarbani Saha,S.k..sahana road kenduadihi bankura,,West Bengal,WB,722102,8927939600,,,CLOTHING,1,999,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5013,Abhishek Kumar,"Satnam TVs agency ujjaina bhachhi turki road paltan jee dukan, Ujjaina satnam TVs agency",,Darbhanga,BR,847101,9546371459,,,CLOTHING,1,999,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5014,Sachin Bhanu,"Amarkantak Road Bilaspurchuktipani jhurhitola, Jhurhitola market",,Gaurella,CG,495117,8839387449,,,CLOTHING,1,999,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5015,Krish Poreddiwar,"State Bank of India CHAMORSHI DIST: AT/PO:, Archana prohvijan",,Chamorshi,MH,442603,9356813744,,,CLOTHING,1,999,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5016,Chetan Kumar,"Sunni ward no.1 Shiv mandir, Sunni",,Sunni,HP,171301,7876128143,,,CLOTHING,1,999,COMBO OF 3 checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5017,Abhishek singh,"Alipur /manpur /Gaya/Bihar, Rupaspur",,Gaya,BR,823003,8092206530,,,CLOTHING,1,999,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5018,Arpit Thakur,"Madhya Pradesh Narsinghpur jile, Gadrwara",,Gadrwara chichli road dighori,MP,487551,8305613410,,,CLOTHING,1,999,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5022,Bhairu Singh Rajpurohit,"269 Vivek vihar colony  jaipur, 269",,Jaipur,RJ,302019,9828420289,,,CLOTHING,1,999,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5023,Raushan Kumar,"Koriyawan, Aims road",,Patna,BR,801505,9142063252,,,CLOTHING,1,999,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5024,Biki Tanti,"Duklingia Tea Estate, Facttory atm",,Hatigara Grant,AS,785007,9678274619,,,CLOTHING,1,999,COMBO OF  checked Shirts - S,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5025,Bishal Bohara,"Morjim Beach Road, Fish king hotel goa",,Morjim,GA,403519,9529951889,,,CLOTHING,1,999,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5026,Zahid mushtaq Zahid mushtaq,"Laroo kulgam, By pass",,KULGAM,JK,192231,9682123556,,,CLOTHING,1,999,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5029,Darshan Patle,"isnehadeep colony bhind WCL office Jaripatka nagpur, Plot no. 135 near Hanuman mandir gali no.5",,Nagpur,MH,440014,9834776715,,,CLOTHING,1,999,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5030,Raju Murah,"1no chiring khat, Duliajan",,Chiringkhat,AS,786602,9678377714,,,CLOTHING,1,999,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5031,Mahendra Mahe,"Main Road Gajuwaka, Old gajuwaka, panthulu gari meda, near post office",,Visakhapatnam,AP,530044,8919310221,,,CLOTHING,1,999,COMBO OF 3 checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5032,Nenavath Tharun,"Kadthal Toll Plaza, 2 25",,Maisigandi,TS,509358,7989778236,,,CLOTHING,1,999,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5037,Deepak Dawr,"Housing, Housing",,Pithampur,MP,451001,7067845957,,,CLOTHING,1,999,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5040,Sikendra Kumar,"GITM(Goel Institute Of Technology And Management) Chinhat, Kaveri hostel",,Gurugram,HR,122506,6299297544,,,CLOTHING,1,999,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5041,SohailAhmad Khanday,"Lolipora humpora, jamia masjid lolipora humpora",,Budgam,JK,191113,7889493486,,,CLOTHING,1,999,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5044,Vinod Kumar Nayak,"4-23punyathanda, Keshampet",,Keshampet,TS,509408,9014730728,,,CLOTHING,1,999,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5046,Shubam Kumar,"Kalidav, Rajouri",,Rajouri,JK,185151,9103515241,,,CLOTHING,1,999,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5047,S raju Raju raju,"Charla koyyuru sudharayyacollny school billiding dhagara, 507133 Telangana",,DHAGARA,TS,507133,6302957576,,,CLOTHING,1,999,COMBO OF 3 checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS5049,Akash Ahmed payer,"Kralpora dagree college, Kralpora dardsun resgund",,Kupwara,JK,193224,7006985337,,,CLOTHING,1,999,COMBO OF 3 checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078

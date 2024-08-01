@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+9911507,Divya,"A-35 , Punjab Avenue PO garha, urban estate ph -1",Jalandhar - punjab,JALANDHAR,PUNJAB,144022,9872454220,,,WD WD 180WC Irish Sea,1,999,,PP,0,0.5,13,13,13,999,999,HID0085

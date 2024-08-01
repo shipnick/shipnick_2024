@@ -1,0 +1,30 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+49956,Archit Srivastava,"E-1401, JM FLORENCE","Amrapali Dream Valley, Greater Noida West",NOIDA,UTTAR PRADESH,201307,9012117119,LIP BALM,1,PP,0,0.5,13,13,13,999,999,HID0053
+29900,Wasim Shaikh,G 11 Kharwala chawl sakinaka,Pipeline,MUMBAI,MAHARASHTRA,400072,8767548019,LIP BALM,1,PP,0,0.5,13,13,13,999,999,HID0053
+57101,Govind Singh Malhan,"c-1, sushant lok-2,near postoffice, sector-56,",,gurgaon,Haryana,122011,9717769600,WD WD TC60BilberryClean Nutraceuticals,1,PP,0,0.5,13,13,13,999,999,HID0053
+21135,Arun Kumar,"Flat No 206, Vakratund Building, Lane No 2 Aditya Mega City",Sant Nagar Lohegaon,PUNE,MAHARASHTRA,411047,,wd wd tc60Selenium 300mcg Zinc,1,PP,0,0.5,13,13,13,999,999,HID0053
+15569,Anuj Madan,"F-2588, First Floor, Ansal Esencia",Sector 67,GURUGRAM,HARYANA,122101,9900041180,wd wd tc60Selenium 300mcg Zinc*3,1,PP,0,0.5,13,13,13,999,999,HID0053
+26766,Aastha Verma,"H.No.9, Lane 4.","Blossom Enclave, Nabha Road.",PATIALA,PUNJAB,147001,9988460162,ralphaWDWDTC-120dsupple,1,PP,0,0.5,13,13,13,999,999,HID0053
+25129,Sunil Singh,"H 401, TDI Wellington",Sec 117,MOHALI,PUNJAB,160059,7973251986,kamasutrBDBDBC-30athinika,1,PP,0,0.5,13,13,13,999,999,HID0053
+90722,S.SNVSSAI,"Dundoo Classic Towers, 6 1 16 And 17, Walker Town",Padmarao Nagar,Secunderabad,TELANGANA,500025,7330909986,TC-210WDWDmonolaurindoublewood,1,PP,0,0.5,13,13,13,999,999,HID0053
+35552,Abhishek Kumar,"B 304, Malabar county 3",Behind Nirma University,AHMEDABAD,GUJARAT,382470,9510467065,TC-60WDWDtudcadoublewood,1,PP,0,0.5,13,13,13,999,999,HID0053
+01111,Arindrajit Pal,"BG-8,Vivekananda Sarani,Hanapara,Keshtopur",,Kolkata,WEST BENGAL,700102,9674935659,TC-210WDWDmucunapruriensdoublewood,1,PP,0,0.5,13,13,13,999,999,HID0053
+48319,Ms . Rema Mohan,"16 th Floor , Gold Finch , R P Masani Marg,","Matunga,",MUMBAI,MAHARASHTRA,400019,9833207162,TC-60WDWDfisetincleannutricals,1,PP,0,0.5,13,13,13,999,999,HID0053
+11537,S VAIRA PRAKASAM,"172 A / 1, Tiruthangal Road",,SIVAKASI,TAMIL NADU,626123,9443329491,WDWDBC120NATTOKINASE4000FUDWOOD-01,1,PP,0,0.5,13,13,13,999,999,HID0053
+97939,Robert Ravindra Sundardas,"Flat No. 501, Block No. 7, Malaysian Township,","KPHB, Kukatpally,",HYDERABAD,TELANGANA,500072,7032123896,WD B DHKN WC ADVANCE B Complex*2,1,PP,0,0.5,13,13,13,999,999,HID0053
+64310,DEEPJYOTI BHUYAN.,"PEACE ENCLAVE, FLAT NO-C1, BLOCK NO 3, FIRST FLOOR.","VIP ROAD, CHANDAN NAGAR, TRIVENI PATH, BYE LANE-2.","SIXMILE, GUWAHATI.",ASSAM.,781022,9864505801,gallbladder 90swd wd tc*2,1,PP,0,0.5,13,13,13,999,999,HID0053
+22735,Jesse Alex,"402, Prathmesh Ashish, Beverly Park, Kanakia Spaces,","Off Mira Bhayander Road, Mira Road East",Thane,MAHARASHTRA,401107,9820572127,bd bd tc60 ceylon NUTRAHARMONY New,1,PP,0,0.5,13,13,13,999,999,HID0053
+51545,Mahesh Subramanian,"3/19 2nd Cross, Heerachand Layout,","Jeevanahalli, Coxtown,",BENGALURU,KARNATAKA,560005,9845309316,WD WD WC60Seeking HealthD3,1,PP,0,0.5,13,13,13,999,999,HID0053
+31545,Nithya Reddy,89/135,"Anjaiah nagar , Gachibowli",HYDERABAD,TELANGANA,500008,7981688474,gallbladder 90swd wd tc,1,PP,0,0.5,13,13,13,999,999,HID0053
+66761,Sachin jindal,288 /11,Jindal house,LUCKNOW,UTTAR PRADESH,226004,9956322222,wd wd tc 60 D3 K2 Vitamin!!,1,PP,0,0.5,13,13,13,999,999,HID0053
+64366,Vishal Aggarwal,1183,"Sector A, Pocket A, Vasant Kunj",New Delhi,DELHI,110070,9810696028,WD WD TC 60Clean Nutraceuticals GABA!,1,PP,0,0.5,13,13,13,999,999,HID0053
+39514,Sahana N,No 274 Sri sai residency 12th main road,Near nti ground.vidyaranyapura,BENGALURU,KARNATAKA,560097,8088313363,wd wd tc 60 D3 K2 Vitamin!!,1,PP,0,0.5,13,13,13,999,999,HID0053
+61112,Kailash,"2293 Avlon Tower, Mahagun Moderne, Sector 78",,NOIDA,UTTAR PRADESH,201301,8527754007,bD BD TC 60Zoyava Magic Moss,1,PP,0,0.5,13,13,13,999,999,HID0053
+07544,Sunil joon,"2154, sector 57, Part-2,","Urban Estate 2, Huda Plots",GURUGRAM,HARYANA,122003,9871112244,WD WD TC60QuercetinClean Nutraceuticals,1,PP,0,0.5,13,13,13,999,999,HID0053
+30762,Ms Nuna Gupta,"C-156, Sushant Lok Ph 1,",Raj path Road,GURUGRAM,HARYANA,122002,9818805241,wd wd tc 60 D3 K2 Vitamin!!,1,PP,0,0.5,13,13,13,999,999,HID0053
+62725,Debasish Pal,House 1,"Village: Belut, P.O: Belut",BANKURA,WEST BENGAL,722206,7228825501,WD WD TC 90Dr. Berg Gallbladder!,1,PP,0,0.5,13,13,13,999,999,HID0053
+31543,Priya Lulla,"Master interior designs, Barack number 569, room no 7",Opposite Khanuram Darbar,Ulhasnagar,MAHARASHTRA,421002,7887793972,packof 5,1,PP,0,0.5,13,13,13,999,999,HID0053
+31527,Shakti Chopra,"Flat number 480 , Sanskriti Apartment Sector 19 B","Dwarka , opposite OPG World School Dwarka,",NEW DELHI,Delhi,110075,8851110180,BD BD BC 60 Primal Gut Restore,1,PP,0,0.5,13,13,13,999,999,HID0053
+24330,Prabir Patra,Tarapith Road Station Railway Quarter 11A,Tarapith Station,RAMPURHAT,WEST BENGAL,731233,7908092386,WART 1,1,PP,0,0.5,13,13,13,999,999,HID0053
+21166,Mehul dimri,406 rutuvihar tulsidham charrasta,Manjalpur,VADODARA,GUJARAT,390011,9428007019,wd wd tc90 HairFormula,1,PP,0,0.5,13,13,13,999,999,HID0053
+54713,ARIF PATEL,"PLOT.NO.897/1,SECTOR-2C",,GANDHINAGAR,GUJARAT,382002,9825632004,wd wdtc90Clean Nutrac Saw Palmetto,1,PP,0,0.5,13,13,13,999,999,HID0053

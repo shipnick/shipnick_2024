@@ -1,0 +1,3 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+METWO002003,DEEPAK KUMAR,"D-16/85, FIRST FLOOR, SECTOR 7 ROHINI",NORTH WEST,DELHI,DELHI,110085,7428568009,,,KAMA MEDICINE PACK OF 10,1,1500,MDC01,COD,100,0.5,10,10,10,1500,1500,HID0095
+METWO002004,SUNNY KUMAR,"D-16/85, FIRST FLOOR, SECTOR 7 ROHINI",NORTH WEST,DELHI,DELHI,110085,9599498009,,,KAMA OIL PACK OF 5,1,1500,MDC02,PP,0,0.5,10,10,10,1500,1500,HID0095

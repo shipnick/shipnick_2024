@@ -1,0 +1,7 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+32446,binder singh Yash,Gairwah shahganj,Gairwah shahganj,Jaunpur,UP,223103,8081356600,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0062
+32445,V T Jayan,"Subash nagar, sukumarlane CRA252A","Subash nagar, sukumarlane CRA252A",Thiruvananthapuram,KL,695008,9048301435,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0062
+32443,dwivedi Himanshu,Town area antu pratapgarh,Town area antu pratapgarh,Antu,UP,230501,9565010353,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0062
+32442,donde donde,Nyay nagar Aurangabad garkheda parisar tirupati kirana store,Nyay nagar Aurangabad garkheda parisar tirupati kirana store,Aurangabad,MH,431001,9022599451,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0062
+32441,yadav Pavan,Kakuriya,Kakuriya,Auraiya,UP,206244,9058823050,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0062
+32440,anandthan T,Kariyapatti.kallikudi gh opp steerbishmihottel,Kariyapatti.kallikudi gh opp steerbishmihottel,Virudhunagar,TN,626106,8903572568,Clothing,1,COD,649,0.5,13,13,13,649,649,HID0062

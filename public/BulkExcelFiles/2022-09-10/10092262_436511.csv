@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(Kg)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+3570,Mr. Anil Nanoma,Block-Kotra Post-Juda Tahsil-Kotra Near By- Juda Masjid  Distt- Udaipur  Rajasthan ,Udaipur,Rajasthan,307025,7357481469,MEDICINE,1,COD,2300,0.5,10,8,10,2300,2300,HID0012

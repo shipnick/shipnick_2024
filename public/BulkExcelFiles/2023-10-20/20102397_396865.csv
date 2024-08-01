@@ -1,0 +1,2 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+#2074,Musharraf Musharraf,"House no. 174, Hajibagh Hmt","House no. 174, Hajibagh Hmt",Srinagar,DL,190012,9149672810,Handmade Italian High Shoes - 6 / Grey,1,COD,999,1000,10,12,10,999,999,HID0035

@@ -1,0 +1,2 @@
+Awb_No*,Order_No*,Item_Name*,PickUp _Date*,Order_Status*,Courier_Remark,Last_Status_date*,Delivery_Date,FirstScanDate*,FirstAttemptDate,EDD*,Origin_City*,Origin_pincode*,Destination_City*,Destination_Pincode*,Client_Name*,Customer_Contact*,Customer_Name*,Payment_Mode*,COD_Amount,Order_Ageing*,AttemptCount,CourierName*,RTO_Date,RTOReason,ZoneName*
+0,0,0,01-03-2022,0,0,12-13-2022,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00,00-01-00

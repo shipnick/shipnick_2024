@@ -1,0 +1,9 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+#DBS2006,Aravind Kumar,"6/1 west street peiyenvilai, Peiyenvilai",destination address1,Arumuganeri,TN,628202,9629386039,,,CLOTHING,1,999,COMBO OF 3 checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS2018,BhukyaAnudeep Anudeep,"Errakunta Thanda Keshavapuram Raiparthy Warangal  Telangana, 2 96",,Raiparthy,TS,506314,6281446791,,,CLOTHING,1,999,COMBO OF 3 checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS2022,Vamshi Rapeni,"Metpally Bus Station National Highway 63 Boyawada, Ayyappa temple near",,Metpally,TS,505325,8096559083,,,CLOTHING,1,999,COMBO OF 3 checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS2026,Sesham Mahesh,"A.k.v Kandrika bogole Bitragunta, A.k.v Kandrika",,Nellore city in Bitragunta,AP,524142,7075806009,,,CLOTHING,1,999,COMBO OF 3 checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS3017,Rahil Dar,"Charari pora, H",,Charri Pora Khanpor,JK,191112,9541340419,,,CLOTHING,1,999,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS3033,Anil Boya,"Kuder madalam thimmapuram b,c kalniy, Thimmapuram",,Ananthapuram,AP,515711,9014582919,,,CLOTHING,1,999,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS3053,Vignesh Ayyappan,"Sivaji Road Moothanthara Melamuri, Near transformer",,Palakkad,KL,678012,9746202557,,,CLOTHING,1,999,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#BDS3056,Pailash Kumar,"Gangdtalai banswara, 3",,Gangdtalai,RJ,327601,7976913072,,,CLOTHING,1,999,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078

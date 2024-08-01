@@ -1,0 +1,3 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+TES1234,DEEPAK TEST,D 16 ROHINI ,NORTH WEST,DELHI,DELHI,110085,9876543210,,,TEST PRO,1,MEDICINE,MD1,COD,1000,0.5,10,10,10,1000,1000,HID0094
+TES1235,DEEPAK TEST,D 16 ROHINI ,NORTH WEST,DELHI,DELHI,110085,9876543210,,,TEST PRO,1,MEDICINE,MD1,PP,0,0.5,10,10,10,1000,1000,HID0094

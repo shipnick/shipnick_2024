@@ -1,0 +1,39 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+#DBS4002,Ajay Warkade,"Warasioni road Banjari mandir, Green valley public school Dongriya",destination address1,Balaghat,MP,481001,9201176095,,,CLOTHING,1,,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4004,Siyaram Mandavi,"Kukanar Bodaras Pedapara, Sukma",,Sukma,CG,494115,6301473712,,,CLOTHING,1,,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4005,Rajesh Bodapati,"Lodge Center, Brodipet Main RoadGuntur",,Guntur,AP,522007,8074627840,,,CLOTHING,1,,Men’s Striped Casual Shirt (Pack of 4) PK-058 - M,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4006,Arjun kumar,"Road Number 5, H",,Patna,BR,854104,7543060693,,,CLOTHING,1,,COMBO OF  checked Shirts - S,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4007,Anil Borkar,"Koradi Mandir Road, Koradi mandir",,Nagpur,MH,441111,9730827197,,,CLOTHING,1,,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4008,Firdous Reshi,"Near Ring Road Sorore Bari Brahmna Jammu, K1",,Bari Brahmna,JK,181133,8082830417,,,CLOTHING,1,,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4009,Rashik Rm,"Ayaniyaravattom pulinchi nedumangad po, Trivandram",,Nedumangad,KL,695541,8129190552,,,CLOTHING,1,,COMBO OF  checked Shirts - XXL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4010,Nishan Munda,"Rajmai Grant, Rajmai",,Sivasagar,AS,785672,9387528093,,,CLOTHING,1,,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4011,Ammar shaikh,"Juni panchil sarwoday school, Vasiya talaw",,Lunawada,GJ,389230,9601304748,,,CLOTHING,1,,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4012,Kethavath Srikanth,"Nagole haripuri colony, 4-47",,RANGA REDDY,TS,500068,8464025781,,,CLOTHING,1,,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4013,Tajamul Manzoor,"Khrew Bus Stand, Bus stand",,Khrew,JK,191103,6005483204,,,CLOTHING,1,,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4017,Titan Titan,"Bhuktakanali, 5",,Phulbani,OR,762029,8249974946,,,CLOTHING,1,,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4018,Makmudul Hasan,"Kabaitary tiniali, Kabaitary",,Kabaitari Pt VI,AS,783382,8822597959,,,CLOTHING,1,,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4019,Rakib Alam,"RAIGANJ UNIVERSITY University Road, Raiganj",,Raiganj,WB,733134,6296868093,,,CLOTHING,1,,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4020,Amir wani,"Gantamulla Bala, baramulla, Track suite",,Baramulla,JK,193101,9103277047,,,CLOTHING,1,,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4022,VASANTH KUMUR,"Kovvada Villege, Main Road Jesus Charch Back House  Kovvada Villege",,Kannapuram,AP,534311,8688968250,,,CLOTHING,1,,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4023,P.Sathish kumar Satya,"Sc colony./ House no  2/114, Pulachintha",,KURNOOL,AP,518343,6304041443,,,CLOTHING,1,,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4025,Jones Alwin,"Chennai, Moovendar Street",,Chennai,TN,600078,8110965453,,,CLOTHING,1,,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4026,Priyanshu Priyanshu,"Mandhana kanpur nagar  pachor ro pachor road pe, Pachor",,Kanpur,UP,209217,8009293816,,,CLOTHING,1,,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4029,Zeeshan Khan,"Bathnoor tral, Bathnoor tral",,Srinagar,JK,192133,9622843592,,,CLOTHING,1,,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4031,Manoj Gurjar,"Nawalpura Tejaji temple, 6",,Jaipur,RJ,303104,9057543377,,,CLOTHING,1,,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4032,Surendra Kumar Kumar,"Passwan chowk jandha road maa vaisnavi hard, Sugi mil",,Hajipur,BR,844101,9934078828,,,CLOTHING,1,,Men’s Striped Casual Shirt (Pack of 4) PK-058 - XXL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4033,Khan Snkey,"Manmao tinali, Chumpon",,Manmao H.Q.,AR,792121,6909070998,,,CLOTHING,1,,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4034,Meghnathsing Hajeri,"Vajra Hanuman Nagar back side of SBI Bank, Kasturi Nivas",,Vijayapur,KA,586101,7349114937,,,CLOTHING,1,,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4037,Ajoy Krishna,"Areeriparambil house, katampazhipuram, palakkad, 678633, Areeriparambil house",,Katampazhipuram,KL,678633,8330869599,,,CLOTHING,1,,Men’s Striped Casual Shirt (Pack of 4) PK-058 - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4040,Ronat Mech,"Lahorijan, Amar mill",,Dimapur,NL,797130,7099824857,,,CLOTHING,1,,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4041,P.sethupandi Sethupandi,"P. Vagaikulam. East street. Thirumangalam, P. Vagaikulam",,Madurai,TN,625706,8667204275,,,CLOTHING,1,,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4042,Suvas Tripura,"Ludhua bazaar, 44 no",,Sabroom,TR,799145,7085663321,,,CLOTHING,1,,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4044,Guguloth Vamshi,"Mahabubabad, School",,Mahububabad,TS,506101,8639479980,,,CLOTHING,1,,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4047,Arun Kumar,"Karanpur puthari, Karanpur",,Farrukhabad,UP,209501,8081580782,,,CLOTHING,1,,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4048,Rahul Kolhi,"Vijapure mandir wali gali, Vijapure",,Vijapure,JK,184120,7006978131,,,CLOTHING,1,,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4050,Sanjay Pawara,"AB road palasner, Sonny men's parlour",,Shirpur,MH,425405,8010306413,,,CLOTHING,1,,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4052,Rajendra Besra,"Tulbul Gomia Bokaro Jharkhand, Tulbul",,Gomia,JH,829111,7903688142,,,CLOTHING,1,,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4053,Imran Hussain,"Tulamati Mosque, Tapan store",,Bargaon,AS,781381,8099694506,,,CLOTHING,1,,COMBO OF  checked Shirts - XXL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4054,Kamran Akhoon,"Zewar colony house no 2 Kishtwar, Zewar colony house no 2 Kishtwar",,Kishtwar,JK,182204,9906246176,,,CLOTHING,1,,COMBO OF  checked Shirts - L,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4057,Nagaraju Malluraju,"Asarada, Sub center ofzit House",,Chintapalli,AP,531133,9391286709,,,CLOTHING,1,,COMBO OF  checked Shirts - M,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4058,Arjun Prajapat,"12, 1",,Khikiya,MP,461441,9340498933,,,CLOTHING,1,,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078
+#DBS4036,Azad Najar,"Dandmoha, Najar mohla",,Baramulla,JK,193101,9797848649,,,CLOTHING,1,,COMBO OF  checked Shirts - XL,COD,999,0.5,13,13,13,999,999,HID0078

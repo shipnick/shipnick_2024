@@ -1,0 +1,4 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Product_Name*,Quantity*,Order_Type*,COD_AMOUNT*,Weight(gm)*,Length(Cm)*,Breadth(Cm)*,Height(Cm)*,Invoice_Value*,Total_Amount*,Hub_Code*
+10001,Sangam sringar,sangam sringar,Manak chowk,Dungarpur,RAJASTHAN,314001,8769586681,ANK00001,1,PP,0,0.5,13,13,13,198,198,HID0053
+10002,Prachur Jain,"Qtr. No. ESQ 11, ACC Colony","Kymore cement works, P.O. Kymore",Katni,MADHYA PRADESH,483880,8895152266,ANK00001,1,PP,0,0.5,13,13,13,198,198,HID0053
+10003,santosh pandit,pandit sound service,borio,BORIO,JHARKHAND,816120,8757460662,ANK00001,1,PP,0,0.5,13,13,13,198,198,HID0053
