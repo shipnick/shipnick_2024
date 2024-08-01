@@ -26,3 +26,9 @@
 
 #### Running/setting specific Job queue 
  - ``` php artisan queue:work --queue=order_status ```
+
+
+ # Push Sashi's change from server
+``` git add . && git commit -m "Shashi changes" ```
+
+``` git push ```
