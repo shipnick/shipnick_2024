@@ -16,7 +16,7 @@
                         <a href="/" class="nav-item nav-link active">Home</a>
                         <a href="about" class="nav-item nav-link">About Us</a>
                         <a href="why-us" class="nav-item nav-link">Why Us</a>
-                        <a href="#" class="nav-item nav-link">Blog</a>
+                        <!--<a href="#" class="nav-item nav-link">Blog</a>-->
                         <a href="contact" class="nav-item nav-link">Contact</a>
                     </div>
                     <a href="" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Track Your Order</a>

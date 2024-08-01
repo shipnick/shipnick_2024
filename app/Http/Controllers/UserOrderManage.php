@@ -1028,8 +1028,8 @@ $ctodateObj = Carbon::parse($req->to);
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects if they are set
-        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : null;
-        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : null;
+        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
+    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
@@ -1152,8 +1152,8 @@ $ctodateObj = Carbon::parse($req->to);
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects if they are set
-        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : null;
-        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : null;
+        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
+    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
@@ -1274,8 +1274,8 @@ $ctodateObj = Carbon::parse($req->to);
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects if they are set
-        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : null;
-        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : null;
+        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
+    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
@@ -1396,8 +1396,8 @@ $ctodateObj = Carbon::parse($req->to);
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects if they are set
-        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : null;
-        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : null;
+         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
+    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
@@ -1518,8 +1518,8 @@ $ctodateObj = Carbon::parse($req->to);
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects if they are set
-        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : null;
-        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : null;
+       $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
+    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
@@ -1640,8 +1640,8 @@ $ctodateObj = Carbon::parse($req->to);
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects if they are set
-        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : null;
-        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : null;
+        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
+    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
@@ -1762,8 +1762,8 @@ $ctodateObj = Carbon::parse($req->to);
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects if they are set
-        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : null;
-        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : null;
+       $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::today()->startOfDay();
+    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::today()->endOfDay();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
