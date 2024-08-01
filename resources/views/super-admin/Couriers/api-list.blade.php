@@ -132,8 +132,8 @@
                                             <tr>
                                                 <td>{{ $post->courier_name }} {{ $post->weight }}</td>
                                                 <td>
-                                                    <a href="{{ route('edit-rate', ['id' => $post->id]) }}">Edit</a>
-                                                    <a href="{{ route('rate-delete', ['id' => $post->id]) }}">Delete</a>
+                                                    <a href="{{ url('edit-rate', ['id' => $post->id]) }}">Edit</a>
+                                                    <a href="{{ url('rate-delete', ['id' => $post->id]) }}">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach

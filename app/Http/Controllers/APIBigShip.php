@@ -58,20 +58,22 @@ class APIBigShip extends Controller
             ->orderby('courier_priority', 'asc')
             ->pluck('courier_idno');
 
+        $allErrors = []; // Initialize an array to collect all errors
+
         foreach ($courierPriorityList as $courierId) {
             $response = $this->handleCourier($courierId, $order);
 
-            // If the courier response indicates success, return the response
-            if ($response['status'] === 'Success') {
+            // Collect error if the courier fails
+            if ($response['status'] === 'Error') {
+                $allErrors[] =  $response['error'];
+            } else {
+                // If a courier is successful, return the success response
                 return $response;
             }
-
-            // Log error if needed
-            echo "Courier $courierId failed: " . $response['error'] . "<br>";
         }
 
-        // If no courier was successful, return a general failure response
-        return ['status' => 'Failed', 'error' => 'All couriers failed.'];
+        // If no courier was successful, return the collected errors
+        return ['status' => 'Failed', 'error' => implode('; ', $allErrors)];
     }
 
     private function handleCourier($courierId, $order)
@@ -219,7 +221,8 @@ class APIBigShip extends Controller
 
             return ['status' => 'Success', 'error' => ''];
         } else {
-            $error = $responseecom['shipments'][0]['reason'] ?? 'Unknown error';
+            
+           echo $error = $responseecom['shipments'][0]['reason'] ?? 'Unknown error';
             return ['status' => 'Error', 'error' => $error];
         }
     }
@@ -411,6 +414,269 @@ class APIBigShip extends Controller
             return ['status' => 'Error', 'error' => $error];
         }
     }
+      public function OrderPlaceToCourier121()
+    {
+        
+        Http::get('https://shipnick.com/UPBulk_Order_API');
+        Http::get('https://shipnick.com/UPBulk_Order_API');
+        Http::get('https://shipnick.com/UPBulk_Order_API');
+        Http::get('https://shipnick.com/UPBulk_Order_API');
+        Http::get('https://shipnick.com/UPBulk_Order_API');
+        Http::get('https://shipnick.com/UPBulk_Order_API');
+        Http::get('https://shipnick.com/UPBulk_Order_API');
+        Http::get('https://shipnick.com/UPBulk_Order_API');
+        Http::get('https://shipnick.com/UPBulk_Order_API');
+        Http::get('https://shipnick.com/UPBulk_Order_API');
+        //  Http::get('https://shipnick.com/order-update-ecom');
+        //  Http::get('https://shipnick.com/order-update-intransit-ecom');
+        //  Http::get('https://shipnick.com/order-update-ofd-ecom');
+        //  Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
+       
+        
+       
+       
+        
+
+    }
+     
+public function OrdercancelToCourier()
+{
+    // Initialize variables
+    $loopno = 0;
+    $tdateare = date('Y-m-d H:i:s'); // Assuming this is the current date/time
+
+    $params = bulkorders::where('order_cancel', '1')
+        // ->where('order_cancel_reasion', ' ')
+        ->where('awb_gen_by', '!=', '') 
+          ->where('order_status_show', '!=', ['Cancel']) 
+        //   ->where('User_Id', '109')
+        //   ->where('order_status_show', '0011')
+       
+        ->orderByDesc('Single_Order_Id')
+        ->limit(80)
+        ->get();
+// dd($params);
+    $totalOrders = $params->count();
+    echo "Working Total Order: $totalOrders<br><br>";
+
+    foreach ($params as $param) {
+        $loopno++;
+        
+        
+        
+      echo  $shipment_id = $param->shferrors;
+      echo  $Awb = $param->Awb_Number;
+      echo  $courierare = $param->awb_gen_by;
+
+        if ($courierare == "Ecom") {
+            // Handle Ecom courier cancellation
+            $response = $this->cancelEcomOrder($Awb);
+
+            // Process response and update status accordingly
+        } elseif ($courierare == "Xpressbee") {
+            // Handle Xpressbee courier cancellation
+            $response = $this->cancelXpressbeeOrder($Awb);
+
+            // Process response and update status accordingly
+        }
+        elseif ($courierare == "Bluedart") {
+            // Handle Xpressbee courier cancellation
+            $response = $this->cancelBluedartOrder( $shipment_id);
+
+            // Process response and update status accordingly
+        }
+
+        // Additional processing or logging can be done here
+    }
+} 
+
+private function cancelEcomOrder($awb)
+{
+    try {
+       $curl = curl_init();
+
+                    curl_setopt_array($curl, array(
+                        CURLOPT_URL => 'https://shipment.ecomexpress.in/apiv2/cancel_awb/',
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_ENCODING => '',
+                        CURLOPT_MAXREDIRS => 10,
+                        CURLOPT_TIMEOUT => 0,
+                        CURLOPT_FOLLOWLOCATION => true,
+                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                        CURLOPT_CUSTOMREQUEST => 'POST',
+                        CURLOPT_POSTFIELDS => array('username' => 'PROSAVVYLUXURIESPRIVATELIMITED(ECS)130073', 'password' => 'lnR1C8NkO1', 'awbs' => $awb),
+                        CURLOPT_HTTPHEADER => array(
+                            'Cookie: AWSALB=AeNFVNg5YazTNZT3iTzkFmP1DGxIXjSwm802sL2a8MKv8RVIoTkF9rBYh4EHXvqxTESwcYY4wb9WEom5iKNafMRefor3n6z/O2JmkKZgr/xyYUr1u9kfyCr2hc/1; AWSALBCORS=AeNFVNg5YazTNZT3iTzkFmP1DGxIXjSwm802sL2a8MKv8RVIoTkF9rBYh4EHXvqxTESwcYY4wb9WEom5iKNafMRefor3n6z/O2JmkKZgr/xyYUr1u9kfyCr2hc/1'
+                        ),
+                    ));
+
+
+                    $response = curl_exec($curl);
+                    $responseic = json_decode($response, true);
+                    curl_close($curl);
+                    
+                    
+       
+        
+
+                  
+    //   echo $statuscheck = $responseic['status'];
+        echo "<br>";
+        echo $statuscheck = $responseic['0']['success'];
+        
+        $tdateis = date('Y-m-d'); // Assuming this is the current date
+
+        if ($responseic['0']['success']) {
+            $cancelint = 1;
+            $cancelstatus = "Cancel";
+            $cancelreason = "Client Cancel";
+            $alertmsg = "Order delete please refresh page if not deleted";
+
+            bulkorders::where('Awb_Number', $awb)->update([
+                'canceldate' => $tdateis,
+                'order_status_show' => $cancelstatus,
+                'order_cancel_reasion' => $cancelreason
+            ]);
+        } 
+        if (!$responseic['0']['success']) {
+            $cancelstatus = "Cancel";
+            
+            echo  $alertmsg = $responseic['0']['reason'];
+            bulkorders::where('Awb_Number', $awb)->update([
+                'canceldate' => $tdateis,
+                'order_status_show' => $cancelstatus,
+                'order_cancel_reasion' => $alertmsg
+            ]);
+        }
+    } catch (\Exception $e) {
+        // Log the exception or handle it as needed
+        \Log::error('Exception occurred during cancelEcomOrder: ' . $e->getMessage());
+        // You may want to throw the exception again to propagate it up
+        // throw $e;
+    }
 }
+
+
+
+private function cancelXpressbeeOrder($awb)
+{
+    $response = Http::withHeaders([
+        'Content-Type' => 'application/json',
+    ])->post('https://shipment.xpressbees.com/api/users/login', [
+        'email' => 'shipnick11@gmail.com',
+        'password' => 'Xpress@5200',
+    ]);
+
+    $responseData = $response->json();
+    $xpressbeetoken = $responseData['data'];
+
+    // Make the cancel shipment API call using the token
+    $response = Http::withHeaders([
+        'Content-Type' => 'application/json',
+        'Authorization' => 'Bearer ' . $xpressbeetoken,
+    ])->post('https://shipment.xpressbees.com/api/shipments2/cancel', [
+        'awb' => $awb,
+    ]);
+    $responseData1 = $response->json();
+    
+    echo "<br><pre>";
+                    print_r($responseData1);
+                    echo "</pre><br>";
+
+    // return $response->json();
+    $tdateis = date('Y-m-d'); // Assuming this is the current date
+    $statuscheck = $responseData1['status'];
+                    if ($statuscheck == true) {
+                        // echo $responseic['message'];
+                        $tdateis =  $tdateis;
+                        $cancelint = 1;
+                        $cancelstatus = "Cancel";
+                        $cancelreason = "Client Cancel";
+                        $alertmsg = "Order delete please refresh page if not deleted";
+                        bulkorders::where('Awb_Number', $awb)
+                    ->update([
+                        
+                        'canceldate'=>$tdateis,
+                        'order_status_show' => $cancelstatus,
+                        'order_cancel_reasion' => $cancelreason
+                    ]);
+                    }  elseif ($statuscheck == false) {
+                        // echo $responseic['message'];
+                        $alertmsg = "Order not delete please try again";
+                        bulkorders::where('Awb_Number',$awb)
+                        ->update([
+                            
+                            'canceldate'=>$tdateis,
+                            'order_status_show' => "Cancel",
+                            'order_cancel_reasion' => $alertmsg
+                        ]);
+                    }
+}
+private function cancelBluedartOrder($shipment_id) 
+{
+    // Authenticate and get the token
+    $authResponse = Http::post('https://apiv2.shiprocket.in/v1/external/auth/login', [
+        "email" => "info@shipnick.com",
+        "password" => "8mVxTvH)6g8v"
+    ]);
+
+    $authData = $authResponse->json();
+
+    // Check if authentication was successful and token is received
+    if (isset($authData['token'])) {
+        $token = $authData['token'];
+    } else {
+        echo "Authentication failed!";
+        return;
+    }
+
+    // Cancel the order using the received token
+    $cancelResponse = Http::withHeaders([
+        'Content-Type' => 'application/json',
+        'Authorization' => 'Bearer ' . $token
+    ])->post('https://apiv2.shiprocket.in/v1/external/orders/cancel', [
+        'ids' => [$shipment_id]
+    ]);
+
+    $cancelData = $cancelResponse->json();
+
+    echo "<br><pre>";
+    print_r($cancelData);
+    echo "</pre><br>";
+    echo $shipment_id;
+
+    $currentDate = date('Y-m-d'); // Current date
+
+    // Check if the 'status' key exists in the response data
+    if (isset($cancelData['status']) && $cancelData['status'] == 200) {
+        $cancelStatus = "Cancel";
+        $cancelReason = "Client Cancel";
+        $alertMsg = "Order deleted. Please refresh the page if not deleted.";
+
+        bulkorders::where('shferrors', $shipment_id)
+            ->update([
+                'canceldate' => $currentDate,
+                'order_status_show' => $cancelStatus,
+                'order_cancel_reasion' => $cancelReason
+            ]);
+    } else {
+        $alertMsg = "Order not deleted. Please try again.";
+
+        // Check for error messages in the response data
+        // $errorMessage = isset($cancelData['message']) ? $cancelData['message'] : $alertMsg;
+        
+
+        bulkorders::where('shferrors', $shipment_id)
+            ->update([
+                'canceldate' => $currentDate,
+                'order_cancel_reasion' => 'canceled',
+                'order_status_show' => 'Cancel'
+            ]);
+    }
+}
+
+}
+
+
 
 
