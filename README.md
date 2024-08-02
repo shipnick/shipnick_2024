@@ -25,7 +25,10 @@
  - Must be in crontab * * * * *
 
 #### Running/setting specific Job queue 
- - ``` php artisan queue:work --queue=order_status ```
+ - ``` php artisan queue:work --queue=order_status --tries=3 --backoff=3 --stop-when-empty ```
+
+### Cpanel Cronjobs 
+``` * * * * * /usr/local/bin/php /home3/prosacgj/server20/shipnick.com/system/artisan queue:work --queue=order_status --tries=3 --backoff=3 --stop-when-empty >> /dev/null 2>&1 ```
 
 
  # Push Sashi's change from server
