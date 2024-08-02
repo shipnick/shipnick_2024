@@ -79,7 +79,7 @@ class APIBigShip extends Controller
     private function handleCourier($courierId, $order)
     {
         switch ($courierId) {
-            case "xpressbee01":
+            case "xpressbee02":
                 return $this->handleXpressbee1($order);
             case "ecom01":
                 return $this->handleEcom($order);
@@ -320,8 +320,7 @@ class APIBigShip extends Controller
             return ['status' => 'Error', 'error' => $error];
         }
     }
-
-    private function handleXpressbee1($order)
+     private function handleXpressbee1($order)
     {
         // Login to get Xpressbee token
         $response = Http::withHeaders([
@@ -414,6 +413,8 @@ class APIBigShip extends Controller
             return ['status' => 'Error', 'error' => $error];
         }
     }
+
+   
       public function OrderPlaceToCourier121()
     {
         

@@ -401,116 +401,106 @@
 										<div class="tab-pane fade" id="profile2">
 											<div class="card-body">
 												<div class="panel-body">
-
 													<?php
-													$couriercompany = array('NI' => 'Nimbus', 'IN' => 'Intargos');
-													$couriernames = array();
-
+													$couriercompany = ['NI' => 'Nimbus', 'IN' => 'Intargos'];
+													$couriernames = [];
 													foreach ($couriers as $cr) {
-
 														$couriernames[$cr->courier_by] = $cr->display_courier_by;
 													}
 													?>
-													<table class="datatable table table-stripped">
+
+													<table class="datatable table table-striped">
 														<thead>
 															<tr>
 																<th>Sno</th>
-																<!--<th>Courier Compny</th>-->
 																<th>Courier Through</th>
 																<th>Courier Priority</th>
 																<th>Action</th>
 															</tr>
 														</thead>
 														<tbody>
-															<?php
-															$cnt = 1;
-															$courirlen = count($param);
-															?>
-															@foreach($param as $param)
+															@php $cnt = 1; @endphp
+															@foreach($param as $item)
 															<tr>
-																<td><?php echo $cnt++; ?></td>
-
-																<td><?php
-																echo $couriernames["$param->courier_by"];
-																	?></td>
+																<td>{{ $cnt++ }}</td>
+																<td>{{ $couriernames[$item->courier_by] ?? 'Unknown' }}</td>
 																<td>
-																	<select class="form-control" style="padding:0px 0px 0px 5px !important;height:21px !important" onchange="change_priority('<?php echo $param->courier_code; ?>','<?php echo $param->courier_by; ?>',this.value)">
-																		<option value="0">Priority not assign</option>
-																		@for($cnois=1;$cnois<($courirlen+1);$cnois++) @if($param->courier_priority == $cnois)
-																			<option value="{{ $cnois }}" selected="">Priority {{ $cnois }}</option>
-																			@else
-																			<option value="{{ $cnois }}">Priority {{ $cnois }}</option>
-																			@endif
+																	<select class="form-control priority-select" style="padding: 0 0 0 5px; height: 21px;" onchange="updatePriorities(this, '{{ $item->courier_code }}', '{{ $item->courier_by }}')">
+																		<option value="0">Priority not assigned</option>
+																		@for($cnois = 1; $cnois <= count($param); $cnois++) <option value="{{ $cnois }}" @if($item->courier_priority == $cnois) selected @endif>
+																			Priority {{ $cnois }}
+																			</option>
 																			@endfor
 																	</select>
 																</td>
-																@if($param->user_flg)
 																<td>
 																	<label class="switch">
-																		<input type="checkbox" onchange="change_status('<?php echo $param->courier_code; ?>','<?php echo $param->courier_by; ?>',this)" value="0" checked>
+																		<input type="checkbox" onchange="change_status('{{ $item->courier_code }}', '{{ $item->courier_by }}', this)" value="0" @if($item->user_flg) checked @endif>
 																		<span class="slider round"></span>
 																	</label>
 																</td>
-																@else
-																<td>
-																	<label class="switch">
-																		<input type="checkbox" onchange="change_status('<?php echo $param->courier_code; ?>','<?php echo $param->courier_by; ?>',this)" value="1">
-																		<span class="slider round"></span>
-																	</label>
-																</td>
-																@endif
 															</tr>
 															@endforeach
 														</tbody>
 													</table>
 												</div>
 
-												<script type="text/javascript">
-													function change_priority(code, courier, obj) {
-														var userid = "{{ $id }}"
-														var value = obj
-														// alert(userid);
-														// alert(code);
-														// alert(courier);
-														// alert(value);
+												<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+												<script>
+													function updatePriorities(selectedElement, code, courier) {
+														const selectedPriority = $(selectedElement).val();
+														const allPriorityElements = $('.priority-select');
+
+														allPriorityElements.each(function() {
+															if (this !== selectedElement) {
+																const currentSelected = $(this).val();
+																if (currentSelected == selectedPriority) {
+																	$(this).find('option[value="' + selectedPriority + '"]').remove();
+																	$(this).append('<option value="' + selectedPriority + '">Priority ' + selectedPriority + '</option>');
+																}
+															}
+														});
+
+														change_priority(code, courier, selectedPriority);
+													}
+
+													function change_priority(code, courier, value) {
+														const userid = "{{ $id }}";
 														$.ajax({
 															type: "GET",
 															url: "{{ asset('/courier-priority-update') }}",
 															data: {
-																code: code,
-																courier: courier,
-																userid: userid,
-																value: value
+																code,
+																courier,
+																userid,
+																value
 															},
-															success: function(data) {
-
+															success: function(response) {
+																console.log('Priority updated successfully.');
 															},
-															error: function(data) {
-																console.log('Error:', data);
+															error: function(error) {
+																console.error('Error updating priority:', error);
 															}
 														});
 													}
 
-													function change_status(code, courier, obj) {
-														var userid = "{{ $id }}"
-														var value = 0;
-														if ($(obj).prop('checked') == true) {
-															value = 1;
-														}
+													function change_status(code, courier, checkbox) {
+														const userid = "{{ $id }}";
+														const value = $(checkbox).prop('checked') ? 1 : 0;
 														$.ajax({
 															type: "GET",
 															url: "{{ asset('/courier-permissions-update') }}",
 															data: {
-																code: code,
-																courier: courier,
-																userid: userid,
-																value: value
+																code,
+																courier,
+																userid,
+																value
 															},
-															success: function(data) {
-
+															success: function(response) {
+																console.log('Status updated successfully.');
 															},
-															error: function(data) {
-																console.log('Error:', data);
+															error: function(error) {
+																console.error('Error updating status:', error);
 															}
 														});
 													}

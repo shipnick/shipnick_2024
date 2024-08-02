@@ -1,24 +1,6 @@
 @extends("UserPanel/PlaceOrder1/layout")
 @section("order")
-//  <script>
-//     async function performBackgroundRequest(url) {
-//         try {
-//             const response = await fetch(url, {
-//                 method: 'GET'
-//             });
-//             // Handle the response if needed
-//         } catch (error) {
-//             console.error('Error performing background URL hit:', error);
-//         }
-//     }
 
-//     // Perform background URL hits asynchronously
-//     performBackgroundRequest('https://shipnick.com/order-update-ecom');
-//     performBackgroundRequest('https://shipnick.com/order-update-ecom');
-//     performBackgroundRequest('https://shipnick.com/order-update-ecom');
-//     performBackgroundRequest('https://shipnick.com/order-update-intransit-ecom');
-//     performBackgroundRequest('https://shipnick.com/order-update-ofd-ecom');
-// </script>
 
 <div class="container-fluid">
     <div class="d-flex flex-wrap align-items-center mb-3">
@@ -252,14 +234,14 @@
 										</div>
 									</div>
 								</td>
-								<td><span> {{ Str::limit($param->Address, 20) }}</span></td>
+								<td><span title="{{$param->Address}}"> {{ Str::limit($param->Address, 20) }}</span></td>
 								<td><span>{{ $param->awb_gen_by }}</span></td>
 								<td>
 									@if($param->showerrors=='Upload')
 									<a href="javascript:void(0)" class="btn btn-success btn-sm btn-rounded light">Manifested</a>
 
 									@else
-									<a href="javascript:void(0)" class="btn btn-danger btn-sm btn-rounded light">{{ Str::limit($param->showerrors, 20) }}</a>
+									<a href="javascript:void(0)" class="btn btn-danger btn-sm btn-rounded light" title="{{$param->showerrors}}">{{ Str::limit($param->showerrors, 20) }}</a>
 
 									@endif
 
