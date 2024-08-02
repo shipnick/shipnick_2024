@@ -28,11 +28,11 @@
         <!-- Header Start -->
         <div class="container-fluid bg-breadcrumb">
             <div class="container text-center py-5" style="max-width: 900px;">
-                <h3 class="text-white display-3 mb-4">Privacy Policy</h1>
+                <h3 class="text-white display-3 mb-4">Privacy & Refund Policy</h1>
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item active text-white">Privacy Policy</li>
+                    <li class="breadcrumb-item active text-white">Privacy & Refund Policy</li>
                 </ol>    
             </div>
         </div>
@@ -83,6 +83,12 @@
 							</ul>	
 						<p class="mb-4">By using our website or services, you consent to the collection, use, and disclosure of your information as described in this Privacy Policy.</p>
 						<p class="mb-4">Thank you for trusting ShipNick with your logistics needs.</p>
+				</div>
+				<div class="col-lg-12">
+					<h3 style="margin-top: -50px;margin-bottom: 30px;">Refund Policy</h3>
+						<p class="mb-4">We are not into sale of any Products. We are courier aggregators, we provide services, courier / Logistics.  So there is 'NO REFUND' in that case. For any further calrification, you can any time reach to us: info@shipnick.com</p>
+						
+					
 				</div>
 			</div>
 		</div>

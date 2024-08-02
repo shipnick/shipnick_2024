@@ -111,10 +111,13 @@ class APIBigShip extends Controller
                 'type' => 'EXPP'
             )),
         ));
+        
+        
 
         $response = curl_exec($curl);
         $responseData = json_decode($response, true);
         curl_close($curl);
+        
 
         // Check if AWB number is retrieved successfully
         $ecomawbnois = $responseData['awb'][0] ?? '';
@@ -159,7 +162,7 @@ class APIBigShip extends Controller
                     "PICKUP_NAME" => $order->pickup_name,
                     "PICKUP_ADDRESS_LINE1" => $order->pickup_address,
                     "PICKUP_PINCODE" => $order->pickup_pincode,
-                    "PICKUP_PHONE" => $order->pickup_mobile,
+                    "PICKUP_MOBILE" => $order->pickup_mobile, 
                     "RETURN_NAME" => $order->pickup_name,
                     "RETURN_ADDRESS_LINE1" => $order->pickup_address,
                     "RETURN_PINCODE" => $order->pickup_pincode,
@@ -206,6 +209,8 @@ class APIBigShip extends Controller
         $response = curl_exec($curl);
         $responseecom = json_decode($response, true);
         curl_close($curl);
+        
+        
 
         // Check the response and update database
         if (isset($responseecom['shipments'][0]['success']) && $responseecom['shipments'][0]['success']) {
@@ -564,8 +569,8 @@ private function cancelXpressbeeOrder($awb)
     $response = Http::withHeaders([
         'Content-Type' => 'application/json',
     ])->post('https://shipment.xpressbees.com/api/users/login', [
-        'email' => 'shipnick11@gmail.com',
-        'password' => 'Xpress@5200',
+        'email' => 'glamfuseindia67@gmail.com',
+            'password' => 'shyam104A@',
     ]);
 
     $responseData = $response->json();

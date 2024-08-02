@@ -117,7 +117,7 @@
                         <div class="footer-item d-flex flex-column">
                             <h4 class="mb-4 text-white">Support</h4>
                             <a href="contact"><i class="fas fa-angle-right me-2"></i> Contact</a>
-                            <a href="privacy"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
+                            <a href="privacy"><i class="fas fa-angle-right me-2"></i> Privacy & Refund Policy</a>
                             <a href="terms-and-conditions"><i class="fas fa-angle-right me-2"></i>Terms and Conditions</a>
                             <a href="cookie-policy"><i class="fas fa-angle-right me-2"></i>Cookie policy</a>
                         </div>
