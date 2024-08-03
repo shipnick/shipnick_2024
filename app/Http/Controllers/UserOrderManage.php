@@ -1640,19 +1640,19 @@ $ctodateObj = Carbon::parse($req->to);
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects if they are set
-        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
-    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
+       $cfromdateObj1 = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
+    $ctodateObj1 = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
-            ->where('order_cancel', '!=', '1')
+            
             ->where('order_cancel', 1)
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type');
 
         // Apply additional filters based on request parameters
-        if ($cfromdateObj && $ctodateObj) {
-            $query->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj]);
+        if ($cfromdateObj1 && $ctodateObj1) {
+            $query->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1]);
         }
         if ($req->filled('order_type')) {
             $query->where('Order_Type', 'like', '%' . $req->order_type . '%');
@@ -1757,6 +1757,7 @@ $ctodateObj = Carbon::parse($req->to);
             'ctodate' => $req->to
         ])->with($data);
     }
+    
     public function Failled(Request $req)
     {
         $userid = session()->get('UserLogin2id');

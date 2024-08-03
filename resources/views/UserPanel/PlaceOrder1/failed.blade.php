@@ -170,32 +170,14 @@
                                 @csrf
                                 <div>
                                     <div class="d-flex justify-content-start align-items-center">
-                                        <button name="currentbtnname" value="shippinglabel" type="submit" class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm"><i class="fa fa-calendar me-1"></i>Print Label</button>
-                                        <button name="currentbtnname" value="cancelorders" type="submit" class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm"><i class="fa fa-times-circle me-1"></i>Cancel Orders</button>
-                                        <button id="downloadExcelBtn" class="btn btn-outline-secondary btn-sm mb-2">
+                                        
+                                        <button id="failedBtn" class="btn btn-outline-secondary btn-sm mb-2">
     <i class="fa fa-download me-1"></i>Export
 </button>
+ <!--<a class="btn btn-outline-secondary btn-sm mb-2" href="{{asset('today-failed-orders')}}"><i class="fa fa-download me-1"></i>Export</a>-->
 
                                     </div>
-                                    <script>
-    document.getElementById('downloadExcelBtn').addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        // Define the parameters
-        var cfromdate = "{{ $cfromdate }}";
-        var ctodate = "{{ $ctodate }}";
-        var ftype = "Excel";
-
-        // Construct the URL with query parameters
-        var url = "{{ asset('/today-failed-orders') }}";
-        url += "?cfromdate=" + encodeURIComponent(cfromdate);
-        url += "&ctodate=" + encodeURIComponent(ctodate);
-        url += "&ftype=" + encodeURIComponent(ftype);
-
-        // Redirect to the constructed URL
-        window.location.href = url;
-    });
-</script>
+                                   
 
                                 </div>
                                 <style>

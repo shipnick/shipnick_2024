@@ -126,7 +126,29 @@
     <!--**********************************
             Content body end
         ***********************************-->
-<script>
+        <script>
+					document.getElementById('failedBtn').addEventListener('click', function(event) {
+						event.preventDefault(); // Prevent the default form submission
+						document.getElementById('failedBtnform').submit(); // Submit the form manually
+					});
+				</script>
+				<script>
+					document.getElementById('failedBtn').addEventListener('click', function() {
+						var cfromdate = "{{ $cfromdate }}"; 
+						var ctodate = "{{ $ctodate }}";
+						var ftype = "Excel";
+
+						var url = "{{ asset('/today-failed-orders') }}";
+						url += "?cfromdate=" + encodeURIComponent(cfromdate);
+						url += "&ctodate=" + encodeURIComponent(ctodate);
+						url += "&ftype=" + encodeURIComponent(ftype);
+
+						window.location.href = url;
+					});
+				</script>
+				
+				
+                <script>
 					document.getElementById('downloadExcelBtn').addEventListener('click', function(event) {
 						event.preventDefault(); // Prevent the default form submission
 						document.getElementById('downloadExcelForm').submit(); // Submit the form manually
@@ -146,6 +168,7 @@
 						window.location.href = url;
 					});
 				</script>
+				
 				<script>
 					function toggle(source) {
 						var checkboxes = document.querySelectorAll('input[type="checkbox"]');

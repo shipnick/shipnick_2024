@@ -70,28 +70,30 @@
             document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
         }
     </script>
+    
+    <script>
+					document.getElementById('downloadExcelBtn').addEventListener('click', function(event) {
+						event.preventDefault(); // Prevent the default form submission
+						document.getElementById('downloadExcelForm').submit(); // Submit the form manually
+					});
+				</script>
+				<script>
+					document.getElementById('downloadExcelBtn').addEventListener('click', function() {
+						var cfromdate = "{{ $cfromdate }}";
+						var ctodate = "{{ $ctodate }}";
+						var ftype = "Excel";
+
+						var url = "{{ asset('/today-placed-orders') }}";
+						url += "?cfromdate=" + encodeURIComponent(cfromdate);
+						url += "&ctodate=" + encodeURIComponent(ctodate);
+						url += "&ftype=" + encodeURIComponent(ftype);
+
+						window.location.href = url;
+					});
+				</script>
 
 
-    <!-- <script>
-    $(document).ready(function() {
-    $('#perPageSelect').change(function() {
-        var form = $('#searchForm1');
-        $.ajax({
-            url: form.attr('action'),
-            type: form.attr('method'),
-            data: form.serialize(),
-            success: function(response) {
-                // Assuming the server returns the updated content in the 'response' variable
-                $('#allordersshows').html(response);
-            },
-            error: function(xhr) {
-                console.log('Error:', xhr);
-            }
-        });
-    });
-}); -->
-
-    </script>
+  
 
 
 
