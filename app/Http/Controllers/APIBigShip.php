@@ -2621,6 +2621,7 @@ public function OrdercancelToCourier()
         // ->where('order_cancel_reasion', ' ')
         ->where('awb_gen_by', '!=', '') 
           ->where('order_status_show', '!=', ['Cancel']) 
+           ->where('awb_gen_by','Ecom')
         //   ->where('User_Id', '109')
         //   ->where('order_status_show', '0011')
        
@@ -2706,7 +2707,7 @@ private function cancelEcomOrder($awb)
 
             bulkorders::where('Awb_Number', $awb)->update([
                 'canceldate' => $tdateis,
-                'order_status_show' => $cancelstatus,
+                'order_status_show' => "Cancel",
                 'order_cancel_reasion' => $cancelreason
             ]);
         } 
@@ -2716,7 +2717,7 @@ private function cancelEcomOrder($awb)
             echo  $alertmsg = $responseic['0']['reason'];
             bulkorders::where('Awb_Number', $awb)->update([
                 'canceldate' => $tdateis,
-                'order_status_show' => $cancelstatus,
+                'order_status_show' => "Cancel",
                 'order_cancel_reasion' => $alertmsg
             ]);
         }
