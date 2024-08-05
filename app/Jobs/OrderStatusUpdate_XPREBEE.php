@@ -72,7 +72,6 @@ class OrderStatusUpdate_XPREBEE implements ShouldQueue
                 bulkorders::where('Awb_Number', $awbNumber)->update([
                     'showerrors' => $status,
                     'order_status_show' => $status,
-
                 ]);
             } else {
                 // Handle HTTP request failure

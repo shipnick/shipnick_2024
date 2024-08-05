@@ -32,19 +32,10 @@ class Kernel extends ConsoleKernel
             file_put_contents('order_status.txt', "Scheduling status_update_ECOM at " . date('c') . "\n");
             $params = bulkorders::where('awb_gen_by', 'Ecom') // Check if Awb_Number is not null
                 ->whereNotIn('showerrors', ['Delivered'])
-                //   ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection','Shipment Not Handed over'])
-                // ->whereIn('showerrors', ['Shipment Not Handed over'])
-                // ->where('Rec_Time_Date', '2024-07-24')  
-                // ->where('User_Id', '109')
-                // ->where('User_Id', '122')
-                ->where('order_status', 'upload')
-                ->where('order_cancel', '!=', 'upload')
+                ->where('order_cancel', '!=', 1)
                 ->where('Awb_Number', '!=', '') // Assuming you want to order by this column
                 ->orderBy('Single_Order_Id', 'desc')
-                // ->limit(5)
                 ->get();
-            //  dd($params);
-
 
             if ($params->isEmpty()) {
                 return response()->json(['error' => 'No orders found'], 404);
@@ -59,29 +50,22 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             file_put_contents('order_status.txt', "Scheduling status_update_ECOM at " . date('c') . "\n");
             $orders = bulkorders::where('awb_gen_by', 'Xpressbee')
-                //   ->where('User_Id', '109')
-                //   ->where('User_Id', '!=', '109')
-                //   ->where('Rec_Time_Date', '2024-07-24')
-                // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
                 ->whereNotIn('showerrors', ['delivered', 'cancelled'])
-                // ->whereIn('showerrors', ['pending pickup'])
-                ->where('order_status', '1')
                 ->where('order_cancel', '!=', '1')
                 ->whereNotNull('Awb_Number')
                 ->orderBy('Single_Order_Id', 'desc')
-                // ->limit(80)
                 ->select('Awb_Number')
                 ->get();
 
             if ($orders->isEmpty()) {
                 return response()->json(['error' => 'No orders found'], 404);
             }
-            set_time_limit(300);
-            $completedOrders = 0;
+
             echo 'XPREBEE Total Jobs: ' . $orders->count() . "\n";
             foreach ($orders as $order) {
                 OrderStatusUpdate_XPREBEE::dispatch($order->toArray())->onQueue('order_status');
             }
+
         })->name('status_update_XPREBEE')->description('Schedules status update job for orders in Xpressbee api')->everyThirtyMinutes();
 
 
