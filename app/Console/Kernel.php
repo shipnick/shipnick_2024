@@ -34,6 +34,7 @@ class Kernel extends ConsoleKernel
                 ->whereNotIn('showerrors', ['Delivered'])
                 ->where('order_cancel', '!=', 1)
                 ->where('Awb_Number', '!=', '') // Assuming you want to order by this column
+                ->whereNotNull('Awb_Number')
                 ->orderBy('Single_Order_Id', 'desc')
                 ->get();
 
@@ -52,6 +53,7 @@ class Kernel extends ConsoleKernel
             $orders = bulkorders::where('awb_gen_by', 'Xpressbee')
                 ->whereNotIn('showerrors', ['delivered', 'cancelled'])
                 ->where('order_cancel', '!=', '1')
+                ->where('Awb_Number', '!=', '')
                 ->whereNotNull('Awb_Number')
                 ->orderBy('Single_Order_Id', 'desc')
                 ->select('Awb_Number')
