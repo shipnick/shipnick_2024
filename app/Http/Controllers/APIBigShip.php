@@ -2621,7 +2621,7 @@ public function OrdercancelToCourier()
         // ->where('order_cancel_reasion', ' ')
         ->where('awb_gen_by', '!=', '') 
           ->where('order_status_show', '!=', ['Cancel']) 
-           ->where('awb_gen_by','Ecom')
+        //   ->where('awb_gen_by','Ecom')
         //   ->where('User_Id', '109')
         //   ->where('order_status_show', '0011')
        

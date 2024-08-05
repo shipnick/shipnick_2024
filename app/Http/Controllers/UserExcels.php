@@ -470,7 +470,7 @@ class PlacedOrdersExport implements WithHeadings,FromCollection{
             // ->where('Awb_Number', '!=', '')
             //  ->where('Awb_Number','')
             // ->where('Last_Time_Stamp','2024-06-15 12:18:36')
-             ->where('awb_gen_by','Ecom')
+            //  ->where('awb_gen_by','Ecom')
             // ->where('uploadtype', $ftypedata) 
             ->get();
 

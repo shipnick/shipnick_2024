@@ -7594,3 +7594,3176 @@ ECom status update for 410014026655 : Shipment Not Handed over | 001143449420438
         )
 
 )
+
+
+ECom status update for 410014026997 : Shipment Not Handed over | 001
+
+ECom status update for 410014027158 : Shipment Not Handed over | 001
+
+ECom status update for 410014027172 : Shipment Not Handed over | 001
+
+ECom status update for 410014027578 : Shipment Not Handed over | 001
+
+ECom status update for 410014027611 : Shipment Not Handed over | 001
+
+ECom status update for 410014027612 : Shipment Not Handed over | 001
+
+ECom status update for 410014027992 : Shipment Not Handed over | 00114344942049286 Failed | Illuminate\Http\Client\Response Object
+(
+    [response:protected] => GuzzleHttp\Psr7\Response Object
+        (
+            [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+            [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+            [headers:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [Date] => Array
+                        (
+                            [0] => Sun, 04 Aug 2024 09:30:10 GMT
+                        )
+
+                    [Server] => Array
+                        (
+                            [0] => Apache/2.4.41 (Ubuntu)
+                        )
+
+                    [Set-Cookie] => Array
+                        (
+                            [0] => ci_session=dt478vgb4nmsmda4tjppski5tk6v222f; expires=Sun, 04-Aug-2024 11:30:10 GMT; Max-Age=7200; path=/; HttpOnly
+                        )
+
+                    [Expires] => Array
+                        (
+                            [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                        )
+
+                    [Cache-Control] => Array
+                        (
+                            [0] => no-store, no-cache, must-revalidate
+                        )
+
+                    [Pragma] => Array
+                        (
+                            [0] => no-cache
+                        )
+
+                    [Access-Control-Allow-Origin] => Array
+                        (
+                            [0] => *
+                        )
+
+                    [Access-Control-Allow-Headers] => Array
+                        (
+                            [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                        )
+
+                    [Access-Control-Allow-Methods] => Array
+                        (
+                            [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                        )
+
+                    [Content-Length] => Array
+                        (
+                            [0] => 45
+                        )
+
+                    [Connection] => Array
+                        (
+                            [0] => close
+                        )
+
+                    [Content-Type] => Array
+                        (
+                            [0] => application/json; charset=utf-8
+                        )
+
+                )
+
+            [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [date] => Date
+                    [server] => Server
+                    [set-cookie] => Set-Cookie
+                    [expires] => Expires
+                    [cache-control] => Cache-Control
+                    [pragma] => Pragma
+                    [access-control-allow-origin] => Access-Control-Allow-Origin
+                    [access-control-allow-headers] => Access-Control-Allow-Headers
+                    [access-control-allow-methods] => Access-Control-Allow-Methods
+                    [content-length] => Content-Length
+                    [connection] => Connection
+                    [content-type] => Content-Type
+                )
+
+            [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+            [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                (
+                    [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #719
+                    [size:GuzzleHttp\Psr7\Stream:private] => 
+                    [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                    [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [decoded:protected] => 
+    [cookies] => GuzzleHttp\Cookie\CookieJar Object
+        (
+            [cookies:GuzzleHttp\Cookie\CookieJar:private] => Array
+                (
+                    [0] => GuzzleHttp\Cookie\SetCookie Object
+                        (
+                            [data:GuzzleHttp\Cookie\SetCookie:private] => Array
+                                (
+                                    [Name] => ci_session
+                                    [Value] => dt478vgb4nmsmda4tjppski5tk6v222f
+                                    [Domain] => shipment.xpressbees.com
+                                    [Path] => /
+                                    [Max-Age] => 7200
+                                    [Expires] => 1722771010
+                                    [Secure] => 
+                                    [Discard] => 
+                                    [HttpOnly] => 1
+                                )
+
+                        )
+
+                )
+
+            [strictMode:GuzzleHttp\Cookie\CookieJar:private] => 
+        )
+
+    [transferStats] => GuzzleHttp\TransferStats Object
+        (
+            [request:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Request Object
+                (
+                    [method:GuzzleHttp\Psr7\Request:private] => GET
+                    [requestTarget:GuzzleHttp\Psr7\Request:private] => 
+                    [uri:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Uri Object
+                        (
+                            [scheme:GuzzleHttp\Psr7\Uri:private] => https
+                            [userInfo:GuzzleHttp\Psr7\Uri:private] => 
+                            [host:GuzzleHttp\Psr7\Uri:private] => shipment.xpressbees.com
+                            [port:GuzzleHttp\Psr7\Uri:private] => 
+                            [path:GuzzleHttp\Psr7\Uri:private] => /api/shipments2/track/14344942049286
+                            [query:GuzzleHttp\Psr7\Uri:private] => 
+                            [fragment:GuzzleHttp\Psr7\Uri:private] => 
+                            [composedComponents:GuzzleHttp\Psr7\Uri:private] => https://shipment.xpressbees.com/api/shipments2/track/14344942049286
+                        )
+
+                    [headers:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [User-Agent] => Array
+                                (
+                                    [0] => GuzzleHttp/7
+                                )
+
+                            [Host] => Array
+                                (
+                                    [0] => shipment.xpressbees.com
+                                )
+
+                            [Authorization] => Array
+                                (
+                                    [0] => Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjI3NjM4MDksImp0aSI6Ik9cLzVnMGJCYmp4K0MzSXUyT0pFOW9odWFMVkRHRHdEdGZ2Skk3bXFoaGVNPSIsIm5iZiI6MTcyMjc2MzgwOSwiZXhwIjoxNzIyNzc0NjA5LCJkYXRhIjp7InVzZXJfaWQiOiI5MzU4OSIsInBhcmVudF9pZCI6IjAiLCJlbWFpbCI6InNoaXBuaWNrMTFAZ21haWwuY29tIn19.jnEquoDqLXwwwFKTqQnAKClrKoxcftT0mbESuC6phFd7FeSDlJreIyEh7s76lTQJ6LcPI0NjfFzmS6CjalnDkw
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [user-agent] => User-Agent
+                            [host] => Host
+                            [authorization] => Authorization
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Request:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #717
+                            [size:GuzzleHttp\Psr7\Stream:private] => 0
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [response:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Response Object
+                (
+                    [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+                    [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+                    [headers:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [Date] => Array
+                                (
+                                    [0] => Sun, 04 Aug 2024 09:30:10 GMT
+                                )
+
+                            [Server] => Array
+                                (
+                                    [0] => Apache/2.4.41 (Ubuntu)
+                                )
+
+                            [Set-Cookie] => Array
+                                (
+                                    [0] => ci_session=dt478vgb4nmsmda4tjppski5tk6v222f; expires=Sun, 04-Aug-2024 11:30:10 GMT; Max-Age=7200; path=/; HttpOnly
+                                )
+
+                            [Expires] => Array
+                                (
+                                    [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                                )
+
+                            [Cache-Control] => Array
+                                (
+                                    [0] => no-store, no-cache, must-revalidate
+                                )
+
+                            [Pragma] => Array
+                                (
+                                    [0] => no-cache
+                                )
+
+                            [Access-Control-Allow-Origin] => Array
+                                (
+                                    [0] => *
+                                )
+
+                            [Access-Control-Allow-Headers] => Array
+                                (
+                                    [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                                )
+
+                            [Access-Control-Allow-Methods] => Array
+                                (
+                                    [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                                )
+
+                            [Content-Length] => Array
+                                (
+                                    [0] => 45
+                                )
+
+                            [Connection] => Array
+                                (
+                                    [0] => close
+                                )
+
+                            [Content-Type] => Array
+                                (
+                                    [0] => application/json; charset=utf-8
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [date] => Date
+                            [server] => Server
+                            [set-cookie] => Set-Cookie
+                            [expires] => Expires
+                            [cache-control] => Cache-Control
+                            [pragma] => Pragma
+                            [access-control-allow-origin] => Access-Control-Allow-Origin
+                            [access-control-allow-headers] => Access-Control-Allow-Headers
+                            [access-control-allow-methods] => Access-Control-Allow-Methods
+                            [content-length] => Content-Length
+                            [connection] => Connection
+                            [content-type] => Content-Type
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #719
+                            [size:GuzzleHttp\Psr7\Stream:private] => 
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [transferTime:GuzzleHttp\TransferStats:private] => 0.752184
+            [handlerStats:GuzzleHttp\TransferStats:private] => Array
+                (
+                    [url] => https://shipment.xpressbees.com/api/shipments2/track/14344942049286
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 400
+                    [header_size] => 647
+                    [request_size] => 0
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.752184
+                    [namelookup_time] => 0.000185
+                    [connect_time] => 0.241842
+                    [pretransfer_time] => 0.486559
+                    [size_upload] => 0
+                    [size_download] => 45
+                    [speed_download] => 59
+                    [speed_upload] => 0
+                    [download_content_length] => 45
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.752069
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 65.1.240.231
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 162.241.85.168
+                    [local_port] => 29062
+                    [http_version] => 2
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 486503
+                    [connect_time_us] => 241842
+                    [namelookup_time_us] => 185
+                    [pretransfer_time_us] => 486559
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 752069
+                    [total_time_us] => 752184
+                    [appconnect_time] => 0.486503
+                )
+
+            [handlerErrorData:GuzzleHttp\TransferStats:private] => 0
+        )
+
+)
+14344942049288 Failed | Illuminate\Http\Client\Response Object
+(
+    [response:protected] => GuzzleHttp\Psr7\Response Object
+        (
+            [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+            [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+            [headers:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [Date] => Array
+                        (
+                            [0] => Sun, 04 Aug 2024 09:45:05 GMT
+                        )
+
+                    [Server] => Array
+                        (
+                            [0] => Apache/2.4.41 (Ubuntu)
+                        )
+
+                    [Set-Cookie] => Array
+                        (
+                            [0] => ci_session=65lq45sdd8op7ioa0l78jbgu6rro6hh7; expires=Sun, 04-Aug-2024 11:45:05 GMT; Max-Age=7200; path=/; HttpOnly
+                        )
+
+                    [Expires] => Array
+                        (
+                            [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                        )
+
+                    [Cache-Control] => Array
+                        (
+                            [0] => no-store, no-cache, must-revalidate
+                        )
+
+                    [Pragma] => Array
+                        (
+                            [0] => no-cache
+                        )
+
+                    [Access-Control-Allow-Origin] => Array
+                        (
+                            [0] => *
+                        )
+
+                    [Access-Control-Allow-Headers] => Array
+                        (
+                            [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                        )
+
+                    [Access-Control-Allow-Methods] => Array
+                        (
+                            [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                        )
+
+                    [Content-Length] => Array
+                        (
+                            [0] => 45
+                        )
+
+                    [Connection] => Array
+                        (
+                            [0] => close
+                        )
+
+                    [Content-Type] => Array
+                        (
+                            [0] => application/json; charset=utf-8
+                        )
+
+                )
+
+            [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [date] => Date
+                    [server] => Server
+                    [set-cookie] => Set-Cookie
+                    [expires] => Expires
+                    [cache-control] => Cache-Control
+                    [pragma] => Pragma
+                    [access-control-allow-origin] => Access-Control-Allow-Origin
+                    [access-control-allow-headers] => Access-Control-Allow-Headers
+                    [access-control-allow-methods] => Access-Control-Allow-Methods
+                    [content-length] => Content-Length
+                    [connection] => Connection
+                    [content-type] => Content-Type
+                )
+
+            [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+            [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                (
+                    [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #700
+                    [size:GuzzleHttp\Psr7\Stream:private] => 
+                    [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                    [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [decoded:protected] => 
+    [cookies] => GuzzleHttp\Cookie\CookieJar Object
+        (
+            [cookies:GuzzleHttp\Cookie\CookieJar:private] => Array
+                (
+                    [0] => GuzzleHttp\Cookie\SetCookie Object
+                        (
+                            [data:GuzzleHttp\Cookie\SetCookie:private] => Array
+                                (
+                                    [Name] => ci_session
+                                    [Value] => 65lq45sdd8op7ioa0l78jbgu6rro6hh7
+                                    [Domain] => shipment.xpressbees.com
+                                    [Path] => /
+                                    [Max-Age] => 7200
+                                    [Expires] => 1722771905
+                                    [Secure] => 
+                                    [Discard] => 
+                                    [HttpOnly] => 1
+                                )
+
+                        )
+
+                )
+
+            [strictMode:GuzzleHttp\Cookie\CookieJar:private] => 
+        )
+
+    [transferStats] => GuzzleHttp\TransferStats Object
+        (
+            [request:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Request Object
+                (
+                    [method:GuzzleHttp\Psr7\Request:private] => GET
+                    [requestTarget:GuzzleHttp\Psr7\Request:private] => 
+                    [uri:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Uri Object
+                        (
+                            [scheme:GuzzleHttp\Psr7\Uri:private] => https
+                            [userInfo:GuzzleHttp\Psr7\Uri:private] => 
+                            [host:GuzzleHttp\Psr7\Uri:private] => shipment.xpressbees.com
+                            [port:GuzzleHttp\Psr7\Uri:private] => 
+                            [path:GuzzleHttp\Psr7\Uri:private] => /api/shipments2/track/14344942049288
+                            [query:GuzzleHttp\Psr7\Uri:private] => 
+                            [fragment:GuzzleHttp\Psr7\Uri:private] => 
+                            [composedComponents:GuzzleHttp\Psr7\Uri:private] => https://shipment.xpressbees.com/api/shipments2/track/14344942049288
+                        )
+
+                    [headers:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [User-Agent] => Array
+                                (
+                                    [0] => GuzzleHttp/7
+                                )
+
+                            [Host] => Array
+                                (
+                                    [0] => shipment.xpressbees.com
+                                )
+
+                            [Authorization] => Array
+                                (
+                                    [0] => Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjI3NjM4MDksImp0aSI6Ik9cLzVnMGJCYmp4K0MzSXUyT0pFOW9odWFMVkRHRHdEdGZ2Skk3bXFoaGVNPSIsIm5iZiI6MTcyMjc2MzgwOSwiZXhwIjoxNzIyNzc0NjA5LCJkYXRhIjp7InVzZXJfaWQiOiI5MzU4OSIsInBhcmVudF9pZCI6IjAiLCJlbWFpbCI6InNoaXBuaWNrMTFAZ21haWwuY29tIn19.jnEquoDqLXwwwFKTqQnAKClrKoxcftT0mbESuC6phFd7FeSDlJreIyEh7s76lTQJ6LcPI0NjfFzmS6CjalnDkw
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [user-agent] => User-Agent
+                            [host] => Host
+                            [authorization] => Authorization
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Request:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #691
+                            [size:GuzzleHttp\Psr7\Stream:private] => 0
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [response:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Response Object
+                (
+                    [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+                    [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+                    [headers:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [Date] => Array
+                                (
+                                    [0] => Sun, 04 Aug 2024 09:45:05 GMT
+                                )
+
+                            [Server] => Array
+                                (
+                                    [0] => Apache/2.4.41 (Ubuntu)
+                                )
+
+                            [Set-Cookie] => Array
+                                (
+                                    [0] => ci_session=65lq45sdd8op7ioa0l78jbgu6rro6hh7; expires=Sun, 04-Aug-2024 11:45:05 GMT; Max-Age=7200; path=/; HttpOnly
+                                )
+
+                            [Expires] => Array
+                                (
+                                    [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                                )
+
+                            [Cache-Control] => Array
+                                (
+                                    [0] => no-store, no-cache, must-revalidate
+                                )
+
+                            [Pragma] => Array
+                                (
+                                    [0] => no-cache
+                                )
+
+                            [Access-Control-Allow-Origin] => Array
+                                (
+                                    [0] => *
+                                )
+
+                            [Access-Control-Allow-Headers] => Array
+                                (
+                                    [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                                )
+
+                            [Access-Control-Allow-Methods] => Array
+                                (
+                                    [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                                )
+
+                            [Content-Length] => Array
+                                (
+                                    [0] => 45
+                                )
+
+                            [Connection] => Array
+                                (
+                                    [0] => close
+                                )
+
+                            [Content-Type] => Array
+                                (
+                                    [0] => application/json; charset=utf-8
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [date] => Date
+                            [server] => Server
+                            [set-cookie] => Set-Cookie
+                            [expires] => Expires
+                            [cache-control] => Cache-Control
+                            [pragma] => Pragma
+                            [access-control-allow-origin] => Access-Control-Allow-Origin
+                            [access-control-allow-headers] => Access-Control-Allow-Headers
+                            [access-control-allow-methods] => Access-Control-Allow-Methods
+                            [content-length] => Content-Length
+                            [connection] => Connection
+                            [content-type] => Content-Type
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #700
+                            [size:GuzzleHttp\Psr7\Stream:private] => 
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [transferTime:GuzzleHttp\TransferStats:private] => 0.937191
+            [handlerStats:GuzzleHttp\TransferStats:private] => Array
+                (
+                    [url] => https://shipment.xpressbees.com/api/shipments2/track/14344942049288
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 400
+                    [header_size] => 647
+                    [request_size] => 0
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.937191
+                    [namelookup_time] => 0.150537
+                    [connect_time] => 0.403541
+                    [pretransfer_time] => 0.659481
+                    [size_upload] => 0
+                    [size_download] => 45
+                    [speed_download] => 48
+                    [speed_upload] => 0
+                    [download_content_length] => 45
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.936185
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 65.1.240.231
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 162.241.85.168
+                    [local_port] => 48586
+                    [http_version] => 2
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 659390
+                    [connect_time_us] => 403541
+                    [namelookup_time_us] => 150537
+                    [pretransfer_time_us] => 659481
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 936185
+                    [total_time_us] => 937191
+                    [appconnect_time] => 0.65939
+                )
+
+            [handlerErrorData:GuzzleHttp\TransferStats:private] => 0
+        )
+
+)
+14344942049286 Failed | Illuminate\Http\Client\Response Object
+(
+    [response:protected] => GuzzleHttp\Psr7\Response Object
+        (
+            [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+            [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+            [headers:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [Date] => Array
+                        (
+                            [0] => Sun, 04 Aug 2024 10:00:09 GMT
+                        )
+
+                    [Server] => Array
+                        (
+                            [0] => Apache/2.4.41 (Ubuntu)
+                        )
+
+                    [Set-Cookie] => Array
+                        (
+                            [0] => ci_session=r6rr6ggcf1olm6vii2urpab4eo4apomg; expires=Sun, 04-Aug-2024 12:00:09 GMT; Max-Age=7200; path=/; HttpOnly
+                        )
+
+                    [Expires] => Array
+                        (
+                            [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                        )
+
+                    [Cache-Control] => Array
+                        (
+                            [0] => no-store, no-cache, must-revalidate
+                        )
+
+                    [Pragma] => Array
+                        (
+                            [0] => no-cache
+                        )
+
+                    [Access-Control-Allow-Origin] => Array
+                        (
+                            [0] => *
+                        )
+
+                    [Access-Control-Allow-Headers] => Array
+                        (
+                            [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                        )
+
+                    [Access-Control-Allow-Methods] => Array
+                        (
+                            [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                        )
+
+                    [Content-Length] => Array
+                        (
+                            [0] => 45
+                        )
+
+                    [Connection] => Array
+                        (
+                            [0] => close
+                        )
+
+                    [Content-Type] => Array
+                        (
+                            [0] => application/json; charset=utf-8
+                        )
+
+                )
+
+            [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [date] => Date
+                    [server] => Server
+                    [set-cookie] => Set-Cookie
+                    [expires] => Expires
+                    [cache-control] => Cache-Control
+                    [pragma] => Pragma
+                    [access-control-allow-origin] => Access-Control-Allow-Origin
+                    [access-control-allow-headers] => Access-Control-Allow-Headers
+                    [access-control-allow-methods] => Access-Control-Allow-Methods
+                    [content-length] => Content-Length
+                    [connection] => Connection
+                    [content-type] => Content-Type
+                )
+
+            [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+            [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                (
+                    [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #719
+                    [size:GuzzleHttp\Psr7\Stream:private] => 
+                    [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                    [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [decoded:protected] => 
+    [cookies] => GuzzleHttp\Cookie\CookieJar Object
+        (
+            [cookies:GuzzleHttp\Cookie\CookieJar:private] => Array
+                (
+                    [0] => GuzzleHttp\Cookie\SetCookie Object
+                        (
+                            [data:GuzzleHttp\Cookie\SetCookie:private] => Array
+                                (
+                                    [Name] => ci_session
+                                    [Value] => r6rr6ggcf1olm6vii2urpab4eo4apomg
+                                    [Domain] => shipment.xpressbees.com
+                                    [Path] => /
+                                    [Max-Age] => 7200
+                                    [Expires] => 1722772809
+                                    [Secure] => 
+                                    [Discard] => 
+                                    [HttpOnly] => 1
+                                )
+
+                        )
+
+                )
+
+            [strictMode:GuzzleHttp\Cookie\CookieJar:private] => 
+        )
+
+    [transferStats] => GuzzleHttp\TransferStats Object
+        (
+            [request:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Request Object
+                (
+                    [method:GuzzleHttp\Psr7\Request:private] => GET
+                    [requestTarget:GuzzleHttp\Psr7\Request:private] => 
+                    [uri:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Uri Object
+                        (
+                            [scheme:GuzzleHttp\Psr7\Uri:private] => https
+                            [userInfo:GuzzleHttp\Psr7\Uri:private] => 
+                            [host:GuzzleHttp\Psr7\Uri:private] => shipment.xpressbees.com
+                            [port:GuzzleHttp\Psr7\Uri:private] => 
+                            [path:GuzzleHttp\Psr7\Uri:private] => /api/shipments2/track/14344942049286
+                            [query:GuzzleHttp\Psr7\Uri:private] => 
+                            [fragment:GuzzleHttp\Psr7\Uri:private] => 
+                            [composedComponents:GuzzleHttp\Psr7\Uri:private] => https://shipment.xpressbees.com/api/shipments2/track/14344942049286
+                        )
+
+                    [headers:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [User-Agent] => Array
+                                (
+                                    [0] => GuzzleHttp/7
+                                )
+
+                            [Host] => Array
+                                (
+                                    [0] => shipment.xpressbees.com
+                                )
+
+                            [Authorization] => Array
+                                (
+                                    [0] => Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjI3NjU2MDYsImp0aSI6ImhnQkJudURUNVwvWTdrN1dHUW9IazJONmRcL2tZc0piQTZmaWtBSWdXaVhpVT0iLCJuYmYiOjE3MjI3NjU2MDYsImV4cCI6MTcyMjc3NjQwNiwiZGF0YSI6eyJ1c2VyX2lkIjoiOTM1ODkiLCJwYXJlbnRfaWQiOiIwIiwiZW1haWwiOiJzaGlwbmljazExQGdtYWlsLmNvbSJ9fQ.k0WZ-0ooJxgqy6M71O5he1sNBQW7SETxFn-IM2Lb9U1fwNn87qX9Mh7o147CiDFyotRQL0-y898kZlEzrmu6ng
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [user-agent] => User-Agent
+                            [host] => Host
+                            [authorization] => Authorization
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Request:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #717
+                            [size:GuzzleHttp\Psr7\Stream:private] => 0
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [response:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Response Object
+                (
+                    [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+                    [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+                    [headers:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [Date] => Array
+                                (
+                                    [0] => Sun, 04 Aug 2024 10:00:09 GMT
+                                )
+
+                            [Server] => Array
+                                (
+                                    [0] => Apache/2.4.41 (Ubuntu)
+                                )
+
+                            [Set-Cookie] => Array
+                                (
+                                    [0] => ci_session=r6rr6ggcf1olm6vii2urpab4eo4apomg; expires=Sun, 04-Aug-2024 12:00:09 GMT; Max-Age=7200; path=/; HttpOnly
+                                )
+
+                            [Expires] => Array
+                                (
+                                    [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                                )
+
+                            [Cache-Control] => Array
+                                (
+                                    [0] => no-store, no-cache, must-revalidate
+                                )
+
+                            [Pragma] => Array
+                                (
+                                    [0] => no-cache
+                                )
+
+                            [Access-Control-Allow-Origin] => Array
+                                (
+                                    [0] => *
+                                )
+
+                            [Access-Control-Allow-Headers] => Array
+                                (
+                                    [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                                )
+
+                            [Access-Control-Allow-Methods] => Array
+                                (
+                                    [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                                )
+
+                            [Content-Length] => Array
+                                (
+                                    [0] => 45
+                                )
+
+                            [Connection] => Array
+                                (
+                                    [0] => close
+                                )
+
+                            [Content-Type] => Array
+                                (
+                                    [0] => application/json; charset=utf-8
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [date] => Date
+                            [server] => Server
+                            [set-cookie] => Set-Cookie
+                            [expires] => Expires
+                            [cache-control] => Cache-Control
+                            [pragma] => Pragma
+                            [access-control-allow-origin] => Access-Control-Allow-Origin
+                            [access-control-allow-headers] => Access-Control-Allow-Headers
+                            [access-control-allow-methods] => Access-Control-Allow-Methods
+                            [content-length] => Content-Length
+                            [connection] => Connection
+                            [content-type] => Content-Type
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #719
+                            [size:GuzzleHttp\Psr7\Stream:private] => 
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [transferTime:GuzzleHttp\TransferStats:private] => 2.847303
+            [handlerStats:GuzzleHttp\TransferStats:private] => Array
+                (
+                    [url] => https://shipment.xpressbees.com/api/shipments2/track/14344942049286
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 400
+                    [header_size] => 647
+                    [request_size] => 0
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 2.847303
+                    [namelookup_time] => 0.001227
+                    [connect_time] => 0.244684
+                    [pretransfer_time] => 2.578389
+                    [size_upload] => 0
+                    [size_download] => 45
+                    [speed_download] => 15
+                    [speed_upload] => 0
+                    [download_content_length] => 45
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 2.84709
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 65.1.240.231
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 162.241.85.168
+                    [local_port] => 50242
+                    [http_version] => 2
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 2578323
+                    [connect_time_us] => 244684
+                    [namelookup_time_us] => 1227
+                    [pretransfer_time_us] => 2578389
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 2847090
+                    [total_time_us] => 2847303
+                    [appconnect_time] => 2.578323
+                )
+
+            [handlerErrorData:GuzzleHttp\TransferStats:private] => 0
+        )
+
+)
+14344942049286 Failed | Illuminate\Http\Client\Response Object
+(
+    [response:protected] => GuzzleHttp\Psr7\Response Object
+        (
+            [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+            [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+            [headers:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [Date] => Array
+                        (
+                            [0] => Sun, 04 Aug 2024 10:30:09 GMT
+                        )
+
+                    [Server] => Array
+                        (
+                            [0] => Apache/2.4.41 (Ubuntu)
+                        )
+
+                    [Set-Cookie] => Array
+                        (
+                            [0] => ci_session=nll5qujckgf7ukn6doquv2sb3c2rgibg; expires=Sun, 04-Aug-2024 12:30:09 GMT; Max-Age=7200; path=/; HttpOnly
+                        )
+
+                    [Expires] => Array
+                        (
+                            [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                        )
+
+                    [Cache-Control] => Array
+                        (
+                            [0] => no-store, no-cache, must-revalidate
+                        )
+
+                    [Pragma] => Array
+                        (
+                            [0] => no-cache
+                        )
+
+                    [Access-Control-Allow-Origin] => Array
+                        (
+                            [0] => *
+                        )
+
+                    [Access-Control-Allow-Headers] => Array
+                        (
+                            [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                        )
+
+                    [Access-Control-Allow-Methods] => Array
+                        (
+                            [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                        )
+
+                    [Content-Length] => Array
+                        (
+                            [0] => 45
+                        )
+
+                    [Connection] => Array
+                        (
+                            [0] => close
+                        )
+
+                    [Content-Type] => Array
+                        (
+                            [0] => application/json; charset=utf-8
+                        )
+
+                )
+
+            [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [date] => Date
+                    [server] => Server
+                    [set-cookie] => Set-Cookie
+                    [expires] => Expires
+                    [cache-control] => Cache-Control
+                    [pragma] => Pragma
+                    [access-control-allow-origin] => Access-Control-Allow-Origin
+                    [access-control-allow-headers] => Access-Control-Allow-Headers
+                    [access-control-allow-methods] => Access-Control-Allow-Methods
+                    [content-length] => Content-Length
+                    [connection] => Connection
+                    [content-type] => Content-Type
+                )
+
+            [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+            [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                (
+                    [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #719
+                    [size:GuzzleHttp\Psr7\Stream:private] => 
+                    [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                    [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [decoded:protected] => 
+    [cookies] => GuzzleHttp\Cookie\CookieJar Object
+        (
+            [cookies:GuzzleHttp\Cookie\CookieJar:private] => Array
+                (
+                    [0] => GuzzleHttp\Cookie\SetCookie Object
+                        (
+                            [data:GuzzleHttp\Cookie\SetCookie:private] => Array
+                                (
+                                    [Name] => ci_session
+                                    [Value] => nll5qujckgf7ukn6doquv2sb3c2rgibg
+                                    [Domain] => shipment.xpressbees.com
+                                    [Path] => /
+                                    [Max-Age] => 7200
+                                    [Expires] => 1722774609
+                                    [Secure] => 
+                                    [Discard] => 
+                                    [HttpOnly] => 1
+                                )
+
+                        )
+
+                )
+
+            [strictMode:GuzzleHttp\Cookie\CookieJar:private] => 
+        )
+
+    [transferStats] => GuzzleHttp\TransferStats Object
+        (
+            [request:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Request Object
+                (
+                    [method:GuzzleHttp\Psr7\Request:private] => GET
+                    [requestTarget:GuzzleHttp\Psr7\Request:private] => 
+                    [uri:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Uri Object
+                        (
+                            [scheme:GuzzleHttp\Psr7\Uri:private] => https
+                            [userInfo:GuzzleHttp\Psr7\Uri:private] => 
+                            [host:GuzzleHttp\Psr7\Uri:private] => shipment.xpressbees.com
+                            [port:GuzzleHttp\Psr7\Uri:private] => 
+                            [path:GuzzleHttp\Psr7\Uri:private] => /api/shipments2/track/14344942049286
+                            [query:GuzzleHttp\Psr7\Uri:private] => 
+                            [fragment:GuzzleHttp\Psr7\Uri:private] => 
+                            [composedComponents:GuzzleHttp\Psr7\Uri:private] => https://shipment.xpressbees.com/api/shipments2/track/14344942049286
+                        )
+
+                    [headers:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [User-Agent] => Array
+                                (
+                                    [0] => GuzzleHttp/7
+                                )
+
+                            [Host] => Array
+                                (
+                                    [0] => shipment.xpressbees.com
+                                )
+
+                            [Authorization] => Array
+                                (
+                                    [0] => Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjI3Njc0MDgsImp0aSI6ImV5aGZaY2k1amZ0OG9zNEwyVGpCaEt1ZHRudks3bDZOeUhmMXhiNUlwTGc9IiwibmJmIjoxNzIyNzY3NDA4LCJleHAiOjE3MjI3NzgyMDgsImRhdGEiOnsidXNlcl9pZCI6IjkzNTg5IiwicGFyZW50X2lkIjoiMCIsImVtYWlsIjoic2hpcG5pY2sxMUBnbWFpbC5jb20ifX0.Xah7YoTcmUGA6YGl1CTmykaF3W64COEqdHqEUakQ-3OlZoq4J9QtVTcSFikW2mFSrz04La9eY1ckD2a6KuPGdw
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [user-agent] => User-Agent
+                            [host] => Host
+                            [authorization] => Authorization
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Request:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #717
+                            [size:GuzzleHttp\Psr7\Stream:private] => 0
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [response:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Response Object
+                (
+                    [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+                    [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+                    [headers:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [Date] => Array
+                                (
+                                    [0] => Sun, 04 Aug 2024 10:30:09 GMT
+                                )
+
+                            [Server] => Array
+                                (
+                                    [0] => Apache/2.4.41 (Ubuntu)
+                                )
+
+                            [Set-Cookie] => Array
+                                (
+                                    [0] => ci_session=nll5qujckgf7ukn6doquv2sb3c2rgibg; expires=Sun, 04-Aug-2024 12:30:09 GMT; Max-Age=7200; path=/; HttpOnly
+                                )
+
+                            [Expires] => Array
+                                (
+                                    [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                                )
+
+                            [Cache-Control] => Array
+                                (
+                                    [0] => no-store, no-cache, must-revalidate
+                                )
+
+                            [Pragma] => Array
+                                (
+                                    [0] => no-cache
+                                )
+
+                            [Access-Control-Allow-Origin] => Array
+                                (
+                                    [0] => *
+                                )
+
+                            [Access-Control-Allow-Headers] => Array
+                                (
+                                    [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                                )
+
+                            [Access-Control-Allow-Methods] => Array
+                                (
+                                    [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                                )
+
+                            [Content-Length] => Array
+                                (
+                                    [0] => 45
+                                )
+
+                            [Connection] => Array
+                                (
+                                    [0] => close
+                                )
+
+                            [Content-Type] => Array
+                                (
+                                    [0] => application/json; charset=utf-8
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [date] => Date
+                            [server] => Server
+                            [set-cookie] => Set-Cookie
+                            [expires] => Expires
+                            [cache-control] => Cache-Control
+                            [pragma] => Pragma
+                            [access-control-allow-origin] => Access-Control-Allow-Origin
+                            [access-control-allow-headers] => Access-Control-Allow-Headers
+                            [access-control-allow-methods] => Access-Control-Allow-Methods
+                            [content-length] => Content-Length
+                            [connection] => Connection
+                            [content-type] => Content-Type
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #719
+                            [size:GuzzleHttp\Psr7\Stream:private] => 
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [transferTime:GuzzleHttp\TransferStats:private] => 0.814795
+            [handlerStats:GuzzleHttp\TransferStats:private] => Array
+                (
+                    [url] => https://shipment.xpressbees.com/api/shipments2/track/14344942049286
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 400
+                    [header_size] => 647
+                    [request_size] => 0
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.814795
+                    [namelookup_time] => 0.000421
+                    [connect_time] => 0.257
+                    [pretransfer_time] => 0.513323
+                    [size_upload] => 0
+                    [size_download] => 45
+                    [speed_download] => 55
+                    [speed_upload] => 0
+                    [download_content_length] => 45
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.814659
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 65.1.240.231
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 162.241.85.168
+                    [local_port] => 33550
+                    [http_version] => 2
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 513247
+                    [connect_time_us] => 257000
+                    [namelookup_time_us] => 421
+                    [pretransfer_time_us] => 513323
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 814659
+                    [total_time_us] => 814795
+                    [appconnect_time] => 0.513247
+                )
+
+            [handlerErrorData:GuzzleHttp\TransferStats:private] => 0
+        )
+
+)
+14344942049288 Failed | Illuminate\Http\Client\Response Object
+(
+    [response:protected] => GuzzleHttp\Psr7\Response Object
+        (
+            [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+            [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+            [headers:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [Date] => Array
+                        (
+                            [0] => Sun, 04 Aug 2024 10:45:08 GMT
+                        )
+
+                    [Server] => Array
+                        (
+                            [0] => Apache/2.4.41 (Ubuntu)
+                        )
+
+                    [Set-Cookie] => Array
+                        (
+                            [0] => ci_session=e16trs2pde7a54gtcpnvij846dc9u3b8; expires=Sun, 04-Aug-2024 12:45:08 GMT; Max-Age=7200; path=/; HttpOnly
+                        )
+
+                    [Expires] => Array
+                        (
+                            [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                        )
+
+                    [Cache-Control] => Array
+                        (
+                            [0] => no-store, no-cache, must-revalidate
+                        )
+
+                    [Pragma] => Array
+                        (
+                            [0] => no-cache
+                        )
+
+                    [Access-Control-Allow-Origin] => Array
+                        (
+                            [0] => *
+                        )
+
+                    [Access-Control-Allow-Headers] => Array
+                        (
+                            [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                        )
+
+                    [Access-Control-Allow-Methods] => Array
+                        (
+                            [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                        )
+
+                    [Content-Length] => Array
+                        (
+                            [0] => 45
+                        )
+
+                    [Connection] => Array
+                        (
+                            [0] => close
+                        )
+
+                    [Content-Type] => Array
+                        (
+                            [0] => application/json; charset=utf-8
+                        )
+
+                )
+
+            [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [date] => Date
+                    [server] => Server
+                    [set-cookie] => Set-Cookie
+                    [expires] => Expires
+                    [cache-control] => Cache-Control
+                    [pragma] => Pragma
+                    [access-control-allow-origin] => Access-Control-Allow-Origin
+                    [access-control-allow-headers] => Access-Control-Allow-Headers
+                    [access-control-allow-methods] => Access-Control-Allow-Methods
+                    [content-length] => Content-Length
+                    [connection] => Connection
+                    [content-type] => Content-Type
+                )
+
+            [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+            [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                (
+                    [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #700
+                    [size:GuzzleHttp\Psr7\Stream:private] => 
+                    [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                    [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [decoded:protected] => 
+    [cookies] => GuzzleHttp\Cookie\CookieJar Object
+        (
+            [cookies:GuzzleHttp\Cookie\CookieJar:private] => Array
+                (
+                    [0] => GuzzleHttp\Cookie\SetCookie Object
+                        (
+                            [data:GuzzleHttp\Cookie\SetCookie:private] => Array
+                                (
+                                    [Name] => ci_session
+                                    [Value] => e16trs2pde7a54gtcpnvij846dc9u3b8
+                                    [Domain] => shipment.xpressbees.com
+                                    [Path] => /
+                                    [Max-Age] => 7200
+                                    [Expires] => 1722775508
+                                    [Secure] => 
+                                    [Discard] => 
+                                    [HttpOnly] => 1
+                                )
+
+                        )
+
+                )
+
+            [strictMode:GuzzleHttp\Cookie\CookieJar:private] => 
+        )
+
+    [transferStats] => GuzzleHttp\TransferStats Object
+        (
+            [request:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Request Object
+                (
+                    [method:GuzzleHttp\Psr7\Request:private] => GET
+                    [requestTarget:GuzzleHttp\Psr7\Request:private] => 
+                    [uri:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Uri Object
+                        (
+                            [scheme:GuzzleHttp\Psr7\Uri:private] => https
+                            [userInfo:GuzzleHttp\Psr7\Uri:private] => 
+                            [host:GuzzleHttp\Psr7\Uri:private] => shipment.xpressbees.com
+                            [port:GuzzleHttp\Psr7\Uri:private] => 
+                            [path:GuzzleHttp\Psr7\Uri:private] => /api/shipments2/track/14344942049288
+                            [query:GuzzleHttp\Psr7\Uri:private] => 
+                            [fragment:GuzzleHttp\Psr7\Uri:private] => 
+                            [composedComponents:GuzzleHttp\Psr7\Uri:private] => https://shipment.xpressbees.com/api/shipments2/track/14344942049288
+                        )
+
+                    [headers:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [User-Agent] => Array
+                                (
+                                    [0] => GuzzleHttp/7
+                                )
+
+                            [Host] => Array
+                                (
+                                    [0] => shipment.xpressbees.com
+                                )
+
+                            [Authorization] => Array
+                                (
+                                    [0] => Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjI3Njc0MDgsImp0aSI6ImV5aGZaY2k1amZ0OG9zNEwyVGpCaEt1ZHRudks3bDZOeUhmMXhiNUlwTGc9IiwibmJmIjoxNzIyNzY3NDA4LCJleHAiOjE3MjI3NzgyMDgsImRhdGEiOnsidXNlcl9pZCI6IjkzNTg5IiwicGFyZW50X2lkIjoiMCIsImVtYWlsIjoic2hpcG5pY2sxMUBnbWFpbC5jb20ifX0.Xah7YoTcmUGA6YGl1CTmykaF3W64COEqdHqEUakQ-3OlZoq4J9QtVTcSFikW2mFSrz04La9eY1ckD2a6KuPGdw
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [user-agent] => User-Agent
+                            [host] => Host
+                            [authorization] => Authorization
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Request:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #691
+                            [size:GuzzleHttp\Psr7\Stream:private] => 0
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [response:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Response Object
+                (
+                    [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+                    [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+                    [headers:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [Date] => Array
+                                (
+                                    [0] => Sun, 04 Aug 2024 10:45:08 GMT
+                                )
+
+                            [Server] => Array
+                                (
+                                    [0] => Apache/2.4.41 (Ubuntu)
+                                )
+
+                            [Set-Cookie] => Array
+                                (
+                                    [0] => ci_session=e16trs2pde7a54gtcpnvij846dc9u3b8; expires=Sun, 04-Aug-2024 12:45:08 GMT; Max-Age=7200; path=/; HttpOnly
+                                )
+
+                            [Expires] => Array
+                                (
+                                    [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                                )
+
+                            [Cache-Control] => Array
+                                (
+                                    [0] => no-store, no-cache, must-revalidate
+                                )
+
+                            [Pragma] => Array
+                                (
+                                    [0] => no-cache
+                                )
+
+                            [Access-Control-Allow-Origin] => Array
+                                (
+                                    [0] => *
+                                )
+
+                            [Access-Control-Allow-Headers] => Array
+                                (
+                                    [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                                )
+
+                            [Access-Control-Allow-Methods] => Array
+                                (
+                                    [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                                )
+
+                            [Content-Length] => Array
+                                (
+                                    [0] => 45
+                                )
+
+                            [Connection] => Array
+                                (
+                                    [0] => close
+                                )
+
+                            [Content-Type] => Array
+                                (
+                                    [0] => application/json; charset=utf-8
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [date] => Date
+                            [server] => Server
+                            [set-cookie] => Set-Cookie
+                            [expires] => Expires
+                            [cache-control] => Cache-Control
+                            [pragma] => Pragma
+                            [access-control-allow-origin] => Access-Control-Allow-Origin
+                            [access-control-allow-headers] => Access-Control-Allow-Headers
+                            [access-control-allow-methods] => Access-Control-Allow-Methods
+                            [content-length] => Content-Length
+                            [connection] => Connection
+                            [content-type] => Content-Type
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #700
+                            [size:GuzzleHttp\Psr7\Stream:private] => 
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [transferTime:GuzzleHttp\TransferStats:private] => 5.053215
+            [handlerStats:GuzzleHttp\TransferStats:private] => Array
+                (
+                    [url] => https://shipment.xpressbees.com/api/shipments2/track/14344942049288
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 400
+                    [header_size] => 647
+                    [request_size] => 0
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 5.053215
+                    [namelookup_time] => 0.173183
+                    [connect_time] => 0.427292
+                    [pretransfer_time] => 4.773054
+                    [size_upload] => 0
+                    [size_download] => 45
+                    [speed_download] => 8
+                    [speed_upload] => 0
+                    [download_content_length] => 45
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 5.052197
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 65.1.240.231
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 162.241.85.168
+                    [local_port] => 32146
+                    [http_version] => 2
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 4772932
+                    [connect_time_us] => 427292
+                    [namelookup_time_us] => 173183
+                    [pretransfer_time_us] => 4773054
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 5052197
+                    [total_time_us] => 5053215
+                    [appconnect_time] => 4.772932
+                )
+
+            [handlerErrorData:GuzzleHttp\TransferStats:private] => 0
+        )
+
+)
+14344942049286 Failed | Illuminate\Http\Client\Response Object
+(
+    [response:protected] => GuzzleHttp\Psr7\Response Object
+        (
+            [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+            [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+            [headers:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [Date] => Array
+                        (
+                            [0] => Sun, 04 Aug 2024 11:00:05 GMT
+                        )
+
+                    [Server] => Array
+                        (
+                            [0] => Apache/2.4.41 (Ubuntu)
+                        )
+
+                    [Set-Cookie] => Array
+                        (
+                            [0] => ci_session=8fdlj4gg1knt4no2ou56c6t997j4psh9; expires=Sun, 04-Aug-2024 13:00:05 GMT; Max-Age=7200; path=/; HttpOnly
+                        )
+
+                    [Expires] => Array
+                        (
+                            [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                        )
+
+                    [Cache-Control] => Array
+                        (
+                            [0] => no-store, no-cache, must-revalidate
+                        )
+
+                    [Pragma] => Array
+                        (
+                            [0] => no-cache
+                        )
+
+                    [Access-Control-Allow-Origin] => Array
+                        (
+                            [0] => *
+                        )
+
+                    [Access-Control-Allow-Headers] => Array
+                        (
+                            [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                        )
+
+                    [Access-Control-Allow-Methods] => Array
+                        (
+                            [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                        )
+
+                    [Content-Length] => Array
+                        (
+                            [0] => 45
+                        )
+
+                    [Connection] => Array
+                        (
+                            [0] => close
+                        )
+
+                    [Content-Type] => Array
+                        (
+                            [0] => application/json; charset=utf-8
+                        )
+
+                )
+
+            [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [date] => Date
+                    [server] => Server
+                    [set-cookie] => Set-Cookie
+                    [expires] => Expires
+                    [cache-control] => Cache-Control
+                    [pragma] => Pragma
+                    [access-control-allow-origin] => Access-Control-Allow-Origin
+                    [access-control-allow-headers] => Access-Control-Allow-Headers
+                    [access-control-allow-methods] => Access-Control-Allow-Methods
+                    [content-length] => Content-Length
+                    [connection] => Connection
+                    [content-type] => Content-Type
+                )
+
+            [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+            [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                (
+                    [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #719
+                    [size:GuzzleHttp\Psr7\Stream:private] => 
+                    [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                    [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [decoded:protected] => 
+    [cookies] => GuzzleHttp\Cookie\CookieJar Object
+        (
+            [cookies:GuzzleHttp\Cookie\CookieJar:private] => Array
+                (
+                    [0] => GuzzleHttp\Cookie\SetCookie Object
+                        (
+                            [data:GuzzleHttp\Cookie\SetCookie:private] => Array
+                                (
+                                    [Name] => ci_session
+                                    [Value] => 8fdlj4gg1knt4no2ou56c6t997j4psh9
+                                    [Domain] => shipment.xpressbees.com
+                                    [Path] => /
+                                    [Max-Age] => 7200
+                                    [Expires] => 1722776405
+                                    [Secure] => 
+                                    [Discard] => 
+                                    [HttpOnly] => 1
+                                )
+
+                        )
+
+                )
+
+            [strictMode:GuzzleHttp\Cookie\CookieJar:private] => 
+        )
+
+    [transferStats] => GuzzleHttp\TransferStats Object
+        (
+            [request:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Request Object
+                (
+                    [method:GuzzleHttp\Psr7\Request:private] => GET
+                    [requestTarget:GuzzleHttp\Psr7\Request:private] => 
+                    [uri:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Uri Object
+                        (
+                            [scheme:GuzzleHttp\Psr7\Uri:private] => https
+                            [userInfo:GuzzleHttp\Psr7\Uri:private] => 
+                            [host:GuzzleHttp\Psr7\Uri:private] => shipment.xpressbees.com
+                            [port:GuzzleHttp\Psr7\Uri:private] => 
+                            [path:GuzzleHttp\Psr7\Uri:private] => /api/shipments2/track/14344942049286
+                            [query:GuzzleHttp\Psr7\Uri:private] => 
+                            [fragment:GuzzleHttp\Psr7\Uri:private] => 
+                            [composedComponents:GuzzleHttp\Psr7\Uri:private] => https://shipment.xpressbees.com/api/shipments2/track/14344942049286
+                        )
+
+                    [headers:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [User-Agent] => Array
+                                (
+                                    [0] => GuzzleHttp/7
+                                )
+
+                            [Host] => Array
+                                (
+                                    [0] => shipment.xpressbees.com
+                                )
+
+                            [Authorization] => Array
+                                (
+                                    [0] => Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjI3NjkyMDUsImp0aSI6InVvZGtZcWZ0bXk0N1ZpTHZkc28zRmhmVXZWOGRkeXl6d3ArXC9mK3p2RktrPSIsIm5iZiI6MTcyMjc2OTIwNSwiZXhwIjoxNzIyNzgwMDA1LCJkYXRhIjp7InVzZXJfaWQiOiI5MzU4OSIsInBhcmVudF9pZCI6IjAiLCJlbWFpbCI6InNoaXBuaWNrMTFAZ21haWwuY29tIn19.LU3Grar2DDLgl3m50LnC-sCP4Do5MFJ0wsk3FS-rwpRhuidFXAkZW6bz58hJSg9SMojEc7L08Ve6pwXbZs2Zqw
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [user-agent] => User-Agent
+                            [host] => Host
+                            [authorization] => Authorization
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Request:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #717
+                            [size:GuzzleHttp\Psr7\Stream:private] => 0
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [response:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Response Object
+                (
+                    [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+                    [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+                    [headers:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [Date] => Array
+                                (
+                                    [0] => Sun, 04 Aug 2024 11:00:05 GMT
+                                )
+
+                            [Server] => Array
+                                (
+                                    [0] => Apache/2.4.41 (Ubuntu)
+                                )
+
+                            [Set-Cookie] => Array
+                                (
+                                    [0] => ci_session=8fdlj4gg1knt4no2ou56c6t997j4psh9; expires=Sun, 04-Aug-2024 13:00:05 GMT; Max-Age=7200; path=/; HttpOnly
+                                )
+
+                            [Expires] => Array
+                                (
+                                    [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                                )
+
+                            [Cache-Control] => Array
+                                (
+                                    [0] => no-store, no-cache, must-revalidate
+                                )
+
+                            [Pragma] => Array
+                                (
+                                    [0] => no-cache
+                                )
+
+                            [Access-Control-Allow-Origin] => Array
+                                (
+                                    [0] => *
+                                )
+
+                            [Access-Control-Allow-Headers] => Array
+                                (
+                                    [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                                )
+
+                            [Access-Control-Allow-Methods] => Array
+                                (
+                                    [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                                )
+
+                            [Content-Length] => Array
+                                (
+                                    [0] => 45
+                                )
+
+                            [Connection] => Array
+                                (
+                                    [0] => close
+                                )
+
+                            [Content-Type] => Array
+                                (
+                                    [0] => application/json; charset=utf-8
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [date] => Date
+                            [server] => Server
+                            [set-cookie] => Set-Cookie
+                            [expires] => Expires
+                            [cache-control] => Cache-Control
+                            [pragma] => Pragma
+                            [access-control-allow-origin] => Access-Control-Allow-Origin
+                            [access-control-allow-headers] => Access-Control-Allow-Headers
+                            [access-control-allow-methods] => Access-Control-Allow-Methods
+                            [content-length] => Content-Length
+                            [connection] => Connection
+                            [content-type] => Content-Type
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #719
+                            [size:GuzzleHttp\Psr7\Stream:private] => 
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [transferTime:GuzzleHttp\TransferStats:private] => 0.783618
+            [handlerStats:GuzzleHttp\TransferStats:private] => Array
+                (
+                    [url] => https://shipment.xpressbees.com/api/shipments2/track/14344942049286
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 400
+                    [header_size] => 647
+                    [request_size] => 0
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.783618
+                    [namelookup_time] => 0.002098
+                    [connect_time] => 0.254329
+                    [pretransfer_time] => 0.508444
+                    [size_upload] => 0
+                    [size_download] => 45
+                    [speed_download] => 57
+                    [speed_upload] => 0
+                    [download_content_length] => 45
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.783408
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 65.1.240.231
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 162.241.85.168
+                    [local_port] => 41550
+                    [http_version] => 2
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 508383
+                    [connect_time_us] => 254329
+                    [namelookup_time_us] => 2098
+                    [pretransfer_time_us] => 508444
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 783408
+                    [total_time_us] => 783618
+                    [appconnect_time] => 0.508383
+                )
+
+            [handlerErrorData:GuzzleHttp\TransferStats:private] => 0
+        )
+
+)
+14344942049286 Failed | Illuminate\Http\Client\Response Object
+(
+    [response:protected] => GuzzleHttp\Psr7\Response Object
+        (
+            [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+            [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+            [headers:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [Date] => Array
+                        (
+                            [0] => Sun, 04 Aug 2024 11:30:07 GMT
+                        )
+
+                    [Server] => Array
+                        (
+                            [0] => Apache/2.4.41 (Ubuntu)
+                        )
+
+                    [Set-Cookie] => Array
+                        (
+                            [0] => ci_session=tog11lh74373aastp02avv4ogjnatten; expires=Sun, 04-Aug-2024 13:30:07 GMT; Max-Age=7200; path=/; HttpOnly
+                        )
+
+                    [Expires] => Array
+                        (
+                            [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                        )
+
+                    [Cache-Control] => Array
+                        (
+                            [0] => no-store, no-cache, must-revalidate
+                        )
+
+                    [Pragma] => Array
+                        (
+                            [0] => no-cache
+                        )
+
+                    [Access-Control-Allow-Origin] => Array
+                        (
+                            [0] => *
+                        )
+
+                    [Access-Control-Allow-Headers] => Array
+                        (
+                            [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                        )
+
+                    [Access-Control-Allow-Methods] => Array
+                        (
+                            [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                        )
+
+                    [Content-Length] => Array
+                        (
+                            [0] => 45
+                        )
+
+                    [Connection] => Array
+                        (
+                            [0] => close
+                        )
+
+                    [Content-Type] => Array
+                        (
+                            [0] => application/json; charset=utf-8
+                        )
+
+                )
+
+            [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [date] => Date
+                    [server] => Server
+                    [set-cookie] => Set-Cookie
+                    [expires] => Expires
+                    [cache-control] => Cache-Control
+                    [pragma] => Pragma
+                    [access-control-allow-origin] => Access-Control-Allow-Origin
+                    [access-control-allow-headers] => Access-Control-Allow-Headers
+                    [access-control-allow-methods] => Access-Control-Allow-Methods
+                    [content-length] => Content-Length
+                    [connection] => Connection
+                    [content-type] => Content-Type
+                )
+
+            [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+            [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                (
+                    [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #719
+                    [size:GuzzleHttp\Psr7\Stream:private] => 
+                    [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                    [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [decoded:protected] => 
+    [cookies] => GuzzleHttp\Cookie\CookieJar Object
+        (
+            [cookies:GuzzleHttp\Cookie\CookieJar:private] => Array
+                (
+                    [0] => GuzzleHttp\Cookie\SetCookie Object
+                        (
+                            [data:GuzzleHttp\Cookie\SetCookie:private] => Array
+                                (
+                                    [Name] => ci_session
+                                    [Value] => tog11lh74373aastp02avv4ogjnatten
+                                    [Domain] => shipment.xpressbees.com
+                                    [Path] => /
+                                    [Max-Age] => 7200
+                                    [Expires] => 1722778207
+                                    [Secure] => 
+                                    [Discard] => 
+                                    [HttpOnly] => 1
+                                )
+
+                        )
+
+                )
+
+            [strictMode:GuzzleHttp\Cookie\CookieJar:private] => 
+        )
+
+    [transferStats] => GuzzleHttp\TransferStats Object
+        (
+            [request:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Request Object
+                (
+                    [method:GuzzleHttp\Psr7\Request:private] => GET
+                    [requestTarget:GuzzleHttp\Psr7\Request:private] => 
+                    [uri:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Uri Object
+                        (
+                            [scheme:GuzzleHttp\Psr7\Uri:private] => https
+                            [userInfo:GuzzleHttp\Psr7\Uri:private] => 
+                            [host:GuzzleHttp\Psr7\Uri:private] => shipment.xpressbees.com
+                            [port:GuzzleHttp\Psr7\Uri:private] => 
+                            [path:GuzzleHttp\Psr7\Uri:private] => /api/shipments2/track/14344942049286
+                            [query:GuzzleHttp\Psr7\Uri:private] => 
+                            [fragment:GuzzleHttp\Psr7\Uri:private] => 
+                            [composedComponents:GuzzleHttp\Psr7\Uri:private] => https://shipment.xpressbees.com/api/shipments2/track/14344942049286
+                        )
+
+                    [headers:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [User-Agent] => Array
+                                (
+                                    [0] => GuzzleHttp/7
+                                )
+
+                            [Host] => Array
+                                (
+                                    [0] => shipment.xpressbees.com
+                                )
+
+                            [Authorization] => Array
+                                (
+                                    [0] => Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjI3NzEwMDYsImp0aSI6ImphcjNIXC9DZDlMbG5kYnRZQzJkWDY2SHYxSmVudllta3lGOFpObnJUdXM4PSIsIm5iZiI6MTcyMjc3MTAwNiwiZXhwIjoxNzIyNzgxODA2LCJkYXRhIjp7InVzZXJfaWQiOiI5MzU4OSIsInBhcmVudF9pZCI6IjAiLCJlbWFpbCI6InNoaXBuaWNrMTFAZ21haWwuY29tIn19.OZT_CwBr6I1XM8A_X6FNGZ05BGjSl8xDuJqI4TWQ83j4MFAF4M5DP_NqVYaur87h9LM-KMUrW2JMchwZvgOSqQ
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [user-agent] => User-Agent
+                            [host] => Host
+                            [authorization] => Authorization
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Request:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #717
+                            [size:GuzzleHttp\Psr7\Stream:private] => 0
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [response:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Response Object
+                (
+                    [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+                    [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+                    [headers:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [Date] => Array
+                                (
+                                    [0] => Sun, 04 Aug 2024 11:30:07 GMT
+                                )
+
+                            [Server] => Array
+                                (
+                                    [0] => Apache/2.4.41 (Ubuntu)
+                                )
+
+                            [Set-Cookie] => Array
+                                (
+                                    [0] => ci_session=tog11lh74373aastp02avv4ogjnatten; expires=Sun, 04-Aug-2024 13:30:07 GMT; Max-Age=7200; path=/; HttpOnly
+                                )
+
+                            [Expires] => Array
+                                (
+                                    [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                                )
+
+                            [Cache-Control] => Array
+                                (
+                                    [0] => no-store, no-cache, must-revalidate
+                                )
+
+                            [Pragma] => Array
+                                (
+                                    [0] => no-cache
+                                )
+
+                            [Access-Control-Allow-Origin] => Array
+                                (
+                                    [0] => *
+                                )
+
+                            [Access-Control-Allow-Headers] => Array
+                                (
+                                    [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                                )
+
+                            [Access-Control-Allow-Methods] => Array
+                                (
+                                    [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                                )
+
+                            [Content-Length] => Array
+                                (
+                                    [0] => 45
+                                )
+
+                            [Connection] => Array
+                                (
+                                    [0] => close
+                                )
+
+                            [Content-Type] => Array
+                                (
+                                    [0] => application/json; charset=utf-8
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [date] => Date
+                            [server] => Server
+                            [set-cookie] => Set-Cookie
+                            [expires] => Expires
+                            [cache-control] => Cache-Control
+                            [pragma] => Pragma
+                            [access-control-allow-origin] => Access-Control-Allow-Origin
+                            [access-control-allow-headers] => Access-Control-Allow-Headers
+                            [access-control-allow-methods] => Access-Control-Allow-Methods
+                            [content-length] => Content-Length
+                            [connection] => Connection
+                            [content-type] => Content-Type
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #719
+                            [size:GuzzleHttp\Psr7\Stream:private] => 
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [transferTime:GuzzleHttp\TransferStats:private] => 1.032783
+            [handlerStats:GuzzleHttp\TransferStats:private] => Array
+                (
+                    [url] => https://shipment.xpressbees.com/api/shipments2/track/14344942049286
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 400
+                    [header_size] => 647
+                    [request_size] => 0
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 1.032783
+                    [namelookup_time] => 0.001274
+                    [connect_time] => 0.247383
+                    [pretransfer_time] => 0.496978
+                    [size_upload] => 0
+                    [size_download] => 45
+                    [speed_download] => 43
+                    [speed_upload] => 0
+                    [download_content_length] => 45
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 1.032574
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 65.1.240.231
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 162.241.85.168
+                    [local_port] => 21030
+                    [http_version] => 2
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 496866
+                    [connect_time_us] => 247383
+                    [namelookup_time_us] => 1274
+                    [pretransfer_time_us] => 496978
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 1032574
+                    [total_time_us] => 1032783
+                    [appconnect_time] => 0.496866
+                )
+
+            [handlerErrorData:GuzzleHttp\TransferStats:private] => 0
+        )
+
+)
+14344942049288 Failed | Illuminate\Http\Client\Response Object
+(
+    [response:protected] => GuzzleHttp\Psr7\Response Object
+        (
+            [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+            [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+            [headers:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [Date] => Array
+                        (
+                            [0] => Sun, 04 Aug 2024 11:45:05 GMT
+                        )
+
+                    [Server] => Array
+                        (
+                            [0] => Apache/2.4.41 (Ubuntu)
+                        )
+
+                    [Set-Cookie] => Array
+                        (
+                            [0] => ci_session=nvsoj5e52gci2rjq7njbp1mlqr2j8nap; expires=Sun, 04-Aug-2024 13:45:05 GMT; Max-Age=7200; path=/; HttpOnly
+                        )
+
+                    [Expires] => Array
+                        (
+                            [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                        )
+
+                    [Cache-Control] => Array
+                        (
+                            [0] => no-store, no-cache, must-revalidate
+                        )
+
+                    [Pragma] => Array
+                        (
+                            [0] => no-cache
+                        )
+
+                    [Access-Control-Allow-Origin] => Array
+                        (
+                            [0] => *
+                        )
+
+                    [Access-Control-Allow-Headers] => Array
+                        (
+                            [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                        )
+
+                    [Access-Control-Allow-Methods] => Array
+                        (
+                            [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                        )
+
+                    [Content-Length] => Array
+                        (
+                            [0] => 45
+                        )
+
+                    [Connection] => Array
+                        (
+                            [0] => close
+                        )
+
+                    [Content-Type] => Array
+                        (
+                            [0] => application/json; charset=utf-8
+                        )
+
+                )
+
+            [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [date] => Date
+                    [server] => Server
+                    [set-cookie] => Set-Cookie
+                    [expires] => Expires
+                    [cache-control] => Cache-Control
+                    [pragma] => Pragma
+                    [access-control-allow-origin] => Access-Control-Allow-Origin
+                    [access-control-allow-headers] => Access-Control-Allow-Headers
+                    [access-control-allow-methods] => Access-Control-Allow-Methods
+                    [content-length] => Content-Length
+                    [connection] => Connection
+                    [content-type] => Content-Type
+                )
+
+            [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+            [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                (
+                    [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #700
+                    [size:GuzzleHttp\Psr7\Stream:private] => 
+                    [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                    [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [decoded:protected] => 
+    [cookies] => GuzzleHttp\Cookie\CookieJar Object
+        (
+            [cookies:GuzzleHttp\Cookie\CookieJar:private] => Array
+                (
+                    [0] => GuzzleHttp\Cookie\SetCookie Object
+                        (
+                            [data:GuzzleHttp\Cookie\SetCookie:private] => Array
+                                (
+                                    [Name] => ci_session
+                                    [Value] => nvsoj5e52gci2rjq7njbp1mlqr2j8nap
+                                    [Domain] => shipment.xpressbees.com
+                                    [Path] => /
+                                    [Max-Age] => 7200
+                                    [Expires] => 1722779105
+                                    [Secure] => 
+                                    [Discard] => 
+                                    [HttpOnly] => 1
+                                )
+
+                        )
+
+                )
+
+            [strictMode:GuzzleHttp\Cookie\CookieJar:private] => 
+        )
+
+    [transferStats] => GuzzleHttp\TransferStats Object
+        (
+            [request:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Request Object
+                (
+                    [method:GuzzleHttp\Psr7\Request:private] => GET
+                    [requestTarget:GuzzleHttp\Psr7\Request:private] => 
+                    [uri:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Uri Object
+                        (
+                            [scheme:GuzzleHttp\Psr7\Uri:private] => https
+                            [userInfo:GuzzleHttp\Psr7\Uri:private] => 
+                            [host:GuzzleHttp\Psr7\Uri:private] => shipment.xpressbees.com
+                            [port:GuzzleHttp\Psr7\Uri:private] => 
+                            [path:GuzzleHttp\Psr7\Uri:private] => /api/shipments2/track/14344942049288
+                            [query:GuzzleHttp\Psr7\Uri:private] => 
+                            [fragment:GuzzleHttp\Psr7\Uri:private] => 
+                            [composedComponents:GuzzleHttp\Psr7\Uri:private] => https://shipment.xpressbees.com/api/shipments2/track/14344942049288
+                        )
+
+                    [headers:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [User-Agent] => Array
+                                (
+                                    [0] => GuzzleHttp/7
+                                )
+
+                            [Host] => Array
+                                (
+                                    [0] => shipment.xpressbees.com
+                                )
+
+                            [Authorization] => Array
+                                (
+                                    [0] => Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjI3NzEwMDYsImp0aSI6ImphcjNIXC9DZDlMbG5kYnRZQzJkWDY2SHYxSmVudllta3lGOFpObnJUdXM4PSIsIm5iZiI6MTcyMjc3MTAwNiwiZXhwIjoxNzIyNzgxODA2LCJkYXRhIjp7InVzZXJfaWQiOiI5MzU4OSIsInBhcmVudF9pZCI6IjAiLCJlbWFpbCI6InNoaXBuaWNrMTFAZ21haWwuY29tIn19.OZT_CwBr6I1XM8A_X6FNGZ05BGjSl8xDuJqI4TWQ83j4MFAF4M5DP_NqVYaur87h9LM-KMUrW2JMchwZvgOSqQ
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [user-agent] => User-Agent
+                            [host] => Host
+                            [authorization] => Authorization
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Request:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #691
+                            [size:GuzzleHttp\Psr7\Stream:private] => 0
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [response:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Response Object
+                (
+                    [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+                    [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+                    [headers:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [Date] => Array
+                                (
+                                    [0] => Sun, 04 Aug 2024 11:45:05 GMT
+                                )
+
+                            [Server] => Array
+                                (
+                                    [0] => Apache/2.4.41 (Ubuntu)
+                                )
+
+                            [Set-Cookie] => Array
+                                (
+                                    [0] => ci_session=nvsoj5e52gci2rjq7njbp1mlqr2j8nap; expires=Sun, 04-Aug-2024 13:45:05 GMT; Max-Age=7200; path=/; HttpOnly
+                                )
+
+                            [Expires] => Array
+                                (
+                                    [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                                )
+
+                            [Cache-Control] => Array
+                                (
+                                    [0] => no-store, no-cache, must-revalidate
+                                )
+
+                            [Pragma] => Array
+                                (
+                                    [0] => no-cache
+                                )
+
+                            [Access-Control-Allow-Origin] => Array
+                                (
+                                    [0] => *
+                                )
+
+                            [Access-Control-Allow-Headers] => Array
+                                (
+                                    [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                                )
+
+                            [Access-Control-Allow-Methods] => Array
+                                (
+                                    [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                                )
+
+                            [Content-Length] => Array
+                                (
+                                    [0] => 45
+                                )
+
+                            [Connection] => Array
+                                (
+                                    [0] => close
+                                )
+
+                            [Content-Type] => Array
+                                (
+                                    [0] => application/json; charset=utf-8
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [date] => Date
+                            [server] => Server
+                            [set-cookie] => Set-Cookie
+                            [expires] => Expires
+                            [cache-control] => Cache-Control
+                            [pragma] => Pragma
+                            [access-control-allow-origin] => Access-Control-Allow-Origin
+                            [access-control-allow-headers] => Access-Control-Allow-Headers
+                            [access-control-allow-methods] => Access-Control-Allow-Methods
+                            [content-length] => Content-Length
+                            [connection] => Connection
+                            [content-type] => Content-Type
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #700
+                            [size:GuzzleHttp\Psr7\Stream:private] => 
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [transferTime:GuzzleHttp\TransferStats:private] => 0.937563
+            [handlerStats:GuzzleHttp\TransferStats:private] => Array
+                (
+                    [url] => https://shipment.xpressbees.com/api/shipments2/track/14344942049288
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 400
+                    [header_size] => 647
+                    [request_size] => 0
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 0.937563
+                    [namelookup_time] => 0.163038
+                    [connect_time] => 0.413129
+                    [pretransfer_time] => 0.663557
+                    [size_upload] => 0
+                    [size_download] => 45
+                    [speed_download] => 47
+                    [speed_upload] => 0
+                    [download_content_length] => 45
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 0.934801
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 65.1.240.231
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 162.241.85.168
+                    [local_port] => 16596
+                    [http_version] => 2
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 663465
+                    [connect_time_us] => 413129
+                    [namelookup_time_us] => 163038
+                    [pretransfer_time_us] => 663557
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 934801
+                    [total_time_us] => 937563
+                    [appconnect_time] => 0.663465
+                )
+
+            [handlerErrorData:GuzzleHttp\TransferStats:private] => 0
+        )
+
+)
+
+
+ECom status update for 410014028197 : Shipment Not Handed over | 001
+
+ECom status update for 410014028198 : Shipment Not Handed over | 00114344942014441 Failed | Illuminate\Http\Client\Response Object
+(
+    [response:protected] => GuzzleHttp\Psr7\Response Object
+        (
+            [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+            [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+            [headers:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [Date] => Array
+                        (
+                            [0] => Mon, 05 Aug 2024 06:15:10 GMT
+                        )
+
+                    [Server] => Array
+                        (
+                            [0] => Apache/2.4.41 (Ubuntu)
+                        )
+
+                    [Set-Cookie] => Array
+                        (
+                            [0] => ci_session=j1h20k9pjsq1mr368dqfpf0fg52iclnh; expires=Mon, 05-Aug-2024 08:15:10 GMT; Max-Age=7200; path=/; HttpOnly
+                        )
+
+                    [Expires] => Array
+                        (
+                            [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                        )
+
+                    [Cache-Control] => Array
+                        (
+                            [0] => no-store, no-cache, must-revalidate
+                        )
+
+                    [Pragma] => Array
+                        (
+                            [0] => no-cache
+                        )
+
+                    [Access-Control-Allow-Origin] => Array
+                        (
+                            [0] => *
+                        )
+
+                    [Access-Control-Allow-Headers] => Array
+                        (
+                            [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                        )
+
+                    [Access-Control-Allow-Methods] => Array
+                        (
+                            [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                        )
+
+                    [Content-Length] => Array
+                        (
+                            [0] => 45
+                        )
+
+                    [Connection] => Array
+                        (
+                            [0] => close
+                        )
+
+                    [Content-Type] => Array
+                        (
+                            [0] => application/json; charset=utf-8
+                        )
+
+                )
+
+            [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                (
+                    [date] => Date
+                    [server] => Server
+                    [set-cookie] => Set-Cookie
+                    [expires] => Expires
+                    [cache-control] => Cache-Control
+                    [pragma] => Pragma
+                    [access-control-allow-origin] => Access-Control-Allow-Origin
+                    [access-control-allow-headers] => Access-Control-Allow-Headers
+                    [access-control-allow-methods] => Access-Control-Allow-Methods
+                    [content-length] => Content-Length
+                    [connection] => Connection
+                    [content-type] => Content-Type
+                )
+
+            [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+            [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                (
+                    [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #700
+                    [size:GuzzleHttp\Psr7\Stream:private] => 
+                    [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                    [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                    [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [decoded:protected] => 
+    [cookies] => GuzzleHttp\Cookie\CookieJar Object
+        (
+            [cookies:GuzzleHttp\Cookie\CookieJar:private] => Array
+                (
+                    [0] => GuzzleHttp\Cookie\SetCookie Object
+                        (
+                            [data:GuzzleHttp\Cookie\SetCookie:private] => Array
+                                (
+                                    [Name] => ci_session
+                                    [Value] => j1h20k9pjsq1mr368dqfpf0fg52iclnh
+                                    [Domain] => shipment.xpressbees.com
+                                    [Path] => /
+                                    [Max-Age] => 7200
+                                    [Expires] => 1722845710
+                                    [Secure] => 
+                                    [Discard] => 
+                                    [HttpOnly] => 1
+                                )
+
+                        )
+
+                )
+
+            [strictMode:GuzzleHttp\Cookie\CookieJar:private] => 
+        )
+
+    [transferStats] => GuzzleHttp\TransferStats Object
+        (
+            [request:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Request Object
+                (
+                    [method:GuzzleHttp\Psr7\Request:private] => GET
+                    [requestTarget:GuzzleHttp\Psr7\Request:private] => 
+                    [uri:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Uri Object
+                        (
+                            [scheme:GuzzleHttp\Psr7\Uri:private] => https
+                            [userInfo:GuzzleHttp\Psr7\Uri:private] => 
+                            [host:GuzzleHttp\Psr7\Uri:private] => shipment.xpressbees.com
+                            [port:GuzzleHttp\Psr7\Uri:private] => 
+                            [path:GuzzleHttp\Psr7\Uri:private] => /api/shipments2/track/14344942014441
+                            [query:GuzzleHttp\Psr7\Uri:private] => 
+                            [fragment:GuzzleHttp\Psr7\Uri:private] => 
+                            [composedComponents:GuzzleHttp\Psr7\Uri:private] => https://shipment.xpressbees.com/api/shipments2/track/14344942014441
+                        )
+
+                    [headers:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [User-Agent] => Array
+                                (
+                                    [0] => GuzzleHttp/7
+                                )
+
+                            [Host] => Array
+                                (
+                                    [0] => shipment.xpressbees.com
+                                )
+
+                            [Authorization] => Array
+                                (
+                                    [0] => Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjI4MzcwMTUsImp0aSI6ImhGVXlFanpXVVlYbWd6YnRzWEltSUw1dTNGOWRUT1NRc0RBM01nd2VTRG89IiwibmJmIjoxNzIyODM3MDE1LCJleHAiOjE3MjI4NDc4MTUsImRhdGEiOnsidXNlcl9pZCI6IjkzNTg5IiwicGFyZW50X2lkIjoiMCIsImVtYWlsIjoic2hpcG5pY2sxMUBnbWFpbC5jb20ifX0.DRY8gD_S_9pYwjWEu9XBzVVdQ-9guKNbyu9rTVwOz6nBtXpl5gNOlkaSZ17_5Yfpx3-iu32sBlBoi3vfZ8ZLCQ
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Request:private] => Array
+                        (
+                            [user-agent] => User-Agent
+                            [host] => Host
+                            [authorization] => Authorization
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Request:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Request:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #691
+                            [size:GuzzleHttp\Psr7\Stream:private] => 0
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [response:GuzzleHttp\TransferStats:private] => GuzzleHttp\Psr7\Response Object
+                (
+                    [reasonPhrase:GuzzleHttp\Psr7\Response:private] => Bad Request
+                    [statusCode:GuzzleHttp\Psr7\Response:private] => 400
+                    [headers:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [Date] => Array
+                                (
+                                    [0] => Mon, 05 Aug 2024 06:15:10 GMT
+                                )
+
+                            [Server] => Array
+                                (
+                                    [0] => Apache/2.4.41 (Ubuntu)
+                                )
+
+                            [Set-Cookie] => Array
+                                (
+                                    [0] => ci_session=j1h20k9pjsq1mr368dqfpf0fg52iclnh; expires=Mon, 05-Aug-2024 08:15:10 GMT; Max-Age=7200; path=/; HttpOnly
+                                )
+
+                            [Expires] => Array
+                                (
+                                    [0] => Thu, 19 Nov 1981 08:52:00 GMT
+                                )
+
+                            [Cache-Control] => Array
+                                (
+                                    [0] => no-store, no-cache, must-revalidate
+                                )
+
+                            [Pragma] => Array
+                                (
+                                    [0] => no-cache
+                                )
+
+                            [Access-Control-Allow-Origin] => Array
+                                (
+                                    [0] => *
+                                )
+
+                            [Access-Control-Allow-Headers] => Array
+                                (
+                                    [0] => Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization
+                                )
+
+                            [Access-Control-Allow-Methods] => Array
+                                (
+                                    [0] => GET, POST, OPTIONS, PUT, PATCH, DELETE
+                                )
+
+                            [Content-Length] => Array
+                                (
+                                    [0] => 45
+                                )
+
+                            [Connection] => Array
+                                (
+                                    [0] => close
+                                )
+
+                            [Content-Type] => Array
+                                (
+                                    [0] => application/json; charset=utf-8
+                                )
+
+                        )
+
+                    [headerNames:GuzzleHttp\Psr7\Response:private] => Array
+                        (
+                            [date] => Date
+                            [server] => Server
+                            [set-cookie] => Set-Cookie
+                            [expires] => Expires
+                            [cache-control] => Cache-Control
+                            [pragma] => Pragma
+                            [access-control-allow-origin] => Access-Control-Allow-Origin
+                            [access-control-allow-headers] => Access-Control-Allow-Headers
+                            [access-control-allow-methods] => Access-Control-Allow-Methods
+                            [content-length] => Content-Length
+                            [connection] => Connection
+                            [content-type] => Content-Type
+                        )
+
+                    [protocol:GuzzleHttp\Psr7\Response:private] => 1.1
+                    [stream:GuzzleHttp\Psr7\Response:private] => GuzzleHttp\Psr7\Stream Object
+                        (
+                            [stream:GuzzleHttp\Psr7\Stream:private] => Resource id #700
+                            [size:GuzzleHttp\Psr7\Stream:private] => 
+                            [seekable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [readable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [writable:GuzzleHttp\Psr7\Stream:private] => 1
+                            [uri:GuzzleHttp\Psr7\Stream:private] => php://temp
+                            [customMetadata:GuzzleHttp\Psr7\Stream:private] => Array
+                                (
+                                )
+
+                        )
+
+                )
+
+            [transferTime:GuzzleHttp\TransferStats:private] => 6.766713
+            [handlerStats:GuzzleHttp\TransferStats:private] => Array
+                (
+                    [url] => https://shipment.xpressbees.com/api/shipments2/track/14344942014441
+                    [content_type] => application/json; charset=utf-8
+                    [http_code] => 400
+                    [header_size] => 647
+                    [request_size] => 0
+                    [filetime] => -1
+                    [ssl_verify_result] => 20
+                    [redirect_count] => 0
+                    [total_time] => 6.766713
+                    [namelookup_time] => 0.00036
+                    [connect_time] => 1.267229
+                    [pretransfer_time] => 6.494622
+                    [size_upload] => 0
+                    [size_download] => 45
+                    [speed_download] => 6
+                    [speed_upload] => 0
+                    [download_content_length] => 45
+                    [upload_content_length] => 0
+                    [starttransfer_time] => 6.765886
+                    [redirect_time] => 0
+                    [redirect_url] => 
+                    [primary_ip] => 65.1.240.231
+                    [certinfo] => Array
+                        (
+                        )
+
+                    [primary_port] => 443
+                    [local_ip] => 162.241.85.168
+                    [local_port] => 16742
+                    [http_version] => 2
+                    [protocol] => 2
+                    [ssl_verifyresult] => 0
+                    [scheme] => HTTPS
+                    [appconnect_time_us] => 6494564
+                    [connect_time_us] => 1267229
+                    [namelookup_time_us] => 360
+                    [pretransfer_time_us] => 6494622
+                    [redirect_time_us] => 0
+                    [starttransfer_time_us] => 6765886
+                    [total_time_us] => 6766713
+                    [appconnect_time] => 6.494564
+                )
+
+            [handlerErrorData:GuzzleHttp\TransferStats:private] => 0
+        )
+
+)
+
+
+ECom status update for 410014024324 : Connected | 003
+
+ECom status update for 410014024325 : Connected | 003
+
+ECom status update for 410014024327 : Connected | 003
+
+ECom status update for 410014024329 : Connected | 003
+
+ECom status update for 410014024337 : Undelivered | 210 
+
+ECom status update for 410014024342 : Connected | 003
+
+ECom status update for 410014024354 : Connected | 003
+
+ECom status update for 410014024359 : Connected | 003
+
+ECom status update for 410014024362 : Connected | 003
+
+ECom status update for 410014024369 : Connected | 003
+
+ECom status update for 410014024371 : Connected | 003
+
+ECom status update for 410014024374 : Connected | 003
+
+ECom status update for 410014024377 : Connected | 003
+
+ECom status update for 410014024380 : Connected | 003
+
+ECom status update for 410014024390 : Connected | 003
+
+ECom status update for 410014024408 : Connected | 003
+
+ECom status update for 410014024417 : Connected | 003
+
+ECom status update for 410014024326 : Connected | 003
+
+ECom status update for 410014024328 : Connected | 003
+
+ECom status update for 410014024335 : Connected | 003
+
+ECom status update for 410014024339 : Connected | 003
+
+ECom status update for 410014024350 : Connected | 003
+
+ECom status update for 410014024352 : Connected | 003
+
+ECom status update for 410014024356 : Connected | 003
+
+ECom status update for 410014024361 : Connected | 003
+
+ECom status update for 410014024364 : Connected | 003
+
+ECom status update for 410014024370 : Connected | 003
+
+ECom status update for 410014024375 : Connected | 003
+
+ECom status update for 410014024383 : Connected | 003
+
+ECom status update for 410014024385 : Connected | 003
+
+ECom status update for 410014024389 : Connected | 003
+
+ECom status update for 410014024392 : Connected | 003
+
+ECom status update for 410014024394 : Connected | 003
+
+ECom status update for 410014024400 : Connected | 003
+
+ECom status update for 410014024405 : Connected | 003
+
+ECom status update for 410014024409 : 
+
+ECom status update for 410014024409 : Connected | 003
+
+ECom status update for 410014024994 : Connected | 003

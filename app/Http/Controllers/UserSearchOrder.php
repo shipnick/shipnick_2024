@@ -334,6 +334,82 @@ class UserSearchOrder extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+     public function orderStatus311()
+    {
+
+        try {
+            $orders = bulkorders::where('awb_gen_by', 'Xpressbee')
+                  ->where('User_Id', '159')
+                //   ->where('User_Id', '!=', '109')
+                  ->where('Rec_Time_Date', '2024-08-03')
+                // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
+                // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
+                // ->whereIn('showerrors', ['pending pickup'])
+                ->where('order_status', 'upload')
+                ->where('order_cancel', '!=', '1')
+                ->whereNotNull('Awb_Number')
+                ->orderBy('Single_Order_Id', 'desc')
+                ->limit(80)
+                ->select('Awb_Number')
+                ->get();
+
+            if ($orders->isEmpty()) {
+                return response()->json(['error' => 'No orders found'], 404);
+            }
+            set_time_limit(300);
+            $completedOrders = 0;
+
+            foreach ($orders as $order) {
+                $awbNumber = $order->Awb_Number;
+
+                bulkorders::where('Awb_Number', $awbNumber)->update(['order_status' => '1']);
+
+                $response = Http::withHeaders([
+                    'Content-Type' => 'application/json',
+                ])->post('https://shipment.xpressbees.com/api/users/login', [
+                    'email' => 'glamfuseindia67@gmail.com',
+                            'password' => 'shyam104A@',
+                ]);
+
+                $responseic = $response->json(); // Decode JSON response
+                $xpressbeetoken = $responseic['data']; // Extract token from response data
+                $xpressbeetoken;
+
+                // $xpressbeetoken = $this->getXpressbeeToken();
+
+                $response = Http::withHeaders([
+                    'Authorization' => 'Bearer ' . $xpressbeetoken,
+                ])->get("https://shipment.xpressbees.com/api/shipments2/track/{$awbNumber}");
+
+                if ($response->successful()) {
+                    $responseData = $response->json();
+                    echo $status = $responseData['data']['status'];
+                    echo $awbNumber;
+
+                    bulkorders::where('Awb_Number', $awbNumber)->update([
+                        'showerrors' => $status,
+                        'order_status_show' => $status,
+
+                    ]);
+
+
+
+
+
+
+                    $completedOrders++;
+                } else {
+                    // Handle HTTP request failure
+                    return response()->json(['error' => 'HTTP request failed'], $response->status());
+                }
+            }
+
+            return response()->json(['message' => 'Order statuses updated successfully', 'completedOrders' => $completedOrders], 200);
+        } catch (\Exception $e) {
+            // Log the error or handle it as needed
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
 
     public function orderStatus31()
     {
@@ -472,14 +548,14 @@ class UserSearchOrder extends Controller
                 ->whereNotIn('showerrors', ['Delivered'])
                 //   ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection','Shipment Not Handed over'])
                 // ->whereIn('showerrors', ['Shipment Not Handed over'])
-                // ->where('Rec_Time_Date', '2024-07-24')  
-                // ->where('User_Id', '109')
+                ->where('Rec_Time_Date', '2024-08-04')  
+                ->where('User_Id', '159')
                 // ->where('User_Id', '122')
-                ->where('order_status', 'upload')
+                ->where('order_status', '1')
                 ->where('order_cancel', '!=', 'upload')
                 ->where('Awb_Number', '!=', '') // Assuming you want to order by this column
                 ->orderBy('Single_Order_Id', 'desc')
-                ->limit(5)
+                ->limit(80)
                 ->get();
 
 
@@ -494,7 +570,7 @@ class UserSearchOrder extends Controller
             foreach ($params as $param) {
                 $crtidis = $param->Awb_Number; // Assuming this is the correct AWB number
 
-                bulkorders::where('Awb_Number', $crtidis)->update(['order_status' => '1']);
+                bulkorders::where('Awb_Number', $crtidis)->update(['order_status' => 'upload']);
 
                 try {
                     $response = Http::get('https://plapi.ecomexpress.in/track_me/api/mawbd/', [
