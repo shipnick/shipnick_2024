@@ -15273,3 +15273,351 @@ ECom status update for 410014026555 : Shipment Not Handed over | 001
 ECom status update for 410014025597 : Shipment Not Handed over | 001
 
 ECom status update for 410014025803 : Shipment Not Handed over | 001
+
+ECom status update for 410014028213 : Shipment Not Handed over | 001
+
+ECom status update for 410014028214 : Shipment Not Handed over | 001
+
+ECom status update for 410014028197 : Shipment Not Handed over | 001
+
+ECom status update for 410014028198 : Ready for Connection | 0011
+
+ECom status update for 410014028200 : Ready for Connection | 0011
+
+ECom status update for 410014028204 : Ready for Connection | 0011
+
+ECom status update for 410014027639 : Ready for Connection | 0011
+
+ECom status update for 410014027773 : Ready for Connection | 0011
+
+ECom status update for 410014027886 : Ready for Connection | 0011
+
+ECom status update for 410014028007 : Ready for Connection | 0011
+
+ECom status update for 410014028055 : Ready for Connection | 0011
+
+ECom status update for 410014024993 : Connected | 003
+
+ECom status update for 410014025064 : Connected | 003
+
+ECom status update for 410014025254 : Connected | 003
+
+ECom status update for 410014025462 : Connected | 003
+
+ECom status update for 410014020840 : Delivered | 999
+
+ECom status update for 410014021352 : Connected | 003
+
+ECom status update for 410014021535 : Connected | 003
+
+ECom status update for 410013326868 : Undelivered | 210 
+
+ECom status update for 410013326883 : Undelivered | 210 
+
+ECom status update for 410013326569 : Shipment Redirected | 777
+
+ECom status update for 410013326744 : Undelivered | 2405 
+
+ECom status update for 410013324747 : Delivered | 999
+
+ECom status update for 410013324732 : Shipment Redirected | 777
+
+ECom status update for 410013324686 : Delivered | 999
+
+ECom status update for 410013324615 : Shipment Redirected | 777
+
+ECom status update for 410013324991 : Undelivered | 1224 
+
+ECom status update for 410013324915 : Delivered | 999
+
+ECom status update for 410013325095 : Undelivered | 242 
+
+ECom status update for 410013325231 : Delivered | 999
+
+ECom status update for 410013325327 : Shipment Redirected | 777
+
+ECom status update for 410013325403 : Delivered | 999
+
+ECom status update for 410013325306 : Connected | 002
+
+ECom status update for 410013325943 : Undelivered | 2405 
+
+ECom status update for 410013326153 : Undelivered | 231 
+
+ECom status update for 410013326130 : Shipment Redirected | 777
+
+ECom status update for 410013326343 : Shipment Redirected | 777
+
+ECom status update for 410013326410 : Undelivered | 231 
+
+ECom status update for 410013324173 : Shipment Redirected | 777
+
+ECom status update for 410013324268 : Shipment Redirected | 777
+
+ECom status update for 410013324346 : Shipment Redirected | 777
+
+ECom status update for 410013324417 : Shipment Redirected | 777
+
+ECom status update for 410013324482 : In-Transit | 005
+
+ECom status update for 410013323701 : Shipment Redirected | 777
+
+ECom status update for 410013323812 : Shipment Redirected | 777
+
+ECom status update for 410013323893 : Connected | 003
+
+ECom status update for 410013324045 : Shipment Not Handed over | 001
+
+ECom status update for 410013322651 : Shipment Redirected | 777
+
+ECom status update for 410013322604 : Undelivered | 1224 
+
+ECom status update for 410013323122 : Shipment Redirected | 777
+
+ECom status update for 410013323256 : Undelivered | 1224 
+
+ECom status update for 410013323105 : Shipment Redirected | 777
+
+ECom status update for 410013323191 : Shipment Redirected | 777
+
+ECom status update for 410013323424 : Shipment Redirected | 777
+
+ECom status update for 410013323493 : Shipment Redirected | 777
+
+ECom status update for 410013322547 : In-Transit | 005
+
+ECom status update for 410013322417 : Shipment Redirected | 777
+
+ECom status update for 410013322485 : Undelivered | 1224 
+
+ECom status update for 410012737766 : Delivered | 999
+
+ECom status update for 410012737839 : Shipment Redirected | 777
+
+ECom status update for 410012737988 : Undelivered | 331 
+
+ECom status update for 410012738067 : Shipment Redirected | 777
+
+ECom status update for 410012738206 : Undelivered | 1224 
+
+ECom status update for 410012738319 : Shipment Redirected | 777
+
+ECom status update for 410012737718 : Shipment Redirected | 777
+
+ECom status update for 410012735438 : Undelivered | 1224 
+
+ECom status update for 410012735490 : Shipment Redirected | 777
+
+ECom status update for 410012735590 : Shipment Redirected | 777
+
+ECom status update for 410012735678 : Shipment Redirected | 777
+
+ECom status update for 410012735983 : Shipment Redirected | 777
+
+ECom status update for 410012735897 : Out For Delivery | 006
+
+ECom status update for 410012735820 : Shipment Redirected | 777
+
+ECom status update for 410012736254 : Shipment Redirected | 777
+
+ECom status update for 410012736139 : Shipment Redirected | 777
+
+ECom status update for 410012736388 : Shipment Redirected | 777
+
+ECom status update for 410012736638 : Shipment Redirected | 777
+
+ECom status update for 410012736701 : Shipment Redirected | 777
+
+ECom status update for 410012736969 : Shipment Redirected | 777
+
+ECom status update for 410012737076 : Shipment Redirected | 777
+
+ECom status update for 410012737179 : Shipment Redirected | 777
+
+ECom status update for 410012737459 : Shipment Redirected | 777
+
+ECom status update for 410012737553 : Shipment Redirected | 777
+
+ECom status update for 410012733605 : Delivered | 999
+
+ECom status update for 410012733820 : Delivered | 999
+
+ECom status update for 410012734038 : Shipment Redirected | 777
+
+ECom status update for 410012734091 : Shipment Redirected | 777
+
+ECom status update for 410012734050 : Shipment Redirected | 777
+
+ECom status update for 410012733956 : Shipment Redirected | 777
+
+ECom status update for 410012734213 : Shipment Redirected | 777
+
+ECom status update for 410012734417 : Delivered | 999
+
+ECom status update for 410012734559 : Shipment Redirected | 777
+
+ECom status update for 410012734445 : Shipment Redirected | 777
+
+ECom status update for 410012734606 : Shipment Redirected | 777
+
+ECom status update for 410012734949 : Shipment Redirected | 777
+
+ECom status update for 410012734846 : Shipment Redirected | 777
+
+ECom status update for 410012735140 : Shipment Redirected | 777
+
+ECom status update for 410012735209 : Shipment Redirected | 777
+
+ECom status update for 410012733354 : Shipment Redirected | 777
+
+ECom status update for 410012733362 : Shipment Redirected | 777
+
+ECom status update for 410012733417 : Shipment Redirected | 777
+
+ECom status update for 410012733426 : Shipment Redirected | 777
+
+ECom status update for 410012731680 : Shipment Redirected | 777
+
+ECom status update for 410012731783 : Shipment Redirected | 777
+
+ECom status update for 410012731950 : Shipment Redirected | 777
+
+ECom status update for 410012731926 : Shipment Redirected | 777
+
+ECom status update for 410012732327 : Shipment Redirected | 777
+
+ECom status update for 410012732105 : Shipment Redirected | 777
+
+ECom status update for 410012731974 : Delivered | 999
+
+ECom status update for 410012732379 : Shipment Redirected | 777
+
+ECom status update for 410012732522 : Shipment Redirected | 777
+
+ECom status update for 410012732827 : Shipment Redirected | 777
+
+ECom status update for 410012732635 : Shipment Redirected | 777
+
+ECom status update for 410012733059 : Shipment Redirected | 777
+
+ECom status update for 410012733211 : Shipment Redirected | 777
+
+ECom status update for 410012731051 : Shipment Redirected | 777
+
+ECom status update for 410012731177 : Shipment Redirected | 777
+
+ECom status update for 410012731550 : Shipment Redirected | 777
+
+ECom status update for 410012729691 : Shipment Redirected | 777
+
+ECom status update for 410012729836 : Shipment Redirected | 777
+
+ECom status update for 410012729933 : Shipment Redirected | 777
+
+ECom status update for 410012730396 : Shipment Redirected | 777
+
+ECom status update for 410012730131 : Shipment Redirected | 777
+
+ECom status update for 410012730615 : Shipment Redirected | 777
+
+ECom status update for 410012730741 : Shipment Redirected | 777
+
+ECom status update for 410012730705 : Shipment Redirected | 777
+
+ECom status update for 410012730685 : Shipment Redirected | 777
+
+ECom status update for 410012728653 : Shipment Redirected | 777
+
+ECom status update for 410012728736 : Shipment Redirected | 777
+
+ECom status update for 410012728882 : Shipment Redirected | 777
+
+ECom status update for 410012728964 : Shipment Redirected | 777
+
+ECom status update for 410012729051 : Shipment Redirected | 777
+
+ECom status update for 410012729053 : Shipment Redirected | 777
+
+ECom status update for 410012729101 : Shipment Redirected | 777
+
+ECom status update for 410012729343 : Shipment Redirected | 777
+
+ECom status update for 410012729395 : Shipment Redirected | 777
+
+ECom status update for 410012729442 : Shipment Redirected | 777
+
+ECom status update for 410012729546 : Shipment Redirected | 777
+
+ECom status update for 410012060142 : Shipment Redirected | 777
+
+ECom status update for 410012728391 : Shipment Redirected | 777
+
+ECom status update for 410012728372 : Shipment Redirected | 777
+
+ECom status update for 410012059973 : Shipment Redirected | 777
+
+ECom status update for 410012059146 : Shipment Redirected | 777
+
+ECom status update for 410012059310 : Shipment Redirected | 777
+
+ECom status update for 410012059463 : Shipment Redirected | 777
+
+ECom status update for 410012059473 : Connected | 003
+
+ECom status update for 410012059615 : Shipment Redirected | 777
+
+ECom status update for 410012059848 : Shipment Redirected | 777
+
+ECom status update for 410012058734 : Shipment Redirected | 777
+
+ECom status update for 410012058804 : Shipment Redirected | 777
+
+ECom status update for 410012059033 : Shipment Redirected | 777
+
+ECom status update for 410012059041 : Shipment Redirected | 777
+
+ECom status update for 410012058523 : Shipment Redirected | 777
+
+ECom status update for 410012058017 : Shipment Redirected | 777
+
+ECom status update for 410012058184 : Shipment Redirected | 777
+
+ECom status update for 410012058181 : Shipment Redirected | 777
+
+ECom status update for 410012058332 : Shipment Redirected | 777
+
+ECom status update for 410012058233 : Shipment Redirected | 777
+
+ECom status update for 410012057974 : Shipment Redirected | 777
+
+ECom status update for 410012057574 : Shipment Redirected | 777
+
+ECom status update for 410012056801 : Shipment Redirected | 777
+
+ECom status update for 410012056991 : Shipment Redirected | 777
+
+ECom status update for 410012057212 : Shipment Redirected | 777
+
+ECom status update for 410012057450 : Shipment Redirected | 777
+
+ECom status update for 410012056625 : Shipment Redirected | 777
+
+ECom status update for 410012055358 : Shipment Redirected | 777
+
+ECom status update for 410012055556 : Shipment Redirected | 777
+
+ECom status update for 410012055843 : Shipment Redirected | 777
+
+ECom status update for 410012056024 : Shipment Redirected | 777
+
+ECom status update for 410012056114 : Shipment Redirected | 777
+
+ECom status update for 410012056171 : Shipment Redirected | 777
+
+ECom status update for 410012056265 : Shipment Redirected | 777
+
+ECom status update for 410012056392 : Shipment Not Handed over | 001
+
+ECom status update for 410012056476 : Shipment Redirected | 777
+
+ECom status update for 410012054759 : Shipment Redirected | 777
