@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\OrderStatusUpdate_ECOM;
+use App\Models\bulkorders;
 use Illuminate\Console\Command;
 
 class OrderStatusUpdate_ECOM_CMD extends Command
@@ -11,14 +13,14 @@ class OrderStatusUpdate_ECOM_CMD extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'spnk:ecom_job';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Creates ECOM order status update jobs';
 
     /**
      * Create a new command instance.
@@ -37,6 +39,27 @@ class OrderStatusUpdate_ECOM_CMD extends Command
      */
     public function handle()
     {
+        $this->comment("Creating ECOM order status update jobs");
+        $this->info("Scheduling status_update_ECOM at " . date('c') );
+        
+        $params = bulkorders::where('awb_gen_by', 'Ecom') // Check if Awb_Number is not null
+            ->whereNotIn('showerrors', ['Delivered'])
+            ->where('order_cancel', '!=', 1)
+            ->where('Awb_Number', '!=', '') // Assuming you want to order by this column
+            ->whereNotNull('Awb_Number')
+            ->orderBy('Single_Order_Id', 'desc')
+            ->limit(1000)
+            ->get();
+            
+        if ($params->isEmpty()) {
+            $this->info("No ECOM orders pending to update status");
+            return 0;
+        }
+        $this->info('ECom Total Jobs: ' . $params->count());
+        foreach ($params as $param) {
+                OrderStatusUpdate_ECOM::dispatch($param->toArray())->onQueue('order_status');
+        }
+        $this->info("ECom Queue completed.");
         return 0;
     }
 }
