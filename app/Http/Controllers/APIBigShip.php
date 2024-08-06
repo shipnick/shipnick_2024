@@ -2772,6 +2772,7 @@ public function OrdercancelToCourier()
       echo  $shipment_id = $param->shferrors;
       echo  $Awb = $param->Awb_Number;
       echo  $courierare = $param->awb_gen_by;
+      $courier_ship_no= $param->courier_ship_no;
 
         if ($courierare == "Ecom") {
             // Handle Ecom courier cancellation
@@ -2787,6 +2788,13 @@ public function OrdercancelToCourier()
         elseif ($courierare == "Bluedart") {
             // Handle Xpressbee courier cancellation
             $response = $this->cancelBluedartOrder( $shipment_id);
+
+            // Process response and update status accordingly
+        }
+        
+        elseif ($courierare == "Bluedart-sc") {
+            // Handle Xpressbee courier cancellation
+            $response = $this->cancelbluedart_scOrder( $courier_ship_no);
 
             // Process response and update status accordingly
         }
@@ -2978,6 +2986,42 @@ private function cancelBluedartOrder($shipment_id)
                 'order_status_show' => 'Cancel'
             ]);
     }
+}
+private function cancelbluedart_scOrder($courier_ship_no)
+{
+    $response = Http::post('https://www.shipclues.com/api/order-cancel', [
+    'ApiKey' => 'TdRxkE0nJd4R78hfEGSz2P5CAIeqzUtZ84EFDUX9',
+    'OrderID' => $courier_ship_no,
+    ]);
+    
+    
+
+    $responseData1 = $response->json();
+    $tdateis = date('Y-m-d'); // Assuming this is the current date
+    $statuscheck = $responseData1['status'];
+                    if ($statuscheck == true) {
+                        // echo $responseic['message'];
+                        $tdateis =  $tdateis;
+                        
+                        $alertmsg = "Order delete please refresh page if not deleted";
+                        bulkorders::where('courier_ship_no', $courier_ship_no)
+                    ->update([
+                        
+                        'canceldate'=>$tdateis,
+                        'order_status_show' =>  "Cancel",
+                        'order_cancel_reasion' =>"Client Cancel"
+                    ]);
+                    }  else {
+                        // echo $responseic['message'];
+                        $alertmsg = "Order not delete please try again";
+                        bulkorders::where('Awb_Number',$awb)
+                        ->update([
+                            
+                            'canceldate'=>$tdateis,
+                            'order_status_show' => "Cancel",
+                            'order_cancel_reasion' => $alertmsg
+                        ]);
+                    }
 }
 
 }

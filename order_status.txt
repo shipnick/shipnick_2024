@@ -188,3 +188,41 @@ ECom status update for 410014028804 : Ready for Connection | 0011
 ECom status update for 410014028807 : Ready for Connection | 0011
 
 ECom status update for 410014028812 : Ready for Connection | 0011
+
+ECom status update for 410014029290 : Shipment Not Handed over | 001
+
+ECom status update for 410014029289 : Shipment Not Handed over | 001
+
+ECom status update for 410014029272 : Shipment Not Handed over | 001
+
+ECom status update for 410014029273 : Shipment Not Handed over | 001
+
+ECom status update for 410014029274 : Shipment Not Handed over | 001
+
+ECom status update for 410014029276 : Shipment Not Handed over | 001
+
+ECom status update for 410014028224 : Ready for Connection | 0011
+
+ECom status update for 410014028350 : Ready for Connection | 0011
+
+ECom status update for 410014028424 : Ready for Connection | 0011
+
+ECom status update for 410014028529 : Ready for Connection | 0011
+
+ECom status update for 410014028588 : Ready for Connection | 0011
+
+ECom status update for 410014028814 : Shipment Not Handed over | 001
+
+ECom status update for 410014028911 : Shipment Not Handed over | 001
+
+ECom status update for 410014029009 : Ready for Connection | 0011
+
+ECom status update for 410014029117 : Ready for Connection | 0011
+
+ECom status update for 410014029209 : Ready for Connection | 0011
+
+ECom status update for 410014027613 : Connected | 003
+
+ECom status update for 410014027673 : Connected | 003
+
+ECom status update for 410014027752 : Connected | 003
