@@ -79,35 +79,26 @@ class UserHubs extends Controller
         $hubtitleis = $hubcode.$wareuid;
         $hubtitle = ucwords($hubtitleis);
         
-$address = $req->address2 . ' ' . $req->address1;
+        $address = $req->address2 . ' ' . $req->address1;
         
         Hubs::where('hub_id',$last_id)->update(['hub_code'=>$hubcode,'hub_title'=>$hubtitle]);
         
        
 
-            $response = Http::post('https://apiv2.shiprocket.in/v1/external/auth/login', [
-                "email" => "info@shipnick.com",
-                "password" => "8mVxTvH)6g8v"
-            ]);
-            $responseData = $response->json();
-
-            //  $responseData['token'];
-           echo $token = $responseData['token'];
-
-            $response = Http::withHeaders([
-                'Content-Type' => 'application/json',
-                'Authorization' => 'Bearer ' . $token
-            ])->post('https://apiv2.shiprocket.in/v1/external/settings/company/addpickup', [
-                "pickup_location" => $hubtitle,
-                "name" => $req->name,
-                "email" => "new123@gmail.com",
-                "phone" => $req->mobile,
-                "address" => $address,
-                "address_2" => "",
-                "city" => $req->city,
-                "state" => $req->state,
-                "country" => "India",
-                "pin_code" =>$req->pincode
+        $response = Http::post('https://www.shipclues.com/api/create-warehouse', [
+                'token' => 'TdRxkE0nJd4R78hfEGSz2P5CAIeqzUtZ84EFDUX9',
+                'warehouse_name' => $hubtitle,
+                'contact_person' => $req->name,
+                'address_line1' => $address,
+                'city' => $req->city,
+                'state' => $req->state,
+                'country' => 'India',
+                'pincode' => $req->pincode,
+                'contact_code' => '91',
+                'contact_number' => $req->mobile,
+                'support_email' => 'abc@gmail.com',
+                'support_phone' => '1234567890',
+                'gst' => $req->gstno,
             ]);
 
             $responseData = $response->json();
@@ -116,7 +107,7 @@ $address = $req->address2 . ' ' . $req->address1;
             // print_r(($responseData)); 
             // echo "</pre><br>";
             
-            $shiprocket_hubid = $responseData['address']['id'];
+            $shiprocket_hubid = $responseData['warehouseCode'];
 
             Hubs::where('hub_id', $last_id)->update(['Shiprocket_hub_id' =>$shiprocket_hubid]);
        

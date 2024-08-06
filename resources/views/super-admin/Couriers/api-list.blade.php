@@ -89,7 +89,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach(['EcomExpress', 'Xpressbees', 'bluedart','Xpressbees2'] as $courier)
+                                        @foreach(['EcomExpress', 'Xpressbees', 'bluedart','Xpressbees2','Bluedart-sc'] as $courier)
                                             <tr class="gradeX">
                                                 <td>
                                                     <img src="{{ asset('Couriers/' . strtolower($courier) . '@gmail.com/' . strtolower($courier) . '.png') }}" style="width:50px;height:50px">

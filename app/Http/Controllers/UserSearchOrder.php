@@ -341,11 +341,11 @@ class UserSearchOrder extends Controller
             $orders = bulkorders::where('awb_gen_by', 'Xpressbee')
                   ->where('User_Id', '159')
                 //   ->where('User_Id', '!=', '109')
-                  ->where('Rec_Time_Date', '2024-08-03')
+                  ->where('Rec_Time_Date', '2024-08-06')
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled','in transit'])
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
                 // ->whereIn('showerrors', ['pending pickup'])
-                ->where('order_status', '1')
+                ->where('order_status', 'upload')
                 ->where('order_cancel', '!=', '1')
                 ->whereNotNull('Awb_Number')
                 ->orderBy('Single_Order_Id', 'desc')
@@ -362,7 +362,7 @@ class UserSearchOrder extends Controller
             foreach ($orders as $order) {
                 $awbNumber = $order->Awb_Number;
 
-                bulkorders::where('Awb_Number', $awbNumber)->update(['order_status' => 'upload']);
+                bulkorders::where('Awb_Number', $awbNumber)->update(['order_status' => '1']);
 
                 $response = Http::withHeaders([
                     'Content-Type' => 'application/json',

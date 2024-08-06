@@ -627,7 +627,8 @@ class APIBigShip extends Controller
                     // $pkpkpinc = preg_replace('/[^0-9\']/', '', $pkpkpinc);
                     // $dapin = preg_replace('/[^0-9\']/', '', $dapin);
 
-                    $weightInGrams = 0.3 * $iacwt; // Convert 0.3 kg to grams
+                   // Convert 0.3 kg to grams
+                    $weightInGrams = $iacwt * 1000; // Convert 0.3 kg to grams
                     $weightInInteger = (int)$weightInGrams; // Convert to integer
 
 
@@ -1200,7 +1201,7 @@ class APIBigShip extends Controller
                     // $pkpkpinc = preg_replace('/[^0-9\']/', '', $pkpkpinc);
                     // $dapin = preg_replace('/[^0-9\']/', '', $dapin);
 
-                    $weightInGrams = 0.3 * $iacwt; // Convert 0.3 kg to grams
+                    $weightInGrams = $iacwt * 1000; // Convert 0.3 kg to grams
                     $weightInInteger = (int)$weightInGrams; // Convert to integer
 
 
@@ -1266,7 +1267,7 @@ class APIBigShip extends Controller
                             'courier_ship_no' => $shipno,
                             'Awb_Number' => $awb,
                             'awb_gen_by' => 'Xpressbee',
-                            'awb_gen_courier' => 'Xpressbee'
+                            'awb_gen_courier' => 'Xpressbee2'
                         ]);
                     } else 
                     {
@@ -1741,6 +1742,136 @@ class APIBigShip extends Controller
 
                     
                 }
+                 elseif ($courierapicodeno == "bluedart01") {
+                    echo "<br>xpressbee Start<br>";
+                    $thisgenerateawbno = "";
+            
+                   
+                    // Start order using Xpressbee API
+                    if ($paymentmode == 'COD') {
+                        $paymentmode = "cod";
+                    }
+                    if ($paymentmode == 'Prepaid') {
+                        $paymentmode = "prepaid";
+                    }
+                    if (strlen($damob) > 10 && substr($damob, 0, 2) === '91') {
+                        // Remove the '91' prefix
+                        $damob = substr($damob, 2);
+                    }
+                    // $pkpkmbl = trim($pkpkmbl);  
+                    // $damob= trim($damob);
+                    // $pkpkpinc = preg_replace('/[^0-9\']/', '', $pkpkpinc);
+                    // $dapin = preg_replace('/[^0-9\']/', '', $dapin);
+            
+                   
+                    
+                     $hubtitleshipclues = Hubs::where('hub_id', $pkpkid)->first()->Shiprocket_hub_id;
+            
+            
+                    $response = Http::post('https://www.shipclues.com/api/order-create', [
+                        'ApiKey' => 'TdRxkE0nJd4R78hfEGSz2P5CAIeqzUtZ84EFDUX9',
+                        'OrderDetails' => [
+                            [
+                                'PaymentType' => $paymentmode,
+                                'OrderType' => 'forward',
+                                'CustomerName' => $daname,
+                                'OrderNumber' => $autogenorderno,
+                                'Addresses' => [
+                                    'BilingAddress' => [
+                                        'AddressLine1' => $daadrs,
+                                        'AddressLine2' => $daadrs,
+                                        'City' => $dacity,
+                                        'State' => $dastate,
+                                        'Country' => 'India',
+                                        'Pincode' => $dapin,
+                                        'ContactCode' => '91',
+                                        'Contact' => $damob,
+                                    ],
+                                    'ShippingAddress' => [
+                                        'AddressLine1' => $daadrs,
+                                        'AddressLine2' => $daadrs,
+                                        'City' => $dacity,
+                                        'State' => $dastate,
+                                        'Country' => 'India',
+                                        'Pincode' => $dapin,
+                                        'ContactCode' => '91',
+                                        'Contact' => $damob,
+                                    ],
+                                    'PickupAddress' => [
+                                        'warehouseCode' => $hubtitleshipclues,
+                                        'WarehouseName' => $pkpkname,
+                                        'ContactName' => 'person',
+                                        'AddressLine1' => $pkpkaddr,
+                                        'AddressLine2' => $pkpkaddr,
+                                        'City' => $pkpkcity,
+                                        'State' => $pkpkstte,
+                                        'Country' => 'India',
+                                        'Pincode' => $pkpkpinc,
+                                        'ContactCode' => '91',
+                                        'Contact' => $pkpkmble,
+                                    ],
+                                ],
+                                'Weight' =>  $iacwt,
+                                'Length' => $ilgth,
+                                'Breadth' => $iwith,
+                                'Height' => $ihght,
+                                'ProductDetails' => [
+                                    [
+                                        'Name' => $iname,
+                                        'SKU' => $iival,
+                                        'QTY' => $iqlty,
+                                        'GST' => 0,
+                                        'Price' => $itamt,
+                                    ],
+                                ],
+                                'InvoiceAmount' =>  $icoda,
+                                'EwayBill' => null,
+                                'ShippingCharge' => '0',
+                                'CodCharge' => '0',
+                                'Discount' => '0',
+                            ],
+                        ],
+                    ]);
+            
+            
+            
+                    
+            
+                    // Handle the response here
+                    $responseData = $response->json();
+                    echo "<br><pre>";
+                    print_r($responseData);
+                    echo "</pre><br>";
+                    
+                    echo $order = $responseData[0]['order_id'];
+            
+            
+                    $responseship = Http::post('https://www.shipclues.com/api/order-ship', [
+                        'ApiKey' => 'TdRxkE0nJd4R78hfEGSz2P5CAIeqzUtZ84EFDUX9',
+                        'OrderID' => $order,
+                        'PartnerID' => 1,
+                    ]);
+                    $responseship = $responseship->json();
+                                echo "<br><pre>";
+                                print_r($responseship);
+                                echo "</pre><br>";
+                                
+                                
+                                if (isset($responseship['status']) && $responseship['status'] == "1") {
+            $awb = $responseData['data']['awb_number'];
+            $courier = $responseData['data']['courier'];
+            
+
+            bulkorders::where('Single_Order_Id', $crtidis)->update([
+                'courier_ship_no' => $order,
+                'Awb_Number' => $awb,
+                'awb_gen_by' => 'Bluedart-sc',
+                'awb_gen_courier' => $courier
+            ]);
+        }
+
+        
+    }
                 elseif ($courierapicodeno == "bluedart0") {
     echo "<br>bluedart Start<br>";
     $thisgenerateawbno = "";
@@ -2235,7 +2366,7 @@ class APIBigShip extends Controller
     } catch (Exception $e) {
         echo "An error occurred: " . $e->getMessage();
     }
-}else {
+                }else {
         echo "<br>else section <br>";
         // $errormsg = $responseio['response'];
         // $errormsg = "Ecom internal error 500";
