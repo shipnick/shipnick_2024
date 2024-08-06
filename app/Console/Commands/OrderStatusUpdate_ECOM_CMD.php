@@ -48,9 +48,8 @@ class OrderStatusUpdate_ECOM_CMD extends Command
             ->where('Awb_Number', '!=', '') // Assuming you want to order by this column
             ->whereNotNull('Awb_Number')
             ->orderBy('Single_Order_Id', 'desc')
-            ->limit(1000)
             ->get();
-            
+
         if ($params->isEmpty()) {
             $this->info("No ECOM orders pending to update status");
             return 0;

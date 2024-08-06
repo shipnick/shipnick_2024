@@ -48,7 +48,6 @@ class OrderStatusUpdate_XPREBEE_CMD extends Command
             ->whereNotNull('Awb_Number')
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number')
-            ->limit(1000)
             ->get();
 
         if ($orders->isEmpty()) {
