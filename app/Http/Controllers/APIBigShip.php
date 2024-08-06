@@ -1849,7 +1849,7 @@ class APIBigShip extends Controller
                     $responseship = Http::post('https://www.shipclues.com/api/order-ship', [
                         'ApiKey' => 'TdRxkE0nJd4R78hfEGSz2P5CAIeqzUtZ84EFDUX9',
                         'OrderID' => $order,
-                        'PartnerID' => 1,
+                        'PartnerID' => 40,
                     ]);
                     $responseship = $responseship->json();
                                 echo "<br><pre>";
@@ -1858,15 +1858,16 @@ class APIBigShip extends Controller
                                 
                                 
                                 if (isset($responseship['status']) && $responseship['status'] == "1") {
-            $awb = $responseData['data']['awb_number'];
-            $courier = $responseData['data']['courier'];
+            $awb = $responseship['data']['awb_number'];
+            $courier = $responseship['data']['courier'];
             
 
             bulkorders::where('Single_Order_Id', $crtidis)->update([
                 'courier_ship_no' => $order,
                 'Awb_Number' => $awb,
                 'awb_gen_by' => 'Bluedart-sc',
-                'awb_gen_courier' => $courier
+                'awb_gen_courier' => $courier,
+                'showerrors' => 'ship'
             ]);
         }
 
