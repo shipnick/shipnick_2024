@@ -102,7 +102,7 @@
                                             <tr>
                                             <th>Sno</th>
                                         <th>Hub Code</th>
-                                        <th>Logo</th>
+                                        <!--<th>Logo</th>-->
                                         <th>Hub Name</th>
                                         <th>GST No.</th>
                                         <th>Address</th>
@@ -126,40 +126,26 @@
                                                 <?php  }else{ ?>
                                         <td>{{ $param->hub_code }}</td>
                                         <?php }  ?>
-                                        <td><img src="{{ asset('HubDetails') }}/{{ $param->hub_folder }}/{{ $param->hub_img }}" title="Hub Image" alt="Not Available" style="width:50px;height:50px;"></td>
-                                        <td>{{ $param->hub_name }}</td>
+                                        <!--<td><img src="{{ asset('HubDetails') }}/{{ $param->hub_folder }}/{{ $param->hub_img }}" title="Hub Image" alt="Not Available" style="width:50px;height:50px;"></td>-->
+                                        <td>{{ Str::limit($param->hub_name, 20) }}</td>
                                         <td>{{ $param->hub_gstno }}</td>
-                                        <td>{{ $param->hub_address1 }}</td>
+                                        <td>{{ Str::limit($param->hub_address1, 20) }}</td>
                                         <td>{{ $param->hub_mobile }}</td>
                                         <td>{{ $param->hub_pincode }}</td>
                                         <td>{{ $param->hub_state }}</td>
                                         <td>{{ $param->hub_city }}</td>
                                         <td>{{ $param->hub_deliverytype }}</td>
                                         
-                                       @if(is_numeric($param->Shiprocket_hub_id))
-                                                                                      <td style="background-color: #c2e1c2; display: flex; align-items: center; gap: 10px;">
-    <a href="{{ asset('UPHub_Edit/'.$param->hub_id) }}" title="Click here to edit hub detail" style="display: flex; align-items: center;">
-        <i class="far fa-edit fa-2x me-2"></i>
-        <!--<span>Edit</span>-->
-    </a>
-    <span>/</span>
-    <a href="{{ asset('UPHub_Delete/'.$param->hub_id) }}" title="Click here to delete hub detail" style="display: flex; align-items: center;">
-        <i class="far fa-trash-alt fa-2x me-2"></i>
-        <!--<span>Delete</span>-->
-    </a>
-</td>
-
-
-                                        @else
-                                            <td style="background-color: #e7c3c3;">
+                                       
+                                        <td >
                                                <a href="{{ asset('UPHub_Edit/'.$param->hub_id) }}" title="Click here to edit hub detail">
                                                     <i class="far fa-edit me-2"></i>Edit
                                                 </a>
                                                 <a href="{{ asset('UPHub_Delete/'.$param->hub_id) }}" title="Click here to delete hub detail">
                                                     <i class="far fa-trash-alt me-2"></i>Delete
                                                 </a>
-                                            </td>
-                                        @endif
+                                        </td>
+                                       
                                         <!--<td>-->
                                         <!--    <a href="{{ asset('/UPHub_Edit/'.$param->hub_id) }}" title="Click here to edit hub detail"><i class="far fa-edit me-2"></i>Edit</a>-->
                                         <!--</td>-->

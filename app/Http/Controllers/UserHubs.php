@@ -60,7 +60,7 @@ class UserHubs extends Controller
         $query->hub_name = $req->name;
         $query->hub_gstno = $req->gstno;
         $query->hub_address1 = $req->address1;
-        $query->hub_address2 = $req->address2;
+        // $query->hub_address2 = $req->address2;
         $query->hub_mobile = $req->mobile;
         $query->hub_pincode = $req->pincode;
         $query->hub_state = $req->state;

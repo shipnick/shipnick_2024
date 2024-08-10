@@ -96,6 +96,17 @@
 														</div>
                                                     </div>
                                                 </div>
+                                                <div class="mb-3 row">
+                                                    <label class="col-lg-4 col-form-label text-black" for="validationCustom02">PIN Code<span
+                                                            class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="form-control" name="pincode" id="validationCustom02"   required>
+														<div class="invalid-feedback">
+															Please enter a PIN Code.
+														</div>
+                                                    </div>
+                                                </div>
                                                 
                                                 <div class="mb-3 row">
                                                     <label class="col-lg-4 col-form-label text-black" for="validationCustom02">Contact Number<span
@@ -109,17 +120,17 @@
                                                     </div>
                                                 </div>
 												
-                                                <div class="mb-3 row">
-                                                    <label class="col-lg-4 col-form-label text-black" for="validationCustom09">house/flat no.<span
-                                                            class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" class="form-control text-black" name="address2" id="validationCustom09"   required>
-														<div class="invalid-feedback">
-															Please enter a house/flat no.
-														</div>
-                                                    </div>
-                                                </div>
+              <!--                                  <div class="mb-3 row">-->
+              <!--                                      <label class="col-lg-4 col-form-label text-black" for="validationCustom09">house/flat no.<span-->
+              <!--                                              class="text-danger">*</span>-->
+              <!--                                      </label>-->
+              <!--                                      <div class="col-lg-6">-->
+              <!--                                          <input type="text" class="form-control text-black" name="address2" id="validationCustom09"   required>-->
+														<!--<div class="invalid-feedback">-->
+														<!--	Please enter a house/flat no.-->
+														<!--</div>-->
+              <!--                                      </div>-->
+              <!--                                  </div>-->
                                                 
                                                 <div class="mb-3 row">
                                                     <label class="col-lg-4 col-form-label text-black" for="validationCustom04">to Address <span
@@ -134,17 +145,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-xl-6">
-                                                <div class="mb-3 row">
-                                                    <label class="col-lg-4 col-form-label text-black" for="validationCustom02">PIN Code<span
-                                                            class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" class="form-control" name="pincode" id="validationCustom02"   required>
-														<div class="invalid-feedback">
-															Please enter a PIN Code.
-														</div>
-                                                    </div>
-                                                </div>
+                                                
                                                 
                                                 
                                                 <div class="mb-3 row">
@@ -171,10 +172,10 @@
                                                 </div>
                                                 <div class="mb-3 row">
                                                     <label class="col-lg-4 col-form-label text-black" for="validationCustom08">GSTIN
-                                                        <span class="text-danger">*</span>
+                                                        <!--<span class="text-danger">*</span>-->
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" name="gstno" id="validationCustom08"  required>
+                                                        <input type="text" class="form-control" name="gstno" id="validationCustom08" value="0000"  required>
 														<div class="invalid-feedback">
 															Please enter GSTIN
 														</div>
