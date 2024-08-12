@@ -7,6 +7,7 @@ use App\Models\smartship;
 use Razorpay\Api\Api;
 use Illuminate\Support\Facades\Http;
 use App\Models\price;
+use App\Models\orderdetail;
 
 use App\Models\Payment;
 class UserHubs extends Controller
@@ -27,8 +28,9 @@ class UserHubs extends Controller
     public function WalletDetails()
     {
         $userid = session()->get('UserLogin2id');
+        $billing_data=orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->get();
         $params = price::where('user_id', $userid)->orderby('id', 'DESC')->get();
-        return view('UserPanel.Wallet.All', ['params' => $params],compact('params'));
+        return view('UserPanel.Wallet.All', ['params' => $params],compact('params','billing_data'));
     }
 
     public function NewHub(){

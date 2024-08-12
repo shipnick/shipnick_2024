@@ -191,6 +191,9 @@ Route::get('/forgot-password', function () {
 Route::get('/Transit-orders',[UserPlaceOrder::class,'Transit_orders']);
 Route::post('/Transit-orders',[UserPlaceOrder::class,'Transit_ordersFilter']);
  
+ 
+Route::get('/update-zones',[UserPlaceOrder::class,'updateZone']);
+Route::get('/wallter-transtion',[UserPlaceOrder::class,'wallterTranstion']);
 
 
 // Super Admin

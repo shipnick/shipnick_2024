@@ -17,10 +17,173 @@ use App\Models\smartship;
 use Illuminate\Support\Facades\Http;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
-
+use App\Models\Pincode;
+use App\Models\price;
 
 class UserPlaceOrder extends Controller
 {
+    public function updateZone()
+    {
+    // Fetch bulk orders with the necessary details
+    $orders = bulkorders::whereNull('zone')
+        ->orderBy('Single_Order_Id', 'DESC')
+         ->where('User_Id', '122')
+        ->limit(800)
+        // ->select('Awb_Number', 'Pincode', 'pickup_pincode')
+        ->get();
+        
+        // dd($orders);
+
+    // Initialize an array for bulk updates
+    $updates = [];
+
+    foreach ($orders as $order) {
+        $custmpincode = $order->Pincode;
+        $pickuppincode = $order->pickup_pincode;
+        $awb = $order->Awb_Number;
+
+        // Fetch pincode details with a single query if possible
+        $pincode1 = Pincode::where('pincode', $custmpincode)->first();
+        $pincode2 = Pincode::where('pincode', $pickuppincode)->first();
+
+        if ($pincode1 && $pincode2) {
+            // Determine the zone
+            $zone = $this->determineZone($pincode1, $pincode2);
+        } else {
+            $zone = "D"; // Default zone if pincode details are missing
+        }
+
+        // Store update information
+        $updates[] = [
+            'Awb_Number' => $awb,
+            'zone' => $zone,
+        ];
+    }
+
+    // Bulk update the zones
+    foreach ($updates as $update) {
+        bulkorders::where('Awb_Number', $update['Awb_Number'])
+            ->update(['zone' => $update['zone']]);
+    }
+
+    echo "Zones updated successfully.";
+}
+    
+
+    private function determineZone($pincode1, $pincode2)
+    {
+    $cities = ["DELHI", "Mumbai", "BANGALORE", "AHMEDABAD"];
+    $specialStates = ["JAMMU AND KASHMIR", "LADAKH", "HIMACHAL PRADESH", "KERALA", "ANDAMAN AND NICOBAR"];
+
+    if (in_array($pincode1->city, $cities) && in_array($pincode2->city, $cities)) {
+        return "C";
+    }
+
+    if ($pincode1->city == $pincode2->city) {
+        return "A";
+    }
+
+    if (in_array($pincode1->state, $specialStates) && in_array($pincode2->state, $specialStates)) {
+        return "E";
+    }
+
+    if ($pincode1->state == $pincode2->state) {
+        return "B";
+    }
+
+    return "D";
+}
+
+    public function wallterTranstion()
+    {
+    $cfromdateObj1 = Carbon::now()->startOfMonth();
+    $ctodateObj1 = Carbon::now()->endOfMonth();
+    
+    $params = bulkorders::whereNotNull('zone')
+        ->where('User_Id', '122')
+        ->whereNull('shferrors')
+        ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+        ->orderBy('Single_Order_Id', 'ASC')
+        ->limit(500)
+        ->select('Awb_Number', 'zone', 'awb_gen_by', 'User_Id', 'Single_Order_Id','Rec_Time_Date')
+        ->get();
+    
+    // Debugging output (consider removing or commenting out in production)
+    // dd($params);
+
+    foreach ($params as $param) {
+        $zone = $param->zone;
+        $userid = $param->User_Id;
+        $courier = $param->awb_gen_by;
+        $awb = $param->Awb_Number;
+        $idnew = $param->Single_Order_Id;
+        $date = $param->Rec_Time_Date;
+        bulkorders::where('Awb_Number', $awb)->update(['shferrors' => 1]);
+
+        // Fetch credit details
+        $credit = price::where('user_id', $userid)
+            ->where('name', $courier)
+            ->first();
+
+        if (!$credit) {
+            // Handle the case where no credit record is found
+            // Log an error, skip this record, etc.
+            continue;
+        }
+
+        // Assign credit based on zone
+        if ($zone == 'A') {
+                $credit1 = $credit->fwda;
+            }
+            if ($zone == 'B') {
+                $credit1 = $credit->fwdb;
+            }
+            if ($zone == 'C') {
+                $credit1 = $credit->fwdc;
+            }
+            if ($zone == 'D') {
+                $credit1 = $credit->fwdd;
+            }
+            if ($zone == 'E') {
+                $credit1 = $credit->fwde;
+            }
+
+        $transactionCode = "TR00" . $idnew;
+        
+        
+        // Fetch the most recent balance record for the given user
+        $blance = orderdetail::where('user_id', $userid)
+    ->orderBy('orderid', 'DESC')
+    ->first();
+
+// Initialize $close_blance with $credit1
+        $close_blance = $credit1;
+
+// Check if a balance record exists and update $close_blance accordingly
+        if ($blance && isset($blance->close_blance)) {
+    // Ensure close_blance is a number, default to 0 if null
+    $previous_blance = $blance->close_blance ?? 0;
+    $close_blance = $previous_blance + $credit1;
+        }
+// dd($transactionCode,$credit1,$awb , $close_blance,$date);
+        // Create a new order detail record
+        $wellet = new orderdetail;
+        $wellet->credit = $credit1;
+        $wellet->awb_no = $awb;
+        $wellet->date = $date;
+        $wellet->user_id =  $userid;
+        $wellet->transaction = $transactionCode;
+        $wellet->close_blance = $close_blance;
+        $wellet->save();
+        
+        bulkorders::where('Awb_Number', $awb)->update(['shferrors' => 1]);
+
+    }
+
+    // Consider adding logging or additional actions after processing
+}
+
+
 // Single Orders
     public function SingleOrder(){
         $userid = session()->get('UserLogin2id');

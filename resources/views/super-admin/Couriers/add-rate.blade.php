@@ -99,6 +99,8 @@
                                                                 <div class="mb-3">
                                                                     <label class="form-label">Select list (select one)</label>
                                                                     <select class="default-select  form-control wide" name="courier">
+                                                                        <option value="Bluedart-sc">Bluedart-sc</option>
+                                                                         <option value="Bluedart-sr">Bluedart-sr</option>
                                                                         <option value="bluedart">Bluedart</option>
                                                                         <option value="xpressbee">Xpressbees</option>
                                                                         <option value="ecom">Ecom </option>

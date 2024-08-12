@@ -370,20 +370,24 @@
 														</tr>
 													</thead>
 													<tbody>
-														<tr>
-															<td>May 02, 2024 13:56</td>
-															<td>Shipping</td>
-															<td>
-																								<a target="blank" class="text-info" href="billing/v/shipping_charges?filter[awb_no]=14344941133746">14344941133746</a>
-																						</td>
-															<td>#24024462</td>
-															<td>-</td>
-															<td>41</td>
-															<td>-64837</td>
-									
-															<td>Freight Charges</td>
-														</tr>
-													</tbody>
+    @if(isset($billing_data) && $billing_data->isNotEmpty())
+        @foreach($billing_data as $data)
+            <tr>
+                <td>{{ $data->date }}</td>
+                <td>Shipping</td>
+                <td>
+                    <a target="_blank" class="text-info" href="{{ url('billing/v/shipping_charges?filter[awb_no]=' . $data->awb_no) }}">{{ $data->awb_no }}</a>
+                </td>
+                <td>{{ $data->transaction }}</td>
+                <td>{{ $data->credit }}</td>
+                <td>-</td>
+                <td>-{{ $data->close_blance }}</td>
+                <td>Freight Charges</td>
+            </tr>
+        @endforeach
+    @endif
+</tbody>
+
 												</table>
 											</div>
                                         </div>
