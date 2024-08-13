@@ -349,6 +349,7 @@
 													</div>
 												</div>
 											</div>
+											<h6>@if(isset($billing_data) && $billing_data->isNotEmpty()) Wallet Balance: -₹{{$billing_data_total['close_blance']}} @endif</h6>
 											<div class="table-responsive">
 												<table class="table table-responsive-md">
 													<thead>
@@ -369,24 +370,25 @@
 														   
 														</tr>
 													</thead>
-													<tbody>
-    @if(isset($billing_data) && $billing_data->isNotEmpty())
-        @foreach($billing_data as $data)
-            <tr>
-                <td>{{ $data->date }}</td>
-                <td>Shipping</td>
-                <td>
-                    <a target="_blank" class="text-info" href="{{ url('billing/v/shipping_charges?filter[awb_no]=' . $data->awb_no) }}">{{ $data->awb_no }}</a>
-                </td>
-                <td>{{ $data->transaction }}</td>
-                <td>{{ $data->credit }}</td>
-                <td>-</td>
-                <td>-{{ $data->close_blance }}</td>
-                <td>Freight Charges</td>
-            </tr>
-        @endforeach
-    @endif
-</tbody>
+													    <tbody>
+                                                        @if(isset($billing_data) && $billing_data->isNotEmpty())
+                                                            @foreach($billing_data as $data)
+                                                                <tr>
+                                                                    <td>{{ $data->date }}</td>
+                                                                    <td>Shipping</td>
+                                                                    <td>
+                                                                        <a target="_blank" class="text-info" href="{{ url('billing/v/shipping_charges?filter[awb_no]=' . $data->awb_no) }}">{{ $data->awb_no }}</a>
+                                                                    </td>
+                                                                    <td>{{ $data->transaction }}</td>
+                                                                    <td>-</td>
+                                                                    <td>-{{ $data->credit }}</td>
+                                                                    
+                                                                    <td>-{{ $data->close_blance }}</td>
+                                                                    <td>Freight Charges</td>
+                                                                </tr>
+                                                            @endforeach
+                                                        @endif
+                                                    </tbody>
 
 												</table>
 											</div>

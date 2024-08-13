@@ -29,8 +29,9 @@ class UserHubs extends Controller
     {
         $userid = session()->get('UserLogin2id');
         $billing_data=orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->get();
+        $billing_data_total=orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->first();
         $params = price::where('user_id', $userid)->orderby('id', 'DESC')->get();
-        return view('UserPanel.Wallet.All', ['params' => $params],compact('params','billing_data'));
+        return view('UserPanel.Wallet.All', ['params' => $params],compact('params','billing_data','billing_data_total'));
     }
 
     public function NewHub(){

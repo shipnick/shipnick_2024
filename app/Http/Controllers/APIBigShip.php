@@ -482,7 +482,7 @@ class APIBigShip extends Controller
                                     'Content-Type' => 'application/json',
                                 ])->post('https://shipment.xpressbees.com/api/users/login', [
                                     'email' => 'shipnick11@gmail.com',
-                                    'password' => 'Xpress@5200',
+                                    'password' => 'Lappy@123',
                                 ]);
             
                                 $responseic = $response->json(); // Decode JSON response
@@ -585,6 +585,119 @@ class APIBigShip extends Controller
                                     
                                 }
                             }
+                            if ($courierapicodeno == "xpressbee02") {
+                                echo "<br>xpressbee Start<br>";
+                                $thisgenerateawbno = "";
+            
+                                // Login to get Xpressbee token
+                                $response = Http::withHeaders([
+                                    'Content-Type' => 'application/json',
+                                ])->post('https://shipment.xpressbees.com/api/users/login', [
+                                    'email' => 'glamfuseindia67@gmail.com',
+                                    'password' => 'shyam104A@',
+                                ]);
+            
+                                $responseic = $response->json(); // Decode JSON response
+                                $xpressbeetoken = $responseic['data']; // Extract token from response data
+                                echo $xpressbeetoken;
+            
+                                // Start order using Xpressbee API
+                                if ($paymentmode == 'COD') {
+                                    $paymentmode = "cod";
+                                }
+                                if ($paymentmode == 'Prepaid') {
+                                    $paymentmode = "prepaid";
+                                }
+                                if (strlen($damob) > 10 && substr($damob, 0, 2) === '91') {
+                                    // Remove the '91' prefix
+                                    $damob = substr($damob, 2);
+                                }
+                                // $pkpkmbl = trim($pkpkmbl);  
+                                // $damob= trim($damob);
+                                // $pkpkpinc = preg_replace('/[^0-9\']/', '', $pkpkpinc);
+                                // $dapin = preg_replace('/[^0-9\']/', '', $dapin);
+            
+                                $weightInGrams = 0.3 * $iacwt; // Convert 0.3 kg to grams
+                                $weightInInteger = (int)$weightInGrams; // Convert to integer
+            
+            
+            
+                                $response = Http::withHeaders([
+                                    'Content-Type' => 'application/json',
+                                    'Authorization' => 'Bearer ' . $xpressbeetoken,
+                                ])->post('https://shipment.xpressbees.com/api/shipments2', [
+                                    'order_number' => $autogenorderno,
+                                    'shipping_charges' => 0,
+                                    'discount' => 0,
+                                    'cod_charges' => 0,
+                                    'payment_type' => $paymentmode,
+                                    'order_amount' => $itamt,
+                                    'package_weight' => $weightInInteger,
+                                    'package_length' => $ilgth,
+                                    'package_breadth' => $iwith,
+                                    'package_height' => $ihght,
+                                    'request_auto_pickup' => 'yes',
+                                    'consignee' => [
+                                        'name' => $daname,
+                                        'address' => $daadrs,
+                                        'address_2' => $daadrs,
+                                        'city' => $dacity,
+                                        'state' => $dastate,
+                                        'pincode' => $dapin,
+                                        'phone' => $damob,
+                                    ],
+                                    'pickup' => [
+                                        'warehouse_name' => $pkpkname,
+                                        'name' => $pkpkname,
+                                        'address' => $pkpkaddr,
+                                        'address_2' => $pkpkaddr,
+                                        'city' => $pkpkcity,
+                                        'state' => $pkpkstte,
+                                        'pincode' => $pkpkpinc,
+                                        'phone' => $pkpkmble,
+                                    ],
+                                    'order_items' => [
+                                        [
+                                            'name' => $iname,
+                                            'qty' => $iqlty,
+                                            'price' => $itamt,
+                                            'sku' => $iival,
+                                        ],
+                                    ],
+                                    'courier_id' => '1',
+                                    'collectable_amount' => $icoda,
+                                ]);
+            
+                                // Handle the response here
+                                $responseData = $response->json();
+                                echo "<br><pre>";
+                                print_r($responseData);
+                                echo "</pre><br>";
+            
+                                if (isset($responseData['status']) && $responseData['status'] == "1") {
+                                    $awb = $responseData['data']['awb_number'];
+                                    $shipno = $responseData['data']['shipment_id'];
+                                    $orderno = $responseData['data']['order_id'];
+            
+                                    bulkorders::where('Single_Order_Id', $crtidis)->update([
+                                        'courier_ship_no' => $shipno,
+                                        'Awb_Number' => $awb,
+                                        'showerrors'=>'pending pickup' ,
+                                        'awb_gen_by' => 'Xpressbee',
+                                        'awb_gen_courier' => 'Xpressbee2'
+                                    ]);
+                                } else {
+                                    $errmessage = $responseData['message'];
+                                    bulkorders::where('Single_Order_Id', $crtidis)->update([
+                                        'showerrors' => $errmessage,
+                                        'order_status_show' => $errmessage,
+                                        'dtdcerrors'=> '1'
+                                    ]);
+            
+                                    
+                                }
+                            }
+                            
                         }
                     }
                     // Ecom Order Place End //
@@ -604,7 +717,7 @@ class APIBigShip extends Controller
                         'Content-Type' => 'application/json',
                     ])->post('https://shipment.xpressbees.com/api/users/login', [
                         'email' => 'shipnick11@gmail.com',
-                        'password' => 'Xpress@5200',
+                        'password' => 'Lappy@123',
                     ]);
 
                     $responseic = $response->json(); // Decode JSON response
@@ -1915,7 +2028,7 @@ class APIBigShip extends Controller
                                     'Content-Type' => 'application/json',
                                 ])->post('https://shipment.xpressbees.com/api/users/login', [
                                     'email' => 'shipnick11@gmail.com',
-                                    'password' => 'Xpress@5200',
+                                    'password' => 'Lappy@123',
                                 ]);
             
                                 $responseic = $response->json(); // Decode JSON response
@@ -2204,7 +2317,7 @@ class APIBigShip extends Controller
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
                     'email' => 'shipnick11@gmail.com',
-                    'password' => 'Xpress@5200',
+                    'password' => 'Lappy@123',
                 ]);
 
                 $responseic = $response->json(); // Decode JSON response
@@ -2567,7 +2680,7 @@ class APIBigShip extends Controller
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
                     'email' => 'shipnick11@gmail.com',
-                    'password' => 'Xpress@5200',
+                    'password' => 'Lappy@123',
                 ]);
 
                 $responseic = $response->json(); // Decode JSON response
@@ -2910,7 +3023,7 @@ public function OrdercancelToCourier()
         // ->where('order_cancel_reasion', ' ')
         ->where('awb_gen_by', '!=', '') 
           ->where('order_status_show', '!=', ['Cancel']) 
-        //   ->where('awb_gen_by','Ecom')
+          ->where('awb_gen_by','Ecom')
         //   ->where('User_Id', '109')
         //   ->where('order_status_show', '0011')
        
