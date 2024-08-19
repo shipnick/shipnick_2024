@@ -47,7 +47,10 @@
 				</div>
 				<ul class="navbar-nav header-right">
 					<li class="nav-item">
-								<a class="btn btn-primary" href="/UserPanel"><i class="fa fa-shopping-basket me-2"></i>Drop Shipping</a>
+								<button type="button" class="btn btn-outline-primary btn-icon-text" data-bs-toggle="modal" data-bs-target="#add_tax">
+
+                                        Add Balance
+                                    </button>
 				    </li>
 					<!--<li class="nav-item dropdown notification_dropdown">-->
 					<!--	<a class="nav-link bell dz-theme-mode p-0" href="javascript:void(0);">-->
@@ -69,19 +72,128 @@
 
 				</ul>
 			</div>
+			
 			<div class="card-body pb-3 transaction-details d-flex flex-wrap justify-content-between align-items-center">
+			    <?php
+			    use App\Models\orderdetail;
+$userid = session()->get('UserLogin2id');
+$articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->first();
+ ?>
 
 				<div class="amount-bx mb-3">
 					<i class="fas fa-inr"></i>
 					<div>
 						<p class="mb-1">Wallet Amount</p>
-						<!-- <h3 class="mb-0">986.23</h3> -->
+						 <h3 class="mb-0">@if($articles) -{{$articles->close_blance}} @endif</h3> 
 					</div>
 				</div>
+				
 			</div>
 		</nav>
 	</div>
 </div>
+
+<div id="add_tax" class="modal custom-modal fade" role="dialog">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Add Money</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                                                </div>
+                                                <!-- <form class="contribution-form" id="contribution-form" method="POST" enctype="multipart/form-data" action="{{url('make-order')}}">@csrf -->
+
+                                                <div class="text-center">
+                                                    <div class="row my-4">
+                                                        <div class="col-md-3 my-1">
+                                                            <p><strong>Amount</strong></p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="text" placeholder="₹" class="form-control" style="border-color:#33333373;border-radius:20px" value="500" name="amount" required="" id="plan">
+                                                            <!-- @error('amount') <font color="red">{{$massage}}</font> @enderror() -->
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+                                                    </div>
+                                                    <!-- <div class="text-center my-3">
+                                                    <a href="#" class="btn btn-success badge">500</a>
+                                                    <a href="#" class="btn btn-success badge">1000</a>
+                                                    <a href="#" class="btn btn-success badge">2000</a>
+                                                    <a href="#" class="btn btn-success badge">5000</a>
+                                                </div> -->
+                                                    <button class="btn btn-primary badge pay_now" type="button">Recharge</button>
+                                                </div>
+                                                <!-- </form> -->
+                                                <br><br>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                                    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                                    <script>
+                                        $(document).ready(function() {
+                                            $(document).on("click", ".pay_now", function() {
+                                                var plan = $('#plan').val(); // Get the value of the input field
+
+                                                if (plan !== '') {
+                                                    $.ajax({
+                                                        url: "{{ url('make-order1') }}", // Ensure this URL is correct
+                                                        type: 'POST',
+                                                        data: {
+                                                            '_token': '{{ csrf_token() }}',
+                                                            'plan_id': plan
+                                                        },
+                                                        success: function(res) {
+                                                            try {
+                                                                payNow(res.amount,res.rzp_order);
+                                                                // Try parsing JSON response if needed
+                                                                // var response = JSON.parse(res);
+                                                                // console.log('Response:', response);
+                                                                // alert('Success: ' + response.message); // Adjust based on your response
+                                                            } catch (e) {
+                                                                console.log('Invalid JSON response:', res);
+                                                                alert('Success, but unable to parse response.');
+                                                            }
+                                                        },
+                                                        error: function(xhr, status, error) {
+                                                            console.log('Error:', status, error);
+                                                            alert('An error occurred: ' + xhr.responseText);
+                                                        }
+                                                    });
+                                                } else {
+                                                    alert('Please enter an amount.');
+                                                }
+                                            });
+
+                                            function payNow(amount,rzp_order) {
+                                                var options = {
+                                                    "key": "{{env('rzr_key')}}", // Enter the Key ID generated from the Dashboard
+                                                    "amount": amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                                                    "currency": "INR",
+                                                    "name": "Shipnick", //your business name
+                                                    "description": "Wallet Transaction",
+                                                    "image": "https://shipnick.com/images/shiplogo.jpeg",
+                                                    "order_id": rzp_order, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                                                    "callback_url": "{{url('succes-payment')}}",
+                                                    "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+                                                        "name": "{{ session('UserLogin2name') }}", //your customer's name
+                                                        "email": "",
+                                                        "contact": "9000090000" //Provide the customer's phone number for better conversion rates 
+                                                    },
+                                                    "notes": {
+                                                        "address": "Razorpay Corporate Office"
+                                                    },
+                                                    "theme": {
+                                                        "color": "#3399cc"
+                                                    }
+                                                };
+                                                var rzp1 = new Razorpay(options);
+                                                {
+                                                    rzp1.open();
+                                                   
+                                                }
+                                            }
+                                        });
+                                    </script>
 
 <!--**********************************
             Header end ti-comment-alt

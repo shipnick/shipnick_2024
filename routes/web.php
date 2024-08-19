@@ -731,8 +731,9 @@ Route::get('/Invoice',[UserHubs::class,'AllInvoice']);
 Route::get('/Remittance',[UserHubs::class,'AllRemittance']);
 Route::get('/Wallet',[UserHubs::class,'WalletDetails']);
 
-Route::post('/make-order',[UserSearchOrder::class,'make_order']);
-Route::get('/succes-payment',[UserSearchOrder::class,'succes']);
+Route::post('/make-order', [UserSearchOrder::class, 'make_order']);
+Route::post('/make-order1', [UserSearchOrder::class, 'makeOrder']);
+Route::post('/succes-payment', [UserSearchOrder::class, 'succes']);
 
 // Route::post('/payment',[UserSearchOrder::class,'add_payment']);
 	// Invoice / COD Remittance / Wallet	/-

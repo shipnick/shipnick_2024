@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\MIS_Report;
 use Carbon\Carbon;
 use App\Models\smartship;
+use App\Models\orderdetail;
 
 
 class UserSearchOrder extends Controller
@@ -74,22 +75,32 @@ class UserSearchOrder extends Controller
         return view('UserPanel.SearchOrder');
     }
 
-    public function make_order(Request $request)
+    public function makeOrder(Request $request)
     {
+        // dd($request->all());
+      
+
         $puserid = session()->get('UserLogin2id');
         $userdata = AdminLoginCheck::where('id', $puserid)->first();
+        $amount=$request->get('plan_id');
         // $userer= $userdata->name;
         // dd($userer);
-        $this->validate($request, [
-            'amount' => 'required|numeric',
-        ]);
+        // $this->validate($request, [
+        //     'amount' => 'required|numeric',
+        // ]);
+        $paymentnew = new Payment();
+        $paymentnew->user_id = $puserid;
+        $paymentnew->currency = "INR";
+        // $payment->user_email = $status->email;
+        $paymentnew->amount = $amount ;
+        $paymentnew->save();
 
         $api = new Api(env('rzr_key'), env('rzr_secret'));
 
         $order_id = rand(111111, 999999);
         $orderData = [
             'receipt'    => 'reciprt_11',
-            'amount'    => $request->get('amount') * 100,
+            'amount'    => $amount * 100,
             'currency'   => 'INR',
             'notes' => [
                 'order_id' => $order_id,
@@ -98,34 +109,90 @@ class UserSearchOrder extends Controller
 
         $payment = $api->order->create($orderData);
 
+        Payment::where('id', $paymentnew->id)->update(['payment_id' => $payment->id]);
 
 
-        return view('UserPanel/Wallet/payment', compact('payment', 'userdata'));
+
+        return response()->json([
+            "success"=> true,
+            "order_id"=>$order_id,
+            "amount"=>$amount,
+            "rzp_order"=>$payment->id
+        ]);
+
+
+
+        // return view('UserPanel/Wallet/payment', compact('payment', 'userdata'));
     }
     public function succes(Request $request)
     {
+        // dd($request->all());
         $userid = session()->get('UserLogin2id');
-
-        // $request->get('Payment_id');
-
+        $orderId = $request->razorpay_order_id;
         $api = new Api(env('rzr_key'), env('rzr_secret'));
 
-        $status = $api->payment->fetch($request->get('Payment_id'));
+        $status=$api->order->fetch($orderId);
 
-        $payment = new Payment();
-        $payment->user_id = $userid;
-        $payment->r_payment_id = $status->id;
-        $payment->currency = $status->currency;
-        $payment->user_email = $status->email;
-        $payment->amount = $status->amount / 100;
-        $payment->status = $status->status;
+       
+       $orders= Payment::where('payment_id', $request->razorpay_order_id)->first();
+      if($orders)
+       {
 
-        $payment->save();
-        if ($status->status == 'captured') {
-            return redirect('/Wallet')->with("success", "payment successsfully");
-        } else {
-            return redirect('/Wallet')->with("fail ','payment fail");
-        }
+
+        $orders->status='1';
+        $orders->r_payment_id=$request->razorpay_payment_id;
+        $orders->amount = $status->amount / 100;
+        $orders->status = $status->status;
+        $orders->update();
+
+
+
+        $blance = orderdetail::where('user_id', $userid)
+                ->orderBy('orderid', 'DESC')
+                ->first();
+
+            // Initialize $close_blance with $credit1
+            $close_blance = $status->amount / 100;
+            $credit1 = $status->amount / 100;
+            // Check if a balance record exists and update $close_blance accordingly
+            if ($blance && isset($blance->close_blance)) {
+                // Ensure close_blance is a number, default to 0 if null
+                $previous_blance = $blance->close_blance ?? 0;
+                $close_blance = $previous_blance - $credit1;
+            }
+
+            // Create a new order detail record
+            $wellet = new orderdetail;
+            $wellet->credit = $status->amount / 100;
+            $wellet->awb_no = $request->razorpay_payment_id;
+            $wellet->transaction = $request->razorpay_order_id;
+            $wellet->close_blance = $close_blance;
+            $wellet->save();
+        return redirect()->back();
+       }else{
+        return redirect()->back();
+       }
+        
+       
+
+
+
+        // // $request->razorpay_order_id;
+        // // $request->razorpay_signature;
+        // $payment = new Payment();
+        // $payment->user_id = $userid;
+        // $payment->r_payment_id = $request->razorpay_payment_id;
+        // $payment->currency = "INR";
+        // $payment->user_email = $status->email;
+        // $payment->amount = $status->amount / 100;
+        // $payment->status = $status->status;
+
+        // $payment->save();
+        // if ($status->status == 'captured') {
+        //     return redirect('/Wallet')->with("success", "payment successsfully");
+        // } else {
+        //     return redirect('/Wallet')->with("fail ','payment fail");
+        // }
     }
     public function orderStatus1()
     {
@@ -341,7 +408,7 @@ class UserSearchOrder extends Controller
             $orders = bulkorders::where('awb_gen_by', 'Xpressbee')
                   ->where('User_Id', '159')
                 //   ->where('User_Id', '!=', '109')
-                  ->where('Rec_Time_Date', '2024-08-09')
+                  ->where('Rec_Time_Date', '	2024-08-12')
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled','in transit'])
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
                 // ->whereIn('showerrors', ['pending pickup'])

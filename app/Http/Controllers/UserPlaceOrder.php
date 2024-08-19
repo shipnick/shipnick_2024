@@ -1022,7 +1022,7 @@ return view('UserPanel.PlaceOrder.BulkOrderAjax',['params'=>$params,'allriders'=
 
 
                 $query = new bulkorders;
-
+                $query->orderno = $orderid;
                 $query->Order_Type = $paymentmode;
                 $query->User_Id = $userid;
                 $query->Awb_Number = '';
@@ -1067,7 +1067,7 @@ return view('UserPanel.PlaceOrder.BulkOrderAjax',['params'=>$params,'allriders'=
                 $last_id = $query->id;
 
                 $ordernois = "SDRT00" . $last_id;
-                bulkorders::where('Single_Order_Id', $last_id)->update(['ordernoapi' => $ordernois, 'orderno' => $ordernois]);
+                bulkorders::where('Single_Order_Id', $last_id)->update(['ordernoapi' => $ordernois]);
                 // echo $response;
                 $sidno++;
             }
