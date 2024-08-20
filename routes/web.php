@@ -334,6 +334,7 @@ Route::post('/webhook',[UserSearchOrder::class,'handle']);
 Route::get('/order-update-status',[UserSearchOrder::class,'orderstatus']);
 Route::get('/order-update-status3',[UserSearchOrder::class,'orderstatus3']);
 Route::get('/order-update-status31',[UserSearchOrder::class,'orderstatus311']);
+Route::get('/order-update-status311',[UserSearchOrder::class,'orderstatus31']);
 Route::get('/order-update-shiprocket',[UserSearchOrder::class,'shiproketstatusupdate']);
 
 Route::get('/order-update-pickup-ecom',[UserSearchOrder::class,'orderStatuspickup']);

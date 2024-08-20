@@ -483,9 +483,9 @@ class UserSearchOrder extends Controller
 
         try {
             $orders = bulkorders::where('awb_gen_by', 'Xpressbee')
-                //   ->where('User_Id', '109')
+                  ->where('awb_gen_courier', 'Xpressbee3')
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
-                ->whereNotIn('showerrors', ['delivered', 'exception', 'rto', 'cancelled'])
+                // ->whereNotIn('showerrors', ['delivered', 'exception', 'rto', 'cancelled'])
                 // ->whereIn('showerrors', ['pending pickup'])
                 ->where('order_status', 'upload')
                 ->where('order_cancel', '!=', '1')
@@ -509,8 +509,8 @@ class UserSearchOrder extends Controller
                 $response = Http::withHeaders([
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
-                    'email' => 'shipnick11@gmail.com',
-                    'password' => 'Xpress@5200',
+                   'email' => 'Ballyfashion77@gmail.com',
+                            'password' => 'shyam104A@',
                 ]);
 
                 $responseic = $response->json(); // Decode JSON response
@@ -555,37 +555,37 @@ class UserSearchOrder extends Controller
                     }
 
 
-                    $newawb = MIS_Report::where('Awb_Number', $awbnew)->first();
+                    // $newawb = MIS_Report::where('Awb_Number', $awbnew)->first();
 
-                    if (isset($newawb->id)) {
-                        MIS_Report::where('Awb_Number', '=', $awbnew)
-                            ->update([
-                                'order_id' => $order_id,
-                                'awb_number' => $awbnew,
-                                'current_status' => $current_status,
-                                'last_scanned_at' => $last_scanned,
-                                'last_location' => $last_location,
-                                'last_scan_remark' => $last_remark,
-                                'last_attempt_date' => $lastattempt_date,
-                                'turn_around_time' => $daysDifference,
+                    // if (isset($newawb->id)) {
+                    //     MIS_Report::where('Awb_Number', '=', $awbnew)
+                    //         ->update([
+                    //             'order_id' => $order_id,
+                    //             'awb_number' => $awbnew,
+                    //             'current_status' => $current_status,
+                    //             'last_scanned_at' => $last_scanned,
+                    //             'last_location' => $last_location,
+                    //             'last_scan_remark' => $last_remark,
+                    //             'last_attempt_date' => $lastattempt_date,
+                    //             'turn_around_time' => $daysDifference,
 
-                            ]);
-                    } else {
-                        // Create new record
-                        $misreport = new MIS_Report;
+                    //         ]);
+                    // } else {
+                    //     // Create new record
+                    //     $misreport = new MIS_Report;
 
-                        $misreport->order_id = $order_id;
-                        $misreport->awb_number = $awbnew;
-                        $misreport->current_status = $current_status;
-                        $misreport->last_scanned_at = $last_scanned;
-                        $misreport->last_location = $last_location;
-                        $misreport->last_scan_remark = $last_remark;
-                        $misreport->delivery_attempts = "1";
-                        $misreport->last_attempt_date = $lastattempt_date;
-                        $misreport->turn_around_time = $daysDifference;
-                        $misreport->charges_total = "0";
-                        $misreport->save();
-                    }
+                    //     $misreport->order_id = $order_id;
+                    //     $misreport->awb_number = $awbnew;
+                    //     $misreport->current_status = $current_status;
+                    //     $misreport->last_scanned_at = $last_scanned;
+                    //     $misreport->last_location = $last_location;
+                    //     $misreport->last_scan_remark = $last_remark;
+                    //     $misreport->delivery_attempts = "1";
+                    //     $misreport->last_attempt_date = $lastattempt_date;
+                    //     $misreport->turn_around_time = $daysDifference;
+                    //     $misreport->charges_total = "0";
+                    //     $misreport->save();
+                    // }
 
 
                     $completedOrders++;
