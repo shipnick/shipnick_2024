@@ -48,7 +48,7 @@ class OrderStatusUpdate_XPREBEE implements ShouldQueue
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
                     'email' => 'shipnick11@gmail.com',
-                    'password' => 'Xpress@5200',
+                    'password' => 'Lappy@123',
                 ]);
 
                 $responseic = $response->json(); // Decode JSON response
