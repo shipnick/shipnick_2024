@@ -222,7 +222,7 @@ class UserOrderManage extends Controller
         $userid = session()->get('UserLogin2id');
         $params = bulkorders::where('User_Id', $userid)
     // ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup'])
-     ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup','AWB Assigned','Pickup Error' ,'Pickup Rescheduled'  ,'Out For Pickup' ,'Pickup Exception' , 'Pickup Booked' , 'Shipment Booked','Pickup Generated']) 
+     ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup','AWB Assigned','Pickup Error' ,'Pickup Rescheduled'  ,'Out For Pickup' ,'Pickup Exception' , 'Pickup Booked' , 'Shipment Booked','Pickup Generated']) 
     ->where('order_status_show', '!=', 'Cancelled')
     ->whereNotNull('Awb_Number')
     ->where('order_cancel', '!=', '1')
@@ -976,7 +976,7 @@ $ctodateObj = Carbon::parse($req->to);
         ->count();
 
     $pending_pickup = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+        ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
         ->whereNotNull('Awb_Number')
         ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
         ->where('order_cancel', '!=', '1')
@@ -1034,7 +1034,7 @@ $ctodateObj = Carbon::parse($req->to);
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type');
 
@@ -1100,7 +1100,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1224,7 +1224,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1346,7 +1346,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1468,7 +1468,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1590,7 +1590,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1712,7 +1712,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1836,7 +1836,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')

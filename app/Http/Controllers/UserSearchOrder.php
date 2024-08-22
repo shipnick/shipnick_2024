@@ -319,6 +319,82 @@ class UserSearchOrder extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+    
+    
+     public function orderStatusBluedart()
+    {
+
+        try {
+            $orders = bulkorders::where('awb_gen_courier', 'BlueDart')
+                //   ->where('awb_gen_courier', 'BlueDart')
+                // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
+                // ->whereNotIn('showerrors', ['delivered', 'exception', 'rto', 'cancelled'])
+                // ->whereIn('showerrors', ['pending pickup'])
+                ->where('order_status', 'upload')
+                ->where('order_cancel', '!=', '1')
+                ->whereNotNull('Awb_Number')
+                ->orderBy('Single_Order_Id', 'desc')
+                ->limit(80)
+                ->get();
+            //   dd($orders)  ;
+
+            if ($orders->isEmpty()) {
+                return response()->json(['error' => 'No orders found'], 404);
+            }
+            set_time_limit(300);
+            $completedOrders = 0;
+
+            foreach ($orders as $order) {
+                $awbNumber = $order->Awb_Number;
+
+                bulkorders::where('Awb_Number', $awbNumber)->update(['order_status' => '1']); 
+
+                                    $response = Http::withHeaders([
+                        'Content-Type' => 'application/json',
+                        'Cookie' => 'shipclues_session=iZ4dgCGTk45lE8pE9sdawi4Bp1dwAJ7rEi8iJqBL',
+                    ])->post('https://www.shipclues.com/api/order-track', [
+                        'ApiKey' => 'TdRxkE0nJd4R78hfEGSz2P5CAIeqzUtZ84EFDUX9',
+                        'AWBNumber' => $awbNumber
+                    ]);
+                    
+                //     $responseData = $response->json();
+                //     echo "<br><pre>";
+                //     print_r($responseData);
+                //     echo "</pre><br>";
+                    
+                //  echo  $status = $responseData['CurrentStatus'];
+
+                if ($response->successful()) {
+                    $responseData = $response->json();
+                    echo $status = $responseData['CurrentStatus'];
+                    echo $awbNumber;
+
+                    bulkorders::where('Awb_Number', $awbNumber)->update([
+                        'showerrors' => $status,
+                        'order_status_show' => $status,
+
+                    ]);
+                  
+
+                   
+
+
+                  
+                    $completedOrders++;
+                } else {
+                    // Handle HTTP request failure
+                    return response()->json(['error' => 'HTTP request failed'], $response->status());
+                }
+            }
+
+            return response()->json(['message' => 'Order statuses updated successfully', 'completedOrders' => $completedOrders], 200);
+        } catch (\Exception $e) {
+            // Log the error or handle it as needed
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+    
+     
 
     /**
      * Updates order Status (Xpressbee)

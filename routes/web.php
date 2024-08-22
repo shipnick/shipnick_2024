@@ -347,6 +347,8 @@ Route::get('/order-update-ofd-xpress',[UserSearchOrder::class,'orderStatusxpress
 Route::get('/order-update-intransit-xpress',[UserSearchOrder::class,'orderStatusxpresstransit']);
 Route::get('/order-update-xpress',[UserSearchOrder::class,'orderStatusxpresspickup']);
 
+Route::get('/order-update-bluedart',[UserSearchOrder::class,'orderStatusBluedart']);
+
 // 	Admin-Panel		Admin-Panel		Admin-Panel Start
 
 Route::get('/All_Orders',[PlaceOrder::class,'AllOrders']);

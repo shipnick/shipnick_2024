@@ -118,7 +118,7 @@ $tallpending = bulkorders::where('User_Id',$userid)
   ->where('order_status_show','!=','Delivered')
   ->where('order_status_show','!=','RTO Delivered')
   ->where('order_status_show','!=','Upload')
-   ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup','AWB Assigned','Pickup Error' ,'Pickup Rescheduled'  ,'Out For Pickup' ,'Pickup Exception' , 'Pickup Booked' , 'Shipment Booked','Pickup Generated']) 
+   ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup','AWB Assigned','Pickup Error' ,'Pickup Rescheduled'  ,'Out For Pickup' ,'Pickup Exception' , 'Pickup Booked' , 'Shipment Booked','Pickup Generated']) 
             
   ->where('Awb_Number','!=','')
   ->where('order_cancel','!=','1')
@@ -224,7 +224,7 @@ $monthndr = bulkorders::where('User_Id', $userid)
         ->count('Single_Order_Id');
         
 $monthpickup = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup','AWB Assigned','Pickup Error' ,'Pickup Rescheduled'  ,'Out For Pickup' ,'Pickup Exception' , 'Pickup Booked' , 'Shipment Booked','Pickup Generated']) 
+        ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup','AWB Assigned','Pickup Error' ,'Pickup Rescheduled'  ,'Out For Pickup' ,'Pickup Exception' , 'Pickup Booked' , 'Shipment Booked','Pickup Generated']) 
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
@@ -253,7 +253,7 @@ $callintransit = bulkorders::where('User_Id', $userid)
     })
     ->count('Single_Order_Id');
 $callpending = bulkorders::where('User_Id',$userid)
-              ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup'])
+              ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup'])
               ->where('Awb_Number','!=','')
               ->where('order_cancel','!=','1')
               ->whereBetween('Rec_Time_Date', array($cfromdate,$ctodate))
@@ -493,7 +493,7 @@ $data3 = [
       
           $statusCounts['pickup'][$date] = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1') 
-            ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup','AWB Assigned','Pickup Error' ,'Pickup Rescheduled'  ,'Out For Pickup' ,'Pickup Exception' , 'Pickup Booked' , 'Shipment Booked','Pickup Generated']) 
+            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup','AWB Assigned','Pickup Error' ,'Pickup Rescheduled'  ,'Out For Pickup' ,'Pickup Exception' , 'Pickup Booked' , 'Shipment Booked','Pickup Generated']) 
             
             // ... other conditions 
             ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
@@ -513,7 +513,7 @@ $data3 = [
           $statusCounts['NDR'][$date] = bulkorders::where('User_Id', $userid)
         //   ->whereIn('showerrors', ['exception', 'Shipment Redirected'])
        
-        ->whereIn('showerrors', ['exception','Undelivered' , 'RTO_NDR' ,'QC FAILED'])
+        ->whereIn('showerrors', ['exception','Undelivered' , 'RTO_NDR' ,'QC FAILED','NDR'])
             //   ->where('order_status_show', '!=', 'Delivered')
             //   ->where('order_status_show', '!=', 'RTO Delivered')
                ->where('order_cancel', '!=', '1')
