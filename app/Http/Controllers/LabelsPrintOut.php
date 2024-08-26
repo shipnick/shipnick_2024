@@ -41,6 +41,7 @@ class LabelsPrintOut extends Controller
         if($request->Support_Mobile !== null){$Mobile = 1;}else{$Mobile = 0;}
         if($request->Support_email !== null){$email = 1;}else{$email = 0;}
         if($request->display_name !== null){$name = $request->display_name;}else{$name = '';}
+        if($request->rtoaddress !== null){$rtoAdd = $request->rtoaddress;}else{$rtoAdd = '';}
         if($request->supportnumber !== null){$snumber = $request->supportnumber;}else{$snumber = '';}
         if($request->supportemail !== null){$semail = $request->supportemail;}else{$semail = '';}
 
@@ -62,6 +63,7 @@ class LabelsPrintOut extends Controller
                     'display_name' => $name,
                     'supportnumber' => $snumber,
                     'supportemail' => $semail,
+                    'rtoAddress'=>$rtoAdd
                 ]);
                 return redirect()->back()->with('message', 'update success ' );
             } else {
@@ -126,6 +128,10 @@ class LabelsPrintOut extends Controller
 
                 if ($request->filled('display_name')) {
                     $labels->display_name = $request->input('display_name');
+                }
+                
+                if ($request->filled('rtoaddress')) {
+                    $labels->rtoAddress = $request->input('rtoaddress');
                 }
 
                 if ($request->filled('supportnumber')) {

@@ -707,62 +707,71 @@
 																<div class="tab-content" id="myTabContent">
 																	<div class="tab-pane fade show active" id="Viewall-tab-pane" role="tabpanel" aria-labelledby="Viewall-tab" tabindex="0">
 																		<div class="menu-tabs-1">
-																			<div class="form-check">
-																				<input class="form-check-input" name="Consignee_Number" type="checkbox" value="Consignee_Number" id="flexCheckDefault">
-																				<label class="form-check-label mt-1 font-w700" for="flexCheckDefault">
-																					Hide Consignee Number
-																				</label>
-																			</div>
-																			<pre></pre>
-																			<div class="form-check">
-																				<input class="form-check-input" type="checkbox" name="order_id" value="order_id" id="flexCheckDefault-1">
-																				<label class="form-check-label mt-1 font-w700" for="flexCheckDefault-1">
-																					Hide ShipNick Order ID
-																				</label>
-																			</div>
-																			<pre></pre>
-																			<div class="form-check">
-																				<input class="form-check-input" name="Products_Details" type="checkbox" value="Products_Details" id="flexCheckDefault-2">
-																				<label class="form-check-label mt-1 font-w700" for="flexCheckDefault-2">
-																					Hide Products Details
-																				</label>
-																			</div>
-																			<pre></pre>
-																			<div class="form-check">
-																				<input class="form-check-input" type="checkbox" value="Return_Address" name="Return_Address" id="flexCheckDefault-3">
-																				<label class="form-check-label mt-1 font-w700" for="flexCheckDefault-3" >
-																					Hide Return Address
-																				</label>
-																			</div>
-																			<pre></pre>
-																			<div class="form-check">
-																				<input class="form-check-input" type="checkbox" value="Weight" name="Weight" id="flexCheckDefault-4">
-																				<label class="form-check-label mt-1 font-w700" for="flexCheckDefault-4">
-																					Hide Weight
-																				</label> 
-																			</div>
-																			<pre></pre>
-																			<div class="form-check">
-																				<input class="form-check-input" type="checkbox" value="Dimensions" name="Dimensions" id="flexCheckDefault-5">
-																				<label class="form-check-label mt-1 font-w700" for="flexCheckDefault-5">
-																					Hide Dimensions
-																				</label>
-																			</div>
-																			<pre></pre>
-																			<div class="form-check">
-																				<input class="form-check-input" type="checkbox" value="Support_Mobile" name="Support_Mobile" id="flexCheckDefault-5">
-																				<label class="form-check-label mt-1 font-w700" for="flexCheckDefault-5">
-																					Support Mobile
-																				</label>
-																			</div>
-																			<pre></pre>
-																			<div class="form-check">
-																				<input class="form-check-input" type="checkbox" value="Support_email" name="Support_email" id="flexCheckDefault-5">
-																				<label class="form-check-label mt-1 font-w700" for="flexCheckDefault-5">
-																					Support email
-																				</label>
-																			</div>
-																		</div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="Consignee_Number" value="Consignee_Number" id="flexCheckDefault"
+            {{ isset($label_setting) && $label_setting->Consignee_Number ? 'checked' : '' }}>
+        <label class="form-check-label mt-1 font-w700" for="flexCheckDefault">
+            Hide Consignee Number
+        </label>
+    </div>
+    <pre></pre>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="order_id" value="order_id" id="flexCheckDefault-1"
+            {{ isset($label_setting) && $label_setting->order_id ? 'checked' : '' }}>
+        <label class="form-check-label mt-1 font-w700" for="flexCheckDefault-1">
+            Hide ShipNick Order ID
+        </label>
+    </div>
+    <pre></pre>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="Products_Details" value="Products_Details" id="flexCheckDefault-2"
+            {{ isset($label_setting) && $label_setting->Products_Details ? 'checked' : '' }}>
+        <label class="form-check-label mt-1 font-w700" for="flexCheckDefault-2">
+            Hide Products Details
+        </label>
+    </div>
+    <pre></pre>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="Return_Address" value="Return_Address" id="flexCheckDefault-3"
+            {{ isset($label_setting) && $label_setting->Return_Address ? 'checked' : '' }}>
+        <label class="form-check-label mt-1 font-w700" for="flexCheckDefault-3">
+            Hide Return Address
+        </label>
+    </div>
+    <pre></pre>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="Weight" value="Weight" id="flexCheckDefault-4"
+            {{ isset($label_setting) && $label_setting->Weight ? 'checked' : '' }}>
+        <label class="form-check-label mt-1 font-w700" for="flexCheckDefault-4">
+            Hide Weight
+        </label>
+    </div>
+    <pre></pre>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="Dimensions" value="Dimensions" id="flexCheckDefault-5"
+            {{ isset($label_setting) && $label_setting->Dimensions ? 'checked' : '' }}>
+        <label class="form-check-label mt-1 font-w700" for="flexCheckDefault-5">
+            Hide Dimensions
+        </label>
+    </div>
+    <pre></pre>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="Support_Mobile" value="Support_Mobile" id="flexCheckDefault-6"
+            {{ isset($label_setting) && $label_setting->Support_Mobile ? 'checked' : '' }}>
+        <label class="form-check-label mt-1 font-w700" for="flexCheckDefault-6">
+            Support Mobile
+        </label>
+    </div>
+    <pre></pre>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="Support_email" value="Support_email" id="flexCheckDefault-7"
+            {{ isset($label_setting) && $label_setting->Support_email ? 'checked' : '' }}>
+        <label class="form-check-label mt-1 font-w700" for="flexCheckDefault-7">
+            Support Email
+        </label>
+    </div>
+</div>
+
 																	</div>
 																	<div class="cm-content-body form excerpt border-top">
 																		<div class="card-body">
@@ -789,12 +798,27 @@
 																						<input type="text" name="supportemail" class="form-control mb-2"  value="{{ isset($label_setting) ? $label_setting->supportemail : '' }}">
 																					</div>
 																				</div>
+																				<div class="row ">
+																					<div class="col-xl-12">
+																						<h6>Change Rto address</h6>
+																					</div>
+																					
+																					<div class="col-xl-12">
+																					<textarea  id="rtoaddress" name="rtoaddress"   class="form-control mb-2" onmouseout="showAddress()">{{ old('rtoAddress', $label_setting->rtoAddress ?? '') }}</textarea>
+																						
+																					</div>
+																				</div>
 
 																				<script>
 																					function showValue() {
 																						var name = document.getElementById('name').value;
 																						document.getElementById('ans').innerHTML = name;
 																						document.getElementById('hello').style.display = "none";
+																					}
+																					function showAddress() {
+																						var name = document.getElementById('rtoaddress').value;
+																						document.getElementById('ansrto').innerHTML = name;
+																						document.getElementById('hellorto').style.display = "none";
 																					}
 																				</script>
 																				<!-- <div class="col-xl-4">
@@ -926,16 +950,23 @@
 																						</td>
 																					</tr>
 																					<tr style="line-height: 1.5em;">
-																						<td colspan="4" class="address">
-																							<p class="Return_Address">If undelivered, please return to:<br />
-																								hubname, <br>
+																						<td colspan="4" class="address ">
+																							<div class="Return_Address">If undelivered, please return to:<br />
+
+																							<h6 id="hellorto"><b>
+
+																							hubname, <br>
 																								hub address,
 																								hub state,
 																								hub city
-																								-hub pincode
-																								<br>
-																								Phone : <b>99999999999</b>
+																								-hub pincode</b>
+																									<br>
+																								Phone : <b>99999999999</b></h6>
+																							<p id="ansrto" style="font-weight: 800;"></p>
+																								
+																							
 																							</p>
+																							</div>
 																							<span style="font-size:small">
 																								<br><b>For any query please contact</b>
 																								<span class="Support_Mobile">Mobile:9999999 , </span>
@@ -948,6 +979,7 @@
 																							</span>
 																						</td>
 																					</tr>
+																					
 																				</tbody>
 																			</table>
 

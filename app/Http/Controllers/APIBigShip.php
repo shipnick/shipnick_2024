@@ -28,7 +28,7 @@ class APIBigShip extends Controller
 
         $params = bulkorders::where('apihitornot', '0')
             ->orderby('Single_Order_Id', 'DESC')
-            ->limit(80)
+            ->limit(50)
             ->get();
 
         // print_r($params);
@@ -1943,6 +1943,7 @@ class APIBigShip extends Controller
                     echo "<br><pre>";
                     print_r($responseData);
                     echo "</pre><br>";
+                   
 
                     if (isset($responseData['status']) && $responseData['status'] == "1") {
                         $awb = $responseData['data']['awb_number'];
@@ -1955,8 +1956,10 @@ class APIBigShip extends Controller
                             'awb_gen_by' => 'Xpressbee',
                             'awb_gen_courier' => 'Xpressbee3'
                         ]);
+                         
                     } else 
                     {
+                        // print_r($responseData);
                         $errmessage = $responseData['message'];
                         bulkorders::where('Single_Order_Id', $crtidis)->update([
                             'showerrors' => $errmessage,
@@ -2543,7 +2546,7 @@ class APIBigShip extends Controller
                                 echo "</pre><br>";
                                 
                                 
-                                if (isset($responseship['status']) && $responseship['status'] == "1") {
+                                if ( $responseship['status'] == "1") {
             $awb = $responseship['data']['awb_number'];
             $courier = $responseship['data']['courier'];
              $route = $responseship['data']['route_code'];
@@ -2560,7 +2563,7 @@ class APIBigShip extends Controller
         }
          else {
                         echo "<br>else section <br>";
-                        // $errormsg = $responseio['response'];
+                        $errormsg = $responseship['message'];
                         // $errormsg = "Ecom internal error 500";
                         // if (!empty($responseecom['shipments'][0]['reason'])) {
                         //     $errormsg = $responseecom['shipments'][0]['reason'];
@@ -2569,7 +2572,7 @@ class APIBigShip extends Controller
                         // } else {
                         //     $errormsg = "Ecom internal error 500";
                         // }
-                        // bulkorders::where('Single_Order_Id', $crtidis)->update(['showerrors' => $errormsg]);
+                        bulkorders::where('Single_Order_Id', $crtidis)->update(['showerrors' => $errormsg]);
                          // new start 
                         $courierassigns = courierpermission::where('user_id', $userid)
                         // ->where('courier_priority', '!=', '0')

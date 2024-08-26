@@ -397,6 +397,12 @@
                     @if(isset($label_setting))
                 @if($label_setting->Return_Address == 0)
                     <p>If undelivered, please return to:<br />
+                    
+                    	@if($label_setting->rtoAddress != '')
+                    	
+							{{$label_setting->rtoAddress}}
+							
+							@else
                         {{ ucwords($params[$i]['hname']) }}, <br>
 							{{ ucwords($params[$i]['haddress']) }},
 							{{ ucwords($params[$i]['hstate']) }},
@@ -404,6 +410,8 @@
 							-{{ ucwords($params[$i]['hpincode']) }}
 							<br>
 							Phone : <b>{{ ucwords($params[$i]['hmobile']) }}</b>
+						@endif	
+						
                     </p>
                     @endif
                     @else
