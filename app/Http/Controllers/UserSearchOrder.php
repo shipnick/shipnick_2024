@@ -482,7 +482,7 @@ class UserSearchOrder extends Controller
 
         try {
             $orders = bulkorders::where('awb_gen_by', 'Xpressbee')
-                  ->where('User_Id', '159')
+                //   ->where('User_Id', '159')
                 //   ->where('User_Id', '!=', '109')
                   ->where('Rec_Time_Date', '	2024-08-12')
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled','in transit'])
@@ -560,13 +560,15 @@ class UserSearchOrder extends Controller
         try {
             $orders = bulkorders::where('awb_gen_by', 'Xpressbee')
                   ->where('awb_gen_courier', 'Xpressbee3')
+                   ->where('User_Id', '165')
+                  ->where('Rec_Time_Date', '	2024-08-26')
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
                 // ->whereNotIn('showerrors', ['delivered', 'exception', 'rto', 'cancelled'])
                 // ->whereIn('showerrors', ['pending pickup'])
                 ->where('order_status', 'upload')
                 ->where('order_cancel', '!=', '1')
                 ->whereNotNull('Awb_Number')
-                ->orderBy('Single_Order_Id', 'desc')
+                ->orderBy('Single_Order_Id', 'ASC')
                 ->limit(100)
                 ->get();
             //   dd($orders)  ;
@@ -609,26 +611,26 @@ class UserSearchOrder extends Controller
                         'order_status_show' => $status,
 
                     ]);
-                    $awbnew = $responseData['data']['awb_number'];
-                    $order_id = $responseData['data']['order_number'];
-                    $current_status = $responseData['data']['status'];
-                    $last_location = $responseData['data']['history'][0]['location'];
-                    $last_scanned = $responseData['data']['history'][0]['event_time'];
-                    $last_remark = $responseData['data']['status'];
-                    $lastattempt_date = $responseData['data']['history'][0]['event_time'];
+                    // $awbnew = $responseData['data']['awb_number'];
+                    // $order_id = $responseData['data']['order_number'];
+                    // $current_status = $responseData['data']['status'];
+                    // $last_location = $responseData['data']['history'][0]['location'];
+                    // $last_scanned = $responseData['data']['history'][0]['event_time'];
+                    // $last_remark = $responseData['data']['status'];
+                    // $lastattempt_date = $responseData['data']['history'][0]['event_time'];
 
-                    $pickup_date = $responseData['data']['created'];
-                    $new = date('Y-m-d', strtotime($last_scanned));
-                    $newDate = \DateTime::createFromFormat('Y-m-d', $new);
-                    $pickupDate = \DateTime::createFromFormat('Y-m-d', $pickup_date);
+                    // $pickup_date = $responseData['data']['created'];
+                    // $new = date('Y-m-d', strtotime($last_scanned));
+                    // $newDate = \DateTime::createFromFormat('Y-m-d', $new);
+                    // $pickupDate = \DateTime::createFromFormat('Y-m-d', $pickup_date);
 
-                    if ($newDate !== false && $pickupDate !== false) {
-                        // Proceed with calculating the difference if both dates are valid DateTime objects
-                        $daysDifference =  $pickupDate->diff($newDate)->days;
-                    } else {
-                        // Handle the case where date creation failed
-                        $daysDifference = null; // or set a default value or handle the error as needed
-                    }
+                    // if ($newDate !== false && $pickupDate !== false) {
+                    //     // Proceed with calculating the difference if both dates are valid DateTime objects
+                    //     $daysDifference =  $pickupDate->diff($newDate)->days;
+                    // } else {
+                    //     // Handle the case where date creation failed
+                    //     $daysDifference = null; // or set a default value or handle the error as needed
+                    // }
 
 
                     // $newawb = MIS_Report::where('Awb_Number', $awbnew)->first();
