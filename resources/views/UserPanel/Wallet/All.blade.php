@@ -88,7 +88,7 @@
                                             <a class="nav-link" data-bs-toggle="tab" href="#contact"><i class="la la-phone me-2"></i><strong>Invoice</strong></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="tab" href="#message"><i class="la la-envelope me-2"></i><strong>Walle</strong>t</a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#message"><i class="la la-envelope me-2"></i><strong>Wallet</strong></a>
                                         </li>
 										<li class="nav-item">
                                             <a class="nav-link" data-bs-toggle="tab" href="#CreditNotes"><i class="la la-envelope me-2"></i><strong>Credit Notes</strong></a>
@@ -377,12 +377,12 @@
                                                                     <td>{{ $data->date }}</td>
                                                                     <td>Shipping</td>
                                                                     <td>
-                                                                        <a target="_blank" class="text-info" href="{{ url('billing/v/shipping_charges?filter[awb_no]=' . $data->awb_no) }}">{{ $data->awb_no }}</a>
+                                                                       {{ $data->awb_no }}</a>
                                                                     </td>
                                                                     <td>{{ $data->transaction }}</td>
-                                                                    <td>-</td>
-                                                                    <td>-{{ $data->credit }}</td>
-                                                                    
+                                                                    <td> @if(!is_numeric($data->awb_no))   +{{ $data->credit }} @endif </td>
+                                                                  
+                                                                    <td>@if(is_numeric($data->awb_no))  -{{ $data->credit }}  @endif</td>
                                                                     <td>-{{ $data->close_blance }}</td>
                                                                     <td>Freight Charges</td>
                                                                 </tr>

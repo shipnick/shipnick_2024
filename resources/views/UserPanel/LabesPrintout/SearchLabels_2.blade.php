@@ -243,10 +243,13 @@
                     
                         <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('/img/ecom.jpg')}}`;" title="Hub Image" style="width: 170px;">
                         @elseif($params[$i]['awbcourier'] == 'Xpressbee')
+                        
                         <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('/img/Xpressbees.jpg')}}`;" title="Hub Image" style="width: 170px;">
                         @elseif($params[$i]['awbcourier'] == 'Bluedart-sc')
                          <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('/img/bluedart-logo.png')}}`;" title="Hub Image" style="width: 170px;">
-                        @endif
+                         @elseif($params[$i]['awbcourier'] == 'Bluedart')
+                         <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('/img/bluedart-logo.png')}}`;" title="Hub Image" style="width: 170px;">
+                         @endif
                 </td>
             </tr>
             <tr style="line-height: 1.7;">

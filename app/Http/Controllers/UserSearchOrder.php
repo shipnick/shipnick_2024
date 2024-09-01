@@ -127,27 +127,27 @@ class UserSearchOrder extends Controller
     public function succes(Request $request)
     {
         // dd($request->all());
+        $tdate = date('Y-m-d');
         $userid = session()->get('UserLogin2id');
         $orderId = $request->razorpay_order_id;
         $api = new Api(env('rzr_key'), env('rzr_secret'));
 
-        $status=$api->order->fetch($orderId);
-
-       
-       $orders= Payment::where('payment_id', $request->razorpay_order_id)->first();
-      if($orders)
-       {
+        $status = $api->order->fetch($orderId);
 
 
-        $orders->status='1';
-        $orders->r_payment_id=$request->razorpay_payment_id;
-        $orders->amount = $status->amount / 100;
-        $orders->status = $status->status;
-        $orders->update();
+        $orders = Payment::where('payment_id', $request->razorpay_order_id)->first();
+        if ($orders) {
+
+
+            $orders->status = '1';
+            $orders->r_payment_id = $request->razorpay_payment_id;
+            $orders->amount = $status->amount / 100;
+            $orders->status = $status->status;
+            $orders->update();
 
 
 
-        $blance = orderdetail::where('user_id', $userid)
+            $blance = orderdetail::where('user_id', $userid)
                 ->orderBy('orderid', 'DESC')
                 ->first();
 
@@ -167,13 +167,15 @@ class UserSearchOrder extends Controller
             $wellet->awb_no = $request->razorpay_payment_id;
             $wellet->transaction = $request->razorpay_order_id;
             $wellet->close_blance = $close_blance;
+            $wellet->date = $tdate;
+            $wellet->user_id = $userid;
             $wellet->save();
-        return redirect()->back();
-       }else{
-        return redirect()->back();
-       }
-        
-       
+            return redirect()->back();
+        } else {
+            return redirect()->back();
+        }
+
+
 
 
 
@@ -327,10 +329,10 @@ class UserSearchOrder extends Controller
         try {
             $orders = bulkorders::where('awb_gen_courier', 'BlueDart')
                 //   ->where('awb_gen_courier', 'BlueDart')
-                // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
+                ->whereNotIn('showerrors', ['Delivered', 'cancelled'])
                 // ->whereNotIn('showerrors', ['delivered', 'exception', 'rto', 'cancelled'])
                 // ->whereIn('showerrors', ['pending pickup'])
-                ->where('order_status', 'upload')
+                ->where('order_status', '1')
                 ->where('order_cancel', '!=', '1')
                 ->whereNotNull('Awb_Number')
                 ->orderBy('Single_Order_Id', 'desc')
@@ -347,7 +349,7 @@ class UserSearchOrder extends Controller
             foreach ($orders as $order) {
                 $awbNumber = $order->Awb_Number;
 
-                bulkorders::where('Awb_Number', $awbNumber)->update(['order_status' => '1']); 
+                bulkorders::where('Awb_Number', $awbNumber)->update(['order_status' => 'upload']); 
 
                                     $response = Http::withHeaders([
                         'Content-Type' => 'application/json',
@@ -481,13 +483,13 @@ class UserSearchOrder extends Controller
     {
 
         try {
-            $orders = bulkorders::where('awb_gen_by', 'Xpressbee')
-                //   ->where('User_Id', '159')
+            $orders = bulkorders::where('awb_gen_courier', 'Xpressbee2')
+                //   ->where('User_Id', '165')
                 //   ->where('User_Id', '!=', '109')
-                  ->where('Rec_Time_Date', '	2024-08-12')
+                //   ->where('Rec_Time_Date', '	2024-08-12')
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled','in transit'])
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
-                // ->whereIn('showerrors', ['pending pickup'])
+                ->whereIn('showerrors', ['pending pickup'])
                 ->where('order_status', 'upload')
                 ->where('order_cancel', '!=', '1')
                 ->whereNotNull('Awb_Number')
@@ -558,13 +560,13 @@ class UserSearchOrder extends Controller
     {
 
         try {
-            $orders = bulkorders::where('awb_gen_by', 'Xpressbee')
-                  ->where('awb_gen_courier', 'Xpressbee3')
-                   ->where('User_Id', '165')
-                  ->where('Rec_Time_Date', '	2024-08-26')
+            $orders = bulkorders::where('awb_gen_courier', 'Xpressbee3')
+                //   ->where('awb_gen_courier', 'Xpressbee3')
+                  ->where('User_Id', '165')
+                //   ->where('Rec_Time_Date', '	2024-08-26')
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
                 // ->whereNotIn('showerrors', ['delivered', 'exception', 'rto', 'cancelled'])
-                // ->whereIn('showerrors', ['pending pickup'])
+                ->whereIn('showerrors', ['pending pickup'])
                 ->where('order_status', 'upload')
                 ->where('order_cancel', '!=', '1')
                 ->whereNotNull('Awb_Number')
