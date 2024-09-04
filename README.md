@@ -31,6 +31,10 @@
 ``` * * * * * /usr/local/bin/php /home3/prosacgj/server20/shipnick.com/system/artisan queue:work --queue=order_status --tries=3 --backoff=3 --stop-when-empty >> /dev/null 2>&1 ```
 
 
+### Place Order Queue Jobs
+- ```php artisan spnk:place-order```
+- ```php artisan queue:work --queue=place_order```
+
  # Push Sashi's change from server
 ``` git add . && git commit -m "Shashi changes" ```
 
