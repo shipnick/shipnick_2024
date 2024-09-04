@@ -212,7 +212,7 @@ class UserSearchOrder extends Controller
                 $crtidis = $param->Awb_Number; // Assuming this is the correct AWB number
                 $response = Http::get('https://plapi.ecomexpress.in/track_me/api/mawbd/', [
                     'username' => 'PROSAVVYLUXURIESPRIVATELIMITED(ECS)130073',
-                    'password' => 'lnR1C8NkO1',
+                    'password' => 'Hansi@@2024@@',
                     'awb' => $crtidis,
                 ]);
 
@@ -276,7 +276,7 @@ class UserSearchOrder extends Controller
                 try {
                     $response = Http::get('https://plapi.ecomexpress.in/track_me/api/mawbd/', [
                         'username' => 'PROSAVVYLUXURIESPRIVATELIMITED(ECS)130073',
-                        'password' => 'lnR1C8NkO1',
+                        'password' => 'Hansi@@2024@@',
                         'awb' => $crtidis,
                     ]);
 
@@ -695,11 +695,11 @@ class UserSearchOrder extends Controller
                 ->whereNotIn('showerrors', ['Delivered'])
                 //   ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection','Shipment Not Handed over'])
                 // ->whereIn('showerrors', ['Shipment Not Handed over'])
-                ->where('Rec_Time_Date', '2024-08-04')  
-                ->where('User_Id', '159')
+                ->where('Rec_Time_Date', '2024-08-26')  
+                ->where('User_Id', '165')
                 // ->where('User_Id', '122')
                 ->where('order_status', '1')
-                ->where('order_cancel', '!=', 'upload')
+                ->where('order_cancel', '!=', '1')
                 ->where('Awb_Number', '!=', '') // Assuming you want to order by this column
                 ->orderBy('Single_Order_Id', 'desc')
                 ->limit(80)
@@ -722,7 +722,7 @@ class UserSearchOrder extends Controller
                 try {
                     $response = Http::get('https://plapi.ecomexpress.in/track_me/api/mawbd/', [
                         'username' => 'PROSAVVYLUXURIESPRIVATELIMITED(ECS)130073',
-                        'password' => 'lnR1C8NkO1',
+                        'password' => 'Hansi@@2024@@',
                         'awb' => $crtidis,
                     ]);
 
@@ -875,7 +875,7 @@ class UserSearchOrder extends Controller
                 try {
                     $response = Http::get('https://plapi.ecomexpress.in/track_me/api/mawbd/', [
                         'username' => 'PROSAVVYLUXURIESPRIVATELIMITED(ECS)130073',
-                        'password' => 'lnR1C8NkO1',
+                        'password' => 'Hansi@@2024@@',
                         'awb' => $crtidis,
                     ]);
 
@@ -1068,7 +1068,7 @@ class UserSearchOrder extends Controller
     //             try {
     //                 $response = Http::get('https://plapi.ecomexpress.in/track_me/api/mawbd/', [
     //                     'username' => 'PROSAVVYLUXURIESPRIVATELIMITED(ECS)130073',
-    //                     'password' => 'lnR1C8NkO1',
+    //                     'password' => 'Hansi@@2024@@',
     //                     'awb' => $crtidis,
     //                 ]);
 
@@ -1139,7 +1139,7 @@ class UserSearchOrder extends Controller
                 try {
                     $response = Http::get('https://plapi.ecomexpress.in/track_me/api/mawbd/', [
                         'username' => 'PROSAVVYLUXURIESPRIVATELIMITED(ECS)130073',
-                        'password' => 'lnR1C8NkO1',
+                        'password' => 'Hansi@@2024@@',
                         'awb' => $crtidis,
                     ]);
 
@@ -1215,7 +1215,7 @@ class UserSearchOrder extends Controller
                 try {
                     $response = Http::get('https://plapi.ecomexpress.in/track_me/api/mawbd/', [
                         'username' => 'PROSAVVYLUXURIESPRIVATELIMITED(ECS)130073',
-                        'password' => 'lnR1C8NkO1',
+                        'password' => 'Hansi@@2024@@',
                         'awb' => $crtidis,
                     ]);
 
@@ -1290,7 +1290,7 @@ class UserSearchOrder extends Controller
                 try {
                     $response = Http::get('https://plapi.ecomexpress.in/track_me/api/mawbd/', [
                         'username' => 'PROSAVVYLUXURIESPRIVATELIMITED(ECS)130073',
-                        'password' => 'lnR1C8NkO1',
+                        'password' => 'Hansi@@2024@@',
                         'awb' => $crtidis,
                     ]);
 
@@ -1361,7 +1361,7 @@ class UserSearchOrder extends Controller
     //                 try {
     //                     $response = Http::get('https://plapi.ecomexpress.in/track_me/api/mawbd/', [
     //                         'username' => 'PROSAVVYLUXURIESPRIVATELIMITED(ECS)130073',
-    //                         'password' => 'lnR1C8NkO1',
+    //                         'password' => 'Hansi@@2024@@',
     //                         'awb' => $crtidis,
     //                     ]);
 
@@ -1437,7 +1437,7 @@ class UserSearchOrder extends Controller
                 try {
                     $response = Http::get('https://plapi.ecomexpress.in/track_me/api/mawbd/', [
                         'username' => 'PROSAVVYLUXURIESPRIVATELIMITED(ECS)130073',
-                        'password' => 'lnR1C8NkO1',
+                        'password' => 'Hansi@@2024@@',
                         'awb' => $crtidis,
                     ]);
 

@@ -63,7 +63,37 @@
 <!-- Include jQuery -->
 
 
+                <style>
+					.header-new {
+						position: fixed;
+						/* Change to fixed positioning */
+						top: 178px;
+						/* Always stick to the top */
+						width: 100%;
+						/* background-color: white; */
+						/* Optional: to ensure it stands out */
+						z-index: 1000;
+						/* Ensure it stays above other content */
+					}
+					.button-clor-white{
+						background-color: white;
+					}
+				</style>
 
+				<script>
+					window.addEventListener('scroll', function () {
+						var header = document.querySelector('.header-new');
+						var scrollPosition = window.scrollY;
+
+						if (scrollPosition > 105) { // Adjust this value as needed
+							header.style.position = 'fixed';
+							header.style.top = '105px';
+						} else {
+							header.style.position = 'absolute'; // Or use a value that fits your layout
+							header.style.top = '-20px'; // Adjust to match your original design
+						}
+					});
+				</script>
 
 <body>
 

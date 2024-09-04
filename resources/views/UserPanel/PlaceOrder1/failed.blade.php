@@ -168,18 +168,19 @@
                             </div>
                             <form method="post" action="{{ asset('/filter-selected-order') }}">
                                 @csrf
-                                <div>
-                                    <div class="d-flex justify-content-start align-items-center">
-                                        
-                                        <button id="failedBtn" class="btn btn-outline-secondary btn-sm mb-2">
-    <i class="fa fa-download me-1"></i>Export
-</button>
- <!--<a class="btn btn-outline-secondary btn-sm mb-2" href="{{asset('today-failed-orders')}}"><i class="fa fa-download me-1"></i>Export</a>-->
-
+                                 <div class="d-flex justify-content-start align-items-center header-new">
+                      <!--                  <button name="currentbtnname" value="shippinglabel" type="submit"-->
+                						<!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
+                						<!--	<i class="fa fa-calendar me-1"></i> Print Label-->
+                						<!--</button>-->
+                						<!--<button name="currentbtnname" value="cancelorders" type="submit"-->
+                						<!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
+                						<!--	<i class="fa fa-times-circle me-1"></i> Cancel Orders-->
+                						<!--</button>-->
+                						<button id="downloadExcelBtn" class="btn btn-outline-secondary btn-sm mb-2 button-clor-white">
+                							<i class="fa fa-download me-1"></i> Export
+                						</button>
                                     </div>
-                                   
-
-                                </div>
                                 <style>
                                     .table td {
                                         font-weight: 700;
@@ -188,7 +189,7 @@
                                     }
                                 </style>
 
-                                <div class="table-responsive fs-13 card">
+                                <div class="table-responsive fs-13 card fc-view">
                                     <table class="table card-table display mb-4 dataTablesCard text-black" id="example1">
                                         <thead style="background-color:#17a2b89c;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
                                             <tr>

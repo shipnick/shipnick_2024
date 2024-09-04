@@ -170,15 +170,29 @@
                                     </div>
                                 </div>
                             </div>
+                            <style>
+                                .hidden {
+                                    display: none;
+                                }
+                            </style>
                             <form method="post" action="{{ asset('/filter-selected-order') }}">
                                 @csrf
-                                <div>
-                                    <div class="d-flex justify-content-start align-items-center">
-                                        <button name="currentbtnname" value="shippinglabel" type="submit" class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm"><i class="fa fa-calendar me-1"></i>Print Label</button>
-                                        <button name="currentbtnname" value="cancelorders" type="submit" class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm"><i class="fa fa-times-circle me-1"></i>Cancel Orders</button>
-                                        <button id="downloadExcelBtn" class="btn btn-outline-secondary btn-sm mb-2">
-                                            <i class="fa fa-download me-1"></i>Export
-                                        </button>
+                                <div id="myDiv" class="hidden"> 
+                                    <div class="d-flex justify-content-start align-items-center header-new button-clor-white ">
+                                        <button name="currentbtnname" value="shippinglabel" type="submit"
+							class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">
+							<i class="fa fa-calendar me-1"></i> Print Label
+						</button>
+						<button name="currentbtnname" value="cancelorders" type="submit"
+							class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">
+							<i class="fa fa-times-circle me-1"></i> Cancel Orders
+						</button>
+						<button name="currentbtnname" value="exportorderdetails" class="btn btn-outline-secondary btn-sm me-3 mb-2 button-clor-white">
+							<i class="fa fa-download me-1 "></i> Export
+						</button>
+						<button id="downloadExcelBtn" class="btn btn-outline-secondary btn-sm mb-2 button-clor-white">
+							<i class="fa fa-download me-1"></i> Export All
+						</button>
                                     </div>
                                 </div>
                                 <style>
@@ -189,7 +203,7 @@
                                     }
                                 </style>
 
-                                <div class="table-responsive fs-13 card ">
+                                <div class="table-responsive fs-13 card  fc-view">
                                     <table class="table card-table display mb-4 dataTablesCard text-black" id="example1">
                                         <thead style="background-color:#17a2b89c;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
                                             <tr>
@@ -322,7 +336,33 @@
                                 </div>
                             </div>
 
-
+                                <script>
+                                        document.addEventListener('DOMContentLoaded', () => {
+                                            const checkboxes = document.querySelectorAll('input.form-check-input[type="checkbox"]');
+                                            const myDiv = document.getElementById('myDiv');
+                                            const checkAllCheckbox = document.getElementById('checkAll');
+                                
+                                            // Function to update the visibility of myDiv
+                                            function updateDivVisibility() {
+                                                const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                                                myDiv.classList.toggle('hidden', !anyChecked);
+                                            }
+                                
+                                            // Add event listeners to all checkboxes
+                                            checkboxes.forEach(checkbox => {
+                                                checkbox.addEventListener('change', updateDivVisibility);
+                                            });
+                                
+                                            // Add event listener to the "check all" checkbox
+                                            checkAllCheckbox.addEventListener('change', function() {
+                                                const isChecked = this.checked;
+                                                checkboxes.forEach(checkbox => {
+                                                    checkbox.checked = isChecked;
+                                                });
+                                                updateDivVisibility();
+                                            });
+                                        });
+                                    </script>
                             <script>
                                 $(document).ready(function() {
                                     $('#perPageSelect').change(function() {

@@ -6,6 +6,32 @@
 <!--**********************************
             Nav header start
         ***********************************-->
+     <style> <style>
+  
+
+.dlab-scroll {
+  overflow-y: scroll; }
+
+.dlab-scroll {
+  overflow-y: scroll; }
+
+body > * {
+  scrollbar-width: thin;
+  overflow-y: scroll;
+  scrollbar-color: rgb(0 0 0 / 41%) rgba(0, 0, 0, 0); }
+
+::-webkit-scrollbar {
+  width: 10px;
+  opacity: 0; }
+
+/* ::-webkit-scrollbar-thumb{
+	background:  rgba(111, 133, 147, 0.0); 
+} */
+::-webkit-scrollbar-thumb {
+    background: rgb(0 0 0 / 49%);
+}
+
+    </style></style>
 <div class="nav-header">
 	<a href="{{ asset('/UserPanel') }}" class="brand-logo">
 		<svg class="logo-abbr" width="53" height="53" viewBox="0 0 53 53">
@@ -81,7 +107,8 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
  ?>
 
 				<div class="amount-bx mb-3">
-					<i class="fas fa-inr"></i>
+					<i class="fas fa-inr" style="    background: #17a2b8;
+    "></i>
 					<div>
 						<p class="mb-1">Wallet Amount</p>
 						 <h3 class="mb-0">@if($articles) -{{$articles->close_blance}} @endif</h3> 

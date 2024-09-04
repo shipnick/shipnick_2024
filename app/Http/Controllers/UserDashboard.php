@@ -335,6 +335,7 @@ $codamount = bulkorders::where('User_Id',$userid)
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
         // ->where('showerrors', '!=', 'cancelled')
+        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->selectRaw(
           '
         COUNT(CASE 
@@ -376,6 +377,7 @@ $codamount = bulkorders::where('User_Id',$userid)
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
          ->where('showerrors', '!=', 'cancelled')
+         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->selectRaw(
           '
         COUNT(CASE 
@@ -420,6 +422,7 @@ $codamount = bulkorders::where('User_Id',$userid)
     ->where('Awb_Number', '!=', '')
     ->where('order_cancel', '!=', '1')
     ->where('showerrors', '!=', 'cancelled')
+    ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
     ->selectRaw(
         '
         COUNT(CASE 

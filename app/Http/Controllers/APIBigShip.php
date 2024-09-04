@@ -74,6 +74,7 @@ class APIBigShip extends Controller
             // Destination Address
             $daname = $param->Name;
             $daadrs = $param->Address;
+            $daadrs2 = $param->Address2;
             $dastate = $param->State;
             $dacity = $param->City;
             $damob = $param->Mobile;
@@ -483,7 +484,7 @@ class APIBigShip extends Controller
                                     'Content-Type' => 'application/json',
                                 ])->post('https://shipment.xpressbees.com/api/users/login', [
                                     'email' => 'shipnick11@gmail.com',
-                                    'password' => 'Lappy@123',
+                                    'password' => 'Hansi@@2024@@',
                                 ]);
             
                                 $responseic = $response->json(); // Decode JSON response
@@ -718,7 +719,7 @@ class APIBigShip extends Controller
                         'Content-Type' => 'application/json',
                     ])->post('https://shipment.xpressbees.com/api/users/login', [
                         'email' => 'shipnick11@gmail.com',
-                        'password' => 'Lappy@123',
+                        'password' => 'Hansi@@2024@@',
                     ]);
 
                     $responseic = $response->json(); // Decode JSON response
@@ -1910,8 +1911,8 @@ class APIBigShip extends Controller
                         'request_auto_pickup' => 'yes',
                         'consignee' => [
                             'name' => $daname,
-                            'address' => $daadrs,
-                            'address_2' => $daadrs,
+                            'address' => $daadrs . $daadrs2,
+                            'address_2' => $daadrs2,
                             'city' => $dacity,
                             'state' => $dastate,
                             'pincode' => $dapin,
@@ -2605,7 +2606,7 @@ class APIBigShip extends Controller
                                     'Content-Type' => 'application/json',
                                 ])->post('https://shipment.xpressbees.com/api/users/login', [
                                     'email' => 'shipnick11@gmail.com',
-                                    'password' => 'Lappy@123',
+                                    'password' => 'Hansi@@2024@@',
                                 ]);
             
                                 $responseic = $response->json(); // Decode JSON response

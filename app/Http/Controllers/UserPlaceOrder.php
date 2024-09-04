@@ -19,6 +19,9 @@ use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Models\Pincode;
 use App\Models\price;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\Exportable;
 
 class UserPlaceOrder extends Controller
 {
@@ -323,7 +326,7 @@ public function SingleOrderAdd(Request $req){
     try {
         // Hub id
         $Hubs = Hubs::where('hub_id',$req->hubid)->first();
-        $hubalternateid = $Hubs['hub_alternate_id'];
+        $hubalternateid = $Hubs['hub_id'];
         $hubname = $Hubs['hub_name'];
         $hubmobile = $Hubs['hub_mobile'];
         $hubpincode = $Hubs['hub_pincode'];
@@ -1679,7 +1682,12 @@ if($currentbtnname=="shippinglabel"){
     return view("UserPanel.LabesPrintout.Search",['params'=>$selectorders]);
 
 
-}elseif($currentbtnname=="cancelorders"){
+}elseif ($currentbtnname == "exportorderdetails") {
+           
+            $awbno = $selectorders;
+
+            return Excel::download(new PlacedOrdersExport($awbno), 'Upload-orders.xls');
+        }elseif($currentbtnname=="cancelorders"){
     
 //     if (empty($awbNumbers)) {
 //     // If no Awb_Number values, return back
@@ -1940,7 +1948,7 @@ $response = $response['data'];
                 $hubgstno = $Hubs['hub_gstno'];
                 $hubmobile = $Hubs['hub_mobile'];
                 $hubpincode = $Hubs['hub_pincode'];
-                $hubalternateid = $Hubs['hub_alternate_id'];
+                $hubalternateid = $Hubs['hub_id'];
 // Default Courier Name
     $couriernameconfirm = 0;
     $couriernameconfirmshow = 0;
@@ -2524,4 +2532,51 @@ if(empty($current_status_type)){    $current_status_type = "Progress";  }
         return view("UserPanel.Receipt.Receipt_bulk",['params'=>$params,'Hubs'=>$Hubs]);
     }
 
+}
+
+class PlacedOrdersExport implements WithHeadings, FromCollection
+{
+    use Exportable;
+    public function __construct($awbno)
+    {
+
+        $this->awbno = $awbno;
+    }
+
+    public function collection()
+    {
+
+        $awbno = $this->awbno;
+
+        $products = Bulkorders::select('Order_Type', 'orderno', 'Awb_Number', 'awb_gen_courier', 'Name', 'Address', 'State', 'City', 'Mobile', 'Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'volumetric_weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Rec_Time_Date', 'uploadtype', 'pickup_id', 'order_status_show', 'showerrors')
+            ->whereIn('Awb_Number', $awbno)
+            ->where('user_id', session()->has('UserLogin2id') ? session()->get('UserLogin2id') : null)
+            ->where('apihitornot', '1')
+            ->where('order_cancel', '!=', '1')
+            // ->where('Awb_Number', '!=', '')
+            //  ->where('Awb_Number','')
+            // ->where('Last_Time_Stamp','2024-06-15 12:18:36')
+            //  ->where('awb_gen_by','Ecom')
+            // ->where('uploadtype', $ftypedata) 
+            ->get();
+
+        foreach ($products as $key => $product) {
+            if ($products[$key]->awb_gen_courier == "Smartship") {
+                $products[$key]->awb_gen_courier = "Bluedart";
+            } elseif ($products[$key]->awb_gen_courier == "Intargos") {
+                $products[$key]->awb_gen_courier = "Shipedia";
+            } elseif ($products[$key]->awb_gen_courier == "Intargos1") {
+                $products[$key]->awb_gen_courier = "Shipedia1";
+            }
+            $products[$key]->pickup_id = "HID00" . $product->pickup_id;
+            $products[$key]->Address =  $product->Address;
+        }
+
+        return $products;
+    }
+
+    public function headings(): array
+    {
+        return ['Order_Type', 'Orderno', 'AWB_Number', 'Courier', 'Receiver_Name', 'Receiver_Address', 'Receiver_State', 'Receiver_City', 'Receiver_Mobile', 'Receiver_Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'Volumetric_Weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Upload_Date', 'Upload_Type', 'HUB_ID', 'Status', 'Remark'];
+    }
 }
