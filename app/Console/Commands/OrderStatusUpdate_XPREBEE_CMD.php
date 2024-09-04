@@ -39,7 +39,7 @@ class OrderStatusUpdate_XPREBEE_CMD extends Command
      */
     public function handle()
     {
-        $this->comment("Creating ECOM order status update jobs");
+        $this->comment("Creating XPressBee order status update jobs");
         $this->info("Scheduling status_update_XPREBEE at " . date('c') );
         $orders = bulkorders::where('awb_gen_by', 'Xpressbee')
             ->whereNotIn('showerrors', ['delivered', 'cancelled'])
