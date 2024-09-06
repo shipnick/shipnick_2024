@@ -36,6 +36,8 @@ class UserSearchOrder extends Controller
         $order = bulkorders::where('Awb_Number', $awbNumber)->first();
         $order->showerrors = $status;
         $order->save();
+        
+        return response('Webhook received', 200);
 
 
         // Validate the request secret

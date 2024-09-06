@@ -267,7 +267,7 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
 			</li>
 			
 			<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-					<i class="flaticon-025-dashboard"></i>
+				<img  src="{{asset('newtheme/images/dashboardn.png')}}" alt="" style="width: 25px; height:25px">
 					<span class="nav-text">Dashboard</span>
 				</a>
 				<ul aria-expanded="false">
@@ -278,7 +278,7 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
 				</ul>
 			</li>
 			<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-043-menu"></i>
+						<img  src="{{asset('newtheme/images/shipment.png')}}" alt="" style="width: 25px; height:25px">
 							<span class="nav-text">Orders</span>
 						</a>
                         <ul aria-expanded="false">
@@ -287,7 +287,7 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
                         </ul>
             </li>
 			<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-					<i class="flaticon-022-copy"></i>
+					<img  src="{{asset('newtheme/images/invoice.png')}}" alt="" style="width: 25px; height:25px">
 					<span class="nav-text">Reports</span>
 				</a>
 				<ul aria-expanded="false">
@@ -298,7 +298,7 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
 				</ul> 
 			</li>
 			<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-					<i class="flaticon-381-home-2"></i>
+					<img  src="{{asset('newtheme/images/output-onlinepngtools (2).png')}}" alt="" style="width: 25px; height:25px">
 					<span class="nav-text">Hub</span>
 				</a>
 				<ul aria-expanded="false">
@@ -307,8 +307,8 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
 				</ul>
 			</li>
 			<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-					<i class="flaticon-381-folder-17"></i>
-					<span class="nav-text">Wallet</span>
+					<img  src="{{asset('newtheme/images/output-onlinepngtools.png')}}" alt="" style="width: 25px; height:25px">
+					<span class="nav-text">Billing</span>
 				</a>
 				<ul aria-expanded="false">
 					<li><a href="{{ asset('/Wallet') }}">Billing</a></li>
@@ -316,7 +316,7 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
 				</ul>
 			</li>
 			<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-					<i class="flaticon-072-printer"></i>
+				<img  src="{{asset('newtheme/images/print.png')}}" alt="" style="width: 25px; height:25px">
 					<span class="nav-text">Print</span>
 				</a>
 				<ul aria-expanded="false">
@@ -324,7 +324,7 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
 				</ul>
 			</li>
 			<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-					<i class="flaticon-381-location"></i>
+					<img  src="{{asset('newtheme/images/traking.png')}}" alt="" style="width: 25px; height:25px">
 					<span class="nav-text">Location</span>
 				</a>
 				<ul aria-expanded="false">
@@ -332,7 +332,7 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
 				</ul>
 			</li>
 			<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-					<i class="fa-solid fa-gear fw-bold"></i>
+					<img  src="{{asset('newtheme/images/setting.png')}}" alt="" style="width: 25px; height:25px">
 					<span class="nav-text">Settings</span>
 					<span class="badge badge-xs badge-danger ms-3">New</span>
 				</a>
