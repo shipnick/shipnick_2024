@@ -166,9 +166,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <style>
+                                .hidden {
+                                    display: none;
+                                }
+                            </style>
                             <form method="post" action="{{ asset('/filter-selected-order') }}">
                                 @csrf
-                                 <div class="d-flex justify-content-start align-items-center header-new">
+                                 <div class=" header-new hidden" id="myDiv" >
                       <!--                  <button name="currentbtnname" value="shippinglabel" type="submit"-->
                 						<!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
                 						<!--	<i class="fa fa-calendar me-1"></i> Print Label-->
@@ -177,9 +182,10 @@
                 						<!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
                 						<!--	<i class="fa fa-times-circle me-1"></i> Cancel Orders-->
                 						<!--</button>-->
-                						<button id="downloadExcelBtn" class="btn btn-outline-secondary btn-sm mb-2 button-clor-white">
-                							<i class="fa fa-download me-1"></i> Export
-                						</button>
+                						
+						<button id="failedBtn" class="btn btn-outline-secondary btn-sm mb-2">
+                                        <i class="fa fa-download me-1"></i>Export
+                                        </button>
                                     </div>
                                 <style>
                                     .table td {

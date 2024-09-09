@@ -1,0 +1,13 @@
+[2024-09-06 14:50:08][246] Processing: App\Jobs\OrderStatusUpdate_ECOM
+
+410015942136 : In-Transit
+[2024-09-06 14:50:09][246] Processed:  App\Jobs\OrderStatusUpdate_ECOM
+[2024-09-06 14:50:09][250] Processing: App\Jobs\OrderStatusUpdate_ECOM
+
+410015942145 : Shipment Redirected
+[2024-09-06 14:50:10][250] Processed:  App\Jobs\OrderStatusUpdate_ECOM
+[2024-09-06 14:50:10][254] Processing: App\Jobs\OrderStatusUpdate_ECOM
+
+410015942152 : Undelivered
+[2024-09-06 14:50:11][254] Processed:  App\Jobs\OrderStatusUpdate_ECOM
+[2024-09-06 14:50:11][258] Processing: App\Jobs\OrderStatusUpdate_ECOM

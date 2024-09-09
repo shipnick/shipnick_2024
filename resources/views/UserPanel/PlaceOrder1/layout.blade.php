@@ -38,30 +38,6 @@
 
 </head>
 
-<!-- Include a newer version of jQuery -->
-<!-- <script>
-    async function performBackgroundRequest(url) {
-        try {
-            const response = await fetch(url, {
-                method: 'GET'
-            });
-            // Handle the response if needed
-        } catch (error) {
-            console.error('Error performing background URL hit:', error);
-        }
-    }
-
-    // Perform background URL hits asynchronously
-    performBackgroundRequest('https://shipnick.com/order-update-ecom');
-    performBackgroundRequest('https://shipnick.com/order-update-ecom');
-    performBackgroundRequest('https://shipnick.com/order-update-ecom');
-    performBackgroundRequest('https://shipnick.com/order-update-intransit-ecom');
-    performBackgroundRequest('https://shipnick.com/order-update-ofd-ecom');
-</script> -->
-
-<!-- Load jQuery in noConflict mode -->
-<!-- Include jQuery -->
-
 
                 <style>
 					.header-new {
@@ -78,6 +54,9 @@
 					.button-clor-white{
 						background-color: white;
 					}
+					.hidden {
+                                    display: none;
+                                }
 				</style>
 
 				<script>
@@ -101,20 +80,7 @@
     <!--*******************
         Preloader start
     ********************-->
-    <div id="preloader">
-        <div class="waviy">
-            <span style="--i:1">L</span>
-            <span style="--i:2">o</span>
-            <span style="--i:3">a</span>
-            <span style="--i:4">d</span>
-            <span style="--i:5">i</span>
-            <span style="--i:6">n</span>
-            <span style="--i:7">g</span>
-            <span style="--i:8">.</span>
-            <span style="--i:9">.</span>
-            <span style="--i:10">.</span>
-        </div>
-    </div>
+    @include("UserPanel/preloader")
     <!--*******************
         Preloader end
     ********************-->
@@ -276,8 +242,38 @@
             }, 100)
         });
     </script>
+    
+    
+    <script>
+                                        document.addEventListener('DOMContentLoaded', () => {
+                                            const checkboxes = document.querySelectorAll('input.form-check-input[type="checkbox"]');
+                                            const myDiv = document.getElementById('myDiv');
+                                            const checkAllCheckbox = document.getElementById('checkAll');
+                                
+                                            // Function to update the visibility of myDiv
+                                            function updateDivVisibility() {
+                                                const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                                                myDiv.classList.toggle('hidden', !anyChecked);
+                                            }
+                                
+                                            // Add event listeners to all checkboxes
+                                            checkboxes.forEach(checkbox => {
+                                                checkbox.addEventListener('change', updateDivVisibility);
+                                            });
+                                
+                                            // Add event listener to the "check all" checkbox
+                                            checkAllCheckbox.addEventListener('change', function() {
+                                                const isChecked = this.checked;
+                                                checkboxes.forEach(checkbox => {
+                                                    checkbox.checked = isChecked;
+                                                });
+                                                updateDivVisibility();
+                                            });
+                                        });
+                                    </script>
+                                    
 
-
+   
 
 
 

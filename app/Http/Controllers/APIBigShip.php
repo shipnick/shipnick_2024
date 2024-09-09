@@ -699,6 +699,118 @@ class APIBigShip extends Controller
                                     
                                 }
                             }
+                            if ($courierapicodeno == "xpressbee03") {
+                                echo "<br>xpressbee Start<br>";
+                                $thisgenerateawbno = "";
+            
+                                // Login to get Xpressbee token
+                                $response = Http::withHeaders([
+                                    'Content-Type' => 'application/json',
+                                ])->post('https://shipment.xpressbees.com/api/users/login', [
+                                    'email' => 'Ballyfashion77@gmail.com',
+                                    'password' => 'shyam104A@',
+                                ]);
+            
+                                $responseic = $response->json(); // Decode JSON response
+                                $xpressbeetoken = $responseic['data']; // Extract token from response data
+                                echo $xpressbeetoken;
+            
+                                // Start order using Xpressbee API
+                                if ($paymentmode == 'COD') {
+                                    $paymentmode = "cod";
+                                }
+                                if ($paymentmode == 'Prepaid') {
+                                    $paymentmode = "prepaid";
+                                }
+                                if (strlen($damob) > 10 && substr($damob, 0, 2) === '91') {
+                                    // Remove the '91' prefix
+                                    $damob = substr($damob, 2);
+                                }
+                                // $pkpkmbl = trim($pkpkmbl);  
+                                // $damob= trim($damob);
+                                // $pkpkpinc = preg_replace('/[^0-9\']/', '', $pkpkpinc);
+                                // $dapin = preg_replace('/[^0-9\']/', '', $dapin);
+            
+                                $weightInGrams = 0.3 * $iacwt; // Convert 0.3 kg to grams
+                                $weightInInteger = (int)$weightInGrams; // Convert to integer
+            
+            
+            
+                                $response = Http::withHeaders([
+                                    'Content-Type' => 'application/json',
+                                    'Authorization' => 'Bearer ' . $xpressbeetoken,
+                                ])->post('https://shipment.xpressbees.com/api/shipments2', [
+                                    'order_number' => $autogenorderno,
+                                    'shipping_charges' => 0,
+                                    'discount' => 0,
+                                    'cod_charges' => 0,
+                                    'payment_type' => $paymentmode,
+                                    'order_amount' => $itamt,
+                                    'package_weight' => $weightInInteger,
+                                    'package_length' => $ilgth,
+                                    'package_breadth' => $iwith,
+                                    'package_height' => $ihght,
+                                    'request_auto_pickup' => 'yes',
+                                    'consignee' => [
+                                        'name' => $daname,
+                                        'address' => $daadrs,
+                                        'address_2' => $daadrs,
+                                        'city' => $dacity,
+                                        'state' => $dastate,
+                                        'pincode' => $dapin,
+                                        'phone' => $damob,
+                                    ],
+                                    'pickup' => [
+                                        'warehouse_name' => $pkpkname,
+                                        'name' => $pkpkname,
+                                        'address' => $pkpkaddr,
+                                        'address_2' => $pkpkaddr,
+                                        'city' => $pkpkcity,
+                                        'state' => $pkpkstte,
+                                        'pincode' => $pkpkpinc,
+                                        'phone' => $pkpkmble,
+                                    ],
+                                    'order_items' => [
+                                        [
+                                            'name' => $iname,
+                                            'qty' => $iqlty,
+                                            'price' => $itamt,
+                                            'sku' => $iival,
+                                        ],
+                                    ],
+                                    'courier_id' => '1',
+                                    'collectable_amount' => $icoda,
+                                ]);
+            
+                                // Handle the response here
+                                $responseData = $response->json();
+                                echo "<br><pre>";
+                                print_r($responseData);
+                                echo "</pre><br>";
+            
+                                if (isset($responseData['status']) && $responseData['status'] == "1") {
+                                    $awb = $responseData['data']['awb_number'];
+                                    $shipno = $responseData['data']['shipment_id'];
+                                    $orderno = $responseData['data']['order_id'];
+            
+                                    bulkorders::where('Single_Order_Id', $crtidis)->update([
+                                        'courier_ship_no' => $shipno,
+                                        'Awb_Number' => $awb,
+                                        'showerrors'=>'pending pickup' ,
+                                        'awb_gen_by' => 'Xpressbee',
+                                        'awb_gen_courier' => 'Xpressbee2'
+                                    ]);
+                                } else {
+                                    $errmessage = $responseData['message'];
+                                    bulkorders::where('Single_Order_Id', $crtidis)->update([
+                                        'showerrors' => $errmessage,
+                                        'order_status_show' => $errmessage,
+                                        'dtdcerrors'=> '1'
+                                    ]);
+            
+                                    
+                                }
+                            }
                             
                         }
                     }
@@ -2743,30 +2855,30 @@ class APIBigShip extends Controller
                     // $dapin = preg_replace('/[^0-9\']/', '', $dapin);
                     
                     $response = Http::withHeaders([
-            'ClientID' => '9JdKNQXv45xuI2mCzFFVSGDdPh4in1ku',
-            'clientSecret' => 'JdzNoBQLokmGU6VO',
-            'Cookie' => 'BIGipServerpl_netconnect-bluedart.dhl.com_443=!+fTysYqXKJd2sXXfR3BsqrvQUUbjCCBOfXLGrfoTQlQpURtCxgFF1NmiMtHVF5+Xekt82FCu9qga4J8='
-        ])->get('https://apigateway.bluedart.com/in/transportation/token/v1/login');
-        
-        $responseData1 = $response->json();
+                                'ClientID' => '9JdKNQXv45xuI2mCzFFVSGDdPh4in1ku',
+                                'clientSecret' => 'JdzNoBQLokmGU6VO',
+                                'Cookie' => 'BIGipServerpl_netconnect-bluedart.dhl.com_443=!+fTysYqXKJd2sXXfR3BsqrvQUUbjCCBOfXLGrfoTQlQpURtCxgFF1NmiMtHVF5+Xekt82FCu9qga4J8='
+                            ])->get('https://apigateway.bluedart.com/in/transportation/token/v1/login');
+                            
+                            $responseData1 = $response->json();
+                                        
+                                        // echo "<br><pre>";
+                                        // print_r($responseData1);
+                                        // echo "</pre><br>";
                     
-                    // echo "<br><pre>";
-                    // print_r($responseData1);
-                    // echo "</pre><br>";
-
-        echo $token = $responseData1['JWTToken'];    
-                   
-                    
-                     $hubtitleshipclues = Hubs::where('hub_id', $pkpkid)->first()->Shiprocket_hub_id;
-           $inputDate = $param->Last_Time_Stamp;
-            $formattedDate = '/Date(' . (new DateTime($inputDate))->getTimestamp() * 1000 . ')/';
-            
-                    $response = Http::withHeaders([
-                        'JWTToken' =>  $token,
-                        'Content-Type' => 'application/json',
-                        'Cookie' => 'BIGipServerpl_netconnect-bluedart.dhl.com_443=!+fTysYqXKJd2sXXfR3BsqrvQUUbjCCBOfXLGrfoTQlQpURtCxgFF1NmiMtHVF5+Xekt82FCu9qga4J8=',
-                    ])->post('https://apigateway.bluedart.com/in/transportation/waybill/v1/GenerateWayBill', [
-                        'Request' => [
+                            echo $token = $responseData1['JWTToken'];    
+                                       
+                                        
+                                         $hubtitleshipclues = Hubs::where('hub_id', $pkpkid)->first()->Shiprocket_hub_id;
+                               $inputDate = $param->Last_Time_Stamp;
+                                $formattedDate = '/Date(' . (new DateTime($inputDate))->getTimestamp() * 1000 . ')/';
+                                
+                                        $response = Http::withHeaders([
+                                            'JWTToken' =>  $token,
+                                            'Content-Type' => 'application/json',
+                                            'Cookie' => 'BIGipServerpl_netconnect-bluedart.dhl.com_443=!+fTysYqXKJd2sXXfR3BsqrvQUUbjCCBOfXLGrfoTQlQpURtCxgFF1NmiMtHVF5+Xekt82FCu9qga4J8=',
+                                        ])->post('https://apigateway.bluedart.com/in/transportation/waybill/v1/GenerateWayBill', [
+                                            'Request' => [
                             'Consignee' => [
                                 'AvailableDays' => '',
                                 'AvailableTiming' => '',
@@ -2945,9 +3057,377 @@ class APIBigShip extends Controller
                     ]);
                 
                     } else {
-                        // Handle cases where 'GenerateWayBillResult' is not in the response
-                        // For example, log an error or handle it as per your application's requirements
-                     
+                        echo "<br>else section <br>";
+                        // $errormsg = $responseio['response'];
+                        // $errormsg = "Ecom internal error 500";
+                        // if (!empty($responseecom['shipments'][0]['reason'])) {
+                        //     $errormsg = $responseecom['shipments'][0]['reason'];
+                        // } elseif ($eominvalidawbs == "2") {
+                        //     $errormsg = "Awb not found";
+                        // } else {
+                        //     $errormsg = "Ecom internal error 500";
+                        // }
+                        // bulkorders::where('Single_Order_Id', $crtidis)->update(['showerrors' => $errormsg]);
+                         // new start 
+                        $courierassigns = courierpermission::where('user_id', $userid)
+                        // ->where('courier_priority', '!=', '0')
+                        ->where('courier_priority',  '2')
+                        ->where('admin_flg', '1')
+                        ->where('user_flg', '1')
+                        ->orderby('courier_priority', 'asc')
+                        ->get();
+                    $abc = 0;
+                    $finalcouriers = array();
+                    $finalcourierlists = array();
+                    foreach ($courierassigns as $courierassign) {
+                        // $couriername = $courierassign['courier_code'];
+                        $courieridno = $courierassign['courier_idno'];
+                        // $finalcouriers[] = array("cname"=>"$couriername","cidno"=>"$courieridno");
+                        array_push($finalcourierlists, "$courieridno");
+                    }
+                    echo "<br>";
+                    echo $paymentmode;
+                    echo " courierstart first<br>";
+                        foreach ($finalcourierlists as $courierapicodeno) {
+                            echo $courierapicodeno;
+                            if ($courierapicodeno == "xpressbee0") {
+                                echo "<br>xpressbee Start<br>";
+                                $thisgenerateawbno = "";
+            
+                                // Login to get Xpressbee token
+                                $response = Http::withHeaders([
+                                    'Content-Type' => 'application/json',
+                                ])->post('https://shipment.xpressbees.com/api/users/login', [
+                                    'email' => 'shipnick11@gmail.com',
+                                    'password' => 'Hansi@@2024@@',
+                                ]);
+            
+                                $responseic = $response->json(); // Decode JSON response
+                                $xpressbeetoken = $responseic['data']; // Extract token from response data
+                                echo $xpressbeetoken;
+            
+                                // Start order using Xpressbee API
+                                if ($paymentmode == 'COD') {
+                                    $paymentmode = "cod";
+                                }
+                                if ($paymentmode == 'Prepaid') {
+                                    $paymentmode = "prepaid";
+                                }
+                                if (strlen($damob) > 10 && substr($damob, 0, 2) === '91') {
+                                    // Remove the '91' prefix
+                                    $damob = substr($damob, 2);
+                                }
+                                // $pkpkmbl = trim($pkpkmbl);  
+                                // $damob= trim($damob);
+                                // $pkpkpinc = preg_replace('/[^0-9\']/', '', $pkpkpinc);
+                                // $dapin = preg_replace('/[^0-9\']/', '', $dapin);
+            
+                                $weightInGrams = 0.3 * $iacwt; // Convert 0.3 kg to grams
+                                $weightInInteger = (int)$weightInGrams; // Convert to integer
+            
+            
+            
+                                $response = Http::withHeaders([
+                                    'Content-Type' => 'application/json',
+                                    'Authorization' => 'Bearer ' . $xpressbeetoken,
+                                ])->post('https://shipment.xpressbees.com/api/shipments2', [
+                                    'order_number' => $autogenorderno,
+                                    'shipping_charges' => 0,
+                                    'discount' => 0,
+                                    'cod_charges' => 0,
+                                    'payment_type' => $paymentmode,
+                                    'order_amount' => $itamt,
+                                    'package_weight' => $weightInInteger,
+                                    'package_length' => $ilgth,
+                                    'package_breadth' => $iwith,
+                                    'package_height' => $ihght,
+                                    'request_auto_pickup' => 'yes',
+                                    'consignee' => [
+                                        'name' => $daname,
+                                        'address' => $daadrs,
+                                        'address_2' => $daadrs,
+                                        'city' => $dacity,
+                                        'state' => $dastate,
+                                        'pincode' => $dapin,
+                                        'phone' => $damob,
+                                    ],
+                                    'pickup' => [
+                                        'warehouse_name' => $pkpkname,
+                                        'name' => $pkpkname,
+                                        'address' => $pkpkaddr,
+                                        'address_2' => $pkpkaddr,
+                                        'city' => $pkpkcity,
+                                        'state' => $pkpkstte,
+                                        'pincode' => $pkpkpinc,
+                                        'phone' => $pkpkmble,
+                                    ],
+                                    'order_items' => [
+                                        [
+                                            'name' => $iname,
+                                            'qty' => $iqlty,
+                                            'price' => $itamt,
+                                            'sku' => $iival,
+                                        ],
+                                    ],
+                                    'courier_id' => '1',
+                                    'collectable_amount' => $icoda,
+                                ]);
+            
+                                // Handle the response here
+                                $responseData = $response->json();
+                                echo "<br><pre>";
+                                print_r($responseData);
+                                echo "</pre><br>";
+            
+                                if (isset($responseData['status']) && $responseData['status'] == "1") {
+                                    $awb = $responseData['data']['awb_number'];
+                                    $shipno = $responseData['data']['shipment_id'];
+                                    $orderno = $responseData['data']['order_id'];
+            
+                                    bulkorders::where('Single_Order_Id', $crtidis)->update([
+                                        'courier_ship_no' => $shipno,
+                                        'Awb_Number' => $awb,
+                                        'showerrors'=>'pending pickup' ,
+                                        'awb_gen_by' => 'Xpressbee',
+                                        'awb_gen_courier' => 'Xpressbee'
+                                    ]);
+                                } else {
+                                    $errmessage = $responseData['message'];
+                                    bulkorders::where('Single_Order_Id', $crtidis)->update([
+                                        'showerrors' => $errmessage,
+                                        'order_status_show' => $errmessage,
+                                        'dtdcerrors'=> '1'
+                                    ]);
+            
+                                    
+                                }
+                            }
+                            if ($courierapicodeno == "xpressbee02") {
+                                echo "<br>xpressbee Start<br>";
+                                $thisgenerateawbno = "";
+            
+                                // Login to get Xpressbee token
+                                $response = Http::withHeaders([
+                                    'Content-Type' => 'application/json',
+                                ])->post('https://shipment.xpressbees.com/api/users/login', [
+                                    'email' => 'glamfuseindia67@gmail.com',
+                                    'password' => 'shyam104A@',
+                                ]);
+            
+                                $responseic = $response->json(); // Decode JSON response
+                                $xpressbeetoken = $responseic['data']; // Extract token from response data
+                                echo $xpressbeetoken;
+            
+                                // Start order using Xpressbee API
+                                if ($paymentmode == 'COD') {
+                                    $paymentmode = "cod";
+                                }
+                                if ($paymentmode == 'Prepaid') {
+                                    $paymentmode = "prepaid";
+                                }
+                                if (strlen($damob) > 10 && substr($damob, 0, 2) === '91') {
+                                    // Remove the '91' prefix
+                                    $damob = substr($damob, 2);
+                                }
+                                // $pkpkmbl = trim($pkpkmbl);  
+                                // $damob= trim($damob);
+                                // $pkpkpinc = preg_replace('/[^0-9\']/', '', $pkpkpinc);
+                                // $dapin = preg_replace('/[^0-9\']/', '', $dapin);
+            
+                                $weightInGrams = 0.3 * $iacwt; // Convert 0.3 kg to grams
+                                $weightInInteger = (int)$weightInGrams; // Convert to integer
+            
+            
+            
+                                $response = Http::withHeaders([
+                                    'Content-Type' => 'application/json',
+                                    'Authorization' => 'Bearer ' . $xpressbeetoken,
+                                ])->post('https://shipment.xpressbees.com/api/shipments2', [
+                                    'order_number' => $autogenorderno,
+                                    'shipping_charges' => 0,
+                                    'discount' => 0,
+                                    'cod_charges' => 0,
+                                    'payment_type' => $paymentmode,
+                                    'order_amount' => $itamt,
+                                    'package_weight' => $weightInInteger,
+                                    'package_length' => $ilgth,
+                                    'package_breadth' => $iwith,
+                                    'package_height' => $ihght,
+                                    'request_auto_pickup' => 'yes',
+                                    'consignee' => [
+                                        'name' => $daname,
+                                        'address' => $daadrs,
+                                        'address_2' => $daadrs,
+                                        'city' => $dacity,
+                                        'state' => $dastate,
+                                        'pincode' => $dapin,
+                                        'phone' => $damob,
+                                    ],
+                                    'pickup' => [
+                                        'warehouse_name' => $pkpkname,
+                                        'name' => $pkpkname,
+                                        'address' => $pkpkaddr,
+                                        'address_2' => $pkpkaddr,
+                                        'city' => $pkpkcity,
+                                        'state' => $pkpkstte,
+                                        'pincode' => $pkpkpinc,
+                                        'phone' => $pkpkmble,
+                                    ],
+                                    'order_items' => [
+                                        [
+                                            'name' => $iname,
+                                            'qty' => $iqlty,
+                                            'price' => $itamt,
+                                            'sku' => $iival,
+                                        ],
+                                    ],
+                                    'courier_id' => '1',
+                                    'collectable_amount' => $icoda,
+                                ]);
+            
+                                // Handle the response here
+                                $responseData = $response->json();
+                                echo "<br><pre>";
+                                print_r($responseData);
+                                echo "</pre><br>";
+            
+                                if (isset($responseData['status']) && $responseData['status'] == "1") {
+                                    $awb = $responseData['data']['awb_number'];
+                                    $shipno = $responseData['data']['shipment_id'];
+                                    $orderno = $responseData['data']['order_id'];
+            
+                                    bulkorders::where('Single_Order_Id', $crtidis)->update([
+                                        'courier_ship_no' => $shipno,
+                                        'Awb_Number' => $awb,
+                                        'showerrors'=>'pending pickup' ,
+                                        'awb_gen_by' => 'Xpressbee',
+                                        'awb_gen_courier' => 'Xpressbee2'
+                                    ]);
+                                } else {
+                                    $errmessage = $responseData['message'];
+                                    bulkorders::where('Single_Order_Id', $crtidis)->update([
+                                        'showerrors' => $errmessage,
+                                        'order_status_show' => $errmessage,
+                                        'dtdcerrors'=> '1'
+                                    ]);
+            
+                                    
+                                }
+                            }
+                            if ($courierapicodeno == "xpressbee03") {
+                                echo "<br>xpressbee Start<br>";
+                                $thisgenerateawbno = "";
+            
+                                // Login to get Xpressbee token
+                                $response = Http::withHeaders([
+                                    'Content-Type' => 'application/json',
+                                ])->post('https://shipment.xpressbees.com/api/users/login', [
+                                    'email' => 'Ballyfashion77@gmail.com',
+                                    'password' => 'shyam104A@',
+                                ]);
+            
+                                $responseic = $response->json(); // Decode JSON response
+                                $xpressbeetoken = $responseic['data']; // Extract token from response data
+                                echo $xpressbeetoken;
+            
+                                // Start order using Xpressbee API
+                                if ($paymentmode == 'COD') {
+                                    $paymentmode = "cod";
+                                }
+                                if ($paymentmode == 'Prepaid') {
+                                    $paymentmode = "prepaid";
+                                }
+                                if (strlen($damob) > 10 && substr($damob, 0, 2) === '91') {
+                                    // Remove the '91' prefix
+                                    $damob = substr($damob, 2);
+                                }
+                                // $pkpkmbl = trim($pkpkmbl);  
+                                // $damob= trim($damob);
+                                // $pkpkpinc = preg_replace('/[^0-9\']/', '', $pkpkpinc);
+                                // $dapin = preg_replace('/[^0-9\']/', '', $dapin);
+            
+                                $weightInGrams = 0.3 * $iacwt; // Convert 0.3 kg to grams
+                                $weightInInteger = (int)$weightInGrams; // Convert to integer
+            
+            
+            
+                                $response = Http::withHeaders([
+                                    'Content-Type' => 'application/json',
+                                    'Authorization' => 'Bearer ' . $xpressbeetoken,
+                                ])->post('https://shipment.xpressbees.com/api/shipments2', [
+                                    'order_number' => $autogenorderno,
+                                    'shipping_charges' => 0,
+                                    'discount' => 0,
+                                    'cod_charges' => 0,
+                                    'payment_type' => $paymentmode,
+                                    'order_amount' => $itamt,
+                                    'package_weight' => $weightInInteger,
+                                    'package_length' => $ilgth,
+                                    'package_breadth' => $iwith,
+                                    'package_height' => $ihght,
+                                    'request_auto_pickup' => 'yes',
+                                    'consignee' => [
+                                        'name' => $daname,
+                                        'address' => $daadrs,
+                                        'address_2' => $daadrs,
+                                        'city' => $dacity,
+                                        'state' => $dastate,
+                                        'pincode' => $dapin,
+                                        'phone' => $damob,
+                                    ],
+                                    'pickup' => [
+                                        'warehouse_name' => $pkpkname,
+                                        'name' => $pkpkname,
+                                        'address' => $pkpkaddr,
+                                        'address_2' => $pkpkaddr,
+                                        'city' => $pkpkcity,
+                                        'state' => $pkpkstte,
+                                        'pincode' => $pkpkpinc,
+                                        'phone' => $pkpkmble,
+                                    ],
+                                    'order_items' => [
+                                        [
+                                            'name' => $iname,
+                                            'qty' => $iqlty,
+                                            'price' => $itamt,
+                                            'sku' => $iival,
+                                        ],
+                                    ],
+                                    'courier_id' => '1',
+                                    'collectable_amount' => $icoda,
+                                ]);
+            
+                                // Handle the response here
+                                $responseData = $response->json();
+                                echo "<br><pre>";
+                                print_r($responseData);
+                                echo "</pre><br>";
+            
+                                if (isset($responseData['status']) && $responseData['status'] == "1") {
+                                    $awb = $responseData['data']['awb_number'];
+                                    $shipno = $responseData['data']['shipment_id'];
+                                    $orderno = $responseData['data']['order_id'];
+            
+                                    bulkorders::where('Single_Order_Id', $crtidis)->update([
+                                        'courier_ship_no' => $shipno,
+                                        'Awb_Number' => $awb,
+                                        'showerrors'=>'pending pickup' ,
+                                        'awb_gen_by' => 'Xpressbee',
+                                        'awb_gen_courier' => 'Xpressbee2'
+                                    ]);
+                                } else {
+                                    $errmessage = $responseData['message'];
+                                    bulkorders::where('Single_Order_Id', $crtidis)->update([
+                                        'showerrors' => $errmessage,
+                                        'order_status_show' => $errmessage,
+                                        'dtdcerrors'=> '1'
+                                    ]);
+            
+                                    
+                                }
+                            }
+                            
+                        }
                     }
             
             

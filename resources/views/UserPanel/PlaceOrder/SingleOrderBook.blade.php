@@ -38,18 +38,7 @@
 	<!--*******************
         Preloader start
     ********************-->
-	<div id="preloader">
-		<div class="waviy">
-			<span style="--i:1">S</span>
-			<span style="--i:2">H</span>
-			<span style="--i:3">I</span>
-			<span style="--i:4">P</span>
-			<span style="--i:5">N</span>
-			<span style="--i:6">I</span>
-			<span style="--i:7">C</span>
-			<span style="--i:8">K</span>
-		</div>
-	</div>
+	 @include("UserPanel/preloader")
 	<!--*******************
         Preloader end
     ********************-->
