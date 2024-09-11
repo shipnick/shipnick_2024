@@ -26,7 +26,7 @@ class OrderStatusUpdate_XPREBEE implements ShouldQueue
      */
     public function __construct($data)
     {
-        $this->onQueue('order_status');
+        $this->onQueue('o_status_xpressbee');
         $this->order = $data;
     }
 

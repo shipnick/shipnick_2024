@@ -25,7 +25,7 @@ class OrderStatusUpdate_ECOM implements ShouldQueue
      */
     public function __construct($data)
     {
-        $this->onQueue('order_status');
+        $this->onQueue('o_status_ecom');
         $this->order = $data;
     }
 

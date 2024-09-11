@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Queue;
 
 class OrderStatusUpdate_ECOM_CMD extends Command
 {
+    private const QUEUE_NAME = 'o_status_ecom';
     /**
      * The name and signature of the console command.
      *
@@ -44,11 +45,11 @@ class OrderStatusUpdate_ECOM_CMD extends Command
         $this->info("Scheduling status_update_ECOM at " . date('c') );
 
         // avoid adding same jobs if queue is not empty
-        $jobsCount = Queue::size('order_status');
+        $jobsCount = Queue::size(self::QUEUE_NAME);
         if($jobsCount > 0){
-            $this->comment("Queue[order_status] is not empty so not adding jobs.");
-            return 0;
+            $this->comment("Queue [". self::QUEUE_NAME . "] is not empty so not adding jobs.");
         }
+        return 0;
         
         $params = bulkorders::where('awb_gen_by', 'Ecom') // Check if Awb_Number is not null
             ->whereNotIn('showerrors', ['Delivered'])
@@ -64,7 +65,7 @@ class OrderStatusUpdate_ECOM_CMD extends Command
         }
         $this->info('ECom Total Jobs: ' . $params->count());
         foreach ($params as $param) {
-                OrderStatusUpdate_ECOM::dispatch($param->toArray())->onQueue('order_status');
+                OrderStatusUpdate_ECOM::dispatch($param->toArray())->onQueue(self::QUEUE_NAME);
         }
         $this->info("ECom Queue completed.");
         return 0;
