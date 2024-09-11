@@ -6,7 +6,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: rgba(255, 255, 255, 0.8); /* Transparent white background */
+	
 		z-index: 9999;
 		display: flex;
 		justify-content: center;
@@ -15,7 +15,7 @@
 
 	.progress-bar {
 		width: 100%;
-		background: #e0e0e0;
+		/*background: #e0e0e0;*/
 		border-radius: 5px;
 		overflow: hidden;
 		position: relative;
@@ -23,13 +23,13 @@
 
 	.progress-bar .bar {
 		height: 5px;
-		background: #007bff;
+		background: #008040;
 		width: 0%; /* Start at 0% */
 		transition: width 2s ease; /* Smooth transition over 2 seconds */
 	}
 
 	.progress-bar::before {
-		content: 'Loading...';
+		/*content: 'Loading...';*/
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -48,7 +48,7 @@
 	</div>   
 	
 	
-	<script>
+	<script >
 	// Function to animate the progress bar to 100%
 	function animateProgressBar() {
 		document.getElementById('progress').style.width = '100%';
@@ -61,6 +61,6 @@
 		// Optionally, hide the preloader after the animation ends
 		setTimeout(() => {
 			document.getElementById('preloader').style.display = 'none'; // Hide preloader
-		}, 20000); // Match this with the duration of the CSS transition (2 seconds)
+		}, 50000); // Match this with the duration of the CSS transition (2 seconds)
 	});
 </script>
