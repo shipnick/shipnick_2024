@@ -47,8 +47,8 @@ class OrderStatusUpdate_XPREBEE_CMD extends Command
         $jobsCount = Queue::size(self::QUEUE_NAME);
         if($jobsCount > 0){
             $this->comment("Queue [". self::QUEUE_NAME . "] is not empty so not adding jobs.");
+            return 0;
         }
-        return 0;
 
         $this->info("Scheduling status_update_XPREBEE at " . date('c') );
 
