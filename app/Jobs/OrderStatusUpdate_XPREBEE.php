@@ -75,12 +75,12 @@ class OrderStatusUpdate_XPREBEE implements ShouldQueue
                 ]);
             } else {
                 // Handle HTTP request failure
-                file_put_contents('order_status.txt', "$awbNumber Failed | " . print_r($response, true), FILE_APPEND);
+                // file_put_contents('order_status.txt', "$awbNumber Failed | " . print_r($response, true), FILE_APPEND);
                 return response()->json(['error' => 'HTTP request failed'], $response->status());
             }
         } catch (Exception $e) {
             $this->fail($e);
-            file_put_contents('order_status.txt', "$awbNumber Failed", FILE_APPEND);
+            // file_put_contents('order_status.txt', "$awbNumber Failed", FILE_APPEND);
         }
     }
 }

@@ -37,7 +37,7 @@ class OrderStatusUpdate_ECOM implements ShouldQueue
     public function handle()
     {
         $crtidis = $this->order['Awb_Number']; // Assuming this is the correct AWB number
-        file_put_contents('order_status.txt', "\n\nECom status update for $crtidis : ", FILE_APPEND);
+        // file_put_contents('order_status.txt', "\n\nECom status update for $crtidis : ", FILE_APPEND);
         bulkorders::where('Awb_Number', $crtidis)->update(['order_status' => '1']);
 
         try {
@@ -67,7 +67,7 @@ class OrderStatusUpdate_ECOM implements ShouldQueue
                     $status1 = count($xml->object->field[36]->object);
 
 
-                    file_put_contents('order_status.txt', "$status | $status2", FILE_APPEND);
+                    // file_put_contents('order_status.txt', "$status | $status2", FILE_APPEND);
                     $updateData = [
                         'order_status_show' => $status2,
                         'showerrors' => $status,
@@ -91,7 +91,7 @@ class OrderStatusUpdate_ECOM implements ShouldQueue
                 bulkorders::where('Awb_Number', $crtidis)->update($updateData);
             }
             $this->fail($e);
-            file_put_contents('order_status.txt', "$crtidis Failed", FILE_APPEND);
+            // file_put_contents('order_status.txt', "$crtidis Failed", FILE_APPEND);
         }
     }
 }
