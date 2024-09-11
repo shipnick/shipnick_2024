@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Jobs\OrderStatusUpdate_ECOM;
 use App\Models\bulkorders;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Queue;
 
 class OrderStatusUpdate_ECOM_CMD extends Command
 {
@@ -41,6 +42,13 @@ class OrderStatusUpdate_ECOM_CMD extends Command
     {
         $this->comment("Creating ECOM order status update jobs");
         $this->info("Scheduling status_update_ECOM at " . date('c') );
+
+        // avoid adding same jobs if queue is not empty
+        $jobsCount = Queue::size('order_status');
+        if($jobsCount > 0){
+            $this->comment("Queue[order_status] is not empty so not adding jobs.");
+            return 0;
+        }
         
         $params = bulkorders::where('awb_gen_by', 'Ecom') // Check if Awb_Number is not null
             ->whereNotIn('showerrors', ['Delivered'])
