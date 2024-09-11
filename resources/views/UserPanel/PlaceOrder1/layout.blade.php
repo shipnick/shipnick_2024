@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="{{asset('newtheme/vendor/nouislider/nouislider.min.css')}}">
     <!-- Style css -->
     <link href="{{asset('newtheme/css/style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css" />
 
 
 
@@ -73,6 +74,7 @@
 						}
 					});
 				</script>
+				
 
 <body>
 
@@ -80,7 +82,7 @@
     <!--*******************
         Preloader start
     ********************-->
-    @include("UserPanel/preloader")
+   
     <!--*******************
         Preloader end
     ********************-->
@@ -208,16 +210,18 @@
     ***********************************-->
 
     <!-- Required vendors -->
-    <script src="{{asset('newtheme/vendor/global/global.min.js')}}"></script>
+    <script src="{{asset('newtheme/vendor/global/global.min.js')}}" defer></script>
     <script src="{{asset('newtheme/vendor/chart-js/chart.bundle.min.js')}}"></script>
-    <script src="{{asset('newtheme/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}"></script>
+    <script src="{{asset('newtheme/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}" defer></script>
 
     <!-- Datatable -->
-    <script src="{{asset('newtheme/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('newtheme/js/plugins-init/datatables.init.js')}}"></script>
+    <script src="{{asset('newtheme/vendor/datatables/js/jquery.dataTables.min.js')}}" defer></script>
+    <script src="{{asset('newtheme/js/plugins-init/datatables.init.js')}}" defer></script>
 
-    <script src="{{asset('newtheme/js/custom.min.js')}}"></script>
-    <script src="{{asset('newtheme/js/dlabnav-init.js')}}"></script>
+    <script src="{{asset('newtheme/js/custom.min.js')}}" defer></script>
+    <script src="{{asset('newtheme/js/dlabnav-init.js')}}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script>
+    
 
     <script>
         jQuery(document).ready(function() {

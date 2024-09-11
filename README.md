@@ -35,6 +35,11 @@
 - ```php artisan spnk:place-order```
 - ```php artisan queue:work --queue=place_order```
 
+### Run Ecom and Xpress Bee
+- ```php artisan spnk:ecom_job```
+- ```php artisan spnk:xpressbee_job```
+
+
  # Push Sashi's change from server
 ``` git add . && git commit -m "Shashi changes" ```
 

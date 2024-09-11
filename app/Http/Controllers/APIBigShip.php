@@ -574,7 +574,8 @@ class APIBigShip extends Controller
                                         'Awb_Number' => $awb,
                                         'showerrors'=>'pending pickup' ,
                                         'awb_gen_by' => 'Xpressbee',
-                                        'awb_gen_courier' => 'Xpressbee'
+                                        'awb_gen_courier' => 'Xpressbee',
+                                        'showerrors' => 'pending pickup'
                                     ]);
                                 } else {
                                     $errmessage = $responseData['message'];
@@ -686,7 +687,8 @@ class APIBigShip extends Controller
                                         'Awb_Number' => $awb,
                                         'showerrors'=>'pending pickup' ,
                                         'awb_gen_by' => 'Xpressbee',
-                                        'awb_gen_courier' => 'Xpressbee2'
+                                        'awb_gen_courier' => 'Xpressbee2',
+                                        'showerrors' => 'pending pickup'
                                     ]);
                                 } else {
                                     $errmessage = $responseData['message'];
@@ -798,7 +800,8 @@ class APIBigShip extends Controller
                                         'Awb_Number' => $awb,
                                         'showerrors'=>'pending pickup' ,
                                         'awb_gen_by' => 'Xpressbee',
-                                        'awb_gen_courier' => 'Xpressbee2'
+                                        'awb_gen_courier' => 'Xpressbee2',
+                                        'showerrors' => 'pending pickup'
                                     ]);
                                 } else {
                                     $errmessage = $responseData['message'];
@@ -921,7 +924,8 @@ class APIBigShip extends Controller
                             'courier_ship_no' => $shipno,
                             'Awb_Number' => $awb,
                             'awb_gen_by' => 'Xpressbee',
-                            'awb_gen_courier' => 'Xpressbee'
+                            'awb_gen_courier' => 'Xpressbee',
+                            'showerrors' => 'pending pickup'
                         ]);
                     } else 
                     {
@@ -1494,7 +1498,8 @@ class APIBigShip extends Controller
                             'courier_ship_no' => $shipno,
                             'Awb_Number' => $awb,
                             'awb_gen_by' => 'Xpressbee',
-                            'awb_gen_courier' => 'Xpressbee2'
+                            'awb_gen_courier' => 'Xpressbee2',
+                            'showerrors' => 'pending pickup'
                         ]);
                     } else 
                     {
@@ -2068,7 +2073,8 @@ class APIBigShip extends Controller
                             'courier_ship_no' => $shipno,
                             'Awb_Number' => $awb,
                             'awb_gen_by' => 'Xpressbee',
-                            'awb_gen_courier' => 'Xpressbee3'
+                            'awb_gen_courier' => 'Xpressbee3',
+                            'showerrors' => 'pending pickup'
                         ]);
                          
                     } else 
@@ -2808,7 +2814,8 @@ class APIBigShip extends Controller
                                         'Awb_Number' => $awb,
                                         'showerrors'=>'pending pickup' ,
                                         'awb_gen_by' => 'Xpressbee',
-                                        'awb_gen_courier' => 'Xpressbee'
+                                        'awb_gen_courier' => 'Xpressbee',
+                                        'showerrors' => 'pending pickup'
                                     ]);
                                 } else {
                                     $errmessage = $responseData['message'];
@@ -3189,7 +3196,8 @@ class APIBigShip extends Controller
                                         'Awb_Number' => $awb,
                                         'showerrors'=>'pending pickup' ,
                                         'awb_gen_by' => 'Xpressbee',
-                                        'awb_gen_courier' => 'Xpressbee'
+                                        'awb_gen_courier' => 'Xpressbee',
+                                        'showerrors' => 'pending pickup'
                                     ]);
                                 } else {
                                     $errmessage = $responseData['message'];
@@ -3301,7 +3309,8 @@ class APIBigShip extends Controller
                                         'Awb_Number' => $awb,
                                         'showerrors'=>'pending pickup' ,
                                         'awb_gen_by' => 'Xpressbee',
-                                        'awb_gen_courier' => 'Xpressbee2'
+                                        'awb_gen_courier' => 'Xpressbee2',
+                                        'showerrors' => 'pending pickup'
                                     ]);
                                 } else {
                                     $errmessage = $responseData['message'];
@@ -3413,7 +3422,8 @@ class APIBigShip extends Controller
                                         'Awb_Number' => $awb,
                                         'showerrors'=>'pending pickup' ,
                                         'awb_gen_by' => 'Xpressbee',
-                                        'awb_gen_courier' => 'Xpressbee2'
+                                        'awb_gen_courier' => 'Xpressbee2',
+                                        'showerrors' => 'pending pickup'
                                     ]);
                                 } else {
                                     $errmessage = $responseData['message'];
