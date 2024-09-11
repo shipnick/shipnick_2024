@@ -42,7 +42,6 @@ class OrderStatusUpdate_ECOM_CMD extends Command
     public function handle()
     {
         $this->comment("Creating ECOM order status update jobs");
-        $this->info("Scheduling status_update_ECOM at " . date('c') );
 
         // avoid adding same jobs if queue is not empty
         $jobsCount = Queue::size(self::QUEUE_NAME);
@@ -50,6 +49,8 @@ class OrderStatusUpdate_ECOM_CMD extends Command
             $this->comment("Queue [". self::QUEUE_NAME . "] is not empty so not adding jobs.");
         }
         return 0;
+
+        $this->info("Scheduling status_update_ECOM at " . date('c') );
         
         $params = bulkorders::where('awb_gen_by', 'Ecom') // Check if Awb_Number is not null
             ->whereNotIn('showerrors', ['Delivered'])

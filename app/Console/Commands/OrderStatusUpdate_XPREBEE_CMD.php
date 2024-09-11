@@ -42,7 +42,6 @@ class OrderStatusUpdate_XPREBEE_CMD extends Command
     public function handle()
     {
         $this->comment("Creating XPressBee order status update jobs");
-        $this->info("Scheduling status_update_XPREBEE at " . date('c') );
 
         // avoid adding same jobs if queue is not empty
         $jobsCount = Queue::size(self::QUEUE_NAME);
@@ -51,6 +50,7 @@ class OrderStatusUpdate_XPREBEE_CMD extends Command
         }
         return 0;
 
+        $this->info("Scheduling status_update_XPREBEE at " . date('c') );
 
         $orders = bulkorders::where('awb_gen_by', 'Xpressbee')
             ->whereNotIn('showerrors', ['delivered', 'cancelled'])
