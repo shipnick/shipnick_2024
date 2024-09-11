@@ -439,6 +439,8 @@ $query->volumetric_weight = $volwt;
         orderdetail::where('orderid',$last_id)->update(['orderno'=>$ordernois]);
         */
             $req->session()->flash('status','Order Details Added');
+            // Perform background URL hit
+            Http::get('https://shipnick.com/UPBulk_Order_API');
             return redirect('/UPSingle_Product');
         } catch (Exception $e) {
             $req->session()->flash('status','Not Added');
