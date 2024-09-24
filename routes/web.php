@@ -215,6 +215,11 @@ Route::get('/add-rate/{id}', [SuperAdminClients::class, 'add_rate_list']);
 Route::post('/super-admin-rate-add', [SuperAdminClients::class, 'super_admin_rate_add']);
 
 
+Route::get('/super-admin-pincode', [SuperAdminClients::class, 'superAdminPincode']);
+Route::post('/super-picode-add', [SuperAdminClients::class, 'superPicodeAdd']);
+Route::get('/pincode-bulk-delete/{id}', [SuperAdminClients::class, 'superAdminPincodeDelete']);
+
+
 Route::get('/edit-rate/{id}', [SuperAdminClients::class, 'editRate']);
 Route::post('/update-edit-rate', [SuperAdminClients::class, 'updateEditRate']);
 Route::get('/rate-delete/{id}', [SuperAdminClients::class, 'RateDelete']); 

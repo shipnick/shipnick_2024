@@ -12,6 +12,8 @@ use App\Models\bulkorders;
 use App\Models\courierpermission;
 use App\Models\Allusers;
 use App\Models\price;
+use App\Models\BulkPincode;
+use App\Models\PincodeFile;
 
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
@@ -460,9 +462,13 @@ public function ClientCourierPermissions(Request $req){
     {
        
         // dd($request->all());
+        if($request->courier == 'xpressbees_surface'){ $c_name='xpressbee0';}
+        if($request->courier == 'xpressbees_Shipnick'){ $c_name='xpressbee03';}
+        if($request->courier == 'xpressbees'){ $c_name='xpressbee02';}
 
         $query = new price();
             $query->courier_name = $request->courier;
+             $query->name = $c_name;
             $query->weight = $request->weight;
             $query->fwda = $request->fwd1;
             $query->fwdb = $request->fwd2;
@@ -548,6 +554,111 @@ public function ClientCourierPermissions(Request $req){
             return redirect()->back()->with("success", "not delete  successsfully");
         }
         
+    }
+     public function superAdminPincode()
+    {
+        $pincode = PincodeFile::all();
+        return view('super-admin.Pincode.pincode-all',compact('pincode')); 
+    }
+    public function superPicodeAdd(Request $req)
+{
+    $userid = session()->get('UserLogin2id');
+    $username = session()->get('UserLogin2name');
+
+    $bulkfilename = date('Y-m-d');
+    $tdate = date('Y-m-d');
+
+    if (!file_exists("PincodeExcelFiles/$bulkfilename")) {
+        mkdir("PincodeExcelFiles/$bulkfilename", 0755, true);
+    }
+
+    $imgfile = $req->file('bulkpincode');
+
+    if (is_null($imgfile) || $imgfile->getClientOriginalExtension() !== 'csv') {
+        $req->session()->flash('status', 'Invalid file type. Please upload a CSV file.');
+        return redirect('/UPBulk_Order');
+    }
+
+    if ($imgfile->getSize() > 10485760) { // 10 MB limit
+        $req->session()->flash('status', 'File size exceeds the maximum limit of 10 MB.');
+        return redirect('/UPBulk_Order');
+    }
+
+    $filename = date('dmy') . $userid . "_" . rand(1, 499) . rand(500, 999) . "." . $imgfile->getClientOriginalExtension();
+    $imgfile->move("PincodeExcelFiles/$bulkfilename/", $filename);
+
+    $filePath = "PincodeExcelFiles/$bulkfilename/$filename";
+    $fileD = fopen($filePath, "r");
+
+    $totalnooforders = 0;
+    $rowData = [];
+
+    while (($data = fgetcsv($fileD)) !== false) {
+        $rowData[] = $data;
+    }
+    fclose($fileD);
+
+    $totalnooforders = count($rowData);
+    
+    $query1 = new PincodeFile;
+    $query1->folder_name = $bulkfilename;
+    $query1->date = $tdate;
+    $query1->total_count = $totalnooforders;
+    $query1->courier = $req->courier;
+    $query1->save();
+
+    $folder_id = $query1->id;
+
+    DB::beginTransaction();
+    try {
+        $sidno = 1;
+        foreach ($rowData as $value) {
+            $Pincode = trim($value[0]);
+
+            $query = new BulkPincode;
+            $query->pincode = $Pincode;
+            $query->courier = $req->courier;
+            $query->folder_id = $folder_id;
+            $query->save();
+
+            $sidno++;
+        }
+        DB::commit();
+        $req->session()->flash('status', 'Bulk order successfully uploaded.');
+    } catch (\Exception $e) {
+        DB::rollback();
+        // Log the error or handle it as needed
+        $req->session()->flash('status', 'An error occurred while processing the bulk order.');
+    }
+
+    return redirect('super-admin-pincode');
+}
+    public function superAdminPincodeDelete($id)
+    {
+        // Find the PincodeFile record by ID
+        $data = PincodeFile::find($id);
+    
+        // Check if the PincodeFile record exists
+        if (!$data) {
+            // Handle the case where the PincodeFile record does not exist
+            return redirect('super-admin-pincode')->with('error', 'Pincode file not found.');
+        }
+    
+        // Find related BulkPincode records
+        $data1 = BulkPincode::where('folder_id', $id)->get();
+    
+        // Delete related BulkPincode records if they exist
+        if ($data1->isNotEmpty()) {
+            foreach ($data1 as $item) {
+                $item->delete();
+            }
+        }
+    
+        // Delete the PincodeFile record
+        $data->delete();
+    
+        // Redirect with a success message
+        return redirect('super-admin-pincode')->with('success', 'Pincode file and related data deleted successfully.');
     }
 
 

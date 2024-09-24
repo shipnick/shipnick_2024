@@ -486,12 +486,12 @@ class UserSearchOrder extends Controller
 
         try {
             $orders = bulkorders::where('awb_gen_courier', 'Xpressbee2')
-                //   ->where('User_Id', '165')
+                //   ->where('User_Id', '171')
                 //   ->where('User_Id', '!=', '109')
                 //   ->where('Rec_Time_Date', '	2024-08-12')
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled','in transit'])
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
-                ->whereIn('showerrors', ['pending pickup'])
+                // ->whereIn('showerrors', ['pending pickup'])
                 ->where('order_status', 'upload')
                 ->where('order_cancel', '!=', '1')
                 ->whereNotNull('Awb_Number')
@@ -505,11 +505,13 @@ class UserSearchOrder extends Controller
             }
             set_time_limit(300);
             $completedOrders = 0;
+           bulkorders::whereIn('Awb_Number', $orders)
+    ->update(['order_status' => '1']);
 
             foreach ($orders as $order) {
                 $awbNumber = $order->Awb_Number;
 
-                bulkorders::where('Awb_Number', $awbNumber)->update(['order_status' => '1']);
+                
 
                 $response = Http::withHeaders([
                     'Content-Type' => 'application/json',
@@ -564,7 +566,7 @@ class UserSearchOrder extends Controller
         try {
             $orders = bulkorders::where('awb_gen_courier', 'Xpressbee3')
                 //   ->where('awb_gen_courier', 'Xpressbee3')
-                  ->where('User_Id', '165')
+                  ->where('User_Id', '122')
                 //   ->where('Rec_Time_Date', '	2024-08-26')
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
                 // ->whereNotIn('showerrors', ['delivered', 'exception', 'rto', 'cancelled'])
@@ -582,11 +584,13 @@ class UserSearchOrder extends Controller
             }
             set_time_limit(300);
             $completedOrders = 0;
+             bulkorders::whereIn('Awb_Number', $orders)
+    ->update(['order_status' => '1']);
 
             foreach ($orders as $order) {
                 $awbNumber = $order->Awb_Number;
 
-                bulkorders::where('Awb_Number', $awbNumber)->update(['order_status' => '1']);
+                
 
                 $response = Http::withHeaders([
                     'Content-Type' => 'application/json',

@@ -123,6 +123,22 @@
               </ul>
             </div>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#icons1" aria-expanded="false" aria-controls="icons">
+              <i class="ti-user menu-icon"></i>
+              <span class="menu-title">Pincode Management</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="icons1">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ asset('/super-admin-pincode') }}">Pincode</a></li>
+                <!-- <li class="nav-item"> <a class="nav-link" href="{{ asset('/super-all-admin') }}">All Admin</a></li> -->
+                
+
+
+              </ul>
+            </div>
+          </li>
 
 
 

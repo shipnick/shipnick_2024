@@ -101,7 +101,7 @@
                                                                     <select class="default-select  form-control wide" name="courier">
                                                                    
                                                                     @foreach ($courier as $post)
-                                                                        <option value="{{ $post->courier_name }}{{ $post->weight }}">{{ $post->courier_name }}  {{ $post->weight }}KG</option>
+                                                                        <option value="{{ $post->id }}">{{ $post->courier_name }}  {{ $post->weight }}KG</option>
                                                                         
                                                                         @endforeach
                                                                     </select>

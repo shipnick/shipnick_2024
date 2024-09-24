@@ -70,9 +70,9 @@
                                         <li class="nav-item">
                                             <a class="nav-link active" data-bs-toggle="tab" href="#home"><i class="la la-home me-2"></i><strong>Pricing PLan</strong> </a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="tab" href="#profile"><i class="la la-user me-2"></i><strong>COD Remittance</strong></a>
-                                        </li>
+                                        <!--<li class="nav-item">-->
+                                        <!--    <a class="nav-link" data-bs-toggle="tab" href="#profile"><i class="la la-user me-2"></i><strong>COD Remittance</strong></a>-->
+                                        <!--</li>-->
                                         <li class="nav-item">
                                             <a class="nav-link" data-bs-toggle="tab" href="#contact"><i class="la la-phone me-2"></i><strong>Invoice</strong></a>
                                         </li>
@@ -204,62 +204,62 @@
                     </div>
                                         </div>
 
-                                        <div class="tab-pane fade" id="profile">
-											<div class="row ">
+           <!--                             <div class="tab-pane fade" id="profile">-->
+											<!--<div class="row ">-->
 												
-												<div class="col-md-3 mt-3 card text-center border-right" style="background-color: #bacbff;">
-													<h5>Remitted Till Date</h5>
-													<h5><b>₹</b>445919</h5>
-												</div>
-												<div class="col-md-3 mt-3 card text-center border-right" style="background-color: #bdebfe;">
-													<h5>Last Remittance</h5>
-													<h5><b>₹</b>445919</h5>
-												</div>
-												<div class="col-md-3 mt-3 card text-center border-right" style="background-color: #f4ccff;">
-													<h5>Next Remittance</h5>
-													<h5><b>₹</b>445919</h5>
-												</div>
-												<div class="col-md-3 mt-3 card text-center border-right" style="background-color: #AF5AE2;">
-													<h5>Total Remittance Due</h5>
-													<h5><b>₹</b>445919</h5>
-												</div>
-											</div>
+											<!--	<div class="col-md-3 mt-3 card text-center border-right" style="background-color: #bacbff;">-->
+											<!--		<h5>Remitted Till Date</h5>-->
+											<!--		<h5><b>₹</b>445919</h5>-->
+											<!--	</div>-->
+											<!--	<div class="col-md-3 mt-3 card text-center border-right" style="background-color: #bdebfe;">-->
+											<!--		<h5>Last Remittance</h5>-->
+											<!--		<h5><b>₹</b>445919</h5>-->
+											<!--	</div>-->
+											<!--	<div class="col-md-3 mt-3 card text-center border-right" style="background-color: #f4ccff;">-->
+											<!--		<h5>Next Remittance</h5>-->
+											<!--		<h5><b>₹</b>445919</h5>-->
+											<!--	</div>-->
+											<!--	<div class="col-md-3 mt-3 card text-center border-right" style="background-color: #AF5AE2;">-->
+											<!--		<h5>Total Remittance Due</h5>-->
+											<!--		<h5><b>₹</b>445919</h5>-->
+											<!--	</div>-->
+											<!--</div>-->
 											
-											<div class="table-responsive">
-												<table class="table table-responsive-md">
-													<thead>
-														<tr>
-															<th style="width:80px;"><strong>#</strong></th>
-															<th><strong>REMITTANCE ID</strong></th>
-															<th><strong>COD AMOUNT</strong></th>
-															<th><strong>DATE</strong></th>
-															<th><strong>STATUS</strong></th>
+											<!--<div class="table-responsive">-->
+											<!--	<table class="table table-responsive-md">-->
+											<!--		<thead>-->
+											<!--			<tr>-->
+											<!--				<th style="width:80px;"><strong>#</strong></th>-->
+											<!--				<th><strong>REMITTANCE ID</strong></th>-->
+											<!--				<th><strong>COD AMOUNT</strong></th>-->
+											<!--				<th><strong>DATE</strong></th>-->
+											<!--				<th><strong>STATUS</strong></th>-->
 															
-															<th><strong>FREIGHT DEDUCTIONS</strong></th>
-															<th><strong>REMITTANCE AMOUNT</strong></th>
-															<th><strong>PAYMENT REF</strong></th>
-															<th class="text-end"><strong>DOWNLOAD</strong></th>
+											<!--				<th><strong>FREIGHT DEDUCTIONS</strong></th>-->
+											<!--				<th><strong>REMITTANCE AMOUNT</strong></th>-->
+											<!--				<th><strong>PAYMENT REF</strong></th>-->
+											<!--				<th class="text-end"><strong>DOWNLOAD</strong></th>-->
 														   
-														</tr>
-													</thead>
-													<tbody>
-														<tr>
-															<td>1</td>
-															<td>E136829</td>
-															<td>₹21204</td>
-															<td>29-04-2024</td>
-															<td>Paid</td>
+											<!--			</tr>-->
+											<!--		</thead>-->
+											<!--		<tbody>-->
+											<!--			<tr>-->
+											<!--				<td>1</td>-->
+											<!--				<td>E136829</td>-->
+											<!--				<td>₹21204</td>-->
+											<!--				<td>29-04-2024</td>-->
+											<!--				<td>Paid</td>-->
 															
 															
-															<td>₹21204</td>
-															<td>₹0</td>
-															<td>29-04-2024</td>
-															<td><a href="remittance/exportAWB/136829" class="btn btn-sm btn-outline-info"><i class="mdi mdi-download"></i></a></td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
-                                        </div>
+											<!--				<td>₹21204</td>-->
+											<!--				<td>₹0</td>-->
+											<!--				<td>29-04-2024</td>-->
+											<!--				<td><a href="remittance/exportAWB/136829" class="btn btn-sm btn-outline-info"><i class="mdi mdi-download"></i></a></td>-->
+											<!--			</tr>-->
+											<!--		</tbody>-->
+											<!--	</table>-->
+											<!--</div>-->
+           <!--                             </div>-->
                                         <div class="tab-pane fade" id="contact">
 											
 											<div class="table-responsive mt-3">

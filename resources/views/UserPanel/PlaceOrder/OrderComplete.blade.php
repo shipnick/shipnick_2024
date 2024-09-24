@@ -52,11 +52,11 @@
     }
 
     // Perform background URL hits asynchronously
-    performBackgroundRequest('https://shipnick.com/order-update-ecom');
-    performBackgroundRequest('https://shipnick.com/order-update-ecom');
-    performBackgroundRequest('https://shipnick.com/order-update-ecom');
-    performBackgroundRequest('https://shipnick.com/order-update-intransit-ecom');
-    performBackgroundRequest('https://shipnick.com/order-update-ofd-ecom');
+    performBackgroundRequest('https://shipnick.com/UPBulk_Order_API');
+    performBackgroundRequest('https://shipnick.com/UPBulk_Order_API');
+    performBackgroundRequest('https://shipnick.com/UPBulk_Order_API');
+    performBackgroundRequest('https://shipnick.com/UPBulk_Order_API');
+    performBackgroundRequest('https://shipnick.com/UPBulk_Order_API');
 </script>
 
 <!-- Load jQuery in noConflict mode -->

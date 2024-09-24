@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
+
 class ECom_PlaceOrderJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -32,4 +33,6 @@ class ECom_PlaceOrderJob implements ShouldQueue
     {
         //
     }
+    
+
 }

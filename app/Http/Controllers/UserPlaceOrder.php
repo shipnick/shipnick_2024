@@ -22,6 +22,7 @@ use App\Models\price;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\Exportable;
+use App\Jobs\UploadOrder;
 
 class UserPlaceOrder extends Controller
 {
@@ -1024,7 +1025,17 @@ return view('UserPanel.PlaceOrder.BulkOrderAjax',['params'=>$params,'allriders'=
                     $errorstatus = "Invalid Hub ID";
                     $apistatus = 1;
                 }
-
+                // find a zone to pincode start
+                  $pincode1 = Pincode::where('pincode', $custmpincode)->first();
+                        $pincode2 = Pincode::where('pincode', $pickuppincode)->first();
+                
+                        if ($pincode1 && $pincode2) {
+                            // Determine the zone
+                            $zone = $this->determineZone($pincode1, $pincode2);
+                        } else {
+                            $zone = "D"; // Default zone if pincode details are missing
+                        }
+                        // end find zone 
 
                 $query = new bulkorders;
                 $query->orderno = $orderid;
@@ -1068,6 +1079,7 @@ return view('UserPanel.PlaceOrder.BulkOrderAjax',['params'=>$params,'allriders'=
                 $query->order_status_show = 'Upload';
                 $query->apihitornot = $apistatus;
                 $query->showerrors = $errorstatus;
+                $query->zone = $zone;
                 $query->save();
                 $last_id = $query->id;
 
@@ -1113,6 +1125,12 @@ return view('UserPanel.PlaceOrder.BulkOrderAjax',['params'=>$params,'allriders'=
 
             // Redirect with success message
             return redirect('/UPAll_Complete_Orders')->with('message', 'Order upload success ' . $noof_order);
+            
+            // Dispatch the job
+    // UploadOrder::dispatch();
+
+    // // Optionally, provide feedback or redirect
+    // return redirect('/booked-order')->with('message', 'Order upload success ' . $noof_order);
 
 
 
@@ -1704,7 +1722,9 @@ $awbNumbers = $selectorders;
 // Perform a single update query
 bulkorders::whereIn('Awb_Number', $awbNumbers)
     ->update(['order_cancel' => 1]);
-
+    
+Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
+Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
 // Redirect back after the update
 return redirect()->back()->with('message', 'Orders successfully canceled.');
 // Select Cancel Orders

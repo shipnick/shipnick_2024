@@ -102,7 +102,9 @@
                                                                         <option value="Bluedart-sc">Bluedart-sc</option>
                                                                          <option value="Bluedart-sr">Bluedart-sr</option>
                                                                         <option value="bluedart">Bluedart</option>
-                                                                        <option value="xpressbee">Xpressbees</option>
+                                                                        <option value="xpressbees_surface">XpressBees Surface</option>
+                                                                        <option value="xpressbees">Xpressbees</option>
+                                                                        <option value="xpressbees_Shipnick"> XpressBees Shipnick</option>
                                                                         <option value="ecom">Ecom </option>
 
                                                                     </select>

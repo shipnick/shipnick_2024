@@ -273,7 +273,26 @@
                     <p>Deliver To:</p>
                     <h4 class="mb5">{{ ucwords($params[$i]['name']) }}</h4>
                     <p style="line-height: 1.5em;">
-                        {{ ucwords($params[$i]['address']) }}<br />
+                        <?php
+// Example address
+$address = ucwords($params[$i]['address']);
+
+// Check if the address length is more than 50 characters
+if (strlen($address) > 30) {
+    // Split the address into parts where each part is 50 characters or less
+    $addressParts = str_split($address, 30);
+    
+    // Join the parts with a <br> tag
+    $formattedAddress = implode('<br>', $addressParts);
+} else {
+    // No need to break the address, just use it as is
+    $formattedAddress = $address;
+}
+
+// Output the formatted address
+echo $formattedAddress;
+?>
+<br />
                         {{ ucwords($params[$i]['city']) }} :-{{ ucwords($params[$i]['pincode']) }}<br />
                         {{ ucwords($params[$i]['mobile']) }} </p>
                 </td>

@@ -740,10 +740,13 @@ public function ClientCourierPermissions(Request $req){
     {
        
         // dd($request->all());
+        $couriername= price::where('id',$request->courier)->first();
+        $couriernew = $couriername->courier_name . $couriername->weight;
+        // dd($couriernew);
 
         $query = new price();
-            $query->courier_name = $request->courier;
-            // $query->weight = $request->weight;
+            $query->courier_name = $couriernew;
+            $query->name = $request->courier;
             $query->fwda = $request->fwd1;
             $query->fwdb = $request->fwd2;
             $query->fwdc = $request->fwd3;

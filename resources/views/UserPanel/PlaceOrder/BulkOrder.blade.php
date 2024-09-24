@@ -245,11 +245,12 @@
 																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
 																			<label class="text-label form-label"><strong>Payment Method</strong><span class="required">*</span></label>
-																			<select class="default-select form-control wide mb-3" name="courierType" style="border-color: black;">
-																				<option>--Select method--</option>
-																				<option value="COD">COD</option>
-																				<option value="Prepaid">Prepaid</option>
-																			</select>
+																			
+																			<select class="default-select form-control wide" id="courierType" name="courierType" style="border-color: black;" required>
+                                                                                <option value="">--Select method--</option>
+                                                                                <option value="COD">COD</option>
+                                                                                <option value="Prepaid">Prepaid</option>
+                                                                            </select>
 																		</div>
 																	</div>
 																	<div class="col-lg-6 mb-2">
