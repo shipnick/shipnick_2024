@@ -1,0 +1,37 @@
+#!/bin/bash
+set -e
+
+APP="/var/www/html"
+PUBLIC_PATH="$APP/public"
+LOG_PATH="$APP/storage/logs"
+
+CMD="$@"
+if [ "$CMD" == "php-fpm" ]; then
+  if [ -f ${LOG_PATH}/laravel.log ]; then
+    rm ${LOG_PATH}/laravel.log
+  fi
+  touch ${LOG_PATH}/laravel.log
+  chown www-data:www-data ${LOG_PATH}/laravel.log
+  tail -f ${LOG_PATH}/laravel.log &
+fi
+
+if [ ! -e $APP/depoyed.txt ]; then date +"%m/%d/%Y %H:%M:%S %Z (%A)" > $APP/deployed.txt; fi
+echo -e "post_max_size = 11M\nupload_max_filesize = 10M" > /usr/local/etc/php/conf.d/set_upload_size.ini
+
+if [ "$APP_ENV" == "production" ]; then
+  echo "expose_php=0" > /usr/local/etc/php/conf.d/expose_php_off.ini
+  echo "Changing bootstrap/cache and storage permissions"
+  if [ ! -e $PUBLIC_PATH/app ]; then cd $PUBLIC_PATH; ln -s . app; cd $APP; fi
+  chown -R www-data:www-data bootstrap/cache storage public storage/framework/cache resources .gnupg
+  chmod -R 775 resources
+  chmod -R 777 storage
+  rm -rf bootstrap/cache/config.php
+  echo "pinentry-mode loopback" >> /usr/share/nginx/html/.gnupg/gpg.conf
+  echo "allow-loopback-pinentry" >> /usr/share/nginx/html/.gnupg/gpg-agent.conf
+fi
+
+chmod -R 775 resources
+chmod -R 777 storage
+rm -rf bootstrap/cache/config.php
+
+exec "$@"
