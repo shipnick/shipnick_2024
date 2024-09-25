@@ -32,7 +32,7 @@ RUN cat $APP/config/xdebug.ini >> /usr/local/etc/php/conf.d/xdebug.ini
 RUN date +"docker_date=%m/%d/%Y %H:%M:%S %Z (%A)" > $APP/about.txt
 RUN echo "git_branch=$GIT_BRANCH" >> $APP/about.txt
 RUN echo "git_commit=$GIT_COMMIT" >> $APP/about.txt
-
+RUN chmod 777 /var/www/html/entrypoint
 ENTRYPOINT ["/var/www/html/entrypoint"]
 
 CMD ["php-fpm"]
