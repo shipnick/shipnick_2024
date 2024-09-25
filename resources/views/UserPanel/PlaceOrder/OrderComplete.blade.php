@@ -39,25 +39,7 @@
 </head>
 
 <!-- Include a newer version of jQuery -->
-<script>
-    async function performBackgroundRequest(url) {
-        try {
-            const response = await fetch(url, {
-                method: 'GET'
-            });
-            // Handle the response if needed
-        } catch (error) {
-            console.error('Error performing background URL hit:', error);
-        }
-    }
 
-    // Perform background URL hits asynchronously
-    performBackgroundRequest('https://shipnick.com/UPBulk_Order_API');
-    performBackgroundRequest('https://shipnick.com/UPBulk_Order_API');
-    performBackgroundRequest('https://shipnick.com/UPBulk_Order_API');
-    performBackgroundRequest('https://shipnick.com/UPBulk_Order_API');
-    performBackgroundRequest('https://shipnick.com/UPBulk_Order_API');
-</script>
 
 <!-- Load jQuery in noConflict mode -->
 <!-- Include jQuery -->

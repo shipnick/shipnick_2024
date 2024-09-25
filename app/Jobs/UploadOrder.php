@@ -3,38 +3,18 @@
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Models\orderdetail;
-use App\Models\Allusers;
-use App\Models\CourierApiDetail;
-use App\Models\courierlist;
-use App\Models\courierpermission;
-use App\Models\Hubs;
-use App\Models\OrdersStatus;
-use App\Models\CourierNames;
-use App\Models\bulkorders;
-use App\Models\bulkordersfile;
-use App\Models\EcomAwbs;
-use App\Models\smartship;
-use App\Models\BulkPincode;
+use App\Models\bulkorders; 
+use Illuminate\Support\Facades\Log; // Import Log facade
+use App\Models\courierpermission; 
+use App\Models\Smartship; 
 
 class UploadOrder implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
 
     /**
      * Execute the job.
@@ -43,28 +23,41 @@ class UploadOrder implements ShouldQueue
      */
     public function handle()
     {
-        $orders = BulkOrder::where('apihitornot', '0')
+             try {
+             $orders = bulkorders::where('apihitornot', '0')
             ->orderBy('Single_Order_Id', 'DESC')
             ->get();
 
-        Log::info('Working Total Order: ' . count($orders));
+        Log::info('Working Total Orders: ' . count($orders));
+
+        // Set token name once before processing orders
+        Smartship::where('id', 1)
+            ->update(['tokenname' => 'orders']); // Fixed spacing issue in key
 
         foreach ($orders as $order) {
             $response = $this->processOrderWithCouriers($order);
 
-            BulkOrder::where('Single_Order_Id', $order->Single_Order_Id)
+            bulkorders::where('Single_Order_Id', $order->Single_Order_Id)
                 ->update([
                     'showerrors' => $response['error'],
-                    'order_status_show' => $response['status']
+                    'order_status_show' => $response['status'],
+                    'apihitornot' => 1 // Mark the order as processed
                 ]);
         }
+        } catch (\Exception $e) {
+            \Log::error('UploadOrder job failed: '.$e->getMessage());
+            throw $e; // Re-throw if you want it to be marked as failed
+        }
+       
     }
+
     private function processOrderWithCouriers($order)
     {
+        // Fetch the courier priority list
         $courierPriorityList = courierpermission::where('user_id', $order->User_Id)
             ->where('admin_flg', '1')
             ->where('user_flg', '1')
-            ->orderby('courier_priority', 'asc')
+            ->orderBy('courier_priority', 'asc')
             ->pluck('courier_idno');
 
         $allErrors = []; // Initialize an array to collect all errors
@@ -72,9 +65,8 @@ class UploadOrder implements ShouldQueue
         foreach ($courierPriorityList as $courierId) {
             $response = $this->handleCourier($courierId, $order);
 
-            // Collect error if the courier fails
             if ($response['status'] === 'Error') {
-                $allErrors[] =  $response['error'];
+                $allErrors[] = $response['error'];
             } else {
                 // If a courier is successful, return the success response
                 return $response;

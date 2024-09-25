@@ -441,7 +441,7 @@
                         @endif
         
                         <hr style="border: 1px solid black; margin:0">
-                        This is computer generated document, hence doese not required signature
+                        This is computer generated document, hence does not require signature
                         <br> <b>Note:</b> All disputes are subject to Delhi jurisdication. Goods once sold will only be
                         taken back or exchanged as per the store's exchange/return policy
                     </span>

@@ -23,10 +23,17 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\Exportable;
 use App\Jobs\UploadOrder;
+use App\Jobs\cancelordersProcess;
 
 class UserPlaceOrder extends Controller
 {
     public function updateZone()
+    {
+        // UploadOrder::dispatch();
+        dispatch(new UploadOrder());
+
+    }
+    public function updateZone1()
     {
     // Fetch bulk orders with the necessary details
     $orders = bulkorders::whereNull('zone')
@@ -1722,9 +1729,11 @@ $awbNumbers = $selectorders;
 // Perform a single update query
 bulkorders::whereIn('Awb_Number', $awbNumbers)
     ->update(['order_cancel' => 1]);
+    // job dispatch check cancel order or not 
+    cancelordersProcess::dispatch();
     
 Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
-Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
+// Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
 // Redirect back after the update
 return redirect()->back()->with('message', 'Orders successfully canceled.');
 // Select Cancel Orders

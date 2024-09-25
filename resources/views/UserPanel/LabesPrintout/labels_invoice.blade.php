@@ -140,8 +140,9 @@ AWB - {{ $params[$i]['awb'] }} <br>
 				<!--</td>-->
 			</tr>
 			<tr>
-				<td colspan="5" class="leftmargin">
-					This is Auto Generated Label And Does Not Need Signature
+				<td colspan="5" class="leftmargin"> 
+					 This is computer generated document, hence does not require signature
+					<!--Notice: This is an auto-generated label and does not require a signature.-->
 				</td>
 			</tr>
 		</table>

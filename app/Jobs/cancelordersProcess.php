@@ -8,6 +8,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use App\Models\orderdetail;
+use App\Models\Allusers;
+use App\Models\CourierApiDetail;
+use App\Models\courierlist;
+use App\Models\courierpermission;
+use App\Models\Hubs;
+use App\Models\OrdersStatus;
+use App\Models\CourierNames;
+use App\Models\bulkorders;
+use App\Models\bulkordersfile;
+use App\Models\EcomAwbs;
+use App\Models\smartship;
+use App\Models\BulkPincode;
 
 class cancelordersProcess implements ShouldQueue
 {

@@ -3593,10 +3593,8 @@ class APIBigShip extends Controller
         Http::get('https://shipnick.com/UPBulk_Order_API');
         Http::get('https://shipnick.com/UPBulk_Order_API');
         Http::get('https://shipnick.com/UPBulk_Order_API');
-        Http::get('https://shipnick.com/UPBulk_Order_API');
-        Http::get('https://shipnick.com/UPBulk_Order_API');
-        Http::get('https://shipnick.com/UPBulk_Order_API');
-        Http::get('https://shipnick.com/UPBulk_Order_API');
+        
+        
         //  Http::get('https://shipnick.com/order-update-ecom');
         //  Http::get('https://shipnick.com/order-update-intransit-ecom');
         //  Http::get('https://shipnick.com/order-update-ofd-ecom');
