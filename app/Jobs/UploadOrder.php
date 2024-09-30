@@ -419,4 +419,97 @@ class UploadOrder implements ShouldQueue
             return ['status' => 'Error', 'error' => $error];
         }
     }
+    private function handleXpressbee2($order)
+    {
+        // Login to get Xpressbee token
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+        ])->post('https://shipment.xpressbees.com/api/users/login', [
+            'email' => 'Ballyfashion77@gmail.com',
+            'password' => 'shyam104A@',
+        ]);
+
+        $responseData = $response->json();
+        $xpressbeeToken = $responseData['data'] ?? '';
+
+        if (empty($xpressbeeToken)) {
+            return ['status' => 'Error', 'error' => 'Failed to obtain Xpressbee token'];
+        }
+
+        // Prepare data for the Xpressbee shipment API
+        $paymentmode = $order->Order_Type == 'Prepaid' ? 'prepaid' : 'cod';
+        $damob = strlen($order->Mobile) > 10 && substr($order->Mobile, 0, 2) === '91'
+            ? substr($order->Mobile, 2)
+            : $order->Mobile;
+
+        $weightInGrams = 0.3 * $order->Actual_Weight; // Convert weight
+        $weightInInteger = (int) $weightInGrams; // Convert to integer
+
+        // Make the request to Xpressbee shipment API
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Bearer ' . $xpressbeeToken,
+        ])->post('https://shipment.xpressbees.com/api/shipments2', [
+            'order_number' => $order->ordernoapi,
+            'shipping_charges' => 0,
+            'discount' => 0,
+            'cod_charges' => 0,
+            'payment_type' => $paymentmode,
+            'order_amount' => $order->Total_Amount,
+            'package_weight' => $weightInInteger,
+            'package_length' => $order->Length,
+            'package_breadth' => $order->Width,
+            'package_height' => $order->Height,
+            'request_auto_pickup' => 'yes',
+            'consignee' => [
+                'name' => $order->Name,
+                'address' => $order->Address,
+                'address_2' => $order->Address,
+                'city' => $order->City,
+                'state' => $order->State,
+                'pincode' => $order->Pincode,
+                'phone' => $damob,
+            ],
+            'pickup' => [
+                'warehouse_name' => $order->pickup_name,
+                'name' => $order->pickup_name,
+                'address' => $order->pickup_address,
+                'address_2' => $order->pickup_address,
+                'city' => $order->pickup_city,
+                'state' => $order->pickup_state,
+                'pincode' => $order->pickup_pincode,
+                'phone' => $order->pickup_mobile,
+            ],
+            'order_items' => [
+                [
+                    'name' => $order->Item_Name,
+                    'qty' => $order->Quantity,
+                    'price' => $order->Total_Amount,
+                    'sku' => $order->Invoice_Value,
+                ],
+            ],
+            'courier_id' => '1',
+            'collectable_amount' => $order->Cod_Amount,
+        ]);
+
+        // Handle the response
+        $responseData = $response->json();
+        if (isset($responseData['status']) && $responseData['status'] == '1') {
+            $awb = $responseData['data']['awb_number'] ?? '';
+            $shipno = $responseData['data']['shipment_id'] ?? '';
+            $orderno = $responseData['data']['order_id'] ?? '';
+
+            bulkorders::where('Single_Order_Id', $order->Single_Order_Id)->update([
+                'courier_ship_no' => $shipno,
+                'Awb_Number' => $awb,
+                'awb_gen_by' => 'Xpressbee',
+                'awb_gen_courier' => 'Xpressbee'
+            ]);
+
+            return ['status' => 'Success', 'error' => ''];
+        } else {
+            $error = $responseData['message'] ?? 'Unknown error';
+            return ['status' => 'Error', 'error' => $error];
+        }
+    }
 }

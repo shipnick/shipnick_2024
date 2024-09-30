@@ -215,13 +215,14 @@
                                                 </th>
                                                 <th>AWB #</th>
                                                 <th>ID Orders</th>
-                                                <th>Orders Type</th>
-                                                <th>Date of upload</th>
-                                                <th>Customer details</th>
-                                                <th>Customer address</th>
+                                                <th>Type</th>
+                                                <th>Date </th>
+                                                <th>Product</th>
+                                                <th>Customer </th>
+                                                <th>address</th>
                                                 <th>Courier</th>
                                                 <th>Status</th>
-                                                <th class="text-end">Action</th>
+                                                <th class="text-end"> </th>
                                             </tr>
                                         </thead>
                                         <tbody id="orderTableBody">
@@ -241,10 +242,11 @@
 										{{ date('H:i:s', strtotime($param->Last_Time_Stamp)) }}
 									</span>
 								</td>
+								<td>{{ Str::limit($param->Item_Name, 10) }}</td>
 								<td>
 									<div class="d-flex align-items-center">
 										<div>
-											<h6 class="fs-13 mb-0 text-nowrap"><span>{{ Str::limit($param->Name, 20) }}</span><br />
+											<h6 class="fs-13 mb-0 text-nowrap"><span>{{ Str::limit($param->Name, 10) }}</span><br />
 												<span>{{$param->Mobile}}</span>
 											</h6>
 										</div>

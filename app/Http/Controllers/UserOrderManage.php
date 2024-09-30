@@ -720,67 +720,14 @@ $ctodateObj = Carbon::parse($req->to);
 
         $userid = session()->get('UserLogin2id');
 
-        if ($id) {
-            $couriername = bulkorders::where('Awb_Number', $id)->first();
-            // echo "<br>";
-            $courierare = $couriername['awb_gen_courier'];
-            // echo "<br>";
-            if ($courierare == "Ecom") {
+       $awbNumbers = $id;
 
-
-
-                $curl = curl_init();
-
-                curl_setopt_array($curl, array(
-                    CURLOPT_URL => 'https://shipment.ecomexpress.in/apiv2/cancel_awb/',
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_ENCODING => '',
-                    CURLOPT_MAXREDIRS => 10,
-                    CURLOPT_TIMEOUT => 0,
-                    CURLOPT_FOLLOWLOCATION => true,
-                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                    CURLOPT_CUSTOMREQUEST => 'POST',
-                    CURLOPT_POSTFIELDS => array('username' => 'PROSAVVYLUXURIESPRIVATELIMITED(ECS)130073', 'password' => 'lnR1C8NkO1', 'awbs' => $id),
-                    CURLOPT_HTTPHEADER => array(
-                        'Cookie: AWSALB=AeNFVNg5YazTNZT3iTzkFmP1DGxIXjSwm802sL2a8MKv8RVIoTkF9rBYh4EHXvqxTESwcYY4wb9WEom5iKNafMRefor3n6z/O2JmkKZgr/xyYUr1u9kfyCr2hc/1; AWSALBCORS=AeNFVNg5YazTNZT3iTzkFmP1DGxIXjSwm802sL2a8MKv8RVIoTkF9rBYh4EHXvqxTESwcYY4wb9WEom5iKNafMRefor3n6z/O2JmkKZgr/xyYUr1u9kfyCr2hc/1'
-                    ),
-                ));
-
-
-                $response = curl_exec($curl);
-                $responseic = json_decode($response, true);
-                curl_close($curl);
-
-                // echo "<br> 2. : ";
-                //     print_r($responseic);
-                // echo "<br>";
-
-                $statuscheck = $responseic['status'];
-                if ($statuscheck == true) {
-                    // echo $responseic['message'];
-
-                    $cancelint = 1;
-                    $cancelstatus = "Cancel";
-                    $cancelreason = "Client Cancel";
-                    $alertmsg = "Order delete please refresh page if not deleted";
-                } elseif ($statuscheck == false) {
-                    // echo $responseic['message'];
-                    $alertmsg = "Order not delete please try again";
-                }
-                bulkorders::where('Awb_Number', $id)
-                    ->update([
-                        'order_cancel' =>  $cancelint,
-                        // 'canceldate'=>$tdateis,
-                        'order_status_show' => $cancelstatus,
-                        'order_cancel_reasion' => $cancelreason
-                    ]);
-            }
-
-
-            $req->session()->flash('status', 'Order Cancel');
-        } else {
-            $req->session()->flash('status', 'Order Not Cancel');
-        }
+            // Perform a single update query
+            bulkorders::whereIn('Awb_Number', $awbNumbers)
+                ->update(['order_cancel' => 1]);
+                
+         Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
+                
         return redirect()->back();
     }
 
@@ -930,7 +877,7 @@ $ctodateObj = Carbon::parse($req->to);
     $query = bulkorders::where('User_Id', $userid)
         ->where('order_cancel', '!=', '1')
         ->orderBy('Single_Order_Id', 'desc')
-        ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type');
+        ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
 
     // Apply additional filters based on request parameters
     if ($cfromdateObj && $ctodateObj) {
@@ -1036,7 +983,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1160,7 +1107,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1282,7 +1229,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1404,7 +1351,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->where('order_cancel', '!=', '1')
             ->where('showerrors', 'Delivered')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1526,7 +1473,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->where('order_cancel', '!=', '1')
             ->where('showerrors', 'Undelivered')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1648,7 +1595,7 @@ $ctodateObj = Carbon::parse($req->to);
             
             ->where('order_cancel', 1)
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj1 && $ctodateObj1) {
@@ -1771,7 +1718,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->where('order_cancel', '!=', '1')
             ->where('Awb_Number', '')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {

@@ -1015,9 +1015,9 @@ return view('UserPanel.PlaceOrder.BulkOrderAjax',['params'=>$params,'allriders'=
                 //     $errorlineno = $sidno;
                 //     $filestatus = 1;
                 //     break;
-                // }
+                // } 
 
-                $hubexists = Hubs::where('hub_code', $hub_code)->orderby('hub_id', 'desc')->count();
+                $hubexists = Hubs::where('hub_code', $hub_code)->where('hub_created_by',$userid)->orderby('hub_id', 'desc')->count();
                 if ($hubexists > 0) {
                     $hubdetails = Hubs::where('hub_code', $hub_code)->orderby('hub_id', 'desc')->first();
 
@@ -1730,7 +1730,7 @@ $awbNumbers = $selectorders;
 bulkorders::whereIn('Awb_Number', $awbNumbers)
     ->update(['order_cancel' => 1]);
     // job dispatch check cancel order or not 
-    cancelordersProcess::dispatch();
+    // cancelordersProcess::dispatch();
     
 Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
 // Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
@@ -2579,7 +2579,7 @@ class PlacedOrdersExport implements WithHeadings, FromCollection
 
         $awbno = $this->awbno;
 
-        $products = Bulkorders::select('Order_Type', 'orderno', 'Awb_Number', 'awb_gen_courier', 'Name', 'Address', 'State', 'City', 'Mobile', 'Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'volumetric_weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Rec_Time_Date', 'uploadtype', 'pickup_id', 'order_status_show', 'showerrors')
+        $products = Bulkorders::select('Order_Type', 'orderno','ordernoapi', 'Awb_Number', 'awb_gen_courier', 'Name', 'Address', 'State', 'City', 'Mobile', 'Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'volumetric_weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Rec_Time_Date', 'uploadtype', 'pickup_id', 'order_status_show', 'showerrors')
             ->whereIn('Awb_Number', $awbno)
             ->where('user_id', session()->has('UserLogin2id') ? session()->get('UserLogin2id') : null)
             ->where('apihitornot', '1')
@@ -2608,6 +2608,6 @@ class PlacedOrdersExport implements WithHeadings, FromCollection
 
     public function headings(): array
     {
-        return ['Order_Type', 'Orderno', 'AWB_Number', 'Courier', 'Receiver_Name', 'Receiver_Address', 'Receiver_State', 'Receiver_City', 'Receiver_Mobile', 'Receiver_Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'Volumetric_Weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Upload_Date', 'Upload_Type', 'HUB_ID', 'Status', 'Remark'];
+        return ['Order_Type', 'Orderno','shipnick_id', 'AWB_Number', 'Courier', 'Receiver_Name', 'Receiver_Address', 'Receiver_State', 'Receiver_City', 'Receiver_Mobile', 'Receiver_Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'Volumetric_Weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Upload_Date', 'Upload_Type', 'HUB_ID', 'Status', 'Remark'];
     }
 }

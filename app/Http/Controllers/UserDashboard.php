@@ -89,7 +89,7 @@ class UserDashboard extends Controller
   }
 
   
-    public function  UserHome()
+    public function  UserHome(Request $request)
     {
       if(!empty(session('UserLogin'))){
     		return view('Admin.Dashboard');
@@ -98,8 +98,8 @@ class UserDashboard extends Controller
     	if(!empty(session('UserLogin2'))){
 $userid = session()->get('UserLogin2id');
 // Today Orders UserPanel
-$fromdate = Carbon::parse(date('Y-m-d'))->startOfDay(); // Start of the day for $cfromdate
-        $todate = Carbon::parse(date('Y-m-d'))->endOfDay(); // End of the day for $ctodate
+$fromdate = Carbon::parse($request->start_date)->startOfDay(); // Start of the day for $cfromdate
+        $todate =Carbon::parse($request->end_date)->endOfDay(); // End of the day for $ctodate
 // $fromdate = date('Y-m-d');
 // $todate = date('Y-m-d');
  $tallNDR = bulkorders::where('User_Id', $userid)
@@ -194,8 +194,8 @@ $tprepaid = bulkorders::where('User_Id',$userid)
 $cfromdate = date('Y-m-d',strtotime($currentmonthstart));
 $ctodate = date('Y-m-d',strtotime($currentmonthstend));
 
-$cfromdateObj = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
-$ctodateObj = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
+$cfromdateObj = Carbon::parse($request->start_date)->startOfDay();  // Start of the day for $cfromdate
+$ctodateObj = Carbon::parse($request->end_date)->endOfDay(); // End of the day for $ctodate
 
 
 

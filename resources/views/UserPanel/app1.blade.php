@@ -6,21 +6,7 @@
 <!--**********************************
             Nav header start
         ***********************************-->
-        <style>
-	.dlabnav {
-		width: 15.5rem;
-	}
-	.nav-header {
-		width: 15.5rem;
-	}
-	.content-body {
-		margin-left: 17.563rem;
-	}
-	.amount-bx {
-		background-color: #e5effa !important;
-		/* border: 2px solid #b2d7ff !important; */
-	}
-</style> 
+ 
      <style> 
   
 

@@ -223,29 +223,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script>
     
 
-    <script>
-        jQuery(document).ready(function() {
-            setTimeout(function() {
-                var dezSettingsOptions = {
-                    typography: "cairo",
-                    version: "light",
-                    layout: "vertical",
-                    primary: "color_10",
-                    headerBg: "color_1",
-                    navheaderBg: "color_1",
-                    sidebarBg: "color_10",
-                    sidebarStyle: "mini",
-                    sidebarPosition: "fixed",
-                    headerPosition: "fixed",
-                    containerLayout: "wide",
-                };
-                new dezSettings(dezSettingsOptions);
-                jQuery(window).on('resize', function() {
-                    new dezSettings(dezSettingsOptions);
-                })
-            }, 100)
-        });
-    </script>
+    <!--<script>-->
+    <!--    jQuery(document).ready(function() {-->
+    <!--        setTimeout(function() {-->
+    <!--            var dezSettingsOptions = {-->
+    <!--                typography: "cairo",-->
+    <!--                version: "light",-->
+    <!--                layout: "vertical",-->
+    <!--                primary: "color_10",-->
+    <!--                headerBg: "color_1",-->
+    <!--                navheaderBg: "color_1",-->
+    <!--                sidebarBg: "color_10",-->
+    <!--                sidebarStyle: "mini",-->
+    <!--                sidebarPosition: "fixed",-->
+    <!--                headerPosition: "fixed",-->
+    <!--                containerLayout: "wide",-->
+    <!--            };-->
+    <!--            new dezSettings(dezSettingsOptions);-->
+    <!--            jQuery(window).on('resize', function() {-->
+    <!--                new dezSettings(dezSettingsOptions);-->
+    <!--            })-->
+    <!--        }, 100)-->
+    <!--    });-->
+    <!--</script>-->
     
     
     <script>

@@ -163,15 +163,16 @@
 										</label>
 									</div>
 								</th>
-								<th>AWB #</th>
-								<th>ID Orders</th>
-								<th>Mode</th>
-								<th>Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
-								<th>Customer </th>
-								<th>Customer address</th>
-								<th>Courier</th>
-								<th>Status</th>
-								<th class="text-end">Action</th>
+							<th>AWB #</th>
+                                                <th>ID Orders</th>
+                                                <th>Type</th>
+                                                <th>Date </th>
+                                                <th>Product</th>
+                                                <th>Customer </th>
+                                                <th>address</th>
+                                                <th>Courier</th>
+                                                <th>Status</th>
+                                                <th class="text-end"> </th>
 							</tr>
 						</thead>
 						<tbody>
@@ -195,7 +196,7 @@
 								<td>
 									<div class="d-flex align-items-center">
 										<div>
-											<h6 class="fs-13 mb-0 text-nowrap"><span>{{ Str::limit($param->Name, 20) }}</span><br />
+											<h6 class="fs-13 mb-0 text-nowrap"><span>{{ Str::limit($param->Name, 10) }}</span><br />
 												<span>{{$param->Mobile}}</span>
 											</h6>
 										</div>

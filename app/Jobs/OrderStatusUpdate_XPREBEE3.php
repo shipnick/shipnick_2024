@@ -11,12 +11,11 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Http; 
 
-class OrderStatusUpdate_XPREBEE implements ShouldQueue
+class OrderStatusUpdate_XPREBEE3 implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
     protected $order;
 
     /**
@@ -24,9 +23,9 @@ class OrderStatusUpdate_XPREBEE implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct()
     {
-        $this->onQueue('o_status_xpressbee');
+        $this->onQueue('o_status_xpressbee3');
         $this->order = $data;
     }
 
@@ -35,11 +34,11 @@ class OrderStatusUpdate_XPREBEE implements ShouldQueue
      *
      * @return void
      */
-    public function handle() 
+   public function handle()
     {
         $awbNumber = $this->order['Awb_Number'];
 
-        bulkorders::where('Awb_Number', $awbNumber)->update(['order_status' => 'upload']);
+        bulkorders::where('Awb_Number', $awbNumber)->update(['order_status' => '1']);
 
         try {
 
@@ -47,9 +46,9 @@ class OrderStatusUpdate_XPREBEE implements ShouldQueue
                 $response = Http::withoutVerifying()->withHeaders([
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
-                    'email' => 'shipnick11@gmail.com',
-                    'password' => 'Hansi@@2024@@',
-                ]);
+                      'email' => 'Ballyfashion77@gmail.com',
+                      'password' => 'shyam104A@',
+                ]); 
 
                 $responseic = $response->json(); // Decode JSON response
                 $xpressbeetoken = $responseic['data']; // Extract token from response data

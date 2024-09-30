@@ -486,7 +486,7 @@ class UserSearchOrder extends Controller
 
         try {
             $orders = bulkorders::where('awb_gen_courier', 'Xpressbee2')
-                //   ->where('User_Id', '171')
+                  ->where('User_Id', '171')
                 //   ->where('User_Id', '!=', '109')
                 //   ->where('Rec_Time_Date', '	2024-09-23')
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled','in transit'])

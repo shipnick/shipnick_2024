@@ -1,6 +1,5 @@
-           
-        @extends("UserPanel/Layout2")
-@section("order")
+@extends("UserPanel/userpanel_layout")
+@section("userpanel")
 		<!--**********************************
             Content body start
         ***********************************-->
