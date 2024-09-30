@@ -1,0 +1,41 @@
+FROM php:7.4-fpm AS phpbuilder
+
+ENV COMPOSER_VENDOR_DIR=/var/www/html/vendor \
+    APP=/var/www/html \
+    BUILD_PACKAGES="libmcrypt-dev libmagickwand-dev libcurl3-dev libedit-dev libzip-dev libgpgme11-dev libonig-dev libxml2-dev" \
+    RUNTIME_PACKAGES="zip unzip wget mariadb-client bison cron" \
+    PHP_EXTENSIONS="pdo_mysql zip curl gd mbstring mysqli opcache xml"
+
+WORKDIR $APP
+ 
+
+COPY . /var/www/html
+
+RUN apt-get update
+RUN apt-get install -y $BUILD_PACKAGES $RUNTIME_PACKAGES  --no-install-recommends
+RUN docker-php-ext-install $PHP_EXTENSIONS
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+RUN composer install --no-scripts --no-autoloader
+
+
+COPY . $APP
+
+
+# RUN if [ -e vendor ]; then echo "removing vendor..."; rm -fr vendor; fi; if [ ! -e vendor ]; then echo "linking vendor..."; ln -s /usr/local/vendor vendor; fi 
+RUN composer install
+RUN if [ ! -d $APP/storage/framework/cache ]; then mkdir $APP/storage/framework/cache; fi
+# RUN if [ ! -d $APP/storage/purify ]; then mkdir $APP/storage/purify; fi
+# RUN if [ ! -e $APP/public/app ]; then cd $APP/public; ln -s . app; cd $APP; fi
+RUN cat $APP/config/xdebug.ini >> /usr/local/etc/php/conf.d/xdebug.ini
+# RUN php artisan config:clear
+RUN date +"docker_date=%m/%d/%Y %H:%M:%S %Z (%A)" > $APP/about.txt
+RUN echo "git_branch=$GIT_BRANCH" >> $APP/about.txt
+RUN echo "git_commit=$GIT_COMMIT" >> $APP/about.txt
+RUN chmod 777 /var/www/html/entrypoint
+ENTRYPOINT ["/var/www/html/entrypoint"]
+
+CMD ["php-fpm"]
+
+
+
