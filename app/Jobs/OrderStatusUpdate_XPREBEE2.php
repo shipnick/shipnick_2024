@@ -43,7 +43,7 @@ class OrderStatusUpdate_XPREBEE2 implements ShouldQueue
 
         try {  
 
-            $xpressbeetoken = Cache::remember('xpressbee_token', 1500, function () {
+            $xpressbeetoken = Cache::remember('xpressbee2_token', 1500, function () {
                 $response = Http::withoutVerifying()->withHeaders([
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
