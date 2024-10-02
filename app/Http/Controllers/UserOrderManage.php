@@ -868,7 +868,7 @@ $ctodateObj = Carbon::parse($req->to);
    public function Booked(Request $req)
 {
     $userid = session()->get('UserLogin2id');
-
+    $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
     // Determine the date range based on request parameters or default to today
     $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::today()->startOfDay();
     $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::today()->endOfDay();
@@ -892,6 +892,11 @@ $ctodateObj = Carbon::parse($req->to);
     if ($req->filled('awb')) {
         $query->where('Awb_Number', $req->awb);
     }
+    if ($req->filled('warehouse')) {
+            // $Hubs1 = Hubs::where('hub_code', $req->warehouse)->first();
+            // dd($req->warehouse);
+            $query->where('pickup_id', $req->warehouse);
+        }
     if ($req->filled('courier')) {
         $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
     }
@@ -962,6 +967,7 @@ $ctodateObj = Carbon::parse($req->to);
     return view('UserPanel.PlaceOrder1.booked', [
         'params' => $orders,
         'Hubs' => $Hubs,
+        'Hubs1'=>$Hubs1,
         'allusers' => $allusers,
         'courierapids' => $courierapids,
         'cfromdate' => $req->from, // Pass original date inputs for display

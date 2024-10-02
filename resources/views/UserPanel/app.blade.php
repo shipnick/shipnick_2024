@@ -285,7 +285,7 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
 				<ul aria-expanded="false">
 					<li><a href="{{asset('/UPMIS_Report')}}">MIS</a></li>
 					<!--<li><a href="{{asset('/page-error-503')}}">Menifest<span class="badge badge-xs badge-success ms-3">Update</span></a></li>-->
-					<li><a href="{{asset('/page-error-503')}}">NDR</a></li>
+					<li><a href="#">NDR</a></li>
 					<li><a href="{{ asset('/showordercounts') }}">Courier Wise Detail</a></li>
 				</ul>
 			</li>

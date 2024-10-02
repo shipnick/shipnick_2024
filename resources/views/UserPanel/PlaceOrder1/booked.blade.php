@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button class="button btn btn-outline-primary btn-sm">Date Range</button>
+            <button class="button btn btn-outline-primary btn-sm">FILTERS</button>
         </div>
     </div>
 
@@ -109,7 +109,7 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-lg-12 order-lg-1">
-                                                    <h4 class="mb-3">Date Range</h4>
+                                                    <h4 class="mb-3">FILTERS</h4>
                                                     <form id="filterForm" action="{{ url('/booked-order') }}" method="get">
                                                         <!-- Hidden input for per_page -->
                                                         <input type="hidden" name="per_page" id="hiddenPerPage" value="{{ request()->get('per_page', 10) }}">
@@ -154,6 +154,14 @@
                                                                     <option value="COD" {{ request()->get('order_type') == 'COD' ? 'selected' : '' }}>COD</option>
                                                                     <option value="Prepaid" {{ request()->get('order_type') == 'Prepaid' ? 'selected' : '' }}>Prepaid</option>
                                                                 </select>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 mb-3">
+                                                                            <label class="form-label">warehouse</label>
+                                                                            <select class="default-select form-control wide w-100" name="warehouse">
+                                                                                @foreach($Hubs1 as $Hub)
+                                                                                <option value="{{ ucwords($Hub->hub_id) }}"> ({{ ucwords($Hub->hub_code) }})</option>
+                                                                                @endforeach
+                                                                            </select>
                                                             </div>
 
                                                             <!-- Other form fields if any -->

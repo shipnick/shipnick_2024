@@ -32,6 +32,7 @@
 	<link rel="stylesheet" href="{{asset('newtheme/./vendor/swiper/css/swiper-bundle.min.css')}}">
 	<!-- Style css -->
 	<link href="{{asset('newtheme/css/style.css')}}" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css" />
 
 </head>
 
@@ -40,18 +41,12 @@
 	<!--*******************
         Preloader start
     ********************-->
-	<div id="preloader">
-		<div class="waviy">
-			<span style="--i:1">S</span>
-			<span style="--i:2">H</span>
-			<span style="--i:3">I</span>
-			<span style="--i:4">P</span>
-			<span style="--i:5">N</span>
-			<span style="--i:6">I</span>
-			<span style="--i:7">C</span>
-			<span style="--i:8">K</span>
-		</div>
-	</div>
+	<div id="preloader"></div>
+        <div class="progress-bar">
+            <div class="bar" id="progress"></div>
+        </div>
+    </div>
+
 	<!--*******************
         Preloader end
     ********************-->
@@ -330,32 +325,32 @@ Content body end
 
 	<script src="{{asset('newtheme/js/custom.min.js')}}"></script>
 	<script src="{{asset('newtheme/js/dlabnav-init.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script>
 
 
-
-	<script>
-		jQuery(document).ready(function() {
-			setTimeout(function() {
-				var dezSettingsOptions = {
-					typography: "cairo",
-					version: "light",
-					layout: "vertical",
-					primary: "color_10",
-					headerBg: "color_1",
-					navheaderBg: "color_1",
-					sidebarBg: "color_10",
-					sidebarStyle: "mini",
-					sidebarPosition: "fixed",
-					headerPosition: "fixed",
-					containerLayout: "wide",
-				};
-				new dezSettings(dezSettingsOptions);
-				jQuery(window).on('resize', function() {
-					new dezSettings(dezSettingsOptions);
-				})
-			}, 1000)
-		});
-	</script>
+	<!--<script>-->
+	<!--	jQuery(document).ready(function() {-->
+	<!--		setTimeout(function() {-->
+	<!--			var dezSettingsOptions = {-->
+	<!--				typography: "cairo",-->
+	<!--				version: "light",-->
+	<!--				layout: "vertical",-->
+	<!--				primary: "color_10",-->
+	<!--				headerBg: "color_1",-->
+	<!--				navheaderBg: "color_1",-->
+	<!--				sidebarBg: "color_10",-->
+	<!--				sidebarStyle: "mini",-->
+	<!--				sidebarPosition: "fixed",-->
+	<!--				headerPosition: "fixed",-->
+	<!--				containerLayout: "wide",-->
+	<!--			};-->
+	<!--			new dezSettings(dezSettingsOptions);-->
+	<!--			jQuery(window).on('resize', function() {-->
+	<!--				new dezSettings(dezSettingsOptions);-->
+	<!--			})-->
+	<!--		}, 1000)-->
+	<!--	});-->
+	<!--</script>-->
 
 </body>
 

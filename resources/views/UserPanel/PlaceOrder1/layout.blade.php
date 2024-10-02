@@ -209,7 +209,7 @@
         Scripts
     ***********************************-->
 
-    <!-- Required vendors -->
+    <!-- Required vendors --> 
     <script src="{{asset('newtheme/vendor/global/global.min.js')}}" defer></script>
     <script src="{{asset('newtheme/vendor/chart-js/chart.bundle.min.js')}}"></script>
     <script src="{{asset('newtheme/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}" defer></script>
