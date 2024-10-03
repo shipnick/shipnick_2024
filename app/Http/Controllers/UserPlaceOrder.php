@@ -1686,63 +1686,37 @@ curl_close($curl);
 
 
 // Multiple Checkbox Select Orders
-public function MultipleOrderDelete(Request $req){
+public function MultipleOrderDelete(Request $req)
+{
+    error_reporting(1); // Consider removing or handling errors more gracefully
+    $selectorders = $req->selectedorder;
+    $currentbtnname = $req->currentbtnname;
 
-  // print_r($params);
+    // Validate the request
+    $req->validate([
+        'selectedorder' => 'required|array',
+        'currentbtnname' => 'required|string'
+    ]);
 
-  // exit();
+    switch ($currentbtnname) {
+        case "shippinglabel":
+            return response()->view("UserPanel.LabesPrintout.Search", ['params' => $selectorders]);
 
-    error_reporting(1);
-    $tdateare = date('Y-m-d');
-    $tdateis = "";
-    $cancelint = "";
-    $cancelstatus = "";
-    $cancelreason = "";
+        case "cancelorders":
+            // Update orders to be canceled
+            bulkorders::whereIn('Awb_Number', $selectorders)->update(['order_cancel' => 1]);
 
+            // Flash message and redirect back
+            return redirect()->back()->with('message', 'Orders successfully canceled.');
 
-$selectorders = $req->selectedorder;
-$currentbtnname = $req->currentbtnname;
-if($currentbtnname=="shippinglabel"){
+        case "exportorderdetails":
+            return Excel::download(new PlacedOrdersExport($selectorders), 'Upload-orders.xls');
 
-
-    echo "Loading...";
-    return view("UserPanel.LabesPrintout.Search",['params'=>$selectorders]);
-
-
-}elseif ($currentbtnname == "exportorderdetails") {
-           
-            $awbno = $selectorders;
-
-            return Excel::download(new PlacedOrdersExport($awbno), 'Upload-orders.xls');
-        }elseif($currentbtnname=="cancelorders"){
-    
-//     if (empty($awbNumbers)) {
-//     // If no Awb_Number values, return back
-//     return redirect()->back()->with('message', 'No AWB numbers provided.');
-// }
-
-
-// dd();
-// Store $selectorders in $awbNumbers
-$awbNumbers = $selectorders;
-
-// Perform a single update query
-bulkorders::whereIn('Awb_Number', $awbNumbers)
-    ->update(['order_cancel' => 1]);
-    // job dispatch check cancel order or not 
-    // cancelordersProcess::dispatch();
-    
-Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
-// Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
-// Redirect back after the update
-return redirect()->back()->with('message', 'Orders successfully canceled.');
-// Select Cancel Orders
+        default:
+            return redirect()->back()->with('error', 'Invalid action.');
+    }
 }
-// Select Cancel Orders
 
-        $req->session()->flash('status','Order Cancelled');
-        return redirect()->back();
-}
 // Multiple Checkbox Select Orders
 
 

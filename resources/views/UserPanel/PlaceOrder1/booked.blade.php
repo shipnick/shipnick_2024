@@ -156,13 +156,17 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 mb-3">
-                                                                            <label class="form-label">warehouse</label>
-                                                                            <select class="default-select form-control wide w-100" name="warehouse">
-                                                                                @foreach($Hubs1 as $Hub)
-                                                                                <option value="{{ ucwords($Hub->hub_id) }}"> ({{ ucwords($Hub->hub_code) }})</option>
-                                                                                @endforeach
-                                                                            </select>
-                                                            </div>
+    <label class="form-label" for="warehouse">Warehouse</label>
+    <select class="default-select form-control wide w-100" name="warehouse" id="warehouse" >
+        <option value="" disabled selected>Select a warehouse</option> <!-- Placeholder option -->
+        @foreach($Hubs1 as $Hub)
+            <option value="{{ ucwords($Hub->hub_id) }}">
+                {{ ucwords($Hub->hub_code) }}
+            </option>
+        @endforeach
+    </select>
+</div>
+
 
                                                             <!-- Other form fields if any -->
                                                         </div>
