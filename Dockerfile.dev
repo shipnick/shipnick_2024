@@ -16,7 +16,7 @@ RUN apt-get install -y $BUILD_PACKAGES $RUNTIME_PACKAGES  --no-install-recommend
 RUN docker-php-ext-install $PHP_EXTENSIONS
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN composer install --no-scripts --no-autoloader
+# RUN composer install --no-scripts --no-autoloader
 
 
 COPY . $APP
@@ -33,7 +33,7 @@ RUN date +"docker_date=%m/%d/%Y %H:%M:%S %Z (%A)" > $APP/about.txt
 RUN echo "git_branch=$GIT_BRANCH" >> $APP/about.txt
 RUN echo "git_commit=$GIT_COMMIT" >> $APP/about.txt
 RUN chmod 777 /var/www/html/entrypoint
-RUN composer install
+RUN composer install --no-scripts --no-autoloader
 ENTRYPOINT ["/var/www/html/entrypoint"]
 
 CMD ["php-fpm"]
