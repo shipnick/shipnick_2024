@@ -3,7 +3,7 @@ name: 'laravel_8.8_spnk'
 
 services:
   db:
-    image: mariadb:10.5 #mysql:8.0.35
+    image: mariadb:latest #mysql:8.0.35
     environment:
       MYSQL_ROOT_PASSWORD: "admin"
       MYSQL_DATABASE: "shipnick_db"
@@ -15,7 +15,7 @@ services:
       - ./db_init.sql:/docker-entrypoint-initdb.d/backup.sql
     ports:
       - "127.0.0.1:3306:3306"
-    command: mysqld --sql-mode="NO_ENGINE_SUBSTITUTION"
+    # command: mysqld --sql-mode="NO_ENGINE_SUBSTITUTION"
   adminer:
     image: adminer
     restart: always
