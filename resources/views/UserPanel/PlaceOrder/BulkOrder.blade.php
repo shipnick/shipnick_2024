@@ -975,29 +975,29 @@
 			$('#smartwizard').smartWizard();
 		});
 	</script>
-	<script>
-		jQuery(document).ready(function() {
-			setTimeout(function() {
-				var dezSettingsOptions = {
-					typography: "cairo",
-					version: "light",
-					layout: "vertical",
-					primary: "color_10",
-					headerBg: "color_1",
-					navheaderBg: "color_1",
-					sidebarBg: "color_10",
-					sidebarStyle: "mini",
-					sidebarPosition: "fixed",
-					headerPosition: "fixed",
-					containerLayout: "wide",
-				};
-				new dezSettings(dezSettingsOptions);
-				jQuery(window).on('resize', function() {
-					new dezSettings(dezSettingsOptions);
-				})
-			}, 1000)
-		});
-	</script>
+	<!--<script>-->
+	<!--	jQuery(document).ready(function() {-->
+	<!--		setTimeout(function() {-->
+	<!--			var dezSettingsOptions = {-->
+	<!--				typography: "cairo",-->
+	<!--				version: "light",-->
+	<!--				layout: "vertical",-->
+	<!--				primary: "color_10",-->
+	<!--				headerBg: "color_1",-->
+	<!--				navheaderBg: "color_1",-->
+	<!--				sidebarBg: "color_10",-->
+	<!--				sidebarStyle: "mini",-->
+	<!--				sidebarPosition: "fixed",-->
+	<!--				headerPosition: "fixed",-->
+	<!--				containerLayout: "wide",-->
+	<!--			};-->
+	<!--			new dezSettings(dezSettingsOptions);-->
+	<!--			jQuery(window).on('resize', function() {-->
+	<!--				new dezSettings(dezSettingsOptions);-->
+	<!--			})-->
+	<!--		}, 1000)-->
+	<!--	});-->
+	<!--</script>-->
 
 </body>
 
