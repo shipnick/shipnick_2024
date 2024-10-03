@@ -20,7 +20,7 @@ RUN composer install --no-scripts --no-autoloader
 
 
 COPY . $APP
-COPY .env.prod $APP/.env
+COPY $APP/.env.prod $APP/.env
 
 
 # RUN if [ -e vendor ]; then echo "removing vendor..."; rm -fr vendor; fi; if [ ! -e vendor ]; then echo "linking vendor..."; ln -s /usr/local/vendor vendor; fi 
