@@ -27,6 +27,7 @@ COPY .env.prod $APP/.env
 RUN if [ ! -d $APP/storage/framework/cache ]; then mkdir $APP/storage/framework/cache; fi
 # RUN if [ ! -d $APP/storage/purify ]; then mkdir $APP/storage/purify; fi
 # RUN if [ ! -e $APP/public/app ]; then cd $APP/public; ln -s . app; cd $APP; fi
+RUN if [ -d $APP/vendor ]; then rm -rf $APP/vendor; fi
 RUN cat $APP/config/xdebug.ini >> /usr/local/etc/php/conf.d/xdebug.ini
 # RUN php artisan config:clear
 RUN date +"docker_date=%m/%d/%Y %H:%M:%S %Z (%A)" > $APP/about.txt
