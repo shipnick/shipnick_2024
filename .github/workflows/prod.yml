@@ -19,4 +19,5 @@ jobs:
             USER_NAME: ${{secrets.USER_NAME}}
 
         run: |
-          cd /home/ec2-user/ && ls
+          cd /home/ec2-user/shipnick_2024/shipnick_2024/shipnick_2024 && git pull 
+          docker-compose up --build -d
