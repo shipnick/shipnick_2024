@@ -20,4 +20,5 @@ jobs:
 
         run: |
           cd /home/ec2-user/shipnick_2024/shipnick_2024/shipnick_2024 && git pull 
+          cp .env.prod .env
           docker-compose up --build -d
