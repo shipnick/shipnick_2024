@@ -33,5 +33,6 @@ fi
 chmod -R 775 resources
 chmod -R 777 storage
 rm -rf bootstrap/cache/config.php
+service cron start
 
 exec "$@"
