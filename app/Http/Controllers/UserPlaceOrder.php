@@ -27,18 +27,13 @@ use App\Jobs\cancelordersProcess;
 
 class UserPlaceOrder extends Controller
 {
+   
     public function updateZone()
-    {
-        // UploadOrder::dispatch();
-        dispatch(new UploadOrder());
-
-    }
-    public function updateZone1()
     {
     // Fetch bulk orders with the necessary details
     $orders = bulkorders::whereNull('zone')
         ->orderBy('Single_Order_Id', 'DESC')
-         ->where('User_Id', '122')
+        //  ->where('zone','!=','')
         ->limit(800)
         // ->select('Awb_Number', 'Pincode', 'pickup_pincode')
         ->get();
@@ -113,6 +108,7 @@ class UserPlaceOrder extends Controller
     $params = bulkorders::whereNotNull('zone')
         ->where('User_Id', '122')
         ->whereNull('shferrors')
+        ->where('order_cancel', '!=', '1')
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
         ->orderBy('Single_Order_Id', 'ASC')
         ->limit(500)
@@ -137,9 +133,12 @@ class UserPlaceOrder extends Controller
             ->first();
 
         if (!$credit) {
+             $credit = price::where('status', 'defult')
+            ->where('name', $courier)
+            ->first();
             // Handle the case where no credit record is found
             // Log an error, skip this record, etc.
-            continue;
+            // continue;
         }
 
         // Assign credit based on zone
@@ -179,7 +178,7 @@ class UserPlaceOrder extends Controller
 // dd($transactionCode,$credit1,$awb , $close_blance,$date);
         // Create a new order detail record
         $wellet = new orderdetail;
-        $wellet->credit = $credit1;
+        $wellet->debit = $credit1;
         $wellet->awb_no = $awb;
         $wellet->date = $date;
         $wellet->user_id =  $userid;
