@@ -288,7 +288,8 @@
                     <p style="line-height: 1.5em;">
                         {{ ucwords($params[$i]['address']) }}<br />
                         {{ ucwords($params[$i]['city']) }} :-{{ ucwords($params[$i]['pincode']) }}<br />
-                        {{ ucwords($params[$i]['mobile']) }} </p>
+                        {{ ucwords($params[$i]['mobile']) }}<br>
+                        {{ ucwords($params[$i]['pemail']) }}</p>
                 </td>
 
                 <td class="text-center">

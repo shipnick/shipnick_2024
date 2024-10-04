@@ -66,7 +66,7 @@
                                                         border-color: #020202;
                                                     }
                                                 </style>
-                                                @foreach ($params as $post)
+                                                @foreach ($finalParams as $post)
                                                     <div class="col-md-9 mt-3">
                                                         <div class="" style="background-color: #12263f;">
                                                             <h5 class="text-white text-center p-2">
@@ -341,7 +341,7 @@
                                                                     <td>{{ $data->transaction }}</td>
                                                                     <td> @if(!is_numeric($data->awb_no))   +{{ $data->credit }} @endif </td>
                                                                   
-                                                                    <td>@if(is_numeric($data->awb_no))  -{{ $data->credit }}  @endif</td>
+                                                                    <td>@if(is_numeric($data->awb_no))  -{{ $data->debit }}  @endif</td>
                                                                     <td>-{{ $data->close_blance }}</td>
                                                                     <td>Freight Charges</td>
                                                                 </tr>

@@ -275,7 +275,7 @@ class LabelsPrintOut extends Controller
             $params[] = ['route'=> $datas->dtdcerrors,
                 'cancel' => $datas->order_cancel, 'awb' => $datas->Awb_Number, 'awbcourier' => $datas->awb_gen_by, 'paymode' => $datas->Order_Type, 'codamt' => $datas->Cod_Amount, 'orderno' => $datas->orderno, 'date' => $datas->Rec_Time_Date, 'seller' => $datas->User_Id,
                 'hid' => $datas->pickup_id, 'hname' => $datas->pickup_name, 'haddress' => $datas->pickup_address, 'hstate' => $datas->pickup_state, 'hcity' => $datas->pickup_city, 'hpincode' => $datas->pickup_pincode, 'hmobile' => $datas->pickup_mobile, 'hfolder' => $Hubs->hub_folder, 'hlogo' => $Hubs->hub_img,
-                'name' => $datas->Name, 'address' => $datas->Address, 'city' => $datas->City, 'pincode' => $datas->Pincode, 'mobile' => $datas->Mobile, 'sku' => $datas->sku,
+                'name' => $datas->Name, 'address' => $datas->Address, 'city' => $datas->City, 'pincode' => $datas->Pincode, 'mobile' => $datas->Mobile,'pemail'=>$datas->order_email, 'sku' => $datas->sku,
                 'item' => $datas->Item_Name, 'qlty' => $datas->Quantity, 'orderunq' => $datas->ordernoapi, 'token' => $smartshiptoken1->token, 'shipc_no' => $datas->courier_ship_no, 'weight' => $datas->Actual_Weight, 'h' => $datas->Height, 'w' => $datas->Width, 'l' => $datas->Length
             ];
         }

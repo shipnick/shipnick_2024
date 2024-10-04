@@ -1,7 +1,41 @@
-@extends("UserPanel/PlaceOrder1/layout")
-@section("order")
+@extends("UserPanel/userpanel_layout1")
+@section("userpanel")
+<style>
+					.header-new {
+						position: fixed;
+						/* Change to fixed positioning */
+						top: 178px;
+						/* Always stick to the top */
+						width: 100%;
+						/* background-color: white; */
+						/* Optional: to ensure it stands out */
+						z-index: 1000;
+						/* Ensure it stays above other content */
+					}
+					.button-clor-white{
+						background-color: white;
+					}
+					.hidden {
+                                    display: none;
+                                }
+				</style>
+<script>
+					window.addEventListener('scroll', function () {
+						var header = document.querySelector('.header-new');
+						var scrollPosition = window.scrollY;
 
-
+						if (scrollPosition > 105) { // Adjust this value as needed
+							header.style.position = 'fixed';
+							header.style.top = '105px';
+						} else {
+							header.style.position = 'absolute'; // Or use a value that fits your layout
+							header.style.top = '-20px'; // Adjust to match your original design
+						}
+					});
+				</script>
+				
+				
+<div class="content-body">
 <div class="container-fluid">
     <div class="d-flex flex-wrap align-items-center mb-3">
         <div class="mb-3 me-auto">
@@ -111,69 +145,89 @@
                                                 <div class="col-lg-12 order-lg-1">
                                                     <h4 class="mb-3">FILTERS</h4>
                                                     <form id="filterForm" action="{{ url('/booked-order') }}" method="get">
-                                                        <!-- Hidden input for per_page -->
-                                                        <input type="hidden" name="per_page" id="hiddenPerPage" value="{{ request()->get('per_page', 10) }}">
+                                                            <input type="hidden" name="per_page" id="hiddenPerPage" value="{{ request()->get('per_page', 10) }}">
+                                                            <input type="hidden" name="from" id="start_date" value="{{ request()->get('from') }}">
+                                                            <input type="hidden" name="to" id="end_date" value="{{ request()->get('to') }}">
 
-                                                        <div class="row">
-                                                            <!-- Existing filter fields -->
-
-                                                            <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 mb-1">
-                                                                <div class="example">
-                                                                    <p class="mb-1">From date - To date</p>
-                                                                    <div class="row">
-                                                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mb-3">
-                                                                            <input type="date" class="form-control" name="from" value="{{ request()->get('from') }}">
-                                                                        </div>
-                                                                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mb-3">
-                                                                            <input type="date" class="form-control" name="to" value="{{ request()->get('to') }}">
-                                                                        </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 mb-1">
+                                                                    <div class="example">
+                                                                        <p class="mb-1">Date Range</p>
+                                                                        <input type="text" id="daterange" class="form-control"
+                                                                            value="{{ request()->get('from') && request()->get('to') ? request()->get('from') . ' - ' . request()->get('to') : '' }}">
                                                                     </div>
                                                                 </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
+                                                                    <label class="form-label">Courier</label>
+                                                                    <select class="default-select form-control wide w-100" name="courier">
+                                                                        <option value="">Select...</option>
+                                                                        <option value="Ecom" {{ request()->get('courier') == 'Ecom' ? 'selected' : '' }}>Ecom</option>
+                                                                        <option value="Xpressbee" {{ request()->get('courier') == 'Xpressbee' ? 'selected' : '' }}>Xpressbee</option>
+                                                                        <option value="Bluedart" {{ request()->get('courier') == 'Bluedart' ? 'selected' : '' }}>Bluedart</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
+                                                                    <label for="product_name" class="form-label">Product Name</label>
+                                                                    <input type="text" class="form-control" id="product_name" placeholder="Product Name" name="product_name" value="{{ request()->get('product_name') }}">
+                                                                </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
+                                                                    <label for="waybill" class="form-label">Waybill Number</label>
+                                                                    <input type="text" class="form-control" id="waybill" placeholder="AWB Number" name="awb" value="{{ request()->get('awb') }}">
+                                                                </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 mb-3">
+                                                                    <label class="form-label">Order Type</label>
+                                                                    <select class="default-select form-control wide w-100" name="order_type">
+                                                                        <option value="">Select...</option>
+                                                                        <option value="COD" {{ request()->get('order_type') == 'COD' ? 'selected' : '' }}>COD</option>
+                                                                        <option value="Prepaid" {{ request()->get('order_type') == 'Prepaid' ? 'selected' : '' }}>Prepaid</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 mb-3">
+                                                                    <label class="form-label" for="warehouse">Warehouse</label>
+                                                                    <select class="default-select form-control wide w-100" name="warehouse" id="warehouse">
+                                                                        <option value="" disabled selected>Select a warehouse</option> <!-- Placeholder option -->
+                                                                        @foreach($Hubs1 as $Hub)
+                                                                        <option value="{{ ucwords($Hub->hub_id) }}">
+                                                                            {{ ucwords($Hub->hub_code) }}
+                                                                        </option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
                                                             </div>
-                                                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
-                                                                <label class="form-label">Courier</label>
-                                                                <select class="default-select form-control wide w-100" name="courier">
-                                                                    <option value="">Select...</option>
-                                                                    <option value="Ecom" {{ request()->get('courier') == 'Ecom' ? 'selected' : '' }}>Ecom</option>
-                                                                    <option value="Xpressbee" {{ request()->get('courier') == 'Xpressbee' ? 'selected' : '' }}>Xpressbee</option>
-                                                                    <option value="Bluedart" {{ request()->get('courier') == 'Bluedart' ? 'selected' : '' }}>Bluedart</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
-                                                                <label for="product_name" class="form-label">Product Name</label>
-                                                                <input type="text" class="form-control" id="product_name" placeholder="Product Name" name="product_name" value="{{ request()->get('product_name') }}">
-                                                            </div>
-                                                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
-                                                                <label for="waybill" class="form-label">Waybill Number</label>
-                                                                <input type="text" class="form-control" id="waybill" placeholder="AWB Number" name="awb" value="{{ request()->get('awb') }}">
-                                                            </div>
-                                                            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 mb-3">
-                                                                <label class="form-label">Order Type</label>
-                                                                <select class="default-select form-control wide w-100" name="order_type">
-                                                                    <option value="">Select...</option>
-                                                                    <option value="COD" {{ request()->get('order_type') == 'COD' ? 'selected' : '' }}>COD</option>
-                                                                    <option value="Prepaid" {{ request()->get('order_type') == 'Prepaid' ? 'selected' : '' }}>Prepaid</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 mb-3">
-    <label class="form-label" for="warehouse">Warehouse</label>
-    <select class="default-select form-control wide w-100" name="warehouse" id="warehouse" >
-        <option value="" disabled selected>Select a warehouse</option> <!-- Placeholder option -->
-        @foreach($Hubs1 as $Hub)
-            <option value="{{ ucwords($Hub->hub_id) }}">
-                {{ ucwords($Hub->hub_code) }}
-            </option>
-        @endforeach
-    </select>
-</div>
+                                                            <hr class="mb-4">
+                                                            <button type="submit" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Search</button>
+                                                            <a href="{{ url('/booked-order') }}" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Clear</a>
+                                                        </form>
 
+                                                        <script>
+                                                            $(function() {
+                                                                // Initialize the date range picker
+                                                                $('#daterange').daterangepicker({
+                                                                    opens: 'left',
+                                                                    startDate: '{{ request()->get('
+                                                                    from ', date("Y-m-d", strtotime("-30 days"))) }}',
+                                                                    endDate: '{{ request()->get('
+                                                                    to ', date("Y-m-d")) }}',
+                                                                    locale: {
+                                                                        format: 'YYYY-MM-DD'
+                                                                    }
+                                                                }, function(start, end) {
+                                                                    // Set the input value to the selected date range
+                                                                    $('#daterange').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
+                                                                    // Update hidden input fields with selected dates
+                                                                    $('#start_date').val(start.format('YYYY-MM-DD'));
+                                                                    $('#end_date').val(end.format('YYYY-MM-DD'));
+                                                                });
 
-                                                            <!-- Other form fields if any -->
-                                                        </div>
-                                                        <hr class="mb-4">
-                                                        <button type="submit" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Search</button>
-                                                        <a href="{{ url('/booked-order') }}" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Clear</a>
-                                                    </form>
+                                                                // Set the hidden fields if values are present on page load
+                                                                if ($('#daterange').val() === '') {
+                                                                    $('#start_date').val('{{ request()->get('
+                                                                        from ') }}');
+                                                                    $('#end_date').val('{{ request()->get('
+                                                                        to ') }}');
+                                                                }
+                                                            });
+                                                        </script>
 
 
                                                 </div>
@@ -392,9 +446,90 @@
             </div>
         </div>
     </div>
+    
+    </div>
+</div>
 
+ <script>
+					document.getElementById('failedBtn').addEventListener('click', function(event) {
+						event.preventDefault(); // Prevent the default form submission
+						document.getElementById('failedBtnform').submit(); // Submit the form manually
+					});
+				</script>
+<script>
+					document.getElementById('failedBtn').addEventListener('click', function() {
+						var cfromdate = "{{ $cfromdate }}"; 
+						var ctodate = "{{ $ctodate }}";
+						var ftype = "Excel";
 
+						var url = "{{ asset('/today-failed-orders') }}";
+						url += "?cfromdate=" + encodeURIComponent(cfromdate);
+						url += "&ctodate=" + encodeURIComponent(ctodate);
+						url += "&ftype=" + encodeURIComponent(ftype);
 
+						window.location.href = url;
+					});
+				</script>
+				
+				
+<script>
+					document.getElementById('downloadExcelBtn').addEventListener('click', function(event) {
+						event.preventDefault(); // Prevent the default form submission
+						document.getElementById('downloadExcelForm').submit(); // Submit the form manually
+					});
+				</script>
+<script>
+					document.getElementById('downloadExcelBtn').addEventListener('click', function() {
+						var cfromdate = "{{ $cfromdate }}";
+						var ctodate = "{{ $ctodate }}";
+						var ftype = "Excel";
+
+						var url = "{{ asset('/today-placed-orders') }}";
+						url += "?cfromdate=" + encodeURIComponent(cfromdate);
+						url += "&ctodate=" + encodeURIComponent(ctodate);
+						url += "&ftype=" + encodeURIComponent(ftype);
+
+						window.location.href = url;
+					});
+				</script>
+				
+<script>
+					function toggle(source) {
+						var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+						for (var i = 0; i < checkboxes.length; i++) {
+							if (checkboxes[i] != source)
+								checkboxes[i].checked = source.checked;
+						}
+					}
+				</script>
+				
+<script>
+                                        document.addEventListener('DOMContentLoaded', () => {
+                                            const checkboxes = document.querySelectorAll('input.form-check-input[type="checkbox"]');
+                                            const myDiv = document.getElementById('myDiv');
+                                            const checkAllCheckbox = document.getElementById('checkAll');
+                                
+                                            // Function to update the visibility of myDiv
+                                            function updateDivVisibility() {
+                                                const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                                                myDiv.classList.toggle('hidden', !anyChecked);
+                                            }
+                                
+                                            // Add event listeners to all checkboxes
+                                            checkboxes.forEach(checkbox => {
+                                                checkbox.addEventListener('change', updateDivVisibility);
+                                            });
+                                
+                                            // Add event listener to the "check all" checkbox
+                                            checkAllCheckbox.addEventListener('change', function() {
+                                                const isChecked = this.checked;
+                                                checkboxes.forEach(checkbox => {
+                                                    checkbox.checked = isChecked;
+                                                });
+                                                updateDivVisibility();
+                                            });
+                                        });
+                                    </script>
 
 
     @endsection

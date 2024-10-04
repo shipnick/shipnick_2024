@@ -30,8 +30,31 @@ class UserHubs extends Controller
         $userid = session()->get('UserLogin2id');
         $billing_data=orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->get();
         $billing_data_total=orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->first();
-        $params = price::where('user_id', $userid)->orderby('id', 'DESC')->get();
-        return view('UserPanel.Wallet.All', ['params' => $params],compact('params','billing_data','billing_data_total'));
+         $params = price::where('user_id', $userid)->orderBy('id', 'DESC')->get();
+        $param1 = price::where('status', 'defult')->orderBy('id', 'DESC')->get();
+        
+
+        // Create a mapping of params by name for easy lookup
+        $paramsMap = [];
+        foreach ($params as $param) {
+            $paramsMap[$param->name] = $param; // Use name as the key
+        }
+
+        // Prepare an array to hold the final values
+        $finalParams = [];
+
+        // Iterate through param1 and replace with values from params if they match
+        foreach ($param1 as $defaultParam) {
+            if (isset($paramsMap[$defaultParam->name])) {
+                // Replace with the matching $params value
+                $finalParams[] = $paramsMap[$defaultParam->name];
+            } else {
+                // Otherwise, use the default param
+                $finalParams[] = $defaultParam;
+            }
+        }
+    
+        return view('UserPanel.Wallet.All', ['finalParams' => $finalParams,'params' => $params],compact('params','billing_data','billing_data_total'));
     }
 
     public function NewHub(){
