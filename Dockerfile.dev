@@ -23,11 +23,10 @@ COPY .env.prod $APP/.env
 RUN composer install
 
 
-RUN echo "* * * * * php /var/www/html/artisan schedule:run >> /var/log/cron.log 2>&1"  > /etc/crontab 
-RUN echo "* * * * * php /var/www/html/artisan queue:work --queue=o_status_xpressbee --tries=3 --backoff=3 --stop-when-empty >> /var/log/cron.log 2>&1" > /etc/crontab
-RUN echo "* * * * * php /var/www/html/artisan queue:work --queue=o_status_xpressbee2 --tries=3 --backoff=3 --stop-when-empty >> /var/log/cron.log 2>&1" > /etc/crontab
-RUN echo "* * * * * php /var/www/html/artisan queue:work --queue=o_status_xpressbee3 --tries=3 --backoff=3 --stop-when-empty >> /var/log/cron.log 2>&1" > /etc/crontab
-RUN echo "* * * * * php /var/www/html/artisan queue:work --queue=o_status_ecom --tries=3 --backoff=3 --stop-when-empty >> /var/log/cron.log 2>&1" > /etc/crontab
+# Install cron
+COPY cron /etc/cron.d/cron
+RUN chmod 0644 /etc/cron.d/cron
+RUN crontab /etc/cron.d/cron
 # Create the log file to be able to run tail
 RUN touch /var/log/cron.log
 RUN service cron reload

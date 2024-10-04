@@ -1,0 +1,6 @@
+# Cron Entries here
+* * * * * php /var/www/html/artisan schedule:run >> /var/log/cron.log 2>&1
+* * * * * php /var/www/html/artisan queue:work --queue=o_status_xpressbee --tries=3 --backoff=3 --stop-when-empty >> /var/log/cron.log 2>&1
+* * * * * php /var/www/html/artisan queue:work --queue=o_status_xpressbee2 --tries=3 --backoff=3 --stop-when-empty >> /var/log/cron.log 2>&1
+* * * * * php /var/www/html/artisan queue:work --queue=o_status_xpressbee3 --tries=3 --backoff=3 --stop-when-empty >> /var/log/cron.log 2>&1
+* * * * * php /var/www/html/artisan queue:work --queue=o_status_ecom --tries=3 --backoff=3 --stop-when-empty >> /var/log/cron.log 2>&1
