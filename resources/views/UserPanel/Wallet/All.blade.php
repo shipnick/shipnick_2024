@@ -341,7 +341,7 @@
                                                                     <td>{{ $data->transaction }}</td>
                                                                     <td> @if(!is_numeric($data->awb_no))   +{{ $data->credit }} @endif </td>
                                                                   
-                                                                    <td>@if(is_numeric($data->awb_no))  -{{ $data->credit }}  @endif</td>
+                                                                    <td>@if(is_numeric($data->awb_no))  -{{ $data->debit }}  @endif</td>
                                                                     <td>-{{ $data->close_blance }}</td>
                                                                     <td>Freight Charges</td>
                                                                 </tr>

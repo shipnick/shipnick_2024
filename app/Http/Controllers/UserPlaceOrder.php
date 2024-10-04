@@ -34,7 +34,7 @@ class UserPlaceOrder extends Controller
     $orders = bulkorders::whereNull('zone')
         ->orderBy('Single_Order_Id', 'DESC')
         //  ->where('zone','!=','')
-        ->limit(800)
+        ->limit(2000)
         // ->select('Awb_Number', 'Pincode', 'pickup_pincode')
         ->get();
         
@@ -106,12 +106,12 @@ class UserPlaceOrder extends Controller
     $ctodateObj1 = Carbon::now()->endOfMonth();
     
     $params = bulkorders::whereNotNull('zone')
-        ->where('User_Id', '122')
+        // ->where('User_Id', '122')
         ->whereNull('shferrors')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+        // ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
         ->orderBy('Single_Order_Id', 'ASC')
-        ->limit(500)
+        ->limit(1500)
         ->select('Awb_Number', 'zone', 'awb_gen_by', 'User_Id', 'Single_Order_Id','Rec_Time_Date')
         ->get();
     

@@ -10,7 +10,9 @@
 
 
 
-
+<link href="{{asset('newtheme/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+    <link href="{{asset('newtheme/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
+    
     <link rel="stylesheet" href="{{asset('newtheme/vendor/nouislider/nouislider.min.css')}}">
     <link rel="stylesheet" href="{{asset('newtheme/./vendor/swiper/css/swiper-bundle.min.css')}}">
 
@@ -83,111 +85,7 @@
         <!--**********************************
 			  Sidebar start
 		  ***********************************-->
-        <div class="dlabnav">
-            <div class="dlabnav-scroll">
-                <ul class="metismenu" id="menu">
-                    <li class="dropdown header-profile">
-                        <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
-                            <img src="{{asset('/Profiles/')}}/{{ session('UserLoginPic') }}" width="20" alt="">
-                            <div class="header-info ms-3">
-                                <span class="font-w600 ">Hi,<b>{{ session('UserLogin2name') }}</b></span>
-                                <!--<small class="text-end font-w400">{{ session('UserLogin2name') }}</small>-->
-                            </div>
-                        </a>
-
-                    </li>
-
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-025-dashboard"></i>
-                            <span class="nav-text">Dashboard</span>
-                        </a>
-                        <ul aria-expanded="false">
-
-                            <li><a href="{{ asset('/user-Home') }}">Dashboard</a></li>
-
-
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-043-menu"></i>
-                            <span class="nav-text">Orders</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{ asset('/UPBulk_Order') }}">Create order</a></li>
-                            <li><a href="{{asset('/booked-order')}}">Shipment</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-022-copy"></i>
-                            <span class="nav-text">Reports</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{asset('/UPMIS_Report')}}">MIS</a></li>
-                            <!--<li><a href="{{asset('/page-error-503')}}">Menifest<span class="badge badge-xs badge-success ms-3">Update</span></a></li>-->
-                            <li><a href="{{asset('/page-error-503')}}">NDR</a></li>
-                            <li><a href="{{ asset('/showordercounts') }}">Courier Wise Detail</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="fa-solid fa-house fw-bold"></i>
-                            <span class="nav-text">Hub</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{ asset('/UPNew_Hub') }}">Add a hub</a></li>
-                            <li><a href="{{ asset('/UPAll_Hubs') }}">All hub</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="mdi mdi-file-document-box font-18 align-middle me-2"></i>
-                            <span class="nav-text">Billing</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{ asset('/Wallet') }}">Billing</a></li>
-                            <!-- <li><a href="{{ asset('/UPAll_Hubs') }}">All hub</a></li> -->
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-072-printer"></i>
-                            <span class="nav-text">Print</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{ asset('/Label_Print') }}">Print shipping label</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-locations"></i>
-                            <span class="nav-text">Location</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="#">Order Tracking</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="fa-solid fa-gear fw-bold"></i>
-                            <span class="nav-text">Settings</span>
-                            <!-- <span class="badge badge-xs badge-danger ms-3">New</span> -->
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{ asset('/setting') }}">Setting</a></li>
-
-                        </ul>
-
-                    </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-turn-off"></i>
-                            <span class="nav-text">Power</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{ asset('/Logout') }}">Sign out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="copyright">
-                    <!-- <p><strong>Shipnick</strong> © 2023 All Rights Reserved</p>
-			  <p class="fs-12">Made with <span class="heart"></span> by Philon Technologies Pvt. Ltd.</p> -->
-                </div>
-            </div>
-
-        </div>
+        
 
         <!--**********************************
 			  Sidebar end
