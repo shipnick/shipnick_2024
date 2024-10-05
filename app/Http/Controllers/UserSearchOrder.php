@@ -492,7 +492,7 @@ class UserSearchOrder extends Controller
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled','in transit'])
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
                 // ->whereIn('showerrors', ['pending pickup'])
-                ->where('order_status', 'upload')
+                ->where('order_status', '1')
                 ->where('order_cancel', '!=', '1')
                 ->whereNotNull('Awb_Number')
                 ->orderBy('Single_Order_Id', 'desc')
@@ -506,7 +506,7 @@ class UserSearchOrder extends Controller
             set_time_limit(300);
             $completedOrders = 0;
            bulkorders::whereIn('Awb_Number', $orders)
-    ->update(['order_status' => '1']);
+    ->update(['order_status' => 'upload']);
 
             foreach ($orders as $order) {
                 $awbNumber = $order->Awb_Number;
