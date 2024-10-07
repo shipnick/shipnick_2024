@@ -29,7 +29,7 @@
 							header.style.top = '105px';
 						} else {
 							header.style.position = 'absolute'; // Or use a value that fits your layout
-							header.style.top = '-20px'; // Adjust to match your original design
+							header.style.top = '181px'; // Adjust to match your original design
 						}
 					});
 				</script>

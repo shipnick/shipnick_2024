@@ -1704,7 +1704,8 @@ public function MultipleOrderDelete(Request $req)
         case "cancelorders":
             // Update orders to be canceled
             bulkorders::whereIn('Awb_Number', $selectorders)->update(['order_cancel' => 1]);
-
+            
+            Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
             // Flash message and redirect back
             return redirect()->back()->with('message', 'Orders successfully canceled.');
 
