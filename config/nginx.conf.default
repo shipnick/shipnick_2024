@@ -33,3 +33,17 @@ server {
     fastcgi_param PATH_INFO $fastcgi_path_info;
   }
 }
+
+# server {
+#     listen 443 default_server ssl http2;
+#     listen [::]:443 ssl http2;
+
+#     server_name [shipnick.com];
+
+#     ssl_certificate /etc/nginx/ssl/live/[domain-name]/fullchain.pem;
+#     ssl_certificate_key /etc/nginx/ssl/live/[domain-name]/privkey.pem;
+    
+#     location / {
+#     	proxy_pass http://[shipnick.com];
+#     }
+# }
