@@ -24,7 +24,7 @@ RUN composer install
 
 
 # Install cron
-COPY cron /etc/cron.d/cron
+COPY cron.conf /etc/cron.d/cron
 RUN chmod 0644 /etc/cron.d/cron
 RUN crontab /etc/cron.d/cron
 # Create the log file to be able to run tail
