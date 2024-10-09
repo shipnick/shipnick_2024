@@ -32,7 +32,14 @@ fi
 
 chmod -R 775 resources
 chmod -R 777 storage
+
+chmod -R 777 public/awbsexcels
 chmod -R 777 public/BulkExcelFiles
+chmod -R 777 public/HubDetails
+chmod -R 777 public/MISExcelFiles
+chmod -R 777 public/Profiles
+chmod -R 777 public/SampleExcel
+
 rm -rf bootstrap/cache/config.php
 service cron start
 
