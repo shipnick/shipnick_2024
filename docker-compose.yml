@@ -35,9 +35,6 @@ services:
       - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./SSL/shipnick.key:/root/ssl/shipnick.key
       - ./SSL/shipnick.crt:/root/ssl/shipnick.crt
-      # - ./config/nginx.conf.ssl:/etc/nginx/conf.d/default.conf
-      # - ./nginx/conf/:/etc/nginx/conf.d/:ro
-      # - ./certbot/www/:/var/www/certbot/:ro
     ports:
       - 80:80
       - 443:443

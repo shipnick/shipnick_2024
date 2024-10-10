@@ -4,7 +4,7 @@ FROM php:7.4-fpm AS phpbuilder
 ENV APP=/var/www/html \
     BUILD_PACKAGES="libmcrypt-dev libmagickwand-dev libcurl3-dev libedit-dev libzip-dev libgpgme11-dev libonig-dev libxml2-dev" \
     RUNTIME_PACKAGES="nano zip unzip wget mariadb-client bison cron" \
-    PHP_EXTENSIONS="pdo_mysql zip curl gd mbstring mysqli opcache xml"
+    PHP_EXTENSIONS="calendar pdo_mysql zip curl gd mbstring mysqli opcache xml"
 
 WORKDIR $APP
  
