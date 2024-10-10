@@ -201,10 +201,10 @@
 																			},
 																			success: function(response) {
 																				if (response.success) {
-																					$('#stateInput').val(response.state);
-																					$('#cityInput').val(response.city);
+																					$('#stateInput').val(response.city);
+																					$('#cityInput').val(response.state);
 																				} else {
-																					alert(response.message);
+																					// alert(response.message);
 																				}
 																			},
 																			error: function(xhr, status, error) {
