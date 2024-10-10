@@ -155,6 +155,8 @@ class APIBigShip extends Controller
 
                     curl_setopt_array($curl, array(
                         CURLOPT_URL => 'https://api.smartship.in/v2/app/Fulfillmentservice/orderRegistrationOneStep',
+                        CURLOPT_SSL_VERIFYHOST => 0,
+                        CURLOPT_SSL_VERIFYPEER => 0,
                         CURLOPT_RETURNTRANSFER => true,
                         CURLOPT_ENCODING => '',
                         CURLOPT_MAXREDIRS => 10,
@@ -648,6 +650,8 @@ class APIBigShip extends Controller
 
     curl_setopt_array($curl, array(
         CURLOPT_URL => 'https://shipment.ecomexpress.in/services/shipment/products/v2/fetch_awb/',
+        CURLOPT_SSL_VERIFYHOST => 0,
+        CURLOPT_SSL_VERIFYPEER => 0,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -1344,6 +1348,8 @@ class APIBigShip extends Controller
             
                                 curl_setopt_array($curl, array(
                                     CURLOPT_URL => 'https://shipment.ecomexpress.in/services/shipment/products/v2/fetch_awb/',
+                                    CURLOPT_SSL_VERIFYHOST => 0,
+                                    CURLOPT_SSL_VERIFYPEER => 0,
                                     CURLOPT_RETURNTRANSFER => true,
                                     CURLOPT_ENCODING => '',
                                     CURLOPT_MAXREDIRS => 10,
@@ -1928,6 +1934,8 @@ class APIBigShip extends Controller
                                         
                                                             curl_setopt_array($curl, array(
                                                                 CURLOPT_URL => 'https://shipment.ecomexpress.in/services/shipment/products/v2/fetch_awb/',
+                                                                CURLOPT_SSL_VERIFYHOST => 0,
+                                                                CURLOPT_SSL_VERIFYPEER => 0,
                                                                 CURLOPT_RETURNTRANSFER => true,
                                                                 CURLOPT_ENCODING => '',
                                                                 CURLOPT_MAXREDIRS => 10,
@@ -2375,6 +2383,8 @@ class APIBigShip extends Controller
                                         
                                                             curl_setopt_array($curl, array(
                                                                 CURLOPT_URL => 'https://shipment.ecomexpress.in/services/shipment/products/v2/fetch_awb/',
+                                                                CURLOPT_SSL_VERIFYHOST => 0,
+                                                                CURLOPT_SSL_VERIFYPEER => 0,
                                                                 CURLOPT_RETURNTRANSFER => true,
                                                                 CURLOPT_ENCODING => '',
                                                                 CURLOPT_MAXREDIRS => 10,
@@ -3686,6 +3696,8 @@ private function cancelEcomOrder($awb)
 
                     curl_setopt_array($curl, array(
                         CURLOPT_URL => 'https://shipment.ecomexpress.in/apiv2/cancel_awb/',
+                        CURLOPT_SSL_VERIFYHOST => 0,
+                        CURLOPT_SSL_VERIFYPEER => 0,
                         CURLOPT_RETURNTRANSFER => true,
                         CURLOPT_ENCODING => '',
                         CURLOPT_MAXREDIRS => 10,
