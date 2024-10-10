@@ -1145,7 +1145,7 @@ return view('UserPanel.PlaceOrder.BulkOrderAjax',['params'=>$params,'allriders'=
         //  File Name
         $req->session()->flash('status', 'Please try again unexpected error...');
         return redirect('/UPBulk_Order');
-    }
+    } 
 
 
 
