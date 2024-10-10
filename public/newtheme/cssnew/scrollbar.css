@@ -1,0 +1,24 @@
+
+	.dlab-scroll {
+		overflow-y: scroll;
+	}
+
+	.dlab-scroll {
+		overflow-y: scroll;
+	}
+
+	body>* {
+		scrollbar-width: thin;
+		overflow-y: scroll;
+		scrollbar-color: rgb(0 0 0 / 41%) rgba(0, 0, 0, 0);
+	}
+
+	::-webkit-scrollbar {
+		width: 10px;
+		opacity: 0;
+	}
+
+
+	::-webkit-scrollbar-thumb {
+		background: rgb(0 0 0 / 49%);
+	}
