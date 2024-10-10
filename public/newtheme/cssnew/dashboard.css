@@ -1,0 +1,84 @@
+.amount-bx {
+    background-color: #e5effa !important;
+}
+
+
+.f-24 {
+    font-size: 24px;
+}
+
+
+
+.light-blue-bg {
+    background-color: #F0F8FEFF;
+    border: 1px solid #b9e1ff;
+}
+
+.light-grey-bg {
+    background-color: #f3f3f3;
+    border: 1px solid #d6d6d6;
+}
+
+.light-yellow-bg {
+    background-color: #fff9ee;
+    border: 1px solid #ffe1aa;
+}
+
+.light-green-bg {
+    background-color: #f3fbfa;
+    border: 1px solid #c4fef7;
+}
+
+.light-pink-bg {
+    background-color: #fff0f4;
+    border: 1px solid #ffc9d8;
+}
+
+/* Preloader Styles */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-bar {
+    width: 100%;
+    /*background: #e0e0e0;*/
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar .bar {
+    height: 5px;
+    background: #008040;
+    width: 0%;
+    /* Start at 0% */
+    transition: width 2s ease;
+    /* Smooth transition over 2 seconds */
+}
+
+.progress-bar::before {
+    /*content: 'Loading...';*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: #333;
+}
+
+.newtd {
+
+    padding: 0px 0px;
+    font-weight: 600;
+    border-bottom: 0;
+    color: black;
+}
