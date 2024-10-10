@@ -1121,7 +1121,7 @@ return view('UserPanel.PlaceOrder.BulkOrderAjax',['params'=>$params,'allriders'=
             // return redirect('/UPAll_All_Orders')->with('message', 'order upload success ' . $noof_order);
 
             // // Perform background URL hit
-            // Http::get('https://shipnick.com/UPBulk_Order_API');
+            Http::get('https://shipnick.com/UPBulk_Order_API');
 
             // dispatch(function () {
             //     Http::get('https://shipnick.com/UPBulk_Order_API');
@@ -1130,13 +1130,13 @@ return view('UserPanel.PlaceOrder.BulkOrderAjax',['params'=>$params,'allriders'=
             // });
 
             // Redirect with success message
-            return redirect('/UPAll_Complete_Orders')->with('message', 'Order upload success ' . $noof_order);
+            // return redirect('/UPAll_Complete_Orders')->with('message', 'Order upload success ' . $noof_order);
             
             // Dispatch the job
     // UploadOrder::dispatch();
 
     // // Optionally, provide feedback or redirect
-    // return redirect('/booked-order')->with('message', 'Order upload success ' . $noof_order);
+    return redirect('/booked-order')->with('message', 'Order upload success ' . $noof_order);
 
 
 
