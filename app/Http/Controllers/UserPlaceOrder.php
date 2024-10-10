@@ -447,7 +447,9 @@ $query->volumetric_weight = $volwt;
         */
             $req->session()->flash('status','Order Details Added');
             // Perform background URL hit
-            Http::get('https://shipnick.com/UPBulk_Order_API');
+                       Http::withOptions([
+                'verify' => false,
+            ])->get('https://shipnick.com/UPBulk_Order_API');
             return redirect('/UPSingle_Product');
         } catch (Exception $e) {
             $req->session()->flash('status','Not Added');
@@ -1121,7 +1123,7 @@ return view('UserPanel.PlaceOrder.BulkOrderAjax',['params'=>$params,'allriders'=
             // return redirect('/UPAll_All_Orders')->with('message', 'order upload success ' . $noof_order);
 
             // // Perform background URL hit
-            Http::get('https://shipnick.com/UPBulk_Order_API');
+            // Http::get('https://shipnick.com/UPBulk_Order_API');
 
             // dispatch(function () {
             //     Http::get('https://shipnick.com/UPBulk_Order_API');
@@ -1134,7 +1136,9 @@ return view('UserPanel.PlaceOrder.BulkOrderAjax',['params'=>$params,'allriders'=
             
             // Dispatch the job
     // UploadOrder::dispatch();
-
+        Http::withOptions([
+            'verify' => false,
+        ])->get('https://shipnick.com/UPBulk_Order_API');
     // // Optionally, provide feedback or redirect
     return redirect('/booked-order')->with('message', 'Order upload success ' . $noof_order);
 
