@@ -447,7 +447,7 @@ $query->volumetric_weight = $volwt;
         */
             $req->session()->flash('status','Order Details Added');
             // Perform background URL hit
-            // Http::get('https://shipnick.com/UPBulk_Order_API');
+            //           
             return redirect('/UPSingle_Product');
         } catch (Exception $e) {
             $req->session()->flash('status','Not Added');
@@ -1134,7 +1134,7 @@ return view('UserPanel.PlaceOrder.BulkOrderAjax',['params'=>$params,'allriders'=
             
             // Dispatch the job
     // UploadOrder::dispatch();
-
+        
     // // Optionally, provide feedback or redirect
     return redirect('/booked-order')->with('message', 'Order upload success ' . $noof_order);
 
@@ -1145,7 +1145,7 @@ return view('UserPanel.PlaceOrder.BulkOrderAjax',['params'=>$params,'allriders'=
         //  File Name
         $req->session()->flash('status', 'Please try again unexpected error...');
         return redirect('/UPBulk_Order');
-    }
+    } 
 
 
 
