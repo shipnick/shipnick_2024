@@ -37,6 +37,8 @@ RUN if [ ! -d $APP/storage/framework/cache ]; then mkdir $APP/storage/framework/
 # RUN if [ ! -e $APP/public/app ]; then cd $APP/public; ln -s . app; cd $APP; fi
 # RUN if [ -d $APP/vendor ]; then rm -rf $APP/vendor; fi
 RUN cat $APP/config/xdebug.ini >> /usr/local/etc/php/conf.d/xdebug.ini
+RUN cat $APP/config/set_upload_size.ini >> /usr/local/etc/php/conf.d/set_upload_size.ini
+RUN cat $APP/config/docker-php-memlimit.ini >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
 # RUN php artisan config:clear
 RUN date +"docker_date=%m/%d/%Y %H:%M:%S %Z (%A)" > $APP/about.txt
 RUN echo "git_branch=$GIT_BRANCH" >> $APP/about.txt
