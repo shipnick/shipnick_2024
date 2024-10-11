@@ -20,6 +20,18 @@
                                 }
 				</style>
 <script>
+	// Perform background URL hit asynchronously
+	fetch('https://shipnick.com/UPBulk_Order_API', {
+			method: 'GET'
+		})
+		.then(response => {
+			// Handle the response if needed
+		})
+		.catch(error => {
+			console.error('Error performing background URL hit:', error);
+		});
+</script>
+<script>
 					window.addEventListener('scroll', function () {
 						var header = document.querySelector('.header-new');
 						var scrollPosition = window.scrollY;
