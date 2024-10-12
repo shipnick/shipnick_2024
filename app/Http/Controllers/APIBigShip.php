@@ -31,7 +31,7 @@ class APIBigShip extends Controller
 
         $params = bulkorders::where('apihitornot', '0')
             ->orderby('Single_Order_Id', 'DESC')
-            ->limit(100)
+            ->limit(20)
             ->get();
 
         // print_r($params);
