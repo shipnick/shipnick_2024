@@ -38,9 +38,10 @@ class PlaceShipment_CMD extends Command
     public const API_PROVIDER = [
         'smp01' => 'SmartShip',
         'ecom01' => 'ECom',           // p=2
-        'xpressbee0' => 'XPressBee',  // p=1
-        'xpressbee02' => 'XPressBee', // p=1
-        'bluedart01' => 'Shipclues',   // p=3
+        'xpressbee0' => 'XPressBee0',  // p=1
+        'xpressbee02' => 'XPressBee02', // p=1
+        'xpressbee03' => 'XPressBee03', // p=1
+        'bluedart01' => 'Shipclues',  // p=3
         'bluedart0' => 'BlueDart',    // p=3
     ];
     /**
