@@ -91,6 +91,7 @@ class PlaceShipment_CMD extends Command
                 // Destination Address
                 $daname = $param->Name;
                 $daadrs = $param->Address;
+                $daadrs2 = $param->Address2;
                 $dastate = $param->State;
                 $dacity = $param->City;
                 $damob = $param->Mobile;
@@ -172,6 +173,7 @@ class PlaceShipment_CMD extends Command
                         'iadin' => $iadin,
                         'daname' => $daname,
                         'daadrs' => $daadrs,
+                        'daadrs2' => $daadrs2,
                         'dacity' => $dacity,
                         'dastate' => $dastate,
                         'dapin' => $dapin,
