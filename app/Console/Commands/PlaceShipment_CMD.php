@@ -37,11 +37,11 @@ class PlaceShipment_CMD extends Command
 
     public const API_PROVIDER = [
         'smp01' => 'SmartShip',
-        'ecom01' => 'ECom',
-        'xpressbee0' => 'XPressBee',
-        'xpressbee02' => 'XPressBee',
-        'bluedart01' => 'BlueDart',
-        'bluedart0' => 'BlueDart',
+        'ecom01' => 'ECom',           // p=2
+        'xpressbee0' => 'XPressBee',  // p=1
+        'xpressbee02' => 'XPressBee', // p=1
+        'bluedart01' => 'Shipclues',   // p=3
+        'bluedart0' => 'BlueDart',    // p=3
     ];
     /**
      * Execute the console command.
@@ -57,6 +57,14 @@ class PlaceShipment_CMD extends Command
                 // ->limit(80)
                 ->get();
             $this->info("Total orders:" . count($orders));
+
+
+            // Update Selected Orders To Generate A AWB Number
+            foreach ($orders as $order) {
+                $crtidis = $order->Single_Order_Id;
+                bulkorders::where('Single_Order_Id', $crtidis)->update(['apihitornot' => 1]);
+            }
+            // Update Selected Orders To Generate A AWB Number
 
 
             $loopno = 0;
@@ -123,7 +131,6 @@ class PlaceShipment_CMD extends Command
 
 
                 // Order Place Courier Checking
-                $this->comment("UserId : " . $userid);
                 $courierassigns = courierpermission::where('user_id', $userid)
                     // ->where('courier_priority', '!=', '0')
                     ->where('courier_priority',  '1')
@@ -141,8 +148,6 @@ class PlaceShipment_CMD extends Command
                     array_push($finalcourierlists, "$courieridno");
                 }
                 $this->info("Payment mode: " . $paymentmode);
-                // dump($finalcourierlists);
-                
                 foreach ($finalcourierlists as $courierapicodeno) {
                     // $this->info($courierapicodeno);
 
@@ -154,6 +159,44 @@ class PlaceShipment_CMD extends Command
                     // ]);
                     // dd($jobClassPrefix);
 
+                    $data = [
+                        'crtidis' => $crtidis,
+                        'paymentmode' => $paymentmode,
+                        'damob' => $damob,
+                        'iacwt' => $iacwt,
+                        'autogenorderno' => $autogenorderno,
+                        'itamt' => $itamt,
+                        'ilgth' => $ilgth,
+                        'iwith' => $iwith,
+                        'ihght' => $ihght,
+                        'iadin' => $iadin,
+                        'daname' => $daname,
+                        'daadrs' => $daadrs,
+                        'dacity' => $dacity,
+                        'dastate' => $dastate,
+                        'dapin' => $dapin,
+                        'pkpkname' => $pkpkname,
+                        'pkpkaddr' => $pkpkaddr,
+                        'pkpkcity' => $pkpkcity,
+                        'pkpkstte' => $pkpkstte,
+                        'pkpkpinc' => $pkpkpinc,
+                        'pkpkmble' => $pkpkmble,
+                        'iname' => $iname,
+                        'iqlty' => $iqlty,
+                        'itamt' => $itamt,
+                        'iival' => $iival,
+                        'icoda' => $icoda,
+                        'userid' => $userid,
+                        'iacwt' => $iacwt,
+                        'idate' => $idate,
+                        'ecomdate' => $ecomdate = date_create($idate),
+                        'data' => $data,
+                        'orderno' => $orderno,
+                        'ivlwt' => $ivlwt,
+                        'invicedateecom' => $invicedateecom = date_format($ecomdate, "d-m-Y"),
+                        'pkpkid' => $pkpkid,
+                    ];
+
                     $jobClass = 'App\\Jobs\\' . self::API_PROVIDER[$courierapicodeno] . '_PlaceOrderJob';
                     $this->comment('Dispatching ' . $jobClass);
                     $jobClass::dispatch($data)->onQueue('place_order');
@@ -164,10 +207,6 @@ class PlaceShipment_CMD extends Command
 
                     // }
                 }
-
-
-
-
             }
         } catch (\Exception $e) {
             $msg = __FILE__ . ":LINE:" . $e->getLine()  . " MSG: " . $e->getMessage();
