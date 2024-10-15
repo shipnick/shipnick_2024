@@ -19,7 +19,7 @@
                                     display: none;
                                 }
 				</style>
-<script>
+{{-- <script>
 	// Perform background URL hit asynchronously
 	fetch('https://shipnick.com/UPBulk_Order_API', {
 			method: 'GET'
@@ -30,7 +30,7 @@
 		.catch(error => {
 			console.error('Error performing background URL hit:', error);
 		});
-</script>
+</script> --}}
 <script>
 					window.addEventListener('scroll', function () {
 						var header = document.querySelector('.header-new');
