@@ -6,7 +6,7 @@ use App\Helper\UtilityHelper;
 use App\Models\bulkorders;
 use App\Models\courierpermission;
 use App\Models\OrderStatusLabel;
-use app\Models\orderdetail;
+use App\Models\orderdetail;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
