@@ -58,7 +58,7 @@ class PlaceShipment_CMD extends Command
             $this->info("Placing orders...");
             $orders = bulkorders::where('apihitornot', '1')
                 ->orderby('Single_Order_Id', 'DESC')
-                // ->limit(80)
+                ->limit(2)
                 ->get();
             $this->info("Total orders:" . count($orders));
 
@@ -162,7 +162,7 @@ class PlaceShipment_CMD extends Command
 
                     $limit = OrderStatusLabel::where('labelname', $param->User_Id)->first();
 
-                    if ($limit && $blance) { // Check if both $limit and $blance are not null
+                    if (!empty($limit) && !empty($blance)) { // Check if both $limit and $blance are not null
                         if ($limit->labelcate <= $blance->close_blance) { // Fixed comparison operator
                             $errmessage = "Low Balance";
                             bulkorders::where('Single_Order_Id', $crtidis)->update([
@@ -170,13 +170,13 @@ class PlaceShipment_CMD extends Command
                                 'order_status_show' => $errmessage,
                             ]);
                         }
-                    } elseif ($blance->close_blance < 0) { //  if $blance->close_blance is not nagative 
+                    } elseif (($blance->close_blance ?? -1) < 0) { //  if $blance->close_blance is not nagative 
                         $errmessage = "Low Balance";
                         bulkorders::where('Single_Order_Id', $crtidis)->update([
                             'showerrors' => $errmessage,
                             'order_status_show' => $errmessage,
                         ]);
-                    } else {
+                    } else {  // Dispatchs PlaceOrder to courier API
                         $data = [
                             'crtidis' => $crtidis,
                             'paymentmode' => $paymentmode,
