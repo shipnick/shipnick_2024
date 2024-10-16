@@ -127,7 +127,7 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
     "></i>
 					<div>
 						<p class="mb-1">Wallet Amount</p>
-						 <h3 class="mb-0">@if($articles) -{{$articles->close_blance}} @endif</h3> 
+						 <h3 class="mb-0">@if($articles) {{$articles->close_blance}} @endif</h3> 
 					</div>
 				</div>
 				

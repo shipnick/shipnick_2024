@@ -14,6 +14,8 @@ use App\Models\Allusers;
 use App\Models\price;
 use App\Models\BulkPincode;
 use App\Models\PincodeFile;
+use App\model\orderdetail;
+use App\Models\OrderStatusLabel;
 
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
@@ -660,6 +662,154 @@ public function ClientCourierPermissions(Request $req){
         // Redirect with a success message
         return redirect('super-admin-pincode')->with('success', 'Pincode file and related data deleted successfully.');
     }
+
+     // all admin details 
+     public function allAdmin()
+     {
+         $userid = session()->get('UserLoginid');
+         $params = AdminLoginCheck::where('usertype', 'admin')
+             ->where('spid', $userid)
+             ->orderby('id', 'DESC')
+             ->get();
+ 
+         // Create an associative array to hold the user counts per admin
+         $userCounts = [];
+         foreach ($params as $param) {
+             $userCounts[$param->id] = AdminLoginCheck::where('usertype', 'user')
+                 ->where('crtuid', $param->id) // Filter based on the current admin's ID
+                 ->count();
+         }
+ 
+         return view('super-admin.userDetails.adminList', [
+             'params' => $params,
+             'userCounts' => $userCounts, // Pass the user counts to the view
+         ]);
+     }
+     // admin to user details 
+     public function allAdminUser($id)
+     {
+         // Retrieve the current user ID from the session
+         $userid = session()->get('UserLoginid');
+     
+         // Fetch parameters for users of type 'user' associated with the given ID
+         $params = AdminLoginCheck::where('usertype', 'user')
+             ->where('crtuid', $id)
+             ->orderBy('id', 'DESC')
+             ->get();
+     
+         // Initialize an empty array for limits
+         $limit = [];
+     
+         // Populate the limit array with labelcate values indexed by param id
+         foreach ($params as $param) {
+             // Fetch label records based on the appropriate criterion
+             $labelRecord = OrderStatusLabel::where('labelname', $param->id)->first();
+     
+             // Set the labelcate or default to 0
+             $limit[$param->id] = $labelRecord ? $labelRecord->labelcate : 0;
+         }
+     
+         // Return the view with the retrieved parameters and limits
+         return view('super-admin.userDetails.userList', [
+             'params' => $params,
+             'limit' => $limit
+         ]);
+     }
+     
+ 
+ 
+ 
+     // super-admin add amount user to cod remmitance 
+     public function userWalletLimit($id)
+     {
+         $userid = session()->get('UserLoginid');
+ 
+         // Check if user is logged in
+         if (!$userid) {
+             return redirect()->route('login')->with('error', 'Please log in to access this page.');
+         }
+ 
+         // Retrieve user details
+         $params = AdminLoginCheck::find($id);
+ 
+         // Check if user exists
+         if (!$params) {
+             return redirect()->back()->with('error', 'User not found.');
+         }
+ 
+         return view('super-admin.userDetails.addUserLimit', ['params' => $params]);
+     }
+     public function userAddWalletLimit(Request $request, $id)
+     {
+ 
+         $limit =  OrderStatusLabel::where('labelname', $id)->first();
+ 
+         if (isset($limit)) {
+             OrderStatusLabel::where('labelname', $id)->update(['labelcate' => $request->amount]);
+             return redirect()->back();
+         }
+ 
+         $wellet = new OrderStatusLabel;
+         $wellet->labelname = $id;
+         $wellet->labelcate = $request->amount;
+         $wellet->save();
+         return redirect()->back();
+     }
+ 
+     public function addUserBlance($id)
+     {
+         $userid = session()->get('UserLoginid');
+ 
+         // Check if user is logged in
+         if (!$userid) {
+             return redirect()->route('login')->with('error', 'Please log in to access this page.');
+         }
+ 
+         // Retrieve user details
+         $params = AdminLoginCheck::find($id);
+ 
+         // Check if user exists
+         if (!$params) {
+             return redirect()->back()->with('error', 'User not found.');
+         }
+ 
+         return view('super-admin.userDetails.addUserBlance', ['params' => $params]);
+     }
+ 
+     public function addNewUserBlance(Request $request, $id)
+     {
+         $date = date('Y-m-d');
+         $transactionCode = "TR00" . $request->amount;
+ 
+         // Fetch the most recent balance record for the given user
+         $blance = orderdetail::where('user_id', $id)
+             ->orderBy('orderid', 'DESC')
+             ->first();
+ 
+         $close_blance = $request->amount;
+ 
+         // Check if a balance record exists and update $close_blance accordingly
+         if ($blance && isset($blance->close_blance)) {
+             // Ensure close_blance is a number, default to 0 if null
+             $previous_blance = $blance->close_blance ?? 0;
+             $close_blance = $previous_blance + $request->amount;
+         }
+ 
+ 
+         // dd($transactionCode,$credit1,$awb , $close_blance,$date);
+         // Create a new order detail record
+         $wellet = new orderdetail;
+         $wellet->credit = $request->amount;
+         $wellet->awb_no = $request->Type;
+         $wellet->date = $date;
+         $wellet->user_id =  $id;
+         $wellet->transaction = $transactionCode;
+         $wellet->close_blance = $close_blance;
+         $wellet->description = $request->description;
+ 
+         $wellet->save();
+         return redirect()->back();
+     }
 
 
 

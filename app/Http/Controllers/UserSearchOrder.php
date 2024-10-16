@@ -160,7 +160,7 @@ class UserSearchOrder extends Controller
             if ($blance && isset($blance->close_blance)) {
                 // Ensure close_blance is a number, default to 0 if null
                 $previous_blance = $blance->close_blance ?? 0;
-                $close_blance = $previous_blance - $credit1;
+                $close_blance = $previous_blance + $credit1;
             }
 
             // Create a new order detail record

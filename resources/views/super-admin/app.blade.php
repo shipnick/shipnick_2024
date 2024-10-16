@@ -115,6 +115,7 @@
                 <ul aria-expanded="false">
                     <li><a href="{{ asset('/super-new-admin') }}">Registration</a></li>
                     <li><a href="{{ asset('/super-all-admin') }}">ALL Admin</a></li>
+                    <li><a href="{{ asset('/super-all-admin-new') }}">All client details</a></li>
                     <!-- <li><a href="{{ asset('/new-request-api') }}">API Request</a></li> -->
                 </ul>
             </li>

@@ -104,16 +104,17 @@ class UserPlaceOrder extends Controller
 
     public function wallterTranstion()
     {
-        $cfromdateObj1 = Carbon::now()->startOfMonth();
-        $ctodateObj1 = Carbon::now()->endOfMonth();
+        // $cfromdateObj1 = Carbon::now()->startOfMonth();
+        // $ctodateObj1 = Carbon::now()->endOfMonth();
 
         $params = bulkorders::whereNotNull('zone')
             // ->where('User_Id', '122')
-            ->whereNull('shferrors')
+            // ->whereNull('shferrors')
+            ->where('shferrors', '!=', '1')
             ->where('order_cancel', '!=', '1')
             // ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->orderBy('Single_Order_Id', 'ASC')
-            ->limit(1500)
+            ->limit(10)
             ->select('Awb_Number', 'zone', 'awb_gen_by', 'User_Id', 'Single_Order_Id', 'Rec_Time_Date')
             ->get();
 
@@ -123,7 +124,7 @@ class UserPlaceOrder extends Controller
         foreach ($params as $param) {
             $zone = $param->zone;
             $userid = $param->User_Id;
-            $courier = $param->awb_gen_by;
+            echo $courier = $param->awb_gen_by;
             $awb = $param->Awb_Number;
             $idnew = $param->Single_Order_Id;
             $date = $param->Rec_Time_Date;
@@ -169,13 +170,13 @@ class UserPlaceOrder extends Controller
                 ->first();
 
             // Initialize $close_blance with $credit1
-            $close_blance = $credit1;
+            $close_blance = -$credit1;
 
             // Check if a balance record exists and update $close_blance accordingly
             if ($blance && isset($blance->close_blance)) {
                 // Ensure close_blance is a number, default to 0 if null
                 $previous_blance = $blance->close_blance ?? 0;
-                $close_blance = $previous_blance + $credit1;
+                $close_blance = $previous_blance - $credit1;
             }
             // dd($transactionCode,$credit1,$awb , $close_blance,$date);
             // Create a new order detail record
@@ -1722,14 +1723,49 @@ if($status == "true"){
             case "shippinglabel":
                 return response()->view("UserPanel.LabesPrintout.Search", ['params' => $selectorders]);
 
-            case "cancelorders":
-                // Update orders to be canceled
-                bulkorders::whereIn('Awb_Number', $selectorders)->update(['order_cancel' => 1]);
-
-                Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
-                // Flash message and redirect back
-                return redirect()->back()->with('message', 'Orders successfully canceled.');
-
+                case "cancelorders":
+                    // Update orders to be canceled
+                    bulkorders::whereIn('Awb_Number', $selectorders)->update(['order_cancel' => 1]);
+                    foreach ($selectorders as $selectorders) {
+                        $awb = $selectorders;
+    
+                        $credit1 = orderdetail::where('awb_no', $awb)->first()->debit;
+    
+                        $transactionCode = "TR" . $selectorders;
+    
+    
+                        // Fetch the most recent balance record for the given user
+                        $blance = orderdetail::where('user_id', $userid)
+                            ->orderBy('orderid', 'DESC')
+                            ->first();
+    
+    
+                        // Initialize $close_blance with $credit1
+                        $close_blance = $credit1;
+    
+                        // Check if a balance record exists and update $close_blance accordingly
+                        if ($blance && isset($blance->close_blance)) {
+                            // Ensure close_blance is a number, default to 0 if null
+                            $previous_blance = $blance->close_blance ?? 0;
+                            $close_blance = $previous_blance + $credit1;
+                        }
+    
+    
+                        $wellet = new orderdetail;
+                        $wellet->credit = $credit1;
+                        $wellet->awb_no = $awb;
+                        $wellet->date = $date;
+                        $wellet->user_id =  $userid;
+                        $wellet->transaction = $transactionCode;
+                        $wellet->close_blance = $close_blance;
+                        $wellet->save();
+                    }
+    
+    
+    
+                    // Flash message and redirect back
+                    return redirect()->back()->with('message', 'Orders successfully canceled.');
+    
             case "exportorderdetails":
                 return Excel::download(new PlacedOrdersExport($selectorders), 'Upload-orders.xls');
 

@@ -117,6 +117,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ asset('/super-new-admin') }}">Admin Registration </a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ asset('/super-all-admin') }}">All Admin</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ asset('/super-all-admin-new') }}">All client details</a> </li>
                 
 
 
