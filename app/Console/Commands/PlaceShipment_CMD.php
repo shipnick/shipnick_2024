@@ -56,9 +56,9 @@ class PlaceShipment_CMD extends Command
     {
         try {
             $this->info("Placing orders...");
-            $orders = bulkorders::where('apihitornot', '1')
+            $orders = bulkorders::where('apihitornot', '0')
                 ->orderby('Single_Order_Id', 'DESC')
-                ->limit(2)
+                // ->limit(80)
                 ->get();
             $this->info("Total orders:" . count($orders));
 
