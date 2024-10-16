@@ -1127,7 +1127,7 @@ class UserPlaceOrder extends Controller
             // bulkordersfile::where('sparkorderid',$singleuploadorderd)->update(['startingpoint'=>0,'endingpoint'=>$endsidno,'nextstartpoint'=>$endsidno,'apihitornot'=>$apihitornotcheck]);
             //   echo $sidno;
             //  -   *   -   *   -   /*  -   /   -   /   -   
-            Artisan::call("spnk:place-order");
+            Artisan::queue("spnk:place-order");
             if ($filestatus == 1) {
                 $req->session()->flash('status', "Upto Line no " . ($errorlineno - 1) . " data saved , Error Occure Line No. : $errorlineno");
             } elseif ($status == "2") {
