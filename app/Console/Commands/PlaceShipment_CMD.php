@@ -154,7 +154,7 @@ class PlaceShipment_CMD extends Command
                 $this->info("Payment mode: " . $paymentmode);
                 foreach ($finalcourierlists as $courierapicodeno) {
                     // $this->info($courierapicodeno);
-                // start check wallet balance is low or not 
+                    // start check wallet balance is low or not 
                     $blance = orderdetail::where('user_id', $param->User_Id)
                         ->orderBy('orderid', 'DESC')
                         ->first();
@@ -169,16 +169,13 @@ class PlaceShipment_CMD extends Command
                                 'order_status_show' => $errmessage,
                             ]);
                         }
-                    }
-                    //  if $blance->close_blance is not nagative 
-                    elseif ($blance->close_blance < 0) {
+                    } elseif ($blance->close_blance < 0) { //  if $blance->close_blance is not nagative 
                         $errmessage = "Low Balance";
                         bulkorders::where('Single_Order_Id', $crtidis)->update([
                             'showerrors' => $errmessage,
                             'order_status_show' => $errmessage,
                         ]);
-                    }else {
-
+                    } else {
                         $data = [
                             'crtidis' => $crtidis,
                             'paymentmode' => $paymentmode,
@@ -217,13 +214,12 @@ class PlaceShipment_CMD extends Command
                             'invicedateecom' => $invicedateecom = date_format($ecomdate, "d-m-Y"),
                             'pkpkid' => $pkpkid,
                         ];
-    
+
                         $jobClass = 'App\\Jobs\\' . self::API_PROVIDER[$courierapicodeno] . '_PlaceOrderJob';
                         $this->comment('Dispatching ' . $jobClass);
                         $jobClass::dispatch($data)->onQueue('place_order');
-
                     }
-                // end check wallet balance check 
+                    // end check wallet balance check 
 
                     // Used to create JobFiles for provider
                     // $jobClassPrefix = self::API_PROVIDER['bluedart01'];
@@ -232,7 +228,7 @@ class PlaceShipment_CMD extends Command
                     // ]);
                     // dd($jobClassPrefix);
 
-                    
+
 
 
                     // if ($courierapicodeno == "smp01") {
