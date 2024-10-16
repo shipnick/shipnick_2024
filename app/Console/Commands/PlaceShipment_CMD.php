@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use App\Models\bulkorders;
 use App\Models\courierpermission;
+use App\Models\OrderStatusLabel;
+use app\Models\orderdetail;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
@@ -152,7 +154,76 @@ class PlaceShipment_CMD extends Command
                 $this->info("Payment mode: " . $paymentmode);
                 foreach ($finalcourierlists as $courierapicodeno) {
                     // $this->info($courierapicodeno);
+                // start check wallet balance is low or not 
+                    $blance = orderdetail::where('user_id', $param->User_Id)
+                        ->orderBy('orderid', 'DESC')
+                        ->first();
 
+                    $limit = OrderStatusLabel::where('labelname', $param->User_Id)->first();
+
+                    if ($limit && $blance) { // Check if both $limit and $blance are not null
+                        if ($limit->labelcate <= $blance->close_blance) { // Fixed comparison operator
+                            $errmessage = "Low Balance";
+                            bulkorders::where('Single_Order_Id', $crtidis)->update([
+                                'showerrors' => $errmessage,
+                                'order_status_show' => $errmessage,
+                            ]);
+                        }
+                    }
+                    //  if $blance->close_blance is not nagative 
+                    elseif ($blance->close_blance < 0) {
+                        $errmessage = "Low Balance";
+                        bulkorders::where('Single_Order_Id', $crtidis)->update([
+                            'showerrors' => $errmessage,
+                            'order_status_show' => $errmessage,
+                        ]);
+                    }else {
+
+                        $data = [
+                            'crtidis' => $crtidis,
+                            'paymentmode' => $paymentmode,
+                            'damob' => $damob,
+                            'iacwt' => $iacwt,
+                            'autogenorderno' => $autogenorderno,
+                            'itamt' => $itamt,
+                            'ilgth' => $ilgth,
+                            'iwith' => $iwith,
+                            'ihght' => $ihght,
+                            'iadin' => $iadin,
+                            'daname' => $daname,
+                            'daadrs' => $daadrs,
+                            'daadrs2' => $daadrs2,
+                            'dacity' => $dacity,
+                            'dastate' => $dastate,
+                            'dapin' => $dapin,
+                            'pkpkname' => $pkpkname,
+                            'pkpkaddr' => $pkpkaddr,
+                            'pkpkcity' => $pkpkcity,
+                            'pkpkstte' => $pkpkstte,
+                            'pkpkpinc' => $pkpkpinc,
+                            'pkpkmble' => $pkpkmble,
+                            'iname' => $iname,
+                            'iqlty' => $iqlty,
+                            'itamt' => $itamt,
+                            'iival' => $iival,
+                            'icoda' => $icoda,
+                            'userid' => $userid,
+                            'iacwt' => $iacwt,
+                            'idate' => $idate,
+                            'ecomdate' => $ecomdate = date_create($idate),
+                            'data' => $data,
+                            'orderno' => $orderno,
+                            'ivlwt' => $ivlwt,
+                            'invicedateecom' => $invicedateecom = date_format($ecomdate, "d-m-Y"),
+                            'pkpkid' => $pkpkid,
+                        ];
+    
+                        $jobClass = 'App\\Jobs\\' . self::API_PROVIDER[$courierapicodeno] . '_PlaceOrderJob';
+                        $this->comment('Dispatching ' . $jobClass);
+                        $jobClass::dispatch($data)->onQueue('place_order');
+
+                    }
+                // end check wallet balance check 
 
                     // Used to create JobFiles for provider
                     // $jobClassPrefix = self::API_PROVIDER['bluedart01'];
@@ -161,48 +232,7 @@ class PlaceShipment_CMD extends Command
                     // ]);
                     // dd($jobClassPrefix);
 
-                    $data = [
-                        'crtidis' => $crtidis,
-                        'paymentmode' => $paymentmode,
-                        'damob' => $damob,
-                        'iacwt' => $iacwt,
-                        'autogenorderno' => $autogenorderno,
-                        'itamt' => $itamt,
-                        'ilgth' => $ilgth,
-                        'iwith' => $iwith,
-                        'ihght' => $ihght,
-                        'iadin' => $iadin,
-                        'daname' => $daname,
-                        'daadrs' => $daadrs,
-                        'daadrs2' => $daadrs2,
-                        'dacity' => $dacity,
-                        'dastate' => $dastate,
-                        'dapin' => $dapin,
-                        'pkpkname' => $pkpkname,
-                        'pkpkaddr' => $pkpkaddr,
-                        'pkpkcity' => $pkpkcity,
-                        'pkpkstte' => $pkpkstte,
-                        'pkpkpinc' => $pkpkpinc,
-                        'pkpkmble' => $pkpkmble,
-                        'iname' => $iname,
-                        'iqlty' => $iqlty,
-                        'itamt' => $itamt,
-                        'iival' => $iival,
-                        'icoda' => $icoda,
-                        'userid' => $userid,
-                        'iacwt' => $iacwt,
-                        'idate' => $idate,
-                        'ecomdate' => $ecomdate = date_create($idate),
-                        'data' => $data,
-                        'orderno' => $orderno,
-                        'ivlwt' => $ivlwt,
-                        'invicedateecom' => $invicedateecom = date_format($ecomdate, "d-m-Y"),
-                        'pkpkid' => $pkpkid,
-                    ];
-
-                    $jobClass = 'App\\Jobs\\' . self::API_PROVIDER[$courierapicodeno] . '_PlaceOrderJob';
-                    $this->comment('Dispatching ' . $jobClass);
-                    $jobClass::dispatch($data)->onQueue('place_order');
+                    
 
 
                     // if ($courierapicodeno == "smp01") {
