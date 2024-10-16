@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Helper\UtilityHelper;
 use App\Models\bulkorders;
 use App\Models\courierpermission;
 use App\Models\OrderStatusLabel;
@@ -55,7 +56,7 @@ class PlaceShipment_CMD extends Command
     {
         try {
             $this->info("Placing orders...");
-            $orders = bulkorders::where('apihitornot', '0')
+            $orders = bulkorders::where('apihitornot', '1')
                 ->orderby('Single_Order_Id', 'DESC')
                 // ->limit(80)
                 ->get();
@@ -236,6 +237,8 @@ class PlaceShipment_CMD extends Command
 
                     // }
                 }
+
+                UtilityHelper::updateBalance($param);
             }
         } catch (\Exception $e) {
             $msg = __FILE__ . ":LINE:" . $e->getLine()  . " MSG: " . $e->getMessage();
