@@ -63,7 +63,7 @@ class UserOrderManage extends Controller
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
             ->orderby('Single_Order_Id', 'desc')
-            ->select('Awb_Number','ordernoapi','Last_Time_Stamp','Name','Mobile','Address','awb_gen_by','showerrors','Order_Type')
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type')
             ->paginate(500);
         $param1 = bulkorders::where('User_Id', $userid)
             // ->where('order_status_show','!=','Delivered')
@@ -88,7 +88,7 @@ class UserOrderManage extends Controller
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects
-       $cfromdateObj = Carbon::parse($req->from)->startOfDay(); // Start of the day for $cfromdate
+        $cfromdateObj = Carbon::parse($req->from)->startOfDay(); // Start of the day for $cfromdate
         $ctodateObj = Carbon::parse($req->to)->endOfDay(); // End of the day for $ctodate
 
         // Query using Laravel Eloquent
@@ -96,14 +96,14 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->orderBy('Single_Order_Id', 'desc')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->select('Awb_Number','ordernoapi','Last_Time_Stamp','Name','Mobile','Address','awb_gen_by','showerrors','Order_Type');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type');
 
         // Apply additional filters based on request parameters
         if (!empty($req->order_type)) {
             $params->where('Order_Type', 'like', '%' . $req->order_type . '%');
         }
-        if($req->product_name){
-        $params->where('Item_Name',$req->product_name);
+        if ($req->product_name) {
+            $params->where('Item_Name', $req->product_name);
         }
         if (!empty($req->awb)) {
             $params->Where('Awb_Number',  $req->awb);
@@ -111,7 +111,7 @@ class UserOrderManage extends Controller
         if (!empty($req->courier)) {
             $params->Where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
-        
+
         $params = $params->paginate(3000);
 
         // Debugging: Output the params
@@ -148,45 +148,45 @@ class UserOrderManage extends Controller
     $allusers = Allusers::where('usertype','user')->get();
     return view('UserPanel.PlaceOrder.OrderAll',['params'=>$params,'Hubs'=>$Hubs,'allusers'=>$allusers,'courierapids'=>$courierapids ]);
     */
-    $cfromdate = date('Y-m-d');
+        $cfromdate = date('Y-m-d');
         $ctodate = date('Y-m-d');
-    
+
         $userid = session()->get('UserLogin2id');
         $params = bulkorders::where('User_Id', $userid)
             ->where('showerrors', 'Delivered')
             ->where('Awb_Number', '!=', '')
             ->where('order_cancel', '!=', '1')
             ->orderby('Single_Order_Id', 'desc')
-             ->select('Awb_Number','ordernoapi','Last_Time_Stamp','Name','Mobile','Address','awb_gen_by','showerrors','Order_Type')
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type')
             ->paginate(50);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        return view('UserPanel.PlaceOrder.OrderAll', ['params' => $params, 'Hubs' => $Hubs, 'allusers' => $allusers, 'courierapids' => $courierapids , 'cfromdate' => $cfromdate, 'ctodate' => $ctodate]);
+        return view('UserPanel.PlaceOrder.OrderAll', ['params' => $params, 'Hubs' => $Hubs, 'allusers' => $allusers, 'courierapids' => $courierapids, 'cfromdate' => $cfromdate, 'ctodate' => $ctodate]);
     }
     public function AllOrdersfilter(Request $req)
-   {
+    {
         // dd($req->all());
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects
-       $cfromdateObj = Carbon::parse($req->from)->startOfDay(); // Start of the day for $cfromdate
+        $cfromdateObj = Carbon::parse($req->from)->startOfDay(); // Start of the day for $cfromdate
         $ctodateObj = Carbon::parse($req->to)->endOfDay(); // End of the day for $ctodate
 
         // Query using Laravel Eloquent
         $params = bulkorders::where('User_Id', $userid)
-       ->whereIn('showerrors', ['delivered', 'Delivered'])
+            ->whereIn('showerrors', ['delivered', 'Delivered'])
             ->where('order_cancel', '!=', '1')
             ->orderBy('Single_Order_Id', 'desc')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->select('Awb_Number','ordernoapi','Last_Time_Stamp','Name','Mobile','Address','awb_gen_by','showerrors');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors');
 
         // Apply additional filters based on request parameters
         if (!empty($req->order_type)) {
             $params->where('Order_Type', 'like', '%' . $req->order_type . '%');
         }
-        if($req->product_name){
-        $params->where('Item_Name',$req->product_name);
+        if ($req->product_name) {
+            $params->where('Item_Name', $req->product_name);
         }
         if (!empty($req->awb)) {
             $params->Where('Awb_Number',  $req->awb);
@@ -194,7 +194,7 @@ class UserOrderManage extends Controller
         if (!empty($req->courier)) {
             $params->Where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
-        
+
         $params = $params->paginate(3000);
 
         // Debugging: Output the params
@@ -217,26 +217,26 @@ class UserOrderManage extends Controller
     // Pending Orders
     public function PeindigOrders()
     {
-         $cfromdate = date('Y-m-d');
+        $cfromdate = date('Y-m-d');
         $ctodate = date('Y-m-d');
         $userid = session()->get('UserLogin2id');
         $params = bulkorders::where('User_Id', $userid)
-    // ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup'])
-     ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup','AWB Assigned','Pickup Error' ,'Pickup Rescheduled'  ,'Out For Pickup' ,'Pickup Exception' , 'Pickup Booked' , 'Shipment Booked','Pickup Generated']) 
-    ->where('order_status_show', '!=', 'Cancelled')
-    ->whereNotNull('Awb_Number')
-    ->where('order_cancel', '!=', '1')
-    ->orderBy('Single_Order_Id', 'desc')
-     ->select('Awb_Number','ordernoapi','Last_Time_Stamp','Name','Mobile','Address','awb_gen_by','showerrors','Order_Type')
-    ->paginate(50);
+            // ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->where('order_status_show', '!=', 'Cancelled')
+            ->whereNotNull('Awb_Number')
+            ->where('order_cancel', '!=', '1')
+            ->orderBy('Single_Order_Id', 'desc')
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type')
+            ->paginate(50);
 
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        return view('UserPanel.PlaceOrder.OrderPending', ['params' => $params, 'Hubs' => $Hubs, 'allusers' => $allusers, 'courierapids' => $courierapids , 'cfromdate' => $cfromdate, 'ctodate' => $ctodate]);
-    } 
+        return view('UserPanel.PlaceOrder.OrderPending', ['params' => $params, 'Hubs' => $Hubs, 'allusers' => $allusers, 'courierapids' => $courierapids, 'cfromdate' => $cfromdate, 'ctodate' => $ctodate]);
+    }
     public function PeindigOrdersFilter(Request $req)
-    
+
     {
         // dd($req->all());
         $userid = session()->get('UserLogin2id');
@@ -244,16 +244,16 @@ class UserOrderManage extends Controller
         // Convert date range inputs to Carbon objects
         // $cfromdateObj = Carbon::parse($req->from)->startOfDay(); // Start of the day for $cfromdate
         // $ctodateObj = Carbon::parse($req->to)->endOfDay(); // End of the day for $ctodate
-        
-       $cfromdateObj = Carbon::parse($req->from)->startOfDay();
+
+        $cfromdateObj = Carbon::parse($req->from)->startOfDay();
         $ctodateObj = Carbon::parse($req->to)->endOfDay();
         //   dd($cfromdateObj,$ctodateObj); 
         // Query using Laravel Eloquent
         $params = bulkorders::where('User_Id', $userid)
-        
+
             ->where('order_cancel', '!=', '1')
-             ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup','AWB Assigned','Pickup Error' ,'Pickup Rescheduled'  ,'Out For Pickup' ,'Pickup Exception' , 'Pickup Booked' , 'Shipment Booked','Pickup Generated']) 
-            
+            ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+
             ->orderBy('Single_Order_Id', 'desc')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj]);
 
@@ -261,8 +261,8 @@ class UserOrderManage extends Controller
         if (!empty($req->order_type)) {
             $params->where('Order_Type', 'like', '%' . $req->order_type . '%');
         }
-        if($req->product_name){
-        $params->where('Item_Name',$req->product_name);
+        if ($req->product_name) {
+            $params->where('Item_Name', $req->product_name);
         }
         if (!empty($req->awb)) {
             $params->Where('Awb_Number',  $req->awb);
@@ -287,38 +287,36 @@ class UserOrderManage extends Controller
             'cfromdate' => $req->from, // Pass original date inputs for display
             'ctodate' => $req->to
         ]);
-       
-       
     }
     // Pending Orders
     // Complete Orders
     public function CompleteOrders()
-     {
+    {
         $tdate = date('Y-m-d');
         $userid = session()->get('UserLogin2id');
         $cfromdate = date('Y-m-d');
         $ctodate = date('Y-m-d');
         $cfromdateObj = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
         $ctodateObj = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
-        
-        // Current Month
-  $crtmonth = date("m");
-  $crtyear = date("Y");
-  $crtmdays = cal_days_in_month(CAL_GREGORIAN, $crtmonth, $crtyear);
-  $currentmonthstart ="1-$crtmonth-$crtyear";
-  $currentmonthstend ="$crtmdays-$crtmonth-$crtyear";
-  $currentmonthstart = date('d-m-Y',strtotime($currentmonthstart));
-  $currentmonthstend = date('d-m-Y',strtotime($currentmonthstend));
-        
-        $cfromdate = date('Y-m-d',strtotime($currentmonthstart));
-$ctodate = date('Y-m-d',strtotime($currentmonthstend));
 
-$cfromdateObj1 = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
-$ctodateObj1 = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
+        // Current Month
+        $crtmonth = date("m");
+        $crtyear = date("Y");
+        $crtmdays = cal_days_in_month(CAL_GREGORIAN, $crtmonth, $crtyear);
+        $currentmonthstart = "1-$crtmonth-$crtyear";
+        $currentmonthstend = "$crtmdays-$crtmonth-$crtyear";
+        $currentmonthstart = date('d-m-Y', strtotime($currentmonthstart));
+        $currentmonthstend = date('d-m-Y', strtotime($currentmonthstend));
+
+        $cfromdate = date('Y-m-d', strtotime($currentmonthstart));
+        $ctodate = date('Y-m-d', strtotime($currentmonthstend));
+
+        $cfromdateObj1 = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
+        $ctodateObj1 = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
-         ->where('Awb_Number', '!=', '')
+            ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
             ->count();
@@ -331,21 +329,21 @@ $ctodateObj1 = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctoda
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup','AWB Assigned','Pickup Error' ,'Pickup Rescheduled'  ,'Out For Pickup' ,'Pickup Exception' , 'Pickup Booked' , 'Shipment Booked','Pickup Generated']) 
+            ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $rto = bulkorders::where('User_Id', $userid)
-           ->whereIn('showerrors', ['Shipment Redirected','Undelivered' ,'RTO Initiated','RTO Delivered' ,'RTO Acknowledged' ,'RTO_OFD' , 'RTO IN INTRANSIT','rto'])
+            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $cancel = bulkorders::where('User_Id', $userid)
-        ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', 1)
             ->count();
 
@@ -360,8 +358,8 @@ $ctodateObj1 = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctoda
             ->count();
 
         $in_transit = bulkorders::where('User_Id', $userid)
-             ->whereIn('showerrors', ['In-Transit', 'in transit','Connected', 'intranit','Ready for Connection' ,'Shipped','In Transit' ,'Delayed' ,'Partial_Delivered' ,'REACHED AT DESTINATION HUB' ,'MISROUTED' ,'PICKED UP' ,'Reached Warehouse' , 'Custom Cleared' , 'In Flight' ,	'Shipment Booked'])
-            
+            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
+
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->count();
 
@@ -402,19 +400,19 @@ $ctodateObj1 = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctoda
     // Complete Orders
     // Cancel Orders
     public function CancelOrders()
-    
+
     {
         $cfromdate = date('Y-m-d');
         $ctodate = date('Y-m-d');
         $userid = session()->get('UserLogin2id');
         $params = bulkorders::where('User_Id', $userid)
-            ->where('showerrors', 'Undelivered') 
+            ->where('showerrors', 'Undelivered')
             // ->whereIn('showerrors', ['Shipment Redirected','Undelivered' ,'RTO Initiated','RTO Delivered' ,'RTO Acknowledged' ,'RTO_OFD' , 'RTO IN INTRANSIT','rto'])
             ->where('Awb_Number', '!=', '')
             ->where('order_cancel', '!=', '1')
             ->orderby('Single_Order_Id', 'desc')
-            ->select('Awb_Number','ordernoapi','Last_Time_Stamp','Name','Mobile','Address','awb_gen_by','showerrors','Order_Type')
-             ->paginate(50);
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type')
+            ->paginate(50);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
@@ -426,7 +424,7 @@ $ctodateObj1 = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctoda
 
         // Convert date range inputs to Carbon objects
         $cfromdateObj = Carbon::parse($req->from);
-$ctodateObj = Carbon::parse($req->to);
+        $ctodateObj = Carbon::parse($req->to);
 
         // Query using Laravel Eloquent
         $params = bulkorders::where('User_Id', $userid)
@@ -439,8 +437,8 @@ $ctodateObj = Carbon::parse($req->to);
         if (!empty($req->order_type)) {
             $params->where('Order_Type', 'like', '%' . $req->order_type . '%');
         }
-        if($req->product_name){
-        $params->where('Item_Name',$req->product_name);
+        if ($req->product_name) {
+            $params->where('Item_Name', $req->product_name);
         }
         if (!empty($req->awb)) {
             $params->Where('Awb_Number',  $req->awb);
@@ -468,20 +466,20 @@ $ctodateObj = Carbon::parse($req->to);
             ->where('order_status_show', '!=', 'Cancelled')
             ->where('order_cancel', '!=', '1')
             ->orderby('Single_Order_Id', 'desc')
-            ->select('Awb_Number','ordernoapi','Last_Time_Stamp','Name','Mobile','Address','awb_gen_by','showerrors','Order_Type')
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type')
             ->paginate(50);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        return view('UserPanel.PlaceOrder.OrderUploaded', ['params' => $params, 'Hubs' => $Hubs, 'allusers' => $allusers, 'courierapids' => $courierapids , 'cfromdate' => $cfromdate, 'ctodate' => $ctodate]);
+        return view('UserPanel.PlaceOrder.OrderUploaded', ['params' => $params, 'Hubs' => $Hubs, 'allusers' => $allusers, 'courierapids' => $courierapids, 'cfromdate' => $cfromdate, 'ctodate' => $ctodate]);
     }
     public function UploadedOrdersFilter(Request $req)
     {
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects
-       $cfromdateObj = Carbon::parse($req->from);
-$ctodateObj = Carbon::parse($req->to);
+        $cfromdateObj = Carbon::parse($req->from);
+        $ctodateObj = Carbon::parse($req->to);
 
         // Query using Laravel Eloquent
         $params = bulkorders::where('User_Id', $userid)
@@ -505,9 +503,14 @@ $ctodateObj = Carbon::parse($req->to);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        return view('UserPanel.PlaceOrder.OrderUploaded', ['params' => $params, 'Hubs' => $Hubs, 'allusers' => $allusers, 'courierapids' => $courierapids ,
+        return view('UserPanel.PlaceOrder.OrderUploaded', [
+            'params' => $params,
+            'Hubs' => $Hubs,
+            'allusers' => $allusers,
+            'courierapids' => $courierapids,
             'cfromdate' => $req->from, // Pass original date inputs for display
-            'ctodate' => $req->to]);
+            'ctodate' => $req->to
+        ]);
     }
     // Uploaded Orders
     // Canceled Orders
@@ -517,23 +520,23 @@ $ctodateObj = Carbon::parse($req->to);
         $ctodate = date('Y-m-d');
         $userid = session()->get('UserLogin2id');
         $params = bulkorders::where('User_Id', $userid)
-              ->where('order_cancel',1)
+            ->where('order_cancel', 1)
             // ->where('showerrors', 'Cancelled By Client')
             ->orderby('Single_Order_Id', 'desc')
-             ->select('Awb_Number','ordernoapi','Last_Time_Stamp','Name','Mobile','Address','awb_gen_by','showerrors','Order_Type')
-             ->paginate(50);
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type')
+            ->paginate(50);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        return view('UserPanel.PlaceOrder.OrderCanceled', ['params' => $params, 'Hubs' => $Hubs, 'allusers' => $allusers, 'courierapids' => $courierapids , 'cfromdate' => $cfromdate, 'ctodate' => $ctodate]);
+        return view('UserPanel.PlaceOrder.OrderCanceled', ['params' => $params, 'Hubs' => $Hubs, 'allusers' => $allusers, 'courierapids' => $courierapids, 'cfromdate' => $cfromdate, 'ctodate' => $ctodate]);
     }
     public function CanceledOrdersFilter(Request $req)
     {
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects
-       $cfromdateObj = Carbon::parse($req->from);
-$ctodateObj = Carbon::parse($req->to);
+        $cfromdateObj = Carbon::parse($req->from);
+        $ctodateObj = Carbon::parse($req->to);
         // Query using Laravel Eloquent
         $params = bulkorders::where('User_Id', $userid)
             ->where('showerrors', 'Cancelled By Client')
@@ -544,8 +547,8 @@ $ctodateObj = Carbon::parse($req->to);
         if (!empty($req->order_type)) {
             $params->where('Order_Type', 'like', '%' . $req->order_type . '%');
         }
-        if($req->product_name){
-        $params->where('Item_Name',$req->product_name);
+        if ($req->product_name) {
+            $params->where('Item_Name', $req->product_name);
         }
         if (!empty($req->awb)) {
             $params->Where('Awb_Number',  $req->awb);
@@ -558,9 +561,14 @@ $ctodateObj = Carbon::parse($req->to);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        return view('UserPanel.PlaceOrder.OrderCanceled', ['params' => $params, 'Hubs' => $Hubs, 'allusers' => $allusers, 'courierapids' => $courierapids ,
+        return view('UserPanel.PlaceOrder.OrderCanceled', [
+            'params' => $params,
+            'Hubs' => $Hubs,
+            'allusers' => $allusers,
+            'courierapids' => $courierapids,
             'cfromdate' => $req->from, // Pass original date inputs for display
-            'ctodate' => $req->to]);
+            'ctodate' => $req->to
+        ]);
     }
     // Canceled Orders
 
@@ -568,20 +576,20 @@ $ctodateObj = Carbon::parse($req->to);
     public function  ofd_orders()
     {
         $userid = session()->get('UserLogin2id');
-         $cfromdate = date('Y-m-d');
+        $cfromdate = date('Y-m-d');
         $ctodate = date('Y-m-d');
         $params = bulkorders::where('User_Id', $userid)
             ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
 
             ->orderby('Single_Order_Id', 'desc')
-             ->select('Awb_Number','ordernoapi','Last_Time_Stamp','Name','Mobile','Address','awb_gen_by','showerrors','Order_Type')
-             ->paginate(50);
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type')
+            ->paginate(50);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
         return view('UserPanel.PlaceOrder.Orderofd', ['params' => $params, 'Hubs' => $Hubs, 'allusers' => $allusers, 'courierapids' => $courierapids, 'cfromdate' => $cfromdate, 'ctodate' => $ctodate]);
     }
-     public function ofd_ordersFilter(Request $req)
+    public function ofd_ordersFilter(Request $req)
     {
         // dd($req->all());
         $userid = session()->get('UserLogin2id');
@@ -589,16 +597,16 @@ $ctodateObj = Carbon::parse($req->to);
         // Convert date range inputs to Carbon objects
         // $cfromdateObj = Carbon::parse($req->from)->startOfDay(); // Start of the day for $cfromdate
         // $ctodateObj = Carbon::parse($req->to)->endOfDay(); // End of the day for $ctodate
-        
-       $cfromdateObj = Carbon::parse($req->from);
+
+        $cfromdateObj = Carbon::parse($req->from);
         $ctodateObj = Carbon::parse($req->to);
         //   dd($cfromdateObj,$ctodateObj);
-                // Query using Laravel Eloquent
+        // Query using Laravel Eloquent
         $params = bulkorders::where('User_Id', $userid)
-        
+
             ->where('order_cancel', '!=', '1')
-            ->where('showerrors',['Out For Delivery'])
-            
+            ->where('showerrors', ['Out For Delivery'])
+
             ->orderBy('Single_Order_Id', 'desc')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj]);
 
@@ -606,8 +614,8 @@ $ctodateObj = Carbon::parse($req->to);
         if (!empty($req->order_type)) {
             $params->where('Order_Type', 'like', '%' . $req->order_type . '%');
         }
-        if($req->product_name){
-        $params->where('Item_Name',$req->product_name);
+        if ($req->product_name) {
+            $params->where('Item_Name', $req->product_name);
         }
         if (!empty($req->awb)) {
             $params->Where('Awb_Number',  $req->awb);
@@ -632,39 +640,37 @@ $ctodateObj = Carbon::parse($req->to);
             'cfromdate' => $req->from, // Pass original date inputs for display
             'ctodate' => $req->to
         ]);
-       
-       
     }
     // Failed Orders
     public function FaildedOrders()
     {
         $tdate = date('Y-m-d');
-         $cfromdate = date('Y-m-d');
+        $cfromdate = date('Y-m-d');
         $ctodate = date('Y-m-d');
         $userid = session()->get('UserLogin2id');
         $params = bulkorders::where('User_Id', $userid)
             // ->where('dtdcerrors', '1')
-             ->where('Awb_Number', '')
+            ->where('Awb_Number', '')
             ->where('Rec_Time_Date', $tdate)
             ->orderby('Single_Order_Id', 'desc')
-             ->select('Awb_Number','ordernoapi','Last_Time_Stamp','Name','Mobile','Address','awb_gen_by','showerrors','Order_Type')
-             ->paginate(50);
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type')
+            ->paginate(50);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        return view('UserPanel.PlaceOrder.OrderFailed', ['params' => $params, 'Hubs' => $Hubs, 'allusers' => $allusers, 'courierapids' => $courierapids , 'cfromdate' => $cfromdate, 'ctodate' => $ctodate]);
+        return view('UserPanel.PlaceOrder.OrderFailed', ['params' => $params, 'Hubs' => $Hubs, 'allusers' => $allusers, 'courierapids' => $courierapids, 'cfromdate' => $cfromdate, 'ctodate' => $ctodate]);
     }
     public function FaildedOrdersFilter(Request $req)
     {
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects
-               $cfromdateObj = Carbon::parse($req->from);
+        $cfromdateObj = Carbon::parse($req->from);
         $ctodateObj = Carbon::parse($req->to);
 
         // Query using Laravel Eloquent
         $params = bulkorders::where('User_Id', $userid)
-        ->where('showerrors', 'Pincode not serviceable.')
+            ->where('showerrors', 'Pincode not serviceable.')
             ->where('Awb_Number', '')
             ->orderBy('Single_Order_Id', 'desc')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj]);
@@ -673,8 +679,8 @@ $ctodateObj = Carbon::parse($req->to);
         if (!empty($req->order_type)) {
             $params->where('Order_Type', 'like', '%' . $req->order_type . '%');
         }
-        if($req->product_name){
-        $params->where('Item_Name',$req->product_name);
+        if ($req->product_name) {
+            $params->where('Item_Name', $req->product_name);
         }
         if (!empty($req->awb)) {
             $params->Where('Awb_Number',  $req->awb);
@@ -687,9 +693,14 @@ $ctodateObj = Carbon::parse($req->to);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        return view('UserPanel.PlaceOrder.OrderFailed', ['params' => $params, 'Hubs' => $Hubs, 'allusers' => $allusers, 'courierapids' => $courierapids ,
+        return view('UserPanel.PlaceOrder.OrderFailed', [
+            'params' => $params,
+            'Hubs' => $Hubs,
+            'allusers' => $allusers,
+            'courierapids' => $courierapids,
             'cfromdate' => $req->from, // Pass original date inputs for display
-            'ctodate' => $req->to]);
+            'ctodate' => $req->to
+        ]);
     }
     // Failed Orders
 
@@ -720,14 +731,14 @@ $ctodateObj = Carbon::parse($req->to);
 
         $userid = session()->get('UserLogin2id');
 
-       $awbNumbers = $id;
+        $awbNumbers = $id;
 
-            // Perform a single update query
-            bulkorders::whereIn('Awb_Number', $awbNumbers)
-                ->update(['order_cancel' => 1]);
-                
-         Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
-                
+        // Perform a single update query
+        bulkorders::whereIn('Awb_Number', $awbNumbers)
+            ->update(['order_cancel' => 1]);
+
+        Http::get('https://www.shipnick.com/UPBulk_cancel_Order_API');
+
         return redirect()->back();
     }
 
@@ -865,115 +876,115 @@ $ctodateObj = Carbon::parse($req->to);
     }
     // Cancel This Orders
     //
-   public function Booked(Request $req)
-{
-    $userid = session()->get('UserLogin2id');
-    $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
-    // Determine the date range based on request parameters or default to today
-    $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::today()->startOfDay();
-    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::today()->endOfDay();
+    public function Booked(Request $req)
+    {
+        $userid = session()->get('UserLogin2id');
+        $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
+        // Determine the date range based on request parameters or default to today
+        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::today()->startOfDay();
+        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::today()->endOfDay();
 
-    // Query using Laravel Eloquent
-    $query = bulkorders::where('User_Id', $userid)
-        ->where('order_cancel', '!=', '1')
-        ->orderBy('Single_Order_Id', 'desc')
-        ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
+        // Query using Laravel Eloquent
+        $query = bulkorders::where('User_Id', $userid)
+            ->where('order_cancel', '!=', '1')
+            ->orderBy('Single_Order_Id', 'desc')
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
 
-    // Apply additional filters based on request parameters
-    if ($cfromdateObj && $ctodateObj) {
-        $query->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj]);
-    }
-    if ($req->filled('order_type')) {
-        $query->where('Order_Type', 'like', '%' . $req->order_type . '%');
-    }
-    if ($req->filled('product_name')) {
-        $query->where('Item_Name', $req->product_name);
-    }
-    if ($req->filled('awb')) {
-        $query->where('Awb_Number', $req->awb);
-    }
-    if ($req->filled('warehouse')) {
+        // Apply additional filters based on request parameters
+        if ($cfromdateObj && $ctodateObj) {
+            $query->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj]);
+        }
+        if ($req->filled('order_type')) {
+            $query->where('Order_Type', 'like', '%' . $req->order_type . '%');
+        }
+        if ($req->filled('product_name')) {
+            $query->where('Item_Name', $req->product_name);
+        }
+        if ($req->filled('awb')) {
+            $query->where('Awb_Number', $req->awb);
+        }
+        if ($req->filled('warehouse')) {
             // $Hubs1 = Hubs::where('hub_code', $req->warehouse)->first();
             // dd($req->warehouse);
             $query->where('pickup_id', $req->warehouse);
         }
-    if ($req->filled('courier')) {
-        $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
-    }
+        if ($req->filled('courier')) {
+            $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
+        }
 
-    $perPage = $req->input('per_page', 50);
-    $orders = $query->paginate($perPage);
+        $perPage = $req->input('per_page', 50);
+        $orders = $query->paginate($perPage);
 
-    // Retrieve additional data
-    $Hubs = Hubs::all();
-    $courierapids = CourierApiDetail::all();
-    $allusers = Allusers::where('usertype', 'user')->get();
+        // Retrieve additional data
+        $Hubs = Hubs::all();
+        $courierapids = CourierApiDetail::all();
+        $allusers = Allusers::where('usertype', 'user')->get();
 
-    // Determine the current month's start and end dates
-    $currentMonthStart = Carbon::now()->startOfMonth();
-    $currentMonthEnd = Carbon::now()->endOfMonth();
+        // Determine the current month's start and end dates
+        $currentMonthStart = Carbon::now()->startOfMonth();
+        $currentMonthEnd = Carbon::now()->endOfMonth();
 
-    // Calculate various counts
-    $booked = bulkorders::where('User_Id', $userid)
-        ->where('Awb_Number', '!=', '')
-        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-        ->where('order_cancel', '!=', '1')
-        ->count();
+        // Calculate various counts
+        $booked = bulkorders::where('User_Id', $userid)
+            ->where('Awb_Number', '!=', '')
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
+            ->where('order_cancel', '!=', '1')
+            ->count();
 
-    $deliver = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['delivered', 'Delivered'])
-        ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->count();
+        $deliver = bulkorders::where('User_Id', $userid)
+            ->whereIn('showerrors', ['delivered', 'Delivered'])
+            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
+            ->where('Awb_Number', '!=', '')
+            ->where('order_cancel', '!=', '1')
+            ->count();
 
-    $pending_pickup = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
-        ->whereNotNull('Awb_Number')
-        ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-        ->where('order_cancel', '!=', '1')
-        ->count();
+        $pending_pickup = bulkorders::where('User_Id', $userid)
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereNotNull('Awb_Number')
+            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
+            ->where('order_cancel', '!=', '1')
+            ->count();
 
-    $rto = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
-        ->where('Awb_Number', '!=', '')
-        ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-        ->where('order_cancel', '!=', '1')
-        ->count();
+        $rto = bulkorders::where('User_Id', $userid)
+            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+            ->where('Awb_Number', '!=', '')
+            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
+            ->where('order_cancel', '!=', '1')
+            ->count();
 
-    $cancel = bulkorders::where('User_Id', $userid)
-        ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-        ->where('order_cancel', 1)
-        ->count();
+        $cancel = bulkorders::where('User_Id', $userid)
+            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
+            ->where('order_cancel', 1)
+            ->count();
 
-    $ofd = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
-        ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-        ->count();
+        $ofd = bulkorders::where('User_Id', $userid)
+            ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
+            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
+            ->count();
 
-    $failde = bulkorders::where('User_Id', $userid)
-        ->where('Awb_Number', '')
-        ->whereDate('Rec_Time_Date', Carbon::today())
-        ->count();
+        $failde = bulkorders::where('User_Id', $userid)
+            ->where('Awb_Number', '')
+            ->whereDate('Rec_Time_Date', Carbon::today())
+            ->count();
 
-    $in_transit = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked'])
-        ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-        ->count();
+        $in_transit = bulkorders::where('User_Id', $userid)
+            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked'])
+            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
+            ->count();
 
-    // Prepare data for the view
-    $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
+        // Prepare data for the view
+        $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
 
-    return view('UserPanel.PlaceOrder1.booked', [
-        'params' => $orders,
-        'Hubs' => $Hubs,
-        'Hubs1'=>$Hubs1,
-        'allusers' => $allusers,
-        'courierapids' => $courierapids,
-        'cfromdate' => $req->from, // Pass original date inputs for display
+        return view('UserPanel.PlaceOrder1.booked', [
+            'params' => $orders,
+            'Hubs' => $Hubs,
+            'Hubs1' => $Hubs1,
+            'allusers' => $allusers,
+            'courierapids' => $courierapids,
+            'cfromdate' => $req->from, // Pass original date inputs for display
             'ctodate' => $req->to
-    ])->with($data);
-}
+        ])->with($data);
+    }
 
 
     public function Pickup_pending(Request $req)
@@ -982,14 +993,14 @@ $ctodateObj = Carbon::parse($req->to);
 
         // Convert date range inputs to Carbon objects if they are set
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
-    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
+        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1015,7 +1026,7 @@ $ctodateObj = Carbon::parse($req->to);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        
+
         $tdate = date('Y-m-d');
         $userid = session()->get('UserLogin2id');
         $cfromdate = date('Y-m-d');
@@ -1053,7 +1064,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1088,8 +1099,8 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
-        
-        
+
+
 
         return view('UserPanel.PlaceOrder1.pickup-pending', [
             'params' => $orders,
@@ -1106,14 +1117,14 @@ $ctodateObj = Carbon::parse($req->to);
 
         // Convert date range inputs to Carbon objects if they are set
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
-    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
+        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1139,7 +1150,7 @@ $ctodateObj = Carbon::parse($req->to);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        
+
         $tdate = date('Y-m-d');
         $userid = session()->get('UserLogin2id');
         $cfromdate = date('Y-m-d');
@@ -1177,7 +1188,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1228,14 +1239,14 @@ $ctodateObj = Carbon::parse($req->to);
 
         // Convert date range inputs to Carbon objects if they are set
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
-    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
+        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1261,7 +1272,7 @@ $ctodateObj = Carbon::parse($req->to);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        
+
         $tdate = date('Y-m-d');
         $userid = session()->get('UserLogin2id');
         $cfromdate = date('Y-m-d');
@@ -1299,7 +1310,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1349,15 +1360,15 @@ $ctodateObj = Carbon::parse($req->to);
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects if they are set
-         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
-    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
+        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
+        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
             ->where('showerrors', 'Delivered')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1383,7 +1394,7 @@ $ctodateObj = Carbon::parse($req->to);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        
+
         $tdate = date('Y-m-d');
         $userid = session()->get('UserLogin2id');
         $cfromdate = date('Y-m-d');
@@ -1421,7 +1432,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1471,15 +1482,15 @@ $ctodateObj = Carbon::parse($req->to);
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects if they are set
-       $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
-    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
+        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
+        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
             ->where('showerrors', 'Undelivered')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1505,7 +1516,7 @@ $ctodateObj = Carbon::parse($req->to);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        
+
         $tdate = date('Y-m-d');
         $userid = session()->get('UserLogin2id');
         $cfromdate = date('Y-m-d');
@@ -1543,7 +1554,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1593,15 +1604,15 @@ $ctodateObj = Carbon::parse($req->to);
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects if they are set
-       $cfromdateObj1 = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
-    $ctodateObj1 = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
+        $cfromdateObj1 = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
+        $ctodateObj1 = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
-            
+
             ->where('order_cancel', 1)
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj1 && $ctodateObj1) {
@@ -1627,7 +1638,7 @@ $ctodateObj = Carbon::parse($req->to);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        
+
         $tdate = date('Y-m-d');
         $userid = session()->get('UserLogin2id');
         $cfromdate = date('Y-m-d');
@@ -1665,7 +1676,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1710,21 +1721,21 @@ $ctodateObj = Carbon::parse($req->to);
             'ctodate' => $req->to
         ])->with($data);
     }
-    
+
     public function Failled(Request $req)
     {
         $userid = session()->get('UserLogin2id');
 
         // Convert date range inputs to Carbon objects if they are set
-       $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::today()->startOfDay();
-    $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::today()->endOfDay();
+        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::today()->startOfDay();
+        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::today()->endOfDay();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
             ->where('Awb_Number', '')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type','Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1750,8 +1761,8 @@ $ctodateObj = Carbon::parse($req->to);
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
-        
-        
+
+
         $tdate = date('Y-m-d');
         $userid = session()->get('UserLogin2id');
         $cfromdate = date('Y-m-d');
@@ -1789,7 +1800,7 @@ $ctodateObj = Carbon::parse($req->to);
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled','Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1834,6 +1845,4 @@ $ctodateObj = Carbon::parse($req->to);
             'ctodate' => $req->to
         ])->with($data);
     }
-     
-
 }

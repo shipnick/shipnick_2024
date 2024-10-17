@@ -41,6 +41,8 @@ chmod -R 777 public/Profiles
 chmod -R 777 public/SampleExcel
 
 rm -rf bootstrap/cache/config.php
+php artisan config:clear
+php artisan view:clear
 service cron start
 
 exec "$@"

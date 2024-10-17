@@ -11,6 +11,7 @@ services:
       MYSQL_DATABASE: "shipnick_db"
       MYSQL_USER:     "shipnick"
       MYSQL_PASSWORD: "admin"
+      TZ: "Asia/Kolkata"
     volumes:
       - db:/var/lib/mysql
       # Optional
