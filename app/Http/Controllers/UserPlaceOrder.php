@@ -459,7 +459,7 @@ class UserPlaceOrder extends Controller
         */
             $req->session()->flash('status', 'Order Details Added');
             // Perform background URL hit
-            Artisan::command('spnk:place-order');
+            Artisan::call('spnk:place-order');
             return redirect('/UPSingle_Product');
         } catch (\Exception $e) {
             $req->session()->flash('status', 'Not Added');
