@@ -48,6 +48,8 @@ services:
       dockerfile: Dockerfile.dev
     ports:
       - "127.0.0.1:8808:8000"
+    environment:
+      TZ: Asia/Kolkata
     # volumes:
     #   - ./vendor:/var/www/html/vendor
 
