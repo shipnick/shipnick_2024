@@ -43,7 +43,18 @@ use App\Http\Controllers\UserBarcode;
 use App\Http\Controllers\APIXpressBee;
 use App\Http\Controllers\APIBigShip;
 use App\Http\Controllers\APITest;
+use Illuminate\Support\Facades\DB;
 
+// Check for server DATE and time
+Route::get('/server-stats', function(){
+	$data = [
+		'now' => now(),
+		'date_default_timezone_get' => date_default_timezone_get(),
+		'DB_TimeZone' => DB::select( 'select NOW() as the_time' ),
+	];
+
+	return response()->json($data);
+});
 
 
 // Awb Uplaods
