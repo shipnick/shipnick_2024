@@ -459,9 +459,9 @@ class UserPlaceOrder extends Controller
         */
             $req->session()->flash('status', 'Order Details Added');
             // Perform background URL hit
-            //           
+            Artisan::command('spnk:place-order');
             return redirect('/UPSingle_Product');
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $req->session()->flash('status', 'Not Added');
             return redirect('/UPSingle_Product');
         }
@@ -523,7 +523,7 @@ class UserPlaceOrder extends Controller
             $req->session()->flash('status', 'Order Shipped Successfully');
             // return redirect('/UPSingle_Product');
             return redirect()->back();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $req->session()->flash('status', 'Order Not Shipped');
             // return redirect('/UPSingle_Product');
             return redirect()->back();
@@ -1723,49 +1723,49 @@ if($status == "true"){
             case "shippinglabel":
                 return response()->view("UserPanel.LabesPrintout.Search", ['params' => $selectorders]);
 
-                case "cancelorders":
-                    // Update orders to be canceled
-                    bulkorders::whereIn('Awb_Number', $selectorders)->update(['order_cancel' => 1]);
-                    foreach ($selectorders as $selectorders) {
-                        $awb = $selectorders;
-    
-                        $credit1 = orderdetail::where('awb_no', $awb)->first()->debit;
-    
-                        $transactionCode = "TR" . $selectorders;
-    
-    
-                        // Fetch the most recent balance record for the given user
-                        $blance = orderdetail::where('user_id', $userid)
-                            ->orderBy('orderid', 'DESC')
-                            ->first();
-    
-    
-                        // Initialize $close_blance with $credit1
-                        $close_blance = $credit1;
-    
-                        // Check if a balance record exists and update $close_blance accordingly
-                        if ($blance && isset($blance->close_blance)) {
-                            // Ensure close_blance is a number, default to 0 if null
-                            $previous_blance = $blance->close_blance ?? 0;
-                            $close_blance = $previous_blance + $credit1;
-                        }
-    
-    
-                        $wellet = new orderdetail;
-                        $wellet->credit = $credit1;
-                        $wellet->awb_no = $awb;
-                        $wellet->date = $date;
-                        $wellet->user_id =  $userid;
-                        $wellet->transaction = $transactionCode;
-                        $wellet->close_blance = $close_blance;
-                        $wellet->save();
+            case "cancelorders":
+                // Update orders to be canceled
+                bulkorders::whereIn('Awb_Number', $selectorders)->update(['order_cancel' => 1]);
+                foreach ($selectorders as $selectorders) {
+                    $awb = $selectorders;
+
+                    $credit1 = orderdetail::where('awb_no', $awb)->first()->debit;
+
+                    $transactionCode = "TR" . $selectorders;
+
+
+                    // Fetch the most recent balance record for the given user
+                    $blance = orderdetail::where('user_id', $userid)
+                        ->orderBy('orderid', 'DESC')
+                        ->first();
+
+
+                    // Initialize $close_blance with $credit1
+                    $close_blance = $credit1;
+
+                    // Check if a balance record exists and update $close_blance accordingly
+                    if ($blance && isset($blance->close_blance)) {
+                        // Ensure close_blance is a number, default to 0 if null
+                        $previous_blance = $blance->close_blance ?? 0;
+                        $close_blance = $previous_blance + $credit1;
                     }
-    
-    
-    
-                    // Flash message and redirect back
-                    return redirect()->back()->with('message', 'Orders successfully canceled.');
-    
+
+
+                    $wellet = new orderdetail;
+                    $wellet->credit = $credit1;
+                    $wellet->awb_no = $awb;
+                    $wellet->date = $date;
+                    $wellet->user_id =  $userid;
+                    $wellet->transaction = $transactionCode;
+                    $wellet->close_blance = $close_blance;
+                    $wellet->save();
+                }
+
+
+
+                // Flash message and redirect back
+                return redirect()->back()->with('message', 'Orders successfully canceled.');
+
             case "exportorderdetails":
                 return Excel::download(new PlacedOrdersExport($selectorders), 'Upload-orders.xls');
 
@@ -2277,7 +2277,7 @@ $response = $response['data'];
                                 ]);
                             // Order  Tracking Details In Pickrr
 
-                        } catch (Exception $e) {
+                        } catch (\Exception $e) {
                             // echo $e;
                         }
 
@@ -2465,7 +2465,7 @@ $response = $response['data'];
                             $courierroutecode = $response['data']['success_order_details']['orders']['0']['route_code'];
 
                             $shippinglabelurl = $response['data']['success_order_details']['shipping_info']['label_url'];
-                        } catch (Exception $e) {
+                        } catch (\Exception $e) {
 
                             $requestorderid = "";
                         }
