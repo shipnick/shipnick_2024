@@ -311,22 +311,22 @@ class UserDashboard extends Controller
         ->count('Single_Order_Id');
 
         $last90DaysCount = bulkorders::where('User_Id', $userid)
-
+        ->where('order_status_show',  'Delivered')
         ->where('Rec_Time_Date', '>=', Carbon::now()->subDays(90))
         ->sum('Total_Amount');
 
       $thisWeekCount = bulkorders::where('User_Id', $userid)
-
+      ->where('order_status_show', 'Delivered')
         ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
         ->sum('Total_Amount');
 
       $thisMonthCount = bulkorders::where('User_Id', $userid)
-
+      ->where('order_status_show', 'Delivered')
         ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
         ->sum('Total_Amount');
 
       $thisQuarterCount = bulkorders::where('User_Id', $userid)
-
+      ->where('order_status_show', 'Delivered')
         ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfQuarter(), Carbon::now()->endOfQuarter()])
         ->sum('Total_Amount');
 
