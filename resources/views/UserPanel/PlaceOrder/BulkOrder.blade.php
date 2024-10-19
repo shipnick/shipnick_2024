@@ -38,7 +38,7 @@
 	<!--*******************
         Preloader start
     ********************-->
-	 @include("UserPanel/preloader")
+	@include("UserPanel/preloader")
 	<!--*******************
         Preloader end
     ********************-->
@@ -74,12 +74,13 @@
 								<div class="profile-tab">
 									<div class="custom-tab-1">
 										<ul class="nav nav-tabs">
-											<li class="nav-item"><a href="#Bulk-Upload" data-bs-toggle="tab" class="nav-link active show">Bulk Upload</a>
-											</li>
 											<li class="nav-item"><a href="#about-me" data-bs-toggle="tab" class="nav-link">Single Order</a>
 											</li>
-										
-											
+											<li class="nav-item"><a href="#Bulk-Upload" data-bs-toggle="tab" class="nav-link active show">Bulk Upload</a>
+											</li>
+
+
+
 
 										</ul>
 
@@ -89,9 +90,9 @@
 												<div class="row">
 
 													<div class="col-md-6">
-														<div class="">
-															<form method="POST" action="{{ asset('/UPBulk_Order_Add') }}" enctype="multipart/form-data" class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
-																<div class="card-body">
+														
+															<form method="POST" action="{{ asset('/UPBulk_Order_Add') }}" enctype="multipart/form-data" class="col-xs-12 col-sm-12 col-md-12 col-lg-10 mt-5">
+																
 																	<div class="mb-3">
 																		<label for="formFile" class="form-label">Upload orders excel file (CSV only)</label>
 
@@ -100,29 +101,20 @@
 																		<div id="error_msg" style="color:red;"></div>
 																	</div>
 																	@csrf
-																	<button class="btn btn-primary submit-btn" id="btnSubmit">Upload</button>
-																	<button class="btn btn-primary" type="button">Cancel</button>
-																	<a href="{{ asset('SampleExcel/NEW UPLOAD FILE - SHIPNICK.csv') }}" class="btn btn-primary" title="Download Sample File">Download sample order file</a>
+																	<button class="btn btn-primary submit-btn mt-2" id="btnSubmit">Upload</button>
+																	<button class="btn btn-primary mt-2" type="button">Cancel</button>
 
-																</div>
+																	<a href="{{ asset('SampleExcel/NEW UPLOAD FILE - SHIPNICK.csv') }}" class="btn btn-primary mt-2" title="Download Sample File">Download sample order file</a>
+
+																
 															</form>
-														</div>
-														<div class="profile-uoloaded-post pb-3">
-															<img src="images/profile/8.jpg" alt="" class="img-fluid w-100 rounded">
-															<a class="post-title" href="#">
-																<h3 class="text-black">Bulk Upload Instructions</h3>
-															</a>
-															<p><b>Step 1:</b>Add warehouse by inputing the pickup details to generate warehouse ID</p>
-															<p><b>Step 2:</b>Star marked are mandatory field & Non-Star marked are non mandatory field</p>
-															<p><b>Step 3:</b>Fill all the relavent fields reqiuired in the appropiate format and upload the file in csv format</p>
-
-														</div>
+														
 													</div>
 													<div class="col-md-6">
 														<div class="profile-uoloaded-post pb-3">
 															<img src="images/profile/8.jpg" alt="" class="img-fluid w-100 rounded">
 															<a class="post-title" href="#">
-																<h3 class="text-black">Note</h3>
+																<h3 class="text-black">Bulk Upload Instructions</h3>
 															</a>
 															<p><b>Step 1:</b>Add warehouse by inputing the pickup details to generate warehouse ID</p>
 															<p><b>Step 2:</b>Star marked are mandatory field & Non-Star marked are non mandatory field</p>
@@ -245,12 +237,12 @@
 																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
 																			<label class="text-label form-label"><strong>Payment Method</strong><span class="required">*</span></label>
-																			
+
 																			<select class="default-select form-control wide" id="courierType" name="courierType" style="border-color: black;" required>
-                                                                                <option value="">--Select method--</option>
-                                                                                <option value="COD">COD</option>
-                                                                                <option value="Prepaid">Prepaid</option>
-                                                                            </select>
+																				<option value="">--Select method--</option>
+																				<option value="COD">COD</option>
+																				<option value="Prepaid">Prepaid</option>
+																			</select>
 																		</div>
 																	</div>
 																	<div class="col-lg-6 mb-2">
@@ -284,7 +276,7 @@
 																	<div class="col-sm-4 mb-2">
 																		<span><strong>Weight (in kg)</strong><span class="required">*</span></span>
 																	</div>
-																	
+
 																	<div class="col-6 col-sm-4 mb-2">
 																		<div class="mb-3 input-group">
 																			<input type="text" class="form-control" value="0.00" name="actualWeight" id="input1" style="border-color: black;">
@@ -375,14 +367,14 @@
 
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-12">
-                        <div class="card">
-                           <div class="card-header d-flex flex-wrap border-0 pb-0">
+						<div class="card">
+							<div class="card-header d-flex flex-wrap border-0 pb-0">
 								<div class="me-auto mb-sm-0 mb-3">
 									<h4 class="card-title mb-2">Hub Details</h4>
 									<!-- <span class="fs-12">Lorem ipsum dolor sit amet, consectetur</span> -->
@@ -391,187 +383,187 @@
 
 							</div>
 							<hr>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-responsive-md">
-                                        <thead>
-                                            <tr>
-                                            <th>Sno</th>
-                                        <th>Hub Code</th>
-                                        <th>Logo</th>
-                                        <th>Hub Name</th>
-                                        <th>GST No.</th>
-                                        <th>Address</th>
-                                        <th>Mobile</th>
-                                        <th>Pincode</th>
-                                        <th>State</th>
-                                        <th>City</th>
-                                        <th>Delivery Type</th>
-                                        <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                    @php($i = 1)
-                                    @foreach($params as $param)
-                                    <tr class="gradeX">
-                                        <td>{{ $i }}</td>
-                                        <?php if($param->smartship_hubid=="" && $param->smartship_hubid=="R" ){ ?>
-                                            <td class="text-danger">invalid details</td>
-                                            <?php }elseif($param->smartship_hubid=="R"){ ?>
-                                                <td>invalid details</td>
-                                                <?php  }else{ ?>
-                                        <td>{{ $param->hub_code }}</td>
-                                        <?php }  ?>
-                                        <td><img src="{{ asset('HubDetails') }}/{{ $param->hub_folder }}/{{ $param->hub_img }}" title="Hub Image" alt="Not Available" style="width:50px;height:50px;"></td>
-                                        <td>{{ $param->hub_name }}</td>
-                                        <td>{{ $param->hub_gstno }}</td>
-                                        <td>{{ $param->hub_address1 }}</td>
-                                        <td>{{ $param->hub_mobile }}</td>
-                                        <td>{{ $param->hub_pincode }}</td>
-                                        <td>{{ $param->hub_state }}</td>
-                                        <td>{{ $param->hub_city }}</td>
-                                        <td>{{ $param->hub_deliverytype }}</td>
-                                        <td>
-                                            <a href="{{ asset('/UPHub_Edit/'.$param->hub_id) }}" title="Click here to edit hub detail"><i class="far fa-edit me-2"></i>Edit</a>
-                                        </td>
-                                    </tr>
-                                    @php($i++)
-                                    @endforeach
-                                </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table table-responsive-md">
+										<thead>
+											<tr>
+												<th>Sno</th>
+												<th>Hub Code</th>
+												<th>Logo</th>
+												<th>Hub Name</th>
+												<th>GST No.</th>
+												<th>Address</th>
+												<th>Mobile</th>
+												<th>Pincode</th>
+												<th>State</th>
+												<th>City</th>
+												<th>Delivery Type</th>
+												<th>Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											@php($i = 1)
+											@foreach($params as $param)
+											<tr class="gradeX">
+												<td>{{ $i }}</td>
+												<?php if ($param->smartship_hubid == "" && $param->smartship_hubid == "R") { ?>
+													<td class="text-danger">invalid details</td>
+												<?php } elseif ($param->smartship_hubid == "R") { ?>
+													<td>invalid details</td>
+												<?php  } else { ?>
+													<td>{{ $param->hub_code }}</td>
+												<?php }  ?>
+												<td><img src="{{ asset('HubDetails') }}/{{ $param->hub_folder }}/{{ $param->hub_img }}" title="Hub Image" alt="Not Available" style="width:50px;height:50px;"></td>
+												<td>{{ $param->hub_name }}</td>
+												<td>{{ $param->hub_gstno }}</td>
+												<td>{{ $param->hub_address1 }}</td>
+												<td>{{ $param->hub_mobile }}</td>
+												<td>{{ $param->hub_pincode }}</td>
+												<td>{{ $param->hub_state }}</td>
+												<td>{{ $param->hub_city }}</td>
+												<td>{{ $param->hub_deliverytype }}</td>
+												<td>
+													<a href="{{ asset('/UPHub_Edit/'.$param->hub_id) }}" title="Click here to edit hub detail"><i class="far fa-edit me-2"></i>Edit</a>
+												</td>
+											</tr>
+											@php($i++)
+											@endforeach
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-													<div class="modal-dialog modal-lg">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title">Add A Hub</h5>
-																<button type="button" class="btn-close" data-bs-dismiss="modal">
-																</button>
-															</div>
-															<div class="modal-body">
-																<div class="form-validation">
-																	<form class="needs-validation" method="post" action="{{ asset('/UPNew_Hub') }}" enctype="multipart/form-data" novalidate>@csrf
-																		<div class="row">
-																			<div class="col-xl-6">
-																				<div class="mb-3 row">
-																					<label class="col-lg-4 col-form-label" for="validationCustom01">Hub Name
-																						<span class="text-danger">*</span>
-																					</label>
-																					<div class="col-lg-6">
-																						<input type="text" class="form-control" name="name" id="validationCustom01" required>
-																						<div class="invalid-feedback">
-																							Please enter a Hub Name.
-																						</div>
-																					</div>
-																				</div>
-																				<div class="mb-3 row">
-																					<label class="col-lg-4 col-form-label" for="validationCustom02">Contact Number<span class="text-danger">*</span>
-																					</label>
-																					<div class="col-lg-6">
-																						<input type="text" class="form-control" name="mobile" id="validationCustom02" required>
-																						<div class="invalid-feedback">
-																							Please enter a Contact Number.
-																						</div>
-																					</div>
-																				</div>
-																				<div class="mb-3 row">
-																					<label class="col-lg-4 col-form-label" for="validationCustom02">PIN Code<span class="text-danger">*</span>
-																					</label>
-																					<div class="col-lg-6">
-																						<input type="text" class="form-control" name="pincode" id="validationCustom02" required>
-																						<div class="invalid-feedback">
-																							Please enter a PIN Code.
-																						</div>
-																					</div>
-																				</div>
-
-																				<div class="mb-3 row">
-																					<label class="col-lg-4 col-form-label" for="validationCustom04">Address <span class="text-danger">*</span>
-																					</label>
-																					<div class="col-lg-6">
-																						<textarea class="form-control" name="address1" id="validationCustom04" rows="5" required></textarea>
-																						<div class="invalid-feedback">
-																							Please enter a address.
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="col-xl-6">
-
-																				<div class="mb-3 row">
-																					<label class="col-lg-4 col-form-label" for="validationCustom06">City
-																						<span class="text-danger">*</span>
-																					</label>
-																					<div class="col-lg-6">
-																						<input type="text" class="form-control" name="city" id="validationCustom06" required>
-																						<div class="invalid-feedback">
-																							Please enter city.
-																						</div>
-																					</div>
-																				</div>
-																				<div class="mb-3 row">
-																					<label class="col-lg-4 col-form-label" for="validationCustom07">State
-																						<span class="text-danger">*</span>
-																					</label>
-																					<div class="col-lg-6">
-																						<input type="text" class="form-control" name="state" id="validationCustom07" required>
-																						<div class="invalid-feedback">
-																							Please enter state.
-																						</div>
-																					</div>
-																				</div>
-																				<div class="mb-3 row">
-																					<label class="col-lg-4 col-form-label" for="validationCustom08">GSTIN
-																						<span class="text-danger">*</span>
-																					</label>
-																					<div class="col-lg-6">
-																						<input type="text" class="form-control" name="gstno" id="validationCustom08" required>
-																						<div class="invalid-feedback">
-																							Please enter GSTIN
-																						</div>
-																					</div>
-																				</div>
-
-																				<div class="mb-3 row">
-																					<label class="col-lg-4 col-form-label" for="validationCustom05">Hub Pickup type
-																						<span class="text-danger">*</span>
-																					</label>
-																					<div class="col-lg-6">
-																						<select class="default-select wide form-control" name="deliverytype" id="validationCustom05">
-																							<option data-display="Select" value="">Select a hub type</option>
-																							<option value="2">Economy</option>
-																							<option value="1">Express</option>
-																						</select>
-																						<div class="invalid-feedback">
-																							Please select hub type.
-																						</div>
-																					</div>
-																				</div>
-																				
-																			</div>
-																			
-																			<div class=" row">
-																					<div class=" ms-auto">
-																					<button type="submit" class="btn btn-primary">Submit</button>
-
-																					</div>
-																				</div>
-																		</div>
-																	</form>
-																</div>
-															</div>
-
-															<!-- <div class="modal-footer">
-																<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-																<button type="button" class="btn btn-primary">Save changes</button>
-															</div> -->
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Add A Hub</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal">
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="form-validation">
+									<form class="needs-validation" method="post" action="{{ asset('/UPNew_Hub') }}" enctype="multipart/form-data" novalidate>@csrf
+										<div class="row">
+											<div class="col-xl-6">
+												<div class="mb-3 row">
+													<label class="col-lg-4 col-form-label" for="validationCustom01">Hub Name
+														<span class="text-danger">*</span>
+													</label>
+													<div class="col-lg-6">
+														<input type="text" class="form-control" name="name" id="validationCustom01" required>
+														<div class="invalid-feedback">
+															Please enter a Hub Name.
 														</div>
 													</div>
 												</div>
+												<div class="mb-3 row">
+													<label class="col-lg-4 col-form-label" for="validationCustom02">Contact Number<span class="text-danger">*</span>
+													</label>
+													<div class="col-lg-6">
+														<input type="text" class="form-control" name="mobile" id="validationCustom02" required>
+														<div class="invalid-feedback">
+															Please enter a Contact Number.
+														</div>
+													</div>
+												</div>
+												<div class="mb-3 row">
+													<label class="col-lg-4 col-form-label" for="validationCustom02">PIN Code<span class="text-danger">*</span>
+													</label>
+													<div class="col-lg-6">
+														<input type="text" class="form-control" name="pincode" id="validationCustom02" required>
+														<div class="invalid-feedback">
+															Please enter a PIN Code.
+														</div>
+													</div>
+												</div>
+
+												<div class="mb-3 row">
+													<label class="col-lg-4 col-form-label" for="validationCustom04">Address <span class="text-danger">*</span>
+													</label>
+													<div class="col-lg-6">
+														<textarea class="form-control" name="address1" id="validationCustom04" rows="5" required></textarea>
+														<div class="invalid-feedback">
+															Please enter a address.
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-6">
+
+												<div class="mb-3 row">
+													<label class="col-lg-4 col-form-label" for="validationCustom06">City
+														<span class="text-danger">*</span>
+													</label>
+													<div class="col-lg-6">
+														<input type="text" class="form-control" name="city" id="validationCustom06" required>
+														<div class="invalid-feedback">
+															Please enter city.
+														</div>
+													</div>
+												</div>
+												<div class="mb-3 row">
+													<label class="col-lg-4 col-form-label" for="validationCustom07">State
+														<span class="text-danger">*</span>
+													</label>
+													<div class="col-lg-6">
+														<input type="text" class="form-control" name="state" id="validationCustom07" required>
+														<div class="invalid-feedback">
+															Please enter state.
+														</div>
+													</div>
+												</div>
+												<div class="mb-3 row">
+													<label class="col-lg-4 col-form-label" for="validationCustom08">GSTIN
+														<span class="text-danger">*</span>
+													</label>
+													<div class="col-lg-6">
+														<input type="text" class="form-control" name="gstno" id="validationCustom08" required>
+														<div class="invalid-feedback">
+															Please enter GSTIN
+														</div>
+													</div>
+												</div>
+
+												<div class="mb-3 row">
+													<label class="col-lg-4 col-form-label" for="validationCustom05">Hub Pickup type
+														<span class="text-danger">*</span>
+													</label>
+													<div class="col-lg-6">
+														<select class="default-select wide form-control" name="deliverytype" id="validationCustom05">
+															<option data-display="Select" value="">Select a hub type</option>
+															<option value="2">Economy</option>
+															<option value="1">Express</option>
+														</select>
+														<div class="invalid-feedback">
+															Please select hub type.
+														</div>
+													</div>
+												</div>
+
+											</div>
+
+											<div class=" row">
+												<div class=" ms-auto">
+													<button type="submit" class="btn btn-primary">Submit</button>
+
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<!-- <div class="modal-footer">
+																<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+																<button type="button" class="btn btn-primary">Save changes</button>
+															</div> -->
+						</div>
+					</div>
+				</div>
 				<!-- row -->
 				<!-- <div class="row">
 					<div class="col-xs-12 col-sm-12 col-xl-12 col-lg-12">

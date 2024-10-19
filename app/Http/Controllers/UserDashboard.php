@@ -310,32 +310,51 @@ class UserDashboard extends Controller
         ->whereBetween('Rec_Time_Date', array($fromdate, $todate))
         ->count('Single_Order_Id');
 
-        $last90DaysCount = bulkorders::where('User_Id', $userid)
-        ->where('order_status_show',  'Delivered')
+      $last90DaysCount = bulkorders::where('User_Id', $userid)
+        ->whereIn('showerrors', ['delivered', 'Delivered'])
         ->where('Rec_Time_Date', '>=', Carbon::now()->subDays(90))
         ->sum('Total_Amount');
 
       $thisWeekCount = bulkorders::where('User_Id', $userid)
-      ->where('order_status_show', 'Delivered')
+        ->whereIn('showerrors', ['delivered', 'Delivered'])
         ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
         ->sum('Total_Amount');
 
       $thisMonthCount = bulkorders::where('User_Id', $userid)
-      ->where('order_status_show', 'Delivered')
+        ->whereIn('showerrors', ['delivered', 'Delivered'])
         ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
         ->sum('Total_Amount');
 
       $thisQuarterCount = bulkorders::where('User_Id', $userid)
-      ->where('order_status_show', 'Delivered')
+        ->whereIn('showerrors', ['delivered', 'Delivered'])
         ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfQuarter(), Carbon::now()->endOfQuarter()])
         ->sum('Total_Amount');
 
 
-        $zone = bulkorders::select('zone', \DB::raw('count(Single_Order_Id) as order_count'))
+      $zone = bulkorders::select('zone', \DB::raw('count(Single_Order_Id) as order_count'))
         ->where('User_Id', $userid)
-        
+
         ->groupBy('zone')
         ->get();
+
+      $counts = bulkorders::select('zone', DB::raw('count(*) as count'))
+        ->where('User_Id', $userid)
+        ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
+        ->groupBy('zone')
+        ->get()
+        ->pluck('count', 'zone');
+
+      // Initialize counts for zones A, B, C, D, E
+      $zoneCounts = [
+        'A' => $counts->get('A', 0),
+        'B' => $counts->get('B', 0),
+        'C' => $counts->get('C', 0),
+        'D' => $counts->get('D', 0),
+        'E' => $counts->get('E', 0),
+      ];
+
+
+
 
 
       // cod amount 
@@ -628,7 +647,8 @@ class UserDashboard extends Controller
         'last90DaysCount' => $last90DaysCount,
         'thisWeekCount' => $thisWeekCount,
         'thisMonthCount' => $thisMonthCount,
-        'thisQuarterCount' => $thisQuarterCount
+        'thisQuarterCount' => $thisQuarterCount,
+        'zoneCounts'=>$zoneCounts
 
       ];
 
