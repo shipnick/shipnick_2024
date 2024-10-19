@@ -434,11 +434,8 @@
 						<div class="card-body">
 							<div class="profile-news">
 								<!-- <h5 class="text-primary d-inline">Our Latest News</h5> -->
-								<select class=" form-control d-inline" name="order_type">
-									<option value="">Orders</option>
-									<option value="">Rto</option>
-								</select>
-								<ul class="list-group mb-3">
+								
+								<ul class="list-group mt-5">
 									<svg version="1.1" class="highcharts-root __web-inspector-hide-shortcut__" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="310" height="310" viewBox="0 0 410 400" aria-label="Interactive chart" aria-hidden="false">
 										<desc aria-hidden="true">Created with Highcharts 8.0.4</desc>
 										<defs aria-hidden="true">
@@ -526,14 +523,14 @@
 							<div class="profile-news">
 								<h5 class="text d-inline ">Shipments - Zone Distribution</h5>
 								<ul class="list-group mt-4">
-									@foreach($zone as $zoneData)
+									@foreach ($zoneCounts as $zone => $count)
 
 									<li class="list-group-item d-flex justify-content-between lh-condensed">
 										<div>
-											<h6 class="my-0">Zone {{ $zoneData->zone }}</h6>
+											<h6 class="my-0 mb-3">Zone {{ $zone }}</h6>
 											<!-- <small class="text-muted">Brief description</small> -->
 										</div>
-										<span class="text-muted"> {{ $zoneData->order_count }}</span>
+										<span class="text-muted "> {{ $count }}</span>
 									</li>
 
 									@endforeach
@@ -555,31 +552,31 @@
 								<ul class="list-group mt-4">
 									<li class="list-group-item d-flex justify-content-between lh-condensed">
 										<div>
-											<h6 class="my-0">Last 90 Days</h6>
+											<h6 class="my-0 mt-4">Last 90 Days</h6>
 											<!-- <small class="text-muted">Brief description</small> -->
 										</div>
-										<span class="text-muted">{{ number_format($last90DaysCount, 2) }}</span>
+										<span class="text-muted mt-4">{{ number_format($last90DaysCount, 2) }}</span>
 									</li>
 									<li class="list-group-item d-flex justify-content-between lh-condensed">
 										<div>
-											<h6 class="my-0">This Week</h6>
+											<h6 class="my-0 mt-4">This Week</h6>
 											<!-- <small class="text-muted">Brief description</small> -->
 										</div>
-										<span class="text-muted">{{ number_format($thisWeekCount, 2) }}</span>
+										<span class="text-muted mt-4">{{ number_format($thisWeekCount, 2) }}</span>
 									</li>
 									<li class="list-group-item d-flex justify-content-between lh-condensed">
 										<div>
-											<h6 class="my-0">This Month</h6>
+											<h6 class="my-0 mt-4">This Month</h6>
 											<!-- <small class="text-muted">Brief description</small> -->
 										</div>
-										<span class="text-muted">{{ number_format($thisMonthCount, 2) }}</span>
+										<span class="text-muted mt-4">{{ number_format($thisMonthCount, 2) }}</span>
 									</li>
 									<li class="list-group-item d-flex justify-content-between lh-condensed">
 										<div>
-											<h6 class="my-0">This Quarter</h6>
+											<h6 class="my-0 mt-4">This Quarter</h6>
 											<!-- <small class="text-muted">Brief description</small> -->
 										</div>
-										<span class="text-muted">{{ number_format($thisQuarterCount, 2) }}</span>
+										<span class="text-muted mt-4">{{ number_format($thisQuarterCount, 2) }}</span>
 									</li>
 
 
@@ -589,13 +586,14 @@
 					</div>
 				</div>
 			</div>
+			
 
 			<div class="row">
 
 				<div class="col-lg-12">
 					<div class="card">
 						<div class="card-header light-blue-bg">
-							<h4 class="card-title">Courier Summary</h4>
+							<h4 class="card-title">Courier Wise Summary</h4>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
