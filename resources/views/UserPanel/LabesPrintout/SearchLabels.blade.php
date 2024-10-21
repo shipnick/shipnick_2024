@@ -269,16 +269,19 @@
                     <span style="float: right;">
                          @if(isset($label_setting))
                              @if($label_setting->order_id == 0)
-                            <h6>Order #</h6>
+                            <h6>Order ID</h6>
                         
-                            <h4><b>{{ ucwords($params[$i]['orderno']) }}</b></h4>
+                            <h4>{{ ucwords($params[$i]['orderno']) }}</h4>
                             @endif
                         @else
-                            <h6>Order #</h6>
+                            <h6>Order ID</h6>
                         
-                            <h4><b>{{ ucwords($params[$i]['orderno']) }}</b></h4>
+                            <h4>{{ ucwords($params[$i]['orderno']) }}</h4>
                         @endif
                     </span>
+                    <!-- <span style="float: left;"><h6>Shipnick Order ID</h6>
+                        
+                        <h4>{{ ucwords($params[$i]['orderno']) }}</h4> </span> -->
                 </td>
             </tr>
             <tr style="line-height: 20px;">
@@ -288,14 +291,15 @@
                     <p style="line-height: 1.5em;">
                         {{ ucwords($params[$i]['address']) }}<br />
                         {{ ucwords($params[$i]['city']) }} :-{{ ucwords($params[$i]['pincode']) }}<br />
-                        {{ ucwords($params[$i]['mobile']) }}<br>
+                        {{ ucwords($params[$i]['mobile']) }} ,{{ ucwords($params[$i]['mobile2']) }}<br>
                         {{ ucwords($params[$i]['pemail']) }}</p>
                 </td>
 
-                <td class="text-center">
+                <td class="text-center" >
                     <h4> <b>{{ $params[$i]['paymode'] }}</b>
                     </h4>
                 </td>
+                
             </tr>
 
             <tr style="border: 1px solid #000;">
@@ -317,10 +321,10 @@
                         @if(isset($label_setting))
                         
                            @if($label_setting->Weight == 0)
-                              Weight: {{ $params[$i]['weight'] }}
+                              Weight: {{ $params[$i]['weight'] }} KG
                            @endif
                         @else
-                        Weight: {{ $params[$i]['weight'] }}
+                        Weight: {{ $params[$i]['weight'] }} KG
                         @endif
                     </p>
                 </td>
@@ -398,7 +402,7 @@
             <tr style="line-height: 1.5em;">
                 <td colspan="4" class="address">
                     @if(isset($label_setting))
-                @if($label_setting->Return_Address == 0)
+                        @if($label_setting->Return_Address == 0)
                     <p>If undelivered, please return to:<br />
                     
                     	@if($label_setting->rtoAddress != '')

@@ -2643,6 +2643,6 @@ class PlacedOrdersExport implements WithHeadings, FromCollection
 
     public function headings(): array
     {
-        return ['Order_Type', 'Orderno', 'shipnick_id', 'AWB_Number', 'Courier', 'Receiver_Name', 'Receiver_Address', 'Receiver_State', 'Receiver_City', 'Receiver_Mobile', 'Receiver_Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'Volumetric_Weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Upload_Date', 'Upload_Type', 'HUB_ID', 'Status', 'Remark'];
+        return ['Order_Type', 'Orderno', 'shipnick_id', 'AWB_Number', 'Courier', 'Receiver_Name', 'Receiver_Address', 'Receiver_State', 'Receiver_City', 'Receiver_Mobile', 'Receiver_Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'Volumetric_Weight', 'Total_Amount', 'Invoice#', 'Cod_Amount', 'Upload_Date', 'Upload_Type', 'HUB_ID', 'Status', 'Remark'];
     }
 }
