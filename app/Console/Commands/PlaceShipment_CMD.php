@@ -238,7 +238,8 @@ class PlaceShipment_CMD extends Command
                     // }
                 }
 
-                UtilityHelper::updateBalance($param);
+                // Removed due to slow update
+                // UtilityHelper::updateBalance($param);
             }
         } catch (\Exception $e) {
             $msg = __FILE__ . ":LINE:" . $e->getLine()  . " MSG: " . $e->getMessage();
