@@ -1,255 +1,328 @@
 @extends('layout')
 
 @section('content')
- <!-- Navbar & Hero Start -->
-        <div class="container-fluid position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <h1 class="m-0"><i class="fa fa-map-marker-alt me-3"></i>Shipnick</h1>
-                    <!-- <img src="img/logo.png" alt="Logo"> -->
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="fa fa-bars"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto py-0">
-                        <a href="/" class="nav-item nav-link active">Home</a>
-                        <a href="about" class="nav-item nav-link">About Us</a>
-                        <a href="why-us" class="nav-item nav-link">Why Us</a>
-                        <!--<a href="#" class="nav-item nav-link">Blog</a>-->
-                        <a href="contact" class="nav-item nav-link">Contact</a>
-                    </div>
-                    <!--<a href="" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Track Your Order</a>-->
-                </div>
-            </nav>
-  <!-- Carousel Start -->
-  <div class="carousel-header">
-                <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
-                        <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
-                        <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <img src="img/carousel-2.jpg" class="img-fluid" alt="Image">
-                            <div class="carousel-caption">
-                                 <div class="row">
-                            <div class="col-md-2 ">
-                                <div class="p-3">
-                                    <img src="img/rmiage2.png" alt="" class="img-fluid" style="height: auto;width:auto;margin-bottom: 2%;">
-                                </div>
-                            </div>
-                            <div class="col-md-3" ></div>
-                            <div class="col-md-6">
-                                <div class="p-3">
-                                    <h1 class="display-2 text-capitalize text-white mb-4">We provide super fast and fuss-free delivery service</h1>
-                                    <p class="mb-5 fs-5">We guarantee no complications and refunds in case of damages.
-                                    </p>
+<!-- main-area -->
+<main class="fix">
 
-                                </div>
-                            </div>
-                        </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/carousel-1.jpg" class="img-fluid" alt="Image">
-                            <div class="carousel-caption">
-                                <div class="p-3" style="max-width: 900px;">
-                                    <h1 class="display-2 text-capitalize text-white mb-4">FAST AND SECURE COURIER FOR ALL YOUR PACKAGES</h1>
-                                    <p class="mb-5 fs-5">Cost effective & on time delivery, Our MOTO</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/carousel-3.jpg" class="img-fluid" alt="Image">
-                            <div class="carousel-caption">
-                                <div class="p-3" style="max-width: 900px;">
-                                    <h1 class="display-2 text-capitalize text-white mb-4">WORLD WIDE SHIPPING AND PROFESSIONAL SOLUTIONS</h1>
-                                    <p class="mb-5 fs-5">No matter the location we got you covered with our global solutions</p>
-                                </div>
-                            </div>
-                        </div>
+    <!-- banner-area -->
+    <section class="banner__area banner__bg" data-background="new1/assets/img/banner/banner_bg.jpg">
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col-lg-6">
+                    <div class="banner__content">
+                        <span class="sub-title" data-aos="fade-up" data-aos-delay="200">Fastest & Secure Logistics</span>
+                        <h2 class="title" data-aos="fade-up" data-aos-delay="400">We Deliver your Product Anywhere!</h2>
+                        <p data-aos="fade-up" data-aos-delay="600">when an unknown printer took a galley of type and company need scra make it better future to make attempt type specimen.</p>
+                        <a href="#" class="btn" data-aos="fade-up" data-aos-delay="800">Explore Our Services <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon btn bg-primary" aria-hidden="false"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-                        <span class="carousel-control-next-icon btn bg-primary" aria-hidden="false"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
-            </div>
-            <!-- Carousel End -->
-        </div>
-        <div class="container-fluid search-bar position-relative" style="top: -50%; transform: translateY(-50%);">
-            <div class="container">
-                <div class="position-relative rounded-pill w-100 mx-auto p-5" style="background: rgba(19, 53, 123, 0.8);">
-                    <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Track your order">
-                    <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute me-2" style="top: 50%; right: 46px; transform: translateY(-50%);">Search</button>
-                </div>
-            </div>
-        </div>
-        <!-- Navbar & Hero End -->
-
-        <!-- About Start -->
-        <div class="container-fluid about py-5">
-            <div class="container py-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-5" style="margin-top: -100px;">
-                        <div class="h-100" style="border: 50px solid; border-color: transparent #13357B transparent #13357B;">
-                            <img src="img/about-image.jpg" class="img-fluid w-100 h-100" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
-                        <h5 class="section-about-title pe-3">About Us</h5>
-                        <p class="mb-4">Introducing ShipNick, your innovative solution for seamless courier services. Born from a passion for efficiency and reliability, ShipNick sets sail as a pioneering force in the world of logistics. With a commitment to excellence and customer satisfaction, ShipNick redefines the standards of delivery with its cutting-edge technology and personalized approach.</p>
-						<p class="mb-4">At ShipNick, we understand that every package tells a story and every delivery matters. Whether it's a small parcel or a large shipment, we handle each item with precision and care, ensuring it reaches its destination swiftly and securely. Our state-of-the-art tracking system allows you to monitor your shipment every step of the way, providing peace of mind and transparency like never before.</p>						
-						<p class="mb-4">What sets ShipNick apart is our dedicated team of professionals who go above and beyond to exceed your expectations. From our courteous customer service representatives to our skilled logistics specialists, every member of the ShipNick family is committed to delivering excellence in every interaction.</p>
-						<p class="mb-4">With a focus on sustainability, ShipNick employs eco-friendly practices wherever possible, minimizing our environmental footprint while maximizing efficiency. We believe in creating a brighter future for generations to come, and that commitment shines through in everything we do.</p>
-						<p class="mb-4">Experience the difference with ShipNick - where reliability meets innovation, and your satisfaction is our top priority. Join us on this exciting journey as we redefine the world of courier services, one delivery at a time. ShipNick - Delivering Excellence, Every Time.</p>
+                <div class="col-lg-6">
+                    <div class="banner__img">
+                        <img src="new1/assets/img/banner/banner_img01.png" alt="img" data-aos="fade-left" data-aos-delay="800">
                     </div>
                 </div>
             </div>
         </div>
-        <!-- About End -->
+        <div class="banner__shape-wrap">
+            <img src="new1/assets/img/banner/banner_shape.png" alt="shape" class="rotateme">
+            <img src="new1/assets/img/banner/banner_img02.png" alt="img" class="wow bounceInDown" data-wow-delay=".3s">
+        </div>
+    </section>
+    <!-- banner-area-end -->
 
-        <div class="container-fluid about py-5">
-            <div class="container py-5">
-                <div class="row g-5 align-items-center">
-                    
-                    <div class="col-lg-6">
-                        <h3 style="margin-top: -100px;">Advanced Logistics Application</h3><br />
-						<br />
-						<p class="mb-4"><i class="fa fa-arrow-right text-primary me-2"></i>Multi-Carrier Integration</p>
-                        <p class="mb-4"><i class="fa fa-arrow-right text-primary me-2"></i>Automated Shipping Processes</p>
-						<p class="mb-4"><i class="fa fa-arrow-right text-primary me-2"></i>Centralized Dashboard</p>
-						<p class="mb-4"><i class="fa fa-arrow-right text-primary me-2"></i>Customized Shipping Rules</p>
+    <!-- about-area -->
+    <section class="about__area pt-120 pb-120">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-6 col-md-8">
+                    <div class="about__img">
+                        <img src="new1/assets/img/images/about_img01.png" alt="img">
+                        <img src="new1/assets/img/images/about_img02.png" alt="img" data-aos="fade-right" data-aos-delay="200">
+                        <img src="new1/assets/img/images/about_img03.png" alt="img" data-aos="fade-down" data-aos-delay="400">
                     </div>
-					<div class="col-lg-6" style="margin-top: -100px;">
-                        <div class="h-100" style="width: 600px;">
-                            <img src="img/dash.png" class="img-fluid w-100 h-100" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <div class="about__content">
+                        <div class="section__title mb-15">
+                            <span class="sub-title">Reliable Logistic & Transport Solutions</span>
+                            <h2 class="title">Delivering the Full Range <br> Of logistics solutions</h2>
+                        </div>
+                        <p>Adipiscing elit. Aliquam vulputate, tortor nec com ultri viverra Suspen disse faucibus sed dolor eget Sed id urna. Hiftler Group irepresentatilve in loisticsti for operator providings.</p>
+                        <div class="about__content-bottom">
+                            <div class="about__list-box-wrap">
+                                <div class="about__list-box">
+                                    <ul class="list-wrap">
+                                        <li><i class="flaticon-check"></i>Quality Control System</li>
+                                        <li><i class="flaticon-check"></i>100% Satisfaction Guarantee</li>
+                                        <li><i class="flaticon-check"></i>Professional and Qualified</li>
+                                        <li><i class="flaticon-check"></i>Safe, Reliable And Express</li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="btn">Get in Touch <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                            </div>
+                            <div class="about__review-wrap">
+                                <div class="about__review-box">
+                                    <div class="about__review-author">
+                                        <img src="new1/assets/img/images/author01.png" alt="img">
+                                        <img src="new1/assets/img/images/author02.png" alt="img">
+                                        <img src="new1/assets/img/images/author03.png" alt="img">
+                                        <img src="new1/assets/img/images/author04.png" alt="img">
+                                    </div>
+                                    <div class="review">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span>Clients 4.7 (1,567 Reviews)</span>
+                                </div>
+                                <div class="experience__box">
+                                    <h4 class="title">10</h4>
+                                    <span>Years Of <br> Experience</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shape">
+                            <img src="new1/assets/img/images/about_shape.png" alt="shape" data-aos="fade-left" data-aos-delay="1000">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+    <!-- about-area-end -->
 
-        <!-- Services Start -->
-        <div class="container-fluid bg-light service py-5">
-            <div class="container py-5">
-                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                    <h5 class="section-title px-3">Choose Us</h5>
-                    <h1 class="mb-0">ALL IN ONE SHIPPING SOLUTION</h1>
+    <!-- brand-area -->
+    <div class="brand__area">
+        <div class="container">
+            <div class="swiper brand-active fix">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="brand__item">
+                            <img src="new1/assets/img/logo/bluedart.png" alt="img">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="brand__item">
+                            <img src="new1/assets/img/logo/dtdc.png" alt="img">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="brand__item">
+                            <img src="new1/assets/img/logo/ecom.png" alt="img">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="brand__item">
+                            <img src="new1/assets/img/logo/xpressbee.png" alt="img">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="brand__item">
+                            <img src="new1/assets/img/logo/ekart1.png" alt="img">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="brand__item">
+                            <img src="new1/assets/img/logo/Delhivery1.png" alt="img">
+                        </div>
+                    </div>
+                    <!-- <div class="swiper-slide">
+                    <div class="brand__item">
+                        <img src="new1/assets/img/brand/brand_img04.png" alt="img">
+                    </div>
+                </div> -->
                 </div>
-                <div class="row g-4">
-                    <div class="col-lg-6">
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
-                                    <div class="service-content text-end">
-                                        <h5 class="mb-4">One roof solution for all your logistic needs</h5>
-                                        <p class="mb-0">One-roof solution for logistics offers businesses a holistic approach to managing their supply chain and transportation needs, fostering operational efficiency, cost-effectiveness, and customer satisfaction.
-                                        </p>
+            </div>
+        </div>
+    </div>
+    <!-- brand-area-end -->
+
+    <!-- services-area -->
+    <section class="services__area fix">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="section__title mb-40">
+                        <span class="sub-title">OUR BEST SERVICES</span>
+                        <h2 class="title">What We Serve</h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="view-all-btn text-end mb-40">
+                        <a href="#" class="btn btn-two">All Services <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row gutter-24 justify-content-center">
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="services__item">
+                        <div class="services__thumb-wrap">
+                            <div class="">
+                                <img src="new1/assets/img/services/services_img04.jpg" alt="img">
+
+                            </div>
+                            <div class="services__icon">
+                                <i class="fa-solid fa-dolly"></i>
+                            </div>
+                        </div>
+                        <div class="services__content">
+                            <h3 class="title"><a href="#">Standard Courier</a></h3>
+                            <p>Road transpo arer tation criucial roley coordinated trans portatn the countries destination.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="services__item">
+                        <div class="services__thumb-wrap">
+                            <div class="">
+                                <img src="new1/assets/img/services/services_img02.jpg" alt="img">
+
+                            </div>
+                            <div class="services__icon">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                        </div>
+                        <div class="services__content">
+                            <h3 class="title"><a href="#">Express Courier</a></h3>
+                            <p>Road transpo arer tation criucial roley coordinated trans portatn the countries destination.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="services__item">
+                        <div class="services__thumb-wrap">
+                            <div class="">
+                                <img src="new1/assets/img/services/services_img01.jpg" alt="img">
+
+                            </div>
+                            <div class="services__icon">
+                                <i class="fa-solid fa-cart-flatbed"></i>
+                            </div>
+                        </div>
+                        <div class="services__content">
+                            <h3 class="title"><a href="#">Warehousing</a></h3>
+                            <p>Road transpo arer tation criucial roley coordinated trans portatn the countries destination.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="services__item">
+                        <div class="services__thumb-wrap">
+                            <div class="">
+                                <img src="new1/assets/img/services/services_img03.jpg" alt="img">
+
+                            </div>
+                            <div class="services__icon">
+                                <i class="fa-solid fa-ship"></i>
+                            </div>
+                        </div>
+                        <div class="services__content">
+                            <h3 class="title"><a href="#">International Courier</a></h3>
+                            <p>Road transpo arer tation criucial roley coordinated trans portatn the countries destination.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="services__shape-wrap">
+            <img src="new1/assets/img/services/services_shape01.png" alt="shape" class="rotateme">
+            <img src="new1/assets/img/services/services_shape02.png" alt="shape" data-aos="fade-right" data-aos-delay="400">
+        </div>
+    </section>
+    <!-- services-area-end -->
+
+    <!-- choose-area -->
+    <section class="choose__area choose__bg" data-background="new1/assets/img/bg/vector_bg.svg">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-5 col-md-10">
+                    <div class="choose__img wow img-custom-anim-left animated" data-wow-duration="1.5s" data-wow-delay="0.2s">
+                        <img src="new1/assets/img/images/choose_img01.jpg" alt="img">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="choose__content">
+                        <div class="section__title white-title mb-25">
+                            <span class="sub-title">Why Choose Us</span>
+                            <h2 class="title">7+ Years Experiences in Courier Service </h2>
+                        </div>
+                        <div class="choose__content-bottom">
+                            <div class="left-side">
+                                <p>Doloribus debitis dolores amet, minus qui eaque itaque, doloremque at ipsa ab reiciendis assumenda et labore asperiores, cumque impedit! Corrupti, alias laboriosam!</p>
+                                <a href="services-details.html" class="btn white-btn">To know more About Us <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                            </div>
+                            <div class="counter__wrap">
+                                <div class="counter__item">
+                                    <div class="counter__icon">
+                                        <i class="fa-solid fa-truck-fast"></i>
                                     </div>
-                                    <div class="service-icon p-4">
-                                        <img src="img/one-roof-solution.png" class="img-fluid w-100 h-100" alt="">
+                                    <div class="counter__content">
+                                        <h2 class="count"><span>Fast Delivery</span></h2>
+                                        <!-- <p>Delivered Goods</p> -->
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center  bg-white border border-primary rounded p-4 pe-0">
-                                    <div class="service-content text-end">
-                                        <h5 class="mb-4">Dedicated Account Manager</h5>
-                                        <p class="mb-0">Single point of contact to understand the client needs and build relationship and contributing to the overall success of both the client and the company. Yes, we believe in relationship.
-                                        </p>
+                                <div class="counter__item">
+                                    <div class="counter__icon">
+                                        <i class="fa-solid fa-money-bill"></i>
                                     </div>
-                                    <div class="service-icon p-4">
-                                        <img src="img/dedicated-account-manager.jpeg" class="img-fluid w-100 h-100" alt="">
+                                    <div class="counter__content">
+                                        <h2 class="count"><span>Lowest Cost</span></h2>
+                                        <!-- <p>Clients Worldwide</p> -->
+                                    </div>
+                                </div>
+                                <div class="counter__item">
+                                    <div class="counter__icon">
+                                        <i class="fa-brands fa-servicestack"></i>
+                                    </div>
+                                    <div class="counter__content">
+                                        <h2 class="count"><span>Secured Services</span></h2>
+                                        <!-- <p>Clients Worldwide</p> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                    <div class="service-icon p-4">
-                                        <img src="img/automated-shipping-process.jpeg" class="img-fluid w-100 h-100" alt="">
-                                    </div>
-                                    <div class="service-content">
-                                        <h5 class="mb-4">Automated shipping process</h5>
-                                        <p class="mb-5">Automated shipping process which can help you to save time and give efficiency in the project
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 ps-0">
-                                    <div class="service-icon p-4">
-                                        <img src="img/cod-remmitance.jpeg" class="img-fluid w-100 h-100" alt="">
-                                    </div>
-                                    <div class="service-content">
-                                        <h5 class="mb-4">Quick COD Remittance & Support</h5>
-                                        <p class="mb-5">COD orders will not block your money any longer. Get remittance daily.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>	
                 </div>
             </div>
         </div>
-        <!-- Services End -->
+    </section>
+    <!-- choose-area-end -->
 
-        <!-- Destination Start -->
-        
-        <!-- Destination End -->
-
-        <!-- Explore Tour Start -->
-        
-        <!-- Explore Tour Start -->
-
-        <!-- Packages Start -->
-
-        <!-- Packages End -->
-
-        <!-- Gallery Start -->
-
-        <!-- Gallery End -->
-
-        <!-- Tour Booking Start -->
-        
-        <!-- Tour Booking End -->
-
-        <!-- Travel Guide Start -->
-        <div class="container-fluid guide py-5">
-            <div class="container py-5">
-                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                    <h5 class="section-title px-3">Clients</h5>
-                    <h1 class="mb-0">Satisfied clients</h1>
+    <!-- achieved-area -->
+    <section class="achieved__area fix">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-10 order-0 order-lg-2">
+                    <div class="achieved__img">
+                        <img src="new1/assets/img/images/achieved_img.png" alt="img" class="wow bounceInDown" data-wow-delay=".3s">
+                    </div>
                 </div>
-                <div class="row g-4">
-                    <div class="col-md-12 col-lg-3">
-                        <div class="guide-item">
-                            <div class="guide-img">
-                                <div class="guide-img-efects">
-                                    <img src="img/gaurav.jpg" class="img-fluid w-100 rounded-top" alt="Image">
+                <div class="col-lg-6">
+                    <div class="achieved__content">
+                        <div class="section__title mb-20">
+                            <span class="sub-title">What We Achieved!</span>
+                            <h2 class="title">We are logistics improving our skills to fulfill delivery of any level!</h2>
+                        </div>
+                        <p>We believe in continuous improvement. Regular customer meetings, working on their sales, shipping and working on NDR performance is our duty.</p>
+                        <div class="progress__wrap">
+                            <div class="progress__item">
+                                <div class="progress__item-top">
+                                    <h3 class="progress__title">Successful Delivery</h3>
+                                    <div class="progress-value"><span class="counter-number">82</span>%</div>
                                 </div>
-                                <div class="guide-icon rounded-pill p-2">
-                                    <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                    <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 82%;"></div>
                                 </div>
                             </div>
-                            <div class="guide-title text-center rounded-bottom p-4">
-                                <div class="guide-title-inner">
-                                    <h4 class="mt-3">Gaurav Mehta</h4>
-                                    <p class="mb-0">"Exceptional courier service! I've been consistently impressed with the speed and reliability of deliveries from ShipNick.”</p>
+                            <div class="progress__item">
+                                <div class="progress__item-top">
+                                    <h3 class="progress__title">Happy Customers</h3>
+                                    <div class="progress-value"><span class="counter-number">90</span>%</div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 90%;"></div>
                                 </div>
                             </div>
                         </div>
@@ -257,204 +330,255 @@
                 </div>
             </div>
         </div>
-        <!-- Travel Guide End -->
+        <div class="achieved__shape">
+            <img src="new1/assets/img/images/achieved_shape.png" alt="shape">
+        </div>
+    </section>
+    <!-- achieved-area-end -->
 
-        <!-- Blog Start -->
-<!--        <div class="container-fluid blog py-5">-->
-<!--            <div class="container py-5">-->
-<!--                <div class="mx-auto text-center mb-5" style="max-width: 900px;">-->
-<!--                    <h5 class="section-title px-3">Our Blog</h5>-->
-<!--                    <h1 class="mb-4">Popular Blogs</h1>-->
-<!--                    <p class="mb-0">Importance of Same day Courier Service – -->
-<!--Same day courier service plays a crucial role in various sectors and for different reasons. Here’s why it’s important:-->
-
-<!--                    </p>-->
-                    
-<!--                </div>-->
-<!--                <div class="row g-4 justify-content-center">-->
-<!--                    <div class="col-lg-4 col-md-6">-->
-<!--                        <div class="blog-item">-->
-<!--                            <div class="blog-img">-->
-<!--                                <div class="blog-img-inner">-->
-<!--                                    <img class="img-fluid w-100 rounded-top" src="img/blog-1.jpg" alt="Image">-->
-<!--                                    <div class="blog-icon">-->
-<!--                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">-->
-<!--                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>28 Jan 2050</small>-->
-<!--                                    <a href="#" class="btn-hover flex-fill text-center text-white border-end py-2"><i class="fa fa-thumbs-up text-primary me-2"></i>1.7K</a>-->
-<!--                                    <a href="#" class="btn-hover flex-fill text-center text-white py-2"><i class="fa fa-comments text-primary me-2"></i>1K</a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="blog-content border border-top-0 rounded-bottom p-4">-->
-<!--                                <p class="mb-3">Posted By: Royal Hamblin </p>-->
-<!--                                <a href="#" class="h4">The Great Innovators</a>-->
-<!--                                <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>-->
-<!--                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-4 col-md-6">-->
-<!--                        <div class="blog-item">-->
-<!--                            <div class="blog-img">-->
-<!--                                <div class="blog-img-inner">-->
-<!--                                    <img class="img-fluid w-100 rounded-top" src="img/blog-2.jpg" alt="Image">-->
-<!--                                    <div class="blog-icon">-->
-<!--                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">-->
-<!--                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>28 Jan 2050</small>-->
-<!--                                    <a href="#" class="btn-hover flex-fill text-center text-white border-end py-2"><i class="fa fa-thumbs-up text-primary me-2"></i>1.7K</a>-->
-<!--                                    <a href="#" class="btn-hover flex-fill text-center text-white py-2"><i class="fa fa-comments text-primary me-2"></i>1K</a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="blog-content border border-top-0 rounded-bottom p-4">-->
-<!--                                <p class="mb-3">Posted By: Royal Hamblin </p>-->
-<!--                                <a href="#" class="h4">The Story of Civilization</a>-->
-<!--                                <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>-->
-<!--                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-4 col-md-6">-->
-<!--                        <div class="blog-item">-->
-<!--                            <div class="blog-img">-->
-<!--                                <div class="blog-img-inner">-->
-<!--                                    <img class="img-fluid w-100 rounded-top" src="img/blog-3.jpg" alt="Image">-->
-<!--                                    <div class="blog-icon">-->
-<!--                                        <a href="#" class="my-auto"><i class="fas fa-link fa-2x text-white"></i></a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="blog-info d-flex align-items-center border border-start-0 border-end-0">-->
-<!--                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>28 Jan 2050</small>-->
-<!--                                    <a href="#" class="btn-hover flex-fill text-center text-white border-end py-2"><i class="fa fa-thumbs-up text-primary me-2"></i>1.7K</a>-->
-<!--                                    <a href="#" class="btn-hover flex-fill text-center text-white py-2"><i class="fa fa-comments text-primary me-2"></i>1K</a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="blog-content border border-top-0 rounded-bottom p-4">-->
-<!--                                <p class="mb-3">Posted By: Royal Hamblin </p>-->
-<!--                                <a href="#" class="h4">Building for Society</a>-->
-<!--                                <p class="my-3">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam eos</p>-->
-<!--                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-        <!-- Blog End -->
-
-		<div class="container-fluid destination py-5">
-            <div class="container py-5">
-                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                    <h5 class="section-title px-3">FEATURES</h5>
+    <!-- marquee-area -->
+    <section class="marquee__area fix">
+        <div class="container-fluid p-0">
+            <div class="slider__marquee clearfix marquee-wrap">
+                <div class="marquee_mode marquee__group">
+                    <h6 class="marquee__item">
+                        <a href="#"><img src="new1/assets/img/icon/star.svg" alt="" class="injectable"> Air Freight</a>
+                    </h6>
+                    <h6 class="marquee__item">
+                        <a href="#"><img src="new1/assets/img/icon/star.svg" alt="" class="injectable"> Logistics</a>
+                    </h6>
+                    <h6 class="marquee__item">
+                        <a href="#"><img src="new1/assets/img/icon/star.svg" alt="" class="injectable"> Delivery Service</a>
+                    </h6>
+                    <h6 class="marquee__item">
+                        <a href="#"><img src="new1/assets/img/icon/star.svg" alt="" class="injectable"> Tracking</a>
+                    </h6>
+                    <h6 class="marquee__item">
+                        <a href="#"><img src="new1/assets/img/icon/star.svg" alt="" class="injectable"> Warehouse</a>
+                    </h6>
                 </div>
-                <div class="tab-class text-center">
-                    
-                    <div class="tab-content">
-                        <div id="tab-1" class="tab-pane fade show p-0 active">
-                            <div class="row g-4">
-                                <div class="col-xl-8">
-                                    <div class="row g-4">
-                                        <div class="col-lg-6">
-                                            <div class="destination-img">
-                                                <img class="img-fluid rounded w-100" src="img/features-1.jpeg" alt="">
-												<div class="destination-overlay p-4">
-                                                    <h4 class="text-white mb-2 mt-3">SMS noticifications</h4>
-                                                    <a href="#" class="btn-hover text-white">of packet journey</a>
+            </div>
+        </div>
+    </section>
+    <!-- marquee-area-end -->
+
+    <!-- project-area -->
+    <section class="project__area project__bg" data-background="new1/assets/img/bg/vector_bg02.svg">
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col-lg-6 col-md-8">
+                    <div class="section__title mb-40">
+                        <span class="sub-title">Featured Projects</span>
+                        <h2 class="title">We Are Proud to Excellence Deliver Success</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-4">
+                    <div class="view-all-btn text-end mb-60">
+                        <a href="#" class="btn">See All Projects <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-0 fix">
+            <div class="project__item-wrap">
+                <div class="swiper project-active">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="project__item">
+                                <div class="project__thumb">
+                                    <a href="#"><img src="new1/assets/img/project/project_img01.jpg" alt="img"></a>
+                                </div>
+                                <div class="project__content">
+                                    <div class="content">
+                                        <h2 class="title"><a href="#">Modern Warehouse</a></h2>
+                                        <span>Logistics</span>
+                                    </div>
+                                    <div class="right-arrow">
+                                        <a href="#"><img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project__item">
+                                <div class="project__thumb">
+                                    <a href="#"><img src="new1/assets/img/project/project_img02.jpg" alt="img"></a>
+                                </div>
+                                <div class="project__content">
+                                    <div class="content">
+                                        <h2 class="title"><a href="#">Modern Warehouse</a></h2>
+                                        <span>Logistics</span>
+                                    </div>
+                                    <div class="right-arrow">
+                                        <a href="#"><img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project__item">
+                                <div class="project__thumb">
+                                    <a href="#"><img src="new1/assets/img/project/project_img03.jpg" alt="img"></a>
+                                </div>
+                                <div class="project__content">
+                                    <div class="content">
+                                        <h2 class="title"><a href="#">Smart Warehouse</a></h2>
+                                        <span>Logistics</span>
+                                    </div>
+                                    <div class="right-arrow">
+                                        <a href="#"><img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project__nav"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- project-area-end -->
+
+    <!-- video-area -->
+    <section class="video__area">
+        <div class="video__bg" data-background="new1/assets/img/bg/video_bg.jpg"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-7 col-lg-6 order-0 order-lg-2">
+                    <div class="video__play-btn">
+                        <a href="http://www.youtube.com/watch?v=1iIZeIy7TqM" class="play-btn popup-video"><i class="fas fa-play"></i></a>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-6">
+                    <div class="video__content">
+                        <div class="section__title white-title">
+                            <span class="sub-title">Customer Teams & An Agile Services</span>
+                            <h2 class="title">We provide the best and fastest courier services nowadays</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- video-area-end -->
+
+    <!-- request-area -->
+    <div class="request__area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="request__wrap">
+                        <div class="request__nav">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="request-tab" data-bs-toggle="tab" data-bs-target="#request-tab-pane" type="button" role="tab" aria-controls="request-tab-pane" aria-selected="true"><i class="fa-solid fa-box"></i>Request a Quote</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="track-tab" data-bs-toggle="tab" data-bs-target="#track-tab-pane" type="button" role="tab" aria-controls="track-tab-pane" aria-selected="false"><i class="fa-solid fa-hourglass-start"></i>Track & Trace</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="request__tab-wrap">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane show active" id="request-tab-pane" role="tabpanel" aria-labelledby="request-tab" tabindex="0">
+                                    <form action="request-quote" class="request__form" method="post">@csrf
+                                    <span class="title">Personal Data</span>
+                                        <div class="row gutter-20">
+                                            <div class="col-lg-4">
+                                                <div class="form-grp">
+                                                    <input type="text" placeholder="Name*" name="Name" required>
                                                 </div>
-                                                <div class="search-icon">
-                                                    <a href="img/features-1.jpeg" data-lightbox="destination-1"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-grp">
+                                                    <input type="email" name="email"  placeholder="Enter Email*" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-grp">
+                                                    <input type="text" name="Mobile" placeholder="Mobile Number*" required>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
-                                            <div class="destination-img">
-                                                <img class="img-fluid rounded w-100" src="img/features-2.jpeg" alt="">
-												<div class="destination-overlay p-4">
-                                                    <h4 class="text-white mb-2 mt-3">Advanced management</h4>
-                                                    <a href="#" class="btn-hover text-white">for on time delivery</a>
-                                                </div>
-                                                <div class="search-icon">
-                                                    <a href="img/features-2.jpeg" data-lightbox="destination-2"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                        <span class="title">Shipment Data</span>
+                                        <div class="row gutter-20">
+                                            
+                                            <div class="col-lg-6">
+                                                <div class="form-grp">
+                                                    <input type="text" name="cname" placeholder="Company Name" required>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="destination-img">
-                                                <img class="img-fluid rounded w-100" src="img/features-3.jpeg" alt="">
-												<div class="destination-overlay p-4">
-                                                    <h4 class="text-white mb-2 mt-3">Time bound</h4>
-                                                    <a href="#" class="btn-hover text-white">deliveries</a>
-                                                </div>                                                
-												<div class="search-icon">
-                                                    <a href="img/features-3.jpeg" data-lightbox="destination-7"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                            <div class="col-lg-6">
+                                                <div class="form-grp">
+                                                    <input type="text" name="Website" placeholder="Website Link" required>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="destination-img">
-                                                <img class="img-fluid rounded w-100" src="img/features-4.jpeg" alt="">
-												<div class="destination-overlay p-4">
-                                                    <h4 class="text-white mb-2 mt-3">Dedicated</h4>
-                                                    <a href="#" class="btn-hover text-white">account manager</a>
-                                                </div>                                                
-												<div class="search-icon">
-                                                    <a href="img/features-4.jpeg" data-lightbox="destination-8"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                            <span class="title">How many orders do you receive in a month?</span>
+                                            <div class="col-lg-4">
+                                                <div class="form-grp">
+                                                    <div class="form-grp select-grp">
+                                                    <select class="form-select" name="count" id="count" placeholder="--Select option--" required="">
+                                                <option>--Select option--</option>
+                                                <option value="Setting up new Business">Setting up new Business</option>
+                                                <option value="Between 1 to 10 Orders">Between 1 to 10 Orders</option>
+                                                <option value="11 to 100 Orders">11 to 100 Orders</option>
+                                                <option value="101 to 500 Orders">101 to 500 Orders</option>
+                                                <option value="501 to 1000 Orders">501 to 1000 Orders</option>
+                                                <option value="1000 to 3000 Orders">1000 to 3000 Orders</option>
+                                                <option value="More than 3000 Orders">More than 3000 Orders</option>
+                                            </select>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            
+                                            
                                         </div>
-                                    </div>
+                                        
+                                        <button type="submit" class="btn">Request a Quote</button>
+                                    </form>
                                 </div>
-                                <div class="col-xl-4">
-                                    <div class="destination-img h-100">
-                                        <img class="img-fluid rounded w-100 h-100" src="img/features-5.jpeg" style="object-fit: cover; min-height: 300px;" alt="">
-										<div class="destination-overlay p-4">
-                                                    <h4 class="text-white mb-2 mt-3">Timely remmitance/Next day</h4>
-                                                    <a href="#" class="btn-hover text-white">remmitance facility</a>
+                                <div class="tab-pane" id="track-tab-pane" role="tabpanel" aria-labelledby="track-tab" tabindex="0">
+                                    <form action="#" class="request__form">
+                                        <span class="title">Shipment Type</span>
+                                        <div class="form-grp select-grp">
+                                            <select name="interest" class="orderby">
+                                                <option value="Incoterms">Incoterms</option>
+                                                <option value="Incoterms">Incoterms</option>
+                                                <option value="Incoterms">Incoterms</option>
+                                            </select>
                                         </div>
-                                        <div class="search-icon">
-                                            <a href="img/features-5.jpeg" data-lightbox="destination-4"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                        <span class="title">Tracking Number</span>
+                                        <div class="form-grp">
+                                            <textarea name="comment" placeholder="You can enter up to a maximum of 10 airway bill numbers for tracking"></textarea>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="destination-img">
-                                        <img class="img-fluid rounded w-100" src="img/features-6.jpeg" alt="">
-											<div class="destination-overlay p-4">
-                                                    <h4 class="text-white mb-2 mt-3">Accurate tracking</h4>
-                                                    <a href="#" class="btn-hover text-white">of packet</a>
-                                            </div>                                                
-                                        <div class="search-icon">
-                                            <a href="img/features-6.jpeg" data-lightbox="destination-4"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
+                                        <div class="request__radio-wrap">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5" checked>
+                                                <label class="form-check-label" for="flexRadioDefault5">
+                                                    Air Freight
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6">
+                                                <label class="form-check-label" for="flexRadioDefault6">
+                                                    Ocean Freight
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7">
+                                                <label class="form-check-label" for="flexRadioDefault7">
+                                                    Road Freight
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault8">
+                                                <label class="form-check-label" for="flexRadioDefault8">
+                                                    Express Delivery
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="destination-img">
-                                        <img class="img-fluid rounded w-100" src="img/features-7.jpeg" alt="">
-											<div class="destination-overlay p-4">
-                                                    <h4 class="text-white mb-2 mt-3">1 Day/Next</h4>
-                                                    <a href="#" class="btn-hover text-white">day delivery</a>
-                                            </div>                                        
-										<div class="search-icon">
-                                            <a href="img/features-7.jpeg" data-lightbox="destination-5"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="destination-img">
-                                        <img class="img-fluid rounded w-100" src="img/features-8.jpeg" alt="">
-											<div class="destination-overlay p-4">
-                                                    <h4 class="text-white mb-2 mt-3">We deliver</h4>
-                                                    <a href="#" class="btn-hover text-white">smiles</a>
-                                            </div>                                         
-										 <div class="search-icon">
-                                            <a href="img/features-8.jpeg" data-lightbox="destination-6"><i class="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></a>
-                                        </div>
-                                    </div>
+                                        <button type="submit" class="btn">Track & Trace</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -462,53 +586,289 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- request-area-end -->
 
-        <!-- Testimonial Start -->
-        <div class="container-fluid testimonial py-5">
-            <div class="container py-5">
-                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                    <h5 class="section-title px-3">CARRIER PARTNERS</h5>
-                    <h1 class="mb-0">Our Carrier Partners</h1>
-                </div>
-                <div class="testimonial-carousel owl-carousel">
- 
-					<div class="testimonial-item text-center rounded pb-4">
-                        <div class="testimonial-comment bg-light rounded p-4">
-                            <p><img class="img-responsive" alt="partners" src="img/aramex.png" /></p>
+    <!-- testimonial-area -->
+    <section class="testimonial__area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10">
+                    <div class="testimonial__wrap fix">
+                        <div class="testimonial__icon">
+                            <img src="new1/assets/img/icon/quote.svg" alt="" class="injectable">
                         </div>
-                    </div>
-                    <div class="testimonial-item text-center rounded pb-4">
-                        <div class="testimonial-comment bg-light rounded p-4">
-                             <p><img class="img-responsive" alt="partners" src="img/delhivery.jpg" /></p>
+                        <div class="testimonial-slider-dot">
+                            <div class="swiper testimonial__nav">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <button><img src="new1/assets/img/images/author01.png" alt="img"></button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button><img src="new1/assets/img/images/author02.png" alt="img"></button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button><img src="new1/assets/img/images/author03.png" alt="img"></button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button><img src="new1/assets/img/images/author04.png" alt="img"></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="testimonial-item text-center rounded pb-4">
-                        <div class="testimonial-comment bg-light rounded p-4">
-							<p><img class="img-responsive" alt="partners" src="img/bluedart.png" /></p>
-                        </div>
-                    </div>
-                    <div class="testimonial-item text-center rounded pb-4">
-                        <div class="testimonial-comment bg-light rounded p-4">
-                            <p><img class="img-responsive" alt="partners" src="img/fedex.png" /></p>
-                        </div>
-                    </div>
-					<div class="testimonial-item text-center rounded pb-4">
-                        <div class="testimonial-comment bg-light rounded p-4">
-                            <p><img class="img-responsive" alt="partners" src="img/shadofax.png" /></p>
-                        </div>
-                    </div>
-					<div class="testimonial-item text-center rounded pb-4">
-                        <div class="testimonial-comment bg-light rounded p-4">
-                            <p><img class="img-responsive" alt="partners" src="img/ekart.png" /></p>
-                        </div>
-                    </div>
-					<div class="testimonial-item text-center rounded pb-4">
-                        <div class="testimonial-comment bg-light rounded p-4">
-                            <p><img class="img-responsive" alt="partners" src="img/xpressbees.png" /></p>
+                        <div class="swiper testimonial-active">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="testimonial__item">
+                                        <div class="testimonial__info">
+                                            <h2 class="name">Ralph Edwards</h2>
+                                            <span>CEO, logistex Agency</span>
+                                        </div>
+                                        <div class="testimonial__rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="testimonial__content">
+                                            <p>“ Morem ipsum dolor sit amet, consectetur adipisc Service awing elita florai sum dolor sit amet, consectetur area recall edBorem ipsum dolor sit amet, consectetur.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial__item">
+                                        <div class="testimonial__info">
+                                            <h2 class="name">Jone Cooper</h2>
+                                            <span>CEO, logistex Agency</span>
+                                        </div>
+                                        <div class="testimonial__rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="testimonial__content">
+                                            <p>“ Morem ipsum dolor sit amet, consectetur adipisc Service awing elita florai sum dolor sit amet, consectetur area recall edBorem ipsum dolor sit amet, consectetur.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial__item">
+                                        <div class="testimonial__info">
+                                            <h2 class="name">Eleanor Pena</h2>
+                                            <span>CEO, logistex Agency</span>
+                                        </div>
+                                        <div class="testimonial__rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="testimonial__content">
+                                            <p>“ Morem ipsum dolor sit amet, consectetur adipisc Service awing elita florai sum dolor sit amet, consectetur area recall edBorem ipsum dolor sit amet, consectetur.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial__item">
+                                        <div class="testimonial__info">
+                                            <h2 class="name">Floyd Miles</h2>
+                                            <span>CEO, logistex Agency</span>
+                                        </div>
+                                        <div class="testimonial__rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="testimonial__content">
+                                            <p>“ Morem ipsum dolor sit amet, consectetur adipisc Service awing elita florai sum dolor sit amet, consectetur area recall edBorem ipsum dolor sit amet, consectetur.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial__nav-wrap">
+                                <button class="testimonial-button-prev">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                </button>
+                                <button class="testimonial-button-next">
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Testimonial End -->
+        <div class="testimonial__shape">
+            <img src="new1/assets/img/images/testimonial_shape.png" alt="img">
+        </div>
+    </section>
+    <!-- testimonial-area-end -->
+
+    <!-- work-area -->
+    <section class="work__area work__bg" data-background="new1/assets/img/bg/vector_bg.svg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section__title text-center white-title mb-50">
+                        <span class="sub-title">HOW IT WORKS</span>
+                        <h2 class="title">How We Operate Unveiling <br> Our Logistics Process</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="work__item-wrap">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="work__item">
+                            <div class="work__icon">
+                                <i class="fa-solid fa-truck-fast"></i>
+                                <span class="number">01</span>
+                            </div>
+                            <div class="work__content">
+                                <h4 class="title">Request A Quote</h4>
+                                <p>There are many variation sear passages orem</p>
+                            </div>
+                            <div class="work__shape">
+                                <img src="new1/assets/img/images/work_shape01.svg" alt="" class="injectable">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="work__item">
+                            <div class="work__icon">
+                                <i class="fa-solid fa-headset"></i>
+                                <span class="number">02</span>
+                            </div>
+                            <div class="work__content">
+                                <h4 class="title">Call Back From Office</h4>
+                                <p>There are many variation sear passages orem</p>
+                            </div>
+                            <div class="work__shape">
+                                <img src="new1/assets/img/images/work_shape02.svg" alt="" class="injectable">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="work__item">
+                            <div class="work__icon">
+                                <i class="fa-solid fa-earth-americas"></i>
+                                <span class="number">03</span>
+                            </div>
+                            <div class="work__content">
+                                <h4 class="title">Delivery Available</h4>
+                                <p>There are many variation sear passages orem</p>
+                            </div>
+                            <div class="work__shape">
+                                <img src="new1/assets/img/images/work_shape01.svg" alt="" class="injectable">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="work__item">
+                            <div class="work__icon">
+                                <i class="fa-solid fa-box"></i>
+                                <span class="number">04</span>
+                            </div>
+                            <div class="work__content">
+                                <h4 class="title">Deliver Shipping</h4>
+                                <p>There are many variation sear passages orem</p>
+                            </div>
+                            <div class="work__shape">
+                                <img src="new1/assets/img/images/work_shape01.svg" alt="" class="injectable">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- work-area-end -->
+
+    <!-- blog-post-area -->
+    <!-- <section class="blog__post-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="section__title mb-40">
+                    <span class="sub-title">LATEST NEWS</span>
+                    <h2 class="title">Our Recent Articles</h2>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-4">
+                <div class="view-all-btn text-end mb-40">
+                    <a href="services.html" class="btn btn-two">See All News <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center gutter-24">
+            <div class="col-lg-4 col-md-6">
+                <div class="blog__post-item shine__animate-item">
+                    <div class="blog__post-thumb">
+                        <a href="blog-details.html" class="shine__animate-link"><img src="new1/assets/img/blog/blog_img01.jpg" alt="img"></a>
+                    </div>
+                    <div class="blog__post-content">
+                        <div class="blog__meta">
+                            <ul class="list-wrap">
+                                <li><i class="flaticon-calendar"></i>25 Nov, 2024</li>
+                            </ul>
+                        </div>
+                        <h3 class="title"><a href="blog-details.html">Importers achieve savings through the First Sale rule!</a></h3>
+                        <p>Road transpo arere tation criucial roley area coordinated trans portatn they aw countries destination.</p>
+                        <a href="services.html" class="btn btn-two">Read More <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog__post-item shine__animate-item">
+                    <div class="blog__post-thumb">
+                        <a href="blog-details.html" class="shine__animate-link"><img src="new1/assets/img/blog/blog_img02.jpg" alt="img"></a>
+                    </div>
+                    <div class="blog__post-content">
+                        <div class="blog__meta">
+                            <ul class="list-wrap">
+                                <li><i class="flaticon-calendar"></i>25 Nov, 2024</li>
+                            </ul>
+                        </div>
+                        <h3 class="title"><a href="blog-details.html">The Future of Logistics Emb racing Technology</a></h3>
+                        <p>Road transpo arere tation criucial roley area coordinated trans portatn they aw countries destination.</p>
+                        <a href="services.html" class="btn btn-two">Read More <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog__post-item shine__animate-item">
+                    <div class="blog__post-thumb">
+                        <a href="blog-details.html" class="shine__animate-link"><img src="new1/assets/img/blog/blog_img03.jpg" alt="img"></a>
+                    </div>
+                    <div class="blog__post-content">
+                        <div class="blog__meta">
+                            <ul class="list-wrap">
+                                <li><i class="flaticon-calendar"></i>25 Nov, 2024</li>
+                            </ul>
+                        </div>
+                        <h3 class="title"><a href="blog-details.html">Green Logistics Solutions for a Greener Future</a></h3>
+                        <p>Road transpo arere tation criucial roley area coordinated trans portatn they aw countries destination.</p>
+                        <a href="services.html" class="btn btn-two">Read More <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+    <!-- blog-post-area-end -->
+
+    <!-- contact-map -->
+    <!-- <div class="contact-map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48409.69813174607!2d-74.05163325136718!3d40.68264649999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25bae694479a3%3A0xb9949385da52e69e!2sBarclays%20Center!5e0!3m2!1sen!2sbd!4v1684309529719!5m2!1sen!2sbd"
+        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div> -->
+    <!-- contact-map-end -->
+
+</main>
+<!-- main-area-end -->
 @endsection

@@ -1,154 +1,444 @@
 @extends('layout')
 
 @section('content')
- <!-- Navbar & Hero Start -->
-        <div class="container-fluid position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <h1 class="m-0"><i class="fa fa-map-marker-alt me-3"></i>Shipnick</h1>
-                    <!-- <img src="img/logo.png" alt="Logo"> -->
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="fa fa-bars"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto py-0">
-                        <a href="/" class="nav-item nav-link ">Home</a>
-                        <a href="about" class="nav-item nav-link active">About Us</a>
-                        <a href="why-us" class="nav-item nav-link">Why Us</a>
-                        <!--<a href="#" class="nav-item nav-link">Blog</a>-->
-                        <a href="contact" class="nav-item nav-link">Contact</a>
-                    </div>
-                    <a href="" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Track Your Order</a>
-                </div>
-            </nav>
-</div>
-        <!-- Navbar & Hero End -->
+<!-- main-area -->
+<main class="fix">
 
-        <!-- Header Start -->
-        <div class="container-fluid bg-breadcrumb">
-            <div class="container text-center py-5" style="max-width: 900px;">
-                <h3 class="text-white display-3 mb-4">About Us</h1>
-                <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item active text-white">About</li>
-                </ol>    
-            </div>
-        </div>
-        <!-- Header End -->
-
-        <!-- About Start -->
-        <div class="container-fluid about py-5">
-            <div class="container py-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-5" style="margin-top: -30px;">
-                        <div class="h-100" style="border: 50px solid; border-color: transparent #13357B transparent #13357B;">
-                            <img src="img/about-image.jpg" class="img-fluid w-100 h-100" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
-                        <h5 class="section-about-title pe-3">About Us</h5>
-                        <h1 class="mb-4">Welcome to <span class="text-primary">Shipnick</span></h1>
-                        <h3>Vision</h3>
-						<p class="mb-4">"At ShipNick, we envision a future where our innovative and dynamic courier services redefine the standards of global logistics as well as domestic. Our vision is to be the trusted partner for businesses and individuals alike, offering a seamless, efficient, and personalized shipping experience.</p>
-                        <p class="mb-4">In the world we see, ShipNick is synonymous with reliability, speed, and customer-centricity. We aspire to revolutionize the courier industry by embracing cutting-edge technology, ensuring timely deliveries, and providing end-to-end transparency in our operations.</p>
-						<p class="mb-4">Our vision extends beyond merely transporting packages; we aim to build lasting connections. ShipNick is committed to fostering a sense of community, bridging distances, and contributing to the success and growth of our customers.
-						</p>
-						<p class="mb-4">We envision a sustainable future where ShipNick sets the benchmark for eco-friendly practices in the courier industry. Through innovative solutions and a dedication to environmental responsibility, we strive to minimize our carbon footprint and lead the way towards a greener and healthier planet.</p>
-						<p class="mb-4">ShipNick is dedicated to being the epitome of excellence in logistics. Our vision is to create a world where shipping is not just a service but a transformative experience, connecting people and businesses effortlessly while prioritizing sustainability and customer satisfaction.
-						</p>
+    <!-- banner-area -->
+    <section class="breadcrumb__area breadcrumb__bg" data-background="new1/assets/img/images/choose_img01.jpg" style="background-image: url(&quot;new1/assets/img/images/choose_img01.jpg&quot;);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb__content">
+                        <h1 class="title">About Us</h1>
+                        <nav class="breadcrumb">
+                            <span property="itemListElement" typeof="ListItem">
+                                <a href="index.html">Home</a>
+                            </span>
+                            <span class="breadcrumb-separator"><i class="flaticon-right-arrow"></i></span>
+                            <span property="itemListElement" typeof="ListItem">About Us</span>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
-		
-		
-		
-		
-		<div class="container-fluid about py-5">
-            <div class="container py-5">
-                <div class="row g-5 align-items-center">
-                    
-                    <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
-                        <h3 style="margin-top: -100px;">MISSION</h3>
-						<p class="mb-4">"At ShipNick, our mission is to revolutionize the courier industry by providing unparalleled shipping solutions that seamlessly connect businesses and individuals with the world. We are committed to delivering exceptional service through innovation, reliability, and a relentless focus on customer satisfaction.</p>
-                        <p class="mb-4">Our primary objective is to ensure the swift and secure transportation of packages, documents, and goods, setting new benchmarks for efficiency and accuracy. ShipNick aims to simplify the shipping process, offering user-friendly platforms and cutting-edge technology that empower our customers with control and visibility over their shipments.</p>
-						<p class="mb-4">Environmental responsibility is at the core of our mission. ShipNick is dedicated to implementing sustainable practices, minimizing our ecological footprint, and contributing to a healthier planet.
-						</p>
-						<p class="mb-4">In essence, our mission at ShipNick is to be the forefront of innovation, reliability, and customer-centricity in the courier industry. We are driven by a passion for excellence, continuous improvement, and a commitment to making shipping a seamless and positive experience for all."</p>
+    </section>
+    <!-- banner-area-end -->
+
+
+
+
+
+    <!-- about-area -->
+    <section class="about__area-two section-py-120">
+        <div class="container">
+            <div class="row align-items-center justify-content-center gutter-24">
+                <div class="col-lg-6 col-md-9">
+                    <div class="about__img-two">
+                        <img src="new1/assets/img/images/inner_about_img01.jpg" alt="img" data-aos="fade-right" data-aos-delay="400">
+                        <img src="new1/assets/img/images/inner_about_img02.jpg" alt="img" data-aos="fade-up" data-aos-delay="600">
                     </div>
-					<div class="col-lg-5" style="margin-top: -100px;">
-                        <div class="h-100" style="border: 50px solid; border-color: transparent #13357B transparent #13357B;">
-                            <img src="img/about-image-2.jpg" class="img-fluid w-100 h-100" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <div class="about__content-two">
+                        <div class="section__title section__title-two mb-20">
+                            <!-- <span class="sub-title">FAST AND SECURE COURIER FOR ALL YOUR PACKETS</span> -->
+                            <h2 class="title">FAST AND SECURE COURIER FOR ALL YOUR PACKETS</h2>
+                        </div>
+                        <p class="info-one">Born from a passion for efficiency and reliability, ShipNick sets sail as a pioneering force in the world of logistics. With a commitment to excellence and customer satisfaction, we redefine the standards of delivery with its cutting-edge technology and personalized approach.</p>
+                        <div class="about__content-inner">
+                            <div class="about__list-box about__list-box-two">
+                                <ul class="list-wrap">
+                                    <li><i class="fa-regular fa-circle-check"></i>Multi-Carrier Integration</li>
+                                    <li><i class="fa-regular fa-circle-check"></i>Automated Shipping Processes</li>
+                                    <li><i class="fa-regular fa-circle-check"></i>Centralized Dashboard</li>
+                                    <li><i class="fa-regular fa-circle-check"></i>Customized Shipping Rules</li>
+                                </ul>
+                            </div>
+                            <div class="about__clients-box">
+                                <span>Flexible, Improved & Accelerated Solutions!</span>
+                                <div class="counter__item">
+                                    <div class="counter__icon">
+                                        <i class="fa-solid fa-earth-americas"></i>
+                                    </div>
+                                    <div class="counter__content">
+                                        <!-- <h2 class="count"><span class="counter-number">15.9</span>M</h2> -->
+                                        <p>Clients Worldwide</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>We understand that every package tells a story and every delivery matters. Whether it's a small parcel or a large shipment, we handle each item with precision and care, ensuring it reaches its destination swiftly and securely.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-area-end -->
+
+    <!-- features-area -->
+    <section class="features__area section-pb-90">
+        <div class="container">
+            <div class="row justify-content-center gutter-24">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="features__item">
+                        <div class="features__icon">
+                            <i class="fa-solid fa-warehouse"></i>
+                        </div>
+                        <div class="features__content">
+                            <h2 class="title">Domestic Shipping</h2>
+                            <p>It’s Simple, Quick, and Transparent. Journey to progress begins here.</p><br><br>
+                            <!-- <h2 class="number">01</h2> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="features__item">
+                        <div class="features__icon">
+                            <i class="fa-solid fa-plane"></i>
+                        </div>
+                        <div class="features__content">
+                            <h2 class="title">Global Shipping</h2>
+                            <p>- A Fully Integrated Cross-border Logistics Platform.</p>
+                            <h2 class="number"><br></h2><br><br><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="800">
+                    <div class="features__item">
+                        <div class="features__icon">
+                            <i class="fa-solid fa-ship"></i>
+                        </div>
+                        <div class="features__content">
+                            <h2 class="title">Warehousing & Drop Shipping</h2>
+                            <p>Store your inventory near your customers & reduce delivery timelines while increasing your profit margin</p>
+                            <!-- <h2 class="number">03</h2> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-		
-		
-		<div class="container-fluid about py-5">
-            <div class="container py-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-5" style="margin-top: -300px;">
-                        <div class="h-100" style="border: 50px solid; border-color: transparent #13357B transparent #13357B;">
-                            <img src="img/about-image-3.jpg" class="img-fluid w-100 h-100" alt="">
-                        </div>
+        <div class="features__shape">
+            <img src="new1/assets/img/images/features_shape.png" alt="shape" data-aos="fade-left" data-aos-delay="400">
+        </div>
+    </section>
+    <!-- features-area-end -->
+
+    <!-- video-area -->
+    <section class="video__area-two section-py-140">
+        <div class="video__bg video__bg-two" data-background="new1/assets/img/bg/video_bg02.jpg"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-7 col-lg-6 order-0 order-lg-2">
+                    <div class="video__play-btn video__play-btn-two">
+                        <a href="http://www.youtube.com/watch?v=1iIZeIy7TqM" class="play-btn popup-video"><i class="fas fa-play"></i></a>
                     </div>
-                    <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
-                        <h3>VALUES</h3>
-						<p class="mb-4">1. Reliability: We are committed to being a trustworthy and dependable courier service. Our customers can rely on ShipNick for timely and secure deliveries, consistently meeting and exceeding their expectations.</p>
-                        <p class="mb-4">2. Innovation: We embrace innovation in technology and processes to stay at the forefront. ShipNick is dedicated to exploring new and efficient ways of shipping.</p>
-						<p class="mb-4">3. Customer-Centricity: Our customers are at the heart of everything we do. ShipNick is dedicated to understanding and exceeding their needs, providing personalized and responsive services that enhance their shipping experience.
-						</p>
-						<p class="mb-4">4. Transparency: ShipNick values transparency in all aspects of our operations. We strive to provide clear and open communication, giving our customers visibility into the status of their shipments and fostering trust in our services.</p>
-						<p class="mb-4">Sustainability: We are committed to environmental responsibility. ShipNick seeks to minimize its ecological impact by adopting sustainable practices, reducing waste, and contributing to the global effort to create a more sustainable and eco-friendly future.</p>
-						<p class="mb-4">5. Team Collaboration: ShipNick fosters a collaborative and inclusive work environment. We recognize the importance of teamwork and value the diverse perspectives and skills of our employees, understanding that collaboration is key to our success.</p>
-						<p class="mb-4">6. Adaptability: In a dynamic and evolving industry, ShipNick is adaptable and responsive to change. We embrace challenges as opportunities for growth and continuously strive to improve and evolve in response to market demands.</p>
-						<p class="mb-4">7. Integrity: ShipNick conducts its business with the highest ethical standards. Integrity is the foundation of our interactions with customers, partners, and within our team. We are committed to honesty, fairness, and ethical conduct in all aspects of our operations.</p>
+                </div>
+                <div class="col-xl-5 col-lg-6">
+                    <div class="video__content">
+                        <div class="section__title white-title mb-30">
+                            <span class="sub-title">Customer Teams & An Agile Services</span>
+                            <h2 class="title">From Blueprint To Reality, We Deliver</h2>
+                        </div>
+                        <div class="progress__wrap progress__wrap-two">
+                            <div class="progress__item progress__item-two">
+                                <div class="progress__item-top">
+                                    <h3 class="progress__title">Successful Delivery</h3>
+                                    <div class="progress-value"><span class="counter-number">82</span>%</div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 82%;"></div>
+                                </div>
+                            </div>
+                            <div class="progress__item progress__item-two">
+                                <div class="progress__item-top">
+                                    <h3 class="progress__title">Happy Customers</h3>
+                                    <div class="progress-value"><span class="counter-number">90</span>%</div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>	
-		
-						
-						
-		<div class="container-fluid about py-5">
-            <div class="container py-5">
-                <div class="row g-5 align-items-center">					
-						
-                            <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Reliability</p>
-                            </div>
-                            <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Innovation</p>
-                            </div>
-                            <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Customer-Centricity</p>
-                            </div>
-                            <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Transparency</p>
-                            </div>
-                            <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Sustainability</p>
-                            </div>
-                            <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Team Collaboration</p>
-                            </div>
-							                            <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Adaptability</p>
-                            </div>
-							                            <div class="col-sm-6">
-                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Integrity</p>
+        </div>
+    </section>
+    <!-- video-area-end -->
+
+    <!-- counter-area -->
+    <section class="counter__area counter__bg section-pt-120 section-pb-90" data-background="new1/assets/img/bg/vector_bg05.svg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="counter__item-two">
+                        <div class="counter__icon-two">
+                            <i class="fa-solid fa-plane"></i>
+                        </div>
+                        <div class="counter__content-two">
+                            <h2 class="count"><span class="counter-number">5</span>Lac+</h2>
+                            <p>Products Delivered </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="counter__item-two">
+                        <div class="counter__icon-two">
+                            <i class="fa-solid fa-box"></i>
+                        </div>
+                        <div class="counter__content-two">
+                            <h2 class="count"><span class="counter-number">10</span>+</h2>
+                            <p>Brands</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="counter__item-two">
+                        <div class="counter__icon-two">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </div>
+                        <div class="counter__content-two">
+                            <h2 class="count"><span class="counter-number">10</span>+</h2>
+                            <p>courier Partners</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="counter__item-two">
+                        <div class="counter__icon-two">
+                            <i class="fa-brands fa-dropbox"></i>
+                        </div>
+                        <div class="counter__content-two">
+                            <h2 class="count"><span class="counter-number">15</span>+</h2>
+                            <p>Integration Partners</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- counter-area-end -->
+
+    <!-- pricing-area -->
+    <section class="pricing__area grey-bg section-pt-120 section-pb-90">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-5 col-lg-6">
+                    <div class="section__title section__title-two text-center mb-40">
+                        <!-- <span class="sub-title">Affordable Pricing Table</span> -->
+                        <h2 class="title">Welcome to Shipnick</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center gutter-24">
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing__box" data-aos="fade-up" data-aos-delay="200">
+                        <div class="pricing__top">
+                            <h4 class="title">Vision</h4>
+                        </div>
+
+                        <div class="pricing__content">
+                            <p>At ShipNick, we envision a future where our innovative and dynamic courier services redefine the standards of global logistics as well as domestic. Our vision is to be the trusted partner for businesses and individuals alike, offering a seamless, efficient, and personalized shipping experience
+
+                            </p>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing__box" data-aos="fade-up" data-aos-delay="400">
+                        <div class="pricing__top">
+                            <h4 class="title">MISSION</h4>
+                        </div>
+
+                        <div class="pricing__content">
+                            <p>
+                            
+                                At ShipNick, our mission is to revolutionize the courier industry by providing unparalleled shipping solutions that seamlessly connect businesses and individuals with the world. We are committed to delivering exceptional service through innovation, reliability, and a relentless focus on customer satisfaction.
+                           
+                            
+                            </p>
+                            <br><br>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing__box" data-aos="fade-up" data-aos-delay="600">
+                        <div class="pricing__top">
+                            <h4 class="title">VALUES</h4>
+                        </div>
+
+                        <div class="pricing__content">
+                            <p>
+                            <section>
+                                <h6>1. Reliability</h6>
+                                <!-- <p>ShipNick is a trustworthy courier</p> -->
+                            </section>
+                            <section>
+                                <h6>2. Innovation</h6>
+                                <!-- <p>We leverage cutting-edge technology and processes</p> -->
+                            </section>
+                            <section>
+                                <h6>3. Customer-Centricity</h6>
+                                <!-- <p>Our customers are our priority.</p> -->
+                            </section>
+                            <section>
+                                <h6>4. Transparency</h6>
+                                <!-- <p>We value clear communication and provide customers </p> -->
+                            </section>
+                            <section>
+                                <h6>5. Sustainability</h6>
+                                <!-- <p>ShipNick is dedicated to minimizing our ecological footprint </p> -->
+                            </section>
+                            <section>
+                                <h6>6. Team Collaboration</h6>
+                                <!-- <p>We cultivate an inclusive work </p> -->
+                            </section>
+                            <section>
+                                <h6>7. Integrity</h6>
+                                <!-- <p>Conducting our business with the highest ethical </p> -->
+                            </section>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- pricing-area-end -->
+
+
+
+    <!-- testimonial-area -->
+    <section class="testimonial__area-two section-pb-130">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-9 col-lg-10">
+                    <div class="testimonial__wrap fix">
+                        <div class="testimonial__icon testimonial__icon-two">
+                            <img src="new1/assets/img/icon/quote.svg" alt="" class="injectable">
+                        </div>
+                        <div class="testimonial-slider-dot">
+                            <div class="swiper testimonial__nav">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <button><img src="new1/assets/img/images/author01.png" alt="img"></button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button><img src="new1/assets/img/images/author02.png" alt="img"></button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button><img src="new1/assets/img/images/author03.png" alt="img"></button>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <button><img src="new1/assets/img/images/author04.png" alt="img"></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-				</div>
-		</div>
+                        <div class="swiper testimonial-active">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="testimonial__item">
+                                        <div class="testimonial__info">
+                                            <h2 class="name">Gaurav Mehta </h2>
+                                            <!-- <span>CEO, logistex Agency</span> -->
+                                        </div>
+                                        <div class="testimonial__rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="testimonial__content testimonial__content-two">
+                                            <p>“ Their commitment to excellence, adaptability, make them an indispensable partner in our E – commerce logistics solutions. Journey so far with them is truly exceptional..”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial__item">
+                                        <div class="testimonial__info">
+                                            <h2 class="name">Komal Bhasin</h2>
+                                            <span>Brand Owner – R.O.H.C </span>
+                                        </div>
+                                        <div class="testimonial__rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="testimonial__content testimonial__content-two">
+                                            <p>“ Their commitment to excellence, adaptability, make them an indispensable partner in our E – commerce logistics solutions. Journey so far with them is truly exceptional..”</p>
+                                        </div>
+                                    </div>
+                                </div>
 
-        <!-- About End -->
+                            </div>
+                            <div class="testimonial__nav-wrap testimonial__nav-wrap-two">
+                                <button class="testimonial-button-prev">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                </button>
+                                <button class="testimonial-button-next">
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- testimonial-area-end -->
 
-        <!-- Travel Guide Start -->
-        
-        <!-- Travel Guide End -->
+    <!-- brand-area -->
+    <div class="brand__area">
+        <div class="container">
+            <div class="swiper brand-active fix">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="brand__item">
+                            <img src="new1/assets/img/logo/bluedart.png" alt="img">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="brand__item">
+                            <img src="new1/assets/img/logo/dtdc.png" alt="img">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="brand__item">
+                            <img src="new1/assets/img/logo/ecom.png" alt="img">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="brand__item">
+                            <img src="new1/assets/img/logo/xpressbee.png" alt="img">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="brand__item">
+                            <img src="new1/assets/img/logo/ekart1.png" alt="img">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="brand__item">
+                            <img src="new1/assets/img/logo/Delhivery1.png" alt="img">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</main>
+<!-- main-area-end -->
 @endsection
