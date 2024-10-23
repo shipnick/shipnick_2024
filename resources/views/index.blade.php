@@ -78,7 +78,7 @@
                                     <span>Clients 4.7 (1,567 Reviews)</span>
                                 </div>
                                 <div class="experience__box">
-                                    <h4 class="title">10</h4>
+                                    <h4 class="title">7+</h4>
                                     <span>Years Of <br> Experience</span>
                                 </div>
                             </div>
@@ -194,7 +194,7 @@
                     <div class="services__item">
                         <div class="services__thumb-wrap">
                             <div class="">
-                                <img src="new1/assets/img/services/services_img01.jpg" alt="img">
+                                <img src="new1/assets/img/project/project_img02.jpg" alt="img">
 
                             </div>
                             <div class="services__icon">
@@ -251,7 +251,7 @@
                         <div class="choose__content-bottom">
                             <div class="left-side">
                                 <p>Doloribus debitis dolores amet, minus qui eaque itaque, doloremque at ipsa ab reiciendis assumenda et labore asperiores, cumque impedit! Corrupti, alias laboriosam!</p>
-                                <a href="services-details.html" class="btn white-btn">To know more About Us <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                                <a href="/why-us" class="btn white-btn">To know more About Us <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
                             </div>
                             <div class="counter__wrap">
                                 <div class="counter__item">
@@ -621,7 +621,7 @@
                                 <div class="swiper-slide">
                                     <div class="testimonial__item">
                                         <div class="testimonial__info">
-                                            <h2 class="name">Ralph Edwards</h2>
+                                            <h2 class="name">Gaurav Mehta</h2>
                                             <span>CEO, logistex Agency</span>
                                         </div>
                                         <div class="testimonial__rating">
@@ -632,15 +632,15 @@
                                             <i class="fas fa-star"></i>
                                         </div>
                                         <div class="testimonial__content">
-                                            <p>“ Morem ipsum dolor sit amet, consectetur adipisc Service awing elita florai sum dolor sit amet, consectetur area recall edBorem ipsum dolor sit amet, consectetur.”</p>
+                                            <p>"Exceptional courier service! I've been consistently impressed with the speed and reliability of deliveries from ShipNick.”</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="testimonial__item">
                                         <div class="testimonial__info">
-                                            <h2 class="name">Jone Cooper</h2>
-                                            <span>CEO, logistex Agency</span>
+                                            <h2 class="name">Komal Bhasin</h2>
+                                            <span>Brand Owner – R.O.H.C</span>
                                         </div>
                                         <div class="testimonial__rating">
                                             <i class="fas fa-star"></i>
@@ -650,46 +650,11 @@
                                             <i class="fas fa-star"></i>
                                         </div>
                                         <div class="testimonial__content">
-                                            <p>“ Morem ipsum dolor sit amet, consectetur adipisc Service awing elita florai sum dolor sit amet, consectetur area recall edBorem ipsum dolor sit amet, consectetur.”</p>
+                                            <p>“ Their commitment to excellence, adaptability, make them an indispensable partner in our E – commerce logistics solutions. Journey so far with them is truly exceptional..”</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="testimonial__item">
-                                        <div class="testimonial__info">
-                                            <h2 class="name">Eleanor Pena</h2>
-                                            <span>CEO, logistex Agency</span>
-                                        </div>
-                                        <div class="testimonial__rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="testimonial__content">
-                                            <p>“ Morem ipsum dolor sit amet, consectetur adipisc Service awing elita florai sum dolor sit amet, consectetur area recall edBorem ipsum dolor sit amet, consectetur.”</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="testimonial__item">
-                                        <div class="testimonial__info">
-                                            <h2 class="name">Floyd Miles</h2>
-                                            <span>CEO, logistex Agency</span>
-                                        </div>
-                                        <div class="testimonial__rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="testimonial__content">
-                                            <p>“ Morem ipsum dolor sit amet, consectetur adipisc Service awing elita florai sum dolor sit amet, consectetur area recall edBorem ipsum dolor sit amet, consectetur.”</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div class="testimonial__nav-wrap">
                                 <button class="testimonial-button-prev">
