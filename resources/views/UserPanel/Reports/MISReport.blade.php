@@ -29,15 +29,14 @@ Content body start
 
 										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mb-3">
 											<div class="example">
-												<!-- <p class="mb-1">From date - To date</p> -->
-												<!--<input type="text" class="form-control input-daterange-timepicker" name="daterange" value="01/12/2023 - 01/12/2023">-->
-
+												<p class="mb-1">From date - To date</p>
 												<div class="example">
 													<p class="mb-1">Date Range</p>
 													<input type="text" id="daterange" class="form-control"
-														value="{{ request()->get('from') && request()->get('to') ? request()->get('from') . ' - ' . request()->get('to') : '' }}">
+														value="{{ request()->get('fromdate') && request()->get('todate') ? request()->get('fromdate') . ' - ' . request()->get('todate') : '' }}">
+													<input type="hidden" name="fromdate" id="start_date" value="{{ request()->get('fromdate') }}">
+													<input type="hidden" name="todate" id="end_date" value="{{ request()->get('todate') }}">
 												</div>
-
 											</div>
 										</div>
 
@@ -80,8 +79,10 @@ Content body start
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">Hub</label>
 											<select class="default-select form-control wide w-100" name="hub_id">
-												<option selected>Select...</option>
-												<option>pickup address</option>
+												<option value="">Select...</option>
+												@foreach($hubs as $hubs)
+														<option value="{{$hubs->hub_code}}">{{$hubs->hub_code}}</option>
+														@endforeach
 											</select>
 										</div>
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
@@ -202,7 +203,7 @@ Content body start
 									<hr class="mb-4">
 									<!--<button type="button" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Download Report</button>-->
 									<button type="submit" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Download Report</button>
-									@csrf
+
 									<button type="button" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Clear</button>
 								</form>
 
