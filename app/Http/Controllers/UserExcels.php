@@ -16,7 +16,7 @@ use App\Models\NDRorders;
 use App\Models\CourierNames;
 use App\Models\Allusers;
 use DB;
-use Excel;
+use Maatwebsite\Excel\Facades\Excel;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\Exportable;
@@ -182,24 +182,34 @@ class UserExcels extends Controller
 			return Excel::download(new MISReportExportD4,'delivered_report4.xlsx');
 	}
 
-	function MIS_ReportN(Request $req){
-		$date = $req->fromdate;
-		$time = $req->todate;
-        $pickupdate = $req->pickupdate;
-        $pickupaddress = $req->pickupaddress;
-        $pickuppincode = $req->pickuppincode;
-        $pickupcity = $req->pickupcity;
-        $pickupstate = $req->pickupstate;
-        $pickupphone = $req->pickupphone;
-        $firstattampt = $req->firstattampt;
-        $secondattempt = $req->secondattempt;
-        $thirdattempt = $req->thirdattempt;
-        $lastattampt = $req->lastattampt;
-        $truearoundtime = $req->truearoundtime;
-        $receivedbypod = $req->receivedbypod;
-		
-		return Excel::download(new MISReportExportN($date,$time,$pickupdate,$pickupaddress,$pickuppincode,$pickupcity,$pickupstate,$pickupphone,$firstattampt,$secondattempt,$thirdattempt,$lastattampt,$truearoundtime,$receivedbypod),'MIS_report.xls');
-	}
+	public function MIS_ReportN(Request $req)
+    {
+        $validatedData = $req->validate([
+            'fromdate' => 'required|date',
+            'todate' => 'required|date',
+            'pickupdate' => 'nullable|date',
+            'pickupaddress' => 'nullable|string',
+            'pickuppincode' => 'nullable|string',
+            'pickupcity' => 'nullable|string', // Changed from 'date' to 'string'
+            'pickupstate' => 'nullable|string',
+            'pickupphone' => 'nullable|string',
+            'firstattempt' => 'nullable|string', // Corrected typo
+            'secondattempt' => 'nullable|string',
+            'thirdattempt' => 'nullable|string',
+            'lastattempt' => 'nullable|string', // Corrected typo
+            'truearoundtime' => 'nullable|string',
+            'receivedbypod' => 'nullable|string',
+            // Add additional validation rules for other fields as necessary
+        ]);
+        
+
+        try {
+            return Excel::download(new MISReportExportN($validatedData), 'MIS_report.xls');
+        } catch (\Exception $e) {
+            // Handle the error (e.g., log it, return a response, etc.)
+            return response()->json(['error' => 'Failed to generate report'], 500);
+        }
+    }
 
     public function MIS_Report_PDF()
     {
@@ -1111,69 +1121,92 @@ class MISReportExportD4 implements WithHeadings,FromCollection{
 
 
 
-class MISReportExportN implements WithHeadings,FromCollection{
- use Exportable;
-    public function __construct($date,$time,$pickupdate,$pickupaddress,$pickuppincode,$pickupcity,$pickupstate,$pickupphone,$firstattampt,$secondattempt,$thirdattempt,$lastattampt,$truearoundtime,$receivedbypod){
-        $this->date = $date;
-        $this->time = $time;
-        $this->pickupdate = $pickupdate;
-        $this->pickupaddress = $pickupaddress;
-        $this->pickuppincode = $pickuppincode;
-        $this->pickupcity = $pickupcity;
-        $this->pickupstate = $pickupstate;
-        $this->pickupphone = $pickupphone;
-        $this->firstattampt = $firstattampt;
-        $this->secondattempt = $secondattempt;
-        $this->thirdattempt = $thirdattempt;
-        $this->lastattampt = $lastattampt;
-        $this->truearoundtime = $truearoundtime;
-        $this->receivedbypod = $receivedbypod;
-    }
-    public function collection(){
-        $fetchdata = $this->date;
-        $fetchtime = $this->time;
-    	$userid = session()->get('UserLogin2id');
+class MISReportExportN implements WithHeadings, FromCollection
+{
+    use Exportable;
 
+    protected $data;
+
+    const HEADINGS = [
+        'Awb_Number',
+        'Order_No',
+        'Rec_Time_Date',
+        'Name',
+        'Address',
+        'City',
+        'State',
+        'Pincode',
+        'Order_Type',
+        'Cod_Amount',
+        'Width',
+        'Height',
+        'Length',
+        'Actual_Weight',
+        'Volumetric_Weight',
+        'Current_Status',
+        'Last_Scanned_At',
+        'Last_Location',
+        'Last_Scan_Remark',
+        'Delivery_Attempts',
+        'Awb_Gen_Courier',
+        'Pickup_Date',
+        'Pickup_Address',
+        'Pickup_Pincode',
+        'Pickup_City',
+        'Pickup_State',
+        'Pickup_Mobile',
+        'Last_Attempt_Date',
+        'Turn_Around_Time'
+    ];
+
+    public function __construct(array $data)
+    {
+        $this->data = $data;
+    }
+
+    public function collection()
+    {
+        $userid = session()->get('UserLogin2id');
         
-    	$today = Carbon::now();
-		$tdate = $today->toDateString();
-		// $products = NDRorders::select('awbno','orderno','origincity','originpincode','destinationcity','destinationpincode','paymentmode','couriername')
-        //                         ->where('uploaddate',$fetchdata)
-        //                         // ->where('uploadtime',$fetchtime)
-        //                         ->where('user_id',$userid)
-        //                         // ->where('orderstatus','RTO Delivered')
-        //                         ->get();
-		// return $products;  MIS_Report
-        $products = bulkorders::join('mis_report', 'mis_report.awb_number', '=', 'spark_single_order.Awb_Number')
-        ->whereBetween('spark_single_order.Rec_Time_Date', [$fetchdata, $fetchtime])
-        ->where('spark_single_order.showerrors', 'RTO Delivered')
-        ->where('spark_single_order.user_id', $userid)
-        ->select('spark_single_order.Awb_Number', 'spark_single_order.orderno', 'spark_single_order.Rec_Time_Date', 'spark_single_order.Name', 'spark_single_order.Address', 'spark_single_order.City', 'spark_single_order.State', 'spark_single_order.Pincode', 'spark_single_order.Order_Type', 'spark_single_order.Cod_Amount', 'spark_single_order.Width', 'spark_single_order.Height', 'spark_single_order.Length', 'spark_single_order.Actual_Weight', 'spark_single_order.volumetric_weight', 'mis_report.current_status', 'mis_report.last_scanned_at', 'mis_report.last_location', 'mis_report.last_scan_remark', 'mis_report.delivery_attempts', 'spark_single_order.awb_gen_courier', 'spark_single_order.pickup_name', 'spark_single_order.Rec_Time_Date as pickup_date', 'spark_single_order.pickup_address', 'spark_single_order.pickup_pincode', 'spark_single_order.pickup_city', 'spark_single_order.pickup_state', 'spark_single_order.pickup_mobile', 'mis_report.last_attempt_date', 'mis_report.turn_around_time')
-        ->get();
-    
-    // Assuming you want to fetch 'Rec_Time_Date' as 'pickup_date' in the select statement
-    
-       
+        return bulkorders::join('mis_report', 'mis_report.awb_number', '=', 'spark_single_order.Awb_Number')
+            ->whereBetween('spark_single_order.Rec_Time_Date', [$this->data['fromdate'], $this->data['todate']])
+            ->where('spark_single_order.showerrors', 'RTO Delivered')
+            ->where('spark_single_order.user_id', $userid)
+            ->select([
+                'spark_single_order.Awb_Number',
+                'spark_single_order.orderno',
+                'spark_single_order.Rec_Time_Date',
+                'spark_single_order.Name',
+                'spark_single_order.Address',
+                'spark_single_order.City',
+                'spark_single_order.State',
+                'spark_single_order.Pincode',
+                'spark_single_order.Order_Type',
+                'spark_single_order.Cod_Amount',
+                'spark_single_order.Width',
+                'spark_single_order.Height',
+                'spark_single_order.Length',
+                'spark_single_order.Actual_Weight',
+                'spark_single_order.volumetric_weight',
+                'mis_report.current_status',
+                'mis_report.last_scanned_at',
+                'mis_report.last_location',
+                'mis_report.last_scan_remark',
+                'mis_report.delivery_attempts',
+                'spark_single_order.awb_gen_courier',
+                'spark_single_order.Rec_Time_Date as pickup_date',
+                'spark_single_order.pickup_address',
+                'spark_single_order.pickup_pincode',
+                'spark_single_order.pickup_city',
+                'spark_single_order.pickup_state',
+                'spark_single_order.pickup_mobile',
+                'mis_report.last_attempt_date',
+                'mis_report.turn_around_time'
+            ])->get();
     }
-    public function headings(): array{
-        $fetchtime = $this->time;
-        $pickupdate = $this->pickupdate;
-        $pickupaddress = $this->pickupaddress;
-        $pickuppincode = $this->pickuppincode;
-        $pickupcity = $this->pickupcity;
-        $pickupstate = $this->pickupstate;
-        $pickupphone = $this->pickupphone;
-        $firstattampt = $this->firstattampt;
-        $secondattempt = $this->secondattempt;
-        $thirdattempt = $this->thirdattempt;
-        $lastattampt = $this->lastattampt;
-        $truearoundtime = $this->truearoundtime;
-        $receivedbypod = $this->receivedbypod;
 
-        $headings = ['Awb_Number', 'orderno', 'Rec_Time_Date', 'Name', 'Address', 'City', 'State', 'Pincode', 'Order_Type', 'Cod_Amount',
-            'Width', 'Height', 'Length', 'Actual_Weight', 'volumetric_weight', 'current_status', 'last_scanned_at', 'last_location',
-            'last_scan_remark', 'delivery_attempts', 'awb_gen_courier', 'pickupdate', 'pickupaddress', 'pickuppincode', 'pickupcity',
-            'pickupstate', 'pickupphone', 'firstattampt', 'secondattempt', 'thirdattempt', 'lastattampt', 'truearoundtime', 'receivedbypod'];
-		return $headings;
-	}
+    public function headings(): array
+    {
+        return self::HEADINGS;
+    }
 }

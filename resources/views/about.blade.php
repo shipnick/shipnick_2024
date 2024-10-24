@@ -356,7 +356,7 @@
                                             <i class="fas fa-star"></i>
                                         </div>
                                         <div class="testimonial__content testimonial__content-two">
-                                            <p>“ Their commitment to excellence, adaptability, make them an indispensable partner in our E – commerce logistics solutions. Journey so far with them is truly exceptional..”</p>
+                                            <p>"Exceptional courier service! I've been consistently impressed with the speed and reliability of deliveries from ShipNick.”</p>
                                         </div>
                                     </div>
                                 </div>
