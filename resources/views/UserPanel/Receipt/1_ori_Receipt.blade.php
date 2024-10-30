@@ -200,7 +200,8 @@ echo '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG($orderno, 'C39+',
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>ShipXpress</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="">

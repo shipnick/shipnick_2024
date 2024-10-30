@@ -2,7 +2,8 @@
 <html class="fixed">
 <head>
 <!-- Basic -->
-<meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <title>Admin Panel</title>
 <meta name="keywords" content="" />
 <meta name="description" content="">
