@@ -1,55 +1,59 @@
 @if(empty(session('UserLogin2')))
-    <script type="text/javascript">
-        window.location.assign("{{ asset('/AdminLogin') }}");
-    </script>
+<script type="text/javascript">
+	window.location.assign("{{ asset('/AdminLogin') }}");
+</script>
 @endif
 <!--**********************************
             Nav header start
         ***********************************-->
-        <style>
+<style>
 	.dlabnav {
 		width: 15.5rem;
 	}
+
 	.nav-header {
 		width: 15.5rem;
 	}
+
 	.content-body {
 		margin-left: 17.563rem;
 	}
+
 	.amount-bx {
 		background-color: #e5effa !important;
 		/* border: 2px solid #b2d7ff !important; */
 	}
-</style> 
-     <style> 
-  
+</style>
+<style>
+	.dlab-scroll {
+		overflow-y: scroll;
+	}
 
-.dlab-scroll {
-  overflow-y: scroll; }
+	.dlab-scroll {
+		overflow-y: scroll;
+	}
 
-.dlab-scroll {
-  overflow-y: scroll; }
+	body>* {
+		scrollbar-width: thin;
+		overflow-y: scroll;
+		scrollbar-color: rgb(0 0 0 / 41%) rgba(0, 0, 0, 0);
+	}
 
-body > * {
-  scrollbar-width: thin;
-  overflow-y: scroll;
-  scrollbar-color: rgb(0 0 0 / 41%) rgba(0, 0, 0, 0); }
+	::-webkit-scrollbar {
+		width: 10px;
+		opacity: 0;
+	}
 
-::-webkit-scrollbar {
-  width: 10px;
-  opacity: 0; }
-
-/* ::-webkit-scrollbar-thumb{
+	/* ::-webkit-scrollbar-thumb{
 	background:  rgba(111, 133, 147, 0.0); 
 } */
-::-webkit-scrollbar-thumb {
-    background: rgb(0 0 0 / 49%);
-}
-
-    </style>
+	::-webkit-scrollbar-thumb {
+		background: rgb(0 0 0 / 49%);
+	}
+</style>
 <div class="nav-header">
 	<a href="{{ asset('/UserPanel') }}" class="brand-logo">
-	    <h1 class="logo-abbr">SHIPNICK</h1>
+		<h1 class="logo-abbr">SHIPNICK</h1>
 		<!--<svg class="logo-abbr" width="53" height="53" viewBox="0 0 53 53">-->
 		<!--	<path d="M21.6348 8.04782C21.6348 5.1939 23.9566 2.87204 26.8105 2.87204H28.6018L28.0614 1.37003C27.7576 0.525342 26.9616 0 26.1132 0C25.8781 0 25.639 0.0403711 25.4052 0.125461L7.3052 6.7133C6.22916 7.105 5.67535 8.29574 6.06933 9.37096L7.02571 11.9814H21.6348V8.04782Z" fill="#759DD9" />-->
 		<!--	<path d="M26.8105 5.97754C25.6671 5.97754 24.7402 6.90442 24.7402 8.04786V11.9815H42.8555V8.04786C42.8555 6.90442 41.9286 5.97754 40.7852 5.97754H26.8105Z" fill="#F8A961" />-->
@@ -82,18 +86,18 @@ body > * {
 				<div class="header-left">
 					<div class="dashboard_bar">
 						<!--<span class="font-w600 ">Hi,<b>{{ session('UserLogin2name') }}</b></span>-->
-						<small class="text-end font-w400">Hi,  {{ session('UserLogin2name') }}</small>
-					<p class="font-w200 " style="font-size:18px">{{ \Carbon\Carbon::now()->format('l, F jS Y') }}</p>
-					
+						<small class="text-end font-w400">Hi, {{ session('UserLogin2name') }}</small>
+						<p class="font-w200 " style="font-size:18px">{{ \Carbon\Carbon::now()->format('l, F jS Y') }}</p>
+
 					</div>
 				</div>
 				<ul class="navbar-nav header-right">
 					<li class="nav-item">
-								<button type="button" class="btn btn-outline-primary btn-icon-text" data-bs-toggle="modal" data-bs-target="#add_tax">
+						<button type="button" class="btn btn-outline-primary btn-icon-text" data-bs-toggle="modal" data-bs-target="#add_tax">
 
-                                        Add Balance
-                                    </button>
-				    </li>
+							Add Balance
+						</button>
+					</li>
 					<!--<li class="nav-item dropdown notification_dropdown">-->
 					<!--	<a class="nav-link bell dz-theme-mode p-0" href="javascript:void(0);">-->
 					<!--		<i id="icon-light" class="fas fa-sun"></i>-->
@@ -114,129 +118,131 @@ body > * {
 
 				</ul>
 			</div>
-			
+
 			<div class="card-body pb-3 transaction-details d-flex flex-wrap justify-content-between align-items-center">
-			    <?php
-			    use App\Models\orderdetail;
-$userid = session()->get('UserLogin2id');
-$articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->first();
- ?>
+				<?php
+
+				use App\Models\orderdetail;
+
+				$userid = session()->get('UserLogin2id');
+				$articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->first();
+				?>
 
 				<div class="amount-bx mb-3">
 					<i class="fas fa-inr" style="    background: #17a2b8;
-    "></i>
+					"></i>
 					<div>
 						<p class="mb-1">Wallet Amount</p>
-						 <h3 class="mb-0">@if($articles) {{$articles->close_blance}} @endif</h3> 
+						<h3 class="mb-0">@if($articles) {{$articles->close_blance}} @endif</h3>
 					</div>
 				</div>
-				
+
 			</div>
 		</nav>
 	</div>
 </div>
 
 <div id="add_tax" class="modal custom-modal fade" role="dialog">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Add Money</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
-                                                </div>
-                                                <!-- <form class="contribution-form" id="contribution-form" method="POST" enctype="multipart/form-data" action="{{url('make-order')}}">@csrf -->
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Add Money</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+			</div>
+			<!-- <form class="contribution-form" id="contribution-form" method="POST" enctype="multipart/form-data" action="{{url('make-order')}}">@csrf -->
 
-                                                <div class="text-center">
-                                                    <div class="row my-4">
-                                                        <div class="col-md-3 my-1">
-                                                            <p><strong>Amount</strong></p>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <input type="text" placeholder="₹" class="form-control" style="border-color:#33333373;border-radius:20px" value="500" name="amount" required="" id="plan">
-                                                            <!-- @error('amount') <font color="red">{{$massage}}</font> @enderror() -->
-                                                        </div>
-                                                        <div class="col-md-3"></div>
-                                                    </div>
-                                                    <!-- <div class="text-center my-3">
+			<div class="text-center">
+				<div class="row my-4">
+					<div class="col-md-3 my-1">
+						<p><strong>Amount</strong></p>
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="₹" class="form-control" style="border-color:#33333373;border-radius:20px" value="500" name="amount" required="" id="plan">
+						<!-- @error('amount') <font color="red">{{$massage}}</font> @enderror() -->
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+				<!-- <div class="text-center my-3">
                                                     <a href="#" class="btn btn-success badge">500</a>
                                                     <a href="#" class="btn btn-success badge">1000</a>
                                                     <a href="#" class="btn btn-success badge">2000</a>
                                                     <a href="#" class="btn btn-success badge">5000</a>
                                                 </div> -->
-                                                    <button class="btn btn-primary badge pay_now" type="button">Recharge</button>
-                                                </div>
-                                                <!-- </form> -->
-                                                <br><br>
+				<button class="btn btn-primary badge pay_now" type="button">Recharge</button>
+			</div>
+			<!-- </form> -->
+			<br><br>
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-                                    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-                                    <script>
-                                        $(document).ready(function() {
-                                            $(document).on("click", ".pay_now", function() {
-                                                var plan = $('#plan').val(); // Get the value of the input field
+		</div>
+	</div>
+</div> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+	$(document).ready(function() {
+		$(document).on("click", ".pay_now", function() {
+			var plan = $('#plan').val(); // Get the value of the input field
 
-                                                if (plan !== '') {
-                                                    $.ajax({
-                                                        url: "{{ url('make-order1') }}", // Ensure this URL is correct
-                                                        type: 'POST',
-                                                        data: {
-                                                            '_token': '{{ csrf_token() }}',
-                                                            'plan_id': plan
-                                                        },
-                                                        success: function(res) {
-                                                            try {
-                                                                payNow(res.amount,res.rzp_order);
-                                                                // Try parsing JSON response if needed
-                                                                // var response = JSON.parse(res);
-                                                                // console.log('Response:', response);
-                                                                // alert('Success: ' + response.message); // Adjust based on your response
-                                                            } catch (e) {
-                                                                console.log('Invalid JSON response:', res);
-                                                                alert('Success, but unable to parse response.');
-                                                            }
-                                                        },
-                                                        error: function(xhr, status, error) {
-                                                            console.log('Error:', status, error);
-                                                            alert('An error occurred: ' + xhr.responseText);
-                                                        }
-                                                    });
-                                                } else {
-                                                    alert('Please enter an amount.');
-                                                }
-                                            });
+			if (plan !== '') {
+				$.ajax({
+					url: "{{ url('make-order1') }}", // Ensure this URL is correct
+					type: 'POST',
+					data: {
+						'_token': '{{ csrf_token() }}',
+						'plan_id': plan
+					},
+					success: function(res) {
+						try {
+							payNow(res.amount, res.rzp_order);
+							// Try parsing JSON response if needed
+							// var response = JSON.parse(res);
+							// console.log('Response:', response);
+							// alert('Success: ' + response.message); // Adjust based on your response
+						} catch (e) {
+							console.log('Invalid JSON response:', res);
+							alert('Success, but unable to parse response.');
+						}
+					},
+					error: function(xhr, status, error) {
+						console.log('Error:', status, error);
+						alert('An error occurred: ' + xhr.responseText);
+					}
+				});
+			} else {
+				alert('Please enter an amount.');
+			}
+		});
 
-                                            function payNow(amount,rzp_order) {
-                                                var options = {
-                                                    "key": "{{env('rzr_key')}}", // Enter the Key ID generated from the Dashboard
-                                                    "amount": amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-                                                    "currency": "INR",
-                                                    "name": "Shipnick", //your business name
-                                                    "description": "Wallet Transaction",
-                                                    "image": "https://shipnick.com/images/shiplogo.jpeg",
-                                                    "order_id": rzp_order, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-                                                    "callback_url": "{{url('succes-payment')}}",
-                                                    "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-                                                        "name": "{{ session('UserLogin2name') }}", //your customer's name
-                                                        "email": "",
-                                                        "contact": "9000090000" //Provide the customer's phone number for better conversion rates 
-                                                    },
-                                                    "notes": {
-                                                        "address": "Razorpay Corporate Office"
-                                                    },
-                                                    "theme": {
-                                                        "color": "#3399cc"
-                                                    }
-                                                };
-                                                var rzp1 = new Razorpay(options);
-                                                {
-                                                    rzp1.open();
-                                                   
-                                                }
-                                            }
-                                        });
-                                    </script>
+		function payNow(amount, rzp_order) {
+			var options = {
+				"key": "{{env('rzr_key')}}", // Enter the Key ID generated from the Dashboard
+				"amount": amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+				"currency": "INR",
+				"name": "Shipnick", //your business name
+				"description": "Wallet Transaction",
+				"image": "https://shipnick.com/images/shiplogo.jpeg",
+				"order_id": rzp_order, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+				"callback_url": "{{url('succes-payment')}}",
+				"prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+					"name": "{{ session('UserLogin2name') }}", //your customer's name
+					"email": "",
+					"contact": "9000090000" //Provide the customer's phone number for better conversion rates 
+				},
+				"notes": {
+					"address": "Razorpay Corporate Office"
+				},
+				"theme": {
+					"color": "#3399cc"
+				}
+			};
+			var rzp1 = new Razorpay(options);
+			{
+				rzp1.open();
+
+			}
+		}
+	});
+</script>
 
 <!--**********************************
             Header end ti-comment-alt
