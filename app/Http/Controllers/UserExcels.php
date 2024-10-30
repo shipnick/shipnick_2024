@@ -1208,74 +1208,76 @@ class MISReportExportN implements WithHeadings, FromCollection
         //         'mis_report.turn_around_time'
         //     ])->get();
         
-        return bulkorders::join('orderdetails', 'orderdetails.awb_no', '=', 'spark_single_order.Awb_Number')
-            ->whereBetween('spark_single_order.Rec_Time_Date', [$this->data['fromdate'], $this->data['todate']])
-            // ->where('spark_single_order.showerrors', 'RTO Delivered')
-            ->where('spark_single_order.user_id', $userid)
-        ->select([
-                'spark_single_order.Awb_Number',
-                'spark_single_order.orderno',
-                'spark_single_order.Rec_Time_Date',
-                'spark_single_order.Name',
-                'spark_single_order.Address',
-                'spark_single_order.City',
-                'spark_single_order.State',
-                'spark_single_order.Pincode',
-                'spark_single_order.Order_Type',
-                'spark_single_order.Cod_Amount',
-                'spark_single_order.Width',
-                'spark_single_order.Height',
-                'spark_single_order.Length',
-                'spark_single_order.Actual_Weight',
-                'spark_single_order.volumetric_weight',
-                'spark_single_order.showerrors',
-                // 'mis_report.current_status',
-                // 'mis_report.last_scanned_at',
-                // 'mis_report.last_location',
-                // 'mis_report.last_scan_remark',
-                // 'mis_report.delivery_attempts',
-                'spark_single_order.awb_gen_courier',
-                'spark_single_order.Rec_Time_Date as pickup_date',
-                'spark_single_order.pickup_address',
-                'spark_single_order.pickup_pincode',
-                'spark_single_order.pickup_city',
-                'spark_single_order.pickup_state',
-                'spark_single_order.pickup_mobile',
-                // 'mis_report.last_attempt_date',
-                // 'mis_report.turn_around_time'
-                 'spark_single_order.zone',
-                'orderdetails.debit'
-            ])->get();
+        // return bulkorders::join('orderdetails', 'orderdetails.awb_no', '=', 'spark_single_order.Awb_Number')
+        //     ->whereBetween('spark_single_order.Rec_Time_Date', [$this->data['fromdate'], $this->data['todate']])
+        //     // ->where('spark_single_order.showerrors', 'RTO Delivered')
+        //     ->where('spark_single_order.user_id', $userid)
+        // ->select([
+        //         'spark_single_order.Awb_Number',
+        //         'spark_single_order.orderno',
+        //         'spark_single_order.Rec_Time_Date',
+        //         'spark_single_order.Name',
+        //         'spark_single_order.Address',
+        //         'spark_single_order.City',
+        //         'spark_single_order.State',
+        //         'spark_single_order.Pincode',
+        //         'spark_single_order.Order_Type',
+        //         'spark_single_order.Cod_Amount',
+        //         'spark_single_order.Width',
+        //         'spark_single_order.Height',
+        //         'spark_single_order.Length',
+        //         'spark_single_order.Actual_Weight',
+        //         'spark_single_order.volumetric_weight',
+        //         'spark_single_order.showerrors',
+        //         // 'mis_report.current_status',
+        //         // 'mis_report.last_scanned_at',
+        //         // 'mis_report.last_location',
+        //         // 'mis_report.last_scan_remark',
+        //         // 'mis_report.delivery_attempts',
+        //         'spark_single_order.awb_gen_courier',
+        //         'spark_single_order.Rec_Time_Date as pickup_date',
+        //         'spark_single_order.pickup_address',
+        //         'spark_single_order.pickup_pincode',
+        //         'spark_single_order.pickup_city',
+        //         'spark_single_order.pickup_state',
+        //         'spark_single_order.pickup_mobile',
+        //         // 'mis_report.last_attempt_date',
+        //         // 'mis_report.turn_around_time'
+        //          'spark_single_order.zone',
+        //         'orderdetails.debit'
+        //     ])->get();
             
             
             
-    //   return bulkorders::where('user_id', $userid)->whereBetween('Rec_Time_Date', [$this->data['fromdate'], $this->data['todate']])
-    //         ->select([
-    //             'Awb_Number',
-    //             'orderno',
-    //             'Rec_Time_Date',
-    //             'Name',
-    //             'Address',
-    //             'City',
-    //             'State',
-    //             'Pincode',
-    //             'Order_Type',
-    //             'Cod_Amount',
-    //             'Width',
-    //             'Height',
-    //             'Length',
-    //             'Actual_Weight',
-    //             'volumetric_weight',
-    //             'awb_gen_courier',
-    //             'Rec_Time_Date as pickup_date',
-    //             'pickup_address',
-    //             'pickup_pincode',
-    //             'pickup_city',
-    //             'pickup_state',
-    //             'pickup_mobile',
-    //             'zone'
+      return bulkorders::where('user_id', $userid)->whereBetween('Rec_Time_Date', [$this->data['fromdate'], $this->data['todate']])
+            ->select([
+                'Awb_Number',
+                'orderno',
+                'Rec_Time_Date',
+                'Name',
+                'Address',
+                'City',
+                'State',
+                'Pincode',
+                'Order_Type',
+                'Cod_Amount',
+                'Width',
+                'Height',
+                'Length',
+                'Actual_Weight',
+                'volumetric_weight',
+                'showerrors',
+                'awb_gen_courier',
+               
+                'Rec_Time_Date as pickup_date',
+                'pickup_address',
+                'pickup_pincode',
+                'pickup_city',
+                'pickup_state',
+                'pickup_mobile',
+                'zone'
                 
-    //         ])->get();
+            ])->get();
             
             
     }

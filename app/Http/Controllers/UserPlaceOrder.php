@@ -114,7 +114,7 @@ class UserPlaceOrder extends Controller
             ->where('order_cancel', '!=', '1')
             // ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->orderBy('Single_Order_Id', 'ASC')
-            ->limit(10)
+            ->limit(1000)
             ->select('Awb_Number', 'zone', 'awb_gen_by', 'User_Id', 'Single_Order_Id', 'Rec_Time_Date')
             ->get();
 
