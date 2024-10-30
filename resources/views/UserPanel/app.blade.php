@@ -174,6 +174,11 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
                                     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
                                     <script>
                                         $(document).ready(function() {
+                                            $.ajaxSetup({
+                                                headers: {
+                                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                                }
+                                            });
                                             $(document).on("click", ".pay_now", function() {
                                                 var plan = $('#plan').val(); // Get the value of the input field
 
@@ -182,7 +187,7 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
                                                         url: "{{ url('make-order1') }}", // Ensure this URL is correct
                                                         type: 'POST',
                                                         data: {
-                                                            '_token': '{{ csrf_token() }}',
+                                                           
                                                             'plan_id': plan
                                                         },
                                                         success: function(res) {
