@@ -156,11 +156,7 @@ class PlaceShipment_CMD extends Command
                 foreach ($finalcourierlists as $courierapicodeno) {
                     // $this->info($courierapicodeno);
                     // start check wallet balance is low or not 
-                    $blance = orderdetail::where('user_id', $param->User_Id)
-                        ->orderBy('orderid', 'DESC')
-                        ->first();
-
-                    $limit = OrderStatusLabel::where('labelname', $param->User_Id)->first();
+                    
 
                       // Dispatchs PlaceOrder to courier API
                         $data = [
@@ -171,7 +167,7 @@ class PlaceShipment_CMD extends Command
                             'autogenorderno' => $autogenorderno,
                             'itamt' => $itamt,
                             'ilgth' => $ilgth,
-                            'iwith' => $iwith,
+                            'iwith' => $iwith, 
                             'ihght' => $ihght,
                             'iadin' => $iadin,
                             'daname' => $daname,
