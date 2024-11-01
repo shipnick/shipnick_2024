@@ -156,27 +156,9 @@ class PlaceShipment_CMD extends Command
                 foreach ($finalcourierlists as $courierapicodeno) {
                     // $this->info($courierapicodeno);
                     // start check wallet balance is low or not 
-                    $blance = orderdetail::where('user_id', $param->User_Id)
-                        ->orderBy('orderid', 'DESC')
-                        ->first();
+                    
 
-                    $limit = OrderStatusLabel::where('labelname', $param->User_Id)->first();
-
-                    if (!empty($limit) && !empty($blance)) { // Check if both $limit and $blance are not null
-                        if ($limit->labelcate <= $blance->close_blance) { // Fixed comparison operator
-                            $errmessage = "Low Balance";
-                            bulkorders::where('Single_Order_Id', $crtidis)->update([
-                                'showerrors' => $errmessage,
-                                'order_status_show' => $errmessage,
-                            ]);
-                        }
-                    } elseif (($blance->close_blance ?? -1) < 0) { //  if $blance->close_blance is not nagative 
-                        $errmessage = "Low Balance";
-                        bulkorders::where('Single_Order_Id', $crtidis)->update([
-                            'showerrors' => $errmessage,
-                            'order_status_show' => $errmessage,
-                        ]);
-                    } else {  // Dispatchs PlaceOrder to courier API
+                   
                         $data = [
                             'crtidis' => $crtidis,
                             'paymentmode' => $paymentmode,
@@ -219,7 +201,7 @@ class PlaceShipment_CMD extends Command
                         $jobClass = 'App\\Jobs\\' . self::API_PROVIDER[$courierapicodeno] . '_PlaceOrderJob';
                         $this->comment('Dispatching ' . $jobClass);
                         $jobClass::dispatch($data)->onQueue('place_order');
-                    }
+                    
                     // end check wallet balance check 
 
                     // Used to create JobFiles for provider
