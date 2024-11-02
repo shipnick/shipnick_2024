@@ -158,7 +158,7 @@ class PlaceShipment_CMD extends Command
                     // start check wallet balance is low or not 
                     
 
-                      // Dispatchs PlaceOrder to courier API
+                   
                         $data = [
                             'crtidis' => $crtidis,
                             'paymentmode' => $paymentmode,
@@ -167,7 +167,7 @@ class PlaceShipment_CMD extends Command
                             'autogenorderno' => $autogenorderno,
                             'itamt' => $itamt,
                             'ilgth' => $ilgth,
-                            'iwith' => $iwith, 
+                            'iwith' => $iwith,
                             'ihght' => $ihght,
                             'iadin' => $iadin,
                             'daname' => $daname,
