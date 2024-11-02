@@ -11,9 +11,9 @@
                 <div class="col-lg-6">
                     <div class="banner__content">
                         <span class="sub-title" data-aos="fade-up" data-aos-delay="200">Fastest & Secure Logistics</span>
-                        <h2 class="title" data-aos="fade-up" data-aos-delay="400">We Deliver your Product Anywhere!</h2>
-                        <p data-aos="fade-up" data-aos-delay="600">when an unknown printer took a galley of type and company need scra make it better future to make attempt type specimen.</p>
-                        <a href="#" class="btn" data-aos="fade-up" data-aos-delay="800">Explore Our Services <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                        <h2 class="title" data-aos="fade-up" data-aos-delay="400">We're Speedy Gonzales' Cousin, Delivering Joy in a Blink</h2>
+                        <p data-aos="fade-up" data-aos-delay="600">A cutting-edge courier aggregator that connects businesses and individuals with reliable delivery services at the click of a button. With a user-friendly app and a network of trusted local and national couriers</p>
+                        <a href="/why-us" class="btn" data-aos="fade-up" data-aos-delay="800">Explore Our Services <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -45,17 +45,17 @@
                     <div class="about__content">
                         <div class="section__title mb-15">
                             <span class="sub-title">Reliable Logistic & Transport Solutions</span>
-                            <h2 class="title">Delivering the Full Range <br> Of logistics solutions</h2>
+                            <h2 class="title">Delivering the full range of Logistics Solutions</h2>
                         </div>
-                        <p>Adipiscing elit. Aliquam vulputate, tortor nec com ultri viverra Suspen disse faucibus sed dolor eget Sed id urna. Hiftler Group irepresentatilve in loisticsti for operator providings.</p>
+                        <p>Delivering a full range of logistics solutions involves integrating various services to meet the diverse needs of businesses.</p>
                         <div class="about__content-bottom">
                             <div class="about__list-box-wrap">
                                 <div class="about__list-box">
                                     <ul class="list-wrap">
-                                        <li><i class="flaticon-check"></i>Quality Control System</li>
-                                        <li><i class="flaticon-check"></i>100% Satisfaction Guarantee</li>
-                                        <li><i class="flaticon-check"></i>Professional and Qualified</li>
-                                        <li><i class="flaticon-check"></i>Safe, Reliable And Express</li>
+                                        <li><i class="fa-regular fa-circle-check"></i>Domestic Shipping</li>
+                                        <li><i class="fa-regular fa-circle-check"></i>International Shipping</li>
+                                        <li><i class="fa-regular fa-circle-check"></i>Drop Shipping</li>
+                                        <li><i class="fa-regular fa-circle-check"></i>Warehousing</li>
                                     </ul>
                                 </div>
                                 <a href="#" class="btn">Get in Touch <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
@@ -168,8 +168,8 @@
                             </div>
                         </div>
                         <div class="services__content">
-                            <h3 class="title"><a href="#">Standard Courier</a></h3>
-                            <p>Road transpo arer tation criucial roley coordinated trans portatn the countries destination.</p>
+                            <h3 class="title"><a href="#">Standard Courier </a></h3>
+                            <p>Professional Delivery Solutions That Go the Extra Mile</p>
                         </div>
                     </div>
                 </div>
@@ -186,7 +186,7 @@
                         </div>
                         <div class="services__content">
                             <h3 class="title"><a href="#">Express Courier</a></h3>
-                            <p>Road transpo arer tation criucial roley coordinated trans portatn the countries destination.</p>
+                            <p>Catchy Deliveries, Unforgettable Experience. Same day Delivery. Next Day Delivery</p>
                         </div>
                     </div>
                 </div>
@@ -202,8 +202,8 @@
                             </div>
                         </div>
                         <div class="services__content">
-                            <h3 class="title"><a href="#">Warehousing</a></h3>
-                            <p>Road transpo arer tation criucial roley coordinated trans portatn the countries destination.</p>
+                            <h3 class="title"><a href="#">Drop shipping </a></h3>
+                            <p>Gives you access to the trendiest products in the market across a wide range of categories. Choose from a great selection of quality products that are in demand at competitive prices</p>
                         </div>
                     </div>
                 </div>
@@ -219,8 +219,8 @@
                             </div>
                         </div>
                         <div class="services__content">
-                            <h3 class="title"><a href="#">International Courier</a></h3>
-                            <p>Road transpo arer tation criucial roley coordinated trans portatn the countries destination.</p>
+                            <h3 class="title"><a href="#">International Courier </a></h3>
+                            <p>Expand your brand's global footprint by shipping with our extensive worldwide reach. Making Professional Deliveries Our Priority</p>
                         </div>
                     </div>
                 </div>
@@ -232,7 +232,17 @@
         </div>
     </section>
     <!-- services-area-end -->
+    <style>
+        .counter__content .count {
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
 
+        .counter__item {
+
+            margin-bottom: 16px;
+        }
+    </style>
     <!-- choose-area -->
     <section class="choose__area choose__bg" data-background="new1/assets/img/bg/vector_bg.svg">
         <div class="container">
@@ -250,8 +260,8 @@
                         </div>
                         <div class="choose__content-bottom">
                             <div class="left-side">
-                                <p>Doloribus debitis dolores amet, minus qui eaque itaque, doloremque at ipsa ab reiciendis assumenda et labore asperiores, cumque impedit! Corrupti, alias laboriosam!</p>
-                                <a href="/why-us" class="btn white-btn">To know more About Us <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                                <p>Fixed prices and no surprises. You focus on your business and leave delivery on our team. We are contactable & responsive. We understand our responsibilities, we listen, suggest and update</p>
+                                <a href="/about" class="btn white-btn">To know more About Us <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
                             </div>
                             <div class="counter__wrap">
                                 <div class="counter__item">
@@ -259,7 +269,16 @@
                                         <i class="fa-solid fa-truck-fast"></i>
                                     </div>
                                     <div class="counter__content">
-                                        <h2 class="count"><span>Fast Delivery</span></h2>
+                                        <h2 class="count"><span>Innovative and Clever Deliveries Just for Your</span></h2>
+                                        <!-- <p>Delivered Goods</p> -->
+                                    </div>
+                                </div>
+                                <div class="counter__item">
+                                    <div class="counter__icon">
+                                        <i class="fa-solid fa-truck-fast"></i>
+                                    </div>
+                                    <div class="counter__content">
+                                        <h2 class="count"><span>Your Coolest Delivery Partner</span></h2>
                                         <!-- <p>Delivered Goods</p> -->
                                     </div>
                                 </div>
@@ -268,7 +287,7 @@
                                         <i class="fa-solid fa-money-bill"></i>
                                     </div>
                                     <div class="counter__content">
-                                        <h2 class="count"><span>Lowest Cost</span></h2>
+                                        <h2 class="count"><span>Rhyme and Rhyme, We Deliver On Time</span></h2>
                                         <!-- <p>Clients Worldwide</p> -->
                                     </div>
                                 </div>
@@ -277,7 +296,7 @@
                                         <i class="fa-brands fa-servicestack"></i>
                                     </div>
                                     <div class="counter__content">
-                                        <h2 class="count"><span>Secured Services</span></h2>
+                                        <h2 class="count"><span>Classy Delivery Solutions Tailored to You</span></h2>
                                         <!-- <p>Clients Worldwide</p> -->
                                     </div>
                                 </div>
@@ -368,8 +387,8 @@
             <div class="row align-items-end">
                 <div class="col-lg-6 col-md-8">
                     <div class="section__title mb-40">
-                        <span class="sub-title">Featured Projects</span>
-                        <h2 class="title">We Are Proud to Excellence Deliver Success</h2>
+                        <span class="sub-title">Featured PRODUCTS</span>
+                        <h2 class="title">Navigating Miles, Delivering Smiles</h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-4">
@@ -473,16 +492,16 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="request-tab" data-bs-toggle="tab" data-bs-target="#request-tab-pane" type="button" role="tab" aria-controls="request-tab-pane" aria-selected="true"><i class="fa-solid fa-box"></i>Request a Quote</button>
                                 </li>
-                                <li class="nav-item" role="presentation">
+                                <!-- <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="track-tab" data-bs-toggle="tab" data-bs-target="#track-tab-pane" type="button" role="tab" aria-controls="track-tab-pane" aria-selected="false"><i class="fa-solid fa-hourglass-start"></i>Track & Trace</button>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                         <div class="request__tab-wrap">
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane show active" id="request-tab-pane" role="tabpanel" aria-labelledby="request-tab" tabindex="0">
                                     <form action="request-quote" class="request__form" method="post">@csrf
-                                    <span class="title">Personal Data</span>
+                                        <span class="title">Personal Data</span>
                                         <div class="row gutter-20">
                                             <div class="col-lg-4">
                                                 <div class="form-grp">
@@ -491,7 +510,7 @@
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-grp">
-                                                    <input type="email" name="email"  placeholder="Enter Email*" required>
+                                                    <input type="email" name="email" placeholder="Enter Email*" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
@@ -502,7 +521,7 @@
                                         </div>
                                         <span class="title">Shipment Data</span>
                                         <div class="row gutter-20">
-                                            
+
                                             <div class="col-lg-6">
                                                 <div class="form-grp">
                                                     <input type="text" name="cname" placeholder="Company Name" required>
@@ -517,27 +536,27 @@
                                             <div class="col-lg-4">
                                                 <div class="form-grp">
                                                     <div class="form-grp select-grp">
-                                                    <select class="form-select" name="count" id="count" placeholder="--Select option--" required="">
-                                                <option>--Select option--</option>
-                                                <option value="Setting up new Business">Setting up new Business</option>
-                                                <option value="Between 1 to 10 Orders">Between 1 to 10 Orders</option>
-                                                <option value="11 to 100 Orders">11 to 100 Orders</option>
-                                                <option value="101 to 500 Orders">101 to 500 Orders</option>
-                                                <option value="501 to 1000 Orders">501 to 1000 Orders</option>
-                                                <option value="1000 to 3000 Orders">1000 to 3000 Orders</option>
-                                                <option value="More than 3000 Orders">More than 3000 Orders</option>
-                                            </select>
+                                                        <select class="form-select" name="count" id="count" placeholder="--Select option--" required="">
+                                                            <option>--Select option--</option>
+                                                            <option value="Setting up new Business">Setting up new Business</option>
+                                                            <option value="Between 1 to 10 Orders">Between 1 to 10 Orders</option>
+                                                            <option value="11 to 100 Orders">11 to 100 Orders</option>
+                                                            <option value="101 to 500 Orders">101 to 500 Orders</option>
+                                                            <option value="501 to 1000 Orders">501 to 1000 Orders</option>
+                                                            <option value="1000 to 3000 Orders">1000 to 3000 Orders</option>
+                                                            <option value="More than 3000 Orders">More than 3000 Orders</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
-                                            
+
+
                                         </div>
-                                        
+
                                         <button type="submit" class="btn">Request a Quote</button>
                                     </form>
                                 </div>
-                                <div class="tab-pane" id="track-tab-pane" role="tabpanel" aria-labelledby="track-tab" tabindex="0">
+                                <!-- <div class="tab-pane" id="track-tab-pane" role="tabpanel" aria-labelledby="track-tab" tabindex="0">
                                     <form action="#" class="request__form">
                                         <span class="title">Shipment Type</span>
                                         <div class="form-grp select-grp">
@@ -579,7 +598,7 @@
                                         </div>
                                         <button type="submit" class="btn">Track & Trace</button>
                                     </form>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -654,7 +673,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             <div class="testimonial__nav-wrap">
                                 <button class="testimonial-button-prev">
@@ -682,7 +701,7 @@
                 <div class="col-lg-6">
                     <div class="section__title text-center white-title mb-50">
                         <span class="sub-title">HOW IT WORKS</span>
-                        <h2 class="title">How We Operate Unveiling <br> Our Logistics Process</h2>
+                        <h2 class="title">We have designed our platform to support every online seller, whether you are a startup or selling on market place. Doesn’t matter, you selling Domestic or International, we have solution for you.</h2>
                     </div>
                 </div>
             </div>
@@ -695,8 +714,8 @@
                                 <span class="number">01</span>
                             </div>
                             <div class="work__content">
-                                <h4 class="title">Request A Quote</h4>
-                                <p>There are many variation sear passages orem</p>
+                                <h4 class="title">Startup’s / Small scale enterprises </h4>
+                                <p>Doesn’t matter you are shipping 10 packets a day or 100 packets we will pick and deliver.</p>
                             </div>
                             <div class="work__shape">
                                 <img src="new1/assets/img/images/work_shape01.svg" alt="" class="injectable">
@@ -710,8 +729,8 @@
                                 <span class="number">02</span>
                             </div>
                             <div class="work__content">
-                                <h4 class="title">Call Back From Office</h4>
-                                <p>There are many variation sear passages orem</p>
+                                <h4 class="title">Marketplace Sellers</h4>
+                                <p>Selling on Amazon, ebay, etsy etc we have channel integration for you. Link your store and start shipping.</p>
                             </div>
                             <div class="work__shape">
                                 <img src="new1/assets/img/images/work_shape02.svg" alt="" class="injectable">
@@ -725,8 +744,8 @@
                                 <span class="number">03</span>
                             </div>
                             <div class="work__content">
-                                <h4 class="title">Delivery Available</h4>
-                                <p>There are many variation sear passages orem</p>
+                                <h4 class="title">Sellers on Social Media </h4>
+                                <p>Wow ! Selling on Wat’s App and Instagram, boom your business, give your clients COD facility / partial COD facility. We will take care of all your shipping needs.</p>
                             </div>
                             <div class="work__shape">
                                 <img src="new1/assets/img/images/work_shape01.svg" alt="" class="injectable">
@@ -740,8 +759,8 @@
                                 <span class="number">04</span>
                             </div>
                             <div class="work__content">
-                                <h4 class="title">Deliver Shipping</h4>
-                                <p>There are many variation sear passages orem</p>
+                                <h4 class="title">Drop Shipper </h4>
+                                <p>Selling from multiple locations, selling for multiple vendors, selling heavy weight packets. We will not let you down, we are here for you.</p>
                             </div>
                             <div class="work__shape">
                                 <img src="new1/assets/img/images/work_shape01.svg" alt="" class="injectable">
@@ -752,87 +771,6 @@
             </div>
         </div>
     </section>
-    <!-- work-area-end -->
-
-    <!-- blog-post-area -->
-    <!-- <section class="blog__post-area">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 col-md-8">
-                <div class="section__title mb-40">
-                    <span class="sub-title">LATEST NEWS</span>
-                    <h2 class="title">Our Recent Articles</h2>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-4">
-                <div class="view-all-btn text-end mb-40">
-                    <a href="services.html" class="btn btn-two">See All News <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center gutter-24">
-            <div class="col-lg-4 col-md-6">
-                <div class="blog__post-item shine__animate-item">
-                    <div class="blog__post-thumb">
-                        <a href="blog-details.html" class="shine__animate-link"><img src="new1/assets/img/blog/blog_img01.jpg" alt="img"></a>
-                    </div>
-                    <div class="blog__post-content">
-                        <div class="blog__meta">
-                            <ul class="list-wrap">
-                                <li><i class="flaticon-calendar"></i>25 Nov, 2024</li>
-                            </ul>
-                        </div>
-                        <h3 class="title"><a href="blog-details.html">Importers achieve savings through the First Sale rule!</a></h3>
-                        <p>Road transpo arere tation criucial roley area coordinated trans portatn they aw countries destination.</p>
-                        <a href="services.html" class="btn btn-two">Read More <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog__post-item shine__animate-item">
-                    <div class="blog__post-thumb">
-                        <a href="blog-details.html" class="shine__animate-link"><img src="new1/assets/img/blog/blog_img02.jpg" alt="img"></a>
-                    </div>
-                    <div class="blog__post-content">
-                        <div class="blog__meta">
-                            <ul class="list-wrap">
-                                <li><i class="flaticon-calendar"></i>25 Nov, 2024</li>
-                            </ul>
-                        </div>
-                        <h3 class="title"><a href="blog-details.html">The Future of Logistics Emb racing Technology</a></h3>
-                        <p>Road transpo arere tation criucial roley area coordinated trans portatn they aw countries destination.</p>
-                        <a href="services.html" class="btn btn-two">Read More <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog__post-item shine__animate-item">
-                    <div class="blog__post-thumb">
-                        <a href="blog-details.html" class="shine__animate-link"><img src="new1/assets/img/blog/blog_img03.jpg" alt="img"></a>
-                    </div>
-                    <div class="blog__post-content">
-                        <div class="blog__meta">
-                            <ul class="list-wrap">
-                                <li><i class="flaticon-calendar"></i>25 Nov, 2024</li>
-                            </ul>
-                        </div>
-                        <h3 class="title"><a href="blog-details.html">Green Logistics Solutions for a Greener Future</a></h3>
-                        <p>Road transpo arere tation criucial roley area coordinated trans portatn they aw countries destination.</p>
-                        <a href="services.html" class="btn btn-two">Read More <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-    <!-- blog-post-area-end -->
-
-    <!-- contact-map -->
-    <!-- <div class="contact-map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48409.69813174607!2d-74.05163325136718!3d40.68264649999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25bae694479a3%3A0xb9949385da52e69e!2sBarclays%20Center!5e0!3m2!1sen!2sbd!4v1684309529719!5m2!1sen!2sbd"
-        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div> -->
-    <!-- contact-map-end -->
 
 </main>
 <!-- main-area-end -->

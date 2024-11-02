@@ -13,7 +13,7 @@
                         <h1 class="title">About Us</h1>
                         <nav class="breadcrumb">
                             <span property="itemListElement" typeof="ListItem">
-                                <a href="index.html">Home</a>
+                                <a href="/">Home</a>
                             </span>
                             <span class="breadcrumb-separator"><i class="flaticon-right-arrow"></i></span>
                             <span property="itemListElement" typeof="ListItem">About Us</span>
