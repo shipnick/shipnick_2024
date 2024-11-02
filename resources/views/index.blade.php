@@ -49,7 +49,7 @@
                         </div>
                         <p>Delivering a full range of logistics solutions involves integrating various services to meet the diverse needs of businesses.</p>
                         <div class="about__content-bottom">
-                            <div class="about__list-box-wrap">
+                            <div class="about__list-box-wrap">  
                                 <div class="about__list-box">
                                     <ul class="list-wrap">
                                         <li><i class="fa-regular fa-circle-check"></i>Domestic Shipping</li>

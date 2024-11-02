@@ -54,7 +54,7 @@
                                     <li><i class="fa-regular fa-circle-check"></i>Centralized Dashboard</li>
                                     <li><i class="fa-regular fa-circle-check"></i>Customized Shipping Rules</li>
                                 </ul>
-                            </div>
+                            </div>  
                             <div class="about__clients-box">
                                 <span>Flexible, Improved & Accelerated Solutions!</span>
                                 <div class="counter__item">

@@ -270,7 +270,7 @@
             <div class="offCanvas__close-icon menu-close">
                 <button><i class="far fa-window-close"></i></button>
             </div>
-            <div class="offCanvas__logo mb-30">
+            <div class="offCanvas__logo mb-30">  
                 <!-- <a href="index.html"><img src="assets/img/logo/logo.svg" alt="Logo"></a> -->
                 <h3> Shipnick</h3>
             </div>
