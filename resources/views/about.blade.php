@@ -13,7 +13,7 @@
                         <h1 class="title">About Us</h1>
                         <nav class="breadcrumb">
                             <span property="itemListElement" typeof="ListItem">
-                                <a href="index.html">Home</a>
+                                <a href="/">Home</a>
                             </span>
                             <span class="breadcrumb-separator"><i class="flaticon-right-arrow"></i></span>
                             <span property="itemListElement" typeof="ListItem">About Us</span>
@@ -54,7 +54,7 @@
                                     <li><i class="fa-regular fa-circle-check"></i>Centralized Dashboard</li>
                                     <li><i class="fa-regular fa-circle-check"></i>Customized Shipping Rules</li>
                                 </ul>
-                            </div>
+                            </div>  
                             <div class="about__clients-box">
                                 <span>Flexible, Improved & Accelerated Solutions!</span>
                                 <div class="counter__item">

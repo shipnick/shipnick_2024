@@ -59,7 +59,7 @@
                 <div class="row align-items-center">
                     <div class="col-xl-7">
                         <ul class="tg-header__top-info left-side list-wrap">
-                            <li><i class="fa-solid fa-location-dot"></i>Sec-55, Shushant lok, Gurugram, Haryana</li>
+                            <li><i class="fa-solid fa-location-dot"></i>C 2 78, Lal Sarak Hansi, Haryana</li>
                             <li><i class="fa-regular fa-envelope"></i><a href="mailto:info@gmail.com">info@shipnick.com</a></li>
                             <li><i class="fa-regular fa-clock"></i>Mon – Sun: 9.00 am – 8.00pm</li>
                         </ul>
@@ -67,8 +67,8 @@
                     <div class="col-xl-5">
                         <div class="tg-header__top-right">
                             <ul class="tg-header__top-menu list-wrap">
-                                <li><a href="contact.html">Help Center</a></li>
-                                <li><a href="contact.html">Find Store</a></li>
+                                <li><a href="#">Help Center</a></li>
+                                <li><a href="#">Find Store</a></li>
                             </ul>
                             <div class="tg-header__top-social">
                                 <span>Follow Us On:</span>
@@ -120,11 +120,13 @@
                                         <a href="{{ url('about') }}">About Us</a>
                                     </li>
                                     <li class="{{ request()->is('why-us') ? 'active' : '' }}">
-                                        <a href="{{ url('why-us') }}">SERVICES </a>
+                                        <a href="{{ url('why-us') }}">Services </a>
                                     </li>
                                     <li class="{{ request()->is('contact') ? 'active' : '' }}">
                                         <a href="{{ url('contact') }}">Contacts</a>
                                     </li>
+                                    <!-- <li class="header-btn"> <a href="login" class="btn"><i
+                                        class="fa-regular fa-user"></i>login</a></li> -->
                                     <!-- <li class="menu-item-has-children"><a href="#">Pages</a>
                                         <ul class="sub-menu">
                                             <li><a href="who-we-are.html">Who We Are</a></li>
@@ -180,17 +182,18 @@
                                         </div>
                                     </li>
                                     <li class="header-btn"><a href="login" class="btn"><i class="fa-regular fa-user"></i>login</a></li>
+                                    
                                 </ul>
                             </div>
                             <div class="mobile-nav-toggler">
-                                <i class="tg-flaticon-menu-1"></i>
+                            <i class="fa-solid fa-bars"></i>
                             </div>
                         </div>
 
                         <!-- Mobile Menu  -->
                         <div class="tgmobile__menu">
                             <nav class="tgmobile__menu-box">
-                                <div class="close-btn"><i class="tg-flaticon-close"></i></div>
+                                <div class="close-btn"><i class="fa-solid fa-xmark"></i></div>
                                 <div class="nav-logo">
                                     shipnick
                                     <!-- <a href="index.html"><img src="assets/img/logo/logo.svg" alt="Logo"></a> -->
@@ -203,6 +206,9 @@
                                 </div>
                                 <div class="tgmobile__menu-outer">
                                     <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                                    <div class="" style="margin-left: 4%;">
+                                        <a href="login" class="btn"><i class="fa-regular fa-user"></i>login</a>
+                                    </div>
                                 </div>
                                 <div class="social-links">
                                     <ul class="list-wrap">
@@ -264,7 +270,7 @@
             <div class="offCanvas__close-icon menu-close">
                 <button><i class="far fa-window-close"></i></button>
             </div>
-            <div class="offCanvas__logo mb-30">
+            <div class="offCanvas__logo mb-30">  
                 <!-- <a href="index.html"><img src="assets/img/logo/logo.svg" alt="Logo"></a> -->
                 <h3> Shipnick</h3>
             </div>
