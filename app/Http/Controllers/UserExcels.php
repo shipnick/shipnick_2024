@@ -20,6 +20,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\Exportable;
+use App\Models\couriers;
 
 
 class UserExcels extends Controller
@@ -146,6 +147,7 @@ class UserExcels extends Controller
     public function MIS(){
         $userid = session()->get('UserLogin2id');
         $hubs = Hubs::where('hub_created_by',$userid)->get();
+        $Fulfilledby = couriers::where('courier_added','Shipnick')->get();
 		$tdate0 = date('Y-m-d');
 		$tdate1 = date('Y-m-d',strtotime("-1 days"));
 		$tdate2 = date('Y-m-d',strtotime("-2 days"));
@@ -157,7 +159,7 @@ class UserExcels extends Controller
 		$days2 = Manifestorders::where('user_id',$userid)->where('uploaddate',$tdate2)->get('uploadtime');
 		$days3 = Manifestorders::where('user_id',$userid)->where('uploaddate',$tdate3)->get('uploadtime');
 		$days4 = Manifestorders::where('user_id',$userid)->where('uploaddate',$tdate4)->get('uploadtime');
-        return view('UserPanel.Reports.MISReport',['days0'=>$days0,'tdate0'=>$tdate0,'days1'=>$days1,'tdate1'=>$tdate1,'days2'=>$days2,'tdate2'=>$tdate2,'days3'=>$days3,'tdate3'=>$tdate3,'days4'=>$days4,'tdate4'=>$tdate4,'hubs'=>$hubs]);
+        return view('UserPanel.Reports.MISReport',['days0'=>$days0,'tdate0'=>$tdate0,'days1'=>$days1,'tdate1'=>$tdate1,'days2'=>$days2,'tdate2'=>$tdate2,'days3'=>$days3,'tdate3'=>$tdate3,'days4'=>$days4,'tdate4'=>$tdate4,'hubs'=>$hubs,'Fulfilledby'=>$Fulfilledby]);
     }
 
 

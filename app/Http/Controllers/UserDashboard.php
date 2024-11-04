@@ -316,9 +316,9 @@ class UserDashboard extends Controller
         ->sum('Total_Amount');
 
       $thisWeekCount = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['delivered', 'Delivered'])
-        ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
-        ->sum('Total_Amount');
+      ->whereIn('showerrors', ['delivered', 'Delivered'])
+      ->where('Rec_Time_Date', '>=', Carbon::now()->subDays(7))
+      ->sum('Total_Amount');
 
       $thisMonthCount = bulkorders::where('User_Id', $userid)
         ->whereIn('showerrors', ['delivered', 'Delivered'])
@@ -2070,14 +2070,17 @@ class UserDashboard extends Controller
       ->count('Single_Order_Id');
     return view('UserPanel.DashboardData.Last90DaysGraph', ['allcomplete' => $allcomplete, 'allpending' => $allpending, 'allcancel' => $allrto, 'alluploaded' => $alluploaded, 'allcanceled' => $allcanceled]);
   }
-  public function showOrderCounts()
+  public function showOrderCounts( Request $request)
   {
     // Get the user ID from the session
     $userid = session()->get('UserLogin2id');
 
     // Get the first and last day of the current month
-    $fromDate = Carbon::now()->startOfMonth()->toDateString();
-    $toDate = Carbon::now()->endOfMonth()->toDateString();
+
+    $fromDate = Carbon::parse($request->start_date)->startOfDay(); // Start of the day for $cfromdate
+      $toDate = Carbon::parse($request->end_date)->endOfDay(); // End of the day for $ctodate
+    // $fromDate = Carbon::now()->startOfMonth()->toDateString();
+    // $toDate = Carbon::now()->endOfMonth()->toDateString();
 
     // Define the common conditions
     $commonConditions = [
@@ -2118,6 +2121,8 @@ class UserDashboard extends Controller
     $xpressbeeNDR = $getCount('Xpressbee', null, $statusCategories['NDR']);
     $xpressbeeDelivered = $getCount('Xpressbee', null, $statusCategories['Delivered']);
     $xpressbeeRto = $getCount('Xpressbee', null, $statusCategories['Rto']);
+    $xpressbeeDeliveredPersent = $xpressbee -$xpressbeeIntransit -$xpressbeeOfd -$xpressbeePending;
+
 
     // Xpressbee Prepaid orders
     $xpressbeePrepaid = $getCount('Xpressbee', 'Prepaid');
@@ -2127,6 +2132,7 @@ class UserDashboard extends Controller
     $xpressbeePrepaidNDR = $getCount('Xpressbee', 'Prepaid', $statusCategories['NDR']);
     $xpressbeePrepaidDelivered = $getCount('Xpressbee', 'Prepaid', $statusCategories['Delivered']);
     $xpressbeePrepaidRto = $getCount('Xpressbee', 'Prepaid', $statusCategories['Rto']);
+    $xpressbeePrepaidDeliveredPresent  = $xpressbeePrepaid -$xpressbeePrepaidPending -            $xpressbeePrepaidIntransit -$xpressbeePrepaidOfd;
 
     // Xpressbee COD orders
     $xpressbeeCod = $getCount('Xpressbee', 'COD');
@@ -2136,6 +2142,7 @@ class UserDashboard extends Controller
     $xpressbeeCodNDR = $getCount('Xpressbee', 'COD', $statusCategories['NDR']);
     $xpressbeeCodDelivered = $getCount('Xpressbee', 'COD', $statusCategories['Delivered']);
     $xpressbeeCodRto = $getCount('Xpressbee', 'COD', $statusCategories['Rto']);
+    $xpressbeeCodDeliveredPresent =$xpressbeeCod -$xpressbeeCodPending -  $xpressbeeCodIntransit - $xpressbeeCodOfd;
 
     // Ecom orders
     $Ecom = $getCount('Ecom');
@@ -2145,6 +2152,7 @@ class UserDashboard extends Controller
     $EcomNdr = $getCount('Ecom', null, $statusCategories['NDR']);
     $EcomDeliverd = $getCount('Ecom', null, $statusCategories['Delivered']);
     $EcomRto = $getCount('Ecom', null, $statusCategories['Rto']);
+    $EcomDeliverdPresent =$Ecom  -$EcomPending - $EcomIntransit - $EcomOfd;
 
     // Ecom Prepaid orders
     $EcomPrepaid = $getCount('Ecom', 'Prepaid');
@@ -2154,6 +2162,7 @@ class UserDashboard extends Controller
     $EcomPrepaidNdr = $getCount('Ecom', 'Prepaid', $statusCategories['NDR']);
     $EcomPrepaidDelivered = $getCount('Ecom', 'Prepaid', $statusCategories['Delivered']);
     $EcomPrepaidRto = $getCount('Ecom', 'Prepaid', $statusCategories['Rto']);
+    $EcomPrepaidDeliveredPresent= $EcomPrepaid -$EcomPrepaidPending -$EcomPrepaidIntransit -$EcomPrepaidOfd;
 
     // Ecom COD orders
     $EcomCod = $getCount('Ecom', 'COD');
@@ -2163,6 +2172,7 @@ class UserDashboard extends Controller
     $EcomCodNdr = $getCount('Ecom', 'COD', $statusCategories['NDR']);
     $EcomCodDelivered = $getCount('Ecom', 'COD', $statusCategories['Delivered']);
     $EcomCodRto = $getCount('Ecom', 'COD', $statusCategories['Rto']);
+    $EcomCodDeliveredPresent = $EcomCod -$EcomCodPending -$EcomCodIntransit -$EcomCodOfd;
 
 
     // Bluedart orders
@@ -2173,6 +2183,7 @@ class UserDashboard extends Controller
     $BluedartNdr = $getCount('Bluedart', null, $statusCategories['NDR']);
     $BluedartDeliverd = $getCount('Bluedart', null, $statusCategories['Delivered']);
     $BluedartRto = $getCount('Bluedart', null, $statusCategories['Rto']);
+    $BluedartDeliverdPresent = $Bluedart -$BluedartPending - $BluedartIntransit - $BluedartOfd;
 
     // Bluedart Prepaid orders
     $BluedartPrepaid = $getCount('Bluedart', 'Prepaid');
@@ -2182,6 +2193,7 @@ class UserDashboard extends Controller
     $BluedartPrepaidNdr = $getCount('Bluedart', 'Prepaid', $statusCategories['NDR']);
     $BluedartPrepaidDelivered = $getCount('Bluedart', 'Prepaid', $statusCategories['Delivered']);
     $BluedartPrepaidRto = $getCount('Bluedart', 'Prepaid', $statusCategories['Rto']);
+    $BluedartPrepaidDeliveredPresent = $BluedartPrepaid -$BluedartPrepaidPending -$BluedartPrepaidIntransit -$BluedartPrepaidOfd;
 
     // Bluedart COD orders
     $BluedartCod = $getCount('Bluedart', 'COD');
@@ -2191,6 +2203,7 @@ class UserDashboard extends Controller
     $BluedartCodNdr = $getCount('Bluedart', 'COD', $statusCategories['NDR']);
     $BluedartCodDelivered = $getCount('Bluedart', 'COD', $statusCategories['Delivered']);
     $BluedartCodRto = $getCount('Bluedart', 'COD', $statusCategories['Rto']);
+    $BluedartCodDeliveredPresent = $BluedartCod -$BluedartCodPending -$BluedartCodIntransit -$BluedartCodOfd;
 
     // Return the counts to the view or as needed
     return view('UserPanel.DashboardData.analytics', compact(
@@ -2258,6 +2271,8 @@ class UserDashboard extends Controller
       'BluedartCodNdr',
       'BluedartCodDelivered',
       'BluedartCodRto'
+
+      ,'xpressbeeDeliveredPersent','xpressbeePrepaidDeliveredPresent' ,'xpressbeeCodDeliveredPresent','EcomDeliverdPresent','EcomPrepaidDeliveredPresent','EcomCodDeliveredPresent','BluedartDeliverdPresent','BluedartPrepaidDeliveredPresent','BluedartCodDeliveredPresent'
     ));
   }
 }

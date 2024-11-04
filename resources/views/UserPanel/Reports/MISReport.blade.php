@@ -32,23 +32,23 @@ Content body start
 												<p class="mb-1">From date - To date</p>
 												<div class="example">
 													<p class="mb-1">Date Range</p>
-													<input type="text" id="daterange" class="form-control"
-														value="{{ request()->get('fromdate') && request()->get('todate') ? request()->get('fromdate') . ' - ' . request()->get('todate') : '' }}">
+													<div id="reportrange" class="pull-right"
+														style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+														<i class="fa fa-calendar"></i>&nbsp;
+														<span></span> <i class="fa fa-caret-down"></i>
+													</div>
+
 													<input type="hidden" name="fromdate" id="start_date" value="{{ request()->get('fromdate') }}">
 													<input type="hidden" name="todate" id="end_date" value="{{ request()->get('todate') }}">
 												</div>
 											</div>
 										</div>
 
+
 									</div>
 									<div class="row">
 
-										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
-											<label for="zip" class="form-label">Waybill Number</label>
-
-											<input type="text" class="form-control" id="waybill"
-												name="awb_number" placeholder="AWB Number">
-										</div>
+										
 
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">Order Type</label>
@@ -56,9 +56,10 @@ Content body start
 												<option value="" selected>Select...</option>
 												<option value="cod">COD</option>
 												<option value="prepaid">Prepaid</option>
+												<option value="Reverse">Reverse </option>
 											</select>
 										</div>
-										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
+										<!-- <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">Status</label>
 											<select class="default-select form-control wide w-100" name="status">
 												<option value="" selected>Select...</option>
@@ -74,23 +75,24 @@ Content body start
 												<option value="10">Lost/Missed</option>
 												<option value="11">Damaged/Destroyed</option>
 											</select>
-										</div>
+										</div> -->
 
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">Hub</label>
 											<select class="default-select form-control wide w-100" name="hub_id">
 												<option value="">Select...</option>
 												@foreach($hubs as $hubs)
-														<option value="{{$hubs->hub_code}}">{{$hubs->hub_code}}</option>
-														@endforeach
+												<option value="{{$hubs->hub_code}}">{{$hubs->hub_code}}({{$hubs->hub_name}})</option>
+												@endforeach
 											</select>
 										</div>
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">Fulfilled by</label>
 											<select class="default-select form-control wide w-100" name="Fulfilled_by">
 												<option value="" selected>Select...</option>
-												<option value="ecom">Ecom</option>
-												<option value="xpressbees">xpressbees</option>
+												@foreach($Fulfilledby as $courier)
+												<option value="{{$courier->name}}">{{$courier->name}}</option>
+												@endforeach
 											</select>
 											<div class="invalid-feedback">
 												Please provide a valid state.
@@ -218,7 +220,7 @@ Content body start
 <!--**********************************
 Content body end
 ***********************************-->
-<script>
+<!-- <script>
 	$(function() {
 		// Initialize the date range picker
 		$('#daterange').daterangepicker({
@@ -245,6 +247,62 @@ Content body end
 			$('#end_date').val('{{ request()->get('
 				to ') }}');
 		}
+	});
+</script> -->
+<script type="text/javascript">
+	$(function() {
+		var start = moment();
+		var end = moment();
+
+		// Function to update the display
+		function cb(start, end) {
+			$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+			$('#start_date').val(start.format('YYYY-MM-DD'));
+			$('#end_date').val(end.format('YYYY-MM-DD'));
+		}
+
+		// Initialize the date range picker
+		$('#reportrange').daterangepicker({
+			startDate: start,
+			endDate: end,
+			ranges: {
+				'Today': [moment(), moment()],
+				'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+				'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+				'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+				'This Month': [moment().startOf('month'), moment().endOf('month')],
+				'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+			}
+		}, cb);
+
+		// Handle URL parameters
+		const urlParams = new URLSearchParams(window.location.search);
+		const startDateParam = urlParams.get('start_date');
+		const endDateParam = urlParams.get('end_date');
+
+		if (startDateParam && endDateParam) {
+			const startDate = moment(startDateParam);
+			const endDate = moment(endDateParam);
+			cb(startDate, endDate); // Update display with the URL parameters
+			$('#reportrange').data('daterangepicker').setStartDate(startDate);
+			$('#reportrange').data('daterangepicker').setEndDate(endDate);
+		} else {
+			// Show today's date initially
+			cb(start, end);
+		}
+
+		// Handle the selection change
+		$('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+			// Set the hidden input values without redirecting
+			$('#start_date').val(picker.startDate.format('YYYY-MM-DD'));
+			$('#end_date').val(picker.endDate.format('YYYY-MM-DD'));
+		});
+
+		// Set the hidden fields if values are present on page load
+		$('#start_date').val('{{ request()->get('
+			from ') }}');
+		$('#end_date').val('{{ request()->get('
+			to ') }}');
 	});
 </script>
 
