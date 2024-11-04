@@ -75,7 +75,7 @@ class OrderStatusUpdate_XPREBEE implements ShouldQueue
                     'showerrors' => $status,
                     'order_status_show' => $status,
                 ]);
-                $param = bulkorders::where('Awb_Number', $$awbNumber)->first();
+                $param = bulkorders::where('Awb_Number', $awbNumber)->first();
 
                         $zone = $param->zone;
                         $userid = $param->User_Id;
