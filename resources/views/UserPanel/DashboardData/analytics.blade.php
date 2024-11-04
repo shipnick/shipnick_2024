@@ -270,10 +270,10 @@
 
 													@php
 																// Calculate the delivery percentage
-																$xpressbeeCodPercentage = ($xpressbeeCodDelivered > 0) ? ($xpressbeeCodDelivered * 100 / xpressbeeCodDeliveredPresent) : 0;
+																$xpressbeeCodPercentag1 = ($xpressbeeCodDelivered > 0) ? ($xpressbeeCodDelivered * 100 / $xpressbeeCodDeliveredPresent) : 0;
 																@endphp
 														<div class="border px-1 py-3 rounded-xl">
-															<h2 class="fs-32 font-w600 counter">{{$xpressbeeCodPercentage ?? 0 }}</h2>
+															<h2 class="fs-32 font-w600 counter">{{$xpressbeeCodPercentag1 ?? 0 }}</h2>
 															<p class="fs-16 mb-0"><br> Delivered %</p>
 														</div>
 													</div>
