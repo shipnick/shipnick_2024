@@ -345,7 +345,7 @@
 													<td>{{ $data->transaction }}</td>
 													<td> {{$data->credit}} </td>
 
-													<td>{{ $data->debit }} @endif</td>
+													<td>{{ $data->debit }} </td>
 													<td>{{ $data->close_blance }}</td>
 													<td>Freight Charges</td>
 												</tr>
