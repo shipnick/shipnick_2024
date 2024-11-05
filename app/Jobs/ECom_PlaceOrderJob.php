@@ -291,6 +291,7 @@ class ECom_PlaceOrderJob implements ShouldQueue
 
                     bulkorders::where('Awb_Number', $awb)->update(['shferrors' => 1]);
                 } else {
+                    $this->ifErrorThenNextApi();
                     echo "<br>else section <br>";
                     $errormsg = $responseio['response'];
                     $errormsg = "Ecom internal error 500";
@@ -303,12 +304,6 @@ class ECom_PlaceOrderJob implements ShouldQueue
                     }
                 }
             }
-
-
-
-
-
-
             // Ecom Order Place End //
             // Ecom Section End
             // echo "<br>Ecom End<br>";
@@ -319,8 +314,13 @@ class ECom_PlaceOrderJob implements ShouldQueue
         } catch (\Throwable $th) {
             $msg = __FILE__ . __METHOD__ . ", Line:" . $th->getLine() . ", Msg:" . $th->getMessage();
             Log::error($msg);
+            $this->ifErrorThenNextApi();
             $this->fail($th);
             throw $th;
         }
+    }
+
+    public function ifErrorThenNextApi(){
+        // $this->data;
     }
 }
