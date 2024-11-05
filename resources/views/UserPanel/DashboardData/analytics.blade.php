@@ -127,7 +127,7 @@
 																		$deliveryxpressPercentage = ($xpressbeeDelivered > 0) ? ($xpressbeeDelivered * 100 / $xpressbeeDeliveredPersent) : 0;
 																		@endphp
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{ $deliveryxpressPercentage }}</h2>
+																			<h2 class="fs-32 font-w600 counter">{{ round($deliveryxpressPercentage, 2) }}</h2>
 																			<p class="fs-16 mb-0">Delivered %</p>
 																		</div>
 																	</div>
@@ -229,8 +229,9 @@
 																$xpressbeePrepaidPercentage = ($xpressbeePrepaidDelivered > 0) ? ($xpressbeePrepaidDelivered * 100 / $xpressbeePrepaidDeliveredPresent) : 0;
 																@endphp
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$xpressbeePrepaidPercentage ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br> Delivered %</p>
+																	<h2 class="fs-32 font-w600 counter">
+																	{{ round($xpressbeePrepaidPercentage, 2) }}</h2>
+																	<p class="fs-16 mb-0">Delivered %</p>
 																</div>
 															</div>
 															<div class="col-sm-4  mb-4">
@@ -304,8 +305,10 @@
 																	$xpressbeeCodPercentag1 = ($xpressbeeCodDelivered > 0) ? ($xpressbeeCodDelivered * 100 / $xpressbeeCodDeliveredPresent) : 0;
 																	@endphp
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$xpressbeeCodPercentag1 ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> Delivered %</p>
+																		<h2 class="fs-32 font-w600 counter">
+																		{{ round($xpressbeeCodPercentag1, 2) }}
+																		</h2>
+																		<p class="fs-16 mb-0"> Delivered %</p>
 																	</div>
 																</div>
 																<div class="col-sm-4 mb-4">
@@ -404,7 +407,10 @@
 																		$EcomPercentage = ($EcomDeliverd > 0) ? ($EcomDeliverd * 100 / $EcomDeliverdPresent) : 0;
 																		@endphp
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$EcomPercentage ?? 0 }}</h2>
+																			<h2 class="fs-32 font-w600 counter">
+
+																			{{ round($EcomPercentage, 2) }}
+																			</h2>
 																			<p class="fs-16 mb-0">Delivered %</p>
 																		</div>
 																	</div>
@@ -516,8 +522,10 @@
 																$EcomPrepaidPercentage = ($EcomPrepaidDelivered > 0) ? ($EcomPrepaidDelivered * 100 / $EcomPrepaidDeliveredPresent) : 0;
 																@endphp
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomPrepaidPercentage ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br> Delivered %</p>
+																	<h2 class="fs-32 font-w600 counter">
+																	{{ round($EcomPrepaidPercentage, 2) }}
+																		</h2>
+																	<p class="fs-16 mb-0">Delivered %</p>
 																</div>
 															</div>
 															<div class="col-sm-4 mb-4">
@@ -591,8 +599,10 @@
 																$EcomCodPercentage = ($EcomCodDelivered > 0) ? ($EcomCodDelivered * 100 / $EcomCodDeliveredPresent) : 0;
 																@endphp
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomCodPercentage ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br> Delivered %</p>
+																	<h2 class="fs-32 font-w600 counter">
+																	{{ round($EcomCodPercentage, 2) }}
+																	</h2>
+																	<p class="fs-16 mb-0"> Delivered %</p>
 																</div>
 															</div>
 															<div class="col-sm-4 mb-4">
@@ -699,7 +709,9 @@
 																			$Bluedartpersentage = ($BluedartDeliverd > 0) ? ($BluedartDeliverdPresent * 100 / $xpressbeePrepaidDeliveredPresent) : 0;
 																			@endphp
 																			<div class="border px-1 py-3 rounded-xl">
-																				<h2 class="fs-32 font-w600 counter">{{$Bluedartpersentage ?? 0 }}
+																				<h2 class="fs-32 font-w600 counter">
+
+																				{{ round($Bluedartpersentage, 2) }}
 																				</h2>
 																				<p class="fs-16 mb-0">Delivered %</p>
 																			</div>
@@ -808,8 +820,11 @@
 																	$BluedartPrepaidPercentage = ($BluedartPrepaidDelivered > 0) ? ($BluedartPrepaidDelivered * 100 / $BluedartPrepaidDeliveredPresent) : 0;
 																	@endphp
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartPrepaidPercentage ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> Delivered %</p>
+																		<h2 class="fs-32 font-w600 counter">
+
+																		{{ round($BluedartPrepaidPercentage, 2) }}
+																		</h2>
+																		<p class="fs-16 mb-0"> Delivered %</p>
 																	</div>
 																</div>
 																<div class="col-sm-4 mb-4">
@@ -884,8 +899,10 @@
 																	$BluedartCodPercentage = ($BluedartCodDelivered > 0) ? ($BluedartCodDelivered * 100 / $BluedartCodDeliveredPresent) : 0;
 																	@endphp
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartCodRto ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> Delivered %</p>
+																		<h2 class="fs-32 font-w600 counter">
+																		{{ round($BluedartCodPercentage, 2) }}
+																		</h2>
+																		<p class="fs-16 mb-0">Delivered %</p>
 																	</div>
 																</div>
 																<div class="col-sm-4 mb-4">
