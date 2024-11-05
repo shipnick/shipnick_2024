@@ -127,7 +127,7 @@
 																		$deliveryxpressPercentage = ($xpressbeeDelivered > 0) ? ($xpressbeeDelivered * 100 / $xpressbeeDeliveredPersent) : 0;
 																		@endphp
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{ round($deliveryxpressPercentage, 2) }}</h2>
+																			<h2 class="fs-32 font-w600 counter">{{ round($deliveryxpressPercentage) }}</h2>
 																			<p class="fs-16 mb-0">Delivered %</p>
 																		</div>
 																	</div>
@@ -230,7 +230,7 @@
 																@endphp
 																<div class="border px-1 py-3 rounded-xl">
 																	<h2 class="fs-32 font-w600 counter">
-																	{{ round($xpressbeePrepaidPercentage, 2) }}</h2>
+																	{{ round($xpressbeePrepaidPercentage) }}</h2>
 																	<p class="fs-16 mb-0">Delivered %</p>
 																</div>
 															</div>
@@ -306,7 +306,7 @@
 																	@endphp
 																	<div class="border px-1 py-3 rounded-xl">
 																		<h2 class="fs-32 font-w600 counter">
-																		{{ round($xpressbeeCodPercentag1, 2) }}
+																		{{ round($xpressbeeCodPercentag1) }}
 																		</h2>
 																		<p class="fs-16 mb-0"> Delivered %</p>
 																	</div>
@@ -409,7 +409,7 @@
 																		<div class="border px-1 py-3 rounded-xl">
 																			<h2 class="fs-32 font-w600 counter">
 
-																			{{ round($EcomPercentage, 2) }}
+																			{{ round($EcomPercentage) }}
 																			</h2>
 																			<p class="fs-16 mb-0">Delivered %</p>
 																		</div>
@@ -523,7 +523,7 @@
 																@endphp
 																<div class="border px-1 py-3 rounded-xl">
 																	<h2 class="fs-32 font-w600 counter">
-																	{{ round($EcomPrepaidPercentage, 2) }}
+																	{{ round($EcomPrepaidPercentage) }}
 																		</h2>
 																	<p class="fs-16 mb-0">Delivered %</p>
 																</div>
@@ -600,7 +600,7 @@
 																@endphp
 																<div class="border px-1 py-3 rounded-xl">
 																	<h2 class="fs-32 font-w600 counter">
-																	{{ round($EcomCodPercentage, 2) }}
+																	{{ round($EcomCodPercentage) }}
 																	</h2>
 																	<p class="fs-16 mb-0"> Delivered %</p>
 																</div>
@@ -711,7 +711,7 @@
 																			<div class="border px-1 py-3 rounded-xl">
 																				<h2 class="fs-32 font-w600 counter">
 
-																				{{ round($Bluedartpersentage, 2) }}
+																				{{ round($Bluedartpersentage) }}
 																				</h2>
 																				<p class="fs-16 mb-0">Delivered %</p>
 																			</div>
@@ -822,7 +822,7 @@
 																	<div class="border px-1 py-3 rounded-xl">
 																		<h2 class="fs-32 font-w600 counter">
 
-																		{{ round($BluedartPrepaidPercentage, 2) }}
+																		{{ round($BluedartPrepaidPercentage) }}
 																		</h2>
 																		<p class="fs-16 mb-0"> Delivered %</p>
 																	</div>
@@ -900,7 +900,7 @@
 																	@endphp
 																	<div class="border px-1 py-3 rounded-xl">
 																		<h2 class="fs-32 font-w600 counter">
-																		{{ round($BluedartCodPercentage, 2) }}
+																		{{ round($BluedartCodPercentage) }}
 																		</h2>
 																		<p class="fs-16 mb-0">Delivered %</p>
 																	</div>
