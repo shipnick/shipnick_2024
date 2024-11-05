@@ -556,9 +556,9 @@ class ECom_PlaceOrderJob implements ShouldQueue
                 // Close cURL session
                 curl_close($curl);
 
-                echo "<br><pre>";
-                print_r(($responseecom));
-                echo "</pre><br>";
+                // echo "<br><pre>";
+                // print_r(($responseecom));
+                // echo "</pre><br>";
 
 
 
@@ -577,12 +577,12 @@ class ECom_PlaceOrderJob implements ShouldQueue
                     $ecomorderid = $responseecom['shipments'][0]['order_number'];
                     bulkorders::where('Single_Order_Id', $crtidis)->update(['courier_ship_no' => $ecomorderid, 'Awb_Number' => $ecomawbnois, 'awb_gen_by' => $carrierby, 'awb_gen_courier' => 'Ecom']);
 
-                    $param = bulkorders::where('Awb_Number', $crtidis)->first();
+                    $param = bulkorders::where('Single_Order_Id', $crtidis)->first();
 
                         $zone = $param->zone;
                         $userid = $param->User_Id;
                         $courier = $param->awb_gen_by;
-                        $awb = $crtidis;
+                        $awb = $param->Awb_Number;
                         $idnew = $param->Single_Order_Id;
                         $date = $param->Rec_Time_Date;
                         
