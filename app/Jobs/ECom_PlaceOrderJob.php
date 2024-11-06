@@ -44,7 +44,6 @@ class ECom_PlaceOrderJob implements ShouldQueue
         try {
             extract($this->data);
 
-
             echo "<br>Ecom Start<br>";
             $thisgenerateawbno = "";
             // Ecom Section Start
@@ -331,7 +330,7 @@ class ECom_PlaceOrderJob implements ShouldQueue
         }
     }
 
-    public function ifErrorThenNextApi()
+    public function ifErrorThenNextApi($currentCourier = 'ecom01')
     {
         try {
             extract($this->data);
@@ -344,7 +343,7 @@ class ECom_PlaceOrderJob implements ShouldQueue
             // dd($courierassigns);
 
             // Find the index of 'ecom01'
-            $index = $courierassigns->search('ecom01');
+            $index = $courierassigns->search($currentCourier);
 
             // Check if 'ecom01' was found and if there is a next value
             if ($index !== false && $index + 1 < $courierassigns->count()) {

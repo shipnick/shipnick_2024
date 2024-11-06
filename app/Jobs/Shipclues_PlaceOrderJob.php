@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Console\Commands\PlaceShipment_CMD;
 use App\Models\bulkorders;
 use App\Models\courierpermission;
 use App\Models\Hubs;
@@ -40,7 +41,7 @@ class BlueDart_PlaceOrderJob implements ShouldQueue
         try {
             extract($this->data);
 
-            echo "<br>xpressbee Start<br>";
+            echo "<br>Shipclues Start<br>";
             $thisgenerateawbno = "";
 
 
@@ -169,6 +170,7 @@ class BlueDart_PlaceOrderJob implements ShouldQueue
                     'showerrors' => 'ship'
                 ]);
             } else {
+                $this->ifErrorThenNextApi();
                 echo "<br>else section <br>";
                 $errormsg = $responseship['message'];
                 // $errormsg = "Ecom internal error 500";
@@ -325,7 +327,42 @@ class BlueDart_PlaceOrderJob implements ShouldQueue
         } catch (\Throwable $th) {
             $msg = __FILE__ . __METHOD__ . ", Line:" . $th->getLine() . ", Msg:" . $th->getMessage();
             Log::error($msg);
+            $this->ifErrorThenNextApi();
             $this->fail($th);
+            throw $th;
+        }
+    }
+
+    public function ifErrorThenNextApi($currentCourier = 'bluedart01')
+    {
+        try {
+            extract($this->data);
+            $courierassigns = courierpermission::where('user_id', $userid)
+                ->where('courier_priority', '!=', '0')
+                ->where('admin_flg', '1')
+                ->where('user_flg', '1')
+                ->orderby('courier_priority', 'asc')
+                ->pluck('courier_idno');
+            // dd($courierassigns);
+
+            // Find the index of 'ecom01'
+            $index = $courierassigns->search($currentCourier);
+
+            // Check if 'ecom01' was found and if there is a next value
+            if ($index !== false && $index + 1 < $courierassigns->count()) {
+                // Get the next value after 'ecom01'
+                $nextCourier = $courierassigns[$index + 1]; //  'xpressbee0'
+                // PlaceShipment_CMD::API_PROVIDER['xpressbee0']
+
+                $jobClass = 'App\\Jobs\\' . PlaceShipment_CMD::API_PROVIDER[$nextCourier] . '_PlaceOrderJob';
+                Log::info('Dispatching ' . $jobClass);
+                $jobClass::dispatch($this->data)->onQueue('place_order');
+            } else {
+                Log::info("No courier provider");
+            }
+        } catch (\Throwable $th) {
+            $msg = __FILE__ . __METHOD__ . ", Line:" . $th->getLine() . ", Msg:" . $th->getMessage();
+            Log::error($msg);
             throw $th;
         }
     }
