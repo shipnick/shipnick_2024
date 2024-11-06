@@ -311,6 +311,9 @@ class ECom_PlaceOrderJob implements ShouldQueue
                         $errormsg = "Ecom internal error 500";
                     }
                 }
+            }else {
+                $this->ifErrorThenNextApi();
+                Log::info("picodematch empty");
             }
             // Ecom Order Place End //
             // Ecom Section End
@@ -352,6 +355,8 @@ class ECom_PlaceOrderJob implements ShouldQueue
                 $jobClass = 'App\\Jobs\\' . PlaceShipment_CMD::API_PROVIDER[$nextCourier] . '_PlaceOrderJob';
                 Log::info('Dispatching ' . $jobClass);
                 $jobClass::dispatch($this->data)->onQueue('place_order');
+            }else{
+                Log::info("No courier provider");
             }
         } catch (\Throwable $th) {
             $msg = __FILE__ . __METHOD__ . ", Line:" . $th->getLine() . ", Msg:" . $th->getMessage();
