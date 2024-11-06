@@ -756,6 +756,10 @@ Route::get('/UPManifest_Report', [UserExcels::class, 'Manifest']);
 Route::get('/UPMIS_Report', [UserExcels::class, 'MIS']);
 // Route::get('/UPMIS_Report_ExcelN/{id}/{no}',[UserExcels::class,'MIS_ReportN']);
 Route::get('/UPMIS_Report_ExcelN', [UserExcels::class, 'MIS_ReportN']);
+
+Route::get('/sku_summary', [UserExcels::class, 'skuSummary']);
+Route::get('/skunew', [UserExcels::class, 'skuNew']);
+
 // Reports
 
 

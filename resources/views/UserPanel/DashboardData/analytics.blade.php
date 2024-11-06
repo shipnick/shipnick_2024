@@ -67,38 +67,42 @@
 																<div class="row">
 																	<div class="col-sm-2 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$xpressbee ?? 0 }}</h2>
-																			<p class="fs-16 mb-0">Total Shipment</p>
+																			<h2 class="fs-18 font-w600 counter">
+																				{{$xpressbee ?? 0 }}
+
+
+																			</h2>
+																			<p class="fs-8 mb-0">Total Shipment</p>
 																		</div>
 																	</div>
 																	<div class="col-sm-2 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$xpressbeePending ?? 0 }}</h2>
-																			<p class="fs-16 mb-0">Pickup Pending</p>
+																			<h2 class="fs-18 font-w600 counter">{{$xpressbeePending ?? 0 }}</h2>
+																			<p class="fs-8 mb-0">Pickup Pending</p>
 																		</div>
 																	</div>
 																	<div class="col-sm-2 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$xpressbeeIntransit ?? 0 }}</h2>
-																			<p class="fs-16 mb-0"><br> In-transit</p>
+																			<h2 class="fs-18 font-w600 counter">{{$xpressbeeIntransit ?? 0 }}</h2>
+																			<p class="fs-8 mb-0"><br> In-transit</p>
 																		</div>
 																	</div>
 																	<div class="col-sm-2 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$xpressbeeOfd ?? 0 }}</h2>
-																			<p class="fs-16 mb-0"> <br>OFD</p>
+																			<h2 class="fs-18 font-w600 counter">{{$xpressbeeOfd ?? 0 }}</h2>
+																			<p class="fs-8 mb-0"> <br>OFD</p>
 																		</div>
 																	</div>
 																	<div class="col-sm-2 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$xpressbeeNDR ?? 0 }}</h2>
-																			<p class="fs-16 mb-0">NDR Pending</p>
+																			<h2 class="fs-18 font-w600 counter">{{$xpressbeeNDR ?? 0 }}</h2>
+																			<p class="fs-8 mb-0">NDR Pending</p>
 																		</div>
 																	</div>
 																	<div class="col-sm-2 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$xpressbeeDelivered ?? 0 }}</h2>
-																			<p class="fs-16 mb-0"><br> Delivered</p>
+																			<h2 class="fs-18 font-w600 counter">{{$xpressbeeDelivered ?? 0 }}</h2>
+																			<p class="fs-8 mb-0"><br> Delivered</p>
 																		</div>
 																	</div>
 																</div>
@@ -109,16 +113,16 @@
 
 																	<div class="col-sm-4 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$xpressbeeRto ?? 0 }}</h2>
-																			<p class="fs-16 mb-0"><br>RTO/RTS</p>
+																			<h2 class="fs-18 font-w600 counter">{{$xpressbeeRto ?? 0 }}</h2>
+																			<p class="fs-8 mb-0"><br>RTO/RTS</p>
 																		</div>
 																	</div>
 
 
 																	<div class="col-sm-4 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">0</h2>
-																			<p class="fs-16 mb-0">Lost / Damaged</p>
+																			<h2 class="fs-18 font-w600 counter">0</h2>
+																			<p class="fs-8 mb-0">Lost / Damaged</p>
 																		</div>
 																	</div>
 																	<div class="col-sm-4 mb-4">
@@ -127,8 +131,8 @@
 																		$deliveryxpressPercentage = ($xpressbeeDelivered > 0) ? ($xpressbeeDelivered * 100 / $xpressbeeDeliveredPersent) : 0;
 																		@endphp
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{ round($deliveryxpressPercentage) }}</h2>
-																			<p class="fs-16 mb-0">Delivered %</p>
+																			<h2 class="fs-18 font-w600 counter">{{ round($deliveryxpressPercentage) }}</h2>
+																			<p class="fs-8 mb-0"><br>Delivered%</p>
 																		</div>
 																	</div>
 
@@ -169,46 +173,48 @@
 												</ul>
 											</div>
 										</div>
-										<div class="card-body tab-content p-0">
+										<div class="card-body tab-content ">
 											<div class="tab-pane active show fade" id="PREPAIDxpress" role="tabpanel">
 												<div class="row text-center">
 													<div class="col-md-8">
 														<div class="row">
 															<div class="col-sm-2  mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$xpressbeePrepaid ?? 0 }}</h2>
-																	<p class="fs-16 mb-0">Total Shipment</p>
+																	<h2 class="fs-18 font-w600 counter">
+																		{{$xpressbeePrepaid ?? 0 }}
+																	</h2>
+																	<p class="fs-8 mb-0">Total Shipment</p>
 																</div>
 															</div>
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$xpressbeePrepaidPending ?? 0 }}</h2>
-																	<p class="fs-16 mb-0">Pickup Pending</p>
+																	<h2 class="fs-18 font-w600 counter">{{$xpressbeePrepaidPending ?? 0 }}</h2>
+																	<p class="fs-8 mb-0">Pickup Pending</p>
 																</div>
 															</div>
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$xpressbeePrepaidIntransit ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br>In-transit </p>
+																	<h2 class="fs-18 font-w600 counter">{{$xpressbeePrepaidIntransit ?? 0 }}</h2>
+																	<p class="fs-8 mb-0"><br>In-transit </p>
 																</div>
 															</div>
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$xpressbeePrepaidOfd ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br>OFD</p>
+																	<h2 class="fs-18 font-w600 counter">{{$xpressbeePrepaidOfd ?? 0 }}</h2>
+																	<p class="fs-8 mb-0"><br>OFD</p>
 																</div>
 															</div>
 
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$xpressbeePrepaidNDR ?? 0 }}</h2>
-																	<p class="fs-16 mb-0">NDR Pending</p>
+																	<h2 class="fs-18 font-w600 counter">{{$xpressbeePrepaidNDR ?? 0 }}</h2>
+																	<p class="fs-8 mb-0">NDR Pending</p>
 																</div>
 															</div>
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$xpressbeePrepaidDelivered ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br> Delivered</p>
+																	<h2 class="fs-18 font-w600 counter">{{$xpressbeePrepaidDelivered ?? 0 }}</h2>
+																	<p class="fs-8 mb-0"><br> Delivered</p>
 																</div>
 															</div>
 
@@ -219,8 +225,8 @@
 
 															<div class="col-sm-4 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$xpressbeePrepaidRto ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br> RTO/RTS</p>
+																	<h2 class="fs-18 font-w600 counter">{{$xpressbeePrepaidRto ?? 0 }}</h2>
+																	<p class="fs-8 mb-0"><br> RTO/RTS</p>
 																</div>
 															</div>
 															<div class="col-sm-4 mb-4">
@@ -229,15 +235,16 @@
 																$xpressbeePrepaidPercentage = ($xpressbeePrepaidDelivered > 0) ? ($xpressbeePrepaidDelivered * 100 / $xpressbeePrepaidDeliveredPresent) : 0;
 																@endphp
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">
-																	{{ round($xpressbeePrepaidPercentage) }}</h2>
-																	<p class="fs-16 mb-0">Delivered %</p>
+																	<h2 class="fs-18 font-w600 counter">
+																		{{ round($xpressbeePrepaidPercentage) }}
+																	</h2>
+																	<p class="fs-8 mb-0"><br>Delivered %</p>
 																</div>
 															</div>
 															<div class="col-sm-4  mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">0</h2>
-																	<p class="fs-16 mb-0">Lost / Damaged</p>
+																	<h2 class="fs-18 font-w600 counter">0</h2>
+																	<p class="fs-8 mb-0">Lost / Damaged</p>
 																</div>
 															</div>
 														</div>
@@ -253,39 +260,39 @@
 															<div class="row">
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$xpressbeeCod ?? 0 }}</h2>
-																		<p class="fs-16 mb-0">Total Shipment</p>
+																		<h2 class="fs-18 font-w600 counter">{{$xpressbeeCod ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">Total Shipment</p>
 																	</div>
 																</div>
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$xpressbeeCodPending ?? 0 }}</h2>
-																		<p class="fs-16 mb-0">Pickup Pending</p>
+																		<h2 class="fs-18 font-w600 counter">{{$xpressbeeCodPending ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">Pickup Pending</p>
 																	</div>
 																</div>
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$xpressbeeCodIntransit ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> In-transit</p>
+																		<h2 class="fs-18 font-w600 counter">{{$xpressbeeCodIntransit ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> In-transit</p>
 																	</div>
 																</div>
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$xpressbeeCodOfd ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> OFD</p>
+																		<h2 class="fs-18 font-w600 counter">{{$xpressbeeCodOfd ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> OFD</p>
 																	</div>
 																</div>
 
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$xpressbeeCodNDR ?? 0 }}</h2>
-																		<p class="fs-16 mb-0">NDR Pending</p>
+																		<h2 class="fs-18 font-w600 counter">{{$xpressbeeCodNDR ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">NDR Pending</p>
 																	</div>
 																</div>
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$xpressbeeCodDelivered ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> Delivered</p>
+																		<h2 class="fs-18 font-w600 counter">{{$xpressbeeCodDelivered ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> Delivered</p>
 																	</div>
 																</div>
 															</div>
@@ -294,8 +301,8 @@
 															<div class="row">
 																<div class="col-sm-4 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$xpressbeeCodRto ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> RTO/RTS</p>
+																		<h2 class="fs-18 font-w600 counter">{{$xpressbeeCodRto ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> RTO/RTS</p>
 																	</div>
 																</div>
 																<div class="col-sm-4 mb-4">
@@ -305,16 +312,16 @@
 																	$xpressbeeCodPercentag1 = ($xpressbeeCodDelivered > 0) ? ($xpressbeeCodDelivered * 100 / $xpressbeeCodDeliveredPresent) : 0;
 																	@endphp
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">
-																		{{ round($xpressbeeCodPercentag1) }}
+																		<h2 class="fs-18 font-w600 counter">
+																			{{ round($xpressbeeCodPercentag1) }}
 																		</h2>
-																		<p class="fs-16 mb-0"> Delivered %</p>
+																		<p class="fs-8 mb-0"><br>Delivered %</p>
 																	</div>
 																</div>
 																<div class="col-sm-4 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$xpressbeeCodRto ?? 0 }}</h2>
-																		<p class="fs-16 mb-0">Lost / Damaged</p>
+																		<h2 class="fs-18 font-w600 counter">{{$xpressbeeCodRto ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">Lost / Damaged</p>
 																	</div>
 																</div>
 															</div>
@@ -357,38 +364,38 @@
 																<div class="row">
 																	<div class="col-sm-2 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$Ecom ?? 0 }}</h2>
-																			<p class="fs-16 mb-0">Total Shipment</p>
+																			<h2 class="fs-18 font-w600 counter">{{$Ecom ?? 0 }}</h2>
+																			<p class="fs-8 mb-0">Total Shipment</p>
 																		</div>
 																	</div>
 																	<div class="col-sm-2 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$EcomPending ?? 0 }}</h2>
-																			<p class="fs-16 mb-0">Pickup Pending</p>
+																			<h2 class="fs-18 font-w600 counter">{{$EcomPending ?? 0 }}</h2>
+																			<p class="fs-8 mb-0">Pickup Pending</p>
 																		</div>
 																	</div>
 																	<div class="col-sm-2 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$EcomIntransit ?? 0 }}</h2>
-																			<p class="fs-16 mb-0"><br>In-transit</p>
+																			<h2 class="fs-18 font-w600 counter">{{$EcomIntransit ?? 0 }}</h2>
+																			<p class="fs-8 mb-0"><br>In-transit</p>
 																		</div>
 																	</div>
 																	<div class="col-sm-2 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$EcomOfd ?? 0 }}</h2>
-																			<p class="fs-16 mb-0"><br>OFD</p>
+																			<h2 class="fs-18 font-w600 counter">{{$EcomOfd ?? 0 }}</h2>
+																			<p class="fs-8 mb-0"><br>OFD</p>
 																		</div>
 																	</div>
 																	<div class="col-sm-2 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$EcomNdr ?? 0 }}</h2>
-																			<p class="fs-16 mb-0">NDR Pending</p>
+																			<h2 class="fs-18 font-w600 counter">{{$EcomNdr ?? 0 }}</h2>
+																			<p class="fs-8 mb-0">NDR Pending</p>
 																		</div>
 																	</div>
 																	<div class="col-sm-2 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$EcomDeliverd ?? 0 }}</h2>
-																			<p class="fs-16 mb-0"><br>Delivered</p>
+																			<h2 class="fs-18 font-w600 counter">{{$EcomDeliverd ?? 0 }}</h2>
+																			<p class="fs-8 mb-0"><br>Delivered</p>
 																		</div>
 																	</div>
 																</div>
@@ -397,8 +404,8 @@
 																<div class="row">
 																	<div class="col-sm-4 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">{{$EcomRto ?? 0 }}</h2>
-																			<p class="fs-16 mb-0"><br>RTO/RTS</p>
+																			<h2 class="fs-18 font-w600 counter">{{$EcomRto ?? 0 }}</h2>
+																			<p class="fs-8 mb-0"><br>RTO/RTS</p>
 																		</div>
 																	</div>
 																	<div class="col-sm-4 mb-4">
@@ -407,17 +414,17 @@
 																		$EcomPercentage = ($EcomDeliverd > 0) ? ($EcomDeliverd * 100 / $EcomDeliverdPresent) : 0;
 																		@endphp
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">
+																			<h2 class="fs-18 font-w600 counter">
 
-																			{{ round($EcomPercentage) }}
+																				{{ round($EcomPercentage) }}
 																			</h2>
-																			<p class="fs-16 mb-0">Delivered %</p>
+																			<p class="fs-8 mb-0"><br>Delivered %</p>
 																		</div>
 																	</div>
 																	<div class="col-sm-4 mb-4">
 																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-32 font-w600 counter">0</h2>
-																			<p class="fs-16 mb-0">Lost / Damaged</p>
+																			<h2 class="fs-18 font-w600 counter">0</h2>
+																			<p class="fs-8 mb-0">Lost / Damaged</p>
 																		</div>
 																	</div>
 																</div>
@@ -464,46 +471,46 @@
 												</ul>
 											</div>
 										</div>
-										<div class="card-body tab-content p-0">
+										<div class="card-body tab-content ">
 											<div class="tab-pane active show fade" id="PREPAIDxpress" role="tabpanel">
 												<div class="row text-center">
 													<div class="col-md-8">
 														<div class="row">
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomPrepaid ?? 0 }}</h2>
-																	<p class="fs-16 mb-0">Total Shipment</p>
+																	<h2 class="fs-18 font-w600 counter">{{$EcomPrepaid ?? 0 }}</h2>
+																	<p class="fs-8 mb-0">Total Shipment</p>
 																</div>
 															</div>
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomPrepaidPending ?? 0 }}</h2>
-																	<p class="fs-16 mb-0">Pickup Pending</p>
+																	<h2 class="fs-18 font-w600 counter">{{$EcomPrepaidPending ?? 0 }}</h2>
+																	<p class="fs-8 mb-0">Pickup Pending</p>
 																</div>
 															</div>
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomPrepaidIntransit ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br> In-transit</p>
+																	<h2 class="fs-18 font-w600 counter">{{$EcomPrepaidIntransit ?? 0 }}</h2>
+																	<p class="fs-8 mb-0"><br> In-transit</p>
 																</div>
 															</div>
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomPrepaidOfd ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br> OFD</p>
+																	<h2 class="fs-18 font-w600 counter">{{$EcomPrepaidOfd ?? 0 }}</h2>
+																	<p class="fs-8 mb-0"><br> OFD</p>
 																</div>
 															</div>
 
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomPrepaidNdr ?? 0 }}</h2>
-																	<p class="fs-16 mb-0">NDR Pending</p>
+																	<h2 class="fs-18 font-w600 counter">{{$EcomPrepaidNdr ?? 0 }}</h2>
+																	<p class="fs-8 mb-0">NDR Pending</p>
 																</div>
 															</div>
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomPrepaidDelivered ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br> Delivered</p>
+																	<h2 class="fs-18 font-w600 counter">{{$EcomPrepaidDelivered ?? 0 }}</h2>
+																	<p class="fs-8 mb-0"><br> Delivered</p>
 																</div>
 															</div>
 														</div>
@@ -512,8 +519,8 @@
 														<div class="row">
 															<div class="col-sm-4 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomPrepaidRto ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br> RTO/RTS</p>
+																	<h2 class="fs-18 font-w600 counter">{{$EcomPrepaidRto ?? 0 }}</h2>
+																	<p class="fs-8 mb-0"><br> RTO/RTS</p>
 																</div>
 															</div>
 															<div class="col-sm-4 mb-4">
@@ -522,16 +529,16 @@
 																$EcomPrepaidPercentage = ($EcomPrepaidDelivered > 0) ? ($EcomPrepaidDelivered * 100 / $EcomPrepaidDeliveredPresent) : 0;
 																@endphp
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">
-																	{{ round($EcomPrepaidPercentage) }}
-																		</h2>
-																	<p class="fs-16 mb-0">Delivered %</p>
+																	<h2 class="fs-18 font-w600 counter">
+																		{{ round($EcomPrepaidPercentage) }}
+																	</h2>
+																	<p class="fs-8 mb-0"><br>Delivered %</p>
 																</div>
 															</div>
 															<div class="col-sm-4 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">0</h2>
-																	<p class="fs-16 mb-0">Lost / Damaged</p>
+																	<h2 class="fs-18 font-w600 counter">0</h2>
+																	<p class="fs-8 mb-0">Lost / Damaged</p>
 																</div>
 															</div>
 														</div>
@@ -547,39 +554,39 @@
 														<div class="row">
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomCod ?? 0 }}</h2>
-																	<p class="fs-16 mb-0">Total Shipment</p>
+																	<h2 class="fs-18 font-w600 counter">{{$EcomCod ?? 0 }}</h2>
+																	<p class="fs-8 mb-0">Total Shipment</p>
 																</div>
 															</div>
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomCodPending ?? 0 }}</h2>
-																	<p class="fs-16 mb-0">Pickup Pending</p>
+																	<h2 class="fs-18 font-w600 counter">{{$EcomCodPending ?? 0 }}</h2>
+																	<p class="fs-8 mb-0">Pickup Pending</p>
 																</div>
 															</div>
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomCodIntransit ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br> In-transit</p>
+																	<h2 class="fs-18 font-w600 counter">{{$EcomCodIntransit ?? 0 }}</h2>
+																	<p class="fs-8 mb-0"><br> In-transit</p>
 																</div>
 															</div>
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomCodOfd ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br> OFD</p>
+																	<h2 class="fs-18 font-w600 counter">{{$EcomCodOfd ?? 0 }}</h2>
+																	<p class="fs-8 mb-0"><br> OFD</p>
 																</div>
 															</div>
 
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomCodNdr ?? 0 }}</h2>
-																	<p class="fs-16 mb-0">NDR Pending</p>
+																	<h2 class="fs-18 font-w600 counter">{{$EcomCodNdr ?? 0 }}</h2>
+																	<p class="fs-8 mb-0">NDR Pending</p>
 																</div>
 															</div>
 															<div class="col-sm-2 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomCodDelivered ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br> Delivered</p>
+																	<h2 class="fs-18 font-w600 counter">{{$EcomCodDelivered ?? 0 }}</h2>
+																	<p class="fs-8 mb-0"><br> Delivered</p>
 																</div>
 															</div>
 														</div>
@@ -589,8 +596,8 @@
 
 															<div class="col-sm-4 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">{{$EcomCodRto ?? 0 }}</h2>
-																	<p class="fs-16 mb-0"><br> RTO/RTS</p>
+																	<h2 class="fs-18 font-w600 counter">{{$EcomCodRto ?? 0 }}</h2>
+																	<p class="fs-8 mb-0"><br> RTO/RTS</p>
 																</div>
 															</div>
 															<div class="col-sm-4 mb-4">
@@ -599,16 +606,16 @@
 																$EcomCodPercentage = ($EcomCodDelivered > 0) ? ($EcomCodDelivered * 100 / $EcomCodDeliveredPresent) : 0;
 																@endphp
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">
-																	{{ round($EcomCodPercentage) }}
+																	<h2 class="fs-18 font-w600 counter">
+																		{{ round($EcomCodPercentage) }}
 																	</h2>
-																	<p class="fs-16 mb-0"> Delivered %</p>
+																	<p class="fs-8 mb-0"><br>Delivered %</p>
 																</div>
 															</div>
 															<div class="col-sm-4 mb-4">
 																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-32 font-w600 counter">0</h2>
-																	<p class="fs-16 mb-0">Lost / Damaged</p>
+																	<h2 class="fs-18 font-w600 counter">0</h2>
+																	<p class="fs-8 mb-0">Lost / Damaged</p>
 																</div>
 															</div>
 														</div>
@@ -652,44 +659,44 @@
 																	<div class="row">
 																		<div class="col-sm-2 mb-4">
 																			<div class="border px-1 py-3 rounded-xl">
-																				<h2 class="fs-32 font-w600 counter">{{$Bluedart ?? 0 }}
+																				<h2 class="fs-18 font-w600 counter">{{$Bluedart ?? 0 }}
 																				</h2>
-																				<p class="fs-16 mb-0">Total Shipment</p>
+																				<p class="fs-8 mb-0">Total Shipment</p>
 																			</div>
 																		</div>
 																		<div class="col-sm-2 mb-4">
 																			<div class="border px-1 py-3 rounded-xl">
-																				<h2 class="fs-32 font-w600 counter">{{$BluedartPending ?? 0 }}
+																				<h2 class="fs-18 font-w600 counter">{{$BluedartPending ?? 0 }}
 																				</h2>
-																				<p class="fs-16 mb-0">Pickup Pending</p>
+																				<p class="fs-8 mb-0">Pickup Pending</p>
 																			</div>
 																		</div>
 																		<div class="col-sm-2 mb-4">
 																			<div class="border px-1 py-3 rounded-xl">
-																				<h2 class="fs-32 font-w600 counter">{{$BluedartIntransit ?? 0 }}
+																				<h2 class="fs-18 font-w600 counter">{{$BluedartIntransit ?? 0 }}
 																				</h2>
-																				<p class="fs-16 mb-0"><br>In-transit</p>
+																				<p class="fs-8 mb-0"><br>In-transit</p>
 																			</div>
 																		</div>
 																		<div class="col-sm-2 mb-4">
 																			<div class="border px-1 py-3 rounded-xl">
-																				<h2 class="fs-32 font-w600 counter">{{$BluedartOfd ?? 0 }}
+																				<h2 class="fs-18 font-w600 counter">{{$BluedartOfd ?? 0 }}
 																				</h2>
-																				<p class="fs-16 mb-0"><br>OFD</p>
+																				<p class="fs-8 mb-0"><br>OFD</p>
 																			</div>
 																		</div>
 																		<div class="col-sm-2 mb-4">
 																			<div class="border px-1 py-3 rounded-xl">
-																				<h2 class="fs-32 font-w600 counter">{{$BluedartNdr ?? 0 }}
+																				<h2 class="fs-18 font-w600 counter">{{$BluedartNdr ?? 0 }}
 																				</h2>
-																				<p class="fs-16 mb-0">NDR Pending</p>
+																				<p class="fs-8 mb-0">NDR Pending</p>
 																			</div>
 																		</div>
 																		<div class="col-sm-2 mb-4">
 																			<div class="border px-1 py-3 rounded-xl">
-																				<h2 class="fs-32 font-w600 counter">{{$BluedartDeliverd ?? 0 }}
+																				<h2 class="fs-18 font-w600 counter">{{$BluedartDeliverd ?? 0 }}
 																				</h2>
-																				<p class="fs-16 mb-0"><br>Delivered</p>
+																				<p class="fs-8 mb-0"><br>Delivered</p>
 																			</div>
 																		</div>
 																	</div>
@@ -698,9 +705,9 @@
 																	<div class="row">
 																		<div class="col-sm-4 mb-4">
 																			<div class="border px-1 py-3 rounded-xl">
-																				<h2 class="fs-32 font-w600 counter">{{$BluedartRto ?? 0 }}
+																				<h2 class="fs-18 font-w600 counter">{{$BluedartRto ?? 0 }}
 																				</h2>
-																				<p class="fs-16 mb-0"><br>RTO/RTS</p>
+																				<p class="fs-8 mb-0"><br>RTO/RTS</p>
 																			</div>
 																		</div>
 																		<div class="col-sm-4 mb-4">
@@ -709,18 +716,18 @@
 																			$Bluedartpersentage = ($BluedartDeliverd > 0) ? ($BluedartDeliverdPresent * 100 / $xpressbeePrepaidDeliveredPresent) : 0;
 																			@endphp
 																			<div class="border px-1 py-3 rounded-xl">
-																				<h2 class="fs-32 font-w600 counter">
+																				<h2 class="fs-18 font-w600 counter">
 
-																				{{ round($Bluedartpersentage) }}
+																					{{ round($Bluedartpersentage) }}
 																				</h2>
-																				<p class="fs-16 mb-0">Delivered %</p>
+																				<p class="fs-8 mb-0"><br>Delivered %</p>
 																			</div>
 																		</div>
 																		<div class="col-sm-4 mb-4">
 																			<div class="border px-1 py-3 rounded-xl">
-																				<h2 class="fs-32 font-w600 counter">0
+																				<h2 class="fs-18 font-w600 counter">0
 																				</h2>
-																				<p class="fs-16 mb-0">Lost / Damaged</p>
+																				<p class="fs-8 mb-0">Lost / Damaged</p>
 																			</div>
 																		</div>
 																	</div>
@@ -762,46 +769,46 @@
 													</ul>
 												</div>
 											</div>
-											<div class="card-body tab-content p-0">
+											<div class="card-body tab-content ">
 												<div class="tab-pane active show fade" id="PREPAIDxpress" role="tabpanel">
 													<div class="row text-center">
 														<div class="col-md-8">
 															<div class="row">
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartPrepaid ?? 0 }}</h2>
-																		<p class="fs-16 mb-0">Total Shipment</p>
+																		<h2 class="fs-18 font-w600 counter">{{$BluedartPrepaid ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">Total Shipment</p>
 																	</div>
 																</div>
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartPrepaidPending ?? 0 }}</h2>
-																		<p class="fs-16 mb-0">Pickup Pending</p>
+																		<h2 class="fs-18 font-w600 counter">{{$BluedartPrepaidPending ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">Pickup Pending</p>
 																	</div>
 																</div>
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartPrepaidIntransit ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> In-transit</p>
+																		<h2 class="fs-18 font-w600 counter">{{$BluedartPrepaidIntransit ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> In-transit</p>
 																	</div>
 																</div>
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartPrepaidOfd ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> OFD</p>
+																		<h2 class="fs-18 font-w600 counter">{{$BluedartPrepaidOfd ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> OFD</p>
 																	</div>
 																</div>
 
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartPrepaidNdr ?? 0 }}</h2>
-																		<p class="fs-16 mb-0">NDR Pending</p>
+																		<h2 class="fs-18 font-w600 counter">{{$BluedartPrepaidNdr ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">NDR Pending</p>
 																	</div>
 																</div>
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartPrepaidDelivered ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> Delivered</p>
+																		<h2 class="fs-18 font-w600 counter">{{$BluedartPrepaidDelivered ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> Delivered</p>
 																	</div>
 																</div>
 															</div>
@@ -810,8 +817,8 @@
 															<div class="row">
 																<div class="col-sm-4 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartPrepaidRto ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> RTO/RTS</p>
+																		<h2 class="fs-18 font-w600 counter">{{$BluedartPrepaidRto ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> RTO/RTS</p>
 																	</div>
 																</div>
 																<div class="col-sm-4 mb-4">
@@ -820,17 +827,17 @@
 																	$BluedartPrepaidPercentage = ($BluedartPrepaidDelivered > 0) ? ($BluedartPrepaidDelivered * 100 / $BluedartPrepaidDeliveredPresent) : 0;
 																	@endphp
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">
+																		<h2 class="fs-18 font-w600 counter">
 
-																		{{ round($BluedartPrepaidPercentage) }}
+																			{{ round($BluedartPrepaidPercentage) }}
 																		</h2>
-																		<p class="fs-16 mb-0"> Delivered %</p>
+																		<p class="fs-8 mb-0"><br> Delivered%</p>
 																	</div>
 																</div>
 																<div class="col-sm-4 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">0</h2>
-																		<p class="fs-16 mb-0">Lost / Damaged</p>
+																		<h2 class="fs-18 font-w600 counter">0</h2>
+																		<p class="fs-8 mb-0">Lost / Damaged</p>
 																	</div>
 																</div>
 
@@ -846,40 +853,40 @@
 															<div class="row">
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartCod ?? 0 }}</h2>
-																		<p class="fs-16 mb-0">Total Shipment</p>
+																		<h2 class="fs-18 font-w600 counter">{{$BluedartCod ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">Total Shipment</p>
 																	</div>
 																</div>
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartCodPending ?? 0 }}</h2>
-																		<p class="fs-16 mb-0">Pickup Pending</p>
+																		<h2 class="fs-18 font-w600 counter">{{$BluedartCodPending ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">Pickup Pending</p>
 																	</div>
 																</div>
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartCodIntransit ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> In-transit</p>
+																		<h2 class="fs-18 font-w600 counter">{{$BluedartCodIntransit ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> In-transit</p>
 																	</div>
 																</div>
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartCodOfd ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> OFD</p>
+																		<h2 class="fs-18 font-w600 counter">{{$BluedartCodOfd ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> OFD</p>
 																	</div>
 																</div>
 
 																<div class="col-sm-2 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartCodNdr ?? 0 }}</h2>
-																		<p class="fs-16 mb-0">NDR Pending</p>
+																		<h2 class="fs-18 font-w600 counter">{{$BluedartCodNdr ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">NDR Pending</p>
 																	</div>
 																</div>
 																<div class="col-sm-2 mb-4">
 
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartCodDelivered ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> Delivered</p>
+																		<h2 class="fs-18 font-w600 counter">{{$BluedartCodDelivered ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> Delivered</p>
 																	</div>
 																</div>
 															</div>
@@ -888,8 +895,8 @@
 															<div class="row">
 																<div class="col-sm-4 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">{{$BluedartCodRto ?? 0 }}</h2>
-																		<p class="fs-16 mb-0"><br> RTO/RTS</p>
+																		<h2 class="fs-18 font-w600 counter">{{$BluedartCodRto ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> RTO/RTS</p>
 																	</div>
 																</div>
 
@@ -899,16 +906,16 @@
 																	$BluedartCodPercentage = ($BluedartCodDelivered > 0) ? ($BluedartCodDelivered * 100 / $BluedartCodDeliveredPresent) : 0;
 																	@endphp
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">
-																		{{ round($BluedartCodPercentage) }}
+																		<h2 class="fs-18 font-w600 counter">
+																			{{ round($BluedartCodPercentage) }}
 																		</h2>
-																		<p class="fs-16 mb-0">Delivered %</p>
+																		<p class="fs-8 mb-0"><br>Delivered %</p>
 																	</div>
 																</div>
 																<div class="col-sm-4 mb-4">
 																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-32 font-w600 counter">0</h2>
-																		<p class="fs-16 mb-0">Lost / Damaged</p>
+																		<h2 class="fs-18 font-w600 counter">0</h2>
+																		<p class="fs-8 mb-0">Lost / Damaged</p>
 																	</div>
 																</div>
 															</div>

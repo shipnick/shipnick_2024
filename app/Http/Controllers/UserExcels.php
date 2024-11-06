@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -25,106 +26,264 @@ use App\Models\couriers;
 
 class UserExcels extends Controller
 {
-
-	public function POD()
+    
+    public function skuSummary(Request $request)
     {
-		$userid = session()->get('UserLogin2id');
+        $userid = session()->get('UserLogin2id');
 
-        $params = orderdetail::where('order_userid',$userid)
-        					->where('order_status','Complete')
-        					->get();
-        return view('UserPanel.Reports.PODReport',['params'=>$params]);
+        // Validate and parse dates from request
+        $sku1 = bulkorders::where('User_Id', $userid)
+            ->distinct()  // Ensures uniqueness
+            ->pluck('Item_Name');
+
+        $amount1 = bulkorders::where('User_Id', $userid)
+            ->distinct()  // Ensures uniqueness
+            ->pluck('Total_Amount');
+
+        $courier1 = bulkorders::where('User_Id', $userid)
+            ->distinct()  // Ensures uniqueness
+            ->pluck('awb_gen_by');
+
+        $type1 = bulkorders::where('User_Id', $userid)
+            ->distinct()  // Ensures uniqueness
+            ->pluck('Order_Type');
+        // dd($type);
+
+        $fromDate = Carbon::parse($request->start_date)->startOfDay(); // Start of the day
+        $toDate = Carbon::parse($request->end_date)->endOfDay(); // End of the day
+
+        // Extract filter inputs
+        $orderType = $request->input('order_type');
+        $sku = $request->input('sku');
+        $amount = $request->input('amount');
+        $courier = $request->input('courier');
+
+        // Build common filter array
+        $filters = array_filter([
+            'Order_Type' => $orderType,
+            'Item_Name' => $sku,
+            'Total_Amount' => $amount,
+            'awb_gen_by' => $courier,
+        ]);
+
+        // Helper function to get order counts by status
+        $getOrderCount = function ($statusArray) use ($userid, $fromDate, $toDate, $filters) {
+            $query = bulkorders::where('User_Id', $userid)
+                ->where('Awb_Number', '!=', '')
+                ->where('order_cancel', '!=', '1')
+                ->whereBetween('Rec_Time_Date', [$fromDate, $toDate])
+                ->whereIn('showerrors', $statusArray);
+
+            foreach ($filters as $key => $value) {
+                $query->where($key, $value);
+            }
+
+            return $query->count('Single_Order_Id');
+        };
+
+        // Define status arrays for different order statuses
+        $pendingStatus = ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'];
+        $intransitStatus = ['out for delivery', 'In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked'];
+        $ndrStatus = ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED'];
+        $deliveredStatus = ['delivered', 'Delivered'];
+        $rtoStatus = ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'];
+
+        // Get order counts by status using the helper function
+        $orderno = $getOrderCount([]);
+        $pending = $getOrderCount($pendingStatus);
+        $intransit = $getOrderCount($intransitStatus);
+        $ndr = $getOrderCount($ndrStatus);
+        $deliver = $getOrderCount($deliveredStatus);
+        $rto = $getOrderCount($rtoStatus);
+
+        // Calculate delivery percentage (safe calculation)
+        $deliverdpersentage = 0;
+        if ($orderno > 0) {
+            $deliveredOrders = $orderno - $pending - $intransit;
+            $deliverdpersentage = ($deliveredOrders / $orderno) * 100;
+        }
+
+        // Fetch related data
+        $hubs = Hubs::where('hub_created_by', $userid)->get();
+        $Fulfilledby = couriers::where('courier_added', 'Shipnick')->get();
+
+        // Return the view with the necessary data
+        return view('UserPanel.Reports.SkuSummary', compact(
+            'userid',
+            'sku',
+            'amount',
+            'courier',
+            'orderType',
+            'sku1',
+            'amount1',
+            'courier1',
+            'type1',
+            'deliverdpersentage',
+            'rto',
+            'deliver',
+            'ndr',
+            'intransit',
+            'pending',
+            'orderno',
+            'hubs',
+            'Fulfilledby'
+        ));
+    }
+
+    public function skuNew(Request $request)
+    {
+        $userid = session()->get('UserLogin2id');  // Get the user ID
+
+        // Get the selected filters from the AJAX request
+        $orderType = $request->input('order_type');
+        $sku = $request->input('sku');
+        $amount = $request->input('amount');
+        $courier = $request->input('courier');
+
+        // Start with the query builder to get orders for the current user
+        $query = bulkorders::where('User_Id', $userid);
+
+        // Apply filters based on any non-empty input
+        if ($orderType) {
+            $query->where('Order_Type', $orderType);
+        }
+        if ($sku) {
+            $query->where('Item_Name', $sku);
+        }
+        if ($amount) {
+            $query->where('Total_Amount', $amount);
+        }
+        if ($courier) {
+            $query->where('awb_gen_by', $courier);
+        }
+
+        // Get the distinct options for the other dropdowns based on the current filter
+        $sku = $query->distinct()->pluck('Item_Name');
+        $amount = $query->distinct()->pluck('Total_Amount');
+        $courier = $query->distinct()->pluck('awb_gen_by');
+
+        // Filter out null values
+        $courier = $courier->filter(function ($value) {
+            return !is_null($value);  // Remove null values from the courier array
+        });
+
+        // Return the options as a JSON response
+        return response()->json([
+            'sku' => $sku,
+            'amount' => $amount,
+            'courier' => $courier
+        ]);
+    }
+
+    public function POD()
+    {
+        $userid = session()->get('UserLogin2id');
+
+        $params = orderdetail::where('order_userid', $userid)
+            ->where('order_status', 'Complete')
+            ->get();
+        return view('UserPanel.Reports.PODReport', ['params' => $params]);
     }
     function POD_Report()
     {
-    	return Excel::download(new PODReportExport,'PODReport.xlsx');
+        return Excel::download(new PODReportExport, 'PODReport.xlsx');
     }
 
 
-	public function Daliy()
+    public function Daliy()
     {
-		$userid = session()->get('UserLogin2id');
-    	// Today
-		$today = Carbon::now();
-		$tdate = $today->toDateString();
+        $userid = session()->get('UserLogin2id');
+        // Today
+        $today = Carbon::now();
+        $tdate = $today->toDateString();
 
-        $params = orderdetail::where('order_userid',$userid)
-        					->where('order_delivery_date',$tdate)
-        					->get();
-        return view('UserPanel.Reports.DailyReport',['params'=>$params]);
+        $params = orderdetail::where('order_userid', $userid)
+            ->where('order_delivery_date', $tdate)
+            ->get();
+        return view('UserPanel.Reports.DailyReport', ['params' => $params]);
     }
     function Daliy_Report()
     {
-    	return Excel::download(new DailyReportExport,'DailyReport.xlsx');
+        return Excel::download(new DailyReportExport, 'DailyReport.xlsx');
     }
 
-// NDR Report
-	public function NDR(){
-		$userid = session()->get('UserLogin2id');
-    	$tdate0 = date('Y-m-d');
-    	$tdate1 = date('Y-m-d',strtotime("-1 days"));
-    	$tdate2 = date('Y-m-d',strtotime("-2 days"));
-    	$tdate3 = date('Y-m-d',strtotime("-3 days"));
-    	$tdate4 = date('Y-m-d',strtotime("-4 days"));
-    
-    	$days0 = NDRorders::where('user_id',$userid)->where('uploaddate',$tdate0)->get('uploadtime');
-    	$days1 = NDRorders::where('user_id',$userid)->where('uploaddate',$tdate1)->get('uploadtime');
-    	$days2 = NDRorders::where('user_id',$userid)->where('uploaddate',$tdate2)->get('uploadtime');
-    	$days3 = NDRorders::where('user_id',$userid)->where('uploaddate',$tdate3)->get('uploadtime');
-    	$days4 = NDRorders::where('user_id',$userid)->where('uploaddate',$tdate4)->get('uploadtime');
-        return view('UserPanel.Reports.NDRReport',['days0'=>$days0,'tdate0'=>$tdate0,'days1'=>$days1,'tdate1'=>$tdate1,'days2'=>$days2,'tdate2'=>$tdate2,'days3'=>$days3,'tdate3'=>$tdate3,'days4'=>$days4,'tdate4'=>$tdate4]);
-    }
-    function NDR_Report(){
-    	return Excel::download(new NDRReportExport,'NDRReport.xls');
-    }
-// NDR Report
-
-
-// Manifest
-    public function Manifest(){
+    // NDR Report
+    public function NDR()
+    {
         $userid = session()->get('UserLogin2id');
-		$tdate0 = date('Y-m-d');
-		$tdate1 = date('Y-m-d',strtotime("-1 days"));
-		$tdate2 = date('Y-m-d',strtotime("-2 days"));
-		$tdate3 = date('Y-m-d',strtotime("-3 days"));
-		$tdate4 = date('Y-m-d',strtotime("-4 days"));
+        $tdate0 = date('Y-m-d');
+        $tdate1 = date('Y-m-d', strtotime("-1 days"));
+        $tdate2 = date('Y-m-d', strtotime("-2 days"));
+        $tdate3 = date('Y-m-d', strtotime("-3 days"));
+        $tdate4 = date('Y-m-d', strtotime("-4 days"));
 
-		$days0 = Manifestorders::where('user_id',$userid)->where('uploaddate',$tdate0)->get('uploadtime');
-		$days1 = Manifestorders::where('user_id',$userid)->where('uploaddate',$tdate1)->get('uploadtime');
-		$days2 = Manifestorders::where('user_id',$userid)->where('uploaddate',$tdate2)->get('uploadtime');
-		$days3 = Manifestorders::where('user_id',$userid)->where('uploaddate',$tdate3)->get('uploadtime');
-		$days4 = Manifestorders::where('user_id',$userid)->where('uploaddate',$tdate4)->get('uploadtime');
-        return view('UserPanel.Reports.ManifestReport',['days0'=>$days0,'tdate0'=>$tdate0,'days1'=>$days1,'tdate1'=>$tdate1,'days2'=>$days2,'tdate2'=>$tdate2,'days3'=>$days3,'tdate3'=>$tdate3,'days4'=>$days4,'tdate4'=>$tdate4]);
+        $days0 = NDRorders::where('user_id', $userid)->where('uploaddate', $tdate0)->get('uploadtime');
+        $days1 = NDRorders::where('user_id', $userid)->where('uploaddate', $tdate1)->get('uploadtime');
+        $days2 = NDRorders::where('user_id', $userid)->where('uploaddate', $tdate2)->get('uploadtime');
+        $days3 = NDRorders::where('user_id', $userid)->where('uploaddate', $tdate3)->get('uploadtime');
+        $days4 = NDRorders::where('user_id', $userid)->where('uploaddate', $tdate4)->get('uploadtime');
+        return view('UserPanel.Reports.NDRReport', ['days0' => $days0, 'tdate0' => $tdate0, 'days1' => $days1, 'tdate1' => $tdate1, 'days2' => $days2, 'tdate2' => $tdate2, 'days3' => $days3, 'tdate3' => $tdate3, 'days4' => $days4, 'tdate4' => $tdate4]);
+    }
+    function NDR_Report()
+    {
+        return Excel::download(new NDRReportExport, 'NDRReport.xls');
+    }
+    // NDR Report
+
+
+    // Manifest
+    public function Manifest()
+    {
+        $userid = session()->get('UserLogin2id');
+        $tdate0 = date('Y-m-d');
+        $tdate1 = date('Y-m-d', strtotime("-1 days"));
+        $tdate2 = date('Y-m-d', strtotime("-2 days"));
+        $tdate3 = date('Y-m-d', strtotime("-3 days"));
+        $tdate4 = date('Y-m-d', strtotime("-4 days"));
+
+        $days0 = Manifestorders::where('user_id', $userid)->where('uploaddate', $tdate0)->get('uploadtime');
+        $days1 = Manifestorders::where('user_id', $userid)->where('uploaddate', $tdate1)->get('uploadtime');
+        $days2 = Manifestorders::where('user_id', $userid)->where('uploaddate', $tdate2)->get('uploadtime');
+        $days3 = Manifestorders::where('user_id', $userid)->where('uploaddate', $tdate3)->get('uploadtime');
+        $days4 = Manifestorders::where('user_id', $userid)->where('uploaddate', $tdate4)->get('uploadtime');
+        return view('UserPanel.Reports.ManifestReport', ['days0' => $days0, 'tdate0' => $tdate0, 'days1' => $days1, 'tdate1' => $tdate1, 'days2' => $days2, 'tdate2' => $tdate2, 'days3' => $days3, 'tdate3' => $tdate3, 'days4' => $days4, 'tdate4' => $tdate4]);
     }
 
 
-    function Manifest_Report(Request $req,$id,$no){
-    	$date = $req->id;
-    	$time = $req->no;
-        return Excel::download(new NDRReportExport($date,$time),'Manifest-Report.xls');
-	}
-	
-	function Manifest_ReportD(){
-			return Excel::download(new NDRReportExportD,'delivered_report.xlsx');
-	}
-	function Manifest_ReportD1(){
-			return Excel::download(new NDRReportExportD1,'delivered_report1.xlsx');
-	}
-	function Manifest_ReportD2(){
-			return Excel::download(new NDRReportExportD2,'delivered_report2.xlsx');
-	}
-	function Manifest_ReportD3(){
-			return Excel::download(new NDRReportExportD3,'delivered_report3.xlsx');
-	}
-	function Manifest_ReportD4(){
-			return Excel::download(new NDRReportExportD4,'delivered_report4.xlsx');
-	}
+    function Manifest_Report(Request $req, $id, $no)
+    {
+        $date = $req->id;
+        $time = $req->no;
+        return Excel::download(new NDRReportExport($date, $time), 'Manifest-Report.xls');
+    }
 
-	function Manifest_ReportN(Request $req,$id,$no){
-		$date = $req->id;
-		$time = $req->no;
-		return Excel::download(new NDRReportExportN($date,$time),'Non-Delivery_report.xls');
-	}
+    function Manifest_ReportD()
+    {
+        return Excel::download(new NDRReportExportD, 'delivered_report.xlsx');
+    }
+    function Manifest_ReportD1()
+    {
+        return Excel::download(new NDRReportExportD1, 'delivered_report1.xlsx');
+    }
+    function Manifest_ReportD2()
+    {
+        return Excel::download(new NDRReportExportD2, 'delivered_report2.xlsx');
+    }
+    function Manifest_ReportD3()
+    {
+        return Excel::download(new NDRReportExportD3, 'delivered_report3.xlsx');
+    }
+    function Manifest_ReportD4()
+    {
+        return Excel::download(new NDRReportExportD4, 'delivered_report4.xlsx');
+    }
+
+    function Manifest_ReportN(Request $req, $id, $no)
+    {
+        $date = $req->id;
+        $time = $req->no;
+        return Excel::download(new NDRReportExportN($date, $time), 'Non-Delivery_report.xls');
+    }
 
     public function Manifest_Report_PDF()
     {
@@ -135,57 +294,64 @@ class UserExcels extends Controller
         //                     ->get();
         $couriers = CourierNames::all();
         $params = orderdetail::all();
-        return view('UserPanel.Reports.Manifest_PDF_Report',['params'=>$params,'couriers'=>$couriers]);
+        return view('UserPanel.Reports.Manifest_PDF_Report', ['params' => $params, 'couriers' => $couriers]);
     }
-// Manifest
+    // Manifest
 
 
 
 
 
-// MIS
-    public function MIS(){
+    // MIS
+    public function MIS()
+    {
         $userid = session()->get('UserLogin2id');
-        $hubs = Hubs::where('hub_created_by',$userid)->get();
-        $Fulfilledby = couriers::where('courier_added','Shipnick')->get();
-		$tdate0 = date('Y-m-d');
-		$tdate1 = date('Y-m-d',strtotime("-1 days"));
-		$tdate2 = date('Y-m-d',strtotime("-2 days"));
-		$tdate3 = date('Y-m-d',strtotime("-3 days"));
-		$tdate4 = date('Y-m-d',strtotime("-4 days"));
+        $hubs = Hubs::where('hub_created_by', $userid)->get();
+        $Fulfilledby = couriers::where('courier_added', 'Shipnick')->get();
+        $tdate0 = date('Y-m-d');
+        $tdate1 = date('Y-m-d', strtotime("-1 days"));
+        $tdate2 = date('Y-m-d', strtotime("-2 days"));
+        $tdate3 = date('Y-m-d', strtotime("-3 days"));
+        $tdate4 = date('Y-m-d', strtotime("-4 days"));
 
-		$days0 = Manifestorders::where('user_id',$userid)->where('uploaddate',$tdate0)->get('uploadtime');
-		$days1 = Manifestorders::where('user_id',$userid)->where('uploaddate',$tdate1)->get('uploadtime');
-		$days2 = Manifestorders::where('user_id',$userid)->where('uploaddate',$tdate2)->get('uploadtime');
-		$days3 = Manifestorders::where('user_id',$userid)->where('uploaddate',$tdate3)->get('uploadtime');
-		$days4 = Manifestorders::where('user_id',$userid)->where('uploaddate',$tdate4)->get('uploadtime');
-        return view('UserPanel.Reports.MISReport',['days0'=>$days0,'tdate0'=>$tdate0,'days1'=>$days1,'tdate1'=>$tdate1,'days2'=>$days2,'tdate2'=>$tdate2,'days3'=>$days3,'tdate3'=>$tdate3,'days4'=>$days4,'tdate4'=>$tdate4,'hubs'=>$hubs,'Fulfilledby'=>$Fulfilledby]);
+        $days0 = Manifestorders::where('user_id', $userid)->where('uploaddate', $tdate0)->get('uploadtime');
+        $days1 = Manifestorders::where('user_id', $userid)->where('uploaddate', $tdate1)->get('uploadtime');
+        $days2 = Manifestorders::where('user_id', $userid)->where('uploaddate', $tdate2)->get('uploadtime');
+        $days3 = Manifestorders::where('user_id', $userid)->where('uploaddate', $tdate3)->get('uploadtime');
+        $days4 = Manifestorders::where('user_id', $userid)->where('uploaddate', $tdate4)->get('uploadtime');
+        return view('UserPanel.Reports.MISReport', ['days0' => $days0, 'tdate0' => $tdate0, 'days1' => $days1, 'tdate1' => $tdate1, 'days2' => $days2, 'tdate2' => $tdate2, 'days3' => $days3, 'tdate3' => $tdate3, 'days4' => $days4, 'tdate4' => $tdate4, 'hubs' => $hubs, 'Fulfilledby' => $Fulfilledby]);
     }
 
 
-    function MIS_Report(Request $req,$id,$no){
-    	$date = $req->id;
-    	$time = $req->no;
-        return Excel::download(new MISReportExport($date,$time),'Manifest_MIS-Report.xls');
-	}
-	
-	function MIS_ReportD(){
-			return Excel::download(new MISReportExportD,'delivered_report.xlsx');
-	}
-	function MIS_ReportD1(){
-			return Excel::download(new MISReportExportD1,'delivered_report1.xlsx');
-	}
-	function MIS_ReportD2(){
-			return Excel::download(new MISReportExportD2,'delivered_report2.xlsx');
-	}
-	function MIS_ReportD3(){
-			return Excel::download(new MISReportExportD3,'delivered_report3.xlsx');
-	}
-	function MIS_ReportD4(){
-			return Excel::download(new MISReportExportD4,'delivered_report4.xlsx');
-	}
+    function MIS_Report(Request $req, $id, $no)
+    {
+        $date = $req->id;
+        $time = $req->no;
+        return Excel::download(new MISReportExport($date, $time), 'Manifest_MIS-Report.xls');
+    }
 
-	public function MIS_ReportN(Request $req)
+    function MIS_ReportD()
+    {
+        return Excel::download(new MISReportExportD, 'delivered_report.xlsx');
+    }
+    function MIS_ReportD1()
+    {
+        return Excel::download(new MISReportExportD1, 'delivered_report1.xlsx');
+    }
+    function MIS_ReportD2()
+    {
+        return Excel::download(new MISReportExportD2, 'delivered_report2.xlsx');
+    }
+    function MIS_ReportD3()
+    {
+        return Excel::download(new MISReportExportD3, 'delivered_report3.xlsx');
+    }
+    function MIS_ReportD4()
+    {
+        return Excel::download(new MISReportExportD4, 'delivered_report4.xlsx');
+    }
+
+    public function MIS_ReportN(Request $req)
     {
         // dd($req->all());
         $validatedData = $req->validate([
@@ -205,12 +371,12 @@ class UserExcels extends Controller
             'receivedbypod' => 'nullable|string',
             // Add additional validation rules for other fields as necessary
         ]);
-        
+
 
         try {
             return Excel::download(new MISReportExportN($validatedData), 'MIS_report.xls');
         } catch (\Exception $e) {
-           
+
             return response()->json(['error' => 'Failed to generate report', 'message' => $e->getMessage()], 500);
         }
     }
@@ -224,39 +390,42 @@ class UserExcels extends Controller
         //                     ->get();
         $couriers = CourierNames::all();
         $params = orderdetail::all();
-        return view('UserPanel.Reports.MIS_PDF_Report',['params'=>$params,'couriers'=>$couriers]);
+        return view('UserPanel.Reports.MIS_PDF_Report', ['params' => $params, 'couriers' => $couriers]);
     }
-// MIS
+    // MIS
 
 
-// Order Summary
-    function Not_Picked_Excel_Orders(){
-        return Excel::download(new NotPickedOrders(),'Not-Picked-Orders.xls');
+    // Order Summary
+    function Not_Picked_Excel_Orders()
+    {
+        return Excel::download(new NotPickedOrders(), 'Not-Picked-Orders.xls');
     }
-// Order Summary
+    // Order Summary
 
-// Failed & Placed Orders
+    // Failed & Placed Orders
     // function Failed_Orders_Report(Request $req,$ftype){
     //     $tdate0 = date('Y-m-d');
     //     $fileuplaodtype = $req->ftype;
     //     return Excel::download(new FailedOrdersExport($tdate0,$fileuplaodtype),'Failed-orders.xls');
     // }
-    function Failed_Orders_Report(Request $req){
+    function Failed_Orders_Report(Request $req)
+    {
         $tdate = Carbon::parse($req->cfromdate)->startOfDay();;
         $tdate1 = Carbon::parse($req->ctodate)->endOfDay();
         // dd($tdate,$tdate1);
         $fileuplaodtype = $req->ftype;
-        return Excel::download(new FailedOrdersExport($tdate,$tdate1,$fileuplaodtype),'Failed-orders.xls');
+        return Excel::download(new FailedOrdersExport($tdate, $tdate1, $fileuplaodtype), 'Failed-orders.xls');
     }
 
-    function Placed_Orders_Report(Request $req){
+    function Placed_Orders_Report(Request $req)
+    {
         $tdate = Carbon::parse($req->cfromdate)->startOfDay();;
         $tdate1 = Carbon::parse($req->ctodate)->endOfDay();
         // dd($tdate,$tdate1);
         $fileuplaodtype = $req->ftype;
-        return Excel::download(new PlacedOrdersExport($tdate,$tdate1,$fileuplaodtype),'Upload-orders.xls');
+        return Excel::download(new PlacedOrdersExport($tdate, $tdate1, $fileuplaodtype), 'Upload-orders.xls');
     }
-      function Pickup_Orders_Report(Request $req)
+    function Pickup_Orders_Report(Request $req)
     {
         $tdate = Carbon::parse($req->cfromdate)->startOfDay();;
         $tdate1 = Carbon::parse($req->ctodate)->endOfDay();
@@ -304,39 +473,41 @@ class UserExcels extends Controller
         $fileuplaodtype = $req->ftype;
         return Excel::download(new cancelOrdersExport($tdate, $tdate1, $fileuplaodtype), 'cancel-orders.xls');
     }
-// Failed & Placed Orders
+    // Failed & Placed Orders
 }
 
 
 
 
 
-class NotPickedOrders implements WithHeadings,FromCollection{
- use Exportable;
-    public function collection(){
+class NotPickedOrders implements WithHeadings, FromCollection
+{
+    use Exportable;
+    public function collection()
+    {
         $userid = session()->get('UserLogin2id');
         $today = Carbon::now();
         $tdate = $today->toDateString();
 
-        $products = bulkorders::select('Order_Type','orderno','Awb_Number','Name','Address','State','City','Mobile','Pincode','Item_Name','Quantity','Width','Height','Length','Actual_Weight','volumetric_weight','Total_Amount','Cod_Amount','Rec_Time_Date','uploadtype','order_status_show','pickup_id','pickup_name','pickup_mobile','pickup_pincode','pickup_gstin','pickup_address','pickup_state','pickup_city')
-                                ->where('User_Id',$userid)
-                                ->where('order_status_show','!=','Delivered')
-                                ->where('order_status_show','!=','RTO Delivered')
-                                ->where('order_status_show','!=','Upload')
-                                ->where('Awb_Number','!=','')
-                                ->where('order_cancel','!=','1')
-                                ->get();
-        foreach ($products as $key => $product){
-            $products[$key]->pickup_id = "HID00".$product->pickup_id;
+        $products = bulkorders::select('Order_Type', 'orderno', 'Awb_Number', 'Name', 'Address', 'State', 'City', 'Mobile', 'Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'volumetric_weight', 'Total_Amount', 'Cod_Amount', 'Rec_Time_Date', 'uploadtype', 'order_status_show', 'pickup_id', 'pickup_name', 'pickup_mobile', 'pickup_pincode', 'pickup_gstin', 'pickup_address', 'pickup_state', 'pickup_city')
+            ->where('User_Id', $userid)
+            ->where('order_status_show', '!=', 'Delivered')
+            ->where('order_status_show', '!=', 'RTO Delivered')
+            ->where('order_status_show', '!=', 'Upload')
+            ->where('Awb_Number', '!=', '')
+            ->where('order_cancel', '!=', '1')
+            ->get();
+        foreach ($products as $key => $product) {
+            $products[$key]->pickup_id = "HID00" . $product->pickup_id;
         }
 
         return $products;
     }
 
-    public function headings(): array{
+    public function headings(): array
+    {
 
-        return['OrderType','OrderNo','AWBNumber','Name','Address','State','City','Mobile','Pincode','ProductName','Quantity','Width(cm)','Height(cm)','Length(cm)','ActualWeight(kg)','VolumetricWeight(Kg)','Amount','COD','Upload','Type','Status','HUB','PickupName','PickupMobile','PickupPincode','PickupGSTIN','PickupAddress','PickupState','PickupCity'];
-
+        return ['OrderType', 'OrderNo', 'AWBNumber', 'Name', 'Address', 'State', 'City', 'Mobile', 'Pincode', 'ProductName', 'Quantity', 'Width(cm)', 'Height(cm)', 'Length(cm)', 'ActualWeight(kg)', 'VolumetricWeight(Kg)', 'Amount', 'COD', 'Upload', 'Type', 'Status', 'HUB', 'PickupName', 'PickupMobile', 'PickupPincode', 'PickupGSTIN', 'PickupAddress', 'PickupState', 'PickupCity'];
     }
 }
 
@@ -344,32 +515,34 @@ class NotPickedOrders implements WithHeadings,FromCollection{
 
 
 
-class ProgressOrders implements WithHeadings,FromCollection{
- use Exportable;
-    public function collection(){
+class ProgressOrders implements WithHeadings, FromCollection
+{
+    use Exportable;
+    public function collection()
+    {
         $userid = session()->get('UserLogin2id');
         $today = Carbon::now();
         $tdate = $today->toDateString();
 
-        $products = bulkorders::select('Order_Type','orderno','Awb_Number','Name','Address','State','City','Mobile','Pincode','Item_Name','Quantity','Width','Height','Length','Actual_Weight','volumetric_weight','Total_Amount','Cod_Amount','Rec_Time_Date','uploadtype','order_status_show','pickup_id','pickup_name','pickup_mobile','pickup_pincode','pickup_gstin','pickup_address','pickup_state','pickup_city')
-                                ->where('User_Id',$userid)
-                                ->where('order_status_show','!=','Delivered')
-                                ->where('order_status_show','!=','RTO Delivered')
-                                ->where('order_status_show','!=','Upload')
-                                ->where('Awb_Number','!=','')
-                                ->where('order_cancel','!=','1')
-                                ->get();
-        foreach ($products as $key => $product){
-            $products[$key]->pickup_id = "HID00".$product->pickup_id;
+        $products = bulkorders::select('Order_Type', 'orderno', 'Awb_Number', 'Name', 'Address', 'State', 'City', 'Mobile', 'Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'volumetric_weight', 'Total_Amount', 'Cod_Amount', 'Rec_Time_Date', 'uploadtype', 'order_status_show', 'pickup_id', 'pickup_name', 'pickup_mobile', 'pickup_pincode', 'pickup_gstin', 'pickup_address', 'pickup_state', 'pickup_city')
+            ->where('User_Id', $userid)
+            ->where('order_status_show', '!=', 'Delivered')
+            ->where('order_status_show', '!=', 'RTO Delivered')
+            ->where('order_status_show', '!=', 'Upload')
+            ->where('Awb_Number', '!=', '')
+            ->where('order_cancel', '!=', '1')
+            ->get();
+        foreach ($products as $key => $product) {
+            $products[$key]->pickup_id = "HID00" . $product->pickup_id;
         }
 
         return $products;
     }
 
-    public function headings(): array{
+    public function headings(): array
+    {
 
-        return['OrderType','OrderNo','AWBNumber','Name','Address','State','City','Mobile','Pincode','ProductName','Quantity','Width(cm)','Height(cm)','Length(cm)','ActualWeight(kg)','VolumetricWeight(Kg)','Amount','COD','Upload','Type','Status','HUB','PickupName','PickupMobile','PickupPincode','PickupGSTIN','PickupAddress','PickupState','PickupCity'];
-
+        return ['OrderType', 'OrderNo', 'AWBNumber', 'Name', 'Address', 'State', 'City', 'Mobile', 'Pincode', 'ProductName', 'Quantity', 'Width(cm)', 'Height(cm)', 'Length(cm)', 'ActualWeight(kg)', 'VolumetricWeight(Kg)', 'Amount', 'COD', 'Upload', 'Type', 'Status', 'HUB', 'PickupName', 'PickupMobile', 'PickupPincode', 'PickupGSTIN', 'PickupAddress', 'PickupState', 'PickupCity'];
     }
 }
 
@@ -417,9 +590,10 @@ class ProgressOrders implements WithHeadings,FromCollection{
 //     }
 // }
 
-class FailedOrdersExport implements WithHeadings,FromCollection{
- use Exportable;
-     public function __construct($date, $date1, $uploadtype)
+class FailedOrdersExport implements WithHeadings, FromCollection
+{
+    use Exportable;
+    public function __construct($date, $date1, $uploadtype)
     {
         $this->date = $date;
         $this->date1 = $date1;
@@ -436,7 +610,7 @@ class FailedOrdersExport implements WithHeadings,FromCollection{
             ->whereBetween('Last_Time_Stamp', [$fetchdata, $fetchdata1])
             ->where('user_id', session()->has('UserLogin2id') ? session()->get('UserLogin2id') : null)
             ->where('apihitornot', '1')
-             ->where('Awb_Number','')
+            ->where('Awb_Number', '')
             ->where('uploadtype', $ftypedata)
             ->get();
 
@@ -461,9 +635,10 @@ class FailedOrdersExport implements WithHeadings,FromCollection{
     }
 }
 
-class PlacedOrdersExport implements WithHeadings,FromCollection{
- use Exportable;
-     public function __construct($date, $date1, $uploadtype)
+class PlacedOrdersExport implements WithHeadings, FromCollection
+{
+    use Exportable;
+    public function __construct($date, $date1, $uploadtype)
     {
         $this->date = $date;
         $this->date1 = $date1;
@@ -476,7 +651,7 @@ class PlacedOrdersExport implements WithHeadings,FromCollection{
         $fetchdata1 = $this->date1;
         $ftypedata = $this->uploadtype;
 
-        $products = Bulkorders::select('Order_Type', 'orderno','ordernoapi', 'Awb_Number', 'awb_gen_courier', 'Name', 'Address', 'State', 'City', 'Mobile', 'Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'volumetric_weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Rec_Time_Date', 'uploadtype', 'pickup_id', 'order_status_show', 'showerrors')
+        $products = Bulkorders::select('Order_Type', 'orderno', 'ordernoapi', 'Awb_Number', 'awb_gen_courier', 'Name', 'Address', 'State', 'City', 'Mobile', 'Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'volumetric_weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Rec_Time_Date', 'uploadtype', 'pickup_id', 'order_status_show', 'showerrors')
             ->whereBetween('Last_Time_Stamp', [$fetchdata, $fetchdata1])
             ->where('user_id', session()->has('UserLogin2id') ? session()->get('UserLogin2id') : null)
             ->where('apihitornot', '1')
@@ -505,7 +680,7 @@ class PlacedOrdersExport implements WithHeadings,FromCollection{
 
     public function headings(): array
     {
-        return ['Order_Type', 'Orderno','shipnick_id', 'AWB_Number', 'Courier', 'Receiver_Name', 'Receiver_Address', 'Receiver_State', 'Receiver_City', 'Receiver_Mobile', 'Receiver_Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'Volumetric_Weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Upload_Date', 'Upload_Type', 'HUB_ID', 'Status', 'Remark'];
+        return ['Order_Type', 'Orderno', 'shipnick_id', 'AWB_Number', 'Courier', 'Receiver_Name', 'Receiver_Address', 'Receiver_State', 'Receiver_City', 'Receiver_Mobile', 'Receiver_Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'Volumetric_Weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Upload_Date', 'Upload_Type', 'HUB_ID', 'Status', 'Remark'];
     }
 }
 
@@ -528,9 +703,9 @@ class PickupOrdersExport implements WithHeadings, FromCollection
         $products = Bulkorders::select('Order_Type', 'orderno', 'Awb_Number', 'awb_gen_courier', 'Name', 'Address', 'State', 'City', 'Mobile', 'Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'volumetric_weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Rec_Time_Date', 'uploadtype', 'pickup_id', 'order_status_show', 'showerrors')
             ->whereBetween('Last_Time_Stamp', [$fetchdata, $fetchdata1])
             ->where('user_id', session()->has('UserLogin2id') ? session()->get('UserLogin2id') : null)
-            ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup','AWB Assigned','Pickup Error' ,'Pickup Rescheduled'  ,'Out For Pickup' ,'Pickup Exception' , 'Pickup Booked' , 'Shipment Booked','Pickup Generated']) 
+            ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->where('apihitornot', '1')
-            ->where('order_cancel','!=','1')
+            ->where('order_cancel', '!=', '1')
             ->where('uploadtype', $ftypedata)
             ->get();
 
@@ -574,8 +749,8 @@ class intransitOrdersExport implements WithHeadings, FromCollection
         $products = Bulkorders::select('Order_Type', 'orderno', 'Awb_Number', 'awb_gen_courier', 'Name', 'Address', 'State', 'City', 'Mobile', 'Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'volumetric_weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Rec_Time_Date', 'uploadtype', 'pickup_id', 'order_status_show', 'showerrors')
             ->whereBetween('Last_Time_Stamp', [$fetchdata, $fetchdata1])
             ->where('user_id', session()->has('UserLogin2id') ? session()->get('UserLogin2id') : null)
-            ->whereIn('showerrors', ['In-Transit', 'in transit','Connected', 'intranit','Ready for Connection' ,'Shipped','In Transit' ,'Delayed' ,'Partial_Delivered' ,'REACHED AT DESTINATION HUB' ,'MISROUTED' ,'PICKED UP' ,'Reached Warehouse' , 'Custom Cleared' , 'In Flight' ,	'Shipment Booked'])
-            
+            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
+
             ->where('apihitornot', '1')
             ->where('uploadtype', $ftypedata)
             ->get();
@@ -662,7 +837,7 @@ class rtoOrdersExport implements WithHeadings, FromCollection
         $crtyear = date("Y");
         $crtmdays = cal_days_in_month(CAL_GREGORIAN, $crtmonth, $crtyear);
         $currentmonthstartObj = Carbon::createFromFormat('d-m-Y', "1-$crtmonth-$crtyear")->startOfMonth();
-$currentmonthstendObj = Carbon::createFromFormat('d-m-Y', "$crtmdays-$crtmonth-$crtyear")->endOfMonth();
+        $currentmonthstendObj = Carbon::createFromFormat('d-m-Y', "$crtmdays-$crtmonth-$crtyear")->endOfMonth();
 
 
 
@@ -673,7 +848,7 @@ $currentmonthstendObj = Carbon::createFromFormat('d-m-Y', "$crtmdays-$crtmonth-$
         $products = Bulkorders::select('Order_Type', 'orderno', 'Awb_Number', 'awb_gen_courier', 'Name', 'Address', 'State', 'City', 'Mobile', 'Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'volumetric_weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Rec_Time_Date', 'uploadtype', 'pickup_id', 'order_status_show', 'showerrors')
             // ->whereBetween('Last_Time_Stamp', [$fetchdata, $fetchdata1])
             ->whereBetween('Last_Time_Stamp', [$currentmonthstartObj, $currentmonthstendObj])
-            ->whereIn('showerrors', ['exception', 'Shipment Redirected','rto', 'Undelivered'])
+            ->whereIn('showerrors', ['exception', 'Shipment Redirected', 'rto', 'Undelivered'])
             ->where('user_id', session()->has('UserLogin2id') ? session()->get('UserLogin2id') : null)
             ->where('apihitornot', '1')
             ->where('uploadtype', $ftypedata)
@@ -764,7 +939,7 @@ class cancelOrdersExport implements WithHeadings, FromCollection
         $products = Bulkorders::select('Order_Type', 'orderno', 'Awb_Number', 'awb_gen_courier', 'Name', 'Address', 'State', 'City', 'Mobile', 'Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'volumetric_weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Rec_Time_Date', 'uploadtype', 'pickup_id', 'order_status_show', 'showerrors')
             ->whereBetween('Last_Time_Stamp', [$fetchdata, $fetchdata1])
             ->where('user_id', session()->has('UserLogin2id') ? session()->get('UserLogin2id') : null)
-            ->where('order_cancel',1)
+            ->where('order_cancel', 1)
             ->where('apihitornot', '1')
             ->where('uploadtype', $ftypedata)
             ->get();
@@ -798,31 +973,31 @@ class cancelOrdersExport implements WithHeadings, FromCollection
 
 
 
-class PODReportExport implements WithHeadings,FromCollection
+class PODReportExport implements WithHeadings, FromCollection
 {
     public function collection()
     {
-    	$userid = session()->get('UserLogin2id');
-    	$today = Carbon::now();
-		$tdate = $today->toDateString();
-		$products = orderdetail::where('order_userid',$userid)
-							->where('order_status','Complete')
-                            ->where('user_id',$userid)
-							->select('awb_no','orderno','cname','cmobile','cpin','itmecodamt','orderdata','order_status','order_userid','courier_name')
-							->get();
+        $userid = session()->get('UserLogin2id');
+        $today = Carbon::now();
+        $tdate = $today->toDateString();
+        $products = orderdetail::where('order_userid', $userid)
+            ->where('order_status', 'Complete')
+            ->where('user_id', $userid)
+            ->select('awb_no', 'orderno', 'cname', 'cmobile', 'cpin', 'itmecodamt', 'orderdata', 'order_status', 'order_userid', 'courier_name')
+            ->get();
 
-		foreach ($products as $key => $product){
-		     	$catName = Allusers::select('name')->where('id',$product->order_userid)->first();
-		    	$products[$key]->order_userid = $catName->name;
-		}
-		return $products;
+        foreach ($products as $key => $product) {
+            $catName = Allusers::select('name')->where('id', $product->order_userid)->first();
+            $products[$key]->order_userid = $catName->name;
+        }
+        return $products;
     }
 
-    public function headings(): array{
+    public function headings(): array
+    {
 
-		return["AWB No",'Order No','Client Name','Client Mobile','Destination Pincode','COD Amount','Upload Date','Current Status','Customer Name','Courier Name'];
-
-	}
+        return ["AWB No", 'Order No', 'Client Name', 'Client Mobile', 'Destination Pincode', 'COD Amount', 'Upload Date', 'Current Status', 'Customer Name', 'Courier Name'];
+    }
 }
 
 
@@ -832,27 +1007,27 @@ class PODReportExport implements WithHeadings,FromCollection
 
 
 
-class DailyReportExport implements WithHeadings,FromCollection
+class DailyReportExport implements WithHeadings, FromCollection
 {
     public function collection()
     {
-    	$userid = session()->get('UserLogin2id');
-    	$today = Carbon::now();
-		$tdate = $today->toDateString();
-		$products = orderdetail::where('order_userid',$userid)->where('order_status','Complete')->where('user_id',$userid)->select('awb_no','orderno','cname','cmobile','cpin','itmecodamt','orderdata','order_status','order_userid','courier_name')->get();
+        $userid = session()->get('UserLogin2id');
+        $today = Carbon::now();
+        $tdate = $today->toDateString();
+        $products = orderdetail::where('order_userid', $userid)->where('order_status', 'Complete')->where('user_id', $userid)->select('awb_no', 'orderno', 'cname', 'cmobile', 'cpin', 'itmecodamt', 'orderdata', 'order_status', 'order_userid', 'courier_name')->get();
 
-		foreach ($products as $key => $product){
-		     	$catName = Allusers::select('name')->where('id',$product->order_userid)->first();
-		    	$products[$key]->order_userid = $catName->name;
-		}
-		return $products;
+        foreach ($products as $key => $product) {
+            $catName = Allusers::select('name')->where('id', $product->order_userid)->first();
+            $products[$key]->order_userid = $catName->name;
+        }
+        return $products;
     }
 
-    public function headings(): array{
+    public function headings(): array
+    {
 
-		return["AWB No",'Order No','Client Name','Client Mobile','Destination Pincode','COD Amount','Upload Date','Current Status','Customer Name','Courier Name'];
-
-	}
+        return ["AWB No", 'Order No', 'Client Name', 'Client Mobile', 'Destination Pincode', 'COD Amount', 'Upload Date', 'Current Status', 'Customer Name', 'Courier Name'];
+    }
 }
 
 
@@ -860,128 +1035,35 @@ class DailyReportExport implements WithHeadings,FromCollection
 
 
 
-class NDRReportExport implements WithHeadings,FromCollection{
- use Exportable;
-    public function __construct($date,$time){
+class NDRReportExport implements WithHeadings, FromCollection
+{
+    use Exportable;
+    public function __construct($date, $time)
+    {
         $this->date = $date;
         $this->time = $time;
     }
-    public function collection(){
-    	$fetchdata = $this->date;
-        $fetchtime = $this->time;
-    	$userid = session()->get('UserLogin2id');
-    	$today = Carbon::now();
-		$tdate = $today->toDateString();
-
-		$products = Manifestorders::select('awbno','orderno','pickupdate','orderstatus','courierremark','laststatusdate','deliverydate','firstscandate','firstattemptdate','edd','origincity','originpincode','destinationcity','destinationpincode','customername','customercontact','clientname','paymentmode','codamt','orderageing','attemptcount','couriername','rtodate')
-                                ->where('uploaddate',$fetchdata)
-                                ->where('uploadtime',$fetchtime)
-                                ->where('user_id',$userid)
-                                ->get();
-		return $products;
-    }
-
-    public function headings(): array{
-
-		return['awbno','orderno','pickupdate','orderstatus','courierremark','laststatusdate','deliverydate','firstscandate','firstattemptdate','edd','origincity','originpincode','destinationcity','destinationpincode','customername','customercontact','clientname','paymentmode','codamt','orderageing','attemptcount','couriername','rtodate'];
-
-	}
-}
-
-
-
-
-
-
-class NDRReportExportD implements WithHeadings,FromCollection{
-    public function collection(){
-    	$userid = session()->get('UserLogin2id');
-    	$today = Carbon::now();
-		$tdate = $today->toDateString();
-		$products = Manifestorders::select('awbno','orderno','pickupdate','orderstatus','courierremark','laststatusdate','deliverydate','firstscandate','firstattemptdate','edd','origincity','originpincode','destinationcity','destinationpincode','customername','customercontact','clientname','paymentmode','codamt','orderageing','attemptcount','couriername','rtodate')
-                                ->where('uploaddate',$tdate)->where('user_id',$userid)->where('orderstatus','Delivered')->get();
-		return $products;
-    }
-    public function headings(): array{
-		return['awbno','orderno','pickupdate','orderstatus','courierremark','laststatusdate','deliverydate','firstscandate','firstattemptdate','edd','origincity','originpincode','destinationcity','destinationpincode','customername','customercontact','clientname','paymentmode','codamt','orderageing','attemptcount','couriername','rtodate'];
-	}
-}
-class NDRReportExportD1 implements WithHeadings,FromCollection{
-    public function collection(){
-    	$userid = session()->get('UserLogin2id');
-			$tdate = date('Y-m-d',strtotime("-1 days"));
-		$products = Manifestorders::select('awbno','orderno','pickupdate','orderstatus','courierremark','laststatusdate','deliverydate','firstscandate','firstattemptdate','edd','origincity','originpincode','destinationcity','destinationpincode','customername','customercontact','clientname','paymentmode','codamt','orderageing','attemptcount','couriername','rtodate')
-                                ->where('uploaddate',$tdate)->where('user_id',$userid)->where('orderstatus','Delivered')->get();
-		return $products;
-    }
-    public function headings(): array{
-		return['awbno','orderno','pickupdate','orderstatus','courierremark','laststatusdate','deliverydate','firstscandate','firstattemptdate','edd','origincity','originpincode','destinationcity','destinationpincode','customername','customercontact','clientname','paymentmode','codamt','orderageing','attemptcount','couriername','rtodate'];
-	}
-}
-class NDRReportExportD2 implements WithHeadings,FromCollection{
-    public function collection(){
-    	$userid = session()->get('UserLogin2id');
-			$tdate = date('Y-m-d',strtotime("-2 days"));
-		$products = Manifestorders::select('awbno','orderno','pickupdate','orderstatus','courierremark','laststatusdate','deliverydate','firstscandate','firstattemptdate','edd','origincity','originpincode','destinationcity','destinationpincode','customername','customercontact','clientname','paymentmode','codamt','orderageing','attemptcount','couriername','rtodate')
-                                ->where('uploaddate',$tdate)->where('user_id',$userid)->where('orderstatus','Delivered')->get();
-		return $products;
-    }
-    public function headings(): array{
-		return['awbno','orderno','pickupdate','orderstatus','courierremark','laststatusdate','deliverydate','firstscandate','firstattemptdate','edd','origincity','originpincode','destinationcity','destinationpincode','customername','customercontact','clientname','paymentmode','codamt','orderageing','attemptcount','couriername','rtodate'];
-	}
-}
-class NDRReportExportD3 implements WithHeadings,FromCollection{
-    public function collection(){
-    	$userid = session()->get('UserLogin2id');
-			$tdate = date('Y-m-d',strtotime("-3 days"));
-		$products = Manifestorders::select('awbno','orderno','pickupdate','orderstatus','courierremark','laststatusdate','deliverydate','firstscandate','firstattemptdate','edd','origincity','originpincode','destinationcity','destinationpincode','customername','customercontact','clientname','paymentmode','codamt','orderageing','attemptcount','couriername','rtodate')
-                                ->where('uploaddate',$tdate)->where('user_id',$userid)->where('orderstatus','Delivered')->get();
-		return $products;
-    }
-    public function headings(): array{
-		return['awbno','orderno','pickupdate','orderstatus','courierremark','laststatusdate','deliverydate','firstscandate','firstattemptdate','edd','origincity','originpincode','destinationcity','destinationpincode','customername','customercontact','clientname','paymentmode','codamt','orderageing','attemptcount','couriername','rtodate'];
-	}
-}
-class NDRReportExportD4 implements WithHeadings,FromCollection{
-    public function collection(){
-    	$userid = session()->get('UserLogin2id');
-			$tdate = date('Y-m-d',strtotime("-4 days"));
-		$products = Manifestorders::select('awbno','orderno','pickupdate','orderstatus','courierremark','laststatusdate','deliverydate','firstscandate','firstattemptdate','edd','origincity','originpincode','destinationcity','destinationpincode','customername','customercontact','clientname','paymentmode','codamt','orderageing','attemptcount','couriername','rtodate')
-                                ->where('uploaddate',$tdate)->where('user_id',$userid)->where('orderstatus','Delivered')->get();
-		return $products;
-    }
-    public function headings(): array{
-		return['awbno','orderno','pickupdate','orderstatus','courierremark','laststatusdate','deliverydate','firstscandate','firstattemptdate','edd','origincity','originpincode','destinationcity','destinationpincode','customername','customercontact','clientname','paymentmode','codamt','orderageing','attemptcount','couriername','rtodate'];
-	}
-}
-
-
-
-
-
-class NDRReportExportN implements WithHeadings,FromCollection{
- use Exportable;
-    public function __construct($date,$time){
-        $this->date = $date;
-        $this->time = $time;
-    }
-        public function collection(){
+    public function collection()
+    {
         $fetchdata = $this->date;
         $fetchtime = $this->time;
-    	$userid = session()->get('UserLogin2id');
-    	$today = Carbon::now();
-		$tdate = $today->toDateString();
-		$products = NDRorders::select('awbno','orderno','pickupdate','orderstatus','courierremark','laststatusdate','deliverydate','firstscandate','firstattemptdate','edd','origincity','originpincode','destinationcity','destinationpincode','customername','customercontact','clientname','paymentmode','codamt','orderageing','attemptcount','couriername','rtodate')
-                                ->where('uploaddate',$fetchdata)
-                                ->where('uploadtime',$fetchtime)
-                                ->where('user_id',$userid)
-                                // ->where('orderstatus','RTO Delivered')
-                                ->get();
-		return $products;
+        $userid = session()->get('UserLogin2id');
+        $today = Carbon::now();
+        $tdate = $today->toDateString();
+
+        $products = Manifestorders::select('awbno', 'orderno', 'pickupdate', 'orderstatus', 'courierremark', 'laststatusdate', 'deliverydate', 'firstscandate', 'firstattemptdate', 'edd', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'customername', 'customercontact', 'clientname', 'paymentmode', 'codamt', 'orderageing', 'attemptcount', 'couriername', 'rtodate')
+            ->where('uploaddate', $fetchdata)
+            ->where('uploadtime', $fetchtime)
+            ->where('user_id', $userid)
+            ->get();
+        return $products;
     }
-    public function headings(): array{
-		return['awbno','orderno','pickupdate','orderstatus','courierremark','laststatusdate','deliverydate','firstscandate','firstattemptdate','edd','origincity','originpincode','destinationcity','destinationpincode','customername','customercontact','clientname','paymentmode','codamt','orderageing','attemptcount','couriername','rtodate'];
-	}
+
+    public function headings(): array
+    {
+
+        return ['awbno', 'orderno', 'pickupdate', 'orderstatus', 'courierremark', 'laststatusdate', 'deliverydate', 'firstscandate', 'firstattemptdate', 'edd', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'customername', 'customercontact', 'clientname', 'paymentmode', 'codamt', 'orderageing', 'attemptcount', 'couriername', 'rtodate'];
+    }
 }
 
 
@@ -989,71 +1071,114 @@ class NDRReportExportN implements WithHeadings,FromCollection{
 
 
 
+class NDRReportExportD implements WithHeadings, FromCollection
+{
+    public function collection()
+    {
+        $userid = session()->get('UserLogin2id');
+        $today = Carbon::now();
+        $tdate = $today->toDateString();
+        $products = Manifestorders::select('awbno', 'orderno', 'pickupdate', 'orderstatus', 'courierremark', 'laststatusdate', 'deliverydate', 'firstscandate', 'firstattemptdate', 'edd', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'customername', 'customercontact', 'clientname', 'paymentmode', 'codamt', 'orderageing', 'attemptcount', 'couriername', 'rtodate')
+            ->where('uploaddate', $tdate)->where('user_id', $userid)->where('orderstatus', 'Delivered')->get();
+        return $products;
+    }
+    public function headings(): array
+    {
+        return ['awbno', 'orderno', 'pickupdate', 'orderstatus', 'courierremark', 'laststatusdate', 'deliverydate', 'firstscandate', 'firstattemptdate', 'edd', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'customername', 'customercontact', 'clientname', 'paymentmode', 'codamt', 'orderageing', 'attemptcount', 'couriername', 'rtodate'];
+    }
+}
+class NDRReportExportD1 implements WithHeadings, FromCollection
+{
+    public function collection()
+    {
+        $userid = session()->get('UserLogin2id');
+        $tdate = date('Y-m-d', strtotime("-1 days"));
+        $products = Manifestorders::select('awbno', 'orderno', 'pickupdate', 'orderstatus', 'courierremark', 'laststatusdate', 'deliverydate', 'firstscandate', 'firstattemptdate', 'edd', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'customername', 'customercontact', 'clientname', 'paymentmode', 'codamt', 'orderageing', 'attemptcount', 'couriername', 'rtodate')
+            ->where('uploaddate', $tdate)->where('user_id', $userid)->where('orderstatus', 'Delivered')->get();
+        return $products;
+    }
+    public function headings(): array
+    {
+        return ['awbno', 'orderno', 'pickupdate', 'orderstatus', 'courierremark', 'laststatusdate', 'deliverydate', 'firstscandate', 'firstattemptdate', 'edd', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'customername', 'customercontact', 'clientname', 'paymentmode', 'codamt', 'orderageing', 'attemptcount', 'couriername', 'rtodate'];
+    }
+}
+class NDRReportExportD2 implements WithHeadings, FromCollection
+{
+    public function collection()
+    {
+        $userid = session()->get('UserLogin2id');
+        $tdate = date('Y-m-d', strtotime("-2 days"));
+        $products = Manifestorders::select('awbno', 'orderno', 'pickupdate', 'orderstatus', 'courierremark', 'laststatusdate', 'deliverydate', 'firstscandate', 'firstattemptdate', 'edd', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'customername', 'customercontact', 'clientname', 'paymentmode', 'codamt', 'orderageing', 'attemptcount', 'couriername', 'rtodate')
+            ->where('uploaddate', $tdate)->where('user_id', $userid)->where('orderstatus', 'Delivered')->get();
+        return $products;
+    }
+    public function headings(): array
+    {
+        return ['awbno', 'orderno', 'pickupdate', 'orderstatus', 'courierremark', 'laststatusdate', 'deliverydate', 'firstscandate', 'firstattemptdate', 'edd', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'customername', 'customercontact', 'clientname', 'paymentmode', 'codamt', 'orderageing', 'attemptcount', 'couriername', 'rtodate'];
+    }
+}
+class NDRReportExportD3 implements WithHeadings, FromCollection
+{
+    public function collection()
+    {
+        $userid = session()->get('UserLogin2id');
+        $tdate = date('Y-m-d', strtotime("-3 days"));
+        $products = Manifestorders::select('awbno', 'orderno', 'pickupdate', 'orderstatus', 'courierremark', 'laststatusdate', 'deliverydate', 'firstscandate', 'firstattemptdate', 'edd', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'customername', 'customercontact', 'clientname', 'paymentmode', 'codamt', 'orderageing', 'attemptcount', 'couriername', 'rtodate')
+            ->where('uploaddate', $tdate)->where('user_id', $userid)->where('orderstatus', 'Delivered')->get();
+        return $products;
+    }
+    public function headings(): array
+    {
+        return ['awbno', 'orderno', 'pickupdate', 'orderstatus', 'courierremark', 'laststatusdate', 'deliverydate', 'firstscandate', 'firstattemptdate', 'edd', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'customername', 'customercontact', 'clientname', 'paymentmode', 'codamt', 'orderageing', 'attemptcount', 'couriername', 'rtodate'];
+    }
+}
+class NDRReportExportD4 implements WithHeadings, FromCollection
+{
+    public function collection()
+    {
+        $userid = session()->get('UserLogin2id');
+        $tdate = date('Y-m-d', strtotime("-4 days"));
+        $products = Manifestorders::select('awbno', 'orderno', 'pickupdate', 'orderstatus', 'courierremark', 'laststatusdate', 'deliverydate', 'firstscandate', 'firstattemptdate', 'edd', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'customername', 'customercontact', 'clientname', 'paymentmode', 'codamt', 'orderageing', 'attemptcount', 'couriername', 'rtodate')
+            ->where('uploaddate', $tdate)->where('user_id', $userid)->where('orderstatus', 'Delivered')->get();
+        return $products;
+    }
+    public function headings(): array
+    {
+        return ['awbno', 'orderno', 'pickupdate', 'orderstatus', 'courierremark', 'laststatusdate', 'deliverydate', 'firstscandate', 'firstattemptdate', 'edd', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'customername', 'customercontact', 'clientname', 'paymentmode', 'codamt', 'orderageing', 'attemptcount', 'couriername', 'rtodate'];
+    }
+}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-class MISReportExport implements WithHeadings,FromCollection{
- use Exportable;
-    public function __construct($date,$time){
+class NDRReportExportN implements WithHeadings, FromCollection
+{
+    use Exportable;
+    public function __construct($date, $time)
+    {
         $this->date = $date;
         $this->time = $time;
     }
-    public function collection(){
-    	$fetchdata = $this->date;
+    public function collection()
+    {
+        $fetchdata = $this->date;
         $fetchtime = $this->time;
-    	$userid = session()->get('UserLogin2id');
-    	$today = Carbon::now();
-		$tdate = $today->toDateString();
-
-		$products = Manifestorders::select('awbno','orderno','origincity','originpincode','destinationcity','destinationpincode','paymentmode','couriername')
-                                ->where('uploaddate',$fetchdata)
-                                ->where('uploadtime',$fetchtime)
-                                ->where('user_id',$userid)
-                                ->get();
-		return $products;
+        $userid = session()->get('UserLogin2id');
+        $today = Carbon::now();
+        $tdate = $today->toDateString();
+        $products = NDRorders::select('awbno', 'orderno', 'pickupdate', 'orderstatus', 'courierremark', 'laststatusdate', 'deliverydate', 'firstscandate', 'firstattemptdate', 'edd', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'customername', 'customercontact', 'clientname', 'paymentmode', 'codamt', 'orderageing', 'attemptcount', 'couriername', 'rtodate')
+            ->where('uploaddate', $fetchdata)
+            ->where('uploadtime', $fetchtime)
+            ->where('user_id', $userid)
+            // ->where('orderstatus','RTO Delivered')
+            ->get();
+        return $products;
     }
-
-    public function headings(): array{
-
-		return['awbno','orderno','origincity','originpincode','destinationcity','destinationpincode','paymentmode','couriername'];
-
-	}
+    public function headings(): array
+    {
+        return ['awbno', 'orderno', 'pickupdate', 'orderstatus', 'courierremark', 'laststatusdate', 'deliverydate', 'firstscandate', 'firstattemptdate', 'edd', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'customername', 'customercontact', 'clientname', 'paymentmode', 'codamt', 'orderageing', 'attemptcount', 'couriername', 'rtodate'];
+    }
 }
 
 
@@ -1061,66 +1186,156 @@ class MISReportExport implements WithHeadings,FromCollection{
 
 
 
-class MISReportExportD implements WithHeadings,FromCollection{
-    public function collection(){
-    	$userid = session()->get('UserLogin2id');
-    	$today = Carbon::now();
-		$tdate = $today->toDateString();
-		$products = Manifestorders::select('awbno','orderno','origincity','originpincode','destinationcity','destinationpincode','paymentmode','couriername')
-                                ->where('uploaddate',$tdate)->where('user_id',$userid)->where('orderstatus','Delivered')->get();
-		return $products;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class MISReportExport implements WithHeadings, FromCollection
+{
+    use Exportable;
+    public function __construct($date, $time)
+    {
+        $this->date = $date;
+        $this->time = $time;
     }
-    public function headings(): array{
-		return['awbno','orderno','origincity','originpincode','destinationcity','destinationpincode','paymentmode','couriername'];
-	}
+    public function collection()
+    {
+        $fetchdata = $this->date;
+        $fetchtime = $this->time;
+        $userid = session()->get('UserLogin2id');
+        $today = Carbon::now();
+        $tdate = $today->toDateString();
+
+        $products = Manifestorders::select('awbno', 'orderno', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'paymentmode', 'couriername')
+            ->where('uploaddate', $fetchdata)
+            ->where('uploadtime', $fetchtime)
+            ->where('user_id', $userid)
+            ->get();
+        return $products;
+    }
+
+    public function headings(): array
+    {
+
+        return ['awbno', 'orderno', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'paymentmode', 'couriername'];
+    }
 }
-class MISReportExportD1 implements WithHeadings,FromCollection{
-    public function collection(){
-    	$userid = session()->get('UserLogin2id');
-			$tdate = date('Y-m-d',strtotime("-1 days"));
-		$products = Manifestorders::select('awbno','orderno','origincity','originpincode','destinationcity','destinationpincode','paymentmode','couriername')
-                                ->where('uploaddate',$tdate)->where('user_id',$userid)->where('orderstatus','Delivered')->get();
-		return $products;
+
+
+
+
+
+
+class MISReportExportD implements WithHeadings, FromCollection
+{
+    public function collection()
+    {
+        $userid = session()->get('UserLogin2id');
+        $today = Carbon::now();
+        $tdate = $today->toDateString();
+        $products = Manifestorders::select('awbno', 'orderno', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'paymentmode', 'couriername')
+            ->where('uploaddate', $tdate)->where('user_id', $userid)->where('orderstatus', 'Delivered')->get();
+        return $products;
     }
-    public function headings(): array{
-		return['awbno','orderno','origincity','originpincode','destinationcity','destinationpincode','paymentmode','couriername'];
-	}
+    public function headings(): array
+    {
+        return ['awbno', 'orderno', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'paymentmode', 'couriername'];
+    }
 }
-class MISReportExportD2 implements WithHeadings,FromCollection{
-    public function collection(){
-    	$userid = session()->get('UserLogin2id');
-			$tdate = date('Y-m-d',strtotime("-2 days"));
-		$products = Manifestorders::select('awbno','orderno','origincity','originpincode','destinationcity','destinationpincode','paymentmode','couriername')
-                                ->where('uploaddate',$tdate)->where('user_id',$userid)->where('orderstatus','Delivered')->get();
-		return $products;
+class MISReportExportD1 implements WithHeadings, FromCollection
+{
+    public function collection()
+    {
+        $userid = session()->get('UserLogin2id');
+        $tdate = date('Y-m-d', strtotime("-1 days"));
+        $products = Manifestorders::select('awbno', 'orderno', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'paymentmode', 'couriername')
+            ->where('uploaddate', $tdate)->where('user_id', $userid)->where('orderstatus', 'Delivered')->get();
+        return $products;
     }
-    public function headings(): array{
-		return['awbno','orderno','origincity','originpincode','destinationcity','destinationpincode','paymentmode','couriername'];
-	}
+    public function headings(): array
+    {
+        return ['awbno', 'orderno', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'paymentmode', 'couriername'];
+    }
 }
-class MISReportExportD3 implements WithHeadings,FromCollection{
-    public function collection(){
-    	$userid = session()->get('UserLogin2id');
-			$tdate = date('Y-m-d',strtotime("-3 days"));
-		$products = Manifestorders::select('awbno','orderno','origincity','originpincode','destinationcity','destinationpincode','paymentmode','couriername')
-                                ->where('uploaddate',$tdate)->where('user_id',$userid)->where('orderstatus','Delivered')->get();
-		return $products;
+class MISReportExportD2 implements WithHeadings, FromCollection
+{
+    public function collection()
+    {
+        $userid = session()->get('UserLogin2id');
+        $tdate = date('Y-m-d', strtotime("-2 days"));
+        $products = Manifestorders::select('awbno', 'orderno', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'paymentmode', 'couriername')
+            ->where('uploaddate', $tdate)->where('user_id', $userid)->where('orderstatus', 'Delivered')->get();
+        return $products;
     }
-    public function headings(): array{
-		return['awbno','orderno','origincity','originpincode','destinationcity','destinationpincode','paymentmode','couriername'];
-	}
+    public function headings(): array
+    {
+        return ['awbno', 'orderno', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'paymentmode', 'couriername'];
+    }
 }
-class MISReportExportD4 implements WithHeadings,FromCollection{
-    public function collection(){
-    	$userid = session()->get('UserLogin2id');
-			$tdate = date('Y-m-d',strtotime("-4 days"));
-		$products = Manifestorders::select('awbno','orderno','origincity','originpincode','destinationcity','destinationpincode','paymentmode','couriername')
-                                ->where('uploaddate',$tdate)->where('user_id',$userid)->where('orderstatus','Delivered')->get();
-		return $products;
+class MISReportExportD3 implements WithHeadings, FromCollection
+{
+    public function collection()
+    {
+        $userid = session()->get('UserLogin2id');
+        $tdate = date('Y-m-d', strtotime("-3 days"));
+        $products = Manifestorders::select('awbno', 'orderno', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'paymentmode', 'couriername')
+            ->where('uploaddate', $tdate)->where('user_id', $userid)->where('orderstatus', 'Delivered')->get();
+        return $products;
     }
-    public function headings(): array{
-		return['awbno','orderno','origincity','originpincode','destinationcity','destinationpincode','paymentmode','couriername'];
-	}
+    public function headings(): array
+    {
+        return ['awbno', 'orderno', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'paymentmode', 'couriername'];
+    }
+}
+class MISReportExportD4 implements WithHeadings, FromCollection
+{
+    public function collection()
+    {
+        $userid = session()->get('UserLogin2id');
+        $tdate = date('Y-m-d', strtotime("-4 days"));
+        $products = Manifestorders::select('awbno', 'orderno', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'paymentmode', 'couriername')
+            ->where('uploaddate', $tdate)->where('user_id', $userid)->where('orderstatus', 'Delivered')->get();
+        return $products;
+    }
+    public function headings(): array
+    {
+        return ['awbno', 'orderno', 'origincity', 'originpincode', 'destinationcity', 'destinationpincode', 'paymentmode', 'couriername'];
+    }
 }
 
 
@@ -1148,7 +1363,7 @@ class MISReportExportN implements WithHeadings, FromCollection
         'Actual Weight',
         'Volumetric Weight',
         'Current Status',
-        
+
         'Fulfilled By',
         'Pickup Date',
         'Pickup Address',
@@ -1156,7 +1371,7 @@ class MISReportExportN implements WithHeadings, FromCollection
         'Pickup City',
         'Pickup State',
         'Pickup Mobile',
-        
+
         'Zone',
         'Total Amount'
     ];
@@ -1169,11 +1384,11 @@ class MISReportExportN implements WithHeadings, FromCollection
     public function collection()
     {
         $userid = session()->get('UserLogin2id');
-        
-        
-        
-        
-        
+
+
+
+
+
         // return bulkorders::join('mis_report', 'mis_report.awb_number', '=', 'spark_single_order.Awb_Number')
         //     ->whereBetween('spark_single_order.Rec_Time_Date', [$this->data['fromdate'], $this->data['todate']])
         //     ->where('spark_single_order.showerrors', 'RTO Delivered')
@@ -1209,7 +1424,7 @@ class MISReportExportN implements WithHeadings, FromCollection
         //         'mis_report.last_attempt_date',
         //         'mis_report.turn_around_time'
         //     ])->get();
-        
+
         // return bulkorders::join('orderdetails', 'orderdetails.awb_no', '=', 'spark_single_order.Awb_Number')
         //     ->whereBetween('spark_single_order.Rec_Time_Date', [$this->data['fromdate'], $this->data['todate']])
         //     // ->where('spark_single_order.showerrors', 'RTO Delivered')
@@ -1248,10 +1463,10 @@ class MISReportExportN implements WithHeadings, FromCollection
         //          'spark_single_order.zone',
         //         'orderdetails.debit'
         //     ])->get();
-            
-            
-            
-      return bulkorders::where('user_id', $userid)->whereBetween('Rec_Time_Date', [$this->data['fromdate'], $this->data['todate']])
+
+
+
+        return bulkorders::where('user_id', $userid)->whereBetween('Rec_Time_Date', [$this->data['fromdate'], $this->data['todate']])
             ->select([
                 'Awb_Number',
                 'orderno',
@@ -1270,7 +1485,7 @@ class MISReportExportN implements WithHeadings, FromCollection
                 'volumetric_weight',
                 'showerrors',
                 'awb_gen_courier',
-               
+
                 'Rec_Time_Date as pickup_date',
                 'pickup_address',
                 'pickup_pincode',
@@ -1278,15 +1493,12 @@ class MISReportExportN implements WithHeadings, FromCollection
                 'pickup_state',
                 'pickup_mobile',
                 'zone'
-                
+
             ])->get();
-            
-            
     }
 
     public function headings(): array
     {
         return self::HEADINGS;
     }
-    
 }
