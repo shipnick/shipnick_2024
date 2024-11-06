@@ -293,6 +293,7 @@
 					<!--<li><a href="{{asset('/page-error-503')}}">Menifest<span class="badge badge-xs badge-success ms-3">Update</span></a></li>-->
 					<li><a href="#">NDR</a></li>
 					<li><a href="{{ asset('/showordercounts') }}">Courier Wise Detail</a></li>
+					<li><a href="{{asset('/sku_summary')}}">SKU Wise Summary </a></li>
 				</ul>
 			</li>
 			<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
