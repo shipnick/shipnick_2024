@@ -2086,10 +2086,11 @@ class UserDashboard extends Controller
     $commonConditions = [
       ['User_Id', $userid],
       ['Awb_Number', '!=', ''],
+      ['order_cancel_reasion', '=', null], // Check for NULL properly
       ['order_cancel', '!=', '1'],
       ['Rec_Time_Date', '>=', $fromDate],
       ['Rec_Time_Date', '<=', $toDate],
-    ];
+  ];
 
     // Define status categories
     $statusCategories = [
