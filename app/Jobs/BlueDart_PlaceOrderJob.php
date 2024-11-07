@@ -292,7 +292,7 @@ class BlueDart_PlaceOrderJob implements ShouldQueue
         } catch (\Throwable $th) {
             $msg = __FILE__ . __METHOD__ . ", Line:" . $th->getLine() . ", Msg:" . $th->getMessage();
             Log::error($msg);
-            $this->ifErrorThenNextApi();
+            // $this->ifErrorThenNextApi();
             $this->fail($th);
             throw $th;
         }
