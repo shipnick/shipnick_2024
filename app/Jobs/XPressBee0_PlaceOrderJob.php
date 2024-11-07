@@ -148,7 +148,7 @@ class XPressBee0_PlaceOrderJob implements ShouldQueue
                     'showerrors' => 'pending pickup'
                 ]);
 
-                $param = bulkorders::where('Single_Order_Id', $awb)->first();
+                $param = bulkorders::where('Awb_Number', $awb)->first();
 
                         $zone = $param->zone;
                         $userid = $param->User_Id;
