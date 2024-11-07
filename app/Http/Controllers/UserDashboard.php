@@ -9,7 +9,7 @@ use App\Models\Allusers;
 use \PDF;
 use Carbon\Carbon;
 use DB;
-
+use Hamcrest\Core\IsNull;
 
 class UserDashboard extends Controller
 {
@@ -2086,10 +2086,12 @@ class UserDashboard extends Controller
     $commonConditions = [
       ['User_Id', $userid],
       ['Awb_Number', '!=', ''],
+      ['order_cancel_reasion', '=', null], // Check for NULL properly
       ['order_cancel', '!=', '1'],
       ['Rec_Time_Date', '>=', $fromDate],
       ['Rec_Time_Date', '<=', $toDate],
-    ];
+  ];
+  
 
     // Define status categories
     $statusCategories = [
@@ -2103,7 +2105,7 @@ class UserDashboard extends Controller
 
     // Get the count for a specific condition
     $getCount = function ($awbGenBy, $orderType = null, $showErrors = null) use ($commonConditions) {
-      $query = BulkOrders::where($commonConditions)->where('awb_gen_by', $awbGenBy);
+      $query = bulkOrders::where($commonConditions)->where('awb_gen_by', $awbGenBy);
       if ($orderType) {
         $query->where('Order_Type', $orderType);
       }
@@ -2271,8 +2273,15 @@ class UserDashboard extends Controller
       'BluedartCodNdr',
       'BluedartCodDelivered',
       'BluedartCodRto'
-
-      ,'xpressbeeDeliveredPersent','xpressbeePrepaidDeliveredPresent' ,'xpressbeeCodDeliveredPresent','EcomDeliverdPresent','EcomPrepaidDeliveredPresent','EcomCodDeliveredPresent','BluedartDeliverdPresent','BluedartPrepaidDeliveredPresent','BluedartCodDeliveredPresent'
+      ,'xpressbeeDeliveredPersent'
+      ,'xpressbeePrepaidDeliveredPresent' 
+      ,'xpressbeeCodDeliveredPresent',
+      'EcomDeliverdPresent',
+      'EcomPrepaidDeliveredPresent',
+      'EcomCodDeliveredPresent',
+      'BluedartDeliverdPresent',
+      'BluedartPrepaidDeliveredPresent',
+      'BluedartCodDeliveredPresent'
     ));
   }
 }
