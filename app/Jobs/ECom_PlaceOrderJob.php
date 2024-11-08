@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Console\Commands\PlaceShipment_CMD;
 use App\Models\bulkorders;
 use App\Models\price;
 use App\Models\orderdetail;
@@ -42,7 +43,6 @@ class ECom_PlaceOrderJob implements ShouldQueue
     {
         try {
             extract($this->data);
-
 
             echo "<br>Ecom Start<br>";
             $thisgenerateawbno = "";
@@ -218,7 +218,14 @@ class ECom_PlaceOrderJob implements ShouldQueue
                     $ecomawbnois = $responseecom['shipments'][0]['awb'];
                     $carrierby = "Ecom";
                     $ecomorderid = $responseecom['shipments'][0]['order_number'];
-                    bulkorders::where('Single_Order_Id', $crtidis)->update(['courier_ship_no' => $ecomorderid, 'Awb_Number' => $ecomawbnois, 'awb_gen_by' => $carrierby, 'awb_gen_courier' => 'Ecom']);
+                    bulkorders::where('Single_Order_Id', $crtidis)->update([
+                        'courier_ship_no' => $ecomorderid,
+                        'Awb_Number' => $ecomawbnois,
+                        'awb_gen_by' => $carrierby,
+                        'awb_gen_courier' => 'Ecom',
+                        'showerrors' => 'pending pickup',
+                        'order_status_show' => 'pending pickup'
+                    ]);
 
                     $param = bulkorders::where('Single_Order_Id', $crtidis)->first();
 
@@ -303,6 +310,9 @@ class ECom_PlaceOrderJob implements ShouldQueue
                         $errormsg = "Ecom internal error 500";
                     }
                 }
+            }else {
+                $this->ifErrorThenNextApi();
+                Log::info("picodematch empty");
             }
             // Ecom Order Place End //
             // Ecom Section End
@@ -314,13 +324,43 @@ class ECom_PlaceOrderJob implements ShouldQueue
         } catch (\Throwable $th) {
             $msg = __FILE__ . __METHOD__ . ", Line:" . $th->getLine() . ", Msg:" . $th->getMessage();
             Log::error($msg);
-            $this->ifErrorThenNextApi();
+            // $this->ifErrorThenNextApi();
             $this->fail($th);
             throw $th;
         }
     }
 
-    public function ifErrorThenNextApi(){
-        // $this->data;
+    public function ifErrorThenNextApi($currentCourier = 'ecom01')
+    {
+        try {
+            extract($this->data);
+            $courierassigns = courierpermission::where('user_id', $userid)
+                ->where('courier_priority', '!=', '0')
+                ->where('admin_flg', '1')
+                ->where('user_flg', '1')
+                ->orderby('courier_priority', 'asc')
+                ->pluck('courier_idno');
+            // dd($courierassigns);
+
+            // Find the index of 'ecom01'
+            $index = $courierassigns->search($currentCourier);
+
+            // Check if 'ecom01' was found and if there is a next value
+            if ($index !== false && $index + 1 < $courierassigns->count()) {
+                // Get the next value after 'ecom01'
+                $nextCourier = $courierassigns[$index + 1]; //  'xpressbee0'
+                // PlaceShipment_CMD::API_PROVIDER['xpressbee0']
+
+                $jobClass = 'App\\Jobs\\' . PlaceShipment_CMD::API_PROVIDER[$nextCourier] . '_PlaceOrderJob';
+                Log::info('Dispatching ' . $jobClass);
+                $jobClass::dispatch($this->data)->onQueue('place_order');
+            }else{
+                Log::info("No courier provider");
+            }
+        } catch (\Throwable $th) {
+            $msg = __FILE__ . __METHOD__ . ", Line:" . $th->getLine() . ", Msg:" . $th->getMessage();
+            Log::error($msg);
+            throw $th;
+        }
     }
 }
