@@ -5,7 +5,7 @@
 
   <!-- All Meta -->
   <meta charset="utf-8">
-<meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="DexignLab">
   <meta name="robots" content="">
@@ -41,18 +41,18 @@
   <!--*******************
         Preloader start
     ********************-->
-    <div id="preloader">
-		<div class="waviy">
-			<span style="--i:1">S</span>
-			<span style="--i:2">H</span>
-			<span style="--i:3">I</span>
-			<span style="--i:4">P</span>
-			<span style="--i:5">N</span>
-			<span style="--i:6">I</span>
-			<span style="--i:7">C</span>
-			<span style="--i:8">K</span>
-		</div>
-	</div>
+  <div id="preloader">
+    <div class="waviy">
+      <span style="--i:1">S</span>
+      <span style="--i:2">H</span>
+      <span style="--i:3">I</span>
+      <span style="--i:4">P</span>
+      <span style="--i:5">N</span>
+      <span style="--i:6">I</span>
+      <span style="--i:7">C</span>
+      <span style="--i:8">K</span>
+    </div>
+  </div>
   <!--*******************
         Preloader end
     ********************-->
@@ -62,8 +62,8 @@
     ***********************************-->
   <div id="main-wrapper">
 
-  @include("Admin/app")
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    @include("Admin/app")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--**********************************
             Content body start
         ***********************************-->
@@ -87,20 +87,20 @@
                 <div class="custom-tab-1">
                   <ul class="nav nav-tabs">
                     <li class="nav-item">
-                      <a class="nav-link "  href="{{ asset('/client-setting/'.$id) }}"><i class="la la-smile solid"></i>&nbsp;&nbsp;Merchant Details</a>
+                      <a class="nav-link " href="{{ asset('/client-setting/'.$id) }}"><i class="la la-smile solid"></i>&nbsp;&nbsp;Merchant Details</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link"  href="{{ asset('/client-financial-details/'.$id) }}"><i class="la la-wallet"></i>&nbsp;&nbsp;Financial Details</a>
+                      <a class="nav-link" href="{{ asset('/client-financial-details/'.$id) }}"><i class="la la-wallet"></i>&nbsp;&nbsp;Financial Details</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link"  href="{{ asset('/client-billing-information/'.$id) }}"><i class="la la-home me-2"></i>&nbsp;&nbsp;Address Info.</a>
+                      <a class="nav-link" href="{{ asset('/client-billing-information/'.$id) }}"><i class="la la-home me-2"></i>&nbsp;&nbsp;Address Info.</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active"  href="{{ asset('/client-courier-permissions/'.$id) }}"><i class="la la-ship"></i>&nbsp;&nbsp;Courier Permissions</a>
+                      <a class="nav-link active" href="{{ asset('/client-courier-permissions/'.$id) }}"><i class="la la-ship"></i>&nbsp;&nbsp;Courier Permissions</a>
                     </li>
                     <li class="nav-item">
-                                            <a class="nav-link  " href="{{ asset('/rate-list-permissions/'.$id) }}"><i class="la la-ship"></i>&nbsp;&nbsp;Courier pricing</a>
-                                        </li>
+                      <a class="nav-link  " href="{{ asset('/rate-list-permissions/'.$id) }}"><i class="la la-ship"></i>&nbsp;&nbsp;Courier pricing</a>
+                    </li>
                   </ul>
                   <div class="tab-content">
                     <div class="tab-pane fade show active" id="home1" role="tabpanel">
@@ -139,10 +139,12 @@
                                   <td>
                                     <?php
                                     // echo $param->name; 
-                                    if ($param->name == "Smartship") {
-                                      echo "Bluedart";
-                                    } elseif ($param->name == "SmartShip") {
-                                      echo "Bluedart";
+                                    if ($param->name == "Xpressbees") {
+                                      echo "Shipnick Xpressbees";
+                                    } elseif ($param->name == "Xpressbees2") {
+                                      echo "XpressBees";
+                                    }elseif ($param->name == "Xpressbees3") {
+                                      echo "Shipnick XB";
                                     } else {
                                       echo $param->name;
                                     } ?>
@@ -173,7 +175,7 @@
                         </div>
                       </div>
                     </div>
-                    
+
                   </div>
                 </div>
               </div>
@@ -188,35 +190,35 @@
         ***********************************-->
 
 
-        <script type="text/javascript">
-            function change_status(code, courier, courieridno, obj) {
-              var userid = "{{ $id }}";
+    <script type="text/javascript">
+      function change_status(code, courier, courieridno, obj) {
+        var userid = "{{ $id }}";
 
-              var value = 0;
-              if ($(obj).prop('checked') == true) {
-                value = 1;
-              }
+        var value = 0;
+        if ($(obj).prop('checked') == true) {
+          value = 1;
+        }
 
-              $.ajax({
-                type: "GET",
-                url: "{{ asset('/client-courier-permissions') }}",
-                data: {
-                  code: code,
-                  courier: courier,
-                  userid: userid,
-                  courieridno: courieridno,
-                  value: value
-                },
-                success: function(data) {
+        $.ajax({
+          type: "GET",
+          url: "{{ asset('/client-courier-permissions') }}",
+          data: {
+            code: code,
+            courier: courier,
+            userid: userid,
+            courieridno: courieridno,
+            value: value
+          },
+          success: function(data) {
 
-                },
-                error: function(data) {
-                  console.log('Error:', data);
-                }
-              });
+          },
+          error: function(data) {
+            console.log('Error:', data);
+          }
+        });
 
-            }
-          </script>
+      }
+    </script>
     <!--**********************************
             Footer start
         ***********************************-->

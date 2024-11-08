@@ -8,7 +8,7 @@
 				<div class="card">
 					<div class="card-header d-block d-sm-flex border-0">
 						<div class="me-3">
-							<h4 class="card-title mb-2">Courier Summary</h4>
+							<h4 class="card-title mb-2">Courier Performance</h4>
 							<!-- <span class="fs-12">Lorem ipsum dolor sit amet, consectetur</span> -->
 						</div>
 
@@ -229,6 +229,13 @@
 																	<p class="fs-8 mb-0"><br> RTO/RTS</p>
 																</div>
 															</div>
+															
+															<div class="col-sm-4  mb-4">
+																<div class="border px-1 py-3 rounded-xl">
+																	<h2 class="fs-18 font-w600 counter">0</h2>
+																	<p class="fs-8 mb-0">Lost / Damaged</p>
+																</div>
+															</div>
 															<div class="col-sm-4 mb-4">
 																@php
 																// Calculate the delivery percentage
@@ -239,12 +246,6 @@
 																		{{ round($xpressbeePrepaidPercentage) }}
 																	</h2>
 																	<p class="fs-8 mb-0"><br>Delivered %</p>
-																</div>
-															</div>
-															<div class="col-sm-4  mb-4">
-																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-18 font-w600 counter">0</h2>
-																	<p class="fs-8 mb-0">Lost / Damaged</p>
 																</div>
 															</div>
 														</div>
@@ -305,6 +306,13 @@
 																		<p class="fs-8 mb-0"><br> RTO/RTS</p>
 																	</div>
 																</div>
+																
+																<div class="col-sm-4 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$xpressbeeCodRto ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">Lost / Damaged</p>
+																	</div>
+																</div>
 																<div class="col-sm-4 mb-4">
 
 																	@php
@@ -316,12 +324,6 @@
 																			{{ round($xpressbeeCodPercentag1) }}
 																		</h2>
 																		<p class="fs-8 mb-0"><br>Delivered %</p>
-																	</div>
-																</div>
-																<div class="col-sm-4 mb-4">
-																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-18 font-w600 counter">{{$xpressbeeCodRto ?? 0 }}</h2>
-																		<p class="fs-8 mb-0">Lost / Damaged</p>
 																	</div>
 																</div>
 															</div>
@@ -408,6 +410,13 @@
 																			<p class="fs-8 mb-0"><br>RTO/RTS</p>
 																		</div>
 																	</div>
+																	
+																	<div class="col-sm-4 mb-4">
+																		<div class="border px-1 py-3 rounded-xl">
+																			<h2 class="fs-18 font-w600 counter">0</h2>
+																			<p class="fs-8 mb-0">Lost / Damaged</p>
+																		</div>
+																	</div>
 																	<div class="col-sm-4 mb-4">
 																		@php
 																		// Calculate the delivery percentage
@@ -419,12 +428,6 @@
 																				{{ round($EcomPercentage) }}
 																			</h2>
 																			<p class="fs-8 mb-0"><br>Delivered %</p>
-																		</div>
-																	</div>
-																	<div class="col-sm-4 mb-4">
-																		<div class="border px-1 py-3 rounded-xl">
-																			<h2 class="fs-18 font-w600 counter">0</h2>
-																			<p class="fs-8 mb-0">Lost / Damaged</p>
 																		</div>
 																	</div>
 																</div>
@@ -523,6 +526,13 @@
 																	<p class="fs-8 mb-0"><br> RTO/RTS</p>
 																</div>
 															</div>
+															
+															<div class="col-sm-4 mb-4">
+																<div class="border px-1 py-3 rounded-xl">
+																	<h2 class="fs-18 font-w600 counter">0</h2>
+																	<p class="fs-8 mb-0">Lost / Damaged</p>
+																</div>
+															</div>
 															<div class="col-sm-4 mb-4">
 																@php
 																// Calculate the delivery percentage
@@ -533,12 +543,6 @@
 																		{{ round($EcomPrepaidPercentage) }}
 																	</h2>
 																	<p class="fs-8 mb-0"><br>Delivered %</p>
-																</div>
-															</div>
-															<div class="col-sm-4 mb-4">
-																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-18 font-w600 counter">0</h2>
-																	<p class="fs-8 mb-0">Lost / Damaged</p>
 																</div>
 															</div>
 														</div>
@@ -600,6 +604,13 @@
 																	<p class="fs-8 mb-0"><br> RTO/RTS</p>
 																</div>
 															</div>
+															
+															<div class="col-sm-4 mb-4">
+																<div class="border px-1 py-3 rounded-xl">
+																	<h2 class="fs-18 font-w600 counter">0</h2>
+																	<p class="fs-8 mb-0">Lost / Damaged</p>
+																</div>
+															</div>
 															<div class="col-sm-4 mb-4">
 																@php
 																// Calculate the delivery percentage
@@ -610,12 +621,6 @@
 																		{{ round($EcomCodPercentage) }}
 																	</h2>
 																	<p class="fs-8 mb-0"><br>Delivered %</p>
-																</div>
-															</div>
-															<div class="col-sm-4 mb-4">
-																<div class="border px-1 py-3 rounded-xl">
-																	<h2 class="fs-18 font-w600 counter">0</h2>
-																	<p class="fs-8 mb-0">Lost / Damaged</p>
 																</div>
 															</div>
 														</div>
@@ -710,6 +715,14 @@
 																				<p class="fs-8 mb-0"><br>RTO/RTS</p>
 																			</div>
 																		</div>
+																		
+																		<div class="col-sm-4 mb-4">
+																			<div class="border px-1 py-3 rounded-xl">
+																				<h2 class="fs-18 font-w600 counter">0
+																				</h2>
+																				<p class="fs-8 mb-0">Lost / Damaged</p>
+																			</div>
+																		</div>
 																		<div class="col-sm-4 mb-4">
 																			@php
 																			// Calculate the delivery percentage
@@ -721,13 +734,6 @@
 																					{{ round($Bluedartpersentage) }}
 																				</h2>
 																				<p class="fs-8 mb-0"><br>Delivered %</p>
-																			</div>
-																		</div>
-																		<div class="col-sm-4 mb-4">
-																			<div class="border px-1 py-3 rounded-xl">
-																				<h2 class="fs-18 font-w600 counter">0
-																				</h2>
-																				<p class="fs-8 mb-0">Lost / Damaged</p>
 																			</div>
 																		</div>
 																	</div>
@@ -821,6 +827,13 @@
 																		<p class="fs-8 mb-0"><br> RTO/RTS</p>
 																	</div>
 																</div>
+																
+																<div class="col-sm-4 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">0</h2>
+																		<p class="fs-8 mb-0">Lost / Damaged</p>
+																	</div>
+																</div>
 																<div class="col-sm-4 mb-4">
 																	@php
 																	// Calculate the delivery percentage
@@ -832,12 +845,6 @@
 																			{{ round($BluedartPrepaidPercentage) }}
 																		</h2>
 																		<p class="fs-8 mb-0"><br> Delivered%</p>
-																	</div>
-																</div>
-																<div class="col-sm-4 mb-4">
-																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-18 font-w600 counter">0</h2>
-																		<p class="fs-8 mb-0">Lost / Damaged</p>
 																	</div>
 																</div>
 
@@ -900,6 +907,13 @@
 																	</div>
 																</div>
 
+																
+																<div class="col-sm-4 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">0</h2>
+																		<p class="fs-8 mb-0">Lost / Damaged</p>
+																	</div>
+																</div>
 																<div class="col-sm-4 mb-4">
 																	@php
 																	// Calculate the delivery percentage
@@ -910,12 +924,6 @@
 																			{{ round($BluedartCodPercentage) }}
 																		</h2>
 																		<p class="fs-8 mb-0"><br>Delivered %</p>
-																	</div>
-																</div>
-																<div class="col-sm-4 mb-4">
-																	<div class="border px-1 py-3 rounded-xl">
-																		<h2 class="fs-18 font-w600 counter">0</h2>
-																		<p class="fs-8 mb-0">Lost / Damaged</p>
 																	</div>
 																</div>
 															</div>

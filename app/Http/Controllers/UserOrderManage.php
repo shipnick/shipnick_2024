@@ -986,7 +986,7 @@ class UserOrderManage extends Controller
         ])->with($data);
     }
 
-
+    
     public function Pickup_pending(Request $req)
     {
         $userid = session()->get('UserLogin2id');
@@ -1046,8 +1046,8 @@ class UserOrderManage extends Controller
         $cfromdate = date('Y-m-d', strtotime($currentmonthstart));
         $ctodate = date('Y-m-d', strtotime($currentmonthstend));
 
-        $cfromdateObj1 = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
-        $ctodateObj1 = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
+        $cfromdateObj1 = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth(); // Start of the day for $cfromdate
+        $ctodateObj1 = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth(); // End of the day for $ctodate
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)

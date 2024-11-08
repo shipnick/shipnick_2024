@@ -22,43 +22,34 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\Exportable;
 use App\Models\couriers;
+use App\Models\courierpermission;
 
 
 class UserExcels extends Controller
 {
-    
-    public function skuSummary(Request $request)
+
+    public function skuSummary1(Request $request)
     {
+        // Ensure the user ID is correctly retrieved
         $userid = session()->get('UserLogin2id');
 
-        // Validate and parse dates from request
-        $sku1 = bulkorders::where('User_Id', $userid)
-            ->distinct()  // Ensures uniqueness
-            ->pluck('Item_Name');
+        // Validate and parse dates from the request
+        $fromDate = Carbon::parse($request->fromdate)->startOfDay(); // Start of the day
+        $toDate = Carbon::parse($request->todate)->endOfDay(); // End of the day
 
-        $amount1 = bulkorders::where('User_Id', $userid)
-            ->distinct()  // Ensures uniqueness
-            ->pluck('Total_Amount');
 
-        $courier1 = bulkorders::where('User_Id', $userid)
-            ->distinct()  // Ensures uniqueness
-            ->pluck('awb_gen_by');
 
-        $type1 = bulkorders::where('User_Id', $userid)
-            ->distinct()  // Ensures uniqueness
-            ->pluck('Order_Type');
-        // dd($type);
 
-        $fromDate = Carbon::parse($request->start_date)->startOfDay(); // Start of the day
-        $toDate = Carbon::parse($request->end_date)->endOfDay(); // End of the day
 
-        // Extract filter inputs
+
+
+        // Extract filter inputs from the request
         $orderType = $request->input('order_type');
         $sku = $request->input('sku');
         $amount = $request->input('amount');
         $courier = $request->input('courier');
 
-        // Build common filter array
+        // Build filter array dynamically based on request data
         $filters = array_filter([
             'Order_Type' => $orderType,
             'Item_Name' => $sku,
@@ -69,15 +60,17 @@ class UserExcels extends Controller
         // Helper function to get order counts by status
         $getOrderCount = function ($statusArray) use ($userid, $fromDate, $toDate, $filters) {
             $query = bulkorders::where('User_Id', $userid)
-                ->where('Awb_Number', '!=', '')
-                ->where('order_cancel', '!=', '1')
-                ->whereBetween('Rec_Time_Date', [$fromDate, $toDate])
-                ->whereIn('showerrors', $statusArray);
+                ->where('Awb_Number', '!=', '') // Ensure there is an AWB number
+                ->where('order_cancel', '!=', '1') // Exclude canceled orders
+                ->whereBetween('Rec_Time_Date', [$fromDate, $toDate]) // Date filter
+                ->whereIn('showerrors', $statusArray); // Match order statuses
 
+            // Apply additional filters dynamically
             foreach ($filters as $key => $value) {
                 $query->where($key, $value);
             }
 
+            // Return the count of orders based on the applied filters
             return $query->count('Single_Order_Id');
         };
 
@@ -89,23 +82,29 @@ class UserExcels extends Controller
         $rtoStatus = ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'];
 
         // Get order counts by status using the helper function
-        $orderno = $getOrderCount([]);
-        $pending = $getOrderCount($pendingStatus);
-        $intransit = $getOrderCount($intransitStatus);
-        $ndr = $getOrderCount($ndrStatus);
-        $deliver = $getOrderCount($deliveredStatus);
-        $rto = $getOrderCount($rtoStatus);
+        $orderno = $getOrderCount([]); // Total orders
+        $pending = $getOrderCount($pendingStatus); // Pending orders
+        $intransit = $getOrderCount($intransitStatus); // In-transit orders
+        $ndr = $getOrderCount($ndrStatus); // NDR orders
+        $deliver = $getOrderCount($deliveredStatus); // Delivered orders
+        $rto = $getOrderCount($rtoStatus); // RTO orders
 
-        // Calculate delivery percentage (safe calculation)
+
+
+        // Calculate delivery percentage
         $deliverdpersentage = 0;
         if ($orderno > 0) {
-            $deliveredOrders = $orderno - $pending - $intransit;
+            $deliveredOrders = $deliver; // Only delivered orders are considered
             $deliverdpersentage = ($deliveredOrders / $orderno) * 100;
         }
 
-        // Fetch related data
-        $hubs = Hubs::where('hub_created_by', $userid)->get();
-        $Fulfilledby = couriers::where('courier_added', 'Shipnick')->get();
+        
+
+        // Retrieve other necessary data (distinct values)
+        $sku1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('Item_Name');
+        $amount1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('Total_Amount');
+        $courier1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('awb_gen_by');
+        $type1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('Order_Type');
 
         // Return the view with the necessary data
         return view('UserPanel.Reports.SkuSummary', compact(
@@ -124,11 +123,106 @@ class UserExcels extends Controller
             'ndr',
             'intransit',
             'pending',
-            'orderno',
-            'hubs',
-            'Fulfilledby'
+            'orderno'
         ));
     }
+    public function skuSummary(Request $request)
+    {
+        // Ensure the user ID is correctly retrieved
+        $userid = session()->get('UserLogin2id');
+
+        // Validate and parse dates from the request
+        $fromDate = Carbon::parse($request->fromdate)->startOfDay(); // Start of the day
+        $toDate = Carbon::parse($request->todate)->endOfDay(); // End of the day
+
+        // Extract filter inputs from the request
+        $orderType = $request->input('order_type');
+        $sku = $request->input('sku');
+        $amount = $request->input('amount');
+        $courier = $request->input('courier');
+
+        // Build filter array dynamically based on request data
+        $filters = array_filter([
+            'Order_Type' => $orderType,
+            'Item_Name' => $sku,
+            'Total_Amount' => $amount,
+            'awb_gen_by' => $courier,
+        ]);
+
+        // Helper function to get order counts by status
+        $getOrderCount = function ($statusArray) use ($userid, $fromDate, $toDate, $filters) {
+            $query = bulkorders::where('User_Id', $userid)
+                ->where('Awb_Number', '!=', '') // Ensure there is an AWB number
+                ->where('order_cancel', '!=', '1') // Exclude canceled orders
+                ->whereBetween('Rec_Time_Date', [$fromDate, $toDate]); // Date filter
+
+            // If status array is not empty, filter by showerrors
+            if (!empty($statusArray)) {
+                $query->whereIn('showerrors', $statusArray); // Match order statuses
+            }
+
+            // Apply additional filters dynamically
+            foreach ($filters as $key => $value) {
+                $query->where($key, $value);
+            }
+
+            // Return the count of orders based on the applied filters
+            return $query->count('Single_Order_Id');
+        };
+
+        // Define status arrays for different order statuses
+        $pendingStatus = ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'];
+        $intransitStatus = ['out for delivery', 'In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked'];
+        $ndrStatus = ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED'];
+        $deliveredStatus = ['delivered', 'Delivered'];
+        $rtoStatus = ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'];
+
+        // Get order counts by status using the helper function
+        $orderno = $getOrderCount([]); // Total orders (no status filter)
+        $pending = $getOrderCount($pendingStatus); // Pending orders
+        $intransit = $getOrderCount($intransitStatus); // In-transit orders
+        $ndr = $getOrderCount($ndrStatus); // NDR orders
+        $deliver = $getOrderCount($deliveredStatus); // Delivered orders
+        $rto = $getOrderCount($rtoStatus); // RTO orders
+
+        // Calculate delivery percentage
+        $deliverdpersentage = 0;
+        if ($orderno > 0) {
+            $deliveredOrders = $deliver; // Only delivered orders are considered
+            $deliverdpersentage = ($deliveredOrders / $orderno) * 100;
+        }
+
+        // Optionally, debug the results (You can comment this out or remove after confirming the query works)
+        // dd($orderno, $pending, $intransit, $ndr, $deliver, $rto);
+
+        // Retrieve other necessary data (distinct values)
+        $sku1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('Item_Name');
+        $amount1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('Total_Amount');
+        $courier1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('awb_gen_courier');
+        $type1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('Order_Type');
+
+        // Return the view with the necessary data
+        return view('UserPanel.Reports.SkuSummary', compact(
+            'userid',
+            'sku',
+            'amount',
+            'courier',
+            'orderType',
+            'sku1',
+            'amount1',
+            'courier1',
+            'type1',
+            'deliverdpersentage',
+            'rto',
+            'deliver',
+            'ndr',
+            'intransit',
+            'pending',
+            'orderno'
+        ));
+    }
+
+
 
     public function skuNew(Request $request)
     {
@@ -174,6 +268,7 @@ class UserExcels extends Controller
             'courier' => $courier
         ]);
     }
+
 
     public function POD()
     {

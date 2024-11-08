@@ -20,7 +20,7 @@ class UserDashboard extends Controller
     $pdf = PDF::loadView('UserPanel.PDF.labels_invoice');
     return $pdf->download('labels_invoice.pdf');
   }
-  public function Home()
+  public function UserHome()
   {
     // Get the user ID from the session
     $userid = session()->get('UserLogin2id');
@@ -92,7 +92,7 @@ class UserDashboard extends Controller
   }
 
 
-  public function  UserHome(Request $request)
+  public function  Home(Request $request)
   {
     if (!empty(session('UserLogin'))) {
       return view('Admin.Dashboard');

@@ -21,7 +21,7 @@ Content body start
 						<div class="row">
 
 							<div class="col-lg-12 order-lg-1">
-								<h4 class="mb-3">MIS Reports (Search)</h4>
+								<h4 class="mb-3">MIS Reports</h4>
 
 
 								<form method="GET" action="{{ asset('/UPMIS_Report_ExcelN') }}">
@@ -29,7 +29,7 @@ Content body start
 
 										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mb-3">
 											<div class="example">
-												<p class="mb-1">From date - To date</p>
+
 												<div class="example">
 													<p class="mb-1">Date Range</p>
 													<div id="reportrange" class="pull-right"
@@ -48,12 +48,12 @@ Content body start
 									</div>
 									<div class="row">
 
-										
+
 
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">Order Type</label>
 											<select name="order_type" class="default-select form-control wide w-100">
-												<option value="" selected>Select...</option>
+												<option value="" selected>Select</option>
 												<option value="cod">COD</option>
 												<option value="prepaid">Prepaid</option>
 												<option value="Reverse">Reverse </option>
@@ -80,7 +80,7 @@ Content body start
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">Hub</label>
 											<select class="default-select form-control wide w-100" name="hub_id">
-												<option value="">Select...</option>
+												<option value="">Select</option>
 												@foreach($hubs as $hubs)
 												<option value="{{$hubs->hub_code}}">{{$hubs->hub_code}}({{$hubs->hub_name}})</option>
 												@endforeach
@@ -89,7 +89,7 @@ Content body start
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">Fulfilled by</label>
 											<select class="default-select form-control wide w-100" name="Fulfilled_by">
-												<option value="" selected>Select...</option>
+												<option value="" selected>Select</option>
 												@foreach($Fulfilledby as $courier)
 												<option value="{{$courier->name}}">{{$courier->name}}</option>
 												@endforeach
@@ -99,14 +99,19 @@ Content body start
 											</div>
 										</div>
 									</div>
-									
 
-									
+
+
 									<hr class="mb-4">
 									<!--<button type="button" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Download Report</button>-->
 									<button type="submit" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Download Report</button>
+									<br>
 
-									<button type="button" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Clear</button>
+									
+									<a id="lastMonthReport" href="#" class="btn btn-secondary ms-sm-auto mt-2 mb-sm-0">Last Month Report</a>
+									<a id="currentMonthReport" href="#" class="btn btn-secondary ms-sm-auto mt-2 mb-sm-0">Current Month Report</a>
+
+
 								</form>
 
 							</div>
@@ -120,6 +125,61 @@ Content body start
 <!--**********************************
 Content body end
 ***********************************-->
+
+<script>
+	// Function to get the first and last day of the current month
+function getCurrentMonthDates() {
+    const now = new Date();
+    const firstDayOfCurrentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+    const lastDayOfCurrentMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+    
+    return {
+        currentMonthStart: formatDate(firstDayOfCurrentMonth),
+        currentMonthEnd: formatDate(lastDayOfCurrentMonth)
+    };
+}
+
+// Function to get the first and last day of the previous month
+function getLastMonthDates() {
+    const now = new Date();
+    const firstDayOfLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+    const lastDayOfLastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+    
+    return {
+        lastMonthStart: formatDate(firstDayOfLastMonth),
+        lastMonthEnd: formatDate(lastDayOfLastMonth)
+    };
+}
+
+// Format the date as YYYY-MM-DD
+function formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+// Set the href attribute of the report links
+function setReportLinks() {
+    const currentMonth = getCurrentMonthDates();
+    const lastMonth = getLastMonthDates();
+    
+    // Set the URLs for Last Month Report and Current Month Report
+    const baseUrl = "/UPMIS_Report_ExcelN";
+    
+    // Last Month Report URL
+    const lastMonthUrl = `${baseUrl}?fromdate=${lastMonth.lastMonthStart}&todate=${lastMonth.lastMonthEnd}&order_type=&hub_id=&Fulfilled_by=`;
+    document.getElementById('lastMonthReport').href = lastMonthUrl;
+    
+    // Current Month Report URL
+    const currentMonthUrl = `${baseUrl}?fromdate=${currentMonth.currentMonthStart}&todate=${currentMonth.currentMonthEnd}&order_type=&hub_id=&Fulfilled_by=`;
+    document.getElementById('currentMonthReport').href = currentMonthUrl;
+}
+
+// Run the function on page load
+window.onload = setReportLinks;
+
+</script>
 <!-- <script>
 	$(function() {
 		// Initialize the date range picker

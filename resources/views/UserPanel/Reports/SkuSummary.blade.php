@@ -1,7 +1,8 @@
 @extends("UserPanel/userpanel_layout1")
 @section("userpanel")
 
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.js"></script>
 <!--**********************************
 Content body start
 ***********************************-->
@@ -46,14 +47,43 @@ Content body start
 
 
 									</div>
+									<style>
+										select {
+											padding: 3px 12px;
+											outline: none;
+											width: 250px;
+											margin-bottom: 20px;
+										}
 
-									<div class="row">
+										select.widthHeight::-webkit-scrollbar {
+											width: 14px;
+											height: 14px;
+										}
+
+										select.style::-webkit-scrollbar-track {
+											border: rgb(180, 180, 180);
+											background-color: #ff6536;
+										}
+
+										select.style::-webkit-scrollbar-thumb {
+											background-color: #3677ef;
+											border: 1px solid rgb(193, 193, 193);
+										}
+
+										div {
+											margin-bottom: 5px;
+										}
+									</style>
+
+
+									<div class="row" >
 										<!-- Order Type Dropdown -->
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">Order Type</label>
 											<select name="order_type" id="order_type" class="default-select form-control wide w-100">
 												<option value="">Select</option>
 												@foreach($type1 as $orderType)
+
 												<option value="{{ $orderType }}">{{ $orderType }}</option>
 												@endforeach
 											</select>
@@ -62,30 +92,41 @@ Content body start
 										<!-- SKU Dropdown -->
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">SKU</label>
-											<select id="sku" class="default-select form-control wide w-100" name="sku">
+
+											<select name="sku" class=" form-control wide w-100 ">
 												<option value="">Select</option>
 												@foreach($sku1 as $skuItem)
 												<option value="{{ $skuItem }}">{{ $skuItem }}</option>
 												@endforeach
 											</select>
+
 										</div>
+
+
+
+
 
 										<!-- Amount Dropdown -->
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">Amount</label>
-											<select id="amount" class="default-select form-control wide w-100" name="amount">
+
+
+											<select name="amount" class=" form-control wide w-100 ">
 												<option value="">Select</option>
 												@foreach($amount1 as $amt)
 												<option value="{{ $amt }}">{{ $amt }}</option>
 												@endforeach
 											</select>
+
 										</div>
 
 										<!-- Courier Dropdown -->
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">Courier</label>
-											<select id="courier" class="default-select form-control wide w-100" name="courier">
-												<option value="">Select...</option>
+
+
+											<select name="courier" class=" form-control wide w-100 ">
+												<option value="">Select</option>
 												@foreach($courier1 as $courierItem)
 												<option value="{{ $courierItem }}">{{ $courierItem }}</option>
 												@endforeach
@@ -214,52 +255,46 @@ Content body start
 											<div class="row">
 												<div class="col-md-12">
 													<div class="row">
-														<div class="col-sm-2 mb-4">
-															<div class="border px-1 py-3 rounded-xl">
-																<h2 class="fs-18 font-w600 counter">
-																	{{$orderno ?? 0 }}
-																</h2>
-																<p class="fs-8 mb-0">No of orders </p>
-															</div>
+														<!-- Half donut chart -->
+														<div id="half-donut-chart" class="ct-chart ct-golden-section"></div>
+
+														<div class="" style="margin-top: -12%;">
+															<!-- Delivered percentage display -->
+															<h2 class="fs-32 font-w600 counter">{{ round($deliverdpersentage) }}</h2>
+															<p class="fs-16 mb-0">Delivered %</p>
 														</div>
 
-														<div class="col-sm-2 mb-4">
-															<div class="border px-1 py-3 rounded-xl">
-																<h2 class="fs-18 font-w600 counter">{{$intransit ?? 0 }}</h2>
-																<p class="fs-8 mb-0"> In-transit</p>
-															</div>
-														</div>
+														<script>
+															// Get the dynamic value of the delivery percentage from PHP
+															var deliverdPercentage = {
+																{
+																	round($deliverdpersentage)
+																}
+															}
+															/2;  / / Assuming this is a valid number from PHP
 
-														<div class="col-sm-2 mb-4">
-															<div class="border px-1 py-3 rounded-xl">
-																<h2 class="fs-18 font-w600 counter">{{$ndr ?? 0 }}</h2>
-																<p class="fs-8 mb-0">NDR Pending</p>
-															</div>
-														</div>
-														<div class="col-sm-2 mb-4">
-															<div class="border px-1 py-3 rounded-xl">
-																<h2 class="fs-18 font-w600 counter">{{$deliver ?? 0 }}</h2>
-																<p class="fs-8 mb-0"> Delivered</p>
-															</div>
-														</div>
-														<div class="col-sm-2 mb-4">
-															<div class="border px-1 py-3 rounded-xl">
-																<h2 class="fs-18 font-w600 counter">{{$rto ?? 0 }}</h2>
-																<p class="fs-8 mb-0">RTO/RTS</p>
-															</div>
-														</div>
-														<div class="col-sm-2 mb-4">
-															@php
-															// Calculate the delivery percentage
-															$deliverPercentage = ($deliver > 0) ? ($deliver * 100 / $deliverdpersentage) : 0;
-															@endphp
+															// Half donut chart data
+															var data = {
+																series: [deliverdPercentage] // One slice for the percentage, the other for the remaining part
+															};
 
-															<div class="border px-1 py-3 rounded-xl">
-																<h2 class="fs-18 font-w600 counter">{{ round($deliverPercentage) }}</h2>
-																<p class="fs-8 mb-0">Delivered%</p>
-															</div>
-														</div>
+															// Half donut chart options
+															var options = {
+																donut: true, // Make it a donut chart
+																donutWidth: 60, // Width of the donut ring
+																startAngle: 270, // Start the chart from the bottom (270°)
+																total: 100, // Total value (100%)
+																showLabel: false, // Hide the center label
+																chartPadding: 10, // Padding around the chart
+															};
+
+															// Create the half donut chart
+															new Chartist.Pie('#half-donut-chart', data, options);
+														</script>
+
+
 													</div>
+
 
 												</div>
 
