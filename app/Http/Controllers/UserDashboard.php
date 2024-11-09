@@ -2091,7 +2091,10 @@ class UserDashboard extends Controller
       ['Rec_Time_Date', '>=', $fromDate],
       ['Rec_Time_Date', '<=', $toDate],
   ];
+<<<<<<< HEAD
   
+=======
+>>>>>>> b705439c668bd9292fc41347080432027de08bc0
 
     // Define status categories
     $statusCategories = [
