@@ -198,7 +198,7 @@ class UserExcels extends Controller
         // Retrieve other necessary data (distinct values)
         $sku1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('Item_Name');
         $amount1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('Total_Amount');
-        $courier1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('awb_gen_courier');
+        $courier1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('awb_gen_by');
         $type1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('Order_Type');
 
         // Return the view with the necessary data
