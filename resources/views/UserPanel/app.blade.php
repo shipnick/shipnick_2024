@@ -271,7 +271,7 @@
 				</a>
 				<ul aria-expanded="false">
 
-					<li><a href="{{ asset('/user-Home') }}">Dashboard</a></li>
+					<li><a href="{{ asset('/UserPanel') }}">Dashboard</a></li>
 
 
 				</ul>
