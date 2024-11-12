@@ -646,6 +646,10 @@ Route::get('/UPBulk_OrderAjax', [UserPlaceOrder::class, 'BulkOrderAjax1']);
 Route::post('/UPBulk_Order_Add', [UserPlaceOrder::class, 'BulkOrderAdd1']);
 Route::get('/BulkOrderUpload', [UserPlaceOrder::class, 'BulkOrderUpload']);
 
+
+
+Route::post('/UPBulk_Order_Internatonal', [UserPlaceOrder::class, 'BulkOrderInternational']);
+
 Route::get('/BulkOrderDelete', [UserPlaceOrder::class, 'BulkOrderDelete1']);
 Route::get('/BulkOrderDeletesmannual/{id}', [UserPlaceOrder::class, 'BulkOrderDelete1']);
 Route::post('/filter-selected-order', [UserPlaceOrder::class, 'MultipleOrderDelete']);
@@ -759,6 +763,8 @@ Route::get('/UPMIS_Report_ExcelN', [UserExcels::class, 'MIS_ReportN']);
 
 Route::get('/sku_summary', [UserExcels::class, 'skuSummary']);
 Route::get('/skunew', [UserExcels::class, 'skuNew']);
+
+
 
 // Reports
 

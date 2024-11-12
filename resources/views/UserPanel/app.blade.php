@@ -175,7 +175,7 @@
 
 		</div>
 	</div>
-</div> 
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
@@ -271,7 +271,7 @@
 				</a>
 				<ul aria-expanded="false">
 
-					<li><a href="{{ asset('/user-Home') }}">Dashboard</a></li>
+					<li><a href="{{ asset('/UserPanel') }}">Dashboard</a></li>
 
 
 				</ul>
