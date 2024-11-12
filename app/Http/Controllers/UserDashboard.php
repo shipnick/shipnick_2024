@@ -103,20 +103,17 @@ class UserDashboard extends Controller
       // Today Orders UserPanel
       $fromdate = Carbon::parse($request->start_date)->startOfDay(); // Start of the day for $cfromdate
       $todate = Carbon::parse($request->end_date)->endOfDay(); // End of the day for $ctodate
-      // $fromdate = date('Y-m-d');
-      // $todate = date('Y-m-d');
-      $tallNDR = bulkorders::where('User_Id', $userid)
-        ->where('order_status_show', '!=', 'Delivered')
-        ->where('order_status_show', '!=', 'RTO Delivered')
+      $fromdate1 = date('Y-m-d');
+      $todate1 = date('Y-m-d');
+     
+      // today order   
+      $talluploaded = bulkorders::where('User_Id', $userid)
+        // ->where('order_status_show','Upload')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('delivereddate', array($fromdate, $todate))
-        ->count('Single_Order_Id');
-      $tallcomplete = bulkorders::where('User_Id', $userid)
-        ->where('order_status_show', 'Delivered')
         ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('delivereddate', array($fromdate, $todate))
+        ->whereBetween('Last_Time_Stamp', array($fromdate1, $todate1))
         ->count('Single_Order_Id');
+
       $tallpending = bulkorders::where('User_Id', $userid)
         ->where('order_status_show', '!=', 'Delivered')
         ->where('order_status_show', '!=', 'RTO Delivered')
@@ -125,25 +122,34 @@ class UserDashboard extends Controller
 
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($fromdate, $todate))
+        ->whereBetween('Rec_Time_Date', array($fromdate1, $todate1))
         ->count('Single_Order_Id');
-      $tallrto = bulkorders::where('User_Id', $userid)
-        ->where('order_status_show', 'RTO Delivered')
+
+      $intransitupload = bulkorders::where('User_Id', $userid)
+        ->whereIn('showerrors', ['In Transit', 'intranit', 'In-Transit', 'Connected', 'Ready for Connection'])
+        // ->where('Awb_Number', '!=', '')
+        ->where('order_cancel', '!=', '1')
+        ->whereBetween('Rec_Time_Date', array($fromdate1, $todate1))
+        ->count('Single_Order_Id');
+
+      $tallcomplete = bulkorders::where('User_Id', $userid)
+        ->where('order_status_show', 'Delivered')
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('rtodate', array($fromdate, $todate))
+        ->whereBetween('delivereddate', array($fromdate1, $todate1))
         ->count('Single_Order_Id');
-      $tallcanceled = bulkorders::where('User_Id', $userid)
-        ->where('order_cancel', 1)
-        ->whereBetween('canceldate', array($fromdate, $todate))
-        ->count('Single_Order_Id');
-      $talluploaded = bulkorders::where('User_Id', $userid)
-        // ->where('order_status_show','Upload')
+
+      $tallNDR = bulkorders::where('User_Id', $userid)
+        ->where('order_status_show', '!=', 'Delivered')
+        ->where('order_status_show', '!=', 'RTO Delivered')
         ->where('order_cancel', '!=', '1')
-        ->where('Awb_Number', '!=', '')
-        ->whereBetween('Last_Time_Stamp', array($fromdate, $todate))
+        ->whereBetween('delivereddate', array($fromdate1, $todate1))
         ->count('Single_Order_Id');
-      // Today Orders UserPanel
+      // end today orders 
+
+      
+
+      // Today Orders Today's Overview
       $ccodorders = bulkorders::where('User_Id', $userid)
         ->where('Order_Type', 'COD')
         ->where('Awb_Number', '!=', '')
@@ -166,22 +172,7 @@ class UserDashboard extends Controller
         $prepaidPercentage = 0;
       }
 
-
-      // Today COD And Prepaid Orders UserPanel
-      $tcodorders = bulkorders::where('User_Id', $userid)
-        ->where('Order_Type', 'COD')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($fromdate, $todate))
-        ->count('Single_Order_Id');
-      $tprepaid = bulkorders::where('User_Id', $userid)
-        ->where('Order_Type', 'Prepaid')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($fromdate, $todate))
-        ->count('Single_Order_Id');
-      // Today COD And Prepaid Orders UserPanel
-
+      // Today Orders Today's Overview end
 
       // Current Month Orders
       // Current Month
@@ -200,14 +191,24 @@ class UserDashboard extends Controller
       $ctodateObj = Carbon::parse($request->end_date)->endOfDay(); // End of the day for $ctodate
 
 
-
+      // top six boxes start 
       $callcomplete = bulkorders::where('User_Id', $userid)
         //   ->where('order_status_show','Delivered')
         ->where('Awb_Number', '!=', '')
         ->where('showerrors', '!=', 'cancelled')
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-
+        ->count('Single_Order_Id');
+      $monthpickup = bulkorders::where('User_Id', $userid)
+        ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+        ->where('Awb_Number', '!=', '')
+        ->where('order_cancel', '!=', '1')
+        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
+        ->count('Single_Order_Id');
+      $callintransit = bulkorders::where('User_Id', $userid)
+        ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',  'Shipment Booked'])
+        ->where('order_cancel', '!=', '1')
+        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
       $calldeliverd = bulkorders::where('User_Id', $userid)
         ->whereIn('showerrors', ['delivered', 'Delivered'])
@@ -215,9 +216,6 @@ class UserDashboard extends Controller
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
-
-
-      // ->whereIn('showerrors', ['exception', 'Shipment Redirected','Undelivered'])
       $monthndr = bulkorders::where('User_Id', $userid)
         ->whereIn('showerrors', ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED'])
         ->where('Awb_Number', '!=', '')
@@ -225,12 +223,14 @@ class UserDashboard extends Controller
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
 
-      $monthpickup = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-        ->count('Single_Order_Id');
+      $tallcancel=bulkorders::where('User_Id', $userid)
+      ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+      ->where('Awb_Number', '!=', '')
+      ->where('order_cancel', '!=', '1')
+      ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
+      ->count('Single_Order_Id');
+      // top six boxes end
+      
 
       $callretrun = bulkorders::where('User_Id', $userid)
         ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
@@ -240,76 +240,15 @@ class UserDashboard extends Controller
 
 
         ->count('Single_Order_Id');
-      $callintransit = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',  'Shipment Booked'])
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-        ->where(function ($query) {
-          $query->where('showerrors', 'intranit')
-
-            ->orWhere('showerrors', 'Connected')
-            ->orWhere('showerrors', 'in transit')
-            ->orWhere('showerrors', 'Ready for Connection')
-
-            ->orWhere('showerrors', 'In-Transit');
-        })
-        ->count('Single_Order_Id');
-      $callpending = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup'])
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
-        ->count('Single_Order_Id');
-      $callrto = bulkorders::where('User_Id', $userid)
-
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('rtodate', array($fromdate, $todate))
-        ->count('Single_Order_Id');
-      $callcanceled = bulkorders::where('User_Id', $userid)
-        ->where('order_cancel', 1)
-        ->whereBetween('canceldate', array($cfromdate, $ctodate))
-        ->count('Single_Order_Id');
-      $calluploaded = bulkorders::where('User_Id', $userid)
-        ->where('order_status_show', 'Upload')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
-        ->count('Single_Order_Id');
+      
+      
       // Current Month Orders
       // Today COD And Prepaid Orders UserPanel
-      $ccodpendingorders = bulkorders::where('User_Id', $userid)
-        ->where('Order_Type', 'COD')
-        ->where('order_status_show', '!=', 'Delivered')
-        ->where('order_status_show', '!=', 'RTO Delivered')
-        ->where('order_status_show', '!=', 'Upload')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-
-        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
-        ->count('Single_Order_Id');
-
-
-      $ccodorders = bulkorders::where('User_Id', $userid)
-        ->where('Order_Type', 'COD')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
-        ->count('Single_Order_Id');
-      $cprepaid = bulkorders::where('User_Id', $userid)
-        ->where('Order_Type', 'Prepaid')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
-        ->count('Single_Order_Id');
+      
       // Today COD And Prepaid Orders UserPanel
       // intransit 
-      $intransitupload = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['In Transit', 'intranit', 'In-Transit', 'Connected', 'Ready for Connection'])
-        // ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($fromdate, $todate))
-        ->count('Single_Order_Id');
-
+      
+      // Revenue start
       $last90DaysCount = bulkorders::where('User_Id', $userid)
         ->whereIn('showerrors', ['delivered', 'Delivered'])
         ->where('Rec_Time_Date', '>=', Carbon::now()->subDays(90))
@@ -324,11 +263,13 @@ class UserDashboard extends Controller
         ->whereIn('showerrors', ['delivered', 'Delivered'])
         ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
         ->sum('Total_Amount');
-
+      //  this is year 
       $thisQuarterCount = bulkorders::where('User_Id', $userid)
         ->whereIn('showerrors', ['delivered', 'Delivered'])
-        ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfQuarter(), Carbon::now()->endOfQuarter()])
+        ->whereYear('Rec_Time_Date', Carbon::now()->year) 
         ->sum('Total_Amount');
+
+        // Revenue end 
 
 
       $zone = bulkorders::select('zone', \DB::raw('count(Single_Order_Id) as order_count'))
@@ -357,16 +298,7 @@ class UserDashboard extends Controller
 
 
 
-      // cod amount 
-      // $codamount = bulkorders::where('User_Id',$userid)
-      //                     ->where('order_status_show','!=','Out For Delhivery')
-      //                     ->where('order_status_show','!=','RTO-InTransit')
-      //                     ->where('Awb_Number','!=','')
-      //                     ->where('order_cancel','!=','1')
-      //                     ->where('order_status_show','=','Delivered')
-      //                     ->whereBetween('Last_Stamp_Date', array($fromdate,$todate))
-      //                     ->sum('Cod_Amount');
-      // dd($codamount);
+      
 
       $codamount = bulkorders::where('User_Id', $userid)
         ->where('Order_Type', 'COD')
@@ -536,135 +468,35 @@ class UserDashboard extends Controller
 
 
 
-      $startDate = Carbon::now()->subDays(30);
-      // Get the date 30 days ago from today
-
-      $statusCounts = [
-        'totalOrder' => [],
-        'pickup' => [],
-        'in_transit' => [],
-        'NDR' => [],
-        'ofd' => [],
-        'Deliverd' => [],
-        'RTO' => [],
-      ];
-
-      // Get the date range for the last seven days
-      $dates = [];
-      for ($i = 6; $i >= 0; $i--) {
-        $dates[] = Carbon::now()->subDays($i)->toDateString();
-      }
-
-      foreach ($dates as $date) {
-        $startOfDay = Carbon::parse($date)->startOfDay();
-        $endOfDay = Carbon::parse($date)->endOfDay();
-
-        // Fetch counts for each status for the current day
-        $statusCounts['totalOrder'][$date] = bulkorders::where('User_Id', $userid)
-          ->where('Awb_Number', '!=', '')
-          //  ->where('showerrors','!=', 'Pincode not serviceable.')
-          ->where('order_cancel', '!=', '1')
-          ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
-          ->count('Single_Order_Id');
-
-        $statusCounts['pickup'][$date] = bulkorders::where('User_Id', $userid)
-          ->where('order_cancel', '!=', '1')
-          ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
-
-          // ... other conditions 
-          ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
-          ->count('Single_Order_Id');
-
-        $statusCounts['in_transit'][$date] = bulkorders::where('User_Id', $userid)
-          // ->whereNotIn('order_status_show', ['Delivered', 'RTO Delivered', 'Out For Delhivery', 'RTO-InTransit', 'Upload'])
-          // ->whereIn('showerrors', ['In-Transit', 'in transit','Connected', 'intranit','Ready for Connection'])
-          ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',  'Shipment Booked'])
-
-          ->whereNotNull('Awb_Number')
-          ->where('order_cancel', '!=', '1')
-          // ... other conditions
-          ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
-          ->count('Single_Order_Id');
-
-        $statusCounts['NDR'][$date] = bulkorders::where('User_Id', $userid)
-          //   ->whereIn('showerrors', ['exception', 'Shipment Redirected'])
-
-          ->whereIn('showerrors', ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED', 'NDR'])
-          //   ->where('order_status_show', '!=', 'Delivered')
-          //   ->where('order_status_show', '!=', 'RTO Delivered')
-          ->where('order_cancel', '!=', '1')
-
-          // ... other conditions
-          ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
-          ->count('Single_Order_Id');
-
-        $statusCounts['ofd'][$date] = bulkorders::where('User_Id', $userid)
-          ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
-          //   ->where('order_status_show', 'Out For Delhivery')
-          ->where('Awb_Number', '!=', '')
-          ->where('order_cancel', '!=', '1')
-
-          // ... other conditions
-          ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
-          ->count('Single_Order_Id');
-
-        $statusCounts['Deliverd'][$date] = bulkorders::where('User_Id', $userid)
-          ->whereIn('showerrors', ['delivered', 'Delivered'])
-          ->where('Awb_Number', '!=', '')
-          ->where('order_cancel', '!=', '1')
-
-
-          // ... other conditions
-          ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
-          ->count('Single_Order_Id');
-
-        $statusCounts['RTO'][$date] = bulkorders::where('User_Id', $userid)
-          //   ->whereIn('showerrors', ['rto', 'Undelivered'])
-          ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
-          ->where('Awb_Number', '!=', '')
-          ->where('order_cancel', '!=', '1')
-
-          // ... other conditions
-          ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
-          ->count('Single_Order_Id');
-
-
-        // Repeat this process for other status types
-      }
-
-      // Consolidate the data into the format you need
-      $data = [];
-      foreach ($statusCounts as $status => $counts) {
-        $data[$status] = $counts;
-      }
+      
+      
+      
 
       $data = [
-        'ccodpendingorders' => $ccodpendingorders,
+        
         'tallndr' => $tallNDR,
         'tallcomplete' => $tallcomplete,
         'tallpending' => $tallpending,
-        'tallcancel' => $tallrto,
-        'callrto' => $callrto,
+        'tallcancel'=>$tallcancel,
+        
+      
         'talluploaded' => $talluploaded,
         'callintransit' => $callintransit,
-        'tallcanceled' => $tallcanceled,
+       
         'calldeliverd' => $calldeliverd,
         'callretrun' => $callretrun,
         'monthndr' => $monthndr,
         'monthpickup' => $monthpickup,
-        'tcodorders' => $tcodorders,
-        'tprepaid' => $tprepaid,
+        
         'ccodorders' => $ccodorders,
         'cprepaid' => $cprepaid,
         'callcomplete' => $callcomplete,
-        'callpending' => $callpending,
-        'callcancel' => $callrto,
-        'calluploaded' => $calluploaded,
+        
         'intransitupload' => $intransitupload,
         'codamount' => $codamount,
         'prepaidPercentage' => $prepaidPercentage,
         'codPercentage' => $codPercentage,
-        'data' => $data,
+        
         'data1' => $data1,
         'data2' => $data2,
         'data3' => $data3,
@@ -2091,10 +1923,6 @@ class UserDashboard extends Controller
       ['Rec_Time_Date', '>=', $fromDate],
       ['Rec_Time_Date', '<=', $toDate],
   ];
-<<<<<<< HEAD
-  
-=======
->>>>>>> b705439c668bd9292fc41347080432027de08bc0
 
     // Define status categories
     $statusCategories = [
