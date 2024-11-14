@@ -292,7 +292,18 @@ public function ClientCourierPermissions(Request $req){
       
         return view("super-admin.Couriers.admin-list",['intargos'=>$admin]);
     }
+    public function rate_assing(Request $req){  
+        $userida = $req->id;
+        $crtusers = AdminLoginCheck::where('usertype','admin')
+                                    ->where('id',$userida)
+                                    ->first();
+                                    
+        
+        $params =  price::where('admin_id',$userida)->get();
+        return view('super-admin.Couriers.rate-list', ['params' => $params, 'crtusers' => $crtusers]);
+    }
     public function api_assing(Request $req){
+
         
         $userida = $req->id;
         $crtusers = AdminLoginCheck::where('usertype','admin')
@@ -459,6 +470,12 @@ public function ClientCourierPermissions(Request $req){
     public function add_rate_list()
     {
         return view('super-admin.Couriers.add-rate');
+    }
+    
+    public function superRateList()
+    {
+        $param = price::where('status','defult')->get();
+        return view('super-admin.rate-list.rateList',compact('param'));
     }
     public function super_admin_rate_add(Request $request)
     {

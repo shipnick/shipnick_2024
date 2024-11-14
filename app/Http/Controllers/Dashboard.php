@@ -11,6 +11,7 @@ use GrahamCampbell\ResultType\Success;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Month;
 
 class Dashboard extends Controller
 {
@@ -24,95 +25,76 @@ class Dashboard extends Controller
       // Today Orders UserPanel
       $fromdate = date('Y-m-d');
       $todate = date('Y-m-d');
-      $tallcomplete = bulkorders::where('order_status_show', 'Delivered')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('delivereddate', array($fromdate, $todate))
-        ->count('Single_Order_Id');
-      $tallpending = bulkorders::where('order_status_show', '!=', 'Delivered')
-        ->where('order_status_show', '!=', 'RTO Delivered')
-        ->where('order_status_show', '!=', 'Upload')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($fromdate, $todate))
-        ->count('Single_Order_Id');
-      $tallrto = bulkorders::where('order_status_show', 'RTO Delivered')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('rtodate', array($fromdate, $todate))
-        ->count('Single_Order_Id');
-      $tallcanceled = bulkorders::where('order_cancel', 1)
-        ->whereBetween('canceldate', array($fromdate, $todate))
-        ->count('Single_Order_Id');
-      $talluploaded = bulkorders::where('order_status_show', 'Upload')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($fromdate, $todate))
-        ->count('Single_Order_Id');
-      // Today Orders UserPanel
-      // Today COD And Prepaid Orders UserPanel
-      $tcodorders = bulkorders::where('Order_Type', 'COD')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($fromdate, $todate))
-        ->count('Single_Order_Id');
-      $tprepaid = bulkorders::where('Order_Type', 'Prepaid')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($fromdate, $todate))
-        ->count('Single_Order_Id');
-      // Today COD And Prepaid Orders UserPanel
-      // Current Month Orders
-      // Current Month
-      $crtmonth = date("m");
-      $crtyear = date("Y");
-      $crtmdays = cal_days_in_month(CAL_GREGORIAN, $crtmonth, $crtyear);
-      $currentmonthstart = "1-$crtmonth-$crtyear";
-      $currentmonthstend = "$crtmdays-$crtmonth-$crtyear";
-      $currentmonthstart = date('d-m-Y', strtotime($currentmonthstart));
-      $currentmonthstend = date('d-m-Y', strtotime($currentmonthstend));
-      // Current Month
-      $cfromdate = date('Y-m-d', strtotime($currentmonthstart));
-      $ctodate = date('Y-m-d', strtotime($currentmonthstend));
-      $callcomplete = bulkorders::where('order_status_show', 'Delivered')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('delivereddate', array($cfromdate, $ctodate))
-        ->count('Single_Order_Id');
-      $callpending = bulkorders::where('order_status_show', '!=', 'Delivered')
-        ->where('order_status_show', '!=', 'RTO Delivered')
-        ->where('order_status_show', '!=', 'Upload')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
-        ->count('Single_Order_Id');
-      $callrto = bulkorders::where('order_status_show', 'RTO Delivered')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('rtodate', array($fromdate, $todate))
-        ->count('Single_Order_Id');
-      $callcanceled = bulkorders::where('order_cancel', 1)
-        ->whereBetween('canceldate', array($cfromdate, $ctodate))
-        ->count('Single_Order_Id');
-      $calluploaded = bulkorders::where('order_status_show', 'Upload')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
-        ->count('Single_Order_Id');
-      // Current Month Orders
-      // Today COD And Prepaid Orders UserPanel
-      $ccodorders = bulkorders::where('Order_Type', 'COD')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
-        ->count('Single_Order_Id');
-      $cprepaid = bulkorders::where('Order_Type', 'Prepaid')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
-        ->count('Single_Order_Id');
-      // Today COD And Prepaid Orders UserPanel
-      $admin = Allusers::where('usertype', 'admin')->count();
-      $orders = bulkorders::count();
-      return view('super-admin.Dashboard', ['tallcomplete' => $tallcomplete, 'tallpending' => $tallpending, 'tallcancel' => $tallrto, 'talluploaded' => $talluploaded, 'tallcanceled' => $tallcanceled, 'tcodorders' => $tcodorders, 'tprepaid' => $tprepaid, 'ccodorders' => $ccodorders, 'cprepaid' => $cprepaid, 'callcomplete' => $callcomplete, 'callpending' => $callpending, 'callcancel' => $callrto, 'calluploaded' => $calluploaded], compact('admin', 'orders'));
+
+      $totalOrder = bulkorders::count();
+      $totalCod1 = bulkorders::where('Order_Type', 'COD')->count();
+      $totalPrepaid1 = bulkorders::where('Order_Type', 'Prepaid')->count();
+
+      // today 
+      $todayOders = bulkorders::where('Rec_Time_Date', today())->count();
+      $todayCod = bulkorders::where('Order_Type', 'COD')->where('Rec_Time_Date', today())->count();
+      $todayPrepaid = bulkorders::where('Order_Type', 'Prepaid')->where('Rec_Time_Date', today())->count();
+
+      // this month 
+      $monthOders = bulkorders::whereMonth('Rec_Time_Date', now()->month)->count();
+      $monthCod = bulkorders::where('Order_Type', 'COD')->whereMonth('Rec_Time_Date', now()->month)->count();
+      $monthPrepaid = bulkorders::where('Order_Type', 'Prepaid')->whereMonth('Rec_Time_Date', now()->month)->count();
+
+      
+
+
+      $totalAdmin = Allusers::where('usertype', 'user')->take(10)->get(); // Get all admins
+
+      $adminOrdersData = [];
+
+      foreach ($totalAdmin as $admin) {
+        // Calculate total orders for this admin
+        $totalOrders = bulkorders::where('User_Id', $admin->id)->count();
+
+        // Calculate total COD orders for this admin
+        $totalCod = bulkorders::where('Order_Type', 'COD')->where('User_Id', $admin->id)->count();
+
+        // Calculate total Prepaid orders for this admin
+        $totalPrepaid = bulkorders::where('Order_Type', 'Prepaid')->where('User_Id', $admin->id)->count();
+
+        // Store the results in an array or collection
+        $adminOrdersData[] = [
+          'username' => $admin->name,
+          'admin_id' => $admin->crtuid,
+          'total_orders' => $totalOrders,
+          'total_cod' => $totalCod,
+          'total_prepaid' => $totalPrepaid,
+        ];
+      }
+
+
+
+      $adminOrdersData1 = [];
+      foreach ($totalAdmin as $admin) {
+        // Calculate total orders for this admin
+        $totalOrders = bulkorders::where('User_Id', $admin->id)->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])->count();
+
+        // Calculate total COD orders for this admin
+        $totalCod = bulkorders::where('Order_Type', 'COD')->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])->where('User_Id', $admin->id)->count();
+
+        // Calculate total Prepaid orders for this admin
+        $totalPrepaid = bulkorders::where('Order_Type', 'Prepaid')->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])->where('User_Id', $admin->id)->count();
+
+        // Store the results in an array or collection
+        $adminOrdersData1[] = [
+          'username' => $admin->name,
+          'admin_id' => $admin->crtuid,
+          'total_orders' => $totalOrders,
+          'total_cod' => $totalCod,
+          'total_prepaid' => $totalPrepaid,
+        ];
+      }
+//  dd($adminOrdersData1);
+      // $adminOrdersData now contains all the data you need for each admin
+      
+
+
+      return view('super-admin.Dashboard', compact('admin','adminOrdersData','adminOrdersData1','totalOrder','totalCod1','totalPrepaid1','todayOders','todayCod','todayPrepaid','monthOders','monthCod','monthPrepaid'));
     }
 
     return view('Login.super-login');
@@ -127,57 +109,57 @@ class Dashboard extends Controller
 
 
 
- public function Home(Request $req)
+  public function Home(Request $req)
   {
-     
-// dd($tallcomplete);
-      
-    
-    
-      
+
+    // dd($tallcomplete);
+
+
+
+
     if (!empty(session('UserLogin'))) {
       $userid = session()->get('UserLoginid');
-    $TotalUser = AdminLoginCheck::where('crtuid', $userid)->count();
-    
-        // Get all user IDs for the given crtuid
-    $user_ids = AdminLoginCheck::where('crtuid', $userid)->pluck('id');
-    
-    // Get the total count of completed orders for all user IDs
-    $TotalUsersOrdders = bulkorders::whereIn('User_Id', $user_ids)
+      $TotalUser = AdminLoginCheck::where('crtuid', $userid)->count();
+
+      // Get all user IDs for the given crtuid
+      $user_ids = AdminLoginCheck::where('crtuid', $userid)->pluck('id');
+
+      // Get the total count of completed orders for all user IDs
+      $TotalUsersOrdders = bulkorders::whereIn('User_Id', $user_ids)
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
         ->count('Single_Order_Id');
-        
-    
-    $TotalUserlist = AdminLoginCheck::where('crtuid', $userid)->get();
-      return view('Admin.Dashboard',compact('TotalUsersOrdders','TotalUser','TotalUserlist'));
+
+
+      $TotalUserlist = AdminLoginCheck::where('crtuid', $userid)->get();
+      return view('Admin.Dashboard', compact('TotalUsersOrdders', 'TotalUser', 'TotalUserlist'));
     }
 
-    
+
     return view('Login.Login');
   }
 
- public function Home1(Request $req)
+  public function Home1(Request $req)
   {
-      $userid = session()->get('UserLoginid');
+    $userid = session()->get('UserLoginid');
     //   dd($qdata);
-    
-    // Get all user IDs for the given crtuid
-$user_ids = AdminLoginCheck::where('crtuid', $userid)->pluck('id');
 
-// Get the total count of completed orders for all user IDs
-$tallcomplete = bulkorders::whereIn('User_Id', $user_ids)
-    ->where('Awb_Number', '!=', '')
-    ->where('order_cancel', '!=', '1')
-    ->count('Single_Order_Id');
-// dd($tallcomplete);
-      
-    
-    
-      
+    // Get all user IDs for the given crtuid
+    $user_ids = AdminLoginCheck::where('crtuid', $userid)->pluck('id');
+
+    // Get the total count of completed orders for all user IDs
+    $tallcomplete = bulkorders::whereIn('User_Id', $user_ids)
+      ->where('Awb_Number', '!=', '')
+      ->where('order_cancel', '!=', '1')
+      ->count('Single_Order_Id');
+    // dd($tallcomplete);
+
+
+
+
     if (!empty(session('UserLogin'))) {
       $userid = session()->get('UserLogin2id');
-    //   dd($userid);
+      //   dd($userid);
       $username1 = session()->get('UserLogin1name');
       // Today Orders UserPanel
       $fromdate = date('Y-m-d');
@@ -274,7 +256,7 @@ $tallcomplete = bulkorders::whereIn('User_Id', $user_ids)
 
     if (!empty(session('UserLogin2'))) {
       $userid = session()->get('UserLogin2id');
-      
+
       $all = bulkorders::where('User_Id', $userid)->where('order_cancel', '!=', '1')->count('Single_Order_Id');
 
       $allcomplete = bulkorders::where('User_Id', $userid)
@@ -321,8 +303,8 @@ $tallcomplete = bulkorders::whereIn('User_Id', $user_ids)
     // return view('Admin.Login');
     return view('Login.Login');
   }
-  
-  
+
+
 
 
 

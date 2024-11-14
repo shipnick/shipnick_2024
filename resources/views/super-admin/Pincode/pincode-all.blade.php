@@ -1,101 +1,114 @@
-@extends('super-admin.Layout2')
+@extends('super-admin.Layout')
 
-@php(error_reporting(1))
 @section('bodycontent')
-<div class="content-body">
-			<div class="container-fluid">
-				<div class="row page-titles">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-						<li class="breadcrumb-item active"><a href="javascript:void(0)">Pincode</a></li>
-					</ol>
-				</div>
-				<!-- row -->
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="card">
-							<div class="card-header">
-								<h4 class="card-title">Pincode</h4>
-							</div>
-							<div class="card-body">
-								<div class="basic-form">
-									<form class="form-valide-with-icon needs-validation" action="super-picode-add" method="post" enctype="multipart/form-data" novalidate>@csrf
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
-                                    <label class="form-label">Select Courier</label>
-                                    <select class="default-select form-control wide w-100" name="courier" required>
-                                        <option value="" disabled selected>Select...</option>
-                                        <option value="ecom">Ecom</option>
-                                        <option value="xpress">xpress</option>
-                                    </select>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 mb-3">
-                                    <label for="formFile" class="form-label">Upload orders excel file (CSV only)</label>
-                                    <input type="file" id="formFile" name="bulkpincode" class="form-control" accept=".csv" onchange="checkFileContent()" required />
-                                    <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
-                                    <div id="error_msg" style="color:red;"></div>
-                                </div>
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <!-- <h5 class="m-b-10">Bootstrap Basic Tables</h5> -->
                             </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="#!">Super-admin </a></li>
+                                <li class="breadcrumb-item"><a href="#!">Pincode</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Upload Pincode</h5>
+                        </div>
+                        <div class="card-body">
+                            <form  action="super-picode-add" method="post" enctype="multipart/form-data" novalidate>@csrf
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputState">Select Courier </label>
+                                        <select id="inputState" class="form-control" name="courier">
+                                            <option value="" disabled selected>Select...</option>
+											<option value="ecom">Ecom</option>
+											<option value="xpress">xpress</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label class="floating-label" for="Text">Upload orders excel file (CSV
+                                                only)</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="validatedCustomFile" name="bulkpincode" accept=".csv" onchange="checkFileContent()" required>
+                                                <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+                                                <label class="custom-file-label" for="validatedCustomFile">Choose
+                                                    file...</label>
 
-                            <div class="d-flex mb-3">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="las la-map me-3 scale5"></i> Submit
-                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 mt-4" >
+                                        <div class="form-group mt-1"  >
+                                            <button class="btn  btn-primary" type="submit">Submit form</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ stiped-table ] start -->
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Pincode Details</h5>
+                            <span class="d-block m-t-5"></span>
+
+                        </div>
+                        <div class="card-body table-border-style">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Sno</th>
+                                            <th>Courier</th>
+                                            <th>Total Pincode</th>
+    
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($pincode as $data)
+                                        <tr>
+                                            <td>1</td>
+                                            <td>{{$data->courier}}</td>
+                                            <td>{{$data->total_count}}</td>
+                                            <td><a href="{{('pincode-bulk-delete')}}/{{$data->id}}" title="Click here to edit hub detail"><i class="far fa-edit me-2"></i>Delete</a>
+    
+                                            </td>
+    
+                                        </tr>
+                                        @endforeach
+    
+    
+                                    </tbody>
+                                </table>
                             </div>
-                        </form>
-								</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ stiped-table ] end -->
 
-							</div>
-						</div>
-						
-					</div>
-					<div class="col-lg-12">
-						<div class="card">
-							<div class="card-header d-flex flex-wrap border-0 pb-0">
-								<div class="me-auto mb-sm-0 mb-3">
-									<h4 class="card-title mb-2">Pincode Details</h4>
-									<!-- <span class="fs-12">Lorem ipsum dolor sit amet, consectetur</span> -->
-								</div>
-								
-							</div>
-							<hr>
-							<div class="card-body">
-								<div class="table-responsive">
-									<table class="table table-responsive-md">
-										<thead>
-											<tr>
-												<th>Sno</th>
-												<th>Courier</th>
-												<th>Total Pincode</th>
-												
-												<th>Action</th>
-											</tr>
-										</thead>
-										<tbody>
-											 @foreach($pincode as $data)
-                                <tr>
-                                    <td>1</td>
-                                    <td>{{$data->courier}}</td>
-                                    <td>{{$data->total_count}}</td>
-                                    <td><a href="{{('pincode-bulk-delete')}}/{{$data->id}}" title="Click here to edit hub detail"><i class="far fa-edit me-2"></i>Delete</a>
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </section>
 
-                                    </td>
-
-                                </tr>
-                                @endforeach
-
-
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-
-
-@endsection
+	@endsection

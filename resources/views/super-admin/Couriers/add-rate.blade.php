@@ -5,7 +5,7 @@
 
     <!-- All Meta -->
     <meta charset="utf-8">
-<meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="DexignLab">
     <meta name="robots" content="">
@@ -90,7 +90,7 @@
                                                 </div>
                                             </div>
                                             <form method="post" action="{{ asset('/super-admin-rate-add') }}" enctype="multipart/form-data">
-                                            
+
                                                 <div class="col-xl-4 col-lg-6">
                                                     <div class="card">
 
@@ -101,7 +101,7 @@
                                                                     <label class="form-label">Select list (select one)</label>
                                                                     <select class="default-select  form-control wide" name="courier">
                                                                         <option value="Bluedart-sc">Bluedart-sc</option>
-                                                                         <option value="Bluedart-sr">Bluedart-sr</option>
+                                                                        <option value="Bluedart-sr">Bluedart-sr</option>
                                                                         <option value="bluedart">Bluedart</option>
                                                                         <option value="xpressbees_surface">XpressBees Surface</option>
                                                                         <option value="xpressbees">Xpressbees</option>
@@ -169,7 +169,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td style="text-align:center;">RTO</td>
-                                                                <td style="text-align:center;"><input type="text" name="rto1"  class="form-control" placeholder="" required></td>
+                                                                <td style="text-align:center;"><input type="text" name="rto1" class="form-control" placeholder="" required></td>
                                                                 <td style="text-align:center;"><input type="text" name="rto2" class="form-control" placeholder="" required></td>
                                                                 <td style="text-align:center;"><input type="text" name="rto3" class="form-control" placeholder="" required></td>
                                                                 <td style="text-align:center;"><input type="text" name="rto4" class="form-control" placeholder="" required></td>
@@ -190,7 +190,7 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                
+
                                                 <input type="hidden" name="admin_id" value="{{ request()->id }}">
                                                 <button type="submit" class="btn btn-primary"> submit </button>@csrf
 

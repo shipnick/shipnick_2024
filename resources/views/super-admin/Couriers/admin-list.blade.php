@@ -4,30 +4,39 @@
 
 
 
-<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-<div class="main-panel">
-    <div class="content-wrapper">
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <!-- <h5 class="m-b-10">Bootstrap Basic Tables</h5> -->
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Manage Courier</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Admin list</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
         <div class="row">
-
-
-            <div class="col-lg-12 grid-margin stretch-card">
+            
+            <!-- [ stiped-table ] start -->
+            <div class="col-xl-12">
                 <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Admin  list 
-                            <center>
-
-                                @if(session('status')=="New Client Added")
-                                <span class="text-primary" style="font-size:20px;">
-                                    New client added
-                                </span>
-                                @elseif(session('status'))
-                                <span class="text-primary" style="font-size:20px;">
-                                    {{ session('status') }}
-                                </span>
-                                @endif
-                            </center>
-                        </h4>
-
+                    <div class="card-header">
+                        <h5>All Admins</h5>
+                        <span class="d-block m-t-5"> Admin list</span>
+						
+                    </div>
+                    <div class="card-body table-border-style">
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
@@ -58,17 +67,12 @@
                     </div>
                 </div>
             </div>
+            <!-- [ stiped-table ] end -->
+           
         </div>
+        <!-- [ Main Content ] end -->
     </div>
+</section>
 
 
-    <!-- content-wrapper ends -->
-    <!-- partial:../../partials/_footer.html -->
-    <footer class="footer">
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2022.</span>
-        </div>
-    </footer>
-    <!-- partial -->
-</div>
 @endsection

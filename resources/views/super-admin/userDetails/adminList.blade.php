@@ -1,32 +1,44 @@
-@extends('super-admin.Layout2')
+@extends('super-admin.Layout')
 
-@php(error_reporting(1))
 @section('bodycontent')
-<div class="content-body">
-    <div class="container-fluid">
-        <div class="row page-titles">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Pincode</a></li>
-            </ol>
-        </div>
-        <!-- row -->
-        <div class="row">
 
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header d-flex flex-wrap border-0 pb-0">
-                        <div class="me-auto mb-sm-0 mb-3">
-                            <h4 class="card-title mb-2">Admins Details</h4>
-                            <!-- <span class="fs-12">Lorem ipsum dolor sit amet, consectetur</span> -->
+
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <!-- <h5 class="m-b-10">Bootstrap Basic Tables</h5> -->
                         </div>
-
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Super-Admin</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Admin Clients Details</a></li>
+                        </ul>
                     </div>
-                    <hr>
-                    <div class="card-body">
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            
+            <!-- [ stiped-table ] start -->
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Admins Details</h5>
+                        <span class="d-block m-t-5">Admin Clients Details</span>
+						
+                    </div>
+                    <div class="card-body table-border-style">
                         <div class="table-responsive">
-                            <table class="table table-responsive-md">
-                                <thead>
+                            <table class="table table-striped">
+                            <thead>
                                     <tr>
                                         <th>Sno</th>
                                         <th>Name</th>
@@ -64,11 +76,11 @@
                     </div>
                 </div>
             </div>
+            <!-- [ stiped-table ] end -->
+           
         </div>
+        <!-- [ Main Content ] end -->
     </div>
-</div>
-
-
-
+</section>
 
 @endsection
