@@ -236,10 +236,13 @@ Route::post('user-wallet-blance-add/{id}',[SuperAdminClients::class,'addNewUserB
 
 // Route::get('/client-courier-assign',[SuperAdminClients::class,'CourierAssign']);
 Route::get('/super-courier-assign/{id}', [SuperAdminClients::class, 'api_assing']);
+Route::get('/super-courier-rate/{id}', [SuperAdminClients::class, 'rate_assing']);
 Route::get('/super-courier-assign-updated', [SuperAdminClients::class, 'api_assing_update']);
 
 
 Route::get('/add-rate/{id}', [SuperAdminClients::class, 'add_rate_list']);
+
+Route::get('/super-rate-list', [SuperAdminClients::class, 'superRateList']);
 Route::post('/super-admin-rate-add', [SuperAdminClients::class, 'super_admin_rate_add']);
 
 
