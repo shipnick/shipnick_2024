@@ -19,57 +19,27 @@ use App\Models\MIS_Report;
 use Carbon\Carbon;
 use App\Models\smartship;
 use App\Models\orderdetail;
+use Illuminate\Support\Facades\DB;
 
 
 class UserSearchOrder extends Controller
 {
     public function handle(Request $request)
     {
+        // Extract input data
         $awbNumber = $request->input('awb_number');
         $status = $request->input('status');
-
-        // $product = new smartship;
-        //     $product->tokenname = $awbNumber;
-        //     $product->token =$status;
-        //     $product->save();
+        $time=$request->input('event_time');
 
         $order = bulkorders::where('Awb_Number', $awbNumber)->first();
-        $order->showerrors = $status;
-        $order->save();
-        
-        return response('Webhook received', 200);
 
-
-        // Validate the request secret
-        $secret = env('WEBHOOK_SECRET');
-        $providedSecret = $request->header('X-Webhook-Secret');
-
-        if ($providedSecret !== $secret) {
-            Log::warning('Unauthorized webhook request', ['providedSecret' => $providedSecret]);
-            return response('Unauthorized', 401);
+        if ($order) {
+            DB::table('spark_single_order')
+                ->where('Awb_Number', $awbNumber)  // Ensure this is the correct column
+                ->update(['showerrors' => $status,'delivereddatetime' => $time]);
+                return response('Webhook received', 200);
+           
         }
-
-        // Log the request for debugging purposes
-        Log::info('Webhook received', $request->all());
-
-        // Extract the AWB number and status from the request
-
-
-        // Find the order by AWB number and update the status
-        // $order = smartship::where('tokenname', $awbNumber)->first();
-
-
-
-        // if ($order) {
-        //     $order->status = $status;
-        //     $order->save();
-
-        //     Log::info("Order status updated", ['awb_number' => $awbNumber, 'status' => $status]);
-        // } else {
-        //     Log::warning('Order not found', ['awb_number' => $awbNumber]);
-        // }
-
-        // Respond with a 200 status to acknowledge receipt of the webhook
         return response('Webhook received', 200);
     }
     public function Home()
