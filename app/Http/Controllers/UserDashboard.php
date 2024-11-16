@@ -187,9 +187,12 @@ class UserDashboard extends Controller
       $cfromdate = date('Y-m-d', strtotime($currentmonthstart));
       $ctodate = date('Y-m-d', strtotime($currentmonthstend));
 
-      $cfromdateObj = Carbon::parse($request->start_date)->startOfDay();  // Start of the day for $cfromdate
-      $ctodateObj = Carbon::parse($request->end_date)->endOfDay(); // End of the day for $ctodate
+     $startDate = $request->has('start_date') ? Carbon::parse($request->start_date)->startOfDay() : Carbon::now()->subDays(7)->startOfDay();
+      $endDate = $request->has('end_date') ? Carbon::parse($request->end_date)->endOfDay() : Carbon::now()->endOfDay();
 
+      // Now you have $startDate and $endDate set to the desired values
+      $cfromdateObj = $startDate;
+      $ctodateObj = $endDate; 
 
       // top six boxes start 
       $callcomplete = bulkorders::where('User_Id', $userid)
