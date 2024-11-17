@@ -38,10 +38,10 @@ class UserSearchOrder extends Controller
             DB::table('spark_single_order')
                 ->where('Awb_Number', $awbNumber)  // Ensure this is the correct column
                 ->update(['showerrors' => $status,'delivereddatetime' => $time]);
-                return response('Webhook received', 200);
+                return response('OK', 200);
            
         }
-        return response('Webhook received', 200);
+        return response('OK', 200);
     }
 
 

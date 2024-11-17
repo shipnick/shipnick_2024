@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{$totalCod1 + $totalPrepaid1}}</h5>
-                                    <span>Volume</span>
+                                    <span>No. of Clients </span>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{$totalCod1}}</h5>
-                                    <span>Cod </span>
+                                    <span>COD Orders </span>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{$totalPrepaid1}}</h5>
-                                    <span>Prepaid</span>
+                                    <span>Prepaid Orders</span>
                                 </div>
                             </div>
                         </div>
@@ -87,8 +87,8 @@
                             <i class="feather icon-star-on"></i>
                         </div>
                         <div class="col-sm-9">
-                            <h4>4000 +</h4>
-                            <h6>Ratings Received</h6>
+                            <h4>{{$totalOrder}}</h4>
+                            <h6>Life time Orders</h6>
                         </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{$monthOders}}</h5>
-                                    <span>This Month of Order</span>
+                                    <span>Monthly Orders</span>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{$monthCod + $monthPrepaid}}</h5>
-                                    <span>Volume</span>
+                                    <span>Active clients </span>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +141,7 @@
                                 </div>
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{$monthPrepaid}}</h5>
-                                    <span>Prepaid</span>
+                                    <span>Prepaid Orders</span>
                                 </div>
                             </div>
                         </div>
@@ -154,8 +154,8 @@
                             <i class="fas fa-trophy"></i>
                         </div>
                         <div class="col-sm-9">
-                            <h4>17</h4>
-                            <h6>Achievements</h6>
+                            <h4>{{$monthOders}}</h4> 
+                            <h6>Monthly summary </h6>
                         </div>
                     </div>
                 </div>
@@ -168,7 +168,8 @@
                     <div class="card-body pb-0">
                         <h2 class="m-0">{{$todayOders}}</h2>
                         <span class="text-c-blue">Today's Orders</span>
-                        <p class="mb-3 mt-3">Number of orders dispatched this month (COD + Prepaid).</p>
+                        <p class="mb-3 mt-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br> <br></p>
+                        
                     </div>
                     <div id="support-chart"></div>
                     <div class="card-footer bg-primary text-white">
@@ -248,7 +249,7 @@
                                                     <h6>
                                                     {{ Str::limit($data['username'], 10) }}
                                                     </h6>
-                                                    <p class="text-muted m-b-0">admin</p>
+                                                    <p class="text-muted m-b-0">{{ Str::limit($data['admin_id'], 10) }}</p>
                                                 </div>
                                             </div>
                                         </td>
@@ -330,7 +331,7 @@
                                                     <h6>
                                                     {{ Str::limit($data['username'], 10) }}
                                                     </h6>
-                                                    <p class="text-muted m-b-0">admin</p>
+                                                    <p class="text-muted m-b-0">{{ Str::limit($data['admin_id'], 10) }}</p>
                                                 </div>
                                             </div>
                                         </td>

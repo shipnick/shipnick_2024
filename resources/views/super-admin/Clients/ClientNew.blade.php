@@ -1,86 +1,125 @@
 @extends('super-admin.Layout')
 @section('bodycontent')
-<div class="main-panel">
-    <div class="content-wrapper">
-        <div class="row">
-            <div class="col-md-12 grid-margin stretch-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Admin Registration</h4>
-                        @if(session('status')=="New Admin added")
-                        <section class="comp-section" id="returnmsgbox">
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                {{ session('status') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">x</button>
-                            </div>
-                        </section>
-                        @elseif(session('status'))
-                        <section class="comp-section" id="returnmsgbox">
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ session('status') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        </section>
-                        @endif
-                        <p class="card-description">
-                            New Admin Minimum Informations
-                        </p>
-                        <form class="forms-sample" action="{{ asset('/super-new-admin') }}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <div class="form-group">
-                                <label for="exampleInputUsername1">* Company Name</label>
-                                <input type="text" class="form-control" id="exampleInputUsername1" name="companyname">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">* Email / Username</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" name="email">
-                            </div>
-                            <div class="form-group">
-                                <label>Company Logo</label>
-                                <input type="file" name="img[]" class="file-upload-default">
-                                <div class="input-group col-xs-12">
-                                    <input type="text" class="form-control file-upload-info"  name="profilepic" disabled>
-                                    <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputConfirmPassword1">* Mobile</label>
-                                <input type="number" class="form-control" id="exampleInputConfirmPassword1" name="mobile">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">* Password</label>
-                                <input type="password" class="form-control" name="password" id="exampleInputPassword1">
-                            </div>
-                            <div class="form-check form-check-flat form-check-primary">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input">
-                                    Remember me
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                            <button class="btn btn-light">Cancel</button>
-                        </form>
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <!-- <h5 class="m-b-10">Form Elements</h5> -->
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!">Admin List</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Admin Registration</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-
-
         </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+
+
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Admin Registration</h5>
+                    </div>
+                    <div class="card-body">
+
+                        <form class="needs-validation" action="{{ asset('/super-new-admin') }}" method="post" enctype="multipart/form-data" novalidate>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01"> Company Name</label>
+                                    <input type="text" name="companyname" class="form-control" id="validationCustom01" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom02"> Email / Username</label>
+                                    <input type="text" class="form-control" name="email" id="validationCustom02"
+                                         required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom02">Company Logo</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="profilepic" id="validatedCustomFile"
+                                            required>
+                                        <label class="custom-file-label" for="validatedCustomFile">Choose
+                                            file...</label>
+
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustomUsername">Mobile</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupPrepend">91</span>
+                                        </div>
+                                        <input type="text" class="form-control" name="mobile" id="validationCustomUsername"
+                                             aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            Please choose a username.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom02">Password</label>
+                                    <input type="text" class="form-control" id="validationCustom02"
+                                         name="password" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <button class="btn  btn-primary" type="submit">Submit</button>
+                        </form>
+                        <script>
+                            // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function() {
+                                'use strict';
+                                window.addEventListener('load', function() {
+                                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                    var forms = document.getElementsByClassName('needs-validation');
+                                    // Loop over them and prevent submission
+                                    var validation = Array.prototype.filter.call(forms, function(form) {
+                                        form.addEventListener('submit', function(event) {
+                                            if (form.checkValidity() === false) {
+                                                event.preventDefault();
+                                                event.stopPropagation();
+                                            }
+                                            form.classList.add('was-validated');
+                                        }, false);
+                                    });
+                                }, false);
+                            })();
+                        </script>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- [ form-element ] end -->
+        </div>
+        <!-- [ Main Content ] end -->
+
     </div>
-    
-    <!-- content-wrapper ends -->
-    <!-- partial:../../partials/_footer.html -->
-    <footer class="footer">
-        <!-- <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
-          </div> -->
-    </footer>
-    <!-- partial -->
-</div>
+</section>
 
 
 @endsection
