@@ -1924,6 +1924,7 @@ class UserDashboard extends Controller
       ['Rec_Time_Date', '<=', $toDate],
     ];
 
+
     // Define status categories
     $statusCategories = [
       'Pending' => ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'],
