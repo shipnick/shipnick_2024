@@ -116,6 +116,7 @@ class PlaceShipment_CMD extends Command
                 // Product Details
                 $param->Rec_Time_Stamp;
                 $idate = $param->Rec_Time_Date;
+                $inputDate = $param->Last_Time_Stamp;
                 // WareHouse / Pickup Details
                 $pkpkid = $param->pickup_id;
                 $pkpkname = $param->pickup_name;
@@ -196,6 +197,7 @@ class PlaceShipment_CMD extends Command
                             'ivlwt' => $ivlwt,
                             'invicedateecom' => $invicedateecom = date_format($ecomdate, "d-m-Y"),
                             'pkpkid' => $pkpkid,
+                            'inputDate'=>$inputDate
                         ];
 
                         $jobClass = 'App\\Jobs\\' . self::API_PROVIDER[$courierapicodeno] . '_PlaceOrderJob';
