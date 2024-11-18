@@ -76,7 +76,7 @@ Content body start
 									</style>
 
 
-									<div class="row" >
+									<div class="row">
 										<!-- Order Type Dropdown -->
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">Order Type</label>
@@ -92,33 +92,75 @@ Content body start
 										<!-- SKU Dropdown -->
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">SKU</label>
-
-											<select name="sku" class=" form-control wide w-100 ">
+											<select name="sku" id="sku" class="form-control wide w-100">
 												<option value="">Select</option>
 												@foreach($sku1 as $skuItem)
 												<option value="{{ $skuItem }}">{{ $skuItem }}</option>
 												@endforeach
 											</select>
-
 										</div>
-
-
-
-
 
 										<!-- Amount Dropdown -->
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label class="form-label">Amount</label>
-
-
-											<select name="amount" class=" form-control wide w-100 ">
+											<select name="amount" id="amount" class="form-control wide w-100">
 												<option value="">Select</option>
 												@foreach($amount1 as $amt)
 												<option value="{{ $amt }}">{{ $amt }}</option>
 												@endforeach
 											</select>
-
 										</div>
+
+										<!-- Include jQuery -->
+										<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+										<script>
+											$(document).ready(function() {
+												// When SKU dropdown changes, update the Amount dropdown
+												$('#sku').on('change', function() {
+													var selectedSku = $(this).val(); // Get the selected SKU value
+
+													if (selectedSku) {
+														// If SKU is selected, make an AJAX request to update the Amount options
+														$.ajax({
+															url: '/skunew', // This should be your backend route
+															method: 'GET',
+															data: {
+																sku: selectedSku
+															}, // Send the selected SKU as part of the request
+															success: function(response) {
+																// Update the Amount dropdown with new options based on the response
+																updateAmountDropdown(response.amount);
+															},
+															error: function(xhr, status, error) {
+																console.error("AJAX Request failed. Status: " + status + ", Error: " + error);
+															}
+														});
+													} else {
+														// If no SKU is selected, clear the Amount dropdown
+														$('#amount').empty();
+														$('#amount').append('<option value="">Select</option>');
+													}
+												});
+
+												// Function to update the Amount dropdown based on the response from AJAX
+												function updateAmountDropdown(amounts) {
+													var $amountDropdown = $('#amount');
+													$amountDropdown.empty(); // Clear existing options
+													$amountDropdown.append('<option value="">Select</option>'); // Add default "Select" option
+
+													if (Array.isArray(amounts) && amounts.length > 0) {
+														// If there are valid amounts, loop through them and append to the dropdown
+														$.each(amounts, function(index, amount) {
+															$amountDropdown.append('<option value="' + amount + '">' + amount + '</option>');
+														});
+													} else {
+														// If no amounts are available, display a "No options available" message
+														$amountDropdown.append('<option value="">No options available</option>');
+													}
+												}
+											});
+										</script>
 
 										<!-- Courier Dropdown -->
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
@@ -134,83 +176,7 @@ Content body start
 										</div>
 									</div>
 
-									<!-- jQuery Script -->
-									<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-									<script>
-										$(document).ready(function() {
-											// Function to update dropdowns based on selected filters
-											function updateDropdowns() {
-												var orderType = $('#order_type').val(); // Get the selected order type
-												var sku = $('#sku').val(); // Get the selected SKU
-												var amount = $('#amount').val(); // Get the selected amount
-												var courier = $('#courier').val(); // Get the selected courier
-
-												// Debugging: Log the selected values
-												console.log("Selected values - orderType:", orderType, "sku:", sku, "amount:", amount, "courier:", courier);
-
-												$.ajax({
-													url: '/skunew', // Backend route to fetch data
-													method: 'GET',
-													data: {
-														order_type: orderType,
-														sku: sku,
-														amount: amount,
-														courier: courier
-													},
-													success: function(response) {
-														// Debugging: Log the response data to check if it's correct
-														console.log("Response data:", response);
-
-														// Update each dropdown according to the response data
-														updateDropdown('#sku', response.sku, sku); // Set selected SKU
-														updateDropdown('#amount', response.amount, amount); // Set selected Amount
-														updateDropdown('#courier', response.courier, courier); // Set selected Courier
-													},
-													error: function(xhr, status, error) {
-														console.error("AJAX Request failed. Status: " + status + ", Error: " + error);
-													}
-												});
-											}
-
-											// Function to update the dropdown with new options and set the selected value
-											function updateDropdown(selector, options, selectedValue) {
-												var $dropdown = $(selector);
-												$dropdown.empty(); // Remove all existing options
-												$dropdown.append('<option value="">Select</option>'); // Add a default "Select" option
-
-												// Debugging: Log the options and selected value
-												console.log("Updating dropdown - Selector:", selector, "Options:", options, "Selected value:", selectedValue);
-
-												// Check if the options are not empty or null
-												if (Array.isArray(options) && options.length > 0) {
-													// Loop through the options and append them to the dropdown
-													$.each(options, function(index, value) {
-														if (value !== null && value !== "") { // Ensure the value is not null or empty
-															// Check if the current value is selected, and mark it as "selected"
-															var isSelected = (value == selectedValue) ? 'selected' : '';
-															$dropdown.append('<option value="' + value + '" ' + isSelected + '>' + value + '</option>');
-														}
-													});
-												} else {
-													$dropdown.append('<option value="">No options available</option>'); // If no options are available
-												}
-
-												// After the options have been added, explicitly set the selected option (important for updating UI)
-												if (selectedValue) {
-													$dropdown.val(selectedValue); // Set the selected value
-												}
-											}
-
-											// Trigger the update when any dropdown value changes
-											$('#order_type, #sku, #amount, #courier').on('change', function() {
-												updateDropdowns(); // Trigger update on any dropdown change
-											});
-
-											// Optional: Initially populate the dropdowns when the page loads
-											updateDropdowns();
-										});
-									</script>
 
 
 

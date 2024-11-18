@@ -1,101 +1,125 @@
 @extends('super-admin.Layout')
 @section('bodycontent')
-<div class="content container-fluid">
-
-    <div class="page-header">
-        <div class="row my-5">
-            <div class="col-sm-12">
-                <h3 class="page-title">Edit Admin Details
-                    <span style="float:right;margin-right:5%;"><a href="{{ asset('/super-all-admin') }}" class="btn btn-danger">Back</a></span>
-                </h3>
-            </div>
-        </div>
-    </div>
-
-    @if(session('status')=="Admin details updated")
-    <section class="comp-section" id="returnmsgbox">
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('status') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </section>
-    @elseif(session('status'))
-    <section class="comp-section" id="returnmsgbox">
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ session('status') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </section>
-    @endif
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Edit Information</h4>
-
-
-
-                    <form method="post" action="{{ asset('/super-new-admin-edit-update') }}" enctype="multipart/form-data">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>* Company Name</label>
-                                    <input type="text" name="companyname" value="{{ $params->name }}" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>* Mobile</label>
-                                    <input type="number" name="mobile" value="{{ $params->mobile }}" class="form-control" required>
-                                </div>
-
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>* Email / Username</label>
-                                    <input type="email" name="email" value="{{ $params->username }}" class="form-control" readonly>
-                                </div>
-
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Company Logo</label>
-                                    <input type="file" name="profilepic" class="form-control">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>* Password</label>
-                                    <!-- <input type="password" name="password" value="{{ $params->companyname }}" class="form-control" required> -->
-                                    <div class="pass-group">
-                                        <input type="password" name="password" value="{{ $params->password }}" class="form-control pass-input" required>
-                                        <span class="fas fa-eye toggle-password"></span>
-                                    </div>
-                                </div>
-                            </div>
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <!-- <h5 class="m-b-10">Form Elements</h5> -->
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-4"></div>
-                            <div class="col-md-4">
-                                <div class="text-end mt-4">
-                                    @csrf
-                                    <input type="hidden" name="customerid" value="{{ $params->id }}">
-                                    <button type="submit" class="btn btn-primary" style="width:100%">Update Admin Details</button>
-                                </div>
-                            </div>
-                            <div class="col-md-4"></div>
-                    </form>
-
-
-
-
-
-
-
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!">Admin List</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Admin Edit</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+
+
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Admin Edit</h5>
+                    </div>
+                    <div class="card-body">
+
+                        <form class="needs-validation" method="post" action="{{ asset('/super-new-admin-edit-update') }}" enctype="multipart/form-data" novalidate>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom01"> Company Name</label>
+                                    <input type="text" name="companyname" value="{{ $params->name }}" class="form-control" id="validationCustom01" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom02"> Email / Username</label>
+                                    <input type="text" class="form-control" name="email" value="{{ $params->username }}" id="validationCustom02"
+                                         required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom02">Company Logo</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="profilepic" id="validatedCustomFile"
+                                            required>
+                                        <label class="custom-file-label" for="validatedCustomFile">Choose
+                                            file...</label>
+
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustomUsername">Mobile</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupPrepend">91</span>
+                                        </div>
+                                        <input type="text" class="form-control" name="mobile" value="{{ $params->mobile }}" id="validationCustomUsername"
+                                             aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            Please choose a username.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustom02">Password</label>
+                                    <input type="text" class="form-control" id="validationCustom02"
+                                    name="password" value="{{ $params->password }}" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <button class="btn  btn-primary" type="submit">Submit</button>
+                        </form>
+                        <script>
+                            // Example starter JavaScript for disabling form submissions if there are invalid fields
+                            (function() {
+                                'use strict';
+                                window.addEventListener('load', function() {
+                                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                    var forms = document.getElementsByClassName('needs-validation');
+                                    // Loop over them and prevent submission
+                                    var validation = Array.prototype.filter.call(forms, function(form) {
+                                        form.addEventListener('submit', function(event) {
+                                            if (form.checkValidity() === false) {
+                                                event.preventDefault();
+                                                event.stopPropagation();
+                                            }
+                                            form.classList.add('was-validated');
+                                        }, false);
+                                    });
+                                }, false);
+                            })();
+                        </script>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- [ form-element ] end -->
+        </div>
+        <!-- [ Main Content ] end -->
+
     </div>
-</div>
+</section>
 
 
 @endsection

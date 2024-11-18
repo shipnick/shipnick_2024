@@ -1,101 +1,74 @@
-@if(!empty(session('UserLogin')))
-    <script type="text/javascript">
-        window.location.assign("{{ asset('/AdminPanel') }}");
-    </script>
-@endif
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-<meta charset="utf-8">
-<meta name="csrf-token" content="{{ csrf_token() }}">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-<title>Shipnick Super</title>
 
-<link rel="shortcut icon" href="{{asset('Admin/images/logo.jpg')}}">
-
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
-<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
-
-<link rel="stylesheet" href="assets/css/style.css">
-
-
-<!--[if lt IE 9]>
-			<script src="assets/js/html5shiv.min.js"></script>
-			<script src="assets/js/respond.min.js"></script>
+	<title>SuperAdmin-Panel</title>
+	<!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 11]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="">
+	<meta name="author" content="Phoenixcoded" />
+	<!-- Favicon icon -->
+	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+	<!-- vendor css -->
+	<link rel="stylesheet" href="{{asset('assets/super-admin/assets/css/style.css')}}">
+	
+	
+
+
 </head>
-<body>
 
-<div class="main-wrapper login-body">
-<div class="login-wrapper">
-<div class="container">
+<!-- [ auth-signin ] start -->
+<div class="auth-wrapper">
+	<div class="auth-content text-center">
+		<img src="assets/images/logo.png" alt="" class="img-fluid mb-4">
+        <h1 style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); -webkit-background-clip: text; color: transparent;">SHIPNICK</h1>
 
-<div class="loginbox">
-<div class="login-right">
-<div class="login-right-wrap">
-    <img class="img-fluid logo-dark mb-2" src="{{asset('Admin/images/logo.jpg')}}" alt="Logo" >
-<h1>Super-Login</h1>
-<p class="account-subtitle">Access to all dashboard</p>
-<h6 class="text-center" style="color:red">{{ session('status') }}</h6>
-<form action="{{ asset('/superlogin') }}" method="POST">
-<div class="form-group">
-<label class="form-control-label">Username</label>
-<input type="text" name="email" class="form-control">
+		<div class="card borderless">
+			<div class="row align-items-center ">
+				<div class="col-md-12">
+					<form class="card-body" action="{{ asset('/superlogin') }}" method="POST">@csrf
+						<h4 class="mb-3 f-w-400">Super Login</h4>
+						<hr>
+						<div class="form-group mb-3">
+							<input type="text" class="form-control" name="email" id="Email" placeholder="Email address">
+						</div>
+						<div class="form-group mb-4">
+							<input type="password" name="pass" class="form-control" id="Password" placeholder="Password">
+						</div>
+						<!-- <div class="custom-control custom-checkbox text-left mb-4 mt-2">
+							<input type="checkbox" class="custom-control-input" id="customCheck1">
+							<label class="custom-control-label" for="customCheck1">Save credentials.</label>
+						</div> -->
+						<button class="btn btn-block btn-primary mb-4">Signin</button>
+						<hr>
+						
+					</form >
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-<div class="form-group">
-<label class="form-control-label">Password</label>
-<div class="pass-group">
-<input type="password" name="pass" class="form-control pass-input">
-<span class="fas fa-eye toggle-password"></span>
-</div>
-</div>
-<!-- <div class="form-group">
-<div class="row">
-<div class="col-6">
-<div class="custom-control custom-checkbox">
-<input type="checkbox" class="custom-control-input" id="cb1">
-<label class="custom-control-label" for="cb1">Remember me</label>
-</div>
-</div>
-<div class="col-6 text-end">
-<a class="forgot-link" href="">Forgot Password ?</a>
-</div>
-</div>
-</div> -->
-@csrf
-<button class="btn btn-lg btn-block btn-primary w-100" type="submit">Login</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- [ auth-signin ] end -->
+
+<!-- Required Js -->
+<script src="{{asset('assets/super-admin/assets/js/vendor-all.min.js')}}"></script>
+<script src="{{asset('assets/super-admin/assets/js/plugins/bootstrap.min.js')}}"></script>
+
+<script src="{{asset('assets/super-admin/assets/js/pcoded.min.js')}}"></script>
 
 
-<script src="assets/js/jquery-3.6.0.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/feather.min.js"></script>
-<script src="assets/js/script.js"></script>
+
 </body>
 
-
 </html>
-
-
-
-
-
-
-
-
-
-
-

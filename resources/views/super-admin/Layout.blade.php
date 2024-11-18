@@ -64,7 +64,7 @@
                                 Setting</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="{{ asset('/super-courier') }}"> Courier Assignment</a></li>
-                            <li><a href="{{ asset('super-rate-list') }}">Commercials Assignment</a></li>
+                            <li><a href="{{ asset('super-rate-list') }}">Default Commercials</a></li>
                         </ul>
                     </li>
                     <li class="nav-item pcoded-menu-caption">
@@ -72,11 +72,10 @@
                     </li>
                     <li class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link "><span class="pcoded-micon"><i
-                                    class="feather icon-box"></i></span><span class="pcoded-mtext">Admin
-                                Manage</span></a>
+                                    class="feather icon-box"></i></span><span class="pcoded-mtext">All about Admins</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="{{ asset('/super-all-admin') }}">All Admin</a></li>
-                            <li><a href="{{ asset('/super-all-admin-new') }}">All Client</a></li>
+                            <li><a href="{{ asset('/super-all-admin') }}">Admin Roles</a></li>
+                            <li><a href="{{ asset('/super-all-admin-new') }}">Admin Details</a></li>
 
                         </ul>
                     </li>

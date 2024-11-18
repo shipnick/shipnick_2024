@@ -4,7 +4,7 @@
 <head>
 	<!-- All Meta -->
 	<meta charset="utf-8">
-<meta name="csrf-token" content="{{ csrf_token() }}">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="author" content="DexignLab">
 	<meta name="robots" content="">
@@ -91,25 +91,25 @@
 												<div class="row">
 
 													<div class="col-md-6">
-														
-															<form method="POST" action="{{ asset('/UPBulk_Order_Add') }}" enctype="multipart/form-data" class="col-xs-12 col-sm-12 col-md-12 col-lg-10 mt-5">
-																
-																	<div class="mb-3">
-																		<label for="formFile" class="form-label">Upload orders excel file (CSV only)</label>
 
-																		<input type="file" id="formFile" name="bulkorders" class="form-control" accept=".csv" onchange="checkFileContent()" required />
-																		<input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
-																		<div id="error_msg" style="color:red;"></div>
-																	</div>
-																	@csrf
-																	<button class="btn btn-primary submit-btn mt-2" id="btnSubmit">Upload</button>
-																	<button class="btn btn-primary mt-2" type="button">Cancel</button>
+														<form method="POST" action="{{ asset('/UPBulk_Order_Add') }}" enctype="multipart/form-data" class="col-xs-12 col-sm-12 col-md-12 col-lg-10 mt-5">
 
-																	<a href="{{ asset('SampleExcel/NEW UPLOAD FILE - SHIPNICK.csv') }}" class="btn btn-primary mt-2" title="Download Sample File">Download sample order file</a>
+															<div class="mb-3">
+																<label for="formFile" class="form-label">Upload orders excel file (CSV only)</label>
 
-																
-															</form>
-														
+																<input type="file" id="formFile" name="bulkorders" class="form-control" accept=".csv" onchange="checkFileContent()" required />
+																<input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+																<div id="error_msg" style="color:red;"></div>
+															</div>
+															@csrf
+															<button class="btn btn-primary submit-btn mt-2" id="btnSubmit">Upload</button>
+															<button class="btn btn-primary mt-2" type="button">Cancel</button>
+
+															<a href="{{ asset('SampleExcel/NEW UPLOAD FILE - SHIPNICK.csv') }}" class="btn btn-primary mt-2" title="Download Sample File">Download sample order file</a>
+
+
+														</form>
+
 													</div>
 													<div class="col-md-6">
 														<div class="profile-uoloaded-post pb-3">
@@ -968,29 +968,7 @@
 			$('#smartwizard').smartWizard();
 		});
 	</script>
-	<!--<script>-->
-	<!--	jQuery(document).ready(function() {-->
-	<!--		setTimeout(function() {-->
-	<!--			var dezSettingsOptions = {-->
-	<!--				typography: "cairo",-->
-	<!--				version: "light",-->
-	<!--				layout: "vertical",-->
-	<!--				primary: "color_10",-->
-	<!--				headerBg: "color_1",-->
-	<!--				navheaderBg: "color_1",-->
-	<!--				sidebarBg: "color_10",-->
-	<!--				sidebarStyle: "mini",-->
-	<!--				sidebarPosition: "fixed",-->
-	<!--				headerPosition: "fixed",-->
-	<!--				containerLayout: "wide",-->
-	<!--			};-->
-	<!--			new dezSettings(dezSettingsOptions);-->
-	<!--			jQuery(window).on('resize', function() {-->
-	<!--				new dezSettings(dezSettingsOptions);-->
-	<!--			})-->
-	<!--		}, 1000)-->
-	<!--	});-->
-	<!--</script>-->
+	
 
 </body>
 
