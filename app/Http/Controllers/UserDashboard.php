@@ -105,21 +105,16 @@ class UserDashboard extends Controller
       $todate = Carbon::parse($request->end_date)->endOfDay(); // End of the day for $ctodate
       $fromdate1 = date('Y-m-d');
       $todate1 = date('Y-m-d');
-     
+
       // today order   
       $talluploaded = bulkorders::where('User_Id', $userid)
-        // ->where('order_status_show','Upload')
         ->where('order_cancel', '!=', '1')
         ->where('Awb_Number', '!=', '')
         ->whereBetween('Last_Time_Stamp', array($fromdate1, $todate1))
         ->count('Single_Order_Id');
 
       $tallpending = bulkorders::where('User_Id', $userid)
-        ->where('order_status_show', '!=', 'Delivered')
-        ->where('order_status_show', '!=', 'RTO Delivered')
-        ->where('order_status_show', '!=', 'Upload')
         ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
-
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Rec_Time_Date', array($fromdate1, $todate1))
@@ -147,21 +142,21 @@ class UserDashboard extends Controller
         ->count('Single_Order_Id');
       // end today orders 
 
-      
+
 
       // Today Orders Today's Overview
       $ccodorders = bulkorders::where('User_Id', $userid)
         ->where('Order_Type', 'COD')
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($fromdate, $todate))
+        ->whereBetween('Rec_Time_Date', array($fromdate1, $todate1))
         ->count('Single_Order_Id');
 
       $cprepaid = bulkorders::where('User_Id', $userid)
         ->where('Order_Type', 'Prepaid')
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($fromdate, $todate))
+        ->whereBetween('Rec_Time_Date', array($fromdate1, $todate1))
         ->count('Single_Order_Id');
       if ($talluploaded > 0) {
         $codPercentage = ($ccodorders / $talluploaded) * 100;
@@ -187,8 +182,18 @@ class UserDashboard extends Controller
       $cfromdate = date('Y-m-d', strtotime($currentmonthstart));
       $ctodate = date('Y-m-d', strtotime($currentmonthstend));
 
+<<<<<<< HEAD
      $startDate = $request->has('start_date') ? Carbon::parse($request->start_date)->startOfDay() : Carbon::now()->subDays(7)->startOfDay();
       $endDate = $request->has('end_date') ? Carbon::parse($request->end_date)->endOfDay() : Carbon::now()->endOfDay();
+=======
+      // If the 'start_date' or 'end_date' is not provided in the request, default to 7 days ago to today
+      $startDate = $request->has('start_date') ? Carbon::parse($request->start_date)->startOfDay() : Carbon::now()->subDays(7)->startOfDay();
+      $endDate = $request->has('end_date') ? Carbon::parse($request->end_date)->endOfDay() : Carbon::now()->endOfDay();
+
+      // Now you have $startDate and $endDate set to the desired values
+      $cfromdateObj = $startDate;
+      $ctodateObj = $endDate; 
+>>>>>>> 007291584fe3dce3c84c019e7301647eba3b79c1
 
       // Now you have $startDate and $endDate set to the desired values
       $cfromdateObj = $startDate;
@@ -226,14 +231,14 @@ class UserDashboard extends Controller
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
 
-      $tallcancel=bulkorders::where('User_Id', $userid)
-      ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
-      ->where('Awb_Number', '!=', '')
-      ->where('order_cancel', '!=', '1')
-      ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-      ->count('Single_Order_Id');
+      $tallcancel = bulkorders::where('User_Id', $userid)
+        ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+        ->where('Awb_Number', '!=', '')
+        ->where('order_cancel', '!=', '1')
+        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
+        ->count('Single_Order_Id');
       // top six boxes end
-      
+
 
       $callretrun = bulkorders::where('User_Id', $userid)
         ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
@@ -243,14 +248,14 @@ class UserDashboard extends Controller
 
 
         ->count('Single_Order_Id');
-      
-      
+
+
       // Current Month Orders
       // Today COD And Prepaid Orders UserPanel
-      
+
       // Today COD And Prepaid Orders UserPanel
       // intransit 
-      
+
       // Revenue start
       $last90DaysCount = bulkorders::where('User_Id', $userid)
         ->whereIn('showerrors', ['delivered', 'Delivered'])
@@ -258,9 +263,9 @@ class UserDashboard extends Controller
         ->sum('Total_Amount');
 
       $thisWeekCount = bulkorders::where('User_Id', $userid)
-      ->whereIn('showerrors', ['delivered', 'Delivered'])
-      ->where('Rec_Time_Date', '>=', Carbon::now()->subDays(7))
-      ->sum('Total_Amount');
+        ->whereIn('showerrors', ['delivered', 'Delivered'])
+        ->where('Rec_Time_Date', '>=', Carbon::now()->subDays(7))
+        ->sum('Total_Amount');
 
       $thisMonthCount = bulkorders::where('User_Id', $userid)
         ->whereIn('showerrors', ['delivered', 'Delivered'])
@@ -269,10 +274,10 @@ class UserDashboard extends Controller
       //  this is year 
       $thisQuarterCount = bulkorders::where('User_Id', $userid)
         ->whereIn('showerrors', ['delivered', 'Delivered'])
-        ->whereYear('Rec_Time_Date', Carbon::now()->year) 
+        ->whereYear('Rec_Time_Date', Carbon::now()->year)
         ->sum('Total_Amount');
 
-        // Revenue end 
+      // Revenue end 
 
 
       $zone = bulkorders::select('zone', \DB::raw('count(Single_Order_Id) as order_count'))
@@ -301,7 +306,7 @@ class UserDashboard extends Controller
 
 
 
-      
+
 
       $codamount = bulkorders::where('User_Id', $userid)
         ->where('Order_Type', 'COD')
@@ -311,7 +316,7 @@ class UserDashboard extends Controller
         ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
         ->sum('Cod_Amount');
 
-        $xpressbee = BulkOrders::where('User_Id', $userid)
+      $xpressbee = BulkOrders::where('User_Id', $userid)
         ->where('Awb_Number', '!=', '')
         ->where('awb_gen_by', 'Xpressbee')
         ->where('order_cancel', '!=', '1')
@@ -330,11 +335,11 @@ class UserDashboard extends Controller
         ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
         ->count('Single_Order_Id');
 
-        $MonthlyOrder = BulkOrders::where('User_Id', $userid)
-      ->where('Awb_Number', '!=', '')
-      ->where('order_cancel', '!=', '1')
-      ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
-      ->count('Single_Order_Id');
+      $MonthlyOrder = BulkOrders::where('User_Id', $userid)
+        ->where('Awb_Number', '!=', '')
+        ->where('order_cancel', '!=', '1')
+        ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
+        ->count('Single_Order_Id');
 
 
 
@@ -471,35 +476,35 @@ class UserDashboard extends Controller
 
 
 
-      
-      
-      
+
+
+
 
       $data = [
-        
+
         'tallndr' => $tallNDR,
         'tallcomplete' => $tallcomplete,
         'tallpending' => $tallpending,
-        'tallcancel'=>$tallcancel,
-        
-      
+        'tallcancel' => $tallcancel,
+
+
         'talluploaded' => $talluploaded,
         'callintransit' => $callintransit,
-       
+
         'calldeliverd' => $calldeliverd,
         'callretrun' => $callretrun,
         'monthndr' => $monthndr,
         'monthpickup' => $monthpickup,
-        
+
         'ccodorders' => $ccodorders,
         'cprepaid' => $cprepaid,
         'callcomplete' => $callcomplete,
-        
+
         'intransitupload' => $intransitupload,
         'codamount' => $codamount,
         'prepaidPercentage' => $prepaidPercentage,
         'codPercentage' => $codPercentage,
-        
+
         'data1' => $data1,
         'data2' => $data2,
         'data3' => $data3,
@@ -508,11 +513,11 @@ class UserDashboard extends Controller
         'thisWeekCount' => $thisWeekCount,
         'thisMonthCount' => $thisMonthCount,
         'thisQuarterCount' => $thisQuarterCount,
-        'zoneCounts'=>$zoneCounts,
-        'xpressbee'=>$xpressbee, 
-        'Ecom'=>$Ecom, 
-        'Bluedart'=>$Bluedart,
-        'MonthlyOrder'=>$MonthlyOrder
+        'zoneCounts' => $zoneCounts,
+        'xpressbee' => $xpressbee,
+        'Ecom' => $Ecom,
+        'Bluedart' => $Bluedart,
+        'MonthlyOrder' => $MonthlyOrder
 
       ];
 
@@ -1905,7 +1910,7 @@ class UserDashboard extends Controller
       ->count('Single_Order_Id');
     return view('UserPanel.DashboardData.Last90DaysGraph', ['allcomplete' => $allcomplete, 'allpending' => $allpending, 'allcancel' => $allrto, 'alluploaded' => $alluploaded, 'allcanceled' => $allcanceled]);
   }
-  public function showOrderCounts( Request $request)
+  public function showOrderCounts(Request $request)
   {
     // Get the user ID from the session
     $userid = session()->get('UserLogin2id');
@@ -1913,7 +1918,7 @@ class UserDashboard extends Controller
     // Get the first and last day of the current month
 
     $fromDate = Carbon::parse($request->start_date)->startOfDay(); // Start of the day for $cfromdate
-      $toDate = Carbon::parse($request->end_date)->endOfDay(); // End of the day for $ctodate
+    $toDate = Carbon::parse($request->end_date)->endOfDay(); // End of the day for $ctodate
     // $fromDate = Carbon::now()->startOfMonth()->toDateString();
     // $toDate = Carbon::now()->endOfMonth()->toDateString();
 
@@ -1925,7 +1930,7 @@ class UserDashboard extends Controller
       ['order_cancel', '!=', '1'],
       ['Rec_Time_Date', '>=', $fromDate],
       ['Rec_Time_Date', '<=', $toDate],
-  ];
+    ];
 
 
     // Define status categories
@@ -1958,7 +1963,7 @@ class UserDashboard extends Controller
     $xpressbeeNDR = $getCount('Xpressbee', null, $statusCategories['NDR']);
     $xpressbeeDelivered = $getCount('Xpressbee', null, $statusCategories['Delivered']);
     $xpressbeeRto = $getCount('Xpressbee', null, $statusCategories['Rto']);
-    $xpressbeeDeliveredPersent = $xpressbee -$xpressbeeIntransit -$xpressbeeOfd -$xpressbeePending;
+    $xpressbeeDeliveredPersent = $xpressbee - $xpressbeeIntransit - $xpressbeeOfd - $xpressbeePending;
 
 
     // Xpressbee Prepaid orders
@@ -1969,7 +1974,7 @@ class UserDashboard extends Controller
     $xpressbeePrepaidNDR = $getCount('Xpressbee', 'Prepaid', $statusCategories['NDR']);
     $xpressbeePrepaidDelivered = $getCount('Xpressbee', 'Prepaid', $statusCategories['Delivered']);
     $xpressbeePrepaidRto = $getCount('Xpressbee', 'Prepaid', $statusCategories['Rto']);
-    $xpressbeePrepaidDeliveredPresent  = $xpressbeePrepaid -$xpressbeePrepaidPending -            $xpressbeePrepaidIntransit -$xpressbeePrepaidOfd;
+    $xpressbeePrepaidDeliveredPresent  = $xpressbeePrepaid - $xpressbeePrepaidPending -            $xpressbeePrepaidIntransit - $xpressbeePrepaidOfd;
 
     // Xpressbee COD orders
     $xpressbeeCod = $getCount('Xpressbee', 'COD');
@@ -1979,7 +1984,7 @@ class UserDashboard extends Controller
     $xpressbeeCodNDR = $getCount('Xpressbee', 'COD', $statusCategories['NDR']);
     $xpressbeeCodDelivered = $getCount('Xpressbee', 'COD', $statusCategories['Delivered']);
     $xpressbeeCodRto = $getCount('Xpressbee', 'COD', $statusCategories['Rto']);
-    $xpressbeeCodDeliveredPresent =$xpressbeeCod -$xpressbeeCodPending -  $xpressbeeCodIntransit - $xpressbeeCodOfd;
+    $xpressbeeCodDeliveredPresent = $xpressbeeCod - $xpressbeeCodPending -  $xpressbeeCodIntransit - $xpressbeeCodOfd;
 
     // Ecom orders
     $Ecom = $getCount('Ecom');
@@ -1989,7 +1994,7 @@ class UserDashboard extends Controller
     $EcomNdr = $getCount('Ecom', null, $statusCategories['NDR']);
     $EcomDeliverd = $getCount('Ecom', null, $statusCategories['Delivered']);
     $EcomRto = $getCount('Ecom', null, $statusCategories['Rto']);
-    $EcomDeliverdPresent =$Ecom  -$EcomPending - $EcomIntransit - $EcomOfd;
+    $EcomDeliverdPresent = $Ecom  - $EcomPending - $EcomIntransit - $EcomOfd;
 
     // Ecom Prepaid orders
     $EcomPrepaid = $getCount('Ecom', 'Prepaid');
@@ -1999,7 +2004,7 @@ class UserDashboard extends Controller
     $EcomPrepaidNdr = $getCount('Ecom', 'Prepaid', $statusCategories['NDR']);
     $EcomPrepaidDelivered = $getCount('Ecom', 'Prepaid', $statusCategories['Delivered']);
     $EcomPrepaidRto = $getCount('Ecom', 'Prepaid', $statusCategories['Rto']);
-    $EcomPrepaidDeliveredPresent= $EcomPrepaid -$EcomPrepaidPending -$EcomPrepaidIntransit -$EcomPrepaidOfd;
+    $EcomPrepaidDeliveredPresent = $EcomPrepaid - $EcomPrepaidPending - $EcomPrepaidIntransit - $EcomPrepaidOfd;
 
     // Ecom COD orders
     $EcomCod = $getCount('Ecom', 'COD');
@@ -2009,7 +2014,7 @@ class UserDashboard extends Controller
     $EcomCodNdr = $getCount('Ecom', 'COD', $statusCategories['NDR']);
     $EcomCodDelivered = $getCount('Ecom', 'COD', $statusCategories['Delivered']);
     $EcomCodRto = $getCount('Ecom', 'COD', $statusCategories['Rto']);
-    $EcomCodDeliveredPresent = $EcomCod -$EcomCodPending -$EcomCodIntransit -$EcomCodOfd;
+    $EcomCodDeliveredPresent = $EcomCod - $EcomCodPending - $EcomCodIntransit - $EcomCodOfd;
 
 
     // Bluedart orders
@@ -2020,7 +2025,7 @@ class UserDashboard extends Controller
     $BluedartNdr = $getCount('Bluedart', null, $statusCategories['NDR']);
     $BluedartDeliverd = $getCount('Bluedart', null, $statusCategories['Delivered']);
     $BluedartRto = $getCount('Bluedart', null, $statusCategories['Rto']);
-    $BluedartDeliverdPresent = $Bluedart -$BluedartPending - $BluedartIntransit - $BluedartOfd;
+    $BluedartDeliverdPresent = $Bluedart - $BluedartPending - $BluedartIntransit - $BluedartOfd;
 
     // Bluedart Prepaid orders
     $BluedartPrepaid = $getCount('Bluedart', 'Prepaid');
@@ -2030,7 +2035,7 @@ class UserDashboard extends Controller
     $BluedartPrepaidNdr = $getCount('Bluedart', 'Prepaid', $statusCategories['NDR']);
     $BluedartPrepaidDelivered = $getCount('Bluedart', 'Prepaid', $statusCategories['Delivered']);
     $BluedartPrepaidRto = $getCount('Bluedart', 'Prepaid', $statusCategories['Rto']);
-    $BluedartPrepaidDeliveredPresent = $BluedartPrepaid -$BluedartPrepaidPending -$BluedartPrepaidIntransit -$BluedartPrepaidOfd;
+    $BluedartPrepaidDeliveredPresent = $BluedartPrepaid - $BluedartPrepaidPending - $BluedartPrepaidIntransit - $BluedartPrepaidOfd;
 
     // Bluedart COD orders
     $BluedartCod = $getCount('Bluedart', 'COD');
@@ -2040,7 +2045,7 @@ class UserDashboard extends Controller
     $BluedartCodNdr = $getCount('Bluedart', 'COD', $statusCategories['NDR']);
     $BluedartCodDelivered = $getCount('Bluedart', 'COD', $statusCategories['Delivered']);
     $BluedartCodRto = $getCount('Bluedart', 'COD', $statusCategories['Rto']);
-    $BluedartCodDeliveredPresent = $BluedartCod -$BluedartCodPending -$BluedartCodIntransit -$BluedartCodOfd;
+    $BluedartCodDeliveredPresent = $BluedartCod - $BluedartCodPending - $BluedartCodIntransit - $BluedartCodOfd;
 
     // Return the counts to the view or as needed
     return view('UserPanel.DashboardData.analytics', compact(
@@ -2107,10 +2112,10 @@ class UserDashboard extends Controller
       'BluedartCodOfd',
       'BluedartCodNdr',
       'BluedartCodDelivered',
-      'BluedartCodRto'
-      ,'xpressbeeDeliveredPersent'
-      ,'xpressbeePrepaidDeliveredPresent' 
-      ,'xpressbeeCodDeliveredPresent',
+      'BluedartCodRto',
+      'xpressbeeDeliveredPersent',
+      'xpressbeePrepaidDeliveredPresent',
+      'xpressbeeCodDeliveredPresent',
       'EcomDeliverdPresent',
       'EcomPrepaidDeliveredPresent',
       'EcomCodDeliveredPresent',

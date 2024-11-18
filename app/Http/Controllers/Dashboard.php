@@ -40,61 +40,100 @@ class Dashboard extends Controller
       $monthCod = bulkorders::where('Order_Type', 'COD')->whereMonth('Rec_Time_Date', now()->month)->count();
       $monthPrepaid = bulkorders::where('Order_Type', 'Prepaid')->whereMonth('Rec_Time_Date', now()->month)->count();
 
-      
 
 
-      $totalAdmin = Allusers::where('usertype', 'user')->take(10)->get(); // Get all admins
 
+      // Get all users of type 'user', limiting to 10 records
+      $totalAdmin = Allusers::where('usertype', 'user')->get();
+
+      // Preload admin creators' names to avoid multiple queries
+      $adminNames = Allusers::whereIn('id', $totalAdmin->pluck('crtuid'))->pluck('name', 'id');
+
+      // Initialize an array to store the order data
       $adminOrdersData = [];
 
       foreach ($totalAdmin as $admin) {
-        // Calculate total orders for this admin
-        $totalOrders = bulkorders::where('User_Id', $admin->id)->count();
+        // Calculate total orders, COD orders, and Prepaid orders in a single query using aggregation
+        $orderStats = bulkorders::where('User_Id', $admin->id)
+          ->selectRaw('
+            COUNT(*) as total_orders, 
+            SUM(CASE WHEN Order_Type = "COD" THEN 1 ELSE 0 END) as total_cod, 
+            SUM(CASE WHEN Order_Type = "Prepaid" THEN 1 ELSE 0 END) as total_prepaid
+        ')
+          ->first();
 
-        // Calculate total COD orders for this admin
-        $totalCod = bulkorders::where('Order_Type', 'COD')->where('User_Id', $admin->id)->count();
+        // Skip this admin if total_orders is 0
+        if ($orderStats->total_orders == 0) {
+          continue;
+        }
 
-        // Calculate total Prepaid orders for this admin
-        $totalPrepaid = bulkorders::where('Order_Type', 'Prepaid')->where('User_Id', $admin->id)->count();
+        // Get the admin's name from the preloaded list
+        $adminName = $adminNames[$admin->crtuid] ?? 'Unknown';
 
-        // Store the results in an array or collection
+        // Store the results if total_orders > 0
         $adminOrdersData[] = [
           'username' => $admin->name,
-          'admin_id' => $admin->crtuid,
-          'total_orders' => $totalOrders,
-          'total_cod' => $totalCod,
-          'total_prepaid' => $totalPrepaid,
+          'admin_id' => $adminName,
+          'total_orders' => $orderStats->total_orders,
+          'total_cod' => $orderStats->total_cod,
+          'total_prepaid' => $orderStats->total_prepaid,
         ];
       }
 
+      // Sort the data by 'total_orders' in descending order
+      usort($adminOrdersData, function ($a, $b) {
+        return $b['total_orders'] - $a['total_orders']; // Descending order
+      });
 
+      $totalAdmin = Allusers::where('usertype', 'user')->get();
+      // Preload admin creators' names to avoid multiple queries
+      $adminNames = Allusers::whereIn('id', $totalAdmin->pluck('crtuid'))->pluck('name', 'id');
+
+      // Define the common showerrors conditions
+      $showErrors = ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'];
 
       $adminOrdersData1 = [];
+
       foreach ($totalAdmin as $admin) {
+        // Reusable base query with the common 'showerrors' filter
+        $baseQuery = bulkorders::whereIn('showerrors', $showErrors)->where('User_Id', $admin->id);
+
         // Calculate total orders for this admin
-        $totalOrders = bulkorders::where('User_Id', $admin->id)->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])->count();
+        $totalOrders = $baseQuery->count();
+
+        // Skip if total_orders is 0
+        if ($totalOrders == 0) {
+          continue;
+        }
 
         // Calculate total COD orders for this admin
-        $totalCod = bulkorders::where('Order_Type', 'COD')->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])->where('User_Id', $admin->id)->count();
+        $totalCod = $baseQuery->where('Order_Type', 'COD')->count();
 
         // Calculate total Prepaid orders for this admin
-        $totalPrepaid = bulkorders::where('Order_Type', 'Prepaid')->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])->where('User_Id', $admin->id)->count();
+        $totalPrepaid = $baseQuery->where('Order_Type', 'Prepaid')->count();
+
+        // Get the admin's name from the preloaded list (or default to 'Unknown')
+        $adminName = $adminNames[$admin->crtuid] ?? 'Unknown';
 
         // Store the results in an array or collection
         $adminOrdersData1[] = [
           'username' => $admin->name,
-          'admin_id' => $admin->crtuid,
+          'admin_id' => $adminName,
           'total_orders' => $totalOrders,
           'total_cod' => $totalCod,
           'total_prepaid' => $totalPrepaid,
         ];
       }
-//  dd($adminOrdersData1);
-      // $adminOrdersData now contains all the data you need for each admin
-      
+
+      // Optionally, sort by total_orders in descending order
+      usort($adminOrdersData1, function ($a, $b) {
+        return $b['total_orders'] - $a['total_orders']; // Descending order
+      });
 
 
-      return view('super-admin.Dashboard', compact('admin','adminOrdersData','adminOrdersData1','totalOrder','totalCod1','totalPrepaid1','todayOders','todayCod','todayPrepaid','monthOders','monthCod','monthPrepaid'));
+
+
+      return view('super-admin.Dashboard', compact('admin', 'adminOrdersData', 'adminOrdersData1', 'totalOrder', 'totalCod1', 'totalPrepaid1', 'todayOders', 'todayCod', 'todayPrepaid', 'monthOders', 'monthCod', 'monthPrepaid'));
     }
 
     return view('Login.super-login');

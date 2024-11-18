@@ -20,6 +20,10 @@ use Carbon\Carbon;
 use App\Models\smartship;
 use App\Models\orderdetail;
 use Illuminate\Support\Facades\DB;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 007291584fe3dce3c84c019e7301647eba3b79c1
 
 
 class UserSearchOrder extends Controller
@@ -42,6 +46,61 @@ class UserSearchOrder extends Controller
         }
         return response('OK', 200);
     }
+
+
+    // public function handle(Request $request)
+    // {
+    //     // Secret key from the environment variable (stored securely)
+    //     $secret = env('WEBHOOK_SECRET');
+
+    //     // Get the X-Hmac-SHA256 signature from the request header
+    //     $providedSignature = $request->header('X-Hmac-SHA256');
+
+    //     // Get the raw request body (this is the data that was used to create the signature)
+    //     $rawBody = $request->getContent();
+
+    //     // Calculate the hash using hash_hmac with SHA256
+    //     $calculatedHash = base64_encode(hash_hmac('sha256', $rawBody, $secret, true));
+
+    //     // Compare the calculated hash with the provided signature
+    //     if ($providedSignature !== $calculatedHash) {
+    //         // If the signatures do not match, reject the request
+    //         Log::warning('Invalid webhook signature', ['providedSignature' => $providedSignature]);
+    //         return response('Unauthorized', 401);
+    //     }
+
+    //     // Log minimal data, only necessary for tracking the webhook
+    //     Log::info('Webhook received', [
+    //         'awb_number' => $request->input('awb_number'),
+    //         'status' => $request->input('status')
+    //     ]);
+
+    //     // Extract the AWB number and status from the request
+    //     $awbNumber = $request->input('awb_number');
+    //     $status = $request->input('status');
+
+    //     // Validate input (if AWB number or status is missing, we still return 200)
+    //     if (!$awbNumber || !$status) {
+    //         Log::warning('Invalid data received', ['awb_number' => $awbNumber, 'status' => $status]);
+    //         return response('Webhook received', 200); // Send a quick 200 response
+    //     }
+
+    //     // Perform a minimal check and update (no heavy processing)
+    //     $order = BulkOrder::where('Awb_Number', $awbNumber)->first();
+
+    //     if ($order) {
+    //         // Update the order status quickly (this doesn't involve heavy processing)
+    //         $order->showerrors = $status;
+    //         $order->save();
+    //     } else {
+    //         // Log if the order is not found
+    //         Log::warning('Order not found', ['awb_number' => $awbNumber]);
+    //     }
+
+    //     // Return the 200 OK response immediately, no further processing
+    //     return response('Webhook received', 200);
+    // }
+
     public function Home()
     {
         return view('UserPanel.SearchOrder');
@@ -50,11 +109,11 @@ class UserSearchOrder extends Controller
     public function makeOrder(Request $request)
     {
         // dd($request->all());
-      
+
 
         $puserid = session()->get('UserLogin2id');
         $userdata = AdminLoginCheck::where('id', $puserid)->first();
-        $amount=$request->get('plan_id');
+        $amount = $request->get('plan_id');
         // $userer= $userdata->name;
         // dd($userer);
         // $this->validate($request, [
@@ -64,7 +123,7 @@ class UserSearchOrder extends Controller
         $paymentnew->user_id = $puserid;
         $paymentnew->currency = "INR";
         // $payment->user_email = $status->email;
-        $paymentnew->amount = $amount ;
+        $paymentnew->amount = $amount;
         $paymentnew->save();
 
         $api = new Api(env('rzr_key'), env('rzr_secret'));
@@ -86,10 +145,10 @@ class UserSearchOrder extends Controller
 
 
         return response()->json([
-            "success"=> true,
-            "order_id"=>$order_id,
-            "amount"=>$amount,
-            "rzp_order"=>$payment->id
+            "success" => true,
+            "order_id" => $order_id,
+            "amount" => $amount,
+            "rzp_order" => $payment->id
         ]);
 
 
@@ -293,9 +352,9 @@ class UserSearchOrder extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
-    
-    
-     public function orderStatusBluedart()
+
+
+    public function orderStatusBluedart()
     {
 
         try {
@@ -321,21 +380,21 @@ class UserSearchOrder extends Controller
             foreach ($orders as $order) {
                 $awbNumber = $order->Awb_Number;
 
-                bulkorders::where('Awb_Number', $awbNumber)->update(['order_status' => 'upload']); 
+                bulkorders::where('Awb_Number', $awbNumber)->update(['order_status' => 'upload']);
 
-                                    $response = Http::withHeaders([
-                        'Content-Type' => 'application/json',
-                        'Cookie' => 'shipclues_session=iZ4dgCGTk45lE8pE9sdawi4Bp1dwAJ7rEi8iJqBL',
-                    ])->post('https://www.shipclues.com/api/order-track', [
-                        'ApiKey' => 'TdRxkE0nJd4R78hfEGSz2P5CAIeqzUtZ84EFDUX9',
-                        'AWBNumber' => $awbNumber
-                    ]);
-                    
+                $response = Http::withHeaders([
+                    'Content-Type' => 'application/json',
+                    'Cookie' => 'shipclues_session=iZ4dgCGTk45lE8pE9sdawi4Bp1dwAJ7rEi8iJqBL',
+                ])->post('https://www.shipclues.com/api/order-track', [
+                    'ApiKey' => 'TdRxkE0nJd4R78hfEGSz2P5CAIeqzUtZ84EFDUX9',
+                    'AWBNumber' => $awbNumber
+                ]);
+
                 //     $responseData = $response->json();
                 //     echo "<br><pre>";
                 //     print_r($responseData);
                 //     echo "</pre><br>";
-                    
+
                 //  echo  $status = $responseData['CurrentStatus'];
 
                 if ($response->successful()) {
@@ -348,12 +407,12 @@ class UserSearchOrder extends Controller
                         'order_status_show' => $status,
 
                     ]);
-                  
-
-                   
 
 
-                  
+
+
+
+
                     $completedOrders++;
                 } else {
                     // Handle HTTP request failure
@@ -367,8 +426,8 @@ class UserSearchOrder extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
-    
-     
+
+
 
     /**
      * Updates order Status (Xpressbee)
@@ -451,12 +510,12 @@ class UserSearchOrder extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
-     public function orderStatus311()
+    public function orderStatus311()
     {
 
         try {
             $orders = bulkorders::where('awb_gen_courier', 'Xpressbee2')
-                  ->where('User_Id', '171')
+                ->where('User_Id', '171')
                 //   ->where('User_Id', '!=', '109')
                 //   ->where('Rec_Time_Date', '	2024-09-23')
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled','in transit'])
@@ -475,19 +534,19 @@ class UserSearchOrder extends Controller
             }
             set_time_limit(300);
             $completedOrders = 0;
-           bulkorders::whereIn('Awb_Number', $orders)
-    ->update(['order_status' => '1']);
+            bulkorders::whereIn('Awb_Number', $orders)
+                ->update(['order_status' => '1']);
 
             foreach ($orders as $order) {
                 $awbNumber = $order->Awb_Number;
 
-                
+
 
                 $response = Http::withHeaders([
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
                     'email' => 'glamfuseindia67@gmail.com',
-                            'password' => 'shyam104A@',
+                    'password' => 'shyam104A@',
                 ]);
 
                 $responseic = $response->json(); // Decode JSON response
@@ -536,7 +595,7 @@ class UserSearchOrder extends Controller
         try {
             $orders = bulkorders::where('awb_gen_courier', 'Xpressbee3')
                 //   ->where('awb_gen_courier', 'Xpressbee3')
-                  ->where('User_Id', '122')
+                ->where('User_Id', '122')
                 //   ->where('Rec_Time_Date', '	2024-08-26')
                 // ->whereNotIn('showerrors', ['delivered', 'cancelled'])
                 // ->whereNotIn('showerrors', ['delivered', 'exception', 'rto', 'cancelled'])
@@ -554,19 +613,19 @@ class UserSearchOrder extends Controller
             }
             set_time_limit(300);
             $completedOrders = 0;
-             bulkorders::whereIn('Awb_Number', $orders)
-    ->update(['order_status' => '1']);
+            bulkorders::whereIn('Awb_Number', $orders)
+                ->update(['order_status' => '1']);
 
             foreach ($orders as $order) {
                 $awbNumber = $order->Awb_Number;
 
-                
+
 
                 $response = Http::withHeaders([
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
-                   'email' => 'Ballyfashion77@gmail.com',
-                            'password' => 'shyam104A@',
+                    'email' => 'Ballyfashion77@gmail.com',
+                    'password' => 'shyam104A@',
                 ]);
 
                 $responseic = $response->json(); // Decode JSON response
@@ -671,7 +730,7 @@ class UserSearchOrder extends Controller
                 ->whereNotIn('showerrors', ['Delivered'])
                 //   ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection','Shipment Not Handed over'])
                 // ->whereIn('showerrors', ['Shipment Not Handed over'])
-                ->where('Rec_Time_Date', '2024-08-26')  
+                ->where('Rec_Time_Date', '2024-08-26')
                 ->where('User_Id', '165')
                 // ->where('User_Id', '122')
                 ->where('order_status', '1')
