@@ -281,7 +281,7 @@ public function ClientCourierPermissions(Request $req){
     public function Couriers(){ 
         
         
-        $params = couriers::orderby('courierid','DESC')->get();
+         $params = couriers::orderby('courierid','DESC')->where('courier_added','Shipnick')->get();
         return view('super-admin.Couriers.AllNew',['params'=>$params]);
     }
    

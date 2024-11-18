@@ -79,7 +79,7 @@ class BlueDart_PlaceOrderJob implements ShouldQueue
 
 
             $hubtitleshipclues = Hubs::where('hub_id', $pkpkid)->first()->Shiprocket_hub_id;
-            $inputDate = $param->Last_Time_Stamp;
+           
             $formattedDate = '/Date(' . (new DateTime($inputDate))->getTimestamp() * 1000 . ')/';
 
             $response = Http::withHeaders([

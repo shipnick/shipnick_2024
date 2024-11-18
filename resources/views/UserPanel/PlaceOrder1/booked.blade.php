@@ -254,7 +254,7 @@
                                         display: none;
                                     }
                                 </style>
-                                <form method="post" action="{{ asset('/filter-selected-order') }}">
+                                <form method="post" action="{{ asset('/filter-selected-order') }}" target="_blank">
                                     @csrf
                                     <div id="myDiv" class="hidden">
                                         <div class="d-flex justify-content-start align-items-center header-new button-clor-white ">
