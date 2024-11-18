@@ -182,10 +182,10 @@ class UserDashboard extends Controller
       $cfromdate = date('Y-m-d', strtotime($currentmonthstart));
       $ctodate = date('Y-m-d', strtotime($currentmonthstend));
 
-<<<<<<< HEAD
+
      $startDate = $request->has('start_date') ? Carbon::parse($request->start_date)->startOfDay() : Carbon::now()->subDays(7)->startOfDay();
       $endDate = $request->has('end_date') ? Carbon::parse($request->end_date)->endOfDay() : Carbon::now()->endOfDay();
-=======
+
       // If the 'start_date' or 'end_date' is not provided in the request, default to 7 days ago to today
       $startDate = $request->has('start_date') ? Carbon::parse($request->start_date)->startOfDay() : Carbon::now()->subDays(7)->startOfDay();
       $endDate = $request->has('end_date') ? Carbon::parse($request->end_date)->endOfDay() : Carbon::now()->endOfDay();
@@ -193,7 +193,7 @@ class UserDashboard extends Controller
       // Now you have $startDate and $endDate set to the desired values
       $cfromdateObj = $startDate;
       $ctodateObj = $endDate; 
->>>>>>> 007291584fe3dce3c84c019e7301647eba3b79c1
+
 
       // Now you have $startDate and $endDate set to the desired values
       $cfromdateObj = $startDate;
