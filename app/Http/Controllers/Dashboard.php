@@ -31,14 +31,14 @@ class Dashboard extends Controller
       $totalPrepaid1 = bulkorders::where('Order_Type', 'Prepaid')->count();
 
       // today 
-      $todayOders = bulkorders::where('Awb_Number', '!=', '')->where('Rec_Time_Date', today())->count();
-      $todayCod = bulkorders::where('Order_Type', 'COD')->where('Awb_Number', '!=', '')->where('Rec_Time_Date', today())->count();
-      $todayPrepaid = bulkorders::where('Order_Type', 'Prepaid')->where('Awb_Number', '!=', '')->where('Rec_Time_Date', today())->count();
+      $todayOders = bulkorders::where('Awb_Number', '!=', '')->where('order_cancel', '!=', '1')->where('Rec_Time_Date', today())->count();
+      $todayCod = bulkorders::where('Order_Type', 'COD')->where('Awb_Number', '!=', '')->where('order_cancel', '!=', '1')->where('Rec_Time_Date', today())->count();
+      $todayPrepaid = bulkorders::where('Order_Type', 'Prepaid')->where('Awb_Number', '!=', '')->where('order_cancel', '!=', '1')->where('Rec_Time_Date', today())->count();
 
       // this month 
-      $monthOders = bulkorders::where('Awb_Number', '!=', '')->whereMonth('Rec_Time_Date', now()->month)->count();
-      $monthCod = bulkorders::where('Awb_Number', '!=', '')->where('Order_Type', 'COD')->whereMonth('Rec_Time_Date', now()->month)->count();
-      $monthPrepaid = bulkorders::where('Awb_Number', '!=', '')->where('Order_Type', 'Prepaid')->whereMonth('Rec_Time_Date', now()->month)->count();
+      $monthOders = bulkorders::where('Awb_Number', '!=', '')->where('order_cancel', '!=', '1')->whereMonth('Rec_Time_Date', now()->month)->count();
+      $monthCod = bulkorders::where('Awb_Number', '!=', '')->where('order_cancel', '!=', '1')->where('Order_Type', 'COD')->whereMonth('Rec_Time_Date', now()->month)->count();
+      $monthPrepaid = bulkorders::where('Awb_Number', '!=', '')->where('order_cancel', '!=', '1')->where('Order_Type', 'Prepaid')->whereMonth('Rec_Time_Date', now()->month)->count();
 
 
 
@@ -54,7 +54,7 @@ class Dashboard extends Controller
 
       foreach ($totalAdmin as $admin) {
         // Calculate total orders, COD orders, and Prepaid orders in a single query using aggregation
-        $orderStats = bulkorders::where('User_Id', $admin->id)
+        $orderStats = bulkorders::where('User_Id', $admin->id)->where('order_cancel', '!=', '1')->where('Awb_Number', '!=', '')
           ->selectRaw('
             COUNT(*) as total_orders, 
             SUM(CASE WHEN Order_Type = "COD" THEN 1 ELSE 0 END) as total_cod, 
@@ -96,7 +96,7 @@ class Dashboard extends Controller
 
       foreach ($totalAdmin as $admin) {
         // Reusable base query with the common 'showerrors' filter
-        $baseQuery = bulkorders::whereIn('showerrors', $showErrors)->where('User_Id', $admin->id);
+        $baseQuery = bulkorders::whereIn('showerrors', $showErrors)->where('User_Id', $admin->id)->where('Awb_Number', '!=', '')->where('order_cancel', '!=', '1');
 
         // Calculate total orders for this admin
         $totalOrders = $baseQuery->count();
