@@ -110,7 +110,8 @@ class Dashboard extends Controller
         $totalCod = $baseQuery->where('Order_Type', 'COD')->count();
 
         // Calculate total Prepaid orders for this admin
-        $totalPrepaid = $baseQuery->where('Order_Type', 'Prepaid')->count();
+        // $totalPrepaid = $baseQuery->where('Order_Type', 'Prepaid')->count(); 
+        $totalPrepaid =  bulkorders::whereIn('showerrors', $showErrors)->where('Order_Type', 'Prepaid')->where('User_Id', $admin->id)->where('Awb_Number', '!=', '')->where('order_cancel', '!=', '1')->count('Single_Order_Id');
 
         // Get the admin's name from the preloaded list (or default to 'Unknown')
         $adminName = $adminNames[$admin->crtuid] ?? 'Unknown';
