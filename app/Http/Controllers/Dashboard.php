@@ -31,14 +31,14 @@ class Dashboard extends Controller
       $totalPrepaid1 = bulkorders::where('Order_Type', 'Prepaid')->count();
 
       // today 
-      $todayOders = bulkorders::where('Rec_Time_Date', today())->count();
-      $todayCod = bulkorders::where('Order_Type', 'COD')->where('Rec_Time_Date', today())->count();
-      $todayPrepaid = bulkorders::where('Order_Type', 'Prepaid')->where('Rec_Time_Date', today())->count();
+      $todayOders = bulkorders::where('Awb_Number', '!=', '')->where('Rec_Time_Date', today())->count();
+      $todayCod = bulkorders::where('Order_Type', 'COD')->where('Awb_Number', '!=', '')->where('Rec_Time_Date', today())->count();
+      $todayPrepaid = bulkorders::where('Order_Type', 'Prepaid')->where('Awb_Number', '!=', '')->where('Rec_Time_Date', today())->count();
 
       // this month 
-      $monthOders = bulkorders::whereMonth('Rec_Time_Date', now()->month)->count();
-      $monthCod = bulkorders::where('Order_Type', 'COD')->whereMonth('Rec_Time_Date', now()->month)->count();
-      $monthPrepaid = bulkorders::where('Order_Type', 'Prepaid')->whereMonth('Rec_Time_Date', now()->month)->count();
+      $monthOders = bulkorders::where('Awb_Number', '!=', '')->whereMonth('Rec_Time_Date', now()->month)->count();
+      $monthCod = bulkorders::where('Awb_Number', '!=', '')->where('Order_Type', 'COD')->whereMonth('Rec_Time_Date', now()->month)->count();
+      $monthPrepaid = bulkorders::where('Awb_Number', '!=', '')->where('Order_Type', 'Prepaid')->whereMonth('Rec_Time_Date', now()->month)->count();
 
 
 
