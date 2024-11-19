@@ -131,9 +131,10 @@ class Dashboard extends Controller
       });
 
 
+      $totalNoAdmin = count($adminOrdersData);
+      $totaNoUser = Allusers::where('usertype', 'user')->count();
 
-
-      return view('super-admin.Dashboard', compact('admin', 'adminOrdersData', 'adminOrdersData1', 'totalOrder', 'totalCod1', 'totalPrepaid1', 'todayOders', 'todayCod', 'todayPrepaid', 'monthOders', 'monthCod', 'monthPrepaid'));
+      return view('super-admin.Dashboard', compact('admin', 'adminOrdersData', 'adminOrdersData1', 'totalOrder', 'totalCod1', 'totalPrepaid1', 'todayOders', 'todayCod', 'todayPrepaid', 'monthOders', 'monthCod', 'monthPrepaid','totalNoAdmin','totaNoUser'));
     }
 
     return view('Login.super-login');
