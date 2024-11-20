@@ -122,6 +122,12 @@ class SuperAdminClients extends Controller
         $req->session()->flash('status','Admin details updated');
         return redirect("/super-new-admin-edit/$req->customerid");
     }
+     public function ClientDelete(Request $req, $id)
+    {
+        AdminLoginCheck::where('id',$id)->delete();
+        $req->session()->flash('status','Admin Delete Successfully');
+        return redirect("/super-all-admin");
+    }
 
 
 // Client Details
