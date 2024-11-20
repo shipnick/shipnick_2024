@@ -258,6 +258,8 @@ Route::get('/rate-delete/{id}', [SuperAdminClients::class, 'RateDelete']);
 Route::get('/super-new-admin-edit/{id}', [SuperAdminClients::class, 'ClientEdit']);
 Route::post('/super-new-admin-edit-update', [SuperAdminClients::class, 'ClientUpdate']);
 
+Route::get('/super-new-admin-delete/{id}', [SuperAdminClients::class, 'ClientDelete']);
+
 // Coureir Manage
 Route::get('/super-courier', [SuperAdminClients::class, 'Couriers']);
 Route::get('model_new_data/{name}', [SuperAdminClients::class, 'model']);
