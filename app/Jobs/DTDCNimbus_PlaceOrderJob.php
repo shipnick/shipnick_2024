@@ -174,6 +174,7 @@ class DTDCNimbus_PlaceOrderJob implements ShouldQueue
                     // continue;
                 }
 
+                $credit1 = 0;
                 // Assign credit based on zone
                 if ($zone == 'A') {
                     $credit1 = $credit->fwda;

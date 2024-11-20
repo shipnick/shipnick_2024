@@ -143,7 +143,7 @@ class UserPlaceOrder extends Controller
                 // Log an error, skip this record, etc.
                 // continue;
             }
-
+            $credit1 = 0;
             // Assign credit based on zone
             if ($zone == 'A') {
                 $credit1 = $credit->fwda;
