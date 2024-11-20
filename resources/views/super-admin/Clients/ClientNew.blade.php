@@ -22,6 +22,18 @@
             </div>
         </div>
         <!-- [ breadcrumb ] end -->
+        @if(session('status')=="New Client Added")
+	<span class="alert alert-primary" role="alert">
+        New client added
+    </span>
+	@elseif(session('status'))
+    <div class="alert alert-primary" role="alert">
+    {{ session('status') }}
+						</div>
+	<span class="text-primary" style="font-size:20px;">
+		
+	
+	@endif
         <!-- [ Main Content ] start -->
         <div class="row">
 
@@ -53,8 +65,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom02">Company Logo</label>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="profilepic" id="validatedCustomFile"
-                                            required>
+                                        <input type="file" class="custom-file-input" name="profilepic" id="validatedCustomFile">
                                         <label class="custom-file-label" for="validatedCustomFile">Choose
                                             file...</label>
 
