@@ -20,10 +20,6 @@ use Carbon\Carbon;
 use App\Models\smartship;
 use App\Models\orderdetail;
 use Illuminate\Support\Facades\DB;
-<<<<<<< HEAD
-=======
-
->>>>>>> 007291584fe3dce3c84c019e7301647eba3b79c1
 
 
 class UserSearchOrder extends Controller
