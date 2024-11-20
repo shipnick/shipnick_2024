@@ -46,10 +46,10 @@
                         <div class="col-sm-6 card-body">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <i class="icon feather icon-music text-c-red mb-1 d-block"></i>
+                                    <i class="icon feather icon-user text-c-red mb-1 d-block"></i>
                                 </div>
                                 <div class="col-sm-8 text-md-center">
-                                    <h5>{{$totalCod1 + $totalPrepaid1}}</h5>
+                                    <h5>{{$totaNoUser}}</h5>
                                     <span>No. of Clients </span>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                         <div class="col-sm-6 card-body">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <i class="icon feather icon-mail text-c-yellow mb-1 d-block"></i>
+                                   <i class="icon feather icon-shopping-cart text-c-yellow mb-1 d-block"></i>
                                 </div>
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{$totalPrepaid1}}</h5>
@@ -102,7 +102,7 @@
                         <div class="col-sm-6 card-body br">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <i class="icon feather icon-share-2 text-c-blue mb-1 d-block"></i>
+                                    <i class="icon feather icon-box text-c-blue mb-1 d-block"></i>
                                 </div>
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{$monthOders}}</h5>
@@ -113,10 +113,10 @@
                         <div class="col-sm-6 card-body">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <i class="icon feather icon-wifi text-c-blue mb-1 d-block"></i>
+                                    <i class="icon feather icon-user text-c-blue mb-1 d-block"></i>
                                 </div>
                                 <div class="col-sm-8 text-md-center">
-                                    <h5>{{$monthCod + $monthPrepaid}}</h5>
+                                    <h5>{{$totalNoAdmin}}</h5>
                                     <span>Active clients </span>
                                 </div>
                             </div>
@@ -126,7 +126,7 @@
                         <div class="col-sm-6 card-body br">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <i class="icon feather icon-rotate-ccw text-c-blue mb-1 d-block"></i>
+                                    <i class="icon feather icon-file-text text-c-blue mb-1 d-block"></i>
                                 </div>
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{$monthCod}}</h5>

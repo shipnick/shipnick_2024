@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\UtilityHelper;
 use Illuminate\Http\Request;
 use App\Models\orderdetail;
 use App\Models\Allusers;
@@ -143,7 +144,7 @@ class UserPlaceOrder extends Controller
                 // Log an error, skip this record, etc.
                 // continue;
             }
-
+            $credit1 = 0;
             // Assign credit based on zone
             if ($zone == 'A') {
                 $credit1 = $credit->fwda;
@@ -953,7 +954,7 @@ class UserPlaceOrder extends Controller
                 $endsidno = $sidno;
 
 
-                $orderid = trim($value[0]);
+                $orderid = preg_replace('/[^A-Za-z0-9 .]/', '', $value[0]);
                 // $custmname =  trim($value[1]);
                 $custmname = preg_replace('/[^A-Za-z0-9 .]/', '', $value[1]);
                 // $custmaddress = trim($value[2]);
@@ -978,7 +979,7 @@ class UserPlaceOrder extends Controller
                 $prodname = trim($value[10]);
                 $prodqlty = trim($value[11]);
                 $productvalue = trim($value[12]);
-                $Productsku = trim($value[13]);
+                $Productsku = preg_replace('/[^A-Za-z0-9 ]/', '', $value[13]);
                 $paymentmode = (strtolower($value[14]) === 'cod') ? 'COD' : 'Prepaid';
                 // $paymentmode = strtoupper(trim($value[10]));
 
@@ -1064,48 +1065,48 @@ class UserPlaceOrder extends Controller
                 // end find zone 
 
                 $query = new bulkorders;
-                $query->orderno = $orderid;
-                $query->Order_Type = $paymentmode;
+                $query->orderno = UtilityHelper::sanitize($orderid);
+                $query->Order_Type = UtilityHelper::sanitize($paymentmode);
                 $query->User_Id = $userid;
                 $query->Awb_Number = '';
-                $query->Name = $custmname;
-                $query->Address = $custmaddress;
-                $query->Address2 = $custmaddress2;
-                $query->State = $custmstate;
-                $query->City = $custmcity;
-                $query->Mobile = $custmmobile;
-                $query->Pincode = $custmpincode;
-                $query->sku = $Productsku;
-                $query->Item_Name = $prodname;
-                $query->Quantity = $prodqlty;
+                $query->Name = UtilityHelper::sanitize($custmname);
+                $query->Address = UtilityHelper::sanitize($custmaddress);
+                $query->Address2 = UtilityHelper::sanitize($custmaddress2);
+                $query->State = UtilityHelper::sanitize($custmstate);
+                $query->City = UtilityHelper::sanitize($custmcity);
+                $query->Mobile = UtilityHelper::sanitize($custmmobile);
+                $query->Pincode = UtilityHelper::sanitize($custmpincode);
+                $query->sku = UtilityHelper::sanitize($Productsku);
+                $query->Item_Name = UtilityHelper::sanitize($prodname);
+                $query->Quantity = UtilityHelper::sanitize($prodqlty);
                 $query->Width = $prodbreadth;
                 $query->Height = $prodheight;
                 $query->Length = $prodlength;
                 $query->Actual_Weight = $prodweight;
 
                 $volwt = ($prodbreadth * $prodheight * $prodlength) / 5000;
-                $query->volumetric_weight = $volwt;
+                $query->volumetric_weight = UtilityHelper::sanitize($volwt);
 
-                $query->Total_Amount = $prodtotalamt;
-                $query->Invoice_Value = $prodinvoiceamt;
-                $query->Cod_Amount = $prodcodamt;
-                $query->Rec_Time_Stamp = $tdate;
-                $query->Rec_Time_Date = $tdate;
+                $query->Total_Amount = UtilityHelper::sanitize($prodtotalamt);
+                $query->Invoice_Value = UtilityHelper::sanitize($prodinvoiceamt);
+                $query->Cod_Amount = UtilityHelper::sanitize($prodcodamt);
+                $query->Rec_Time_Stamp = UtilityHelper::sanitize($tdate);
+                $query->Rec_Time_Date = UtilityHelper::sanitize($tdate);
                 $query->uploadtype = 'Excel';
-                $query->pickup_id = $pickupid;
-                $query->Address_Id = $pickupid;
-                $query->pickup_name = $pickuphubname;
-                $query->pickup_mobile = $pickupmobile;
-                $query->pickup_pincode = $pickuppincode;
-                $query->pickup_address = $pickupaddress;
-                $query->pickup_state = $pickupstate;
-                $query->pickup_city = $pickupcity;
+                $query->pickup_id = UtilityHelper::sanitize($pickupid);
+                $query->Address_Id = UtilityHelper::sanitize($pickupid);
+                $query->pickup_name = UtilityHelper::sanitize($pickuphubname);
+                $query->pickup_mobile = UtilityHelper::sanitize($pickupmobile);
+                $query->pickup_pincode = UtilityHelper::sanitize($pickuppincode);
+                $query->pickup_address = UtilityHelper::sanitize($pickupaddress);
+                $query->pickup_state = UtilityHelper::sanitize($pickupstate);
+                $query->pickup_city = UtilityHelper::sanitize($pickupcity);
                 $query->order_status = 'Upload';
                 $query->order_status1 = 'Upload';
                 $query->order_status_show = 'Upload';
-                $query->apihitornot = $apistatus;
-                $query->showerrors = $errorstatus;
-                $query->zone = $zone;
+                $query->apihitornot = UtilityHelper::sanitize($apistatus);
+                $query->showerrors = UtilityHelper::sanitize($errorstatus);
+                $query->zone = UtilityHelper::sanitize($zone);
                 $query->save();
                 $last_id = $query->id;
 

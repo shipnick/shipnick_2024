@@ -1,3 +1,8 @@
+@if(empty(session('UserLogin')))
+    <script type="text/javascript">
+        window.location.assign("{{ asset('/superlogin') }}");
+    </script>
+@endif
 <!DOCTYPE html>
 <html lang="en">
 

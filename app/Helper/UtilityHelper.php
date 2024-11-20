@@ -87,4 +87,12 @@ class UtilityHelper
             throw $th;
         }
     }
+
+    public static function sanitize($value)
+    {
+        $value = trim($value);
+        $value = str_replace(['�',], '', $value);
+        $result = filter_var($value, FILTER_SANITIZE_STRING);
+        return $result;
+    }
 }
