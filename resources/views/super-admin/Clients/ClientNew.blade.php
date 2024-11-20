@@ -33,7 +33,7 @@
                     </div>
                     <div class="card-body">
 
-                        <form class="needs-validation" action="{{ asset('/super-new-admin') }}" method="post" enctype="multipart/form-data" novalidate>
+                        <form class="needs-validation" action="{{ asset('/super-new-admin') }}" method="post" enctype="multipart/form-data" novalidate>@csrf
                             <div class="form-row">
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01"> Company Name</label>
