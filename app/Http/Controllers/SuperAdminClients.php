@@ -70,7 +70,7 @@ class SuperAdminClients extends Controller
         }else{
             $img = "";
         }
-$mobile = str_replace(' ', '', trim($req->mobile));
+        $mobile = str_replace(' ', '', trim($req->mobile));
         $query = new AdminLoginCheck();
         $query->spid = $userid;
         $query->username = $req->email;
@@ -84,12 +84,12 @@ $mobile = str_replace(' ', '', trim($req->mobile));
         $query->save();
 
         $req->session()->flash('status','New Admin added');
-        return redirect('/super-new-admin');
+        return redirect('/super-all-admin');
 // 
         }else
         {
             $req->session()->flash('status','Email already exist');
-            return redirect('/super-all-admin');
+            return redirect('/super-new-admin');
         }
     }
 
