@@ -89,7 +89,7 @@ $mobile = str_replace(' ', '', trim($req->mobile));
         }else
         {
             $req->session()->flash('status','Email already exist');
-            return redirect('/super-new-admin');
+            return redirect('/super-all-admin');
         }
     }
 
