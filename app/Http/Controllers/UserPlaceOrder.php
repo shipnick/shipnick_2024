@@ -954,7 +954,7 @@ class UserPlaceOrder extends Controller
                 $endsidno = $sidno;
 
 
-                $orderid = trim($value[0]);
+                $orderid = preg_replace('/[^A-Za-z0-9 .]/', '', $value[0]);
                 // $custmname =  trim($value[1]);
                 $custmname = preg_replace('/[^A-Za-z0-9 .]/', '', $value[1]);
                 // $custmaddress = trim($value[2]);
@@ -979,7 +979,7 @@ class UserPlaceOrder extends Controller
                 $prodname = trim($value[10]);
                 $prodqlty = trim($value[11]);
                 $productvalue = trim($value[12]);
-                $Productsku = trim($value[13]);
+                $Productsku = preg_replace('/[^A-Za-z0-9 ]/', '', $value[13]);
                 $paymentmode = (strtolower($value[14]) === 'cod') ? 'COD' : 'Prepaid';
                 // $paymentmode = strtoupper(trim($value[10]));
 
