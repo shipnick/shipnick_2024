@@ -114,10 +114,10 @@ class UserDashboard extends Controller
         ->count('Single_Order_Id');
 
       $tallpending = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+        ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($fromdate1, $todate1))
+        ->where('Rec_Time_Date', today())
         ->count('Single_Order_Id');
 
       $intransitupload = bulkorders::where('User_Id', $userid)
