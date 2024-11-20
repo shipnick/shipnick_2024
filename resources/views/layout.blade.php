@@ -5,8 +5,8 @@
     <meta charset="utf-8">
 <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>shipnick - Transport & Logistics HTML Template</title>
-    <meta name="description" content="Logistex - Transport & Logistics HTML Template">
+    <title>Shipnick - Transport & Logistics</title>
+    <meta name="description" content="Shipnick - Transport & Logistics">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
