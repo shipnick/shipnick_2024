@@ -70,13 +70,13 @@ class SuperAdminClients extends Controller
         }else{
             $img = "";
         }
-
+$mobile = str_replace(' ', '', trim($req->mobile));
         $query = new AdminLoginCheck();
         $query->spid = $userid;
         $query->username = $req->email;
         $query->password = $req->password;
         $query->name = $req->companyname;
-        $query->mobile = $req->mobile;
+        $query->mobile = $mobile;
         $query->companyname = $req->companyname;
         $query->profilepic = $img;
         $query->status = 1;
