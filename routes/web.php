@@ -170,6 +170,10 @@ Route::get('/terms-and-conditions', function () {
 	return view('terms-and-conditions');
 });
 
+Route::get('/pricing', function () {
+	return view('pricing');
+});
+
 
 // Route::get('/about', function () {
 // 	return view('about');
