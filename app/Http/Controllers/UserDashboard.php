@@ -107,17 +107,20 @@ class UserDashboard extends Controller
       $todate1 = date('Y-m-d');
 
       // today order   
-      $talluploaded = bulkorders::where('User_Id', $userid)
-        ->where('order_cancel', '!=', '1')
+      
+
+        $talluploaded = bulkorders::where('User_Id', $userid)
         ->where('Awb_Number', '!=', '')
-        ->whereBetween('Last_Time_Stamp', array($fromdate1, $todate1))
+        ->where('showerrors', '!=', 'cancelled')
+        ->where('order_cancel', '!=', '1')
+       ->where('Rec_Time_Date', today())
         ->count('Single_Order_Id');
 
       $tallpending = bulkorders::where('User_Id', $userid)
         ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
-        ->where('Awb_Number', '!=', '')
+        ->where('showerrors', '!=', 'cancelled')
         ->where('order_cancel', '!=', '1')
-        ->where('Rec_Time_Date', today())
+       ->where('Rec_Time_Date', today())
         ->count('Single_Order_Id');
 
       $intransitupload = bulkorders::where('User_Id', $userid)

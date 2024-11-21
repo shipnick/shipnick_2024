@@ -68,6 +68,7 @@
                       @endif
                     </td>
                     <td>
+                        <a  href="{{ asset('/super-new-admin-delete/'.$param->id) }}">Delete</a>/
                       <a title="Click here to edit client details" href="{{ asset('/super-new-admin-edit/'.$param->id) }}"><i class="far fa-edit me-2"></i>Edit</a>
                       <!-- <a title="Client Details" href="{{ asset('/client-setting/'.$param->id) }}"><i data-feather="settings" class="me-2"></i></a> --> /
                       <a title="Click here to edit client details" href="{{ asset('/super-courier-assign/'.$param->id) }}"><i class="far fa-edit me-2"></i>Couriers-Assign</a>

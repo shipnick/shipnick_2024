@@ -170,6 +170,10 @@ Route::get('/terms-and-conditions', function () {
 	return view('terms-and-conditions');
 });
 
+Route::get('/pricing', function () {
+	return view('pricing');
+});
+
 
 // Route::get('/about', function () {
 // 	return view('about');
@@ -257,6 +261,8 @@ Route::get('/rate-delete/{id}', [SuperAdminClients::class, 'RateDelete']);
 
 Route::get('/super-new-admin-edit/{id}', [SuperAdminClients::class, 'ClientEdit']);
 Route::post('/super-new-admin-edit-update', [SuperAdminClients::class, 'ClientUpdate']);
+
+Route::get('/super-new-admin-delete/{id}', [SuperAdminClients::class, 'ClientDelete']);
 
 // Coureir Manage
 Route::get('/super-courier', [SuperAdminClients::class, 'Couriers']);
