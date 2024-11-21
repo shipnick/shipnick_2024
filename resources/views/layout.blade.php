@@ -372,6 +372,7 @@
                                     <li><a href="privacy"> Privacy & Refund Policy</a></li>
                                     <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
                                     <li><a href="/cookie-policy">Cookie policy</a></li>
+                                    <li><a href="/pricing">Pricing</a></li>
                                 </ul>
                             </div>
                         </div>
