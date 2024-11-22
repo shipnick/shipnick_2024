@@ -24,23 +24,37 @@ use Illuminate\Support\Facades\DB;
 
 class UserSearchOrder extends Controller
 {
-    public function handle(Request $request)
+     public function xpressWebhook(Request $request)
     {
-        // Extract input data
-        $awbNumber = $request->input('awb_number');
-        $status = $request->input('status');
-        $time=$request->input('event_time');
 
-        $order = bulkorders::where('Awb_Number', $awbNumber)->first();
+        $webhookData = $request->getContent();  // or $request->input('webhook_data_here') depending on your 
 
-        if ($order) {
+        //  webhook secret 
+        $secret = 'Rkn7tRpesbyZ0O6mOC6aLkE5';
+
+        // The hash sent by the external service in the request headers or body
+        $sentHash = $request->header('X-Signature');  // assuming the hash is sent as a header
+
+        // Compute the HMAC-SHA256 hash of the incoming data
+        $computedHash = base64_encode(hash_hmac('sha256', $webhookData, $secret, true));
+
+        // Compare the computed hash with the hash sent in the webhook request
+        if (hash_equals($computedHash, $sentHash)) {
+            // Valid signature, process the webhook
+            $awbNumber = $request->input('awb_number');
+            $status = $request->input('status');
+            $time = $request->input('event_time');
+            // Do something with $webhookData (such as storing it in the database)
             DB::table('spark_single_order')
                 ->where('Awb_Number', $awbNumber)  // Ensure this is the correct column
-                ->update(['showerrors' => $status,'delivereddatetime' => $time]);
-                return response('OK', 200);
-           
+                ->update(['showerrors' => $status, 'delivereddatetime' => $time]);
+
+            // Send a 200 OK response with a JSON payload
+            return response()->json(['status' => 'success'], 200);
+        } else {
+            // Invalid signature, return 400 Bad Request response
+            return response()->json(['status' => 'invalid signature'], 400);
         }
-        return response('OK', 200);
     }
 
 
