@@ -46,11 +46,11 @@ use App\Http\Controllers\APITest;
 use Illuminate\Support\Facades\DB;
 
 // Check for server DATE and time
-Route::get('/server-stats', function(){
+Route::get('/server-stats', function () {
 	$data = [
 		'now' => now(),
 		'date_default_timezone_get' => date_default_timezone_get(),
-		'DB_TimeZone' => DB::select( 'select NOW() as the_time' ),
+		'DB_TimeZone' => DB::select('select NOW() as the_time'),
 	];
 
 	return response()->json($data);
@@ -234,8 +234,8 @@ Route::get('/user-wallet-limit/{id}', [SuperAdminClients::class, 'userWalletLimi
 Route::post('/user-wallet-limit-add/{id}', [SuperAdminClients::class, 'userAddWalletLimit']);
 
 // add super admin to user new balance like com remittence 
-Route::get('user-wallet-blance/{id}',[SuperAdminClients::class,'addUserBlance']);
-Route::post('user-wallet-blance-add/{id}',[SuperAdminClients::class,'addNewUserBlance']);
+Route::get('user-wallet-blance/{id}', [SuperAdminClients::class, 'addUserBlance']);
+Route::post('user-wallet-blance-add/{id}', [SuperAdminClients::class, 'addNewUserBlance']);
 
 
 // Route::get('/client-courier-assign',[SuperAdminClients::class,'CourierAssign']);
@@ -705,35 +705,16 @@ Route::post('/UPAll_Canceled_Orders', [UserOrderManage::class, 'CanceledOrdersFi
 Route::get('/failed-orders', [UserOrderManage::class, 'FaildedOrders']);
 Route::post('/failed-orders', [UserOrderManage::class, 'FaildedOrdersFilter']);
 
-
-
 // new seprater 
 Route::get('/booked-order', [UserOrderManage::class, 'Booked']);
-
-
 Route::get('/pickup-pending', [UserOrderManage::class, 'Pickup_pending']);
-
-
 Route::get('/intransit', [UserOrderManage::class, 'Intransit']);
-
-
 Route::get('/ofd', [UserOrderManage::class, 'Ofd']);
-
-
 Route::get('/deliverd', [UserOrderManage::class, 'Deliverd']);
-
 Route::post('/ofd', [UserOrderManage::class, 'Ofd']);
-
-
 Route::get('/rto', [UserOrderManage::class, 'Rto']);
-
-
 Route::get('/cancelled', [UserOrderManage::class, 'Canceled']);
-
-
 Route::get('/failled', [UserOrderManage::class, 'Failled']);
-
-
 
 // Route::post('/filter-selected-order',[UserOrderManage::class,'CheckActionSelectedOrders']);
 
@@ -773,8 +754,6 @@ Route::get('/UPMIS_Report_ExcelN', [UserExcels::class, 'MIS_ReportN']);
 Route::get('/sku_summary', [UserExcels::class, 'skuSummary']);
 Route::get('/skunew', [UserExcels::class, 'skuNew']);
 
-
-
 // Reports
 
 
@@ -796,22 +775,14 @@ Route::post('/succes-payment', [UserSearchOrder::class, 'succes']);
 Route::get('/UPDaily_Report_Excel', [UserExcels::class, 'Daliy_Report']);
 // Route::get('/UPNDR_Report_Excel',[UserExcels::class,'NDR_Report']);
 Route::get('/UPManifest_Report_PDF', [UserExcels::class, 'Manifest_Report_PDF']);
-
 Route::get('/UPManifest_Report_ExcelD', [UserExcels::class, 'Manifest_ReportD']);
-
 Route::get('/UPManifest_Report_ExcelN/{id}/{no}', [UserExcels::class, 'Manifest_ReportN']);
-
 Route::get('/UPManifest_Report_Excel/{id}/{no}', [UserExcels::class, 'Manifest_Report']);
 
-
 Route::get('/UPMIS_Report_PDF', [UserExcels::class, 'MIS_Report_PDF']);
-
 Route::get('/UPMIS_Report_ExcelD', [UserExcels::class, 'MIS_ReportD']);
 
-
-
 Route::get('/UPMIS_Report_Excel/{id}/{no}', [UserExcels::class, 'MIS_Report']);
-
 
 Route::get('/today-failed-orders', [UserExcels::class, 'Failed_Orders_Report']);
 Route::get('/today-placed-orders', [UserExcels::class, 'Placed_Orders_Report']);
@@ -830,22 +801,6 @@ Route::get('/not-picked-excel-orders', [UserExcels::class, 'Not_Picked_Excel_Ord
 
 
 // 	User-Panel			User-Panel			User-Panel		End
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -872,7 +827,5 @@ Route::post('/RPPincodeCheck', [RiderPincodeManage::class, 'Check']);
 
 // 	Rider-Panel			Rider-Panel			Rider-Panel		End
 // 	Customer-Panel		Customer-Panel		Customer-Panel	Start
-
-
 Route::get('/CustomerPanel', [CustomerDashboard::class, 'Home']);
 // 	Customer-Panel		Customer-Panel		Customer-Panel	End

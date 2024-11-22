@@ -16,7 +16,10 @@ use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Month;
 class Dashboard extends Controller
 {
 
-  // super
+  /**
+   * @url /superpanel
+   * @method GET
+   */
   public function SuperHome(Request $req)
   {
     if (!empty(session('UserLogin'))) {
@@ -135,7 +138,7 @@ class Dashboard extends Controller
       $totalNoAdmin = count($adminOrdersData);
       $totaNoUser = Allusers::where('usertype', 'user')->count();
 
-      return view('super-admin.Dashboard', compact('admin', 'adminOrdersData', 'adminOrdersData1', 'totalOrder', 'totalCod1', 'totalPrepaid1', 'todayOders', 'todayCod', 'todayPrepaid', 'monthOders', 'monthCod', 'monthPrepaid','totalNoAdmin','totaNoUser'));
+      return view('super-admin.Dashboard', compact('admin', 'adminOrdersData', 'adminOrdersData1', 'totalOrder', 'totalCod1', 'totalPrepaid1', 'todayOders', 'todayCod', 'todayPrepaid', 'monthOders', 'monthCod', 'monthPrepaid', 'totalNoAdmin', 'totaNoUser'));
     }
 
     return view('Login.super-login');

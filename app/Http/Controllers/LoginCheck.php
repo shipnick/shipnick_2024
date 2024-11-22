@@ -427,7 +427,7 @@ class LoginCheck extends Controller
             'Website' => 'required|string|max:255',
             'count' => 'required',
         ]);
-    
+
         // Insert data into the orderdetail_user table
         DB::table('orderdetail_user')->insert([
             'iteminvoicevalue' => $request->Name,
@@ -436,9 +436,9 @@ class LoginCheck extends Controller
             'cname' => $request->cname,
             'itemname' => $request->Website,
             'additionaldetails' => $request->count,
-           
+
         ]);
-    
+
         // Redirect back with a success message (optional)
         return redirect()->back()->with('success', 'Quote requested successfully!');
     }

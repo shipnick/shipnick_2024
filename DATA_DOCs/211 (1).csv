@@ -1,0 +1,3 @@
+Order_ID*,Customer_Name*,Address*,Address2*,Customer_City*,Customer_State*,Pincode*,Mobile*,Phone / Mobile 2,Consignee Email,Product_Name*,Product Quantity*,Product Value*,SKU,Order_Type*,COD_AMOUNT*,Shipment Weight (KG)*,Shipment Length*,Shipment Width*,Shipment Height*,invoice_Value*,Total_Amount*,Hub_Code*
+3101,Anshu singh,"PROPERTY NO.75, GROUND FLOOR","GALI NO.1, GOVINDPURI, NEW DELHI - 110019",delhi ,DL,110019,8874738232,,,Dr berg Trace Minerals Enhanced Complex ,1,999,,PP,0,0.5,13,13,13,999,999,HID00185
+,,,,,,,,,,,,,,,,,,,,,,

@@ -99,7 +99,8 @@
                                     </a>
                                 </div>
                                 <div class="logo">
-                                    <h1>shipnick</h1>
+                                    {{-- <h1>shipnick</h1> --}}
+                                    <a href="#"><img src="/Shipnick.png" alt="shipnick" style="max-height: 80px" /></a>
                                     <!-- <a href="index.html"><img src="assets/img/logo/logo.svg" alt="Logo"></a> -->
                                 </div>
                             </div>
