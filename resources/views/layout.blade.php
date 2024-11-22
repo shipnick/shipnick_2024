@@ -334,7 +334,7 @@
                                 <!-- <a href="index.html"><img src="assets/img/logo/w_logo.svg" alt="logo"></a> -->
                             </div>
                             <div class="footer__content">
-                                <p>Lorem ipsum dolor sit amet, consect etur adi pisicing elit sed do eiusmod tempor incidunt ut labore et</p>
+                                {{-- <p>Lorem ipsum dolor sit amet, consect etur adi pisicing elit sed do eiusmod tempor incidunt ut labore et</p> --}}
                             </div>
                             <form action="#" class="footer__newsletter">
                                 <div class="form-grp">

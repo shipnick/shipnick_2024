@@ -35,85 +35,85 @@
                                     <tr>
                                         <td>1</td>
                                         <td>Xpressbees3</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>30</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 30</td>
                                         <td>2<span>%</span></td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td>Xpressbees2</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>30</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 30</td>
                                         <td>2<span>%</span></td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
                                         <td>Xpressbees</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>30</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 30</td>
                                         <td>2<span>%</span></td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
                                         <td>EcomExpress</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>30</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 30</td>
                                         <td>2<span>%</span></td>
                                     </tr>
                                     <tr>
                                         <td>5</td>
                                         <td>Bluedart</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>30</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 30</td>
                                         <td>2<span>%</span></td>
                                     </tr>
                                     <tr>
                                         <td>6</td>
                                         <td>Bluedart-sc</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>30</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 30</td>
                                         <td>2<span>%</span></td>
                                     </tr>
                                     <tr>
                                         <td>7</td>
                                         <td>DTDC</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>70</td>
-                                        <td>30</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 70</td>
+                                        <td>₹ 30</td>
                                         <td>2<span>%</span></td>
                                     </tr>
                                 </tbody>
