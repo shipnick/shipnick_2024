@@ -42,6 +42,7 @@ chmod -R 777 public/SampleExcel
 
 rm -rf bootstrap/cache/config.php
 php artisan config:clear
+php artisan migrate
 php artisan view:clear
 service cron start
 
