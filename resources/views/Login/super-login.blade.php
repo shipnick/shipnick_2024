@@ -31,8 +31,8 @@
 <!-- [ auth-signin ] start -->
 <div class="auth-wrapper">
 	<div class="auth-content text-center">
-		<img src="assets/images/logo.png" alt="" class="img-fluid mb-4">
-        <h1 style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); -webkit-background-clip: text; color: transparent;">SHIPNICK</h1>
+		<img src="/ShipnickTrans.png" alt="Shipnick.com" title="Shipnick" class="img-fluid mb-4" style="max-height: 100px;">
+        {{-- <h1 style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); -webkit-background-clip: text; color: transparent;">SHIPNICK</h1> --}}
 
 		<div class="card borderless">
 			<div class="row align-items-center ">

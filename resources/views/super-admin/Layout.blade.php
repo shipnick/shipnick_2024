@@ -112,7 +112,8 @@
                 <!-- ========   change your logo hear   ============ -->
                 <!-- <img src="assets/images/logo.png" alt="" class="logo">
 						<img src="assets/images/logo-icon.png" alt="" class="logo-thumb"> -->
-                <h4 style="color: white;">SHIPNICK</h4>
+                {{-- <h4 style="color: white;">SHIPNICK</h4> --}}
+                <img src="/Shipnick.png" alt="Shipnick" />
             </a>
             <a href="#!" class="mob-toggler">
                 <i class="feather icon-more-vertical"></i>

@@ -19,11 +19,13 @@ services:
     ports:
       - "127.0.0.1:3306:3306"
     # command: mysqld --sql-mode="NO_ENGINE_SUBSTITUTION"
-  adminer:
-    image: adminer
+  phpmyadmin:
+    image: phpmyadmin
     restart: always
     ports:
       - 8089:8080
+    environment:
+      - PMA_ARBITRARY=1
     depends_on:
       - db
   web:
