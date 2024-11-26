@@ -405,7 +405,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-7">
                         <div class="copyright-text">
-                            <p>Copyright <a href="/">©shipnick</a> | All Right Reserved</p>
+                            <p><span>Product of:</span> <span class="brand-name">Prosavvy Luxuries Pvt. Ltd.</span></p>
                         </div>
                     </div>
                     <div class="col-md-5">
