@@ -113,7 +113,7 @@
                 <!-- <img src="assets/images/logo.png" alt="" class="logo">
 						<img src="assets/images/logo-icon.png" alt="" class="logo-thumb"> -->
                 {{-- <h4 style="color: white;">SHIPNICK</h4> --}}
-                <img src="/ShipnickTrans.png" style="max-height: 55px; filter: invert(1) hue-rotate(170deg);" alt="Shipnick" />
+                <img src="/ShipnickTransH-sm.png" style="max-height: 46px; filter: invert(1) hue-rotate(170deg);" alt="Shipnick" />
             </a>
             <a href="#!" class="mob-toggler">
                 <i class="feather icon-more-vertical"></i>
