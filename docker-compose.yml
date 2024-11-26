@@ -19,19 +19,26 @@ services:
     ports:
       - "127.0.0.1:3306:3306"
     # command: mysqld --sql-mode="NO_ENGINE_SUBSTITUTION"
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    container_name: PhpMyAdmin
+  adminer:
+    image: ghcr.io/shyim/adminerevo:latest
     restart: always
     ports:
-      - "8089:8080"
-    environment:
-      - PMA_ARBITRARY=1
-      - PMA_HOST=db
-      - PMA_PORT=3306
-      - APACHE_SERVER_NAME=shipnick.com
+      - 8089:8080
     depends_on:
       - db
+  # phpmyadmin:
+  #   image: phpmyadmin/phpmyadmin:latest
+  #   container_name: PhpMyAdmin
+  #   restart: always
+  #   ports:
+  #     - "8089:8080"
+  #   environment:
+  #     - PMA_ARBITRARY=1
+  #     - PMA_HOST=db
+  #     - PMA_PORT=3306
+  #     - APACHE_SERVER_NAME=shipnick.com
+  #   depends_on:
+  #     - db
   web:
     image: nginx:1.26.0-alpine
     restart: always
