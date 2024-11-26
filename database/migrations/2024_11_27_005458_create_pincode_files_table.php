@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClientVariablesTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateClientVariablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('client_variables', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable();
-            $table->string('key')->nullable();
-            $table->text('value')->nullable(); 
-            $table->text('description')->nullable();
+        Schema::create('pincode_files', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('folder_name');
+            $table->string('total_count');
+            $table->string('courier');
+            $table->string('date');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateClientVariablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client_variables');
+        Schema::dropIfExists('pincode_files');
     }
-}
+};
