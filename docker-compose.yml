@@ -29,6 +29,7 @@ services:
       - PMA_ARBITRARY=1
       - PMA_HOST=db
       - PMA_PORT=3306
+      - APACHE_SERVER_NAME=shipnick.com
     depends_on:
       - db
   web:
