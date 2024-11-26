@@ -20,12 +20,15 @@ services:
       - "127.0.0.1:3306:3306"
     # command: mysqld --sql-mode="NO_ENGINE_SUBSTITUTION"
   phpmyadmin:
-    image: phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: PhpMyAdmin
     restart: always
     ports:
-      - 8089:8080
+      - "8089:8080"
     environment:
-      - PMA_ARBITRARY=1
+      - PMA_ARBITRARY: 1
+      - PMA_HOST: db
+      - PMA_PORT: 3306
     depends_on:
       - db
   web:
