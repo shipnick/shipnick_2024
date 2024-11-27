@@ -318,12 +318,12 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="cta__btn text-end">
-                            <a href="#" class="btn btn-two">Request a Quote <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                            <a href="#" class="btn btn-two">Request a Quote <img src="/new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
                         </div>
                     </div>
                 </div>
                 <div class="cta__shape">
-                    <img src="new1/assets/img/images/cta_shape.png" alt="img" data-aos="fade-up-right" data-aos-delay="400">
+                    <img src="/new1/assets/img/images/cta_shape.png" alt="img" data-aos="fade-up-right" data-aos-delay="400">
                 </div>
             </div>
             <div class="footer__top">
@@ -423,8 +423,8 @@
             </div>
         </div>
         <div class="footer__shape">
-            <img src="new1/assets/img/images/footer_shape01.png" alt="shape" data-aos="fade-down" data-aos-delay="400">
-            <img src="new1/assets/img/images/footer_shape02.png" alt="shape" data-aos="fade-left" data-aos-delay="400">
+            <img src="/new1/assets/img/images/footer_shape01.png" alt="shape" data-aos="fade-down" data-aos-delay="400">
+            <img src="/new1/assets/img/images/footer_shape02.png" alt="shape" data-aos="fade-left" data-aos-delay="400">
         </div>
     </footer>
     <!-- footer-area-end -->

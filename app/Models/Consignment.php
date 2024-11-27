@@ -36,6 +36,10 @@ class Consignment extends Model
         'Hub_Code',
     ];
 
+    public function statusUpdates() {
+        return $this->hasMany(ConsignmentStatusUpdate::class, 'consignment_id')->orderBy('updated_at', 'DESC');
+    }
+
     public static function boot(){
         parent::boot();
         // $creationCallback = function ($model) {
