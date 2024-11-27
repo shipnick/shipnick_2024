@@ -182,7 +182,7 @@
                                             <a href="tel:0123456789">+91 9123654987</a>
                                         </div>
                                     </li>
-                                    <li class="header-btn"><a href="login" class="btn"><i class="fa-regular fa-user"></i>login</a></li>
+                                    <li class="header-btn"><a href="/login" class="btn"><i class="fa-regular fa-user"></i>login</a></li>
                                     
                                 </ul>
                             </div>
@@ -208,7 +208,7 @@
                                 <div class="tgmobile__menu-outer">
                                     <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
                                     <div class="" style="margin-left: 4%;">
-                                        <a href="login" class="btn"><i class="fa-regular fa-user"></i>login</a>
+                                        <a href="/login" class="btn"><i class="fa-regular fa-user"></i>login</a>
                                     </div>
                                 </div>
                                 <div class="social-links">

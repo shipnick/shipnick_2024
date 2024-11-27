@@ -65,6 +65,7 @@ class LoginCheck extends Controller
             ->where('password', $req->pass)
             ->first();
         if (!empty($qdata['id'])) {
+            auth()->loginUsingId($qdata['id']);
             if ($qdata['usertype'] == "sadmin") {
                 // echo "1";
                 $req->session()->put('UserLogin', $qdata['username']);

@@ -54,6 +54,11 @@ Route::group([
 	Route::get('/upload', [ConsignmentController::class, 'getUploadConsignments']);
 	Route::post('/upload', [ConsignmentController::class, 'postUploadConsignments']);
 });
+Route::group([
+	'prefix' => 'api/v1'
+], function () {
+	Route::get('/track', [ConsignmentController::class, 'openApiTrackConsignments']);
+});
 
 
 
@@ -379,6 +384,7 @@ Route::post('/new-client-registration-added', [LoginCheck::class, 'RegistrationA
 // Login
 
 Route::get('/Logout', function () {
+	auth()->logout();
 	session()->flush();
 	return redirect('/login');
 });

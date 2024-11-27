@@ -151,7 +151,7 @@
                                 <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                             </div>
                             <h6 class="text-center"><span>Or continue with</span></h6>
-                            <p class="mb-4">Do you have an account? <a href="login">login</a> </p>
+                            <p class="mb-4">Do you have an account? <a href="/login">login</a> </p>
                            
                             
 

@@ -27,13 +27,13 @@ class V1BaseController extends Controller
      * @param mixed $data
      * @return mixed|\Illuminate\Http\JsonResponse
      */
-    public function errorJSON($message, $data = [])
+    public function errorJSON($message, $data = [], $status = 200)
     {
         return response()->json([
             'success' => false,
             'data' => $data,
             'message' => $message
-        ]);
+        ], $status);
     }
 
 }
