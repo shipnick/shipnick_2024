@@ -144,7 +144,7 @@ class DTDCNimbus_PlaceOrderJob implements ShouldQueue
                 bulkorders::where('Single_Order_Id', $crtidis)->update([
                     'courier_ship_no' => $shipment_id,
                     'Awb_Number' => $awb_number,
-                    'awb_gen_by' => 'DTDC',
+                    'awb_gen_by' => 'Ekart',
                     'awb_gen_courier' => $courier,
                     'showerrors' => 'pending pickup',
                     'order_status_show' => $status
