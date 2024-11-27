@@ -43,7 +43,24 @@ use App\Http\Controllers\UserBarcode;
 use App\Http\Controllers\APIXpressBee;
 use App\Http\Controllers\APIBigShip;
 use App\Http\Controllers\APITest;
+use App\Http\Controllers\V1\ConsignmentController;
 use Illuminate\Support\Facades\DB;
+
+Route::group([
+	'prefix' => 'v1'
+], function () {
+	Route::get('/track', [ConsignmentController::class, 'getTrackConsignments']);
+	Route::post('/track', [ConsignmentController::class, 'postTrackConsignments']);
+	Route::get('/upload', [ConsignmentController::class, 'getUploadConsignments']);
+	Route::post('/upload', [ConsignmentController::class, 'postUploadConsignments']);
+});
+Route::group([
+	'prefix' => 'api/v1'
+], function () {
+	Route::get('/track', [ConsignmentController::class, 'openApiTrackConsignments']);
+});
+
+
 
 // Check for server DATE and time
 Route::get('/server-stats', function () {
@@ -51,6 +68,8 @@ Route::get('/server-stats', function () {
 		'now' => now(),
 		'date_default_timezone_get' => date_default_timezone_get(),
 		'DB_TimeZone' => DB::select('select NOW() as the_time'),
+		'space' => shell_exec('df -h'),
+		// 'git' => shell_exec('git status'),
 	];
 
 	return response()->json($data);
@@ -365,6 +384,7 @@ Route::post('/new-client-registration-added', [LoginCheck::class, 'RegistrationA
 // Login
 
 Route::get('/Logout', function () {
+	auth()->logout();
 	session()->flush();
 	return redirect('/login');
 });

@@ -26,6 +26,7 @@ class CreateConsignmentStatusUpdatesTable extends Migration
                 'OUT_FOR_DELIVERY',
                 'DELIVERED'
             ]);
+            $table->text('notes')->nullable()->default(null);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
