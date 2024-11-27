@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h5>Default Courier Rate List</h5>
-                        <span class="d-block m-t-5">All Courier list and admin list </span>
+                        <span class="d-block m-t-5">All Courier list </span>
                     </div>
                     <div class="card-body table-border-style">
                         <div class="table-responsive">
