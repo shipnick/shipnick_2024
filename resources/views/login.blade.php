@@ -197,13 +197,13 @@
 
   .cont_ba_opcitiy>h2 {
     font-weight: 400;
-    color: #fff;
+    color: #3b3d54;
   }
 
   .cont_ba_opcitiy>p {
     font-weight: 400;
     margin-top: 15px;
-    color: #fff;
+    color: #3b3d54;
   }
 
   /* ----------------------------------
@@ -216,7 +216,7 @@ background text
 
     width: 80%;
     border-radius: 3px;
-    margin-top: 60px;
+    margin-top: 87px;
     padding: 15px 0px;
   }
 
@@ -386,8 +386,11 @@ background text
     <div class="cont_centrar">
 
       <div class="cont_login">
-        <div class="cont_info_log_sign_up" style="margin-top: 1%;">
-          <h1>Welcome to Shipnick</h1>
+        {{-- <img src="/Shipnick.png" style="max-height: 100px; margin-top: -100px;" /> --}}
+        <div class="cont_info_log_sign_up" style="margin-top: 2%;">
+          <img src="/Shipnick.png" style="max-height: 100px; margin-top: -100px;" />
+          <h2>Welcome to Shipnick</h2>
+          <h4>Swiftness and Rhyme, the Perfect Combination in Delivery Time</h4>
         </div>
         <div class="cont_info_log_sign_up">
 
