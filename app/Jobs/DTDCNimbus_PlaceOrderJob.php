@@ -124,7 +124,7 @@ class DTDCNimbus_PlaceOrderJob implements ShouldQueue
                         'sku' => $iival
                     ]
                 ],
-                'courier_id' => 80,
+                'courier_id' => 15,
                 'is_insurance' => 0,
                 'tags' => 'tag1, tag2'
             ]);
