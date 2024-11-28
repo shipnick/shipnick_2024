@@ -252,7 +252,8 @@
                          <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('/img/bluedart-logo.png')}}`;" title="Hub Image" style="width: 170px;">
                          @elseif($params[$i]['awbcourier'] == 'Bluedart')
                          <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('/img/bluedart-logo.png')}}`;" title="Hub Image" style="width: 170px;">
-                         
+                         @elseif($params[$i]['awbcourier'] == 'Ekart')
+                         <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('new1/assets/img/logo/ekart1.png')}}`;" title="Hub Image" style="width: 170px;">
                         @endif
                 </td>
             </tr>
