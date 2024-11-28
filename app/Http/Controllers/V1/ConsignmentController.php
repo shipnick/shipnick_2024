@@ -105,6 +105,12 @@ class ConsignmentController extends V1BaseController
         }
     }
 
+    /**
+     * Upload page for Consignments
+     * @url /v1/upload
+     * @method GET
+     * @return mixed|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\JsonResponse
+     */
     public function getUploadConsignments()
     {
         try {
@@ -118,6 +124,12 @@ class ConsignmentController extends V1BaseController
             ]);
         }
     }
+    /**
+     * Uploads Consignments and creates a status entry
+     * @url /v1/upload
+     * @method POST
+     * @return mixed|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\JsonResponse
+     */
     public function postUploadConsignments()
     {
         try {

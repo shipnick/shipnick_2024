@@ -5,6 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Status of consignment delivery pipeline
+ * @property int $id
+ * @property int $consignment_id
+ * @property enum-string $status
+ * @property string $notes
+ */
 class ConsignmentStatusUpdate extends Model
 {
     use HasFactory;
@@ -21,5 +28,6 @@ class ConsignmentStatusUpdate extends Model
         'id',
         'consignment_id',
         'status',
+        'notes',
     ];
 }

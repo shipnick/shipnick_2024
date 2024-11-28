@@ -63,26 +63,35 @@ class ConsignmentProvider extends ServiceProvider
             'Invoice_Value' => $data[20] ?? null,
             'Total_Amount' => $data[21] ?? null,
             'Hub_Code' => $data[22] ?? null,
+            'status' => ConsignmentStatusUpdate::STATUS_PICKUP_SCHEDULED ?? null,
+            'admin_id' => auth()->id() ?? null,
         ]);
         // dump($data);
         // dd($consignment);
         if ($consignment->saveOrFail()) {
+            $statusEntry = ConsignmentStatusUpdate::firstOrCreate([
+                'consignment_id' => $consignment->id,
+                'status' => ConsignmentStatusUpdate::STATUS_PICKUP_SCHEDULED,
+                'notes' => 'Scheduled pickup from ' . $consignment->Hub_Code,
+            ]);
             return $awb;
         }
         return false;
     }
 
-    public static function updateAWBStatus($AWBorConsignmentId, $status)
+    public static function updateAWBStatus($AWBorConsignmentId, $status = ConsignmentStatusUpdate::STATUS_PICKED_UP)
     {
         try {
             $consignment = Consignment::where('AWB', $AWBorConsignmentId)->orWhere('id', $AWBorConsignmentId)->first();
             if (empty($consignment)) {
                 throw new Exception('Consignment not found.');
             }
-            $status = ConsignmentStatusUpdate::firstOrCreate([
+            $consignment_status = ConsignmentStatusUpdate::firstOrCreate([
                 'consignment_id' => $consignment->id,
-                'status' => $status ?? ConsignmentStatusUpdate::STATUS_PICKED_UP,
+                'status' => $status,
             ]);
+            $consignment->status = $status;
+            $consignment->save();
         } catch (\Throwable $th) {
             throw $th;
         }
