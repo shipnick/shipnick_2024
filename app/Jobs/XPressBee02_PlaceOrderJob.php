@@ -174,19 +174,19 @@ class XPressBee02_PlaceOrderJob implements ShouldQueue
                         $credit1 = 0;
                         // Assign credit based on zone
                         if ($zone == 'A') {
-                            $credit1 = $credit->fwda;
+                            $credit1 = $credit->fwda ?? 0;
                         }
                         if ($zone == 'B') {
-                            $credit1 = $credit->fwdb;
+                            $credit1 = $credit->fwdb ?? 0;
                         }
                         if ($zone == 'C') {
-                            $credit1 = $credit->fwdc;
+                            $credit1 = $credit->fwdc ?? 0;
                         }
                         if ($zone == 'D') {
-                            $credit1 = $credit->fwdd;
+                            $credit1 = $credit->fwdd ?? 0;
                         }
                         if ($zone == 'E') {
-                            $credit1 = $credit->fwde;
+                            $credit1 = $credit->fwde ?? 0;
                         }
 
                         $transactionCode = "TR00" . $idnew;
