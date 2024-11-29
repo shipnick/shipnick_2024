@@ -781,10 +781,9 @@ Route::get('/skunew', [UserExcels::class, 'skuNew']);
 Route::get('/Invoice', [UserHubs::class, 'AllInvoice']);
 Route::get('/Remittance', [UserHubs::class, 'AllRemittance']);
 Route::get('/Wallet', [UserHubs::class, 'WalletDetails']);
-
-Route::post('/make-order', [UserSearchOrder::class, 'make_order']);
-Route::post('/make-order1', [UserSearchOrder::class, 'makeOrder']);
-Route::post('/succes-payment', [UserSearchOrder::class, 'succes']);
+// phone pay 
+Route::post('/make-order', [UserSearchOrder::class, 'paymentPhonepe']);
+Route::post('/succes/{id}', [UserSearchOrder::class, 'paymentSucces']);
 
 // Route::post('/payment',[UserSearchOrder::class,'add_payment']);
 // Invoice / COD Remittance / Wallet	/-
