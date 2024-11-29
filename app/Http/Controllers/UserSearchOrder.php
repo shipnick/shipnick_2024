@@ -58,184 +58,177 @@ class UserSearchOrder extends Controller
     }
 
 
-    // public function handle(Request $request)
-    // {
-    //     // Secret key from the environment variable (stored securely)
-    //     $secret = env('WEBHOOK_SECRET');
-
-    //     // Get the X-Hmac-SHA256 signature from the request header
-    //     $providedSignature = $request->header('X-Hmac-SHA256');
-
-    //     // Get the raw request body (this is the data that was used to create the signature)
-    //     $rawBody = $request->getContent();
-
-    //     // Calculate the hash using hash_hmac with SHA256
-    //     $calculatedHash = base64_encode(hash_hmac('sha256', $rawBody, $secret, true));
-
-    //     // Compare the calculated hash with the provided signature
-    //     if ($providedSignature !== $calculatedHash) {
-    //         // If the signatures do not match, reject the request
-    //         Log::warning('Invalid webhook signature', ['providedSignature' => $providedSignature]);
-    //         return response('Unauthorized', 401);
-    //     }
-
-    //     // Log minimal data, only necessary for tracking the webhook
-    //     Log::info('Webhook received', [
-    //         'awb_number' => $request->input('awb_number'),
-    //         'status' => $request->input('status')
-    //     ]);
-
-    //     // Extract the AWB number and status from the request
-    //     $awbNumber = $request->input('awb_number');
-    //     $status = $request->input('status');
-
-    //     // Validate input (if AWB number or status is missing, we still return 200)
-    //     if (!$awbNumber || !$status) {
-    //         Log::warning('Invalid data received', ['awb_number' => $awbNumber, 'status' => $status]);
-    //         return response('Webhook received', 200); // Send a quick 200 response
-    //     }
-
-    //     // Perform a minimal check and update (no heavy processing)
-    //     $order = BulkOrder::where('Awb_Number', $awbNumber)->first();
-
-    //     if ($order) {
-    //         // Update the order status quickly (this doesn't involve heavy processing)
-    //         $order->showerrors = $status;
-    //         $order->save();
-    //     } else {
-    //         // Log if the order is not found
-    //         Log::warning('Order not found', ['awb_number' => $awbNumber]);
-    //     }
-
-    //     // Return the 200 OK response immediately, no further processing
-    //     return response('Webhook received', 200);
-    // }
-
+   
     public function Home()
     {
         return view('UserPanel.SearchOrder');
     }
 
-    public function makeOrder(Request $request)
+    
+   public function paymentPhonepe(Request $request)
     {
-        // dd($request->all());
-
-
         $puserid = session()->get('UserLogin2id');
-        $userdata = AdminLoginCheck::where('id', $puserid)->first();
-        $amount = $request->get('plan_id');
-        // $userer= $userdata->name;
-        // dd($userer);
-        // $this->validate($request, [
-        //     'amount' => 'required|numeric',
-        // ]);
-        $paymentnew = new Payment();
-        $paymentnew->user_id = $puserid;
-        $paymentnew->currency = "INR";
-        // $payment->user_email = $status->email;
-        $paymentnew->amount = $amount;
-        $paymentnew->save();
-
-        $api = new Api(env('rzr_key'), env('rzr_secret'));
-
-        $order_id = rand(111111, 999999);
-        $orderData = [
-            'receipt'    => 'reciprt_11',
-            'amount'    => $amount * 100,
-            'currency'   => 'INR',
-            'notes' => [
-                'order_id' => $order_id,
-            ],
-        ];
-
-        $payment = $api->order->create($orderData);
-
-        Payment::where('id', $paymentnew->id)->update(['payment_id' => $payment->id]);
 
 
+        $amount = $request->input('amount');
 
-        return response()->json([
-            "success" => true,
-            "order_id" => $order_id,
-            "amount" => $amount,
-            "rzp_order" => $payment->id
-        ]);
+        if ($amount > 0) {
+            // Save session data before redirect
+            session()->put('payment_amount', $amount);
+            session()->put('payment_user_id', $puserid);
 
+            // Prepare PhonePe API data
+            $merchantId = 'M226B0YWFFLZ7';
 
+            $apiKey = 'e72a1251-ce25-4941-b244-4c2c545746f9';
+            // $merchantId = env('PHONEPE_MERCHANT_ID');
+            // $apiKey = env('PHONEPE_API_KEY');
+            $redirectUrl = url('succes') . '/' . $puserid;
 
-        // return view('UserPanel/Wallet/payment', compact('payment', 'userdata'));
-    }
-    public function succes(Request $request)
-    {
-        // dd($request->all());
-        $tdate = date('Y-m-d');
-        $userid = session()->get('UserLogin2id');
-        $orderId = $request->razorpay_order_id;
-        $api = new Api(env('rzr_key'), env('rzr_secret'));
+            $order_id = uniqid();
 
-        $status = $api->order->fetch($orderId);
+            $transaction_data = [
+                'merchantId' => $merchantId,
+                'merchantTransactionId' => $order_id,
+                'merchantUserId' => $order_id,
+                'amount' => $amount * 100, // Amount in paise
+                'redirectUrl' => $redirectUrl, // Full URL
+                'redirectMode' => 'POST',
+                'callbackUrl' => $redirectUrl, // Full URL
+                'paymentInstrument' => ['type' => 'PAY_PAGE'],
+            ];
 
+            $encode = json_encode($transaction_data);
+            $payloadMain = base64_encode($encode);
+            $payload = $payloadMain . "/pg/v1/pay" . $apiKey;
+            $sha256 = hash("sha256", $payload);
+            $final_x_header = $sha256 . '###1';  // Assuming salt_index = 1
 
-        $orders = Payment::where('payment_id', $request->razorpay_order_id)->first();
-        if ($orders) {
+            $requestPayload = json_encode(['request' => $payloadMain]);
 
+            // Initialize cURL for PhonePe API request
+            $curl = curl_init();
+            curl_setopt_array($curl, [
+                CURLOPT_URL => "https://api.phonepe.com/apis/hermes/pg/v1/pay",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => $requestPayload,
+                CURLOPT_HTTPHEADER => [
+                    "Content-Type: application/json",
+                    "X-VERIFY: " . $final_x_header,
+                    "accept: application/json",
+                ],
+            ]);
 
-            $orders->status = '1';
-            $orders->r_payment_id = $request->razorpay_payment_id;
-            $orders->amount = $status->amount / 100;
-            $orders->status = $status->status;
-            $orders->update();
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            curl_close($curl);
 
+            if ($err) {
+                Log::error('cURL Error: ' . $err);
+                return redirect()->back()->withErrors(['msg' => 'An error occurred while initiating payment.']);
+            } else {
+                $res = json_decode($response);
 
-
-            $blance = orderdetail::where('user_id', $userid)
-                ->orderBy('orderid', 'DESC')
-                ->first();
-
-            // Initialize $close_blance with $credit1
-            $close_blance = $status->amount / 100;
-            $credit1 = $status->amount / 100;
-            // Check if a balance record exists and update $close_blance accordingly
-            if ($blance && isset($blance->close_blance)) {
-                // Ensure close_blance is a number, default to 0 if null
-                $previous_blance = $blance->close_blance ?? 0;
-                $close_blance = $previous_blance + $credit1;
+                if (isset($res->code) && $res->code == 'PAYMENT_INITIATED') {
+                    $payUrl = $res->data->instrumentResponse->redirectInfo->url;
+                    return redirect()->away($payUrl);
+                } else {
+                    return redirect()->back()->withErrors(['msg' => 'Failed to initiate payment, please try again later.']);
+                }
             }
+        }
 
-            // Create a new order detail record
-            $wellet = new orderdetail;
-            $wellet->credit = $status->amount / 100;
-            $wellet->awb_no = $request->razorpay_payment_id;
-            $wellet->transaction = $request->razorpay_order_id;
-            $wellet->close_blance = $close_blance;
-            $wellet->date = $tdate;
-            $wellet->user_id = $userid;
-            $wellet->save();
-            return redirect()->back();
-        } else {
-            return redirect()->back();
+        return redirect()->back()->withErrors(['msg' => 'Invalid amount.']);
+    }
+
+    public function paymentSucces(Request $request, $id)
+    {
+        // Retrieve the user_id from the callback URL query string
+        $userId = $id;
+
+
+
+        if (!$userId) {
+            return redirect()->back()->withErrors(['msg' => 'User ID not found in the callback URL.']);
+        }
+
+        // Log in the user using the user_id
+        $qdata = AdminLoginCheck::where('id', $userId)->first();
+        $request->session()->put('UserLogin2', $qdata['username']);
+        $request->session()->put('UserLogin2name', $qdata['name']);
+        $request->session()->put('UserLogin2id', $qdata['id']);
+        $propic = "profilepic.jpg";
+        $propicrfs = trim($qdata['profilepic']);
+        if ($propicrfs) {
+            $propic = $qdata['username'] . '/' . $propicrfs;
+        }
+        $request->session()->put('UserLoginPic', $propic);
+
+        // dd($userId);
+
+        // Get other payment details from the request
+        $transactionId = $request->input('transactionId');
+        $providerReferenceId = $request->input('providerReferenceId');
+        $checksum = $request->input('checksum');
+        $status = $request->input('code');
+        $amount = $request->input('amount');
+
+        // Verify checksum before proceeding (This step is important for security)
+        if (!$this->verifyChecksum($checksum, $request->all())) {
+            return redirect()->back()->withErrors(['msg' => 'Invalid checksum, payment failed.']);
         }
 
 
+        // Wrap the database operations in a transaction
+        DB::beginTransaction();
+        try {
+            // Update payment status in the database
+            Payment::where('payment_id', $transactionId)
+                ->update([
+                    'r_payment_id' => $providerReferenceId,
+                    'checksum' => $checksum,
+                    'status' => $status,
+                ]);
+
+            if ($providerReferenceId) {
+                $blance = orderdetail::where('user_id', $userId)
+                    ->orderBy('orderid', 'DESC')
+                    ->first();
+
+                $close_blance = $amount / 100;  // Convert amount from paise to rupees
+                $credit1 = $amount / 100;  // Same as close_blance
+
+                if ($blance && isset($blance->close_blance)) {
+                    $previous_blance = $blance->close_blance ?? 0;
+                    $close_blance = $previous_blance + $credit1;
+                }
+
+                // Save new order details
+                $wellet = new orderdetail;
+                $wellet->credit = $credit1;
+                $wellet->awb_no = $providerReferenceId;
+                $wellet->transaction = $transactionId;
+                $wellet->close_blance = $close_blance;
+                $wellet->date = date('Y-m-d');
+                $wellet->user_id = $userId;
+                $wellet->save();
+
+                // Commit the transaction
+                DB::commit();
+                return redirect('/UserPanel')->with('status', 'Payment successful.');
+            }
+
+            // Update or create order details
 
 
-
-        // // $request->razorpay_order_id;
-        // // $request->razorpay_signature;
-        // $payment = new Payment();
-        // $payment->user_id = $userid;
-        // $payment->r_payment_id = $request->razorpay_payment_id;
-        // $payment->currency = "INR";
-        // $payment->user_email = $status->email;
-        // $payment->amount = $status->amount / 100;
-        // $payment->status = $status->status;
-
-        // $payment->save();
-        // if ($status->status == 'captured') {
-        //     return redirect('/Wallet')->with("success", "payment successsfully");
-        // } else {
-        //     return redirect('/Wallet')->with("fail ','payment fail");
-        // }
+            return redirect('/UserPanel')->with('status', 'Payment successful.');
+        } catch (\Exception $e) {
+            // Rollback transaction on error
+            DB::rollback();
+            Log::error('Payment Success Error: ' . $e->getMessage());
+            return redirect()->back()->withErrors(['msg' => 'An error occurred, please try again later.']);
+        }
     }
     public function orderStatus1()
     {
