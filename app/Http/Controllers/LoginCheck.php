@@ -15,7 +15,7 @@ use App\Models\courierpermission;
 use App\Models\Pincode;
 use App\Models\ShippindLabel;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Log;
 
 class LoginCheck extends Controller
 {
@@ -148,6 +148,7 @@ class LoginCheck extends Controller
             }
         } else {
             // echo "ele";
+            Log::info(__METHOD__ . "| Invalid login details");
             $req->session()->flash('status', 'Invalid Login Details');
             return redirect('/login');
         }
