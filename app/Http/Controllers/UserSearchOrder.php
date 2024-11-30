@@ -130,6 +130,15 @@ class UserSearchOrder extends Controller
             } else {
                 $res = json_decode($response);
 
+                // Store payment data in the database
+                $payment = new Payment();
+                $payment->payment_id = $order_id;
+                $payment->user_id = $puserid;
+                $payment->currency = "INR";
+                $payment->status = 'PAYMENT_PENDING';
+                $payment->amount = $amount;
+                $payment->save();
+
                 if (isset($res->code) && $res->code == 'PAYMENT_INITIATED') {
                     $payUrl = $res->data->instrumentResponse->redirectInfo->url;
                     return redirect()->away($payUrl);
