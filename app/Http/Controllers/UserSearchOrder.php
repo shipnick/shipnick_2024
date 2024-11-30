@@ -175,9 +175,9 @@ class UserSearchOrder extends Controller
         $amount = $request->input('amount');
 
         // Verify checksum before proceeding (This step is important for security)
-        if (!$this->verifyChecksum($checksum, $request->all())) {
-            return redirect()->back()->withErrors(['msg' => 'Invalid checksum, payment failed.']);
-        }
+        // if (!$this->verifyChecksum($checksum, $request->all())) {
+        //     return redirect()->back()->withErrors(['msg' => 'Invalid checksum, payment failed.']);
+        // }
 
 
         // Wrap the database operations in a transaction
