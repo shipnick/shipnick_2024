@@ -701,6 +701,7 @@ Route::post('/Labels_Print', [LabelsPrintOut::class, 'LabelsPrint']);
 Route::get('/today-labels', [LabelsPrintOut::class, 'todayLabels']);
 Route::get('/today-thermal-labels', [LabelsPrintOut::class, 'todayThermalLabels']);
 Route::post('/shipping-label-setting', [LabelsPrintOut::class, 'shipping_label_setting']);
+Route::post('/shipping-label-select', [LabelsPrintOut::class, 'shipping_label_select']);
 // Labels
 
 
