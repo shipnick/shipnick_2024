@@ -20,116 +20,155 @@ use App\Models\ShippindLabel;
 
 class LabelsPrintOut extends Controller
 {
-    public function shipping_label_setting(Request $request)
+   
+  public function shipping_label_setting(Request $request)
     {
-       
+        // dd($request->all());
         // dd($request->Consignee_Number);
         $pid = session('UserLogin2id');
 
         // Assuming $request is an instance of Illuminate\Http\Request
         // You might want to validate the request before processing
-        if($request->Consignee_Number !== null){
+        if ($request->Consignee_Number !== null) {
             $Number = 1;
-            
-        }else{$Number = 0;}
+        } else {
+            $Number = 0;
+        }
 
-        if($request->order_id !== null){$order = 1;}else{$order = 0;}
-        if($request->Products_Details !== null){$Details = 1;}else{$Details = 0;}
-        if($request->Return_Address !== null){$Address = 1;}else{$Address = 0;}
-        if($request->Weight !== null){$Weight = 1;}else{$Weight = 0;}
-        if($request->Dimensions !== null){$Dimension = 1;}else{$Dimension = 0;}
-        if($request->Support_Mobile !== null){$Mobile = 1;}else{$Mobile = 0;}
-        if($request->Support_email !== null){$email = 1;}else{$email = 0;}
-        if($request->display_name !== null){$name = $request->display_name;}else{$name = '';}
-        if($request->rtoaddress !== null){$rtoAdd = $request->rtoaddress;}else{$rtoAdd = '';}
-        if($request->supportnumber !== null){$snumber = $request->supportnumber;}else{$snumber = '';}
-        if($request->supportemail !== null){$semail = $request->supportemail;}else{$semail = '';}
+        if ($request->order_id !== null) {
+            $order = 1;
+        } else {
+            $order = 0;
+        }
+        if ($request->Products_Details !== null) {
+            $Details = 1;
+        } else {
+            $Details = 0;
+        }
+        if ($request->Return_Address !== null) {
+            $Address = 1;
+        } else {
+            $Address = 0;
+        }
+        if ($request->Weight !== null) {
+            $Weight = 1;
+        } else {
+            $Weight = 0;
+        }
+        if ($request->Dimensions !== null) {
+            $Dimension = 1;
+        } else {
+            $Dimension = 0;
+        }
+        if ($request->Support_Mobile !== null) {
+            $Mobile = 1;
+        } else {
+            $Mobile = 0;
+        }
+        if ($request->Support_email !== null) {
+            $email = 1;
+        } else {
+            $email = 0;
+        }
+        if ($request->display_name !== null) {
+            $name = $request->display_name;
+        } else {
+            $name = '';
+        }
+        if ($request->rtoaddress !== null) {
+            $rtoAdd = $request->rtoaddress;
+        } else {
+            $rtoAdd = '';
+        }
+        if ($request->supportnumber !== null) {
+            $snumber = $request->supportnumber;
+        } else {
+            $snumber = '';
+        }
+        if ($request->supportemail !== null) {
+            $semail = $request->supportemail;
+        } else {
+            $semail = '';
+        }
 
 
         try {
-            $label = ShippindLabel::where('user_id', $pid)->first();
+            // $label = ShippindLabel::where('user_id', $pid)->first();
+            $label = ShippindLabel::where('user_id', $pid)->where('label_type', $request->labbel_type)->first();
 
             if (isset($label->id)) {
                 ShippindLabel::where('user_id', '=', $pid)
-                ->update([
-                    'Consignee_Number' => $Number,
-                    'order_id' => $order,
-                    'Products_Details' => $Details,
-                    'Return_Address' => $Address,
-                    'Weight' => $Weight,
-                    'Dimensions' => $Dimension,
-                    'Support_Mobile' => $Mobile,
-                    'Support_email' => $email,
-                    'display_name' => $name,
-                    'supportnumber' => $snumber,
-                    'supportemail' => $semail,
-                    'rtoAddress'=>$rtoAdd
-                ]);
-                return redirect()->back()->with('message', 'update success ' );
+                    ->update([
+                        'Consignee_Number' => $Number,
+                        'order_id' => $order,
+                        'Products_Details' => $Details,
+                        'Return_Address' => $Address,
+                        'Weight' => $Weight,
+                        'Dimensions' => $Dimension,
+                        'Support_Mobile' => $Mobile,
+                        'Support_email' => $email,
+                        'display_name' => $name,
+                        'supportnumber' => $snumber,
+                        'supportemail' => $semail,
+                        'rtoAddress' => $rtoAdd
+                    ]);
+                return redirect()->back()->with('message', 'update success ');
             } else {
                 // Create new record
                 $labels = new ShippindLabel;
                 $labels->user_id = $pid;
-                $labels->label_type = "shipping label";
+                $labels->label_type = $request->labbel_type;
 
                 // Repeat similar checks for other fields
 
                 if ($request->has('Consignee_Number')) {
                     $labels->Consignee_Number = '1';
-                    
                 } else {
                     $labels->Consignee_Number = '0';
                 }
 
                 if ($request->has('order_id')) {
                     $labels->order_id = '1';
-                    
                 } else {
                     $labels->order_id = '0';
                 }
                 if ($request->has('Products_Details')) {
                     $labels->Products_Details = '1';
-                    
                 } else {
                     $labels->Products_Details = '0';
                 }
                 if ($request->has('Return_Address')) {
                     $labels->Return_Address = '1';
-                    
                 } else {
                     $labels->Return_Address = '0';
                 }
                 if ($request->has('Weight')) {
                     $labels->Weight = '1';
-                    
                 } else {
                     $labels->Weight = '0';
                 }
                 if ($request->has('Dimensions')) {
                     $labels->Dimensions = '1';
-                    
                 } else {
                     $labels->Dimensions = '0';
                 }
                 if ($request->has('Support_Mobile')) {
                     $labels->Support_Mobile = '1';
-                    
                 } else {
                     $labels->Support_Mobile = '0';
                 }
                 if ($request->has('Support_email')) {
                     $labels->Support_email = '1';
-                    
                 } else {
                     $labels->Support_email = '0';
                 }
 
-                
+
 
                 if ($request->filled('display_name')) {
                     $labels->display_name = $request->input('display_name');
                 }
-                
+
                 if ($request->filled('rtoaddress')) {
                     $labels->rtoAddress = $request->input('rtoaddress');
                 }
@@ -142,10 +181,10 @@ class LabelsPrintOut extends Controller
                     $labels->supportemail = $request->input('supportemail');
                 }
 
-                
+
 
                 $labels->save();
-                return redirect()->back()->with('message', 'update success ' );
+                return redirect()->back()->with('message', 'update success ');
             }
         } catch (Exception $e) {
             // Handle exceptions here
@@ -153,138 +192,124 @@ class LabelsPrintOut extends Controller
             return response()->json(['error' => 'An error occurred'], 500);
         }
     }
+    public function shipping_label_select(Request $request)
+    {
+        $pid = session('UserLogin2id');
+        $label = ShippindLabel::where('user_id', $pid)->pluck('id')->toArray();  // Convert to array for easier comparison
+        $label1 = ShippindLabel::where('user_id', $pid)->where('label_type', $request->label)->pluck('id')->toArray();  // Convert to array for easier comparison
 
-    public function LabelPrint(){
+        foreach ($label as $individualLabel) {
+            // Check if the current label is NOT in $label1
+            if (!in_array($individualLabel, $label1)) {
+                ShippindLabel::where('id', '=', $individualLabel)
+                    ->update([
+                        'status' => 0
+                    ]);
+            }
+        }
+
+        $label1 = ShippindLabel::where('user_id', $pid)->where('label_type', $request->label)->first();
+        if (($label1)) {
+            ShippindLabel::where('user_id', '=', $pid)->where('label_type', $request->label)
+                ->update([
+
+                    'status' => 1
+                ]);
+            return redirect()->back()->with('message', 'update success ');
+        }
+        $labels = new ShippindLabel;
+        $labels->user_id = $pid;
+        $labels->label_type = $request->label;
+        $labels->status = 1;
+        $labels->save();
+        return redirect()->back()->with('message', 'update success ');
+    }
+
+    public function LabelPrint()
+    {
         return view('UserPanel.LabesPrintout.Search');
     }
 
-    
-// public function LabelsPrint(Request $req){
-//     $check = $req->newcheck;
-//       $allawbno = $req->awbnoisa;
-//       $printoutsize = $req->printout;
-// $seperateawbno = array_filter(array_map('trim', explode(PHP_EOL, $allawbno)));
-
-// $params = array();
-// foreach ($seperateawbno as $value) {
-//     $datas = bulkorders::where('Awb_Number', $value)->first();
-//     if (!empty($datas->orderno)) {
-//         $Hubs = Hubs::where('hub_id', $datas->pickup_id)->first();
-//         $smartshiptoken1 = smartship::where('id', 1)->first('token');
-//         $params[] = array(
-//             'cancel' => $datas->order_cancel, 'awb' => $datas->Awb_Number, 'awbcourier'=>$datas->awb_gen_by, 'paymode' => $datas->Order_Type, 'codamt' => $datas->Cod_Amount, 'totalamt' => $datas->Total_Amount, 'orderno' => $datas->orderno, 'date' => $datas->Rec_Time_Date, 'seller' => $datas->User_Id,
-//             'hid' => $datas->pickup_id, 'hname' => $datas->pickup_name, 'haddress' => $datas->pickup_address, 'hstate' => $datas->pickup_state, 'hcity' => $datas->pickup_city, 'hpincode' => $datas->pickup_pincode, 'hmobile' => $datas->pickup_mobile, 'hfolder' => $Hubs->hub_folder, 'hlogo' => $Hubs->hub_img,
-//             'name' => $datas->Name, 'address' => $datas->Address, 'city' => $datas->City, 'pincode' => $datas->Pincode, 'mobile' => $datas->Mobile,
-//             'item' => $datas->Item_Name, 'qlty' => $datas->Quantity, 'orderunq' => $datas->ordernoapi, 'token' => $smartshiptoken1->token, 'shipc_no' => $datas->courier_ship_no, 'weight' => $datas->Actual_Weight, 'h' => $datas->Height, 'w' => $datas->Width, 'l' => $datas->Length
-//         );
-//     }
-// }
-
-// $totalorders = count($params);
 
 
-// // $pdf = \PDF::loadView('UserPanel.LabesPrintout.SearchLabels',['params'=>$params,'totalorders'=>$totalorders,'printoutsize'=>$printoutsize]);
-// // dd($pdf);
-// // return $pdf->download('ship-order.pdf');
-
-        
-//         // print_r($params);
-//         if($check==1)
-//           {
-//              return view("UserPanel.LabesPrintout.SearchLabels_2",['params'=>$params,'totalorders'=>$totalorders,'printoutsize'=>$printoutsize]);
-//           }else{
-//              return view("UserPanel.LabesPrintout.SearchLabels",['params'=>$params,'totalorders'=>$totalorders,'printoutsize'=>$printoutsize]);
-//           }
-       
-//         // echo "<br>* -   -   * -  -  *  -     *  -      *   *<br>";
-        
-//         // return view("UserPanel.LabesPrintout.SearchLabels",['params'=>$params,'totalorders'=>$totalorders,'printoutsize'=>$printoutsize]);
-// }
-
- public function LabelsPrint(Request $req)
-    // {
-    //     $pid = session('UserLogin2id');
-
-    //     $label_setting = ShippindLabel::where('user_id', $pid)->first();
-    //     // dd($label_setting);
-    //     $check = $req->newcheck;
-
-
-
-
-    //     // dd($check);
-    //     $allawbno = $req->awbnoisa;
-
-    //     $printoutsize = $req->printout;
-    //     $seperateawbno = explode(PHP_EOL, $allawbno);
-    //     // dd($seperateawbno);
-
-    //     $params = array();
-    //     foreach ($seperateawbno as $value) {
-    //         if (empty($value)) {
-    //             continue;
-    //         }
-    //         $value =  trim($value);
-           
-    //         $datas = bulkorders::where('Awb_Number', $value)->first();
-    //         if (!empty($datas->orderno)) {
-    //             $Hubs = Hubs::where('hub_id', $datas->pickup_id)->first();
-    //             $smartshiptoken1 = smartship::where('id', 1)->first('token');
-    //             $params[] = array(
-    //                 'cancel' => $datas->order_cancel, 'awb' => $datas->Awb_Number, 'awbcourier' => $datas->awb_gen_by, 'paymode' => $datas->Order_Type, 'codamt' => $datas->Cod_Amount, 'orderno' => $datas->orderno, 'date' => $datas->Rec_Time_Date, 'seller' => $datas->User_Id,
-    //                 'hid' => $datas->pickup_id, 'hname' => $datas->pickup_name, 'haddress' => $datas->pickup_address, 'hstate' => $datas->pickup_state, 'hcity' => $datas->pickup_city, 'hpincode' => $datas->pickup_pincode, 'hmobile' => $datas->pickup_mobile, 'hfolder' => $Hubs->hub_folder, 'hlogo' => $Hubs->hub_img,
-    //                 'name' => $datas->Name, 'address' => $datas->Address, 'city' => $datas->City, 'pincode' => $datas->Pincode, 'mobile' => $datas->Mobile,
-    //                 'item' => $datas->Item_Name, 'qlty' => $datas->Quantity, 'orderunq' => $datas->ordernoapi, 'token' => $smartshiptoken1->token, 'shipc_no' => $datas->courier_ship_no, 'weight' => $datas->Actual_Weight, 'h' => $datas->Height, 'w' => $datas->Width, 'l' => $datas->Length
-    //             );
-    //         }
-    //     }
-    //     $totalorders = count($params);
-    //     // echo "<pre>";
-    //     // $pdf = Pdf::loadView('UserPanel.LabesPrintout.SearchLabels', $params);
-
-    //     // print_r($params);
-    //     if ($check == 1) {
-    //         return view("UserPanel.LabesPrintout.SearchLabels_2", ['params' => $params, 'totalorders' => $totalorders, 'printoutsize' => $printoutsize,'label_setting'=>$label_setting]);
-    //     } else {
-    //         return view("UserPanel.LabesPrintout.SearchLabels", ['params' => $params, 'totalorders' => $totalorders, 'printoutsize' => $printoutsize,'label_setting'=>$label_setting]);
-    //     }
-
-    //     // echo "<br>* -   -   * -  -  *  -     *  -      *   *<br>";
-
-    //     // return view("UserPanel.LabesPrintout.SearchLabels",['params'=>$params,'totalorders'=>$totalorders,'printoutsize'=>$printoutsize]);
-    // }
+    public function LabelsPrint(Request $req)
     {
-         $pid = session('UserLogin2id');
-    $label_setting = ShippindLabel::where('user_id', $pid)->first();
-    $check = $req->newcheck;
-    $allawbno = $req->awbnoisa;
-    $printoutsize = $req->printout;
-    $seperateawbno = explode(PHP_EOL, $allawbno);
-    $params = [];
-    
-    foreach ($seperateawbno as $value) {
-        $value = trim($value);
-        if (empty($value)) {
-            continue;
+        $pid = session('UserLogin2id');
+        $label_setting = ShippindLabel::where('user_id', $pid)->first();
+        $check = $req->newcheck;
+        $allawbno = $req->awbnoisa;
+        $printoutsize = $req->printout;
+        $seperateawbno = explode(PHP_EOL, $allawbno);
+        $params = [];
+
+        foreach ($seperateawbno as $value) {
+            $value = trim($value);
+            if (empty($value)) {
+                continue;
+            }
+
+            $datas = bulkorders::where('Awb_Number', $value)->first();
+            if (!empty($datas->orderno)) {
+                $Hubs = Hubs::where('hub_id', $datas->pickup_id)->first();
+                $smartshiptoken1 = smartship::where('id', 1)->first('token');
+                $params[] = [
+                    'route' => $datas->dtdcerrors,
+                    'cancel' => $datas->order_cancel,
+                    'awb' => $datas->Awb_Number,
+                    'awbcourier' => $datas->awb_gen_by,
+                    'paymode' => $datas->Order_Type,
+                    'codamt' => $datas->Total_Amount,
+                    'orderno' => $datas->orderno,
+                    'date' => $datas->Rec_Time_Date,
+                    'seller' => $datas->User_Id,
+                    'hid' => $datas->pickup_id,
+                    'hname' => $datas->pickup_name,
+                    'haddress' => $datas->pickup_address,
+                    'hstate' => $datas->pickup_state,
+                    'hcity' => $datas->pickup_city,
+                    'hpincode' => $datas->pickup_pincode,
+                    'hmobile' => $datas->pickup_mobile,
+                    'hfolder' => $Hubs->hub_folder,
+                    'hlogo' => $Hubs->hub_img,
+                    'hubname' => $Hubs->hub_name,
+                    'name' => $datas->Name,
+                    'address' => $datas->Address,
+                    'city' => $datas->City,
+                    'pincode' => $datas->Pincode,
+                    'mobile' => $datas->Mobile,
+                    'mobile2' => $datas->mobile_no2,
+                    'pemail' => $datas->order_email,
+                    'sku' => $datas->sku,
+                    'item' => $datas->Item_Name,
+                    'qlty' => $datas->Quantity,
+                    'orderunq' => $datas->ordernoapi,
+                    'token' => $smartshiptoken1->token,
+                    'shipc_no' => $datas->courier_ship_no,
+                    'weight' => $datas->Actual_Weight,
+                    'h' => $datas->Height,
+                    'w' => $datas->Width,
+                    'l' => $datas->Length
+                ];
+            }
         }
 
-        $datas = bulkorders::where('Awb_Number', $value)->first();
-        if (!empty($datas->orderno)) {
-            $Hubs = Hubs::where('hub_id', $datas->pickup_id)->first();
-            $smartshiptoken1 = smartship::where('id', 1)->first('token');
-            $params[] = ['route'=> $datas->dtdcerrors,
-                'cancel' => $datas->order_cancel, 'awb' => $datas->Awb_Number, 'awbcourier' => $datas->awb_gen_by, 'paymode' => $datas->Order_Type, 'codamt' => $datas->Total_Amount, 'orderno' => $datas->orderno, 'date' => $datas->Rec_Time_Date, 'seller' => $datas->User_Id,
-                'hid' => $datas->pickup_id, 'hname' => $datas->pickup_name, 'haddress' => $datas->pickup_address, 'hstate' => $datas->pickup_state, 'hcity' => $datas->pickup_city, 'hpincode' => $datas->pickup_pincode, 'hmobile' => $datas->pickup_mobile, 'hfolder' => $Hubs->hub_folder, 'hlogo' => $Hubs->hub_img,
-                'name' => $datas->Name, 'address' => $datas->Address, 'city' => $datas->City, 'pincode' => $datas->Pincode, 'mobile' => $datas->Mobile,'mobile2' => $datas->	mobile_no2,'pemail'=>$datas->order_email, 'sku' => $datas->sku,
-                'item' => $datas->Item_Name, 'qlty' => $datas->Quantity, 'orderunq' => $datas->ordernoapi, 'token' => $smartshiptoken1->token, 'shipc_no' => $datas->courier_ship_no, 'weight' => $datas->Actual_Weight, 'h' => $datas->Height, 'w' => $datas->Width, 'l' => $datas->Length
-            ];
+        $totalorders = count($params);
+        $label = ShippindLabel::where('user_id', $pid)->where('status', 1)->first()->label_type;
+        if ($label == 'defult') {
+            $label_setting = ShippindLabel::where('user_id', $pid)->where('label_type', 'defult')->first();
+
+            // dd($label_setting);
+            return view('UserPanel.LabesPrintout.SearchLabels', compact('params', 'totalorders', 'printoutsize', 'label_setting'));
+        } elseif ($label == 'label_first') {
+            $label_setting = ShippindLabel::where('user_id', $pid)->where('label_type', 'label_first')->first();
+            return view('UserPanel.LabesPrintout.SearchLabels2', compact('params', 'totalorders', 'printoutsize', 'label_setting'));
+        } elseif ($label == 'label_second') {
+            $label_setting = ShippindLabel::where('user_id', $pid)->where('label_type', 'label_second')->first();
+            return view('UserPanel.LabesPrintout.SearchLabels3', compact('params', 'totalorders', 'printoutsize', 'label_setting'));
         }
-    }
+        $view = ($check == 1) ? 'UserPanel.LabesPrintout.SearchLabels_2' : 'UserPanel.LabesPrintout.SearchLabels';
 
-    $totalorders = count($params);
-    $view = ($check == 1) ? 'UserPanel.LabesPrintout.SearchLabels_2' : 'UserPanel.LabesPrintout.SearchLabels';
-
-    return view($view, compact('params', 'totalorders', 'printoutsize', 'label_setting'));
+        return view($view, compact('params', 'totalorders', 'printoutsize', 'label_setting'));
     }
 
 
