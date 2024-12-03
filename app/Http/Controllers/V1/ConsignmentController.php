@@ -7,6 +7,7 @@ use App\Providers\ConsignmentProvider;
 use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class ConsignmentController extends V1BaseController
 {
@@ -132,6 +133,12 @@ class ConsignmentController extends V1BaseController
      */
     public function postUploadConsignments()
     {
+        $validator = request()->validate([
+            'orders' => 'required|mimes:csv,txt'
+        ], [
+            'orders.required' => "Please select and upload Order's .csv file..",
+            'orders.mimes' => "Only .csv file can be uploaded...",
+        ]);
         try {
             $file = request()->file('orders');
             $file_path = $file->store('shipnick_orders', 'public');

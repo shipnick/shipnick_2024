@@ -15,8 +15,15 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="orders" class="form-label">Orders File (.csv)</label>
-                                <input type="file" name="orders" id="orders" />
+                                <input type="file" name="orders" id="orders" class="form-control" accept=".csv" />
                             </div>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    @foreach ($errors->all() as $error)
+                                        <div>{{ $error }}</div>
+                                    @endforeach
+                                </div>
+                            @endif
                             <button type="submit" class="btn btn-outline-success">Upload</button>
                         </form>
                     </div>
