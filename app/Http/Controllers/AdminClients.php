@@ -818,7 +818,7 @@ class AdminClients extends Controller
 
         $query = new price();
         $query->courier_name = $couriernew;
-        $query->name = $request->courier;
+        $query->name = $couriername->courier_name;
         $query->fwda = $request->fwd1;
         $query->fwdb = $request->fwd2;
         $query->fwdc = $request->fwd3;
