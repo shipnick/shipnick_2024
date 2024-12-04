@@ -294,22 +294,23 @@ class LabelsPrintOut extends Controller
         }
 
         $totalorders = count($params);
-        $label = ShippindLabel::where('user_id', $pid)->where('status', 1)->first()->label_type;
-        if ($label == 'defult') {
+        $label = ShippindLabel::where('user_id', $pid)->where('status', 1)->first();
+        if (isset($label) && $label->label_type == 'defult') {
             $label_setting = ShippindLabel::where('user_id', $pid)->where('label_type', 'defult')->first();
 
             // dd($label_setting);
             return view('UserPanel.LabesPrintout.SearchLabels', compact('params', 'totalorders', 'printoutsize', 'label_setting'));
-        } elseif ($label == 'label_first') {
+        } elseif (isset($label) && $label->label_type == 'label_first') {
             $label_setting = ShippindLabel::where('user_id', $pid)->where('label_type', 'label_first')->first();
             return view('UserPanel.LabesPrintout.SearchLabels2', compact('params', 'totalorders', 'printoutsize', 'label_setting'));
-        } elseif ($label == 'label_second') {
+        } elseif (isset($label) && $label->label_type == 'label_second') {
             $label_setting = ShippindLabel::where('user_id', $pid)->where('label_type', 'label_second')->first();
             return view('UserPanel.LabesPrintout.SearchLabels3', compact('params', 'totalorders', 'printoutsize', 'label_setting'));
-        }
-        $view = ($check == 1) ? 'UserPanel.LabesPrintout.SearchLabels_2' : 'UserPanel.LabesPrintout.SearchLabels';
+        }else{
+            $view = ($check == 1) ? 'UserPanel.LabesPrintout.SearchLabels_2' : 'UserPanel.LabesPrintout.SearchLabels';
 
-        return view($view, compact('params', 'totalorders', 'printoutsize', 'label_setting'));
+            return view($view, compact('params', 'totalorders', 'printoutsize', 'label_setting'));
+        }
     }
 
 
