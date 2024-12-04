@@ -233,8 +233,12 @@
             <tr>
                 <td colspan="3" style="text-align:center;">
                     <h3><b>
-                        <!--{{ ucwords($params[$i]['awbcourier']) }}.....-->
-                        Fashion Flair...</b></h3>
+                        @if(isset($label_setting))
+                            {{$label_setting->display_name}}
+                            @else
+                            {{ ucwords($params[$i]['hubname']) }}.....
+
+                            @endif
                 </td>
                 <td class="text-center">
                     <h6 class="fulfilledby">Fulfilled By:</h6>
