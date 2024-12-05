@@ -68,7 +68,7 @@
                                         <td>{{ $param->name }}</td>
                                         <td>{{ $param->email }}</td>
                                         <td>
-                                            <img src="{{ asset('/Couriers') }}/{{ $param->email }}/{{ $param->logo }}" style="width:50px">
+                                            <img src="logo/courier/{{ $param->logo }}" style="width:70px">
                                         </td>
                                         <td>{{ $param->date }}</td>
                                         
