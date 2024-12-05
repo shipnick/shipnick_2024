@@ -236,16 +236,20 @@ class LoginCheck extends Controller
     public function setting()
     {
         $userid = session()->get('UserLogin2id');
-        $label_setting = ShippindLabel::where('user_id', $userid)->first();
+        $label_setting = ShippindLabel::where('user_id', $userid)->where('label_type','defult')->first();
+        $label_setting1 = ShippindLabel::where('user_id', $userid)->where('label_type','label_first')->first();
+        $label_setting2 = ShippindLabel::where('user_id', $userid)->where('label_type','label_second')->first();
+
+        $selectLabel = ShippindLabel::where('user_id', $userid)->where('status',1)->first();
+        
         $couriers = courierlist::where('active_flg', 1)->get();
         $param = courierpermission::where('user_id', $userid)
             ->where('admin_flg', 1)
             ->orderby('courier_code', 'ASC')->orderby('courier_by', 'ASC')->get();
 
         $params = Allusers::where('id', $userid)->first();
-        return view('UserPanel.Setting.profile', ["params" => $params, "param" => $param, 'couriers' => $couriers, 'id' => $userid, 'label_setting' => $label_setting]);
+        return view('UserPanel.Setting.profile', ["params" => $params, "param" => $param, 'couriers' => $couriers, 'id' => $userid, 'label_setting' => $label_setting , 'label_setting1' => $label_setting1 , 'label_setting2' => $label_setting2 ,'selectLabel'=>$selectLabel]);
     }
-
     public function settingupt(Request $req)
     {
         echo "Loading...";
