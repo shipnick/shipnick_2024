@@ -161,7 +161,7 @@ public function superPanel_courier_summary()
     $rto = [ 'Shipment Redirected','Undelivered','RTO Initiated','RTO Delivered','RTO Acknowledged',         'RTO_OFD',    'RTO IN INTRANSIT','rto' ];
     $ndr = ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED'];
 
-    $awbGenBy = ['Ecom', 'Xpressbees', 'Xpressbees2', 'Bluedart'];
+    $awbGenBy = ['Ecom', 'Xpressbees' ,'Bluedart','Ekart','Bluedart-sc'];
     // $startOfMonth = Carbon::today()->startOfMonth()->startOfDay();
     // $endOfMonth = Carbon::today()->endOfMonth()->endOfDay();
     $commonConditions = [
