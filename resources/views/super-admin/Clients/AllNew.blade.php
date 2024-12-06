@@ -33,7 +33,7 @@
             <span class="d-block m-t-5"> Admin list</span>
             <div class="card-header-right">
               <div class="btn-group card-option">
-
+              <button onclick="window.history.back()" class="btn btn-primary">Back</button> &nbsp;&nbsp;
                 <a href="{{ asset('/super-new-admin') }}" class="btn btn-primary">Add Admin</a>
 
               </div>

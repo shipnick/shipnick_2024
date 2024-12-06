@@ -30,7 +30,51 @@
 
 
 </head>
+<style>
+    .dlabnav {
+        width: 15.5rem;
+    }
 
+    .nav-header {
+        width: 15.5rem;
+    }
+
+    .content-body {
+        margin-left: 17.563rem;
+    }
+
+    .amount-bx {
+        background-color: #e5effa !important;
+        /* border: 2px solid #b2d7ff !important; */
+    }
+</style>
+<style>
+    .dlab-scroll {
+        overflow-y: scroll;
+    }
+
+    .dlab-scroll {
+        overflow-y: scroll;
+    }
+
+    body>* {
+        scrollbar-width: thin;
+        overflow-y: scroll;
+        scrollbar-color: rgb(0 0 0 / 41%) rgba(0, 0, 0, 0);
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        opacity: 0;
+    }
+
+    /* ::-webkit-scrollbar-thumb{
+	background:  rgba(111, 133, 147, 0.0); 
+} */
+    ::-webkit-scrollbar-thumb {
+        background: rgb(0 0 0 / 49%);
+    }
+</style>
 <body class="">
     <!-- [ Pre-loader ] start -->
     <div class="loader-bg">
