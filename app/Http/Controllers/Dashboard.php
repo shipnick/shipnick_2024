@@ -162,9 +162,15 @@ class Dashboard extends Controller
     $rto = ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'];
     $ndr = ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED'];
 
+<<<<<<< HEAD
     $awbGenBy = ['Ecom', 'Xpressbees', 'Bluedart', 'Ekart', 'Bluedart-sc'];
 
     // Common conditions for all queries
+=======
+    $awbGenBy = ['Ecom', 'Xpressbee' ,'Bluedart','Ekart','Bluedart-sc'];
+    // $startOfMonth = Carbon::today()->startOfMonth()->startOfDay();
+    // $endOfMonth = Carbon::today()->endOfMonth()->endOfDay();
+>>>>>>> c1ddad0166e57dd451b7b1bcbc573d8de5e23a51
     $commonConditions = [
       ['Awb_Number', '!=', ''],
       ['order_cancel', '!=', '1'],
