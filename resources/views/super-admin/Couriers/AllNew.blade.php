@@ -33,6 +33,10 @@
                     <div class="card-header">
                         <h5>Manage Courier</h5>
                         <span class="d-block m-t-5">All Courier list and admin list</span>
+                        <div class="card-header-right m-2">
+                            
+                            <button onclick="window.history.back()" class="btn btn-primary">Back</button>
+                        </div>
 
                     </div>
                     <div class="card-body table-border-style">

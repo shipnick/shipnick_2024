@@ -14,7 +14,7 @@ use App\Models\Allusers;
 use App\Models\price;
 use App\Models\BulkPincode;
 use App\Models\PincodeFile;
-use App\model\orderdetail;
+use App\models\orderdetail;
 use App\Models\OrderStatusLabel;
 
 use Illuminate\Support\Facades\URL;
@@ -120,7 +120,8 @@ class SuperAdminClients extends Controller
                 'status'=>'1'
             ]);
         $req->session()->flash('status','Admin details updated');
-        return redirect("/super-new-admin-edit/$req->customerid");
+        // return redirect("/super-new-admin-edit/$req->customerid");
+        return redirect()->back();
     }
      public function ClientDelete(Request $req, $id)
     {

@@ -30,10 +30,13 @@
                 <div class="card">
                     <div class="card-header">
                         <h5>Admin Edit</h5>
+                        <div class="card-header-right m-2">
+                            <a class="btn btn-primary" href="/super-all-admin">Back</a>
+                        </div>
                     </div>
                     <div class="card-body">
 
-                        <form class="needs-validation" method="post" action="{{ asset('/super-new-admin-edit-update') }}" enctype="multipart/form-data" novalidate>
+                        <form class="needs-validation" method="post" action="{{ asset('super-new-admin-edit-update') }}" enctype="multipart/form-data" novalidate>@csrf
                             <div class="form-row">
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom01"> Company Name</label>
@@ -45,7 +48,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom02"> Email / Username</label>
                                     <input type="text" class="form-control" name="email" value="{{ $params->username }}" id="validationCustom02"
-                                         required>
+                                        disabled>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -53,8 +56,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom02">Company Logo</label>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="profilepic" id="validatedCustomFile"
-                                            required>
+                                        <input type="file" class="custom-file-input" name="profilepic" id="validatedCustomFile">
                                         <label class="custom-file-label" for="validatedCustomFile">Choose
                                             file...</label>
 
@@ -70,7 +72,7 @@
                                             <span class="input-group-text" id="inputGroupPrepend">91</span>
                                         </div>
                                         <input type="text" class="form-control" name="mobile" value="{{ $params->mobile }}" id="validationCustomUsername"
-                                             aria-describedby="inputGroupPrepend" required>
+                                            aria-describedby="inputGroupPrepend" required>
                                         <div class="invalid-feedback">
                                             Please choose a username.
                                         </div>
@@ -79,14 +81,14 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustom02">Password</label>
                                     <input type="text" class="form-control" id="validationCustom02"
-                                    name="password" value="{{ $params->password }}" required>
+                                        name="password" value="{{ $params->password }}" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                             </div>
-
-
+                            <input type="hidden" name="email" value="{{ $params->username }}">
+                            <input type="hidden" name="customerid" value="{{ $params->id }}">
                             <button class="btn  btn-primary" type="submit">Submit</button>
                         </form>
                         <script>

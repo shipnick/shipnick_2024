@@ -6,20 +6,24 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-
 <script type="text/javascript">
     $(document).ready(function() {
-       
-        fetchOrders("superpanel-courier-summary", "#Pendingordersshows");
-       
+        // Initial fetch with no date filter (lifetime)
+        fetchOrders("superpanel-courier-summary", "#Pendingordersshows", "lifetime");
+
+        // When the date filter changes, fetch data with the selected filter
+        $("#dateFilterSelect").change(function() {
+            var filter = $(this).val(); // Get the selected value
+            fetchOrders("superpanel-courier-summary", "#Pendingordersshows", filter);
+        });
     });
 
-    function fetchOrders(url, target) {
+    function fetchOrders(url, target, dateFilter) {
         $.ajax({
             type: "GET",
-            url: "{{ asset('/') }}" + url,
+            url: "{{ url('superpanel-courier-summary') }}",
             data: {
-                crtpage: 'Cancelled'
+                date_filter: dateFilter // Send the selected filter to the backend
             },
             success: function(data) {
                 $(target).html(data);
@@ -193,8 +197,8 @@
                     <div class="card-body pb-0">
                         <h2 class="m-0">{{$todayOders}}</h2>
                         <span class="text-c-blue">Today's Orders</span>
-                        <p class="mb-3 mt-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br> <br></p>
-                        
+                        <p class="mb-5 mt-4"><br></p>
+
                     </div>
                     <div id="support-chart"></div>
                     <div class="card-footer bg-primary text-white">
@@ -373,39 +377,26 @@
             </div>
             <!-- prject ,team member start -->
             <!-- seo start -->
-            <div class="col-xl-4 col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-6">
-                                <h3>$16,756</h3>
-                                <h6 class="text-muted m-b-0">Last Month<i
-                                        class="fa fa-caret-down text-c-red m-l-10"></i></h6>
-                            </div>
-                            <div class="col-6">
-                                <div id="seo-chart1" class="d-flex align-items-end"></div>
-                            </div>
+           
+            <div class="col-xl-12 col-md-12">
+                <div class="card table-card">
+                    <div class="card-header">
+                        <h5>Courier Wise Summary</h5>
+                        <div class="card-header-right">
+                            <select class="form-control" id="dateFilterSelect">
+                                <option value="lifetime">Lifetime</option>
+                                <option value="today">Today</option>
+                                <option value="7days">7 Days</option>
+                                <option value="thisMonth">This Month</option>
+
+                            </select>
                         </div>
+
+
                     </div>
+                    <span id="Pendingordersshows"></span>
                 </div>
             </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-6">
-                                <h3>49.54%</h3>
-                                <h6 class="text-muted m-b-0">Current Month<i
-                                        class="fa fa-caret-up text-c-green m-l-10"></i></h6>
-                            </div>
-                            <div class="col-6">
-                                <div id="seo-chart2" class="d-flex align-items-end"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <span id="Pendingordersshows" class="col-xl-12 col-md-12"></span>
         </div>
         <!-- [ Main Content ] end -->
     </div>

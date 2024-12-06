@@ -31,6 +31,10 @@
                     <div class="card-header">
                         <h5>Default Courier Rate List</h5>
                         <span class="d-block m-t-5">All Courier list and admin list</span>
+                        <div class="card-header-right m-2">
+                            
+                            <button onclick="window.history.back()" class="btn btn-primary">Back</button>
+                        </div>
                     </div>
                     <div class="card-body table-border-style">
                         <div class="table-responsive">
@@ -41,10 +45,9 @@
                                         <th>Courier Name</th>
                                         <th>WITHIN CITY <br><span>(zone A)</span> </th>
                                         <th>WITHIN STATE <br><span>(zone B)</span></th>
-                                        <th>REGIONAL <br><span>(zone C)</span></th>
-                                        <th>METRO TO METRO <br><span>(zone D)</span></th>
-                                        <th>REST OF INDIA <br><span>(zone E)</span></th>
-                                        <th>NORTH EAST, J&K <br><span>(zone F)</span></th>
+                                        <th>METRO TO METRO <br><span>(zone C)</span></th>
+                                        <th>REST OF INDIA <br><span>(zone D)</span></th>
+                                        <th>NORTH EAST, J&K <br><span>(zone E)</span></th>
                                         <th>COD CHARGES</th>
                                         <th>COD %</th>
                                     </tr>
@@ -56,7 +59,6 @@
                                         <td>{{$param->courier_name}}</td>
                                         <td>{{$param->fwda}}</td>
                                         <td>{{$param->fwdb}}</td>
-                                        <td>{{$param->fwdc}}</td>
                                         <td>{{$param->fwdd}}</td>
                                         <td>{{$param->fwde}}</td>
                                         <td>{{$param->fwdf}}</td>

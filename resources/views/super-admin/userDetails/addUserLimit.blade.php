@@ -33,6 +33,10 @@
                 <div class="card">
                     <div class="card-header">
                         <h5>Add User Blance Limit</h5>
+                        <div class="card-header-right m-2">
+                            
+                            <button onclick="window.history.back()" class="btn btn-primary">Back</button>
+                        </div>
                     </div>
                     <div class="card-body">
                       

@@ -33,13 +33,14 @@
                         <span class="d-block m-t-5">All Courier list and admin list</span>
                         <div class="card-header-right">
                             <div class="btn-group card-option">
-                                
+                            <a href="/super-all-admin" class="btn btn-primary">back</a> &nbsp;&nbsp;
 								<a href="{{ url('add-rate', ['id' => $crtusers->id]) }}" class="btn btn-primary">Add </a>
                                 
                             </div>
                         </div>
                     </div>
                     <div class="card-body table-border-style">
+                    <h6> {{$crtusers->name}}</h6>
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>

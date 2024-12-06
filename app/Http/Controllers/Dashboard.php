@@ -152,71 +152,91 @@ class Dashboard extends Controller
 
 
 
-public function superPanel_courier_summary()
+  public function superPanel_courier_summary(Request $request)
   {
+    // Define the status arrays
     $pending_pickup = ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'];
-    $In_Transit = ['In-Transit', 'in transit','Connected','intranit','Ready for Connection','Shipped','In Transit','Delayed','Partial_Delivered','REACHED AT DESTINATION HUB','MISROUTED','PICKED UP','Reached Warehouse',  'Custom Cleared','In Flight','Shipment Booked'];
+    $In_Transit = ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse',  'Custom Cleared', 'In Flight', 'Shipment Booked'];
     $ofd  = ['out for delivery'];
     $delivered = ['delivered', 'Delivered'];
-    $rto = [ 'Shipment Redirected','Undelivered','RTO Initiated','RTO Delivered','RTO Acknowledged',         'RTO_OFD',    'RTO IN INTRANSIT','rto' ];
+    $rto = ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'];
     $ndr = ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED'];
 
     $awbGenBy = ['Ecom', 'Xpressbee' ,'Bluedart','Ekart','Bluedart-sc'];
     // $startOfMonth = Carbon::today()->startOfMonth()->startOfDay();
     // $endOfMonth = Carbon::today()->endOfMonth()->endOfDay();
     $commonConditions = [
-        // ['User_Id', '=', $id],
-        ['Awb_Number', '!=', ''],
-        ['order_cancel', '!=', '1'],
+      ['Awb_Number', '!=', ''],
+      ['order_cancel', '!=', '1'],
     ];
+
+    // Get the selected date filter from the request
+    $dateFilter = $request->input('date_filter', 'lifetime');
 
     // Initialize an empty array to store results for each courier
     $orderDetails = [];
 
+    // Add date filters to common conditions based on the selected date filter
+    $startOfDay = Carbon::today()->startOfDay();
+    $endOfDay = Carbon::today()->endOfDay();
+    $startOfMonth = Carbon::today()->startOfMonth()->startOfDay();
+    $endOfMonth = Carbon::today()->endOfMonth()->endOfDay();
+    $sevenDaysAgo = Carbon::today()->subDays(7);
+
+    switch ($dateFilter) {
+      case 'today':
+        $commonConditions[] = ['Last_Time_Stamp', '>=', $startOfDay];
+        $commonConditions[] = ['Last_Time_Stamp', '<=', $endOfDay];
+        break;
+      case '7days':
+        $commonConditions[] = ['Last_Time_Stamp', '>=', $sevenDaysAgo];
+        break;
+      case 'thisMonth':
+        $commonConditions[] = ['Last_Time_Stamp', '>=', $startOfMonth];
+        $commonConditions[] = ['Last_Time_Stamp', '<=', $endOfMonth];
+        break;
+      case 'lifetime':
+        // No date filtering needed for 'lifetime'
+        break;
+    }
+
     // Loop through each courier and get the order details
     foreach ($awbGenBy as $courier) {
-        $orderDetails[$courier] = [
-            'totalOrders' => bulkorders::where($commonConditions)
-                            ->where('awb_gen_by', $courier)
-                            // ->whereBetween('Last_Time_Stamp', [$startOfMonth, $endOfMonth])
-                            ->count('Single_Order_Id'),
+      $orderDetails[$courier] = [
+        'totalOrders' => bulkorders::where($commonConditions)
+          ->where('awb_gen_by', $courier)
+          ->count('Single_Order_Id'),
 
-            'orderPending' => bulkorders::where($commonConditions)
-                            ->where('awb_gen_by', $courier)
-                            ->whereIn('showerrors', $pending_pickup)
-                            // ->whereBetween('Last_Time_Stamp', [$startOfMonth, $endOfMonth])
-                            ->count('Single_Order_Id'),
+        'orderPending' => bulkorders::where($commonConditions)
+          ->where('awb_gen_by', $courier)
+          ->whereIn('showerrors', $pending_pickup)
+          ->count('Single_Order_Id'),
 
-            'orderInTransit' => bulkorders::where($commonConditions)
-                            ->where('awb_gen_by', $courier)
-                            ->whereIn('showerrors', $In_Transit)
-                            // ->whereBetween('Last_Time_Stamp', [$startOfMonth, $endOfMonth])
-                            ->count('Single_Order_Id'),
+        'orderInTransit' => bulkorders::where($commonConditions)
+          ->where('awb_gen_by', $courier)
+          ->whereIn('showerrors', $In_Transit)
+          ->count('Single_Order_Id'),
 
-            'orderInOfd' => bulkorders::where($commonConditions)
-                            ->where('awb_gen_by', $courier)
-                            ->whereIn('showerrors', $ofd)
-                            // ->whereBetween('Last_Time_Stamp', [$startOfMonth, $endOfMonth])
-                            ->count('Single_Order_Id'),
+        'orderInOfd' => bulkorders::where($commonConditions)
+          ->where('awb_gen_by', $courier)
+          ->whereIn('showerrors', $ofd)
+          ->count('Single_Order_Id'),
 
-            'orderDelivered' => bulkorders::where($commonConditions)
-                            ->where('awb_gen_by', $courier)
-                            ->whereIn('showerrors', $delivered)
-                            // ->whereBetween('Last_Time_Stamp', [$startOfMonth, $endOfMonth])
-                            ->count('Single_Order_Id'),
+        'orderDelivered' => bulkorders::where($commonConditions)
+          ->where('awb_gen_by', $courier)
+          ->whereIn('showerrors', $delivered)
+          ->count('Single_Order_Id'),
 
-            'orderNdr' => bulkorders::where($commonConditions)
-                            ->where('awb_gen_by', $courier)
-                            ->whereIn('showerrors', $ndr)
-                            // ->whereBetween('Last_Time_Stamp', [$startOfMonth, $endOfMonth])
-                            ->count('Single_Order_Id'),
+        'orderNdr' => bulkorders::where($commonConditions)
+          ->where('awb_gen_by', $courier)
+          ->whereIn('showerrors', $ndr)
+          ->count('Single_Order_Id'),
 
-            'orderRto' => bulkorders::where($commonConditions)
-                            ->where('awb_gen_by', $courier)
-                            ->whereIn('showerrors', $rto)
-                            // ->whereBetween('Last_Time_Stamp', [$startOfMonth, $endOfMonth])
-                            ->count('Single_Order_Id')
-        ];
+        'orderRto' => bulkorders::where($commonConditions)
+          ->where('awb_gen_by', $courier)
+          ->whereIn('showerrors', $rto)
+          ->count('Single_Order_Id')
+      ];
     }
 
     // Pass the data to the view

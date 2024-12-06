@@ -33,6 +33,9 @@
                     <div class="card-header">
                         <h5>Admins Details</h5>
                         <span class="d-block m-t-5">Admin Clients Details</span>
+                        <div class="card-header-right m-2">
+                            <a class="btn btn-primary" href="/super-all-admin-new">Back</a>
+                        </div>
 
                     </div>
                     <div class="card-body table-border-style">
