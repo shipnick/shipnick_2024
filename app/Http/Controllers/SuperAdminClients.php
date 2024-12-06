@@ -317,7 +317,7 @@ public function ClientCourierPermissions(Request $req){
                                     ->where('id',$userida)
                                     ->first();
                                     
-        $params = couriers::orderby('courierid','DESC')->get();
+        $params = couriers::where('courier_added', 'Shipnick')->where('courier_added','Shipnick')->orderby('courierid', 'DESC')->get();
         $params1 =  price::where('admin_id',$userida)->get();
         return view('super-admin.Couriers.api-list', ['params' => $params, 'crtusers' => $crtusers,],compact('params1'));
     }
