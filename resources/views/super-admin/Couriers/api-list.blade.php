@@ -36,6 +36,7 @@
                         </div>
                     </div>
                     <div class="card-body table-border-style">
+                    <h6> {{$crtusers->name}}</h6>
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
