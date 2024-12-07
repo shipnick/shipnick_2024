@@ -241,6 +241,8 @@ Route::post('/request-quote', [LoginCheck::class, 'requestQuote']);
 Route::get('/superpanel', [Dashboard::class, 'SuperHome']);
 Route::get('/superpanel-courier-summary', [Dashboard::class, 'superPanel_courier_summary']);
 
+Route::get('/super-client-details/{id}', [Dashboard::class, 'clientDetils']);
+
 
 Route::get('/super-new-admin', [SuperAdminClients::class, 'NewClient']);
 Route::post('/super-new-admin', [SuperAdminClients::class, 'NewClientAdd']);

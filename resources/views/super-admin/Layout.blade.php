@@ -279,6 +279,25 @@
 
     </header>
     <!-- [ Header ] end -->
+    @if(session()->has('message'))
+    <section class="pcoded-main-container" style="min-height: 0vh;">
+        <div class="">
+            <div class="alert alert-success left-icon-big alert-dismissible fade show">
+
+                <div class="media">
+                    <div class="alert-left-icon-big">
+                        <span></span>
+                    </div>
+                    <div class="media-body">
+                        <h5 class="mt-1 mb-2">successfully</h5>
+                        <p class="mb-0">{{ session()->get('message') }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @endif
 
 
     @yield('bodycontent')
