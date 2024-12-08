@@ -88,11 +88,11 @@ class SuperAdminClients extends Controller
             $query->usertype = "admin";
             $query->save();
 
-            $req->session()->flash('status', 'New Admin added');
+            $req->session()->flash('message', 'New Admin added');
             return redirect('/super-all-admin');
             // 
         } else {
-            $req->session()->flash('status', 'Email already exist');
+            $req->session()->flash('message', 'Email already exist');
             return redirect('/super-new-admin');
         }
     }
@@ -125,14 +125,14 @@ class SuperAdminClients extends Controller
                 'companyname' => $req->companyname,
                 'status' => '1'
             ]);
-        $req->session()->flash('status', 'Admin details updated');
+        $req->session()->flash('message', 'Admin details updated');
         // return redirect("/super-new-admin-edit/$req->customerid");
         return redirect()->back();
     }
     public function ClientDelete(Request $req, $id)
     {
         AdminLoginCheck::where('id', $id)->delete();
-        $req->session()->flash('status', 'Admin Delete Successfully');
+        $req->session()->flash('message', 'Admin Delete Successfully');
         return redirect("/super-all-admin");
     }
 
@@ -404,11 +404,11 @@ class SuperAdminClients extends Controller
             $query->logo = $img;
             $query->save();
 
-            $req->session()->flash('status', 'New courier added');
+            $req->session()->flash('message', 'New courier added');
             return redirect('/courier-new');
             // 
         } else {
-            $req->session()->flash('status', 'Email already exist');
+            $req->session()->flash('message', 'Email already exist');
             return redirect('/courier-new');
         }
     }
@@ -440,7 +440,7 @@ class SuperAdminClients extends Controller
                 'name' => $req->couriername,
                 'email' => $req->email
             ]);
-        $req->session()->flash('status', 'Courier details updated');
+        $req->session()->flash('message', 'Courier details updated');
         return redirect("/courier-edit/$req->courieridis");
     }
 
@@ -496,7 +496,7 @@ class SuperAdminClients extends Controller
                 'racodcharge' => $req->racodcharge,
                 'racodchargepersent' => $req->racodpersent
             ]);
-        $req->session()->flash('status', 'Courier price update');
+        $req->session()->flash('message', 'Courier price update');
         return redirect("/courier-priceing/$req->courieridis");
     }
     public function add_rate_list()
@@ -628,12 +628,12 @@ class SuperAdminClients extends Controller
         $imgfile = $req->file('bulkpincode');
 
         if (is_null($imgfile) || $imgfile->getClientOriginalExtension() !== 'csv') {
-            $req->session()->flash('status', 'Invalid file type. Please upload a CSV file.');
+            $req->session()->flash('message', 'Invalid file type. Please upload a CSV file.');
             return redirect('/UPBulk_Order');
         }
 
         if ($imgfile->getSize() > 10485760) { // 10 MB limit
-            $req->session()->flash('status', 'File size exceeds the maximum limit of 10 MB.');
+            $req->session()->flash('message', 'File size exceeds the maximum limit of 10 MB.');
             return redirect('/UPBulk_Order');
         }
 
@@ -677,11 +677,11 @@ class SuperAdminClients extends Controller
                 $sidno++;
             }
             DB::commit();
-            $req->session()->flash('status', 'Bulk order successfully uploaded.');
+            $req->session()->flash('message', 'Bulk order successfully uploaded.');
         } catch (\Exception $e) {
             DB::rollback();
             // Log the error or handle it as needed
-            $req->session()->flash('status', 'An error occurred while processing the bulk order.');
+            $req->session()->flash('message', 'An error occurred while processing the bulk order.');
         }
 
         return redirect('super-admin-pincode');
@@ -804,6 +804,7 @@ class SuperAdminClients extends Controller
         $wellet->labelname = $id;
         $wellet->labelcate = $request->amount;
         $wellet->save();
+        $request->session()->flash('message', ' Wallet limit  updated');
         return redirect()->back();
     }
 
@@ -859,6 +860,7 @@ class SuperAdminClients extends Controller
         $wellet->description = $request->description;
 
         $wellet->save();
+        $request->session()->flash('message', ' Wallet  Amount Added successfully');
         return redirect()->back();
     }
 }

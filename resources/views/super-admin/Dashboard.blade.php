@@ -99,7 +99,7 @@
                         <div class="col-sm-6 card-body">
                             <div class="row">
                                 <div class="col-sm-4">
-                                   <i class="icon feather icon-shopping-cart text-c-yellow mb-1 d-block"></i>
+                                    <i class="icon feather icon-shopping-cart text-c-yellow mb-1 d-block"></i>
                                 </div>
                                 <div class="col-sm-8 text-md-center">
                                     <h5>{{$totalPrepaid1}}</h5>
@@ -183,7 +183,7 @@
                             <i class="fas fa-trophy"></i>
                         </div>
                         <div class="col-sm-9">
-                            <h4>{{$monthOders}}</h4> 
+                            <h4>{{$monthOders}}</h4>
                             <h6>Monthly summary </h6>
                         </div>
                     </div>
@@ -228,14 +228,14 @@
                         <h5>Number of Orders</h5>
                         <div class="card-header-right">
                             <div class="btn-group card-option">
-                            <div id="reportrange" class="pull-right"
-									style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-									<i class="fa fa-calendar"></i>&nbsp;
-									<span></span> <i class="fa fa-caret-down"></i>
-								</div>
+                                <div id="reportrange" class="pull-right"
+                                    style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                    <i class="fa fa-calendar"></i>&nbsp;
+                                    <span></span> <i class="fa fa-caret-down"></i>
+                                </div>
 
-								<input type="hidden" id="start_date" name="start_date" />
-								<input type="hidden" id="end_date" name="end_date" />
+                                <input type="hidden" id="start_date" name="start_date" />
+                                <input type="hidden" id="end_date" name="end_date" />
                             </div>
                         </div>
                     </div>
@@ -261,9 +261,9 @@
                                 </thead>
                                 <tbody>
                                     @foreach($adminOrdersData as $data)
-                                    
+
                                     <tr>
-                                        <td>
+                                        <td><a href="super-client-details/{{$data['user_id'] }}">
                                             <div class="chk-option">
                                                 <label
                                                     class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
@@ -276,18 +276,19 @@
                                                     class="img-radius wid-40 align-top m-r-15">
                                                 <div class="d-inline-block">
                                                     <h6>
-                                                    {{ Str::limit($data['username'], 10) }}
+                                                        {{ Str::limit($data['username'], 10) }}
                                                     </h6>
                                                     <p class="text-muted m-b-0">{{ Str::limit($data['admin_id'], 10) }}</p>
                                                 </div>
                                             </div>
+                                            </a>
                                         </td>
                                         <td>{{$data['total_orders'] }}</td>
                                         <td>{{ $data['total_cod'] }}</td>
-                                        <td >{{ $data['total_prepaid'] }}</td>
+                                        <td>{{ $data['total_prepaid'] }}</td>
                                     </tr>
                                     @endforeach
-                                    
+
                                 </tbody>
                             </table>
                         </div>
@@ -342,10 +343,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($adminOrdersData1 as $data)
-                                    
+                                    @foreach($adminOrdersData1 as $data)
+
                                     <tr>
                                         <td>
+                                            <a href="super-client-details/{{$data['user_id'] }}">
                                             <div class="chk-option">
                                                 <label
                                                     class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
@@ -358,15 +360,16 @@
                                                     class="img-radius wid-40 align-top m-r-15">
                                                 <div class="d-inline-block">
                                                     <h6>
-                                                    {{ Str::limit($data['username'], 10) }}
+                                                        {{ Str::limit($data['username'], 10) }}
                                                     </h6>
                                                     <p class="text-muted m-b-0">{{ Str::limit($data['admin_id'], 10) }}</p>
                                                 </div>
                                             </div>
+                                            </a>
                                         </td>
                                         <td>{{$data['total_orders'] }}</td>
                                         <td>{{ $data['total_cod'] }}</td>
-                                        <td >{{ $data['total_prepaid'] }}</td>
+                                        <td>{{ $data['total_prepaid'] }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -377,7 +380,7 @@
             </div>
             <!-- prject ,team member start -->
             <!-- seo start -->
-           
+
             <div class="col-xl-12 col-md-12">
                 <div class="card table-card">
                     <div class="card-header">
@@ -403,54 +406,54 @@
 </div>
 <!-- [ Main Content ] end -->
 <script type="text/javascript">
-	$(function() {
-		// Set default range to Last 7 Days
-		var start = moment().subtract(6, 'days'); // 7 days ago
-		var end = moment(); // Today
+    $(function() {
+        // Set default range to Last 7 Days
+        var start = moment().subtract(6, 'days'); // 7 days ago
+        var end = moment(); // Today
 
-		// Function to update the display
-		function cb(start, end) {
-			$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-			$('#start_date').val(start.format('YYYY-MM-DD'));
-			$('#end_date').val(end.format('YYYY-MM-DD'));
-		}
+        // Function to update the display
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            $('#start_date').val(start.format('YYYY-MM-DD'));
+            $('#end_date').val(end.format('YYYY-MM-DD'));
+        }
 
-		// Initialize the date range picker
-		$('#reportrange').daterangepicker({
-			startDate: start,
-			endDate: end,
-			ranges: {
-				'Today': [moment(), moment()],
-				'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-				'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-				'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-				'This Month': [moment().startOf('month'), moment().endOf('month')],
-				'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-			}
-		}, cb);
+        // Initialize the date range picker
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
 
-		// Handle URL parameters
-		const urlParams = new URLSearchParams(window.location.search);
-		const startDateParam = urlParams.get('start_date');
-		const endDateParam = urlParams.get('end_date');
+        // Handle URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const startDateParam = urlParams.get('start_date');
+        const endDateParam = urlParams.get('end_date');
 
-		if (startDateParam && endDateParam) {
-			const startDate = moment(startDateParam);
-			const endDate = moment(endDateParam);
-			cb(startDate, endDate); // Update display with the URL parameters
-			$('#reportrange').data('daterangepicker').setStartDate(startDate);
-			$('#reportrange').data('daterangepicker').setEndDate(endDate);
-		} else {
-			// Show Last 7 Days initially
-			cb(start, end);
-		}
+        if (startDateParam && endDateParam) {
+            const startDate = moment(startDateParam);
+            const endDate = moment(endDateParam);
+            cb(startDate, endDate); // Update display with the URL parameters
+            $('#reportrange').data('daterangepicker').setStartDate(startDate);
+            $('#reportrange').data('daterangepicker').setEndDate(endDate);
+        } else {
+            // Show Last 7 Days initially
+            cb(start, end);
+        }
 
-		// Handle the selection change
-		$('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-			// Redirect to the URL with the selected dates
-			var url = "{{ url('UserPanel') }}?start_date=" + picker.startDate.format('YYYY-MM-DD') + "&end_date=" + picker.endDate.format('YYYY-MM-DD');
-			window.location.href = url;
-		});
-	});
+        // Handle the selection change
+        $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+            // Redirect to the URL with the selected dates
+            var url = "{{ url('UserPanel') }}?start_date=" + picker.startDate.format('YYYY-MM-DD') + "&end_date=" + picker.endDate.format('YYYY-MM-DD');
+            window.location.href = url;
+        });
+    });
 </script>
 @endsection
