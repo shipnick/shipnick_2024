@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\UtilityHelper;
 use App\Jobs\OrderStatusUpdate_ECOM;
 use Illuminate\Http\Request;
 use Razorpay\Api\Api;
@@ -28,6 +29,16 @@ class UserSearchOrder extends Controller
     {
         try {
             $webhookData = $request->getContent();  // or $request->input('webhook_data_here') depending on your 
+
+            $log_id = UtilityHelper::webHookLog([
+                "awb_number" => $data['awb_number'] ?? '',
+                "status" => $data['status'] ?? '',
+                "event_time" => $data['event_time'] ?? '',
+                "request_data" => $webhookData,
+                "response_data" => $data['response_data'] ?? '',
+                "error_log" => $data['error_log'] ?? '',
+            ]);
+
             Log::info("WebHook Body: " . $webhookData);
             //  webhook secret 
             $secret = 'Rkn7tRpesbyZ0O6mOC6aLkE5';
@@ -47,6 +58,14 @@ class UserSearchOrder extends Controller
                 $awbNumber = $request->input('awb_number');
                 $status = $request->input('status');
                 $time = $request->input('event_time');
+                
+                UtilityHelper::webHookLog([
+                    "awb_number" => $awbNumber ?? '',
+                    "status" => $status ?? '',
+                    "event_time" => $time ?? '',
+                    "request_data" => $webhookData,
+                ], $log_id);
+
                 // Do something with $webhookData (such as storing it in the database)
                 DB::table('spark_single_order')
                     ->where('Awb_Number', $awbNumber)  // Ensure this is the correct column
@@ -55,11 +74,21 @@ class UserSearchOrder extends Controller
                 // Send a 200 OK response with a JSON payload
                 return response()->json(['status' => 'success'], 200);
             } else {
+                UtilityHelper::webHookLog([
+                    "error_log" => 'invalid signature',
+                ], $log_id);
                 // Invalid signature, return 400 Bad Request response
                 return response()->json(['status' => 'invalid signature'], 400);
             }
         } catch (\Exception $e) {
             $msg = __FILE__ . ":LINE:" . $e->getLine() . " MSG: " . $e->getMessage();
+            UtilityHelper::webHookLog([
+                "awb_number" => $awbNumber ?? '',
+                "status" => $status ?? '',
+                "event_time" => $time ?? '',
+                "request_data" => $webhookData,
+                "error_log" => $msg ?? '',
+            ], $log_id);
             Log::error($msg);
         }
         return response("Data recorded in our system...", 200);
