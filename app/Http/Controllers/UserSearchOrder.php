@@ -24,48 +24,56 @@ use Illuminate\Support\Facades\DB;
 
 class UserSearchOrder extends Controller
 {
-     public function xpressWebhook(Request $request)
+    public function xpressWebhook(Request $request)
     {
+        try {
+            $webhookData = $request->getContent();  // or $request->input('webhook_data_here') depending on your 
+            Log::info("WebHook Body: " . $webhookData);
+            //  webhook secret 
+            $secret = 'Rkn7tRpesbyZ0O6mOC6aLkE5';
 
-        $webhookData = $request->getContent();  // or $request->input('webhook_data_here') depending on your 
+            // The hash sent by the external service in the request headers or body
+            $sentHash = $request->header('X-Signature');  // assuming the hash is sent as a header
 
-        //  webhook secret 
-        $secret = 'Rkn7tRpesbyZ0O6mOC6aLkE5';
+            // Compute the HMAC-SHA256 hash of the incoming data
+            $computedHash = base64_encode(hash_hmac('sha256', $webhookData, $secret, true));
 
-        // The hash sent by the external service in the request headers or body
-        $sentHash = $request->header('X-Signature');  // assuming the hash is sent as a header
+            Log::info("WebHook X-Signature: " . $sentHash);
+            Log::info("WebHook computedHash: " . $computedHash);
 
-        // Compute the HMAC-SHA256 hash of the incoming data
-        $computedHash = base64_encode(hash_hmac('sha256', $webhookData, $secret, true));
+            // Compare the computed hash with the hash sent in the webhook request
+            if (hash_equals($computedHash, $sentHash)) {
+                // Valid signature, process the webhook
+                $awbNumber = $request->input('awb_number');
+                $status = $request->input('status');
+                $time = $request->input('event_time');
+                // Do something with $webhookData (such as storing it in the database)
+                DB::table('spark_single_order')
+                    ->where('Awb_Number', $awbNumber)  // Ensure this is the correct column
+                    ->update(['showerrors' => $status, 'delivereddatetime' => $time]);
 
-        // Compare the computed hash with the hash sent in the webhook request
-        if (hash_equals($computedHash, $sentHash)) {
-            // Valid signature, process the webhook
-            $awbNumber = $request->input('awb_number');
-            $status = $request->input('status');
-            $time = $request->input('event_time');
-            // Do something with $webhookData (such as storing it in the database)
-            DB::table('spark_single_order')
-                ->where('Awb_Number', $awbNumber)  // Ensure this is the correct column
-                ->update(['showerrors' => $status, 'delivereddatetime' => $time]);
-
-            // Send a 200 OK response with a JSON payload
-            return response()->json(['status' => 'success'], 200);
-        } else {
-            // Invalid signature, return 400 Bad Request response
-            return response()->json(['status' => 'invalid signature'], 400);
+                // Send a 200 OK response with a JSON payload
+                return response()->json(['status' => 'success'], 200);
+            } else {
+                // Invalid signature, return 400 Bad Request response
+                return response()->json(['status' => 'invalid signature'], 400);
+            }
+        } catch (\Exception $e) {
+            $msg = __FILE__ . ":LINE:" . $e->getLine() . " MSG: " . $e->getMessage();
+            Log::error($msg);
         }
+        return response("Data recorded in our system...", 200);
     }
 
 
-   
+
     public function Home()
     {
         return view('UserPanel.SearchOrder');
     }
 
-    
-   public function paymentPhonepe(Request $request)
+
+    public function paymentPhonepe(Request $request)
     {
         $puserid = session()->get('UserLogin2id');
 
@@ -263,7 +271,7 @@ class UserSearchOrder extends Controller
                     $xml = simplexml_load_string($response->body());
 
                     if ($xml !== false) {
-                        $status = (string)$xml->object->field[11];
+                        $status = (string) $xml->object->field[11];
                         $status1 = count($xml->object->field[36]->object);
 
                         $updateData = [
@@ -327,8 +335,8 @@ class UserSearchOrder extends Controller
                         $xml = simplexml_load_string($response->body());
 
                         if ($xml !== false) {
-                            $status = (string)$xml->object->field[11];
-                            $status2 = (string)$xml->object->field[14];
+                            $status = (string) $xml->object->field[11];
+                            $status2 = (string) $xml->object->field[14];
                             $status1 = count($xml->object->field[36]->object);
 
                             $updateData = [
@@ -398,9 +406,9 @@ class UserSearchOrder extends Controller
                     'Content-Type' => 'application/json',
                     'Cookie' => 'shipclues_session=iZ4dgCGTk45lE8pE9sdawi4Bp1dwAJ7rEi8iJqBL',
                 ])->post('https://www.shipclues.com/api/order-track', [
-                    'ApiKey' => 'TdRxkE0nJd4R78hfEGSz2P5CAIeqzUtZ84EFDUX9',
-                    'AWBNumber' => $awbNumber
-                ]);
+                            'ApiKey' => 'TdRxkE0nJd4R78hfEGSz2P5CAIeqzUtZ84EFDUX9',
+                            'AWBNumber' => $awbNumber
+                        ]);
 
                 //     $responseData = $response->json();
                 //     echo "<br><pre>";
@@ -479,9 +487,9 @@ class UserSearchOrder extends Controller
                 $response = Http::withHeaders([
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
-                    'email' => 'shipnick11@gmail.com',
-                    'password' => 'Xpress@5200',
-                ]);
+                            'email' => 'shipnick11@gmail.com',
+                            'password' => 'Xpress@5200',
+                        ]);
 
                 $responseic = $response->json(); // Decode JSON response
                 $xpressbeetoken = $responseic['data']; // Extract token from response data
@@ -557,9 +565,9 @@ class UserSearchOrder extends Controller
                 $response = Http::withHeaders([
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
-                    'email' => 'glamfuseindia67@gmail.com',
-                    'password' => 'shyam104A@',
-                ]);
+                            'email' => 'glamfuseindia67@gmail.com',
+                            'password' => 'shyam104A@',
+                        ]);
 
                 $responseic = $response->json(); // Decode JSON response
                 $xpressbeetoken = $responseic['data']; // Extract token from response data
@@ -636,9 +644,9 @@ class UserSearchOrder extends Controller
                 $response = Http::withHeaders([
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
-                    'email' => 'Ballyfashion77@gmail.com',
-                    'password' => 'shyam104A@',
-                ]);
+                            'email' => 'Ballyfashion77@gmail.com',
+                            'password' => 'shyam104A@',
+                        ]);
 
                 $responseic = $response->json(); // Decode JSON response
                 $xpressbeetoken = $responseic['data']; // Extract token from response data
@@ -785,8 +793,8 @@ class UserSearchOrder extends Controller
 
                         if ($xml !== false) {
                             echo $crtidis;
-                            echo  $status = (string)$xml->object->field[11];
-                            $status2 = (string)$xml->object->field[14];
+                            echo $status = (string) $xml->object->field[11];
+                            $status2 = (string) $xml->object->field[14];
                             $status1 = count($xml->object->field[36]->object);
 
                             $updateData = [
@@ -984,8 +992,8 @@ class UserSearchOrder extends Controller
                         $xml = simplexml_load_string($response->body());
 
                         if ($xml !== false) {
-                            echo  $status = (string)$xml->object->field[11];
-                            $status2 = (string)$xml->object->field[14];
+                            echo $status = (string) $xml->object->field[11];
+                            $status2 = (string) $xml->object->field[14];
                             $status1 = count($xml->object->field[36]->object);
 
                             $updateData = [
@@ -1194,8 +1202,8 @@ class UserSearchOrder extends Controller
                         $xml = simplexml_load_string($response->body());
 
                         if ($xml !== false) {
-                            echo  $status = (string)$xml->object->field[11];
-                            echo  $status2 = (string)$xml->object->field[14];
+                            echo $status = (string) $xml->object->field[11];
+                            echo $status2 = (string) $xml->object->field[14];
 
                             // $updateData[] = [
                             //   'order_status_show' => $status2,
@@ -1270,8 +1278,8 @@ class UserSearchOrder extends Controller
                         $xml = simplexml_load_string($response->body());
 
                         if ($xml !== false) {
-                            echo  $status = (string)$xml->object->field[11];
-                            echo  $status2 = (string)$xml->object->field[14];
+                            echo $status = (string) $xml->object->field[11];
+                            echo $status2 = (string) $xml->object->field[14];
 
                             // $updateData[] = [
                             //   'order_status_show' => $status2,
@@ -1345,8 +1353,8 @@ class UserSearchOrder extends Controller
                         $xml = simplexml_load_string($response->body());
 
                         if ($xml !== false) {
-                            echo  $status = (string)$xml->object->field[11];
-                            echo  $status2 = (string)$xml->object->field[14];
+                            echo $status = (string) $xml->object->field[11];
+                            echo $status2 = (string) $xml->object->field[14];
 
                             // $updateData[] = [
                             //   'order_status_show' => $status2,
@@ -1492,8 +1500,8 @@ class UserSearchOrder extends Controller
                         $xml = simplexml_load_string($response->body());
 
                         if ($xml !== false) {
-                            echo  $status = (string)$xml->object->field[11];
-                            echo  $status2 = (string)$xml->object->field[14];
+                            echo $status = (string) $xml->object->field[11];
+                            echo $status2 = (string) $xml->object->field[14];
 
                             // $updateData[] = [
                             //   'order_status_show' => $status2,
@@ -1561,9 +1569,9 @@ class UserSearchOrder extends Controller
                 $response = Http::withHeaders([
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
-                    'email' => 'shipnick11@gmail.com',
-                    'password' => 'Xpress@5200',
-                ]);
+                            'email' => 'shipnick11@gmail.com',
+                            'password' => 'Xpress@5200',
+                        ]);
 
                 $responseic = $response->json(); // Decode JSON response
                 $xpressbeetoken = $responseic['data']; // Extract token from response data
@@ -1629,9 +1637,9 @@ class UserSearchOrder extends Controller
                 $response = Http::withHeaders([
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
-                    'email' => 'shipnick11@gmail.com',
-                    'password' => 'Xpress@5200',
-                ]);
+                            'email' => 'shipnick11@gmail.com',
+                            'password' => 'Xpress@5200',
+                        ]);
 
                 $responseic = $response->json(); // Decode JSON response
                 $xpressbeetoken = $responseic['data']; // Extract token from response data
@@ -1696,9 +1704,9 @@ class UserSearchOrder extends Controller
                 $response = Http::withHeaders([
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
-                    'email' => 'shipnick11@gmail.com',
-                    'password' => 'Xpress@5200',
-                ]);
+                            'email' => 'shipnick11@gmail.com',
+                            'password' => 'Xpress@5200',
+                        ]);
 
                 $responseic = $response->json(); // Decode JSON response
                 $xpressbeetoken = $responseic['data']; // Extract token from response data
@@ -1764,9 +1772,9 @@ class UserSearchOrder extends Controller
                 $response = Http::withHeaders([
                     'Content-Type' => 'application/json',
                 ])->post('https://shipment.xpressbees.com/api/users/login', [
-                    'email' => 'shipnick11@gmail.com',
-                    'password' => 'Xpress@5200',
-                ]);
+                            'email' => 'shipnick11@gmail.com',
+                            'password' => 'Xpress@5200',
+                        ]);
 
                 $responseic = $response->json(); // Decode JSON response
                 $xpressbeetoken = $responseic['data']; // Extract token from response data

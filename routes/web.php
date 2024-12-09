@@ -393,7 +393,7 @@ Route::get('/Logout', function () {
 	session()->flush();
 	return redirect('/login');
 });
-Route::post('/webhook', [UserSearchOrder::class, 'xpressWebhook']);
+Route::any('/webhook', [UserSearchOrder::class, 'xpressWebhook']);
 
 Route::get('/order-update-status', [UserSearchOrder::class, 'orderstatus']);
 Route::get('/order-update-status3', [UserSearchOrder::class, 'orderstatus3']);
