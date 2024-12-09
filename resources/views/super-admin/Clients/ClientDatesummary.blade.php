@@ -5,9 +5,12 @@
                                              Order Date
                                          </th>
                                          <th>No of Orders</th>
-                                         <th>Pickup Pending</th>
-                                         <th>Cod</th>
-                                         <th class="text-right">Prepaid</th>
+                                         <th>Pending Pickups</th>
+                                         <th>In-Transit</th>
+                                         <th>OFD</th>
+                                         <th>Delivered</th>
+                                         <th>NDR</th>
+                                         <th>RTO</th>
                                      </tr>
                                  </thead>
                                  <tbody>
