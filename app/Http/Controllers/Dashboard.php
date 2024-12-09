@@ -75,6 +75,7 @@ class Dashboard extends Controller
 
         // Store the results if total_orders > 0
         $adminOrdersData[] = [
+          'user_id' => $admin->id,
           'username' => $admin->name,
           'admin_id' => $adminName,
           'total_orders' => $orderStats->total_orders,
@@ -121,6 +122,7 @@ class Dashboard extends Controller
 
         // Store the results in an array or collection
         $adminOrdersData1[] = [
+          'user_id' => $admin->id,
           'username' => $admin->name,
           'admin_id' => $adminName,
           'total_orders' => $totalOrders,
