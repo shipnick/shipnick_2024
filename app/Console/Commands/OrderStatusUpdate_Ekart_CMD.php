@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Jobs\OrderStatusUpdate_Ekart;
-use App\Jobs\OrderStatusUpdate_XPREBEE;
 use App\Models\bulkorders;
 use Illuminate\Support\Facades\Queue;
 use Illuminate\Console\Command;
@@ -64,15 +63,15 @@ class OrderStatusUpdate_Ekart_CMD extends Command
             ->get();
 
         if ($orders->isEmpty()) {
-            $this->info("No EXpressBee orders pending to update status");
+            $this->info("No eKart orders pending to update status");
             return 0;
         }
 
-        $this->info('EXpressBee Total Jobs: ' . $orders->count());
+        $this->info('eKart Total Jobs: ' . $orders->count());
         foreach ($orders as $order) {
-            OrderStatusUpdate_XPREBEE::dispatch($order->toArray())->onQueue(self::QUEUE_NAME);
+            OrderStatusUpdate_Ekart::dispatch($order->toArray())->onQueue(self::QUEUE_NAME);
         }
-        $this->info("EXpressBee Queue completed.");
+        $this->info("eKart Queue completed.");
         return 0;
     }
 }

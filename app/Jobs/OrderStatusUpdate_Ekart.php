@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use App\Models\bulkorders;
 use Exception;
+use Illuminate\Support\Facades\Log;
 
 class OrderStatusUpdate_Ekart implements ShouldQueue
 {
@@ -48,8 +49,8 @@ class OrderStatusUpdate_Ekart implements ShouldQueue
                 'Content-Type' => 'application/json',
             ])
                 ->post('https://api.nimbuspost.com/v1/users/login', [
-                    'email' => 'shipnicknimbus12@gmail.com',
-                    'password' => 'Shipnick@123'
+                    'email' => config('creds.ekart.email'),
+                    'password' => config('creds.ekart.password')
                 ]);
 
             $responseic = $response->json(); // Decode JSON response
@@ -58,38 +59,30 @@ class OrderStatusUpdate_Ekart implements ShouldQueue
 
 
             $response = Http::withHeaders([
-              'Authorization' => 'Bearer ' . $xpressbeetoken,
-              'Content-Type' => 'application/json'
-          ])->post('https://api.nimbuspost.com/v1/shipments/track/bulk', [
-            'awb' => [
-                'NBCC3001505963' // Replace with actual AWB numbers
-            ]
-              
-              
-          ]);
-
-          $responseData = $response->json();
-            // echo "<br><pre>";
-            // print_r($responseData);
-            // echo "</pre><br>";
+                'Authorization' => 'Bearer ' . $xpressbeetoken,
+                'Content-Type' => 'application/json'
+            ])->post('https://api.nimbuspost.com/v1/shipments/track/bulk', [
+                        'awb' => [
+                            $awbNumber ?? '---' // Replace with actual AWB numbers
+                        ]
+                    ]);
 
             if ($response->successful()) {
-              $responseData = $response->json();
-              $status = $responseData['data'][0]['status'];
+                $responseData = $response->json();
+                $status = $responseData['data'][0]['status'];
 
-              
-
-              bulkorders::where('Awb_Number', $awbNumber)->update([
-                  'showerrors' => $status,
-                  'order_status_show' => $status,
-              ]);
-              
-          } else {
-              // Handle HTTP request failure
-              // file_put_contents('order_status.txt', "$awbNumber Failed | " . print_r($response, true), FILE_APPEND);
-              return response()->json(['error' => 'HTTP request failed'], $response->status());
-          }
+                bulkorders::where('Awb_Number', $awbNumber)->update([
+                    'showerrors' => $status,
+                    'order_status_show' => $status,
+                ]);
+            } else {
+                // Handle HTTP request failure
+                // file_put_contents('order_status.txt', "$awbNumber Failed | " . print_r($response, true), FILE_APPEND);
+                return response()->json(['error' => 'HTTP request failed'], $response->status());
+            }
         } catch (Exception $e) {
+            $msg = __FILE__ . ":LINE:" . $e->getLine() . " MSG: " . $e->getMessage();
+            Log::error($msg);
             $this->fail($e);
             // file_put_contents('order_status.txt', "$awbNumber Failed", FILE_APPEND);
         }
