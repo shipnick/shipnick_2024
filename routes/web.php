@@ -242,7 +242,8 @@ Route::get('/superpanel', [Dashboard::class, 'SuperHome']);
 Route::get('/superpanel-courier-summary', [Dashboard::class, 'superPanel_courier_summary']);
 
 Route::get('/super-client-details/{id}', [Dashboard::class, 'clientDetils']);
-
+Route::get('/client-courier-summary', [Dashboard::class, 'client_courier_summary']);
+Route::get('/client-courier-date-summary', [Dashboard::class, 'client_Date_summary']);
 
 Route::get('/super-new-admin', [SuperAdminClients::class, 'NewClient']);
 Route::post('/super-new-admin', [SuperAdminClients::class, 'NewClientAdd']);

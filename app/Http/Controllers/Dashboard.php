@@ -75,6 +75,7 @@ class Dashboard extends Controller
 
         // Store the results if total_orders > 0
         $adminOrdersData[] = [
+          'user_id' => $admin->id,
           'username' => $admin->name,
           'admin_id' => $adminName,
           'total_orders' => $orderStats->total_orders,
@@ -121,6 +122,7 @@ class Dashboard extends Controller
 
         // Store the results in an array or collection
         $adminOrdersData1[] = [
+          'user_id' => $admin->id,
           'username' => $admin->name,
           'admin_id' => $adminName,
           'total_orders' => $totalOrders,
@@ -273,6 +275,53 @@ class Dashboard extends Controller
 
     // 30days recoder 
 
+
+    $delivered = ['delivered', 'Delivered'];
+
+    $codAmount = bulkorders::where('User_Id', $id)->where('Order_Type', 'COD')->where('Awb_Number', '!=', '')->where('order_cancel', '!=', '1')->whereIn('showerrors', $delivered)->count();
+
+
+
+
+
+
+
+
+
+    // Prepare data to send to the view
+    $data = [
+
+      'adminName' => $adminName,
+      'userName' => $userName,
+
+      'todayOders' => $todayOders,
+      'todayCod' => $todayCod,
+      'todayPrepaid' => $todayPrepaid,
+      'monthlyPP' => $monthlyPP,
+      'monthlyPrepaid' => $monthlyPrepaid,
+      'monthlyCod' => $monthlyCod,
+      'monthlyOrder' => $monthlyOrder,
+      'totalPP' => $totalPP,
+      'totalPrepaid' => $totalPrepaid,
+      'totalCod' => $totalCod,
+      'totalOrder' => $totalOrder,
+
+      'blance' => $totalBlance,
+      'codAmount' => $codAmount
+
+    ];
+
+    return view('super-admin.Clients.ClientDetils', $data);
+  }
+
+  public function client_courier_summary(Request $request)
+  {
+    $id = $request->id;
+    $User = Allusers::where('id', $id)->first();
+    $adminName = Allusers::where('id', $User->crtuid)->first()->name;
+    $userName = $User->name;
+
+
     $pending_pickup = ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'];
     $In_Transit = ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked'];
     $ofd = ['out for delivery'];
@@ -280,91 +329,7 @@ class Dashboard extends Controller
     $rto = ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'];
     $ndr = ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED'];
 
-    $codAmount = bulkorders::where('User_Id', $id)->where('Order_Type', 'COD')->where('Awb_Number', '!=', '')->where('order_cancel', '!=', '1')->whereIn('showerrors', $delivered)->count();
-
-    $startOfMonth = Carbon::today()->startOfMonth()->startOfDay();
-    $endOfMonth = Carbon::today()->endOfMonth()->endOfDay();
-
-    // Define common query conditions
-    $commonConditions = [
-      ['User_Id', '=', $id],
-      ['Awb_Number', '!=', ''],
-      ['order_cancel', '!=', '1'],
-    ];
-
-    // Get the last 30 days
-    $dates = [];
-    for ($i = 29; $i >= 0; $i--) {
-      $dates[] = Carbon::now()->subDays($i)->toDateString();
-    }
-
-    // Initialize the statusCounts array
-    $statusCounts = [
-      'totalOrder' => [],
-      'pickup' => [],
-      'in_transit' => [],
-      'NDR' => [],
-      'ofd' => [],
-      'Delivered' => [],
-      'RTO' => [],
-    ];
-
-    // Loop through each of the last 30 days and get the data for each status
-    foreach ($dates as $date) {
-      // Get the data for the current date
-      $startOfDay = Carbon::parse($date)->startOfDay();
-      $endOfDay = Carbon::parse($date)->endOfDay();
-
-      // Count total orders for the day
-      $totalOrders = bulkorders::where($commonConditions)
-        ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
-        ->count('Single_Order_Id');
-
-      // Count orders in each status for the day
-      $orderPending = bulkorders::where($commonConditions)
-        ->whereIn('showerrors', $pending_pickup)
-        ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
-        ->count('Single_Order_Id');
-
-      $orderInTransit = bulkorders::where($commonConditions)
-        ->whereIn('showerrors', $In_Transit)
-        ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
-        ->count('Single_Order_Id');
-
-      $orderInOfd = bulkorders::where($commonConditions)
-        ->whereIn('showerrors', $ofd)
-        ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
-        ->count('Single_Order_Id');
-
-      $orderDelivered = bulkorders::where($commonConditions)
-        ->whereIn('showerrors', $delivered)
-        ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
-        ->count('Single_Order_Id');
-
-      $orderNdr = bulkorders::where($commonConditions)
-        ->whereIn('showerrors', $ndr)
-        ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
-        ->count('Single_Order_Id');
-
-      $orderRto = bulkorders::where($commonConditions)
-        ->whereIn('showerrors', $rto)
-        ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
-        ->count('Single_Order_Id');
-
-      // Store the counts in the statusCounts array for the current day
-      $statusCounts['totalOrder'][$date] = $totalOrders;
-      $statusCounts['pickup'][$date] = $orderPending;
-      $statusCounts['in_transit'][$date] = $orderInTransit;
-      $statusCounts['ofd'][$date] = $orderInOfd;
-      $statusCounts['Delivered'][$date] = $orderDelivered;
-      $statusCounts['NDR'][$date] = $orderNdr;
-      $statusCounts['RTO'][$date] = $orderRto;
-    }
-    // end the 30 days 
-    // Now, $statusCounts contains the data for the last 30 days grouped by date
-    // Example to access the data: $statusCounts['totalOrder']['2024-12-07']
-
-    $awbGenBy = ['Ecom', 'Xpressbees', 'Bluedart', 'Ekart', 'Bluedart-sc'];
+    $awbGenBy = ['Ecom', 'Xpressbee', 'Bluedart', 'Ekart', 'Bluedart-sc'];
 
     // Common conditions for all queries
     $commonConditions = [
@@ -455,27 +420,113 @@ class Dashboard extends Controller
 
       'adminName' => $adminName,
       'userName' => $userName,
-      'statusCounts' => $statusCounts,
-      'todayOders' => $todayOders,
-      'todayCod' => $todayCod,
-      'todayPrepaid' => $todayPrepaid,
-      'monthlyPP' => $monthlyPP,
-      'monthlyPrepaid' => $monthlyPrepaid,
-      'monthlyCod' => $monthlyCod,
-      'monthlyOrder' => $monthlyOrder,
-      'totalPP' => $totalPP,
-      'totalPrepaid' => $totalPrepaid,
-      'totalCod' => $totalCod,
-      'totalOrder' => $totalOrder,
       'orderDetails' => $orderDetails,
-      'blance' => $totalBlance,
-      'codAmount' => $codAmount
+
 
     ];
 
-    return view('super-admin.Clients.ClientDetils', [
-      'statusCounts' => $statusCounts
-    ], $data);
+    return view('super-admin.Clients.ClientCourierSummary', [], $data);
+  }
+  public function client_Date_summary(Request $request)
+  {
+    $id = $request->id;
+    $User = Allusers::where('id', $id)->first();
+    $adminName = Allusers::where('id', $User->crtuid)->first()->name;
+    $userName = $User->name;
+    // 30days recoder 
+
+    $pending_pickup = ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'];
+    $In_Transit = ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked'];
+    $ofd = ['out for delivery'];
+    $delivered = ['delivered', 'Delivered'];
+    $rto = ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'];
+    $ndr = ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED'];
+    $startOfMonth = Carbon::today()->startOfMonth()->startOfDay();
+    $endOfMonth = Carbon::today()->endOfMonth()->endOfDay();
+
+    // Define common query conditions
+    $commonConditions = [
+      ['User_Id', '=', $id],
+      ['Awb_Number', '!=', ''],
+      ['order_cancel', '!=', '1'],
+    ];
+
+    // Get the last 30 days
+    $dates = [];
+    for ($i = 29; $i >= 0; $i--) {
+      $dates[] = Carbon::now()->subDays($i)->toDateString();
+    }
+
+    // Initialize the statusCounts array
+    $statusCounts = [
+      'totalOrder' => [],
+      'pickup' => [],
+      'in_transit' => [],
+      'NDR' => [],
+      'ofd' => [],
+      'Delivered' => [],
+      'RTO' => [],
+    ];
+
+    // Loop through each of the last 30 days and get the data for each status
+    foreach ($dates as $date) {
+      // Get the data for the current date
+      $startOfDay = Carbon::parse($date)->startOfDay();
+      $endOfDay = Carbon::parse($date)->endOfDay();
+
+      // Count total orders for the day
+      $totalOrders = bulkorders::where($commonConditions)
+        ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
+        ->count('Single_Order_Id');
+
+      // Count orders in each status for the day
+      $orderPending = bulkorders::where($commonConditions)
+        ->whereIn('showerrors', $pending_pickup)
+        ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
+        ->count('Single_Order_Id');
+
+      $orderInTransit = bulkorders::where($commonConditions)
+        ->whereIn('showerrors', $In_Transit)
+        ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
+        ->count('Single_Order_Id');
+
+      $orderInOfd = bulkorders::where($commonConditions)
+        ->whereIn('showerrors', $ofd)
+        ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
+        ->count('Single_Order_Id');
+
+      $orderDelivered = bulkorders::where($commonConditions)
+        ->whereIn('showerrors', $delivered)
+        ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
+        ->count('Single_Order_Id');
+
+      $orderNdr = bulkorders::where($commonConditions)
+        ->whereIn('showerrors', $ndr)
+        ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
+        ->count('Single_Order_Id');
+
+      $orderRto = bulkorders::where($commonConditions)
+        ->whereIn('showerrors', $rto)
+        ->whereBetween('Last_Time_Stamp', [$startOfDay, $endOfDay])
+        ->count('Single_Order_Id');
+
+      // Store the counts in the statusCounts array for the current day
+      $statusCounts['totalOrder'][$date] = $totalOrders;
+      $statusCounts['pickup'][$date] = $orderPending;
+      $statusCounts['in_transit'][$date] = $orderInTransit;
+      $statusCounts['ofd'][$date] = $orderInOfd;
+      $statusCounts['Delivered'][$date] = $orderDelivered;
+      $statusCounts['NDR'][$date] = $orderNdr;
+      $statusCounts['RTO'][$date] = $orderRto;
+    }
+    // end the 30 days 
+    // Now, $statusCounts contains the data for the last 30 days grouped by date
+    // Example to access the data: $statusCounts['totalOrder']['2024-12-07']
+
+    return view('super-admin.Clients.ClientDatesummary', [
+      'statusCounts' => $statusCounts,
+      'dates' => $dates  // Add this line to pass the dates to the view
+    ]);
   }
 
   public function Home(Request $req)
