@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Jobs\OrderStatusUpdate_Ekart;
+use App\Jobs\OrderStatusUpdate_XPREBEE;
 use App\Models\bulkorders;
 use Illuminate\Support\Facades\Queue;
 use Illuminate\Console\Command;
