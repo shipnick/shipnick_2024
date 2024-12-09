@@ -3,6 +3,51 @@
  @extends('super-admin.Layout')
 
  @section('bodycontent')
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Initial fetch with no date filter (lifetime) for both summaries
+        fetchOrderSummary("client-courier-date-summary", "#CourierDateSummary", "lifetime");
+        fetchOrderSummary("client-courier-summary", "#CourierSummary", "lifetime");
+
+        // When the date filter changes, fetch data for both summaries with the selected filter
+        $("#dateFilterSelect").change(function() {
+            var filter = $(this).val(); // Get the selected value
+            fetchOrderSummary("client-courier-date-summary", "#CourierDateSummary", filter);
+            fetchOrderSummary("client-courier-summary", "#CourierSummary", filter);
+        });
+    });
+
+    // Function to handle the AJAX request for both summaries
+    function fetchOrderSummary(urlSuffix, target, dateFilter) {
+        // Get the current URL path
+        var currentUrl = window.location.pathname;
+
+        // Extract the ID from the URL path (assuming the format is /super-client-details/{id})
+        var id = currentUrl.split('/').pop(); // This will get the last part of the URL (i.e., the ID)
+
+        // Prepare the full URL for AJAX request based on the URL suffix passed
+        var url = "{{ url('') }}/" + urlSuffix; // Construct the URL dynamically
+
+        $.ajax({
+            type: "GET",
+            url: url, // Use the constructed URL for the request
+            data: {
+                date_filter: dateFilter, // Send the selected filter to the backend
+                id: id // Send the extracted ID from the URL
+            },
+            success: function(data) {
+                $(target).html(data); // Update the target div with the returned data
+            },
+            error: function(xhr, status, error) {
+                console.log('Error:', error);
+                $(target).html('<p>There was an error fetching the data.</p>'); // Show an error message
+            }
+        });
+    }
+</script>
  <!-- [ Main Content ] start -->
  <div class="pcoded-main-container">
      <div class="pcoded-content">
@@ -209,34 +254,7 @@
                      </div>
                      <div class="card-body p-0">
                          <div class="table-responsive">
-                             <table class="table table-hover mb-0">
-                                 <thead>
-                                     <tr>
-                                         <th>
-                                             Order Date
-                                         </th>
-                                         <th>No of Orders</th>
-                                         <th>Pickup Pending</th>
-                                         <th>Cod</th>
-                                         <th class="text-right">Prepaid</th>
-                                     </tr>
-                                 </thead>
-                                 <tbody>
-                                     @foreach ($dates as $date)
-                                     <tr>
-                                         <td>{{ $date }}</td>
-                                         <td>{{ $statusCounts['totalOrder'][$date] ?? 0 }}</td>
-                                         <td>{{ $statusCounts['pickup'][$date] ?? 0 }}</td>
-                                         <td>{{ $statusCounts['in_transit'][$date] ?? 0 }}</td>
-                                         <td>{{ $statusCounts['ofd'][$date] ?? 0 }}</td>
-                                         <td>{{ $statusCounts['Delivered'][$date] ?? 0 }}</td>
-                                         <td>{{ $statusCounts['NDR'][$date] ?? 0 }}</td>
-                                         <td>{{ $statusCounts['RTO'][$date] ?? 0 }}</td>
-                                     </tr>
-                                     @endforeach
-
-                                 </tbody>
-                             </table>
+                         <div class="" id="CourierDateSummary"></div>
                          </div>
                      </div>
                  </div>
@@ -251,37 +269,7 @@
                      </div>
                      <div class="card-body p-0">
                          <div class="table-responsive">
-                             <table class="table table-hover mb-0">
-                                 <thead>
-                                     <tr>
-                                         <th>
-                                             Courier Name
-                                         </th>
-                                         <th>No of Orders</th>
-                                         <th>Pending Pickups</th>
-                                         <th>In-Transit</th>
-                                         <th>OFD</th>
-                                         <th>Delivered</th>
-                                         <th>NDR</th>
-                                         <th>RTO</th>
-
-                                     </tr>
-                                 </thead>
-                                 <tbody>
-                                     @foreach ($orderDetails as $courier => $details)
-                                     <tr>
-                                         <td>{{ $courier }}</td>
-                                         <td>{{ $details['totalOrders'] }}</td>
-                                         <td>{{ $details['orderPending'] }}</td>
-                                         <td>{{ $details['orderInTransit'] }}</td>
-                                         <td>{{ $details['orderInOfd'] }}</td>
-                                         <td>{{ $details['orderDelivered'] }}</td>
-                                         <td>{{ $details['orderNdr'] }}</td>
-                                         <td>{{ $details['orderRto'] }}</td>
-                                     </tr>
-                                     @endforeach
-                                 </tbody>
-                             </table>
+                             <div class="" id="CourierSummary"></div>
                          </div>
                      </div>
                  </div>
