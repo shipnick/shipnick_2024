@@ -5,6 +5,8 @@ namespace App\Helper;
 use App\Models\bulkorders;
 use App\Models\orderdetail;
 use App\Models\price;
+use App\Models\WebhookLogs;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
 class UtilityHelper
@@ -75,7 +77,7 @@ class UtilityHelper
             $wellet->debit = $credit1;
             $wellet->awb_no = $awb;
             $wellet->date = $date;
-            $wellet->user_id =  $userid;
+            $wellet->user_id = $userid;
             $wellet->transaction = $transactionCode;
             $wellet->close_blance = $close_blance;
             $wellet->save();
@@ -94,5 +96,55 @@ class UtilityHelper
         $value = str_replace(['�',], '', $value);
         $result = filter_var($value, FILTER_SANITIZE_STRING);
         return $result;
+    }
+
+
+    /**
+     * Summary of webHookLog
+     * @param mixed $data ["awb_number", "status", "event_time", "request_data", "response_data", "error_log", "created_at", "updated_at",]
+     * @param integer | null $log_id
+     * @return mixed
+     * 
+     * 
+     * 
+     */
+    public static function webHookLog($data, $log_id = false)
+    {
+        if ($log_id) {
+            $log = WebhookLogs::where('id', $log_id)->first();
+            if ($log) {
+                $log->request_data = $data['request_data'] ?? $log->request_data ?? '--';
+                $log->response_data = $data['response_data'] ?? $log->response_data ?? '--';
+                $log->error_log = $data['error_log'] ?? $log->error_log ?? '--';
+                $log->updated_at = Carbon::now();
+                $log->save();
+            }
+            return $log_id;
+        }
+        $log = WebhookLogs::firstOrCreate([
+            "awb_number" => $data['awb_number'] ?? '',
+            "status" => $data['status'] ?? '',
+            "event_time" => $data['event_time'] ?? '',
+            "request_data" => $data['request_data'] ?? '',
+            "response_data" => $data['response_data'] ?? '',
+            "error_log" => $data['error_log'] ?? '',
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now(),
+        ]);
+        return $log->id;
+
+        # Usage 
+        # ========================
+        // $log_id = UtilityHelper::webHookLog([
+        //     "awb_number" => 'awb',
+        //     "status" => 'statuss',
+        //     "event_time" => 'event_time',
+        //     "request_data" => "webhookData",
+        //     "response_data" => 'resp_data',
+        //     "error_log" => 'error_log',
+        // ]);
+        // UtilityHelper::webHookLog([
+        //     "error_log" => 'erroee333r_log'
+        // ], 2);
     }
 }
