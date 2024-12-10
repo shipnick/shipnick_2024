@@ -168,10 +168,11 @@ Content body start
 
 
 											<select name="courier" class=" form-control wide w-100 ">
-												<option value="">Select</option>
-												@foreach($courier1 as $courierItem)
-												<option value="{{ $courierItem }}">{{ $courierItem }}</option>
-												@endforeach
+											<option value="" selected>Select</option>
+												<option value="Xpressbee">Xpressbees</option>
+												<option value="Ecom">Ecom</option>
+												<option value="Bluedart">Bluedart</option>
+												<option value="Ekart">Ekart</option>
 											</select>
 										</div>
 									</div>

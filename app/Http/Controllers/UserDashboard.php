@@ -107,20 +107,17 @@ class UserDashboard extends Controller
       $todate1 = date('Y-m-d');
 
       // today order   
-      
-
-        $talluploaded = bulkorders::where('User_Id', $userid)
-        ->where('Awb_Number', '!=', '')
-        ->where('showerrors', '!=', 'cancelled')
+      $talluploaded = bulkorders::where('User_Id', $userid)
         ->where('order_cancel', '!=', '1')
-       ->where('Rec_Time_Date', today())
+        ->where('Awb_Number', '!=', '')
+        ->whereBetween('Last_Time_Stamp', array($fromdate1, $todate1))
         ->count('Single_Order_Id');
 
       $tallpending = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
-        ->where('showerrors', '!=', 'cancelled')
+        ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+        ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
-       ->where('Rec_Time_Date', today())
+        ->whereBetween('Rec_Time_Date', array($fromdate1, $todate1))
         ->count('Single_Order_Id');
 
       $intransitupload = bulkorders::where('User_Id', $userid)
@@ -185,22 +182,14 @@ class UserDashboard extends Controller
       $cfromdate = date('Y-m-d', strtotime($currentmonthstart));
       $ctodate = date('Y-m-d', strtotime($currentmonthstend));
 
-
-     $startDate = $request->has('start_date') ? Carbon::parse($request->start_date)->startOfDay() : Carbon::now()->subDays(7)->startOfDay();
-      $endDate = $request->has('end_date') ? Carbon::parse($request->end_date)->endOfDay() : Carbon::now()->endOfDay();
-
       // If the 'start_date' or 'end_date' is not provided in the request, default to 7 days ago to today
       $startDate = $request->has('start_date') ? Carbon::parse($request->start_date)->startOfDay() : Carbon::now()->subDays(7)->startOfDay();
       $endDate = $request->has('end_date') ? Carbon::parse($request->end_date)->endOfDay() : Carbon::now()->endOfDay();
 
       // Now you have $startDate and $endDate set to the desired values
       $cfromdateObj = $startDate;
-      $ctodateObj = $endDate; 
+      $ctodateObj = $endDate;
 
-
-      // Now you have $startDate and $endDate set to the desired values
-      $cfromdateObj = $startDate;
-      $ctodateObj = $endDate; 
 
       // top six boxes start 
       $callcomplete = bulkorders::where('User_Id', $userid)
@@ -344,136 +333,72 @@ class UserDashboard extends Controller
         ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
         ->count('Single_Order_Id');
 
+      // details for order 
+      $pending_pickup = ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'];
+      $In_Transit = ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked'];
+      $ofd = ['out for delivery'];
+      $delivered = ['delivered', 'Delivered'];
+      $rto = ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'];
+      $ndr = ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED'];
+      // start all dertils courier 
+      $awbGenBy = ['Ecom', 'Xpressbee', 'Bluedart', 'Ekart', 'Bluedart-sc'];
 
-
-      $bluedartCounts = bulkorders::where('User_Id', $userid)
-        ->where('awb_gen_by', 'Ecom')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        // ->where('showerrors', '!=', 'cancelled')
-        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-        ->selectRaw(
-          '
-        COUNT(CASE 
-            WHEN showerrors IN ( "Shipment Not Handed over") THEN 1 
-            ELSE NULL 
-        END) AS pendingBluedartcount,
-        COUNT(CASE 
-           WHEN showerrors IN ("In-Transit", "Connected","intranit","Ready for Connection") THEN 1 
-            ELSE NULL 
-        END) AS inTransitBluedartcount,
-        COUNT(CASE 
-        WHEN showerrors IN ("Out For Delivery") THEN 1 
-           
-            ELSE NULL 
-        END) AS OfdBluedartcount,
-        COUNT(CASE 
-            WHEN showerrors = "Delivered" THEN 1 
-            ELSE NULL 
-        END) AS DeliveredBluedartcount,
-        COUNT(CASE 
-            WHEN showerrors IN ("Undelivered","Shipment Redirected") THEN 1 
-            ELSE NULL 
-        END) AS RtoBluedartcount,
-        COUNT(*) AS Bluedartcount'
-        )
-        ->first();
-
-      $data1 = [
-        'Bluedartcount' => $bluedartCounts->Bluedartcount,
-        'pendingBluedartcount' => $bluedartCounts->pendingBluedartcount,
-        'inTransitBluedartcount' => $bluedartCounts->inTransitBluedartcount,
-        'OfdBluedartcount' => $bluedartCounts->OfdBluedartcount,
-        'DeliveredBluedartcount' => $bluedartCounts->DeliveredBluedartcount,
-        'RtoBluedartcount' => $bluedartCounts->RtoBluedartcount,
-      ];
-
-      $bluedartCounts1 = bulkorders::where('User_Id', $userid)
-        ->where('awb_gen_by', 'Xpressbee')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->where('showerrors', '!=', 'cancelled')
-        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-        ->selectRaw(
-          '
-        COUNT(CASE 
-            WHEN showerrors  = "pending pickup" THEN 1
-            ELSE NULL 
-        END) AS pendingBluedartcount,
-        COUNT(CASE 
-            WHEN showerrors  = "In Transit" THEN 1
-            ELSE NULL 
-        END) AS inTransitBluedartcount,
-        COUNT(CASE 
-            WHEN showerrors = "out for delivery" THEN 1 
-            ELSE NULL 
-        END) AS OfdBluedartcount,
-        COUNT(CASE 
-            WHEN showerrors = "delivered" THEN 1 
-            ELSE NULL 
-        END) AS DeliveredBluedartcount,
-        COUNT(CASE 
-           WHEN showerrors IN ("rto", "exception") THEN 1
-            
-            ELSE NULL 
-        END) AS RtoBluedartcount,
+      // Common conditions for all queries
+      $commonConditions = [
+        ['User_Id', '=', $userid],
+        ['Awb_Number', '!=', ''],
+        ['order_cancel', '!=', '1'],
+        ['Last_Time_Stamp', '>=', $cfromdateObj],
+        ['Last_Time_Stamp', '<=', $ctodateObj]
         
-        COUNT(*) AS Bluedartcount'
-        )
-        ->first();
-
-      $data2 = [
-        'Bluedartcount' => $bluedartCounts1->Bluedartcount,
-        'pendingBluedartcount' => $bluedartCounts1->pendingBluedartcount,
-        'inTransitBluedartcount' => $bluedartCounts1->inTransitBluedartcount,
-        'OfdBluedartcount' => $bluedartCounts1->OfdBluedartcount,
-        'DeliveredBluedartcount' => $bluedartCounts1->DeliveredBluedartcount,
-        'RtoBluedartcount' => $bluedartCounts1->RtoBluedartcount,
-
       ];
 
-      //   shiprocket order details      
-      $shiprocketCounts1 = bulkorders::where('User_Id', $userid)
-        ->where('awb_gen_by', 'Bluedart')
-        ->where('Awb_Number', '!=', '')
-        ->where('order_cancel', '!=', '1')
-        ->where('showerrors', '!=', 'cancelled')
-        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-        ->selectRaw(
-          '
-        COUNT(CASE 
-            WHEN order_status_show IN ("1", "13", "15", "19", "20", "27", "52","3") THEN 1
-            ELSE NULL 
-        END) AS pendingBluedartcount,
-        COUNT(CASE 
-            WHEN order_status_show IN ("6","18","22","23","38","39","42","48","49","50","51") THEN 1
-            ELSE NULL 
-        END) AS inTransitBluedartcount,
-        COUNT(CASE 
-            WHEN order_status_show = "17" THEN 1 
-            ELSE NULL 
-        END) AS OfdBluedartcount,
-        COUNT(CASE 
-            WHEN order_status_show = "7" THEN 1 
-            ELSE NULL 
-        END) AS DeliveredBluedartcount,
-        COUNT(CASE 
-            WHEN order_status_show IN ("9","10","14","41","46"    ,"21", "40" ,"47", "8","16","45","12" , "24", "25" , "44","0") THEN 1
-            ELSE NULL 
-        END) AS RtoBluedartcount,
-        COUNT(*) AS Bluedartcount
-        '
-        )
-        ->first();
+      // Get the selected date filter from the request
+      // $dateFilter = $request->input('date_filter', 'lifetime');
+      $dateFilter = 'lifetime';
 
-      $data3 = [
-        'Bluedartcount' => $shiprocketCounts1->Bluedartcount,
-        'pendingBluedartcount' => $shiprocketCounts1->pendingBluedartcount,
-        'inTransitBluedartcount' => $shiprocketCounts1->inTransitBluedartcount,
-        'OfdBluedartcount' => $shiprocketCounts1->OfdBluedartcount,
-        'DeliveredBluedartcount' => $shiprocketCounts1->DeliveredBluedartcount,
-        'RtoBluedartcount' => $shiprocketCounts1->RtoBluedartcount,
-      ];
+      // Initialize an empty array to store results for each courier
+      $orderDetails = [];
+
+      
+      // Loop through each courier and get the order details
+      foreach ($awbGenBy as $courier) {
+        $orderDetails[$courier] = [
+          'totalOrders' => bulkorders::where($commonConditions)
+            ->where('awb_gen_by', $courier)
+            ->count('Single_Order_Id'),
+
+          'orderPending' => bulkorders::where($commonConditions)
+            ->where('awb_gen_by', $courier)
+            ->whereIn('showerrors', $pending_pickup)
+            ->count('Single_Order_Id'),
+
+          'orderInTransit' => bulkorders::where($commonConditions)
+            ->where('awb_gen_by', $courier)
+            ->whereIn('showerrors', $In_Transit)
+            ->count('Single_Order_Id'),
+
+          'orderInOfd' => bulkorders::where($commonConditions)
+            ->where('awb_gen_by', $courier)
+            ->whereIn('showerrors', $ofd)
+            ->count('Single_Order_Id'),
+
+          'orderDelivered' => bulkorders::where($commonConditions)
+            ->where('awb_gen_by', $courier)
+            ->whereIn('showerrors', $delivered)
+            ->count('Single_Order_Id'),
+
+          'orderNdr' => bulkorders::where($commonConditions)
+            ->where('awb_gen_by', $courier)
+            ->whereIn('showerrors', $ndr)
+            ->count('Single_Order_Id'),
+
+          'orderRto' => bulkorders::where($commonConditions)
+            ->where('awb_gen_by', $courier)
+            ->whereIn('showerrors', $rto)
+            ->count('Single_Order_Id')
+        ];
+      }
 
 
 
@@ -508,9 +433,7 @@ class UserDashboard extends Controller
         'prepaidPercentage' => $prepaidPercentage,
         'codPercentage' => $codPercentage,
 
-        'data1' => $data1,
-        'data2' => $data2,
-        'data3' => $data3,
+
         'zone' => $zone,
         'last90DaysCount' => $last90DaysCount,
         'thisWeekCount' => $thisWeekCount,
@@ -520,7 +443,8 @@ class UserDashboard extends Controller
         'xpressbee' => $xpressbee,
         'Ecom' => $Ecom,
         'Bluedart' => $Bluedart,
-        'MonthlyOrder' => $MonthlyOrder
+        'MonthlyOrder' => $MonthlyOrder,
+        'orderDetails' => $orderDetails
 
       ];
 
@@ -1935,7 +1859,6 @@ class UserDashboard extends Controller
       ['Rec_Time_Date', '<=', $toDate],
     ];
 
-
     // Define status categories
     $statusCategories = [
       'Pending' => ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'],
@@ -2050,6 +1973,38 @@ class UserDashboard extends Controller
     $BluedartCodRto = $getCount('Bluedart', 'COD', $statusCategories['Rto']);
     $BluedartCodDeliveredPresent = $BluedartCod - $BluedartCodPending - $BluedartCodIntransit - $BluedartCodOfd;
 
+
+
+     // Bluedart orders
+     $Ekart = $getCount('Ekart');
+     $EkartPending = $getCount('Ekart', null, $statusCategories['Pending']);
+     $EkartIntransit = $getCount('Ekart', null, $statusCategories['Intransit']);
+     $EkartOfd = $getCount('Ekart', null, $statusCategories['Ofd']);
+     $EkartNdr = $getCount('Ekart', null, $statusCategories['NDR']);
+     $EkartDeliverd = $getCount('Ekart', null, $statusCategories['Delivered']);
+     $EkartRto = $getCount('Ekart', null, $statusCategories['Rto']);
+     $EkartDeliverdPresent = $Ekart - $EkartPending - $EkartIntransit - $EkartOfd;
+ 
+     // Bluedart Prepaid orders
+     $EkartPrepaid = $getCount('Ekart', 'Prepaid');
+     $EkartPrepaidPending = $getCount('Ekart', 'Prepaid', $statusCategories['Pending']);
+     $EkartPrepaidIntransit = $getCount('Ekart', 'Prepaid', $statusCategories['Intransit']);
+     $EkartPrepaidOfd = $getCount('Ekart', 'Prepaid', $statusCategories['Ofd']);
+     $EkartPrepaidNdr = $getCount('Ekart', 'Prepaid', $statusCategories['NDR']);
+     $EkartPrepaidDelivered = $getCount('Ekart', 'Prepaid', $statusCategories['Delivered']);
+     $EkartPrepaidRto = $getCount('Ekart', 'Prepaid', $statusCategories['Rto']);
+     $EkartPrepaidDeliveredPresent = $EkartPrepaid - $EkartPrepaidPending - $EkartPrepaidIntransit - $EkartPrepaidOfd;
+ 
+     // Bluedart COD orders
+     $EkartCod = $getCount('Ekart', 'COD');
+     $EkartCodPending = $getCount('Ekart', 'COD', $statusCategories['Pending']);
+     $EkartCodIntransit = $getCount('Ekart', 'COD', $statusCategories['Intransit']);
+     $EkartCodOfd = $getCount('Ekart', 'COD', $statusCategories['Ofd']);
+     $EkartCodNdr = $getCount('Ekart', 'COD', $statusCategories['NDR']);
+     $EkartCodDelivered = $getCount('Ekart', 'COD', $statusCategories['Delivered']);
+     $EkartCodRto = $getCount('Ekart', 'COD', $statusCategories['Rto']);
+     $EkartCodDeliveredPresent = $EkartCod - $EkartCodPending - $EkartCodIntransit - $EkartCodOfd;
+
     // Return the counts to the view or as needed
     return view('UserPanel.DashboardData.analytics', compact(
       'xpressbee',
@@ -2124,7 +2079,33 @@ class UserDashboard extends Controller
       'EcomCodDeliveredPresent',
       'BluedartDeliverdPresent',
       'BluedartPrepaidDeliveredPresent',
-      'BluedartCodDeliveredPresent'
+      'BluedartCodDeliveredPresent',
+
+
+      'Ekart',
+      'EkartPending',
+      'EkartIntransit',
+      'EkartOfd',
+      'EkartNdr',
+      'EkartDeliverd',
+      'EkartRto',
+      'EkartPrepaid',
+      'EkartPrepaidPending',
+      'EkartPrepaidIntransit',
+      'EkartPrepaidOfd',
+      'EkartPrepaidNdr',
+      'EkartPrepaidDelivered',
+      'EkartPrepaidRto',
+      'EkartCod',
+      'EkartCodPending',
+      'EkartCodIntransit',
+      'EkartCodOfd',
+      'EkartCodNdr',
+      'EkartCodDelivered',
+      'EkartCodRto',
+      'EkartDeliverdPresent',
+      'EkartPrepaidDeliveredPresent',
+      'EkartCodDeliveredPresent'
     ));
   }
 }

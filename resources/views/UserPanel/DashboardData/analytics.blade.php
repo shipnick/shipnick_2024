@@ -25,6 +25,10 @@
 									<a class="nav-link" data-bs-toggle="tab" href="#Today"
 										role="tab">Bluedart</a>
 								</li>
+								<li class="nav-item">
+									<a class="nav-link" data-bs-toggle="tab" href="#Ekart"
+										role="tab">Ekart</a>
+								</li>
 							</ul>
 							<div class="col-12 mt-4">
 								<!-- <label>Produces:</label> -->
@@ -922,6 +926,309 @@
 																	<div class="border px-1 py-3 rounded-xl">
 																		<h2 class="fs-18 font-w600 counter">
 																			{{ round($BluedartCodPercentage) }}
+																		</h2>
+																		<p class="fs-8 mb-0"><br>Delivered %</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="Ekart" role="tabpanel">
+							<div class="table-responsive">
+								<div class="row">
+									<div class="col-xl-12 col-xxl-12 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+										<div class="card">
+											<div class="card-header border-0 pb-0 d-sm-flex flex-wrap d-block">
+												<div class="mb-3">
+													<h4 class="card-title mb-1">Ekart</h4>
+												</div>
+
+											</div>
+											<style>
+												.border {
+													border: var(--bs-border-width) var(--bs-border-style) #181717 !important;
+												}
+											</style>
+											<div class="card-body tab-content orders-summary pt-3">
+												<div class="tab-pane fade show active" id="Monthly">
+													<div class="row text-center">
+														<div class="col-sm-12">
+															<div class="row">
+																<div class="col-md-8">
+																	<div class="row">
+																		<div class="col-sm-2 mb-4">
+																			<div class="border px-1 py-3 rounded-xl">
+																				<h2 class="fs-18 font-w600 counter">{{$Ekart ?? 0 }}
+																				</h2>
+																				<p class="fs-8 mb-0">Total Shipment</p>
+																			</div>
+																		</div>
+																		<div class="col-sm-2 mb-4">
+																			<div class="border px-1 py-3 rounded-xl">
+																				<h2 class="fs-18 font-w600 counter">{{$EkartPending ?? 0 }}
+																				</h2>
+																				<p class="fs-8 mb-0">Pickup Pending</p>
+																			</div>
+																		</div>
+																		<div class="col-sm-2 mb-4">
+																			<div class="border px-1 py-3 rounded-xl">
+																				<h2 class="fs-18 font-w600 counter">{{$EkartIntransit ?? 0 }}
+																				</h2>
+																				<p class="fs-8 mb-0"><br>In-transit</p>
+																			</div>
+																		</div>
+																		<div class="col-sm-2 mb-4">
+																			<div class="border px-1 py-3 rounded-xl">
+																				<h2 class="fs-18 font-w600 counter">{{$EkartOfd ?? 0 }}
+																				</h2>
+																				<p class="fs-8 mb-0"><br>OFD</p>
+																			</div>
+																		</div>
+																		<div class="col-sm-2 mb-4">
+																			<div class="border px-1 py-3 rounded-xl">
+																				<h2 class="fs-18 font-w600 counter">{{$EkartNdr ?? 0 }}
+																				</h2>
+																				<p class="fs-8 mb-0">NDR Pending</p>
+																			</div>
+																		</div>
+																		<div class="col-sm-2 mb-4">
+																			<div class="border px-1 py-3 rounded-xl">
+																				<h2 class="fs-18 font-w600 counter">{{$EkartDeliverd ?? 0 }}
+																				</h2>
+																				<p class="fs-8 mb-0"><br>Delivered</p>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-md-4">
+																	<div class="row">
+																		<div class="col-sm-4 mb-4">
+																			<div class="border px-1 py-3 rounded-xl">
+																				<h2 class="fs-18 font-w600 counter">{{$EkartRto ?? 0 }}
+																				</h2>
+																				<p class="fs-8 mb-0"><br>RTO/RTS</p>
+																			</div>
+																		</div>
+																		
+																		<div class="col-sm-4 mb-4">
+																			<div class="border px-1 py-3 rounded-xl">
+																				<h2 class="fs-18 font-w600 counter">0
+																				</h2>
+																				<p class="fs-8 mb-0">Lost / Damaged</p>
+																			</div>
+																		</div>
+																		<div class="col-sm-4 mb-4">
+																			@php
+																			// Calculate the delivery percentage
+																			$Ekartpersentage = ($EkartDeliverd > 0) ? ($EkartDeliverdPresent * 100 / $xpressbeePrepaidDeliveredPresent) : 0;
+																			@endphp
+																			<div class="border px-1 py-3 rounded-xl">
+																				<h2 class="fs-18 font-w600 counter">
+
+																					{{ round($Ekartpersentage) }}
+																				</h2>
+																				<p class="fs-8 mb-0"><br>Delivered %</p>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+
+
+
+
+
+
+															</div>
+														</div>
+
+
+													</div>
+
+												</div>
+
+											</div>
+										</div>
+
+									</div>
+									<div class="col-xl-6 col-xxl-12">
+										<div class="card">
+											<div class="card-header d-block d-sm-flex border-0">
+												<div class="me-3">
+													<h4 class="card-title mb-2">Ekart</h4>
+
+												</div>
+												<div class="card-tabs mt-3 mt-sm-0">
+													<ul class="nav nav-tabs" role="tablist">
+														<li class="nav-item">
+															<a class="nav-link active" data-bs-toggle="tab" href="#PREPAIDxpress" role="tab">PREPAID</a>
+														</li>
+														<li class="nav-item">
+															<a class="nav-link" data-bs-toggle="tab" href="#CODxpress" role="tab">COD</a>
+														</li>
+
+													</ul>
+												</div>
+											</div>
+											<div class="card-body tab-content ">
+												<div class="tab-pane active show fade" id="PREPAIDxpress" role="tabpanel">
+													<div class="row text-center">
+														<div class="col-md-8">
+															<div class="row">
+																<div class="col-sm-2 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$EkartPrepaid ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">Total Shipment</p>
+																	</div>
+																</div>
+																<div class="col-sm-2 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$EkartPrepaidPending ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">Pickup Pending</p>
+																	</div>
+																</div>
+																<div class="col-sm-2 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$EkartPrepaidIntransit ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> In-transit</p>
+																	</div>
+																</div>
+																<div class="col-sm-2 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$EkartPrepaidOfd ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> OFD</p>
+																	</div>
+																</div>
+
+																<div class="col-sm-2 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$EkartPrepaidNdr ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">NDR Pending</p>
+																	</div>
+																</div>
+																<div class="col-sm-2 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$EkartPrepaidDelivered ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> Delivered</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="row">
+																<div class="col-sm-4 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$EkartPrepaidRto ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> RTO/RTS</p>
+																	</div>
+																</div>
+																
+																<div class="col-sm-4 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">0</h2>
+																		<p class="fs-8 mb-0">Lost / Damaged</p>
+																	</div>
+																</div>
+																<div class="col-sm-4 mb-4">
+																	@php
+																	// Calculate the delivery percentage
+																	$EkartPrepaidPercentage = ($EkartPrepaidDelivered > 0) ? ($EkartPrepaidDelivered * 100 / $EkartPrepaidDeliveredPresent) : 0;
+																	@endphp
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">
+
+																			{{ round($EkartPrepaidPercentage) }}
+																		</h2>
+																		<p class="fs-8 mb-0"><br> Delivered%</p>
+																	</div>
+																</div>
+
+															</div>
+														</div>
+
+
+													</div>
+												</div>
+												<div class="tab-pane" id="CODxpress" role="tabpanel">
+													<div class="row text-center">
+														<div class="col-md-8">
+															<div class="row">
+																<div class="col-sm-2 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$EkartCod ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">Total Shipment</p>
+																	</div>
+																</div>
+																<div class="col-sm-2 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$EkartCodPending ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">Pickup Pending</p>
+																	</div>
+																</div>
+																<div class="col-sm-2 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$EkartCodIntransit ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> In-transit</p>
+																	</div>
+																</div>
+																<div class="col-sm-2 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$EkartCodOfd ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> OFD</p>
+																	</div>
+																</div>
+
+																<div class="col-sm-2 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$EkartCodNdr ?? 0 }}</h2>
+																		<p class="fs-8 mb-0">NDR Pending</p>
+																	</div>
+																</div>
+																<div class="col-sm-2 mb-4">
+
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$EkartCodDelivered ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> Delivered</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="row">
+																<div class="col-sm-4 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">{{$EkartCodRto ?? 0 }}</h2>
+																		<p class="fs-8 mb-0"><br> RTO/RTS</p>
+																	</div>
+																</div>
+
+																
+																<div class="col-sm-4 mb-4">
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">0</h2>
+																		<p class="fs-8 mb-0">Lost / Damaged</p>
+																	</div>
+																</div>
+																<div class="col-sm-4 mb-4">
+																	@php
+																	// Calculate the delivery percentage
+																	$EkartCodPercentage = ($EkartCodDelivered > 0) ? ($EkartCodDelivered * 100 / $EkartCodDeliveredPresent) : 0;
+																	@endphp
+																	<div class="border px-1 py-3 rounded-xl">
+																		<h2 class="fs-18 font-w600 counter">
+																			{{ round($EkartCodPercentage) }}
 																		</h2>
 																		<p class="fs-8 mb-0"><br>Delivered %</p>
 																	</div>

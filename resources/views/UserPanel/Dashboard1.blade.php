@@ -45,7 +45,7 @@
 			<div class="col-xl-2 col-xxl-2 col-sm-6">
 				<div class="card  invoice-card light-grey-bg">
 					<div class="card-body d-flex">
-						
+
 						<h6 class="text-black invoice-num f-24">{{$monthpickup}}</h6>
 						<div>
 
@@ -58,7 +58,7 @@
 			<div class="col-xl-2 col-xxl-2 col-sm-6">
 				<div class="card  invoice-card light-yellow-bg">
 					<div class="card-body d-flex">
-						
+
 						<h6 class="text-black invoice-num f-24">{{$callintransit}}</h6>
 						<div>
 
@@ -71,7 +71,7 @@
 			<div class="col-xl-2 col-xxl-2 col-sm-6">
 				<div class="card  invoice-card light-green-bg">
 					<div class="card-body d-flex">
-						
+
 						<h6 class="text-black invoice-num f-24">{{$calldeliverd}}</h6>
 						<div>
 
@@ -84,7 +84,7 @@
 			<div class="col-xl-2 col-xxl-2 col-sm-6">
 				<div class="card  invoice-card light-pink-bg">
 					<div class="card-body d-flex">
-						
+
 						<h6 class="text-black invoice-num f-24">{{$monthndr}}</h6>
 						<div>
 
@@ -98,7 +98,7 @@
 			<div class="col-xl-2 col-xxl-2 col-sm-6">
 				<div class="card  invoice-card light-yellow-bg">
 					<div class="card-body d-flex">
-						
+
 						<h6 class="text-black invoice-num f-24">{{$callretrun}}</h6>
 						<div>
 
@@ -279,55 +279,70 @@
 				@endphp
 				@endif
 				<div class="col-xl-4">
-    <div class="card">
-        <div class="card-header">
-            <h4 class="card-title">Courier Split</h4>
-        </div>
-        <div class="card-body">
-            <div id="pie-chart" class="ct-chart ct-golden-section"></div>
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title">Courier Split</h4>
+						</div>
+						<div class="card-body">
+							<div id="pie-chart" class="ct-chart ct-golden-section"></div>
 
-            <style>
-                /* Custom colors for the pie chart slices */
-                .ct-series-a .ct-slice-pie {
-                    fill: #FF5733; /* Custom Color 1 (e.g., Orange) */
-                }
+							<style>
+								/* Custom colors for the pie chart slices */
+								.ct-series-a .ct-slice-pie {
+									fill: #FF5733;
+									/* Custom Color 1 (e.g., Orange) */
+								}
 
-                .ct-series-b .ct-slice-pie {
-                    fill: #ffbe33c9; /* Custom Color 2 (e.g., Lime Green) */
-                }
+								.ct-series-b .ct-slice-pie {
+									fill: #ffbe33c9;
+									/* Custom Color 2 (e.g., Lime Green) */
+								}
 
-                .ct-series-c .ct-slice-pie {
-                    fill: #3357FF; /* Custom Color 3 (e.g., Blue) */
-                }
-            </style>
+								.ct-series-c .ct-slice-pie {
+									fill: #3357FF;
+									/* Custom Color 3 (e.g., Blue) */
+								}
+							</style>
 
-            <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.js"></script>
+							<script src="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.js"></script>
 
-            <script>
-                // Assuming these values are dynamically passed from your server or pre-set JavaScript variables
-                var percentageXpressbee = {{ $percentage_xpressbeeFormatted ?? 0 }};
-                var percentageEcom = {{ $percentage_ecomFormatted ?? 0 }};
-                var percentageBluedart = {{ $percentage_bluedartFormatted ?? 0 }};
+							<script>
+								// Assuming these values are dynamically passed from your server or pre-set JavaScript variables
+								var percentageXpressbee = {
+									{
+										$percentage_xpressbeeFormatted ?? 0
+									}
+								};
+								var percentageEcom = {
+									{
+										$percentage_ecomFormatted ?? 0
+									}
+								};
+								var percentageBluedart = {
+									{
+										$percentage_bluedartFormatted ?? 0
+									}
+								};
 
-                // Example data for the chart
-                var data = {
-                    series: [percentageXpressbee, percentageEcom, percentageBluedart] // Numerical values for each series
-                };
+								// Example data for the chart
+								var data = {
+									series: [percentageXpressbee, percentageEcom, percentageBluedart] // Numerical values for each series
+								};
 
-                // Creating the pie chart
-                new Chartist.Pie('#pie-chart', data);
-            </script>
+								// Creating the pie chart
+								new Chartist.Pie('#pie-chart', data);
+							</script>
 
-            <div class="chart-legend">
-                <ul>
-                    <li><span style="color: #FF5733;">&#9679;</span> Xpressbees: {{ $percentage_xpressbeeFormatted ?? 0 }}%</li>
-                    <li><span style="color: #ffbe33c9;">&#9679;</span> Ecomexpress: {{ $percentage_ecomFormatted ?? 0 }}%</li>
-                    <li><span style="color: #3357FF;">&#9679;</span> Bluedart: {{ $percentage_bluedartFormatted ?? 0 }}%</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+							<div class="chart-legend">
+								<ul>
+									<li><span style="color: #FF5733;">&#9679;</span> Xpressbees: {{ $percentage_xpressbeeFormatted ?? 0 }}%</li>
+									<li><span style="color: #ffbe33c9;">&#9679;</span> Ecomexpress: {{ $percentage_ecomFormatted ?? 0 }}%</li>
+									<li><span style="color: #3357FF;">&#9679;</span> Bluedart: {{ $percentage_bluedartFormatted ?? 0 }}%</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 
 				<div class="col-xl-4">
 					<div class="card">
@@ -415,76 +430,34 @@
 											<!-- <th style="width:80px;"><strong>#</strong></th> -->
 											<th><strong>Courier Name</strong></th>
 											<th><strong>Total Shipments</strong></th>
-											<th><strong>Pending Pickups</strong></th>
-											<th><strong>In-Transit</strong></th>
-											<th><strong>OFD</strong></th>
-											<th><strong>Delivered</strong></th>
-											<th><strong>RTO</strong></th>
+											<th>Pending Pickups</th>
+											<th>In-Transit</th>
+											<th>OFD</th>
+											<th>Delivered</th>
+											<th>NDR</th>
+											<th>RTO</th>
 										</tr>
 									</thead>
+
 									<tbody>
+										@foreach ($orderDetails as $courier => $details)
 
-										<td><strong>Ecom</strong></td>
 										@php
-										$total1 = $data1['Bluedartcount'];
-										$delivered1 = $data1['DeliveredBluedartcount'];
-										$percentage1 = $total1 > 0 ? ($delivered1 / $total1) * 100 : 0;
-										@endphp
-
-										<td style="color:black">{{ $data1['Bluedartcount'] }}</td>
-										<td style="color:black">{{ $data1['pendingBluedartcount'] }}</td>
-										<td style="color:black">{{ $data1['inTransitBluedartcount'] }}</td>
-										<td style="color:black">{{ $data1['OfdBluedartcount'] }}</td>
-										<td style="color:black">{{ $data1['DeliveredBluedartcount'] }} &nbsp; &nbsp; &nbsp; ({{ number_format($percentage1, 2) }}%)</td>
-										<td style="color:black">{{ $data1['RtoBluedartcount'] }}</td>
-										<!-- Add other status types here in similar fashion -->
-										</tr>
-
-										</tr>
-										@php
-										$total = $data2['Bluedartcount'];
-										$delivered = $data2['DeliveredBluedartcount'];
-										$percentage = $total > 0 ? ($delivered / $total) * 100 : 0;
-										@endphp
-
-										<tr>
-											<td><strong>Xpressbee</strong></td>
-											<td style="color:black">{{ $data2['Bluedartcount'] }}</td>
-											<td style="color:black">{{ $data2['pendingBluedartcount'] }}</td>
-											<td style="color:black">{{ $data2['inTransitBluedartcount'] }}</td>
-											<td style="color:black">{{ $data2['OfdBluedartcount'] }}</td>
-											<td style="color:black">{{ $data2['DeliveredBluedartcount'] }}&nbsp; &nbsp; &nbsp; ({{ number_format($percentage, 2) }}%)</td>
-											<td style="color:black">{{ $data2['RtoBluedartcount'] }}</td>
-
-
-
-
-										</tr>
-										<!--<tr>-->
-										<!--	<td><strong>Shiprocket</strong></td>-->
-										<!--	<td>0</td>-->
-										<!--	<td>0</td>-->
-										<!--	<td>0</td>-->
-										<!--	<td>0</td>-->
-										<!--	<td>0</td>-->
-										<!--	<td>0</td>-->
-
-										<!--</tr>-->
-										@php
-										$total = $data3['Bluedartcount'];
-										$delivered = $data3['DeliveredBluedartcount'];
+										$total = $details['totalOrders'] ;
+										$delivered = $details['orderDelivered'] ;
 										$percentage3 = $total > 0 ? ($delivered / $total) * 100 : 0;
 										@endphp
 										<tr>
-											<td><strong>Bluedart</strong></td>
-											<td style="color:black">{{ $data3['Bluedartcount'] }}</td>
-											<td style="color:black">{{ $data3['pendingBluedartcount'] }}</td>
-											<td style="color:black">{{ $data3['inTransitBluedartcount'] }}</td>
-											<td style="color:black">{{ $data3['OfdBluedartcount'] }}</td>
-											<td style="color:black">{{ $data3['DeliveredBluedartcount'] }} &nbsp; &nbsp; &nbsp; ({{ number_format($percentage3, 2) }}%)</td>
-											<td style="color:black">{{ $data3['RtoBluedartcount'] }}</td>
+											<td>{{ $courier }}</td>
+											<td>{{ $details['totalOrders'] }}</td>
+											<td>{{ $details['orderPending'] }}</td>
+											<td>{{ $details['orderInTransit'] }}</td>
+											<td>{{ $details['orderInOfd'] }}</td>
+											<td>{{ $details['orderDelivered'] }} &nbsp; &nbsp; &nbsp; ({{ number_format($percentage3, 2) }}%)</td>
+											<td>{{ $details['orderNdr'] }}</td>
+											<td>{{ $details['orderRto'] }}</td>
 										</tr>
-
+										@endforeach
 									</tbody>
 								</table>
 							</div>

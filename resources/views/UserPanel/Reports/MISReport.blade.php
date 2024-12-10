@@ -98,6 +98,15 @@ Content body start
 												Please provide a valid state.
 											</div>
 										</div>
+										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
+											<label class="form-label">Product Name</label>
+											<select name="sku" id="sku" class="form-control wide w-100">
+												<option value="">Select</option>
+												@foreach($sku1 as $skuItem)
+												<option value="{{ $skuItem }}">{{ $skuItem }}</option>
+												@endforeach
+											</select>
+										</div>
 									</div>
 
 

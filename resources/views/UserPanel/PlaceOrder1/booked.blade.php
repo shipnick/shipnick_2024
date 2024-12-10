@@ -177,6 +177,7 @@
                                                                         <option value="Ecom" {{ request()->get('courier') == 'Ecom' ? 'selected' : '' }}>Ecom</option>
                                                                         <option value="Xpressbee" {{ request()->get('courier') == 'Xpressbee' ? 'selected' : '' }}>Xpressbee</option>
                                                                         <option value="Bluedart" {{ request()->get('courier') == 'Bluedart' ? 'selected' : '' }}>Bluedart</option>
+                                                                        <option value="Ekart" {{ request()->get('courier') == 'Ekart' ? 'selected' : '' }}>Ekart</option>
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">

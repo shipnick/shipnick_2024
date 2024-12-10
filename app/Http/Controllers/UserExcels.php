@@ -98,7 +98,7 @@ class UserExcels extends Controller
             $deliverdpersentage = ($deliveredOrders / $orderno) * 100;
         }
 
-        
+
 
         // Retrieve other necessary data (distinct values)
         $sku1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('Item_Name');
@@ -414,7 +414,8 @@ class UserExcels extends Controller
         $days2 = Manifestorders::where('user_id', $userid)->where('uploaddate', $tdate2)->get('uploadtime');
         $days3 = Manifestorders::where('user_id', $userid)->where('uploaddate', $tdate3)->get('uploadtime');
         $days4 = Manifestorders::where('user_id', $userid)->where('uploaddate', $tdate4)->get('uploadtime');
-        return view('UserPanel.Reports.MISReport', ['days0' => $days0, 'tdate0' => $tdate0, 'days1' => $days1, 'tdate1' => $tdate1, 'days2' => $days2, 'tdate2' => $tdate2, 'days3' => $days3, 'tdate3' => $tdate3, 'days4' => $days4, 'tdate4' => $tdate4, 'hubs' => $hubs, 'Fulfilledby' => $Fulfilledby]);
+        $sku1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('Item_Name');
+        return view('UserPanel.Reports.MISReport', ['days0' => $days0, 'tdate0' => $tdate0, 'days1' => $days1, 'tdate1' => $tdate1, 'days2' => $days2, 'tdate2' => $tdate2, 'days3' => $days3, 'tdate3' => $tdate3, 'days4' => $days4, 'tdate4' => $tdate4, 'hubs' => $hubs, 'Fulfilledby' => $Fulfilledby , 'sku1' => $sku1]);
     }
 
 
@@ -464,6 +465,7 @@ class UserExcels extends Controller
             'lastattempt' => 'nullable|string', // Corrected typo
             'truearoundtime' => 'nullable|string',
             'receivedbypod' => 'nullable|string',
+            'sku'=>'nullable|string',
             // Add additional validation rules for other fields as necessary
         ]);
 
@@ -1480,6 +1482,25 @@ class MISReportExportN implements WithHeadings, FromCollection
     {
         $userid = session()->get('UserLogin2id');
 
+        $query = bulkorders::where('user_id', $userid)
+            ->whereBetween('Rec_Time_Date', [$this->data['fromdate'], $this->data['todate']]);
+
+        // Apply optional filters if provided
+        if (!empty($this->data['pickupaddress'])) {
+            $query->where('pickup_address', 'like', '%' . $this->data['pickupaddress'] . '%');
+        }
+        if (!empty($this->data['pickuppincode'])) {
+            $query->where('pickup_pincode', 'like', '%' . $this->data['pickuppincode'] . '%');
+        }
+        if (!empty($this->data['pickupcity'])) {
+            $query->where('pickup_city', 'like', '%' . $this->data['pickupcity'] . '%');
+        }
+        if (!empty($this->data['pickupstate'])) {
+            $query->where('pickup_state', 'like', '%' . $this->data['pickupstate'] . '%');
+        }
+        if (!empty($this->data['sku'])) {
+            $query->where('Item_Name', 'like', '%' . $this->data['sku'] . '%');
+        }
 
 
 
