@@ -828,47 +828,68 @@ class SuperAdminClients extends Controller
         return view('super-admin.userDetails.addUserBlance', ['params' => $params]);
     }
 
-    public function addNewUserBlance(Request $request, $id)
+   public function addNewUserBlance(Request $request, $id)
     {
-        $date = date('Y-m-d');
-        $transactionCode = "TR00" . $request->amount;
-    
-       
-       
-        // Fetch the most recent balance record for the given user
-        $blance = orderdetail::where('user_id', $id)
-            ->orderBy('orderid', 'DESC')
-            ->first();
-    
-        $close_blance = $request->amount;
-    
-        // Check if a balance record exists and update $close_blance accordingly
-        if ($blance) {
-            // Ensure close_blance is a number, default to 0 if null
-            $previous_blance = $blance->close_blance ?? 0;
-            $close_blance = $previous_blance + $request->amount;
-        }
-    
-        // Create a new order detail record
-        $wellet = new orderdetail;
-        $wellet->credit = $request->amount;
-        $wellet->awb_no = $request->Type;
-        $wellet->date = $date;
-        $wellet->user_id =  $id;
-        $wellet->transaction = $transactionCode;
-        $wellet->close_blance = $close_blance;
-        $wellet->description = $request->description;
-    
-        // Save the record
         try {
+            $date = date('Y-m-d');
+            $transactionCode = "TR00" . $request->amount;
+    
+            // Validate request data
+            $request->validate([
+                'amount' => 'required|numeric',
+                'Type' => 'required|string',
+                'description' => 'nullable|string',
+            ]);
+    
+            // Log the request data to check if it is coming through correctly
+            \Log::info('Request Data: ', $request->all());
+    
+            // Fetch the most recent balance record for the given user
+            $blance = orderdetail::where('user_id', $id)
+                ->orderBy('orderid', 'DESC')
+                ->first();
+    
+            \Log::info('Fetched balance: ', $blance ? $blance->toArray() : 'No balance found');
+    
+            $close_blance = $request->amount;
+    
+            // Check if a balance record exists and update $close_blance accordingly
+            if ($blance) {
+                // Ensure close_blance is a number, default to 0 if null
+                $previous_blance = $blance->close_blance ?? 0;
+                \Log::info('Previous balance: ' . $previous_blance);
+                $close_blance = $previous_blance + $request->amount;
+            }
+    
+            // Create a new order detail record
+            $wellet = new orderdetail;
+            $wellet->credit = $request->amount;
+            $wellet->awb_no = $request->Type;
+            $wellet->date = $date;
+            $wellet->user_id = $id;
+            $wellet->transaction = $transactionCode;
+            $wellet->close_blance = $close_blance;
+            $wellet->description = $request->description;
+    
+            \Log::info('Saving wallet data: ', $wellet->toArray());
+    
+            // Save the record
             $wellet->save();
+    
+            // Return success message
             $request->session()->flash('message', 'Wallet Amount Added successfully');
             return redirect()->back();
         } catch (\Exception $e) {
-            // Log the error for debugging
-            \Log::error('Error adding wallet amount: ' . $e->getMessage());
+            // Log the error with detailed information
+            \Log::error('Error adding wallet amount: ' . $e->getMessage(), [
+                'stack' => $e->getTraceAsString(),
+                'request_data' => $request->all()
+            ]);
+    
+            // Return error message to the user
             return redirect()->back()->with('error', 'Something went wrong, please try again later.');
         }
     }
+
 
 }
