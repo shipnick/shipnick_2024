@@ -136,6 +136,10 @@
                                     class="feather icon-file-text"></i></span><span class="pcoded-mtext">Pincode
                                 Manage</span></a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ asset('/Logout') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Logout</span></a>
+                    </li>
+
 
 
                 </ul>
