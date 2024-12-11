@@ -832,23 +832,23 @@ class SuperAdminClients extends Controller
     {
         $date = date('Y-m-d');
         $transactionCode = "TR00" . $request->amount;
-
+    
+       
+       
         // Fetch the most recent balance record for the given user
         $blance = orderdetail::where('user_id', $id)
             ->orderBy('orderid', 'DESC')
             ->first();
-
+    
         $close_blance = $request->amount;
-
+    
         // Check if a balance record exists and update $close_blance accordingly
-        if ($blance && isset($blance->close_blance)) {
+        if ($blance) {
             // Ensure close_blance is a number, default to 0 if null
             $previous_blance = $blance->close_blance ?? 0;
             $close_blance = $previous_blance + $request->amount;
         }
-
-
-        // dd($transactionCode,$credit1,$awb , $close_blance,$date);
+    
         // Create a new order detail record
         $wellet = new orderdetail;
         $wellet->credit = $request->amount;
@@ -858,9 +858,17 @@ class SuperAdminClients extends Controller
         $wellet->transaction = $transactionCode;
         $wellet->close_blance = $close_blance;
         $wellet->description = $request->description;
-
-        $wellet->save();
-        $request->session()->flash('message', ' Wallet  Amount Added successfully');
-        return redirect()->back();
+    
+        // Save the record
+        try {
+            $wellet->save();
+            $request->session()->flash('message', 'Wallet Amount Added successfully');
+            return redirect()->back();
+        } catch (\Exception $e) {
+            // Log the error for debugging
+            \Log::error('Error adding wallet amount: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Something went wrong, please try again later.');
+        }
     }
+
 }
