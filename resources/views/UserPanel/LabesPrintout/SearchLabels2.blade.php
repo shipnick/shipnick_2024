@@ -275,7 +275,7 @@
                 <td class="text-center ">
                     <br>
                     <span style="font-size: xx-large;"> {{ $params[$i]['paymode'] }}
-                        <p style="font-size: xx-large;">₹ @if($params[$i]['paymode'] == 'COD')
+                        <p style="font-size: x-large;margin-top: 4%;"> ₹ @if($params[$i]['paymode'] == 'COD')
                             {{ ucwords($params[$i]['codamt']) }}
                             
                             @else
