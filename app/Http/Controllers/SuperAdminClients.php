@@ -15,8 +15,8 @@ use App\Models\Allusers;
 use App\Models\price;
 use App\Models\BulkPincode;
 use App\Models\PincodeFile;
-use App\models\orderdetail;
 use App\Models\OrderStatusLabel;
+use App\Models\orderdetail;
 
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
