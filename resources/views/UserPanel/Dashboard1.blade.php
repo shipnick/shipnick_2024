@@ -251,7 +251,7 @@
 								</div>
 								<div class="col-sm-2">
 									<div class="border border-3 px-1 py-2 rounded-xl bg-white">
-										<h2 class="fs-24 counter">{{ $tallcancel }}</h2>
+										<h2 class="fs-24 counter">0</h2>
 
 									</div>
 									<p class="fs-16 mb-0 text-white">RTO</p>

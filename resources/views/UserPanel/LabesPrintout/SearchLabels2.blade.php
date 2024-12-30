@@ -275,7 +275,13 @@
                 <td class="text-center ">
                     <br>
                     <span style="font-size: xx-large;"> {{ $params[$i]['paymode'] }}
-                        <p>₹{{ ucwords($params[$i]['codamt']) }}</p>
+                        <p style="font-size: x-large;margin-top: 4%;"> ₹ @if($params[$i]['paymode'] == 'COD')
+                            {{ ucwords($params[$i]['codamt']) }}
+                            
+                            @else
+                                0
+                           
+                            @endif</p>
                     </span>
                 </td>
                 <td class="address-cell " colspan="3" style="text-align:center;">
