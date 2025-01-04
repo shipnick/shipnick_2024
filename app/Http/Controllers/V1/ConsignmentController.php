@@ -151,7 +151,8 @@ class ConsignmentController extends V1BaseController
             // $fileD = fopen('sample.csv',"r");
             $column = fgetcsv($fileD);
             while (!feof($fileD)) {
-                $rowData[] = fgetcsv($fileD);
+                $rawData = fgetcsv($fileD);
+                $rowData[] = array_map("utf8_encode", $rawData);
             }
 
             $total_no_of_orders = count($rowData);
