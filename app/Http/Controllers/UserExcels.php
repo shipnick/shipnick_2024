@@ -1482,7 +1482,7 @@ class MISReportExportN implements WithHeadings, FromCollection
     {
         $userid = session()->get('UserLogin2id');
 
-        $query = bulkorders::where('user_id', $userid)
+        $query = bulkorders::where('user_id', $userid)->where('order_cancel', '!=', '1')
             ->whereBetween('Rec_Time_Date', [$this->data['fromdate'], $this->data['todate']]);
 
         // Apply optional filters if provided
