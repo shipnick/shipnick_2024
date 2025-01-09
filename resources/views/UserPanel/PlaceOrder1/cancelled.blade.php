@@ -1,56 +1,45 @@
 @extends("UserPanel/userpanel_layout1")
 @section("userpanel")
-<style>
-    .table td {
-        font-weight: 700;
-        border-color: #e6e6e6;
-        padding: 0px 10px;
-    }
 
-    .table thead th {
-
-        font-size: 12px;
-    }
-</style>
 <div class="content-body">
-<div class="container-fluid">
-    <div class="d-flex flex-wrap align-items-center mb-3">
-        <div class=" me-auto">
-            <div class="card-tabs style-1 mt-3 mt-sm-0">
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link " href="booked-order">New Orders ({{$booked}})</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="pickup-pending">Pending Pickup({{$pending_pickup}})</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="intransit">In Transit ({{$in_transit}})</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="ofd">OFD ({{$ofd}})</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="deliverd">Delivered ({{$deliver}})</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="rto">RTO/RTS ({{$rto}})</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="cancelled">All Orders ({{$cancel}})</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="failled">Failed ({{$failde}})</a>
-                    </li>
+    <div class="container-fluid">
+        <div class="d-flex flex-wrap align-items-center mb-3">
+            <div class=" me-auto">
+                <div class="card-tabs style-1 mt-3 mt-sm-0">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link " href="booked-order">New Orders ({{$booked}})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="pickup-pending">Ready to ship ({{$pending_pickup}})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="intransit">In Transit ({{$in_transit}})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="ofd">OFD ({{$ofd}})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="deliverd">Delivered ({{$deliver}})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="rto">RTO/RTS ({{$rto}})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="cancelled">All Orders ({{$cancel}})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="failled">Failed ({{$failde}})</a>
+                        </li>
 
-                </ul>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="button btn btn-outline-primary btn-sm">Date Range</button>
             </div>
         </div>
-        <div class="form-group">
-            <button class="button btn btn-outline-primary btn-sm">Date Range</button>
-        </div>
     </div>
-</div>
 
     <style>
         #hidden_div {
@@ -123,21 +112,16 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
-                                            <div class="col-lg-12 order-lg-1">
+                                                <div class="col-lg-12 order-lg-1">
                                                     <h4 class="mb-3">FILTERS</h4>
                                                     <form id="filterForm" action="{{ url('/cancelled') }}" method="get">
                                                         <input type="hidden" name="per_page" id="hiddenPerPage" value="{{ request()->get('per_page', 10) }}">
-                                                        <input type="hidden" name="from" id="start_date" value="{{ request()->get('from') }}">
-                                                        <input type="hidden" name="to" id="end_date" value="{{ request()->get('to') }}">
                                                         <input type="hidden" name="from" id="start_date" value="{{ request()->get('from') }}">
                                                         <input type="hidden" name="to" id="end_date" value="{{ request()->get('to') }}">
 
                                                         <div class="row">
                                                             <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 mb-1">
                                                                 <div class="example">
-                                                                    <p class="mb-1">Date Range</p>
-                                                                    <input type="text" id="daterange" class="form-control"
-                                                                        value="{{ request()->get('from') && request()->get('to') ? request()->get('from') . ' - ' . request()->get('to') : '' }}">
                                                                     <p class="mb-1">Date Range</p>
                                                                     <input type="text" id="daterange" class="form-control"
                                                                         value="{{ request()->get('from') && request()->get('to') ? request()->get('from') . ' - ' . request()->get('to') : '' }}">
@@ -169,6 +153,20 @@
                                                                     <option value="Prepaid" {{ request()->get('order_type') == 'Prepaid' ? 'selected' : '' }}>Prepaid</option>
                                                                 </select>
                                                             </div>
+                                                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
+                                                                <label class="form-label">Cannel</label>
+                                                                <select class="default-select form-control wide w-100" name="cannel">
+                                                                    <option value="">Select...</option>
+                                                                    <option value="Excel" {{ request()->get('cannel') == 'Excel' ? 'selected' : '' }}>Excel</option>
+                                                                    <option value="shopify" {{ request()->get('cannel') == 'shopify' ? 'selected' : '' }}>shopify</option>
+                                                                    <option value="Single" {{ request()->get('cannel') == 'single' ? 'selected' : '' }}>single order</option>
+
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
+                                                                <label for="waybill" class="form-label">ORDER ID</label>
+                                                                <input type="text" class="form-control" id="waybill" name="orderid" value="{{ request()->get('awb') }}">
+                                                            </div>
                                                             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 mb-3">
                                                                 <label class="form-label" for="warehouse">Warehouse</label>
                                                                 <select class="default-select form-control wide w-100" name="warehouse" id="warehouse">
@@ -184,10 +182,7 @@
                                                         <hr class="mb-4">
                                                         <button type="submit" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Search</button>
                                                         <a href="{{ url('/booked-order') }}" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Clear</a>
-                                                        <a href="{{ url('/booked-order') }}" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Clear</a>
                                                     </form>
-
-
                                                     <script>
                                                         $(function() {
                                                             // Initialize the date range picker with the options
@@ -222,9 +217,7 @@
                                                         });
                                                     </script>
 
-
                                                 </div>
-                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -238,18 +231,6 @@
                             <form method="post" action="{{ asset('/filter-selected-order') }}">
                                 @csrf
                                 <div id="myDiv" class="hidden">
-                                    <div class="d-flex justify-content-start align-items-center header-new">
-                                        <!--                  <button name="currentbtnname" value="shippinglabel" type="submit"-->
-                                        <!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
-                                        <!--	<i class="fa fa-calendar me-1"></i> Print Label-->
-                                        <!--</button>-->
-                                        <!--<button name="currentbtnname" value="cancelorders" type="submit"-->
-                                        <!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
-                                        <!--	<i class="fa fa-times-circle me-1"></i> Cancel Orders-->
-                                        <!--</button>-->
-                                        <button name="currentbtnname" value="exportorderdetails" class="btn btn-outline-secondary btn-sm me-3 mb-2 button-clor-white">
-                                            <i class="fa fa-download me-1 "></i> Export
-                                        </button>
                                     <div class="d-flex justify-content-start align-items-center header-new">
                                         <!--                  <button name="currentbtnname" value="shippinglabel" type="submit"-->
                                         <!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
@@ -284,13 +265,13 @@
                                                 </th>
                                                 <th>CHANNEL</th>
                                                 <th>ORDER ID</th>
-                                                <th>DATE/TIME</th>
-                                                <th>CUSTOMER NAME </th>
-                                                <th>MOBILE</th>
+                                                <th>DATE</th>
+                                                <th>CUSTOMER</th>
+
                                                 <th>PRODUCTS</th>
                                                 <th>QTY</th>
                                                 <th>AMOUNT</th>
-                                                <th>TYPE </th>
+                                                <th>TYPE</th>
                                                 <th>AWB</th>
                                                 <th>CARRIER</th>
                                                 <th>STATUS</th>
@@ -323,16 +304,16 @@
                                                     </div>
                                                 </td>
                                                 <td><span title="{{$param->Item_Name}}">{{ Str::limit($param->Item_Name, 10) }}</span> </td>
-                                                <td>{{$param->Quantity}}</td>
-                                                <td>₹{{$param->Total_Amount}}</td>
+                                                <td><span>{{ $param->Quantity }}</span></td>
+                                                <td><span>{{ $param->Total_Amount }}</span></td>
                                                 <td><span>{{ $param->Order_Type }}</span></td>
                                                 <td><a href="/order/{{ $param->ordernoapi }}"><span>{{ $param->Awb_Number }}</span></a> </td>
-                                                <td>{{$param->awb_gen_by}}</td>
+                                                <td>{{ $param->awb_gen_by }}</td>
+
                                                 <td>
                                                     <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-rounded light">{{ Str::limit($param->showerrors, 20) }}</a>
+
                                                 </td>
-
-
                                                 <td class="text-end">
                                                     <div class="dropdown dropstart">
                                                         <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -356,7 +337,8 @@
                                                                 <input type="hidden" name="awbnoisa" value="{{ $param->Awb_Number }}">
                                                                 <button class="dropdown-item" type="submit"><i class="las la-info-circle scale5 me-3 "></i>Download Invoice</button>
                                                             </form>
-
+                                                            <a class="dropdown-item" href="edit-order/{{ $param->Single_Order_Id }}" title="Edit Order">
+                                                                <i class="las fa-file-invoice  scale5 me-3"></i>Edit Order</a>
                                                             <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Cancel">
                                                                 <i class="las fa-file-invoice  scale5 me-3"></i>Clone Order</a>
                                                         </div>
