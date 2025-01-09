@@ -27,9 +27,295 @@ use Maatwebsite\Excel\Concerns\Exportable;
 use App\Jobs\UploadOrder;
 use App\Jobs\cancelordersProcess;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Log;
 
 class UserPlaceOrder extends Controller
 {
+    public function search_order(Request $req)
+    {
+        
+        $order_number = $req->order_number;
+        $userid = session()->get('UserLogin2id');
+        $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
+        // Determine the date range based on request parameters or default to today
+        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::today()->startOfDay();
+        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::today()->endOfDay();
+
+        // Query using Laravel Eloquent
+        $query = bulkorders::where('User_Id', $userid)
+        ->where(function($query) use ($order_number) {
+            // If AWB_Number matches
+            $query->where('Awb_Number', 'like', "%$order_number%")
+                ->orWhere('orderno', 'like', "%$order_number%");
+        })
+        ->orderBy('Single_Order_Id', 'desc')
+        ->select('Awb_Number','Single_Order_Id', 'orderno', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
+
+        // Apply additional filters based on request parameters
+        
+
+        $perPage = $req->input('per_page', 50);
+        $orders = $query->paginate($perPage);
+
+        // Retrieve additional data
+        $Hubs = Hubs::all();
+        $courierapids = CourierApiDetail::all();
+        $allusers = Allusers::where('usertype', 'user')->get();
+
+        // Determine the current month's start and end dates
+        $currentMonthStart = Carbon::now()->startOfMonth();
+        $currentMonthEnd = Carbon::now()->endOfMonth();
+
+        // Calculate various counts
+        $booked = bulkorders::where('User_Id', $userid)
+            ->where('Awb_Number', '!=', '')
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
+            ->where('order_cancel', '!=', '1')
+            ->count();
+
+        $deliver = bulkorders::where('User_Id', $userid)
+            ->whereIn('showerrors', ['delivered', 'Delivered'])
+            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
+            ->where('Awb_Number', '!=', '')
+            ->where('order_cancel', '!=', '1')
+            ->count();
+
+        $pending_pickup = bulkorders::where('User_Id', $userid)
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereNotNull('Awb_Number')
+            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
+            ->where('order_cancel', '!=', '1')
+            ->count();
+
+        $rto = bulkorders::where('User_Id', $userid)
+            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+            ->where('Awb_Number', '!=', '')
+            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
+            ->where('order_cancel', '!=', '1')
+            ->count();
+
+        $cancel = bulkorders::where('User_Id', $userid)
+            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
+            ->where('order_cancel', 1)
+            ->count();
+
+        $ofd = bulkorders::where('User_Id', $userid)
+            ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
+            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
+            ->count();
+
+        $failde = bulkorders::where('User_Id', $userid)
+            ->where('Awb_Number', '')
+            ->whereDate('Rec_Time_Date', Carbon::today())
+            ->count();
+
+        $in_transit = bulkorders::where('User_Id', $userid)
+            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked'])
+            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
+            ->count();
+
+        // Prepare data for the view
+        $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
+
+        return view('UserPanel.PlaceOrder1.cancelled', [
+            'params' => $orders,
+            'Hubs' => $Hubs,
+            'Hubs1' => $Hubs1,
+            'allusers' => $allusers,
+            'courierapids' => $courierapids,
+            'cfromdate' => $req->from, // Pass original date inputs for display
+            'ctodate' => $req->to
+        ])->with($data);
+    }
+
+    public function ship_order($id)
+    {
+        // dd($id);
+        try {
+            // Check if the order exists
+            $order = bulkorders::where('Single_Order_Id', $id)->first();
+            if (!$order) {
+                return redirect()->back()->with('error', 'Order not found.');
+            }
+
+            // Update the 'apihitornot' field to 0
+            bulkorders::where('Single_Order_Id', $id)->update(['apihitornot' => 0 ,'xberrors' =>1]);
+
+            // Perform background URL hit (Artisan command)
+            Artisan::call('spnk:place-order');
+
+            // Redirect with success message
+            return redirect('/pickup-pending')->with('success', 'Order has been successfully shipped.');
+        } catch (\Exception $e) {
+            // Log the error and provide user feedback
+            Log::error('Error in ship_order: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Something went wrong while processing the order.');
+        }
+    }
+
+    public function clone_order($id)
+    {
+        $userid = session()->get('UserLogin2id');
+        $tdate = date('Y-m-d');
+
+        // Fetch the hubs and courier details
+        $Hubs = Hubs::where('hub_created_by', $userid)->get();
+        $courierapids = CourierApiDetail::all();
+
+        // Fetch the order to be cloned
+        $order = bulkorders::where('User_Id', $userid)
+            ->where('Single_Order_Id', $id)
+            ->first();
+
+        // If the order doesn't exist, redirect with an error
+        if (!$order) {
+            return redirect()->back();
+        }
+
+        // Proceed with the view rendering
+        return view('UserPanel.PlaceOrder.cloneOrder', compact('order', 'tdate'), [
+            'Hubs' => $Hubs,
+            'courierapids' => $courierapids
+        ]);
+    }
+
+    public function clone_order_Update(Request $req)
+    {
+        // dd($req->all());
+        // error_reporting(1);
+        // return $req->input();
+        $username = session()->get('UserLogin2name');
+        $userid = session()->get('UserLogin2id');
+        $tdate = date('Y-m-d');
+
+        // dd($tdate);
+
+        $errorstatus = "Upload";
+        $apistatus = 1;
+
+        // echo $userid;
+        try {
+            // Hub id
+            $Hubs = Hubs::where('hub_id', $req->hubid)->first();
+            $hubalternateid = $Hubs['hub_id'];
+            $hubname = $Hubs['hub_name'];
+            $hubmobile = $Hubs['hub_mobile'];
+            $hubpincode = $Hubs['hub_pincode'];
+            $hubgstno = $Hubs['hub_gstno'];
+            $hubaddress = $Hubs['hub_address1'];
+            $hubstate = $Hubs['hub_state'];
+            $hubcity = $Hubs['hub_city'];
+            // Hub id
+
+            $query = new bulkorders;
+            $query->orderno = $req->orderno;
+            $query->Order_Type = $req->courierType;
+            $query->User_Id = $userid;
+            $query->Awb_Number = '';
+            $query->Name = $req->cname;
+            $query->Address = $req->caddress;
+            $query->State = $req->cstate;
+            $query->City = $req->ccity;
+            $query->Mobile = $req->cmobile;
+            $query->Pincode = $req->cpin;
+
+            $query->Item_Name = $req->itemName;
+            $query->Quantity = $req->quantity;
+            $query->Width = $req->breadth;
+            $query->Height = $req->height;
+            $query->Length = $req->lenth;
+            $query->Actual_Weight = $req->actualWeight;
+            $brthcm = $req->breadth;
+            $hethcm = $req->height;
+            $lnthcm = $req->lenth;
+            $volwt = ($brthcm * $hethcm * $lnthcm) / 5000;
+            $query->volumetric_weight = $volwt;
+            $query->Total_Amount = $req->totalAmount;
+            $query->Invoice_Value = $req->invoiceValue;
+            $query->Cod_Amount = $req->codAmount;
+            $query->additionaltype = $req->additionalDetails;
+
+            $query->Rec_Time_Stamp = $tdate;
+            $query->Rec_Time_Date = $tdate;
+            $query->uploadtype = 'clone';
+
+            $query->pickup_id = $req->hubid;
+            $query->Address_Id = $hubalternateid;
+            $query->pickup_name = $hubname;
+            $query->pickup_mobile = $hubmobile;
+            $query->pickup_pincode = $hubpincode;
+            $query->pickup_gstin = $hubgstno;
+            $query->pickup_address = $hubaddress;
+            $query->pickup_state = $hubstate;
+            $query->pickup_city = $hubcity;
+
+            $query->order_status = 'Upload';
+            $query->order_status1 = 'Upload';
+            $query->order_status_show = 'Upload';
+            $query->apihitornot = $apistatus;
+            $query->showerrors = $errorstatus;
+            $query->save();
+
+            $last_id = $query->id;
+            $ordernois = "SDRT00" . $last_id;
+            bulkorders::where('Single_Order_Id', $last_id)->update(['ordernoapi' => $ordernois]);
+
+            $req->session()->flash('status', 'Order Details Added');
+            // Perform background URL hit
+            Artisan::call('spnk:place-order');
+            return redirect('/booked-order');
+        } catch (\Exception $e) {
+            $req->session()->flash('status', 'Not Added');
+            return redirect('/booked-order');
+        }
+    }
+
+    public function edit_order($id)
+    {
+        $userid = session()->get('UserLogin2id');
+        $tdate = date('Y-m-d');
+        $Hubs = Hubs::where('hub_created_by', $userid)->get();
+        $courierapids = CourierApiDetail::all();
+        $order = bulkorders::where('User_Id', $userid)
+            ->where('Single_Order_Id', $id)
+            ->first();
+
+        return view('UserPanel.PlaceOrder.orderEdit', compact('order'), ['Hubs' => $Hubs, 'courierapids' => $courierapids]);
+    }
+    public function edit_order_Update(Request $request)
+    {
+
+        // dd($request->all());
+        bulkorders::where('Single_Order_Id', $request->single_order)
+            ->update([
+                'orderno' => $request->orderno,
+                'Order_Type' => $request->courierType,
+                'User_Id' => $request->orderno,
+                'Name' => $request->cname,
+                'Address' => $request->caddress,
+                'State' => $request->cstate,
+                'City' => $request->ccity,
+                'Mobile' => $request->cmobile,
+                'Pincode' => $request->cpin,
+
+                'Item_Name' => $request->itemName,
+                'Quantity' => $request->quantity,
+                'Width' => $request->breadth,
+                'Height' => $request->height,
+
+                'Length' => $request->lenth,
+                'Actual_Weight' => $request->actualWeight,
+                'Invoice_Value' => $request->invoiceValue,
+                'Total_Amount' => $request->totalAmount,
+                'Cod_Amount' => $request->codAmount,
+                'apihitornot' => 0,
+
+
+            ]);
+        // Artisan::call('spnk:place-order');
+        return redirect('/booked-order');
+    }
+
 
     public function updateZone()
     {
@@ -994,7 +1280,7 @@ class UserPlaceOrder extends Controller
                 $prodtotalamt = trim($value[21]);
                 $hub_code = trim($value[22]);
                 $errorstatus = "Upload";
-                $apistatus = 0;
+                $apistatus = 1;
 
                 $pickupid = '0';
                 $pickuphubname = '';
@@ -1128,7 +1414,7 @@ class UserPlaceOrder extends Controller
             // bulkordersfile::where('sparkorderid',$singleuploadorderd)->update(['startingpoint'=>0,'endingpoint'=>$endsidno,'nextstartpoint'=>$endsidno,'apihitornot'=>$apihitornotcheck]);
             //   echo $sidno;
             //  -   *   -   *   -   /*  -   /   -   /   -   
-            Artisan::queue("spnk:place-order");
+            // Artisan::queue("spnk:place-order");
             if ($filestatus == 1) {
                 $req->session()->flash('status', "Upto Line no " . ($errorlineno - 1) . " data saved , Error Occure Line No. : $errorlineno");
             } elseif ($status == "2") {
@@ -1721,14 +2007,25 @@ if($status == "true"){
         ]);
 
         switch ($currentbtnname) {
+            case "ship_order";
+                bulkorders::whereIn('Single_Order_Id', $selectorders)->update(['apihitornot' => 0 ,'xberrors' =>1]);
+
+                // Perform background URL hit (Artisan command)
+                Artisan::call('spnk:place-order');
+
+
             case "shippinglabel":
                 return response()->view("UserPanel.LabesPrintout.Search", ['params' => $selectorders]);
+
+
 
             case "cancelorders":
                 // Update orders to be canceled
                 bulkorders::whereIn('Awb_Number', $selectorders)->update(['order_cancel' => 1]);
                 foreach ($selectorders as $selectorders) {
                     $awb = $selectorders;
+                    $order = bulkorders::whereIn('Awb_Number', $awb)->first();
+                    $date = date('Y-m-d');
 
                     $credit1 = orderdetail::where('awb_no', $awb)->first()->debit;
 
@@ -1736,7 +2033,7 @@ if($status == "true"){
 
 
                     // Fetch the most recent balance record for the given user
-                    $blance = orderdetail::where('user_id', $userid)
+                    $blance = orderdetail::where('awb_no', $awb)
                         ->orderBy('orderid', 'DESC')
                         ->first();
 
@@ -1756,7 +2053,85 @@ if($status == "true"){
                     $wellet->credit = $credit1;
                     $wellet->awb_no = $awb;
                     $wellet->date = $date;
-                    $wellet->user_id =  $userid;
+                    $wellet->user_id =  $order->User_Id;
+                    $wellet->transaction = $transactionCode;
+                    $wellet->close_blance = $close_blance;
+                    $wellet->save();
+                }
+
+
+
+                // Flash message and redirect back
+                return redirect()->back()->with('message', 'Orders successfully canceled.');
+
+            case "exportorderdetails":
+                return Excel::download(new PlacedOrdersExport($selectorders), 'Upload-orders.xls');
+
+            default:
+                return redirect()->back()->with('error', 'Invalid action.');
+        }
+    }
+
+    public function MultipleOrderDelete1(Request $req)
+    {
+        error_reporting(1); // Consider removing or handling errors more gracefully
+        $selectorders = $req->selectedorder;
+        $currentbtnname = $req->currentbtnname;
+
+        // Validate the request
+        $req->validate([
+            'selectedorder' => 'required|array',
+            'currentbtnname' => 'required|string'
+        ]);
+
+        switch ($currentbtnname) {
+            case "ship_order";
+                bulkorders::whereIn('Single_Order_Id', $selectorders)->update(['apihitornot' => 0 ,'xberrors' =>1]);
+
+                // Perform background URL hit (Artisan command)
+                Artisan::call('spnk:place-order');
+
+
+            case "shippinglabel":
+                return response()->view("UserPanel.LabesPrintout.Search", ['params' => $selectorders]);
+
+
+
+            case "cancelorders":
+                // Update orders to be canceled
+                bulkorders::whereIn('Awb_Number', $selectorders)->update(['order_cancel' => 1]);
+                foreach ($selectorders as $selectorders) {
+                    $awb = $selectorders;
+                    $order = bulkorders::whereIn('Awb_Number', $awb)->first();
+                    $date = date('Y-m-d');
+
+                    $credit1 = orderdetail::where('awb_no', $awb)->first()->debit;
+
+                    $transactionCode = "TR" . $selectorders;
+
+
+                    // Fetch the most recent balance record for the given user
+                    $blance = orderdetail::where('awb_no', $awb)
+                        ->orderBy('orderid', 'DESC')
+                        ->first();
+
+
+                    // Initialize $close_blance with $credit1
+                    $close_blance = $credit1;
+
+                    // Check if a balance record exists and update $close_blance accordingly
+                    if ($blance && isset($blance->close_blance)) {
+                        // Ensure close_blance is a number, default to 0 if null
+                        $previous_blance = $blance->close_blance ?? 0;
+                        $close_blance = $previous_blance + $credit1;
+                    }
+
+
+                    $wellet = new orderdetail;
+                    $wellet->credit = $credit1;
+                    $wellet->awb_no = $awb;
+                    $wellet->date = $date;
+                    $wellet->user_id =  $order->User_Id;
                     $wellet->transaction = $transactionCode;
                     $wellet->close_blance = $close_blance;
                     $wellet->save();

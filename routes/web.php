@@ -687,7 +687,9 @@ Route::post('/UPBulk_Order_Internatonal', [UserPlaceOrder::class, 'BulkOrderInte
 Route::get('/BulkOrderDelete', [UserPlaceOrder::class, 'BulkOrderDelete1']);
 Route::get('/BulkOrderDeletesmannual/{id}', [UserPlaceOrder::class, 'BulkOrderDelete1']);
 Route::post('/filter-selected-order', [UserPlaceOrder::class, 'MultipleOrderDelete']);
+Route::post('/filter-selected-order1', [UserPlaceOrder::class, 'MultipleOrderDelete1']);
 
+Route::post('/search-order', [UserPlaceOrder::class, 'search_order']);
 
 
 Route::get('/UPProduct_Receipt/{id}', [UserPlaceOrder::class, 'ReceiptOrder1']);
@@ -698,7 +700,13 @@ Route::get('/order-receipt/{id}', [UserPlaceOrder::class, 'ReceiptOrderNew']);
 Route::get('/Order_Live_Status', [UserPlaceOrder::class, 'OrderLiveStatus']);
 // New
 
+Route::get('/edit-order/{id}', [UserPlaceOrder::class, 'edit_order']);
+Route::post('/order-editnew', [UserPlaceOrder::class, 'edit_order_Update']);
 
+Route::get('/clone-order/{id}', [UserPlaceOrder::class, 'clone_order']);
+Route::post('/clone-order-new', [UserPlaceOrder::class, 'clone_order_Update']);
+
+Route::get('/ship-order/{id}', [UserPlaceOrder::class, 'ship_order']);
 
 // Labels
 Route::get('/Label_Print', [LabelsPrintOut::class, 'LabelPrint']);
@@ -741,6 +749,8 @@ Route::post('/ofd', [UserOrderManage::class, 'Ofd']);
 Route::get('/rto', [UserOrderManage::class, 'Rto']);
 Route::get('/cancelled', [UserOrderManage::class, 'Canceled']);
 Route::get('/failled', [UserOrderManage::class, 'Failled']);
+
+Route::get('order/{id}', [UserOrderManage::class, 'awb_order_details']);
 
 // Route::post('/filter-selected-order',[UserOrderManage::class,'CheckActionSelectedOrders']);
 

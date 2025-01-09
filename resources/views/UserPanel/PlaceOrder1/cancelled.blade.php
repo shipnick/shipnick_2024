@@ -5,31 +5,32 @@
     <div class="d-flex flex-wrap align-items-center mb-3">
         <div class="mb-3 me-auto">
             <div class="card-tabs style-1 mt-3 mt-sm-0">
-                  <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link " href="booked-order">Booked ({{$booked}})</a>
+                        <a class="nav-link " href="booked-order">New Orders ({{$booked}})</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pickup-pending">Pick-up Pending  ({{$pending_pickup}})</a>
+                        <a class="nav-link " href="pickup-pending">Ready to ship ({{$pending_pickup}})</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="intransit">In Transit  ({{$in_transit}})</a>
+                        <a class="nav-link" href="intransit">In Transit ({{$in_transit}})</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ofd">OFD  ({{$ofd}})</a>
+                        <a class="nav-link " href="ofd">OFD ({{$ofd}})</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="deliverd">Delivered ({{$deliver}})</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="rto">RTO/RTS  ({{$rto}})</a>
+                        <a class="nav-link " href="rto">RTO/RTS ({{$rto}})</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="cancelled">Cancelled  ({{$cancel}})</a>
+                        <a class="nav-link active" href="cancelled">All Orders ({{$cancel}})</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="failled">Failed  ({{$failde}})</a>
+                        <a class="nav-link" href="failled">Failed ({{$failde}})</a>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -227,7 +228,7 @@
 										<input class="form-check-input" type="checkbox" name="selectedorder[]" value="<?= $param->Awb_Number ?>" style="border-color: black;">
 									</div>
 								</td>
-								<td><span>{{ $param->Awb_Number }}</span></td>
+								<td><a href="/order/{{ $param->ordernoapi }}"><span>{{ $param->Awb_Number }}</span></a> </td>
 								<td><span>{{ $param->ordernoapi }}</span></td>
 								<td><span>{{ $param->Order_Type }}</span></td>
 								<td>
