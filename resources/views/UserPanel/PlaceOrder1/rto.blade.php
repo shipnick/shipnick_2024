@@ -1,35 +1,56 @@
 @extends("UserPanel/PlaceOrder1/layout")
 @section("order")
+<style>
+    .header-new {
+        position: fixed;
+        /* Change to fixed positioning */
+        top: 178px;
+        /* Always stick to the top */
+        width: 100%;
+        /* background-color: white; */
+        /* Optional: to ensure it stands out */
+        z-index: 1000;
+        /* Ensure it stays above other content */
+    }
 
+    .button-clor-white {
+        background-color: white;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
 <div class="container-fluid">
     <div class="d-flex flex-wrap align-items-center mb-3">
         <div class="mb-3 me-auto">
             <div class="card-tabs style-1 mt-3 mt-sm-0">
-                  <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link " href="booked-order">Booked ({{$booked}})</a>
+                        <a class="nav-link " href="booked-order">New Orders ({{$booked}})</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pickup-pending">Pick-up Pending  ({{$pending_pickup}})</a>
+                        <a class="nav-link " href="pickup-pending">Ready to ship ({{$pending_pickup}})</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="intransit">In Transit  ({{$in_transit}})</a>
+                        <a class="nav-link" href="intransit">In Transit ({{$in_transit}})</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ofd">OFD  ({{$ofd}})</a>
+                        <a class="nav-link " href="ofd">OFD ({{$ofd}})</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="deliverd">Delivered ({{$deliver}})</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="rto">RTO/RTS  ({{$rto}})</a>
+                        <a class="nav-link active" href="rto">RTO/RTS ({{$rto}})</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cancelled">Cancelled  ({{$cancel}})</a>
+                        <a class="nav-link" href="cancelled">All Orders ({{$cancel}})</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="failled">Failed  ({{$failde}})</a>
+                        <a class="nav-link" href="failled">Failed ({{$failde}})</a>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -133,7 +154,6 @@
                                                                     <option value="Ecom" {{ request()->get('courier') == 'Ecom' ? 'selected' : '' }}>Ecom</option>
                                                                     <option value="Xpressbee" {{ request()->get('courier') == 'Xpressbee' ? 'selected' : '' }}>Xpressbee</option>
                                                                     <option value="Bluedart" {{ request()->get('courier') == 'Bluedart' ? 'selected' : '' }}>Bluedart</option>
-                                                                    <option value="Ekart" {{ request()->get('courier') == 'Ekart' ? 'selected' : '' }}>Ekart</option>
                                                                 </select>
                                                             </div>
                                                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
@@ -176,17 +196,17 @@
                                 @csrf
                                 <div id="myDiv" class="hidden">
                                     <div class="d-flex justify-content-start align-items-center header-new">
-                      <!--                  <button name="currentbtnname" value="shippinglabel" type="submit"-->
-                						<!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
-                						<!--	<i class="fa fa-calendar me-1"></i> Print Label-->
-                						<!--</button>-->
-                						<!--<button name="currentbtnname" value="cancelorders" type="submit"-->
-                						<!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
-                						<!--	<i class="fa fa-times-circle me-1"></i> Cancel Orders-->
-                						<!--</button>-->
-                						<button name="currentbtnname" value="exportorderdetails" class="btn btn-outline-secondary btn-sm me-3 mb-2 button-clor-white">
-							<i class="fa fa-download me-1 "></i> Export
-						</button>
+                                        <!--                  <button name="currentbtnname" value="shippinglabel" type="submit"-->
+                                        <!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
+                                        <!--	<i class="fa fa-calendar me-1"></i> Print Label-->
+                                        <!--</button>-->
+                                        <!--<button name="currentbtnname" value="cancelorders" type="submit"-->
+                                        <!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
+                                        <!--	<i class="fa fa-times-circle me-1"></i> Cancel Orders-->
+                                        <!--</button>-->
+                                        <button name="currentbtnname" value="exportorderdetails" class="btn btn-outline-secondary btn-sm me-3 mb-2 button-clor-white">
+                                            <i class="fa fa-download me-1 "></i> Export
+                                        </button>
                                     </div>
                                 </div>
                                 <style>
@@ -221,74 +241,74 @@
                                         </thead>
                                         <tbody id="orderTableBody">
                                             @foreach($params as $param)
-                                           <tr>
-								<td>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" name="selectedorder[]" value="<?= $param->Awb_Number ?>" style="border-color: black;">
-									</div>
-								</td>
-								<td><span>{{ $param->Awb_Number }}</span></td>
-								<td><span>{{ $param->ordernoapi }}</span></td>
-								<td><span>{{ $param->Order_Type }}</span></td>
-								<td>
-									<span>{{ date('Y-m-d', strtotime($param->Last_Time_Stamp)) }}</span><br />
-									<span>
-										{{ date('H:i:s', strtotime($param->Last_Time_Stamp)) }}
-									</span>
-								</td>
-								<td>{{ Str::limit($param->Item_Name, 10) }}</td>
-								<td>
-									<div class="d-flex align-items-center">
-										<div>
-											<h6 class="fs-13 mb-0 text-nowrap"><span>{{ Str::limit($param->Name, 10) }}</span><br />
-												<span>{{$param->Mobile}}</span>
-											</h6>
-										</div>
-									</div>
-								</td>
-								<td><span> {{ Str::limit($param->Address, 20) }}</span></td>
-								<td><span>{{ $param->awb_gen_by }}</span></td>
-								<td>
-									@if($param->showerrors=='Upload')
-									<a href="javascript:void(0)" class="btn btn-success btn-sm btn-rounded light">Manifested</a>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="selectedorder[]" value="<?= $param->Awb_Number ?>" style="border-color: black;">
+                                                    </div>
+                                                </td>
+                                                <td><a href="/order/{{ $param->ordernoapi }}"><span>{{ $param->Awb_Number }}</span></a> </td>
+                                                <td><span>{{ $param->ordernoapi }}</span></td>
+                                                <td><span>{{ $param->Order_Type }}</span></td>
+                                                <td>
+                                                    <span>{{ date('Y-m-d', strtotime($param->Last_Time_Stamp)) }}</span><br />
+                                                    <span>
+                                                        {{ date('H:i:s', strtotime($param->Last_Time_Stamp)) }}
+                                                    </span>
+                                                </td>
+                                                <td>{{ Str::limit($param->Item_Name, 10) }}</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div>
+                                                            <h6 class="fs-13 mb-0 text-nowrap"><span>{{ Str::limit($param->Name, 10) }}</span><br />
+                                                                <span>{{$param->Mobile}}</span>
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span> {{ Str::limit($param->Address, 20) }}</span></td>
+                                                <td><span>{{ $param->awb_gen_by }}</span></td>
+                                                <td>
+                                                    @if($param->showerrors=='Upload')
+                                                    <a href="javascript:void(0)" class="btn btn-success btn-sm btn-rounded light">Manifested</a>
 
-									@else
-									<a href="javascript:void(0)" class="btn btn-danger btn-sm btn-rounded light">{{ Str::limit($param->showerrors, 20) }}</a>
+                                                    @else
+                                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-rounded light">{{ Str::limit($param->showerrors, 20) }}</a>
 
-									@endif
+                                                    @endif
 
-								</td>
-								<td class="text-end">
-									<div class="dropdown dropstart">
-										<a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
-											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-												<path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-												<path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-											</svg>
-										</a>
-										<div class="dropdown-menu">
-
-
-											<a class="dropdown-item" href="{{ asset('/UPAll_Cancel_Orders_Now/'.$param->Awb_Number) }}" title="Cancel">
-												<i class="las la-times-circle text-danger scale5 me-3"></i>Cancel Order</a>
-
-											<form action=""></form>
+                                                </td>
+                                                <td class="text-end">
+                                                    <div class="dropdown dropstart">
+                                                        <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                <path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                <path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                            </svg>
+                                                        </a>
+                                                        <div class="dropdown-menu">
 
 
-											<form action="Labels_Print" method="post">
-												@csrf
-												<input type="hidden" name="awbnoisa" value="{{ $param->Awb_Number }}">
-												<button class="dropdown-item" type="submit"><i class="las la-info-circle scale5 me-3 "></i>Print Label</button>
-											</form>
-											<a class="dropdown-item" href="#" title="Cancel">
-												<i class="las fa-file-invoice  scale5 me-3"></i>Print invoice</a>
-											<a class="dropdown-item" href="#" title="Cancel">
-												<i class="las fa-file-invoice  scale5 me-3"></i>Print manifest</a>
-										</div>
-									</div>
-								</td>
-							</tr>
+                                                            <a class="dropdown-item" href="{{ asset('/UPAll_Cancel_Orders_Now/'.$param->Awb_Number) }}" title="Cancel">
+                                                                <i class="las la-times-circle text-danger scale5 me-3"></i>Cancel Order</a>
+
+                                                            <form action=""></form>
+
+
+                                                            <form action="Labels_Print" method="post">
+                                                                @csrf
+                                                                <input type="hidden" name="awbnoisa" value="{{ $param->Awb_Number }}">
+                                                                <button class="dropdown-item" type="submit"><i class="las la-info-circle scale5 me-3 "></i>Print Label</button>
+                                                            </form>
+                                                            <a class="dropdown-item" href="#" title="Cancel">
+                                                                <i class="las fa-file-invoice  scale5 me-3"></i>Print invoice</a>
+                                                            <a class="dropdown-item" href="#" title="Cancel">
+                                                                <i class="las fa-file-invoice  scale5 me-3"></i>Print manifest</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                             @endforeach
                                         </tbody>
                                     </table>

@@ -21,18 +21,23 @@
         display: none;
     }
 </style>
-{{-- <script>
-	// Perform background URL hit asynchronously
-	fetch('https://shipnick.com/UPBulk_Order_API', {
-			method: 'GET'
-		})
-		.then(response => {
-			// Handle the response if needed
-		})
-		.catch(error => {
-			console.error('Error performing background URL hit:', error);
-		});
-</script> --}}
+<style>
+    #hidden_div {
+        display: none;
+    }
+
+    table.dataTable tbody td {
+        padding: 0px 0px;
+        font-weight: 600;
+        border-bottom: 0;
+    }
+
+    .btn-outline-primary {
+        color: var(--primary);
+        border-color: var(--primary);
+    }
+</style>
+
 <script>
     window.addEventListener('scroll', function() {
         var header = document.querySelector('.header-new');
@@ -51,58 +56,46 @@
 
 <div class="content-body">
     <div class="container-fluid">
-        <div class="d-flex flex-wrap align-items-center mb-3">
-            <div class="mb-3 me-auto">
+        <div class="d-flex flex-wrap align-items-center ">
+            <div class="  me-auto">
                 <div class="card-tabs style-1 mt-3 mt-sm-0">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="booked-order">Booked ({{$booked}})</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pickup-pending">Pick-up Pending ({{$pending_pickup}})</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="intransit">In Transit ({{$in_transit}})</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ofd">OFD ({{$ofd}})</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="deliverd">Delivered ({{$deliver}})</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="rto">RTO/RTS ({{$rto}})</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cancelled">Cancelled ({{$cancel}})</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="failled">Failed ({{$failde}})</a>
-                        </li>
-                    </ul>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="booked-order">New Orders ({{$booked}})</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="pickup-pending">Ready to ship ({{$pending_pickup}})</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="intransit">In Transit ({{$in_transit}})</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="ofd">OFD ({{$ofd}})</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="deliverd">Delivered ({{$deliver}})</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="rto">RTO/RTS ({{$rto}})</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cancelled">All Orders ({{$cancel}})</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="failled">Failed ({{$failde}})</a>
+                    </li>
+
+                </ul>
+
                 </div>
             </div>
-            <div class="form-group">
-                <button class="button btn btn-outline-primary btn-sm">FILTERS</button>
-            </div>
+            <button class="button btn btn-outline-primary btn-sm">Date Range</button>
         </div>
 
-        <style>
-            #hidden_div {
-                display: none;
-            }
 
-            table.dataTable tbody td {
-                padding: 0px 0px;
-                font-weight: 600;
-                border-bottom: 0;
-            }
 
-            .btn-outline-primary {
-                color: var(--primary);
-                border-color: var(--primary);
-            }
-        </style>
+
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script>
             $(document).ready(function() {
@@ -145,7 +138,7 @@
 
 
         <div class="row " id="allordersshows">
-            <div class="col-xl-12 tab-content">
+            <div class="col-xl-12 tab-content mt-2">
                 <div class="tab-pane fade show active" id="booked" role="tabpanel" aria-labelledby="booked-tab">
                     <div class="row">
                         <div class="col-xl-12 tab-content">
@@ -255,22 +248,22 @@
                                         display: none;
                                     }
                                 </style>
-                                <form method="post" action="{{ asset('/filter-selected-order') }}" target="_blank">
+                                <form method="post" action="{{ asset('/filter-selected-order1') }}" target="_blank">
                                     @csrf
-                                    <div id="myDiv" class="hidden">
+                                    <div id="myDiv" class="hidden " style="margin-bottom: 5%;">
                                         <div class="d-flex justify-content-start align-items-center header-new button-clor-white ">
-                                            <button name="currentbtnname" value="shippinglabel" type="submit"
+                                            <button name="currentbtnname" value="ship_order" type="submit"
                                                 class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">
-                                                <i class="fa fa-calendar me-1"></i> Print Label
+                                                <i class="fa fa-calendar me-1"></i> ship
                                             </button>
                                             <button name="currentbtnname" value="cancelorders" type="submit"
                                                 class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">
                                                 <i class="fa fa-times-circle me-1"></i> Cancel Orders
                                             </button>
-                                            <button name="currentbtnname" value="exportorderdetails" class="btn btn-outline-secondary btn-sm me-3 mb-2 button-clor-white">
+                                            <button name="currentbtnname" value="exportorderdetails" class="btn btn-outline-secondary  me-3 mb-2 btn-sm button-clor-white">
                                                 <i class="fa fa-download me-1 "></i> Export
                                             </button>
-                                            <button id="downloadExcelBtn" class="btn btn-outline-secondary btn-sm mb-2 button-clor-white">
+                                            <button id="downloadExcelBtn" class="btn btn-outline-secondary  mb-2 btn-sm button-clor-white">
                                                 <i class="fa fa-download me-1"></i> Export All
                                             </button>
                                         </div>
@@ -283,7 +276,7 @@
                                         }
                                     </style>
 
-                                    <div class="table-responsive fs-13 card  fc-view">
+                                    <div class="table-responsive fs-13 card  fc-view ">
                                         <table class="table card-table display mb-4 dataTablesCard text-black" id="example1">
                                             <thead style="background-color:#17a2b89c;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
                                                 <tr>
@@ -293,13 +286,13 @@
                                                             <label class="form-check-label" for="checkAll"></label>
                                                         </div>
                                                     </th>
-                                                    <th>AWB #</th>
+
                                                     <th>ID Orders</th>
                                                     <th>Type</th>
                                                     <th>Date </th>
                                                     <th>Product</th>
-                                                    <th>Customer </th>
-                                                    <th>address</th>
+
+                                                    <th>channel</th>
                                                     <th>Courier</th>
                                                     <th>Status</th>
                                                     <th class="text-end"> </th>
@@ -310,11 +303,11 @@
                                                 <tr>
                                                     <td>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="selectedorder[]" value="<?= $param->Awb_Number ?>" style="border-color: black;">
+                                                            <input class="form-check-input" type="checkbox" name="selectedorder[]" value="<?= $param->Single_Order_Id ?>" style="border-color: black;">
                                                         </div>
                                                     </td>
-                                                    <td><span>{{ $param->Awb_Number }}</span></td>
-                                                    <td><span>{{ $param->ordernoapi }}</span></td>
+
+                                                    <td><span>{{ $param->orderno }}</span></td>
                                                     <td><span>{{ $param->Order_Type }}</span></td>
                                                     <td>
                                                         <span>{{ date('Y-m-d', strtotime($param->Last_Time_Stamp)) }}</span><br />
@@ -322,7 +315,7 @@
                                                             {{ date('H:i:s', strtotime($param->Last_Time_Stamp)) }}
                                                         </span>
                                                     </td>
-                                                    <td>{{ Str::limit($param->Item_Name, 10) }}</td>
+                                                    <td><span title="{{$param->Item_Name}}">{{ Str::limit($param->Item_Name, 10) }}</span> </td>
                                                     <td>
                                                         <div class="d-flex align-items-center">
                                                             <div>
@@ -333,15 +326,9 @@
                                                         </div>
                                                     </td>
                                                     <td><span title="{{$param->Address}}"> {{ Str::limit($param->Address, 20) }}</span></td>
-                                                    <td><span>{{ $param->awb_gen_by }}</span></td>
+
                                                     <td>
-                                                        @if($param->showerrors=='Upload')
-                                                        <a href="javascript:void(0)" class="btn btn-success btn-sm btn-rounded light">Manifested</a>
-
-                                                        @else
-                                                        <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-rounded light" title="{{$param->showerrors}}">{{ Str::limit($param->showerrors, 20) }}</a>
-
-                                                        @endif
+                                                        <a href="/ship-order/{{$param->Single_Order_Id}}" class="btn btn-primary btn-xs">ship Now</a>
 
                                                     </td>
                                                     <td class="text-end">
@@ -365,12 +352,12 @@
                                                                 <form action="Labels_Print" method="post">
                                                                     @csrf
                                                                     <input type="hidden" name="awbnoisa" value="{{ $param->Awb_Number }}">
-                                                                    <button class="dropdown-item" type="submit"><i class="las la-info-circle scale5 me-3 "></i>Print Label</button>
+                                                                    <button class="dropdown-item" type="submit"><i class="las la-info-circle scale5 me-3 "></i>Download Invoice</button>
                                                                 </form>
-                                                                <a class="dropdown-item" href="#" title="Cancel">
-                                                                    <i class="las fa-file-invoice  scale5 me-3"></i>Print invoice</a>
-                                                                <a class="dropdown-item" href="#" title="Cancel">
-                                                                    <i class="las fa-file-invoice  scale5 me-3"></i>Print manifest</a>
+                                                                <a class="dropdown-item" href="edit-order/{{ $param->Single_Order_Id }}" title="Edit Order">
+                                                                    <i class="las fa-file-invoice  scale5 me-3"></i>Edit Order</a>
+                                                                <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Cancel">
+                                                                    <i class="las fa-file-invoice  scale5 me-3"></i>Clone Order</a>
                                                             </div>
                                                         </div>
                                                     </td>

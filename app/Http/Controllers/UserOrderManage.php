@@ -990,7 +990,7 @@ class UserOrderManage extends Controller
     public function Pickup_pending(Request $req)
     {
         $userid = session()->get('UserLogin2id');
-
+        $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
         // Convert date range inputs to Carbon objects if they are set
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
         $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
@@ -1105,6 +1105,7 @@ class UserOrderManage extends Controller
         return view('UserPanel.PlaceOrder1.pickup-pending', [
             'params' => $orders,
             'Hubs' => $Hubs,
+            'Hubs1' => $Hubs1,
             'allusers' => $allusers,
             'courierapids' => $courierapids,
             'cfromdate' => $req->from, // Pass original date inputs for display
@@ -1844,5 +1845,19 @@ class UserOrderManage extends Controller
             'cfromdate' => $req->from, // Pass original date inputs for display
             'ctodate' => $req->to
         ])->with($data);
+    }
+
+    public function awb_order_details($id)
+    {
+        // Retrieve a single order by 'ordernoapi'
+        $order = bulkorders::where('ordernoapi', $id)->first();
+        // dd($order);
+        // Check if the order exists
+        if (!$order) {
+            return redirect()->with('error', 'Order not found');
+        }
+
+        // Pass the order data to the view
+        return view('UserPanel.PlaceOrder.awbOrderDetails', compact('order'));
     }
 }
