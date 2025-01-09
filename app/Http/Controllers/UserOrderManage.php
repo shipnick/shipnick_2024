@@ -887,6 +887,8 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
+            ->whereNull('xberrors')
+            ->where('Awb_Number', '')
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Single_Order_Id','Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','Actual_Weight' ,'Height' , 'Width', 'Length' , 'orderno', 'Quantity', 'Total_Amount','uploadtype');
 
@@ -932,6 +934,8 @@ class UserOrderManage extends Controller
         // Calculate various counts
         $booked = bulkorders::where('User_Id', $userid)
             ->where('Awb_Number', '!=', '')
+            ->whereNull('xberrors')
+            ->where('Awb_Number', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
             ->count();
@@ -1003,7 +1007,7 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Booked','Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype');
 
@@ -1062,6 +1066,7 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
+             ->whereNull('xberrors')
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
@@ -1194,6 +1199,7 @@ class UserOrderManage extends Controller
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
             ->where('Awb_Number', '!=', '')
+             ->whereNull('xberrors')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
             ->count();
@@ -1323,6 +1329,7 @@ class UserOrderManage extends Controller
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
             ->where('Awb_Number', '!=', '')
+             ->whereNull('xberrors')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
             ->count();
@@ -1451,6 +1458,7 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
+             ->whereNull('xberrors')
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
@@ -1580,6 +1588,7 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
+             ->whereNull('xberrors')
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
@@ -1709,6 +1718,7 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
+             ->whereNull('xberrors')
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
@@ -1840,6 +1850,7 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
+             ->whereNull('xberrors')
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
