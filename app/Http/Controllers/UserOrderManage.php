@@ -888,7 +888,7 @@ class UserOrderManage extends Controller
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
+            ->select('Single_Order_Id', 'orderno', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
