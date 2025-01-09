@@ -2089,9 +2089,9 @@ if($status == "true"){
                 bulkorders::whereIn('Single_Order_Id', $selectorders)->update(['apihitornot' => 0 ,'xberrors' =>1]);
 
                 // Perform background URL hit (Artisan command)
-                Artisan::call('spnk:place-order');
+                // Artisan::call('spnk:place-order');
 
-
+                return redirect()->back();
             case "shippinglabel":
                 return response()->view("UserPanel.LabesPrintout.Search", ['params' => $selectorders]);
 

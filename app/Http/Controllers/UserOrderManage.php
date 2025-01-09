@@ -888,7 +888,7 @@ class UserOrderManage extends Controller
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','uploadtype','Quantity','Width','Height','Length','Actual_Weight','Total_Amount','orderno');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -910,6 +910,12 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', $req->orderid);
+        }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', $req->cannel);
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1018,6 +1024,12 @@ class UserOrderManage extends Controller
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', $req->orderid);
+        }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', $req->cannel);
+        }
 
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
@@ -1115,7 +1127,7 @@ class UserOrderManage extends Controller
     public function Intransit(Request $req)
     {
         $userid = session()->get('UserLogin2id');
-
+        $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
         // Convert date range inputs to Carbon objects if they are set
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
         $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
@@ -1142,6 +1154,12 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', $req->orderid);
+        }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', $req->cannel);
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1228,6 +1246,7 @@ class UserOrderManage extends Controller
         return view('UserPanel.PlaceOrder1.intransit', [
             'params' => $orders,
             'Hubs' => $Hubs,
+            'Hubs1' => $Hubs1,
             'allusers' => $allusers,
             'courierapids' => $courierapids,
             'cfromdate' => $req->from, // Pass original date inputs for display
@@ -1237,7 +1256,7 @@ class UserOrderManage extends Controller
     public function Ofd(Request $req)
     {
         $userid = session()->get('UserLogin2id');
-
+        $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
         // Convert date range inputs to Carbon objects if they are set
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
         $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
@@ -1264,6 +1283,12 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', $req->orderid);
+        }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', $req->cannel);
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1350,6 +1375,7 @@ class UserOrderManage extends Controller
         return view('UserPanel.PlaceOrder1.ofd', [
             'params' => $orders,
             'Hubs' => $Hubs,
+            'Hubs1' => $Hubs1,
             'allusers' => $allusers,
             'courierapids' => $courierapids,
             'cfromdate' => $req->from, // Pass original date inputs for display
@@ -1359,7 +1385,7 @@ class UserOrderManage extends Controller
     public function Deliverd(Request $req)
     {
         $userid = session()->get('UserLogin2id');
-
+        $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
         // Convert date range inputs to Carbon objects if they are set
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
         $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
@@ -1386,6 +1412,12 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', $req->orderid);
+        }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', $req->cannel);
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1472,6 +1504,7 @@ class UserOrderManage extends Controller
         return view('UserPanel.PlaceOrder1.deliverd', [
             'params' => $orders,
             'Hubs' => $Hubs,
+            'Hubs1' => $Hubs1,
             'allusers' => $allusers,
             'courierapids' => $courierapids,
             'cfromdate' => $req->from, // Pass original date inputs for display
@@ -1481,7 +1514,7 @@ class UserOrderManage extends Controller
     public function Rto(Request $req)
     {
         $userid = session()->get('UserLogin2id');
-
+        $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
         // Convert date range inputs to Carbon objects if they are set
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
         $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
@@ -1508,6 +1541,12 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', $req->orderid);
+        }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', $req->cannel);
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1594,6 +1633,7 @@ class UserOrderManage extends Controller
         return view('UserPanel.PlaceOrder1.rto', [
             'params' => $orders,
             'Hubs' => $Hubs,
+            'Hubs1' => $Hubs1,
             'allusers' => $allusers,
             'courierapids' => $courierapids,
             'cfromdate' => $req->from, // Pass original date inputs for display
@@ -1603,7 +1643,7 @@ class UserOrderManage extends Controller
     public function Canceled(Request $req)
     {
         $userid = session()->get('UserLogin2id');
-
+        $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
         // Convert date range inputs to Carbon objects if they are set
         $cfromdateObj1 = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
         $ctodateObj1 = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
@@ -1630,6 +1670,12 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', $req->orderid);
+        }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', $req->cannel);
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1716,6 +1762,7 @@ class UserOrderManage extends Controller
         return view('UserPanel.PlaceOrder1.cancelled', [
             'params' => $orders,
             'Hubs' => $Hubs,
+            'Hubs1' => $Hubs1,
             'allusers' => $allusers,
             'courierapids' => $courierapids,
             'cfromdate' => $req->from, // Pass original date inputs for display
@@ -1726,7 +1773,7 @@ class UserOrderManage extends Controller
     public function Failled(Request $req)
     {
         $userid = session()->get('UserLogin2id');
-
+        $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
         // Convert date range inputs to Carbon objects if they are set
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::today()->startOfDay();
         $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::today()->endOfDay();
@@ -1753,6 +1800,12 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', $req->orderid);
+        }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', $req->cannel);
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1840,6 +1893,7 @@ class UserOrderManage extends Controller
         return view('UserPanel.PlaceOrder1.failed', [
             'params' => $orders,
             'Hubs' => $Hubs,
+            'Hubs1' => $Hubs1,
             'allusers' => $allusers,
             'courierapids' => $courierapids,
             'cfromdate' => $req->from, // Pass original date inputs for display
