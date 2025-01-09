@@ -887,7 +887,7 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->where('xberrors', '!=', '1')
+             ->whereNull('xberrors')
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Single_Order_Id', 'orderno', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
 
