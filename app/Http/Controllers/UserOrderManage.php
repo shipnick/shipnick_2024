@@ -887,12 +887,8 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-             ->whereNull('xberrors')
             ->orderBy('Single_Order_Id', 'desc')
-
-            ->select('Single_Order_Id','Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','Actual_Weight' ,'Height' , 'Width', 'Length' , 'orderno', 'Quantity', 'Total_Amount','uploadtype','uploadtype','Quantity','Width','Height','Length','Actual_Weight','Total_Amount','orderno')
-            ->select('Single_Order_Id', 'orderno', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
-
+            ->select('Single_Order_Id','Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','Actual_Weight' ,'Height' , 'Width', 'Length' , 'orderno', 'Quantity', 'Total_Amount','uploadtype');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -918,6 +914,8 @@ class UserOrderManage extends Controller
         if ($req->filled('orderid')) {
             $query->where('orderno', 'like', '%' . $req->orderid . '%');
         }
+        
+
 
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
@@ -1005,7 +1003,7 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->whereIn('showerrors', ['Booked','Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype');
 
@@ -1024,6 +1022,12 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
+        }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1150,6 +1154,12 @@ class UserOrderManage extends Controller
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
+        }
 
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
@@ -1273,7 +1283,12 @@ class UserOrderManage extends Controller
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
-        
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
+        }
 
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
@@ -1396,6 +1411,12 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
+        }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1520,6 +1541,12 @@ class UserOrderManage extends Controller
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
+        }
 
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
@@ -1642,6 +1669,12 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
+        }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1766,6 +1799,12 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
+        }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
         }
 
         $perPage = $req->input('per_page', 50);
