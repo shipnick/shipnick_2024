@@ -1,19 +1,6 @@
 @extends("UserPanel/userpanel_layout1")
 @section("userpanel")
 <style>
-    .table td {
-        font-weight: 700;
-        border-color: #e6e6e6;
-        padding: 0px 10px;
-    }
-
-    .table thead th {
-
-        font-size: 12px;
-    }
-</style>
-
-<style>
     .header-new {
         position: fixed;
         /* Change to fixed positioning */
@@ -67,7 +54,6 @@
         } else {
             header.style.position = 'absolute'; // Or use a value that fits your layout
             header.style.top = '194px'; // Adjust to match your original design
-            header.style.top = '194px'; // Adjust to match your original design
         }
     });
 </script>
@@ -83,7 +69,7 @@
                             <a class="nav-link active" href="booked-order">New Orders ({{$booked}})</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="pickup-pending">Pending Pickup({{$pending_pickup}})</a>
+                            <a class="nav-link " href="pickup-pending">Ready to ship ({{$pending_pickup}})</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="intransit">In Transit ({{$in_transit}})</a>
@@ -104,7 +90,6 @@
                             <a class="nav-link" href="failled">Failed ({{$failde}})</a>
                         </li>
 
-                    </ul>
                     </ul>
 
                 </div>
@@ -189,8 +174,18 @@
                                                                     <input type="text" class="form-control" id="product_name" placeholder="Product Name" name="product_name" value="{{ request()->get('product_name') }}">
                                                                 </div>
                                                                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
+                                                                    <label class="form-label">Cannel</label>
+                                                                    <select class="default-select form-control wide w-100" name="cannel">
+                                                                        <option value="">Select...</option>
+                                                                        <option value="Excel" {{ request()->get('cannel') == 'Excel' ? 'selected' : '' }}>Excel</option>
+                                                                        <option value="shopify" {{ request()->get('cannel') == 'shopify' ? 'selected' : '' }}>shopify</option>
+                                                                        <option value="Single" {{ request()->get('cannel') == 'single' ? 'selected' : '' }}>single order</option>
+
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
                                                                     <label for="waybill" class="form-label">ORDER ID</label>
-                                                                    <input type="text" class="form-control" id="waybill" placeholder="CUSTOMER ORDER ID" name="orderid" value="{{ request()->get('awb') }}">
+                                                                    <input type="text" class="form-control" id="waybill" name="orderid" value="{{ request()->get('awb') }}">
                                                                 </div>
                                                                 <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 mb-3">
                                                                     <label class="form-label">Order Type</label>
@@ -200,16 +195,7 @@
                                                                         <option value="Prepaid" {{ request()->get('order_type') == 'Prepaid' ? 'selected' : '' }}>Prepaid</option>
                                                                     </select>
                                                                 </div>
-                                                                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 mb-3">
-                                                                    <label class="form-label" for="warehouse">CHANNEL</label>
-                                                                    <select class="default-select form-control wide w-100" name="cannel">
-                                                                        <option value="">Select...</option>
-                                                                        <option value="Excel" {{ request()->get('cannel') == 'Excel' ? 'selected' : '' }}>Excel</option>
-                                                                        <option value="shopify" {{ request()->get('shopify') == 'selected' ? 'shopify' : '' }}>shopify</option>
-                                                                        <option value="single" {{ request()->get('courier') == 'single' ? 'selected' : '' }}>single Order</option>
-                                                                        <option value="Amazon" {{ request()->get('courier') == 'Amazon' ? 'selected' : '' }}>Amazon</option>
-                                                                    </select>
-                                                                </div>
+
                                                             </div>
                                                             <hr class="mb-4">
                                                             <button type="submit" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Search</button>
@@ -218,11 +204,7 @@
                                                         <script>
                                                             $(function() {
                                                                 // Initialize the date range picker with the options
-                                                                // Initialize the date range picker with the options
                                                                 $('#daterange').daterangepicker({
-                                                                    opens: 'left', // Position the calendar to the left
-                                                                    startDate: moment().subtract(6, 'days'), // Default to Last 7 Days
-                                                                    endDate: moment(), // End on today
                                                                     opens: 'left', // Position the calendar to the left
                                                                     startDate: moment().subtract(6, 'days'), // Default to Last 7 Days
                                                                     endDate: moment(), // End on today
@@ -236,30 +218,14 @@
                                                                         'Last 30 Days': [moment().subtract(29, 'days'), moment()], // Last 30 Days
                                                                         'This Month': [moment().startOf('month'), moment().endOf('month')], // This Month
                                                                         'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')] // Last Month
-                                                                        format: 'YYYY-MM-DD' // Format of the date
-                                                                    },
-                                                                    ranges: {
-                                                                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')], // Yesterday
-                                                                        'Tomorrow': [moment().add(1, 'days'), moment().add(1, 'days')], // Tomorrow
-                                                                        'Last 7 Days': [moment().subtract(6, 'days'), moment()], // Last 7 Days
-                                                                        'Last 30 Days': [moment().subtract(29, 'days'), moment()], // Last 30 Days
-                                                                        'This Month': [moment().startOf('month'), moment().endOf('month')], // This Month
-                                                                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')] // Last Month
                                                                     }
                                                                 }, function(start, end) {
-                                                                    // When the date range is selected, update the input fields
                                                                     // When the date range is selected, update the input fields
                                                                     $('#daterange').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
                                                                     $('#start_date').val(start.format('YYYY-MM-DD'));
                                                                     $('#end_date').val(end.format('YYYY-MM-DD'));
                                                                 });
 
-                                                                // Set the initial value based on the selected range
-                                                                var start = moment().subtract(6, 'days'); // Default to Last 7 Days
-                                                                var end = moment(); // Today
-                                                                $('#daterange').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
-                                                                $('#start_date').val(start.format('YYYY-MM-DD'));
-                                                                $('#end_date').val(end.format('YYYY-MM-DD'));
                                                                 // Set the initial value based on the selected range
                                                                 var start = moment().subtract(6, 'days'); // Default to Last 7 Days
                                                                 var end = moment(); // Today
@@ -300,6 +266,13 @@
                                             </button>
                                         </div>
                                     </div>
+                                    <style>
+                                        .table td {
+                                            font-weight: 700;
+                                            border-color: #e6e6e6;
+                                            padding: 0px 10px;
+                                        }
+                                    </style>
 
                                     <div class="table-responsive fs-13 card  fc-view ">
                                         <table class="table card-table display mb-4 dataTablesCard text-black" id="example1">
@@ -311,15 +284,17 @@
                                                             <label class="form-check-label" for="checkAll"></label>
                                                         </div>
                                                     </th>
+
                                                     <th>CHANNEL</th>
                                                     <th>ORDER ID</th>
-                                                    <th>DATE/TIME</th>
+                                                    <th>DATE</th>
                                                     <th>CUSTOMER</th>
+
                                                     <th>PRODUCTS</th>
                                                     <th>QTY</th>
                                                     <th>AMOUNT</th>
-                                                    <th>TYPE </th>
-                                                    <th> WEIGHT </th>
+                                                    <th>TYPE</th>
+                                                    <th>WEIGHT</th>
                                                     <th>Action</th>
                                                     <th class="text-end"> </th>
                                                 </tr>
@@ -332,7 +307,6 @@
                                                             <input class="form-check-input" type="checkbox" name="selectedorder[]" value="<?= $param->Single_Order_Id ?>" style="border-color: black;">
                                                         </div>
                                                     </td>
-                                                    <td><span>{{ $param->uploadtype }}</span></td>
                                                     <td><span>{{ $param->uploadtype }}</span></td>
                                                     <td><span>{{ $param->orderno }}</span></td>
                                                     <td>
@@ -350,26 +324,19 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td>
-                                                        <span title="{{$param->Item_Name}}">{{ Str::limit($param->Item_Name, 10) }}</span>
-                                                    </td>
-                                                    <td>{{$param->Quantity}}</td>
-                                                    <td>₹{{$param->Total_Amount}}</td>
-
+                                                    <td><span title="{{$param->Item_Name}}">{{ Str::limit($param->Item_Name, 10) }}</span> </td>
+                                                    <td><span>{{ $param->Quantity }}</span></td>
+                                                    <td><span>{{ $param->Total_Amount }}</span></td>
                                                     <td><span>{{ $param->Order_Type }}</span></td>
-
-
                                                     <td>
                                                         <div class="d-flex align-items-center">
                                                             <div>
                                                                 <h6 class="fs-13 mb-0 text-nowrap"><span>{{ Str::limit($param->Actual_Weight, 10) }}KG</span><br />
-                                                                    <span>{{$param->Length}}*{{$param->Height}}*{{$param->Width}}cm </span>
+                                                                    <span>{{$param->Length}}*{{$param->Height}}*{{$param->Width}}cm</span>
                                                                 </h6>
                                                             </div>
                                                         </div>
                                                     </td>
-
-
 
                                                     <td>
                                                         <a href="/ship-order/{{$param->Single_Order_Id}}" class="btn btn-primary btn-xs">ship Now</a>
