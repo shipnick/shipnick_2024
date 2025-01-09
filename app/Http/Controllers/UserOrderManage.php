@@ -889,11 +889,10 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
              ->whereNull('xberrors')
             ->orderBy('Single_Order_Id', 'desc')
-<<<<<<< HEAD
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','uploadtype','Quantity','Width','Height','Length','Actual_Weight','Total_Amount','orderno');
-=======
+
+            ->select('Single_Order_Id','Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','Actual_Weight' ,'Height' , 'Width', 'Length' , 'orderno', 'Quantity', 'Total_Amount','uploadtype','uploadtype','Quantity','Width','Height','Length','Actual_Weight','Total_Amount','orderno')
             ->select('Single_Order_Id', 'orderno', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
->>>>>>> 0fc2af3321fd88f9e56f0d701e4d3ecf41aa3fd5
+
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -913,14 +912,11 @@ class UserOrderManage extends Controller
             // dd($req->warehouse);
             $query->where('pickup_id', $req->warehouse);
         }
-        if ($req->filled('courier')) {
-            $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
         }
         if ($req->filled('orderid')) {
-            $query->where('orderno', $req->orderid);
-        }
-        if ($req->filled('cannel')) {
-            $query->where('uploadtype', $req->cannel);
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1011,7 +1007,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['Booked','Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1028,12 +1024,6 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
-        }
-        if ($req->filled('orderid')) {
-            $query->where('orderno', $req->orderid);
-        }
-        if ($req->filled('cannel')) {
-            $query->where('uploadtype', $req->cannel);
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1142,7 +1132,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1159,12 +1149,6 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
-        }
-        if ($req->filled('orderid')) {
-            $query->where('orderno', $req->orderid);
-        }
-        if ($req->filled('cannel')) {
-            $query->where('uploadtype', $req->cannel);
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1271,7 +1255,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1289,12 +1273,7 @@ class UserOrderManage extends Controller
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
-        if ($req->filled('orderid')) {
-            $query->where('orderno', $req->orderid);
-        }
-        if ($req->filled('cannel')) {
-            $query->where('uploadtype', $req->cannel);
-        }
+        
 
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
@@ -1400,7 +1379,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->where('showerrors', 'Delivered')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1417,12 +1396,6 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
-        }
-        if ($req->filled('orderid')) {
-            $query->where('orderno', $req->orderid);
-        }
-        if ($req->filled('cannel')) {
-            $query->where('uploadtype', $req->cannel);
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1529,7 +1502,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->where('showerrors', 'Undelivered')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1546,12 +1519,6 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
-        }
-        if ($req->filled('orderid')) {
-            $query->where('orderno', $req->orderid);
-        }
-        if ($req->filled('cannel')) {
-            $query->where('uploadtype', $req->cannel);
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1658,7 +1625,7 @@ class UserOrderManage extends Controller
 
             ->where('order_cancel', 1)
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj1 && $ctodateObj1) {
@@ -1675,12 +1642,6 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
-        }
-        if ($req->filled('orderid')) {
-            $query->where('orderno', $req->orderid);
-        }
-        if ($req->filled('cannel')) {
-            $query->where('uploadtype', $req->cannel);
         }
 
         $perPage = $req->input('per_page', 50);
@@ -1788,7 +1749,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->where('Awb_Number', '')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1805,12 +1766,6 @@ class UserOrderManage extends Controller
         }
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
-        }
-        if ($req->filled('orderid')) {
-            $query->where('orderno', $req->orderid);
-        }
-        if ($req->filled('cannel')) {
-            $query->where('uploadtype', $req->cannel);
         }
 
         $perPage = $req->input('per_page', 50);

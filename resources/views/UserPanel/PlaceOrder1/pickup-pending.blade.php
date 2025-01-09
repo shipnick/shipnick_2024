@@ -32,6 +32,11 @@
     .hidden {
         display: none;
     }
+
+    .table thead th {
+
+        font-size: 12px;
+    }
 </style>
 <style>
     #hidden_div {
@@ -372,10 +377,10 @@
                                                             <div class="dropdown-menu">
 
 
-                                                                <a class="dropdown-item" href="{{ asset('/UPAll_Cancel_Orders_Now/'.$param->Awb_Number) }}" title="Cancel">
-                                                                    <i class="las la-times-circle text-danger scale5 me-3"></i>Cancel Order</a>
+                                                            <a class="dropdown-item" href="{{ asset('/UPAll_Cancel_Orders_Now/'.$param->Awb_Number) }}" title="Cancel">
+                                                                <i class="las la-times-circle text-danger scale5 me-3"></i>Cancel Order</a>
 
-                                                                <form action=""></form>
+                                                            <form action=""></form>
 
 
                                                                 <form action="Labels_Print" method="post">
@@ -409,18 +414,18 @@
                                             </div>
                                         </form>
 
-                                        <script>
-                                            function updatePerPage() {
-                                                var perPage = document.getElementById('perPageSelect').value;
-                                                document.getElementById('hiddenPerPage').value = perPage;
-                                                document.getElementById('filterForm').submit();
-                                            }
-                                        </script>
+                                    <script>
+                                        function updatePerPage() {
+                                            var perPage = document.getElementById('perPageSelect').value;
+                                            document.getElementById('hiddenPerPage').value = perPage;
+                                            document.getElementById('filterForm').submit();
+                                        }
+                                    </script>
 
-                                    </div>
-                                    <div class="col-md-6 ">
-                                        <div id="newpaginationnew" style="float: right;">
-                                            {{ $params->appends([
+                                </div>
+                                <div class="col-md-6 ">
+                                    <div id="newpaginationnew" style="float: right;">
+                                        {{ $params->appends([
                                         'per_page' => request()->get('per_page'),
                                         'from' => request()->get('from'),
                                         'to' => request()->get('to'),
@@ -429,54 +434,54 @@
                                         'awb' => request()->get('awb'),
                                         'order_type' => request()->get('order_type')
                                     ])->links() }}
-                                        </div>
                                     </div>
                                 </div>
-
-                                <script>
-                                    document.addEventListener('DOMContentLoaded', () => {
-                                        const checkboxes = document.querySelectorAll('input.form-check-input[type="checkbox"]');
-                                        const myDiv = document.getElementById('myDiv');
-                                        const checkAllCheckbox = document.getElementById('checkAll');
-
-                                        // Function to update the visibility of myDiv
-                                        function updateDivVisibility() {
-                                            const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-                                            myDiv.classList.toggle('hidden', !anyChecked);
-                                        }
-
-                                        // Add event listeners to all checkboxes
-                                        checkboxes.forEach(checkbox => {
-                                            checkbox.addEventListener('change', updateDivVisibility);
-                                        });
-
-                                        // Add event listener to the "check all" checkbox
-                                        checkAllCheckbox.addEventListener('change', function() {
-                                            const isChecked = this.checked;
-                                            checkboxes.forEach(checkbox => {
-                                                checkbox.checked = isChecked;
-                                            });
-                                            updateDivVisibility();
-                                        });
-                                    });
-                                </script>
-                                <script>
-                                    $(document).ready(function() {
-                                        $('#perPageSelect').change(function() {
-                                            $('#searchForm1').submit();
-                                        });
-                                    });
-                                </script>
-                                <!-- Pagination Links -->
-
                             </div>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', () => {
+                                    const checkboxes = document.querySelectorAll('input.form-check-input[type="checkbox"]');
+                                    const myDiv = document.getElementById('myDiv');
+                                    const checkAllCheckbox = document.getElementById('checkAll');
+
+                                    // Function to update the visibility of myDiv
+                                    function updateDivVisibility() {
+                                        const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                                        myDiv.classList.toggle('hidden', !anyChecked);
+                                    }
+
+                                    // Add event listeners to all checkboxes
+                                    checkboxes.forEach(checkbox => {
+                                        checkbox.addEventListener('change', updateDivVisibility);
+                                    });
+
+                                    // Add event listener to the "check all" checkbox
+                                    checkAllCheckbox.addEventListener('change', function() {
+                                        const isChecked = this.checked;
+                                        checkboxes.forEach(checkbox => {
+                                            checkbox.checked = isChecked;
+                                        });
+                                        updateDivVisibility();
+                                    });
+                                });
+                            </script>
+                            <script>
+                                $(document).ready(function() {
+                                    $('#perPageSelect').change(function() {
+                                        $('#searchForm1').submit();
+                                    });
+                                });
+                            </script>
+                            <!-- Pagination Links -->
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
+
+</div>
 </div>
 
 <script>

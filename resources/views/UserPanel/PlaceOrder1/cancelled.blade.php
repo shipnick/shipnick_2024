@@ -67,6 +67,11 @@
             color: var(--primary);
             border-color: var(--primary);
         }
+
+        .table thead th {
+
+            font-size: 12px;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
@@ -124,10 +129,15 @@
                                                         <input type="hidden" name="per_page" id="hiddenPerPage" value="{{ request()->get('per_page', 10) }}">
                                                         <input type="hidden" name="from" id="start_date" value="{{ request()->get('from') }}">
                                                         <input type="hidden" name="to" id="end_date" value="{{ request()->get('to') }}">
+                                                        <input type="hidden" name="from" id="start_date" value="{{ request()->get('from') }}">
+                                                        <input type="hidden" name="to" id="end_date" value="{{ request()->get('to') }}">
 
                                                         <div class="row">
                                                             <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 mb-1">
                                                                 <div class="example">
+                                                                    <p class="mb-1">Date Range</p>
+                                                                    <input type="text" id="daterange" class="form-control"
+                                                                        value="{{ request()->get('from') && request()->get('to') ? request()->get('from') . ' - ' . request()->get('to') : '' }}">
                                                                     <p class="mb-1">Date Range</p>
                                                                     <input type="text" id="daterange" class="form-control"
                                                                         value="{{ request()->get('from') && request()->get('to') ? request()->get('from') . ' - ' . request()->get('to') : '' }}">
@@ -173,6 +183,7 @@
                                                         </div>
                                                         <hr class="mb-4">
                                                         <button type="submit" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Search</button>
+                                                        <a href="{{ url('/booked-order') }}" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Clear</a>
                                                         <a href="{{ url('/booked-order') }}" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Clear</a>
                                                     </form>
 
@@ -227,6 +238,18 @@
                             <form method="post" action="{{ asset('/filter-selected-order') }}">
                                 @csrf
                                 <div id="myDiv" class="hidden">
+                                    <div class="d-flex justify-content-start align-items-center header-new">
+                                        <!--                  <button name="currentbtnname" value="shippinglabel" type="submit"-->
+                                        <!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
+                                        <!--	<i class="fa fa-calendar me-1"></i> Print Label-->
+                                        <!--</button>-->
+                                        <!--<button name="currentbtnname" value="cancelorders" type="submit"-->
+                                        <!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
+                                        <!--	<i class="fa fa-times-circle me-1"></i> Cancel Orders-->
+                                        <!--</button>-->
+                                        <button name="currentbtnname" value="exportorderdetails" class="btn btn-outline-secondary btn-sm me-3 mb-2 button-clor-white">
+                                            <i class="fa fa-download me-1 "></i> Export
+                                        </button>
                                     <div class="d-flex justify-content-start align-items-center header-new">
                                         <!--                  <button name="currentbtnname" value="shippinglabel" type="submit"-->
                                         <!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->

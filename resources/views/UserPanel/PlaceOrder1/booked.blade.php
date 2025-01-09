@@ -33,6 +33,11 @@
     .hidden {
         display: none;
     }
+
+    .table thead th {
+
+        font-size: 12px;
+    }
 </style>
 <style>
     #hidden_div {
@@ -61,6 +66,7 @@
             header.style.top = '105px';
         } else {
             header.style.position = 'absolute'; // Or use a value that fits your layout
+            header.style.top = '194px'; // Adjust to match your original design
             header.style.top = '194px'; // Adjust to match your original design
         }
     });
@@ -98,6 +104,7 @@
                             <a class="nav-link" href="failled">Failed ({{$failde}})</a>
                         </li>
 
+                    </ul>
                     </ul>
 
                 </div>
@@ -176,16 +183,7 @@
                                                                             value="{{ request()->get('from') && request()->get('to') ? request()->get('from') . ' - ' . request()->get('to') : '' }}">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
-                                                                    <label class="form-label">Courier</label>
-                                                                    <select class="default-select form-control wide w-100" name="courier">
-                                                                        <option value="">Select...</option>
-                                                                        <option value="Ecom" {{ request()->get('courier') == 'Ecom' ? 'selected' : '' }}>Ecom</option>
-                                                                        <option value="Xpressbee" {{ request()->get('courier') == 'Xpressbee' ? 'selected' : '' }}>Xpressbee</option>
-                                                                        <option value="Bluedart" {{ request()->get('courier') == 'Bluedart' ? 'selected' : '' }}>Bluedart</option>
-                                                                        <option value="Ekart" {{ request()->get('courier') == 'Ekart' ? 'selected' : '' }}>Ekart</option>
-                                                                    </select>
-                                                                </div>
+
                                                                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
                                                                     <label for="product_name" class="form-label">Product Name</label>
                                                                     <input type="text" class="form-control" id="product_name" placeholder="Product Name" name="product_name" value="{{ request()->get('product_name') }}">
@@ -217,11 +215,14 @@
                                                             <button type="submit" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Search</button>
                                                             <a href="{{ url('/booked-order') }}" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Clear</a>
                                                         </form>
-
                                                         <script>
                                                             $(function() {
                                                                 // Initialize the date range picker with the options
+                                                                // Initialize the date range picker with the options
                                                                 $('#daterange').daterangepicker({
+                                                                    opens: 'left', // Position the calendar to the left
+                                                                    startDate: moment().subtract(6, 'days'), // Default to Last 7 Days
+                                                                    endDate: moment(), // End on today
                                                                     opens: 'left', // Position the calendar to the left
                                                                     startDate: moment().subtract(6, 'days'), // Default to Last 7 Days
                                                                     endDate: moment(), // End on today
@@ -235,8 +236,18 @@
                                                                         'Last 30 Days': [moment().subtract(29, 'days'), moment()], // Last 30 Days
                                                                         'This Month': [moment().startOf('month'), moment().endOf('month')], // This Month
                                                                         'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')] // Last Month
+                                                                        format: 'YYYY-MM-DD' // Format of the date
+                                                                    },
+                                                                    ranges: {
+                                                                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')], // Yesterday
+                                                                        'Tomorrow': [moment().add(1, 'days'), moment().add(1, 'days')], // Tomorrow
+                                                                        'Last 7 Days': [moment().subtract(6, 'days'), moment()], // Last 7 Days
+                                                                        'Last 30 Days': [moment().subtract(29, 'days'), moment()], // Last 30 Days
+                                                                        'This Month': [moment().startOf('month'), moment().endOf('month')], // This Month
+                                                                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')] // Last Month
                                                                     }
                                                                 }, function(start, end) {
+                                                                    // When the date range is selected, update the input fields
                                                                     // When the date range is selected, update the input fields
                                                                     $('#daterange').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
                                                                     $('#start_date').val(start.format('YYYY-MM-DD'));
@@ -249,9 +260,14 @@
                                                                 $('#daterange').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
                                                                 $('#start_date').val(start.format('YYYY-MM-DD'));
                                                                 $('#end_date').val(end.format('YYYY-MM-DD'));
+                                                                // Set the initial value based on the selected range
+                                                                var start = moment().subtract(6, 'days'); // Default to Last 7 Days
+                                                                var end = moment(); // Today
+                                                                $('#daterange').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
+                                                                $('#start_date').val(start.format('YYYY-MM-DD'));
+                                                                $('#end_date').val(end.format('YYYY-MM-DD'));
                                                             });
                                                         </script>
-
 
                                                     </div>
                                                 </div>
@@ -316,6 +332,7 @@
                                                             <input class="form-check-input" type="checkbox" name="selectedorder[]" value="<?= $param->Single_Order_Id ?>" style="border-color: black;">
                                                         </div>
                                                     </td>
+                                                    <td><span>{{ $param->uploadtype }}</span></td>
                                                     <td><span>{{ $param->uploadtype }}</span></td>
                                                     <td><span>{{ $param->orderno }}</span></td>
                                                     <td>

@@ -66,6 +66,11 @@
             color: var(--primary);
             border-color: var(--primary);
         }
+
+        .table thead th {
+
+            font-size: 12px;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
@@ -123,10 +128,15 @@
                                                         <input type="hidden" name="per_page" id="hiddenPerPage" value="{{ request()->get('per_page', 10) }}">
                                                         <input type="hidden" name="from" id="start_date" value="{{ request()->get('from') }}">
                                                         <input type="hidden" name="to" id="end_date" value="{{ request()->get('to') }}">
+                                                        <input type="hidden" name="from" id="start_date" value="{{ request()->get('from') }}">
+                                                        <input type="hidden" name="to" id="end_date" value="{{ request()->get('to') }}">
 
                                                         <div class="row">
                                                             <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 mb-1">
                                                                 <div class="example">
+                                                                    <p class="mb-1">Date Range</p>
+                                                                    <input type="text" id="daterange" class="form-control"
+                                                                        value="{{ request()->get('from') && request()->get('to') ? request()->get('from') . ' - ' . request()->get('to') : '' }}">
                                                                     <p class="mb-1">Date Range</p>
                                                                     <input type="text" id="daterange" class="form-control"
                                                                         value="{{ request()->get('from') && request()->get('to') ? request()->get('from') . ' - ' . request()->get('to') : '' }}">
@@ -141,6 +151,20 @@
                                                                     <option value="Bluedart" {{ request()->get('courier') == 'Bluedart' ? 'selected' : '' }}>Bluedart</option>
                                                                     <option value="Ekart" {{ request()->get('courier') == 'Ekart' ? 'selected' : '' }}>Ekart</option>
                                                                 </select>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
+                                                                <label class="form-label">Cannel</label>
+                                                                <select class="default-select form-control wide w-100" name="cannel">
+                                                                    <option value="">Select...</option>
+                                                                    <option value="Excel" {{ request()->get('cannel') == 'Excel' ? 'selected' : '' }}>Excel</option>
+                                                                    <option value="shopify" {{ request()->get('cannel') == 'shopify' ? 'selected' : '' }}>shopify</option>
+                                                                    <option value="Single" {{ request()->get('cannel') == 'single' ? 'selected' : '' }}>single order</option>
+
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
+                                                                <label for="waybill" class="form-label">ORDER ID</label>
+                                                                <input type="text" class="form-control" id="waybill" name="orderid" value="{{ request()->get('awb') }}">
                                                             </div>
                                                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
                                                                 <label for="product_name" class="form-label">Product Name</label>
@@ -169,9 +193,21 @@
                                                                     @endforeach
                                                                 </select>
                                                             </div>
+                                                            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 mb-3">
+                                                                <label class="form-label" for="warehouse">Warehouse</label>
+                                                                <select class="default-select form-control wide w-100" name="warehouse" id="warehouse">
+                                                                    <option value="" disabled selected>Select a warehouse</option> <!-- Placeholder option -->
+                                                                    @foreach($Hubs1 as $Hub)
+                                                                    <option value="{{ ucwords($Hub->hub_id) }}">
+                                                                        {{ ucwords($Hub->hub_code) }}
+                                                                    </option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                         <hr class="mb-4">
                                                         <button type="submit" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Search</button>
+                                                        <a href="{{ url('/booked-order') }}" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Clear</a>
                                                         <a href="{{ url('/booked-order') }}" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Clear</a>
                                                     </form>
 
@@ -227,7 +263,18 @@
                                 @csrf
                                 <div id="myDiv" class="hidden">
                                     <div class="d-flex justify-content-start align-items-center header-new">
+                                    <div class="d-flex justify-content-start align-items-center header-new">
                                         <button name="currentbtnname" value="shippinglabel" type="submit"
+                                            class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">
+                                            <i class="fa fa-calendar me-1"></i> Print Label
+                                        </button>
+                                        <!--<button name="currentbtnname" value="cancelorders" type="submit"-->
+                                        <!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
+                                        <!--	<i class="fa fa-times-circle me-1"></i> Cancel Orders-->
+                                        <!--</button>-->
+                                        <button name="currentbtnname" value="exportorderdetails" class="btn btn-outline-secondary btn-sm me-3 mb-2 button-clor-white">
+                                            <i class="fa fa-download me-1 "></i> Export
+                                        </button>
                                             class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">
                                             <i class="fa fa-calendar me-1"></i> Print Label
                                         </button>
@@ -323,7 +370,10 @@
 
                                                             <a class="dropdown-item" href="{{ asset('/UPAll_Cancel_Orders_Now/'.$param->Awb_Number) }}" title="Cancel">
                                                                 <i class="las la-times-circle text-danger scale5 me-3"></i>Cancel Order</a>
+                                                            <a class="dropdown-item" href="{{ asset('/UPAll_Cancel_Orders_Now/'.$param->Awb_Number) }}" title="Cancel">
+                                                                <i class="las la-times-circle text-danger scale5 me-3"></i>Cancel Order</a>
 
+                                                            <form action=""></form>
                                                             <form action=""></form>
 
 
