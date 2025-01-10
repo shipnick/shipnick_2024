@@ -7,7 +7,7 @@
                 <div class="card-tabs style-1 mt-3 mt-sm-0">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link " href="booked-order">New Orders ({{$booked}})</a>
+                            <a class="nav-link " href="booked-order">Ready To Ship({{$booked}})</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " href="pickup-pending">Pending Pickup({{$pending_pickup}})</a>

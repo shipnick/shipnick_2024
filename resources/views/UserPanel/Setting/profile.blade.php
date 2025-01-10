@@ -220,7 +220,7 @@
                                 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
                                 <li class="nav-item font-weight-bold">
                                     <a style="font-weight: 700;" class="nav-link active font-w700" data-bs-toggle="tab"
-                                        href="#home1"><i class="la la-smile solid"></i>&nbsp;&nbsp;Merchant Details</a>
+                                        href="#home1"><i class="la la-smile solid"></i>&nbsp;&nbsp;KYC Details</a>
                                 </li>
                                 <li class="nav-item font-weight-bold">
                                     <a style="font-weight: 700;" class="nav-link font-w700" data-bs-toggle="tab"
@@ -256,6 +256,7 @@
                                                             <div class="col-lg-6">
                                                                 <input type="text" class="form-control"
                                                                     id="validationCustom01" name="name"
+                                                                    value="{{$params->name}}"
                                                                     placeholder="Enter name.." required>
                                                                 <div class="invalid-feedback">
                                                                     Please enter name.
@@ -268,10 +269,11 @@
                                                                     class="text-danger">*</span>
                                                             </label>
                                                             <div class="col-lg-6">
-                                                                <input type="text" class="form-control"
-                                                                    id="validationCustom02"
-                                                                    placeholder="Your valid email.." name="email"
-                                                                    required>
+                                                            
+                                                            <input type="text" class="form-control"
+                                                                    id="validationCustom03"
+                                                                    placeholder="Please enter a phone no." name="phone" value="{{$params->username}}"
+                                                                    disabled>
                                                                 <div class="invalid-feedback">
                                                                     Please enter a Email.
                                                                 </div>
@@ -285,7 +287,7 @@
                                                             <div class="col-lg-6">
                                                                 <input type="text" class="form-control"
                                                                     id="validationCustom03"
-                                                                    placeholder="Please enter a phone no." name="phone"
+                                                                    placeholder="Please enter a phone no." name="phone" value="{{$params->mobile}}"
                                                                     required>
                                                                 <div class="invalid-feedback">
                                                                     Please enter a phone no.
@@ -301,7 +303,7 @@
                                                                 <input type="text" class="form-control"
                                                                     id="validationCustom04"
                                                                     placeholder="Please enter address"
-                                                                    name="addressline1" required>
+                                                                    name="addressline1" value="{{$params->address1}}" required>
                                                                 <div class="invalid-feedback">
                                                                     Please enter Address
                                                                 </div>
@@ -316,9 +318,26 @@
                                                                 <input type="text" class="form-control"
                                                                     id="validationCustom05"
                                                                     placeholder="Please enter PIN" name="zipcode"
+                                                                    value="{{$params->pincode}}"
                                                                     required>
                                                                 <div class="invalid-feedback">
                                                                     Please enter PIN
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-2 row">
+                                                            <label class="col-lg-4 col-form-label"
+                                                                for="validationCustom05">GST Number
+                                                                
+                                                            </label>
+                                                            <div class="col-lg-6">
+                                                               
+                                                            <input type="text" class="form-control"
+                                                                    id="validationCustom04"
+                                                                    placeholder="Please Enter GST Number"
+                                                                    name="gst"  required>
+                                                                <div class="invalid-feedback">
+                                                                    Please enter GST Number 
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -499,20 +518,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="mb-2 row">
-                                                            <label class="col-lg-4 col-form-label"
-                                                                for="validationCustom04">Branch
-                                                                <span class="text-danger">*</span>
-                                                            </label>
-                                                            <div class="col-lg-6">
-                                                                <input type="text" class="form-control"
-                                                                    id="validationCustom04"
-                                                                    placeholder="Please enter branch name" required>
-                                                                <div class="invalid-feedback">
-                                                                    Please enter branch
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        
                                                         <div class="mb-3 row">
                                                             <label class="col-lg-4 col-form-label"
                                                                 for="validationCustom05">Account Type
@@ -528,6 +534,18 @@
                                                                 </select>
                                                                 <div class="invalid-feedback">
                                                                     Please select an account type.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-2 row">
+                                                            <label class="col-lg-4 col-form-label"
+                                                                for="validationCustom04">UPLOAD CHEQUE
+                                                                <span class="text-danger">*</span>
+                                                            </label>
+                                                            <div class="col-lg-6">
+                                                            <input type="file" id="formFile" name="cheque" class="form-control"/>
+                                                                <div class="invalid-feedback">
+                                                                    Please Upload Cheque
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -977,7 +995,7 @@
                                                                                             city - pincode<br />
                                                                                             <span
                                                                                                 class="Consignee_Number">
-                                                                                                99999999999
+                                                                                                9999XXXXXX
                                                                                             </span>
 
                                                                                         </p>
@@ -1077,7 +1095,7 @@
                                                                                                     -hub pincode</b>
                                                                                                 <br>
                                                                                                 Phone :
-                                                                                                <b>99999999999</b>
+                                                                                                <b>9999XXXXXX</b>
                                                                                             </h6>
                                                                                             <p id="ansrto"
                                                                                                 style="font-weight: 800;">
@@ -1301,7 +1319,7 @@
                                                                         Office Of Sub Treasury Officer<br />
                                                                         DIRANG :-790101<br />
                                                                         <span class="Consignee_Number1">
-                                                                            99999999999
+                                                                            9999XXXXXX
                                                                         </span>
                                                                         test@gmail.cvom
                                                                     </p>
@@ -1371,7 +1389,7 @@
                                                                     <p class="Return_Address1">If undelivered, please return to: <br>
                                                                         krish,<br>
                                                                         Vikas Vihar Kakrola, Delhi, Delhi -110078 <br>
-                                                                        Phone : 7503563798
+                                                                        Phone : 7503XXXXXX
                                                                         <br>
                                                                     </p>
 
@@ -1556,7 +1574,7 @@
                                                                         Office Of Sub Treasury Officer<br />
                                                                         DIRANG :-790101<br />
                                                                         <span class="Consignee_Number2">
-                                                                            99999999999
+                                                                            9999XXXXXX
                                                                         </span>
                                                                         test@gmail.cvom
                                                                     </span>
@@ -1665,7 +1683,7 @@
                                                                     <p class="Return_Address2">If undelivered, please return to: <br>
                                                                         krish,<br>
                                                                         Vikas Vihar Kakrola, Delhi, Delhi -110078 <br>
-                                                                        Phone : 7503563798
+                                                                        Phone : 7503XXXXXX
                                                                         <br><br>
                                                                     </p>
 
