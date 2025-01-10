@@ -914,7 +914,7 @@
         ***********************************-->
 		<div class="footer">
 			<div class="copyright">
-				<p>Copyright © Designed &amp; Developed by <a href="" target="_blank">Smartship</a> 2023</p>
+				<p>Copyright © Designed &amp; Developed by <a href="" target="_blank">Shipnick</a> 2023</p>
 			</div>
 		</div>
 		<!--**********************************
@@ -966,6 +966,6 @@
 	</script>
 	
 
-</body>
+</body> 
 
 </html>
