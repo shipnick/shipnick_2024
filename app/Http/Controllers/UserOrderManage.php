@@ -887,12 +887,10 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-             ->whereNull('xberrors')
+            ->whereNull('xberrors')
+            ->where('Awb_Number', '')
             ->orderBy('Single_Order_Id', 'desc')
-
-            ->select('Single_Order_Id','Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','Actual_Weight' ,'Height' , 'Width', 'Length' , 'orderno', 'Quantity', 'Total_Amount','uploadtype','uploadtype','Quantity','Width','Height','Length','Actual_Weight','Total_Amount','orderno')
-            ->select('Single_Order_Id', 'orderno', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
-
+            ->select('Single_Order_Id','Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','Actual_Weight' ,'Height' , 'Width', 'Length' , 'orderno', 'Quantity', 'Total_Amount','uploadtype');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -918,6 +916,8 @@ class UserOrderManage extends Controller
         if ($req->filled('orderid')) {
             $query->where('orderno', 'like', '%' . $req->orderid . '%');
         }
+        
+
 
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
@@ -934,6 +934,8 @@ class UserOrderManage extends Controller
         // Calculate various counts
         $booked = bulkorders::where('User_Id', $userid)
             ->where('Awb_Number', '!=', '')
+            ->whereNull('xberrors')
+            ->where('Awb_Number', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
             ->count();
@@ -1025,6 +1027,12 @@ class UserOrderManage extends Controller
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
+        }
 
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
@@ -1058,6 +1066,7 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
+             ->whereNull('xberrors')
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
@@ -1150,6 +1159,12 @@ class UserOrderManage extends Controller
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
+        }
 
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
@@ -1184,6 +1199,7 @@ class UserOrderManage extends Controller
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
             ->where('Awb_Number', '!=', '')
+             ->whereNull('xberrors')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
             ->count();
@@ -1273,7 +1289,12 @@ class UserOrderManage extends Controller
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
-        
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
+        }
 
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
@@ -1308,6 +1329,7 @@ class UserOrderManage extends Controller
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
             ->where('Awb_Number', '!=', '')
+             ->whereNull('xberrors')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
             ->count();
@@ -1397,6 +1419,12 @@ class UserOrderManage extends Controller
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
+        }
 
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
@@ -1430,6 +1458,7 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
+             ->whereNull('xberrors')
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
@@ -1520,6 +1549,12 @@ class UserOrderManage extends Controller
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
+        }
 
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
@@ -1553,6 +1588,7 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
+             ->whereNull('xberrors')
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
@@ -1643,6 +1679,12 @@ class UserOrderManage extends Controller
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
+        }
 
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
@@ -1676,6 +1718,7 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
+             ->whereNull('xberrors')
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
@@ -1767,6 +1810,12 @@ class UserOrderManage extends Controller
         if ($req->filled('courier')) {
             $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
+        if ($req->filled('cannel')) {
+            $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
+        }
+        if ($req->filled('orderid')) {
+            $query->where('orderno', 'like', '%' . $req->orderid . '%');
+        }
 
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
@@ -1801,6 +1850,7 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
+             ->whereNull('xberrors')
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
