@@ -1,5 +1,5 @@
-@extends("UserPanel/PlaceOrder1/layout")
-@section("order")
+@extends("UserPanel/userpanel_layout1")
+@section("userpanel")
 <style>
     .header-new {
         position: fixed;
@@ -26,35 +26,36 @@
         font-size: 12px;
     }
 </style>
-<div class="container-fluid">
-    <div class="d-flex flex-wrap align-items-center mb-3">
-        <div class="mb-3 me-auto">
-            <div class="card-tabs style-1 mt-3 mt-sm-0">
-            <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link " href="booked-order">New Orders ({{$booked}})</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="pickup-pending">Ready to ship ({{$pending_pickup}})</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="intransit">In Transit ({{$in_transit}})</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="ofd">OFD ({{$ofd}})</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="deliverd">Delivered ({{$deliver}})</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="rto">RTO/RTS ({{$rto}})</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cancelled">All Orders ({{$cancel}})</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="failled">Failed ({{$failde}})</a>
-                    </li>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="d-flex flex-wrap align-items-center mb-3">
+            <div class=" me-auto">
+                <div class="card-tabs style-1 mt-3 mt-sm-0">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link " href="booked-order">New Orders ({{$booked}})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="pickup-pending">Pending Pickup({{$pending_pickup}})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="intransit">In Transit ({{$in_transit}})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="ofd">OFD ({{$ofd}})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="deliverd">Delivered ({{$deliver}})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="rto">RTO/RTS ({{$rto}})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cancelled">All Orders ({{$cancel}})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="failled">Failed ({{$failde}})</a>
+                        </li>
 
                     </ul>
                 </div>
@@ -64,7 +65,7 @@
             </div>
         </div>
     </div>
-</div>
+
     <style>
         #hidden_div {
             display: none;
@@ -132,7 +133,7 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-lg-12 order-lg-1">
-                                                    <h4 class="mb-3">Date Range</h4>
+                                                    <h4 class="mb-3">FILTERS</h4>
                                                     <form id="filterForm" action="{{ url('/failled') }}" method="get">
                                                         <input type="hidden" name="per_page" id="hiddenPerPage" value="{{ request()->get('per_page', 10) }}">
                                                         <input type="hidden" name="from" id="start_date" value="{{ request()->get('from') }}">
@@ -172,14 +173,69 @@
                                                                     <option value="Prepaid" {{ request()->get('order_type') == 'Prepaid' ? 'selected' : '' }}>Prepaid</option>
                                                                 </select>
                                                             </div>
+                                                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
+                                                                <label class="form-label">Cannel</label>
+                                                                <select class="default-select form-control wide w-100" name="cannel">
+                                                                    <option value="">Select...</option>
+                                                                    <option value="Excel" {{ request()->get('cannel') == 'Excel' ? 'selected' : '' }}>Excel</option>
+                                                                    <option value="shopify" {{ request()->get('cannel') == 'shopify' ? 'selected' : '' }}>shopify</option>
+                                                                    <option value="Single" {{ request()->get('cannel') == 'single' ? 'selected' : '' }}>single order</option>
 
-                                                            <!-- Other form fields if any -->
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
+                                                                <label for="waybill" class="form-label">ORDER ID</label>
+                                                                <input type="text" class="form-control" id="waybill" name="orderid" value="{{ request()->get('awb') }}">
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 mb-3">
+                                                                <label class="form-label" for="warehouse">Warehouse</label>
+                                                                <select class="default-select form-control wide w-100" name="warehouse" id="warehouse">
+                                                                    <option value="" disabled selected>Select a warehouse</option> <!-- Placeholder option -->
+                                                                    @foreach($Hubs1 as $Hub)
+                                                                    <option value="{{ ucwords($Hub->hub_id) }}">
+                                                                        {{ ucwords($Hub->hub_code) }}
+                                                                    </option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                         <hr class="mb-4">
                                                         <button type="submit" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Search</button>
                                                         <a href="{{ url('/booked-order') }}" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Clear</a>
                                                     </form>
+                                                    <script>
+                                                        $(function() {
+                                                            // Initialize the date range picker with the options
+                                                            $('#daterange').daterangepicker({
+                                                                opens: 'left', // Position the calendar to the left
+                                                                startDate: moment().subtract(6, 'days'), // Default to Last 7 Days
+                                                                endDate: moment(), // End on today
+                                                                locale: {
+                                                                    format: 'YYYY-MM-DD' // Format of the date
+                                                                },
+                                                                ranges: {
+                                                                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')], // Yesterday
+                                                                    'Tomorrow': [moment().add(1, 'days'), moment().add(1, 'days')], // Tomorrow
+                                                                    'Last 7 Days': [moment().subtract(6, 'days'), moment()], // Last 7 Days
+                                                                    'Last 30 Days': [moment().subtract(29, 'days'), moment()], // Last 30 Days
+                                                                    'This Month': [moment().startOf('month'), moment().endOf('month')], // This Month
+                                                                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')] // Last Month
+                                                                }
+                                                            }, function(start, end) {
+                                                                // When the date range is selected, update the input fields
+                                                                $('#daterange').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
+                                                                $('#start_date').val(start.format('YYYY-MM-DD'));
+                                                                $('#end_date').val(end.format('YYYY-MM-DD'));
+                                                            });
 
+                                                            // Set the initial value based on the selected range
+                                                            var start = moment().subtract(6, 'days'); // Default to Last 7 Days
+                                                            var end = moment(); // Today
+                                                            $('#daterange').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
+                                                            $('#start_date').val(start.format('YYYY-MM-DD'));
+                                                            $('#end_date').val(end.format('YYYY-MM-DD'));
+                                                        });
+                                                    </script>
 
                                                 </div>
                                             </div>
@@ -226,15 +282,19 @@
                                                         <label class="form-check-label" for="checkAll"></label>
                                                     </div>
                                                 </th>
-                                                <th>AWB #</th>
-                                                <th>ID Orders</th>
-                                                <th>Type</th>
-                                                <th>Date </th>
-                                                <th>Product</th>
-                                                <th>Customer </th>
-                                                <th>address</th>
-                                                <th>Courier</th>
-                                                <th>Status</th>
+                                                <th>CHANNEL</th>
+                                                <th>ORDER ID</th>
+                                                <th>DATE</th>
+                                                <th>CUSTOMER</th>
+
+                                                <th>PRODUCTS</th>
+                                                <th>QTY</th>
+                                                <th>AMT</th>
+                                                <th>TYPE</th>
+                                                <th>AWB</th>
+                                                <th>CARRIER</th>
+                                                <th>STATUS</th>
+                                                <th class="text-end"> </th>
                                                 <th class="text-end"> </th>
                                             </tr>
                                         </thead>
@@ -247,7 +307,8 @@
                                                     </div>
                                                 </td>
                                                 <td><span>{{ $param->uploadtype }}</span></td>
-                                                <td><span>{{ $param->orderno }}</span></td>
+                                                <td><a href="/order/{{ $param->ordernoapi }}"><span> {{ Str::limit($param->orderno, 20) }}</span></a></td>
+                                                <td>
                                                 <td>
                                                     <span>{{ date('Y-m-d', strtotime($param->Last_Time_Stamp)) }}</span><br />
                                                     <span>
@@ -263,20 +324,17 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td><span> {{ Str::limit($param->Address, 20) }}</span></td>
-                                                <td><span>{{ $param->awb_gen_by }}</span></td>
-                                                <td>
-                                                    @if($param->showerrors=='Upload')
-                                                    <a href="javascript:void(0)" class="btn btn-success btn-sm btn-rounded light">Manifested</a>
+                                                <td><span title="{{$param->Item_Name}}">{{ Str::limit($param->Item_Name, 10) }}</span> </td>
+                                                <td><span>{{ $param->Quantity }}</span></td>
+                                                <td><span>{{ $param->Total_Amount }}</span></td>
+                                                <td><span>{{ $param->Order_Type }}</span></td>
+                                                <td><span>{{ $param->Awb_Number }}</span> </td>
+                                                <td>{{ $param->awb_gen_by }}</td>
 
-                                                    @else
+                                                <td>
                                                     <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-rounded light">{{ Str::limit($param->showerrors, 20) }}</a>
 
-                                                    @endif
-
                                                 </td>
-
-
                                                 <td class="text-end">
                                                     <div class="dropdown dropstart">
                                                         <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -300,10 +358,10 @@
                                                                 <input type="hidden" name="awbnoisa" value="{{ $param->Awb_Number }}">
                                                                 <button class="dropdown-item" type="submit"><i class="las la-info-circle scale5 me-3 "></i>Download Invoice</button>
                                                             </form>
-                                                            <a class="dropdown-item" href="#" title="Cancel">
-                                                                <i class="las fa-file-invoice  scale5 me-3"></i>Print invoice</a>
-                                                            <a class="dropdown-item" href="#" title="Cancel">
-                                                                <i class="las fa-file-invoice  scale5 me-3"></i>Print manifest</a>
+                                                            <a class="dropdown-item" href="edit-order/{{ $param->Single_Order_Id }}" title="Edit Order">
+                                                                <i class="las fa-file-invoice  scale5 me-3"></i>Edit Order</a>
+                                                            <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Cancel">
+                                                                <i class="las fa-file-invoice  scale5 me-3"></i>Clone Order</a>
                                                         </div>
                                                     </div>
                                                 </td>

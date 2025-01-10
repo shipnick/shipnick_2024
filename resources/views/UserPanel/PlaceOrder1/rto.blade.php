@@ -80,7 +80,7 @@
                             <a class="nav-link " href="booked-order">New Orders ({{$booked}})</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="pickup-pending">Ready to ship ({{$pending_pickup}})</a>
+                            <a class="nav-link " href="pickup-pending">Pending Pickup({{$pending_pickup}})</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="intransit">In Transit ({{$in_transit}})</a>
@@ -499,7 +499,7 @@
 
                                             <th>PRODUCTS</th>
                                             <th>QTY</th>
-                                            <th>AMOUNT</th>
+                                            <th>AMT</th>
                                             <th>TYPE</th>
                                             <th>AWB</th>
                                             <th>CARRIER</th>
@@ -516,7 +516,8 @@
                                                 </div>
                                             </td>
                                             <td><span>{{ $param->uploadtype }}</span></td>
-                                            <td><span>{{ $param->orderno }}</span></td>
+                                            <td><a href="/order/{{ $param->ordernoapi }}"><span> {{ Str::limit($param->orderno, 20) }}</span></a></td>
+                                                <td>
                                             <td>
                                                 <span>{{ date('Y-m-d', strtotime($param->Last_Time_Stamp)) }}</span><br />
                                                 <span>
@@ -536,7 +537,7 @@
                                             <td><span>{{ $param->Quantity }}</span></td>
                                             <td><span>{{ $param->Total_Amount }}</span></td>
                                             <td><span>{{ $param->Order_Type }}</span></td>
-                                            <td><a href="/order/{{ $param->ordernoapi }}"><span>{{ $param->Awb_Number }}</span></a> </td>
+                                            <td><span>{{ $param->Awb_Number }}</span> </td>
                                             <td>{{ $param->awb_gen_by }}</td>
 
                                             <td>
