@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head>  
 	<!-- All Meta -->
 	<meta charset="utf-8">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -44,7 +44,6 @@
         Preloader end
     ********************-->
 
-
 	<!--**********************************
         Main wrapper start
     ***********************************-->
@@ -79,9 +78,6 @@
 											</li>
 											<li class="nav-item"><a href="#Bulk-Upload" data-bs-toggle="tab" class="nav-link active show">Bulk Upload</a>
 											</li>
-
-
-
 
 										</ul>
 

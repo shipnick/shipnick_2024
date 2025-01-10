@@ -1446,6 +1446,7 @@ class MISReportExportN implements WithHeadings, FromCollection
     const HEADINGS = [
         'Awb Number',
         'Order No',
+        'shipnick Id',
         'Order Date',
         'Name',
         'Address',
@@ -1460,7 +1461,7 @@ class MISReportExportN implements WithHeadings, FromCollection
         'Actual Weight',
         'Volumetric Weight',
         'Current Status',
-
+        'Product Name',
         'Fulfilled By',
         'Pickup Date',
         'Pickup Address',
@@ -1586,6 +1587,7 @@ class MISReportExportN implements WithHeadings, FromCollection
             ->select([
                 'Awb_Number',
                 'orderno',
+                'ordernoapi',
                 'Rec_Time_Date',
                 'Name',
                 'Address',
@@ -1600,6 +1602,7 @@ class MISReportExportN implements WithHeadings, FromCollection
                 'Actual_Weight',
                 'volumetric_weight',
                 'showerrors',
+                'Item_Name',
                 'awb_gen_courier',
 
                 'Rec_Time_Date as pickup_date',

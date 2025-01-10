@@ -523,7 +523,7 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
 			</li>
 			<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 					<i class="flaticon-381-locations"></i>
-					<span class="nav-text">Location</span>
+					<span class="nav-text">Tracking</span>
 				</a>
 				<ul aria-expanded="false">
 					<li><a href="#">Order Tracking</a></li>
