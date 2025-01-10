@@ -33,88 +33,82 @@ class UserPlaceOrder extends Controller
 {
     public function search_order(Request $req)
     {
-        
-        $order_number = $req->order_number;
+        $order_numbers = $req->order_number; // Assuming comma-separated string or array
         $userid = session()->get('UserLogin2id');
         $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
-        // Determine the date range based on request parameters or default to today
+
+        // Split the order numbers into an array if it's a string
+        if (is_string($order_numbers)) {
+            $order_numbers = explode(',', $order_numbers);
+        }
+
+        // Trim spaces from each order number (if user adds spaces between numbers)
+        $order_numbers = array_map('trim', $order_numbers);
+
+        // Date handling
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::today()->startOfDay();
         $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::today()->endOfDay();
 
-        // Query using Laravel Eloquent
+        // Query for orders (search multiple order numbers)
         $query = bulkorders::where('User_Id', $userid)
-        ->where(function($query) use ($order_number) {
-            // If AWB_Number matches
-            $query->where('Awb_Number', 'like', "%$order_number%")
-                ->orWhere('orderno', 'like', "%$order_number%");
-        })
-        ->orderBy('Single_Order_Id', 'desc')
-        ->select('Awb_Number','Single_Order_Id', 'orderno', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
+            ->where(function ($query) use ($order_numbers) {
+                foreach ($order_numbers as $order_number) {
+                    $query->orWhere('Awb_Number', 'like', "%$order_number%")
+                        ->orWhere('orderno', 'like', "%$order_number%");
+                }
+            })
+            ->orderBy('Single_Order_Id', 'desc')
+            ->select('Awb_Number', 'Single_Order_Id', 'orderno', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name');
 
-        // Apply additional filters based on request parameters
-        
-
+        // Pagination
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
 
-        // Retrieve additional data
+        // Retrieve related data
         $Hubs = Hubs::all();
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
 
-        // Determine the current month's start and end dates
+        // Date range for current month
         $currentMonthStart = Carbon::now()->startOfMonth();
         $currentMonthEnd = Carbon::now()->endOfMonth();
 
-        // Calculate various counts
+        // Count helpers (the same as before)
+        $getOrderCount = function ($statusConditions, $startDate = null, $endDate = null) use ($userid) {
+            $query = bulkorders::where('User_Id', $userid)
+                ->whereIn('showerrors', $statusConditions)
+                ->where('Awb_Number', '!=', '')
+                ->where('order_cancel', '!=', '1');
+
+            if ($startDate && $endDate) {
+                $query->whereBetween('Last_Time_Stamp', [$startDate, $endDate]);
+            }
+
+            return $query->count();
+        };
+
+        // Calculate counts (same logic)
         $booked = bulkorders::where('User_Id', $userid)
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
             ->count();
 
-        $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered'])
-            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-            ->where('Awb_Number', '!=', '')
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
-            ->whereNotNull('Awb_Number')
-            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
-            ->where('Awb_Number', '!=', '')
-            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
+        $deliver = $getOrderCount(['delivered', 'Delivered'], $currentMonthStart, $currentMonthEnd);
+        $pending_pickup = $getOrderCount(['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'], $currentMonthStart, $currentMonthEnd);
+        $rto = $getOrderCount(['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'], $currentMonthStart, $currentMonthEnd);
         $cancel = bulkorders::where('User_Id', $userid)
             ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
             ->where('order_cancel', 1)
             ->count();
-
-        $ofd = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
-            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-            ->count();
-
+        $ofd = $getOrderCount(['out for delivery', 'Out For Delivery'], $currentMonthStart, $currentMonthEnd);
         $failde = bulkorders::where('User_Id', $userid)
             ->where('Awb_Number', '')
             ->whereDate('Rec_Time_Date', Carbon::today())
             ->count();
+        $in_transit = $getOrderCount(['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked'], $currentMonthStart, $currentMonthEnd);
 
-        $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked'])
-            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-            ->count();
-
-        // Prepare data for the view
+        // Prepare data for view
         $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
 
         return view('UserPanel.PlaceOrder1.cancelled', [
@@ -128,6 +122,8 @@ class UserPlaceOrder extends Controller
         ])->with($data);
     }
 
+
+
     public function ship_order($id)
     {
         // dd($id);
@@ -139,7 +135,7 @@ class UserPlaceOrder extends Controller
             }
 
             // Update the 'apihitornot' field to 0
-            bulkorders::where('Single_Order_Id', $id)->update(['apihitornot' => 0 ,'xberrors' =>1]);
+            bulkorders::where('Single_Order_Id', $id)->update(['apihitornot' => 0, 'xberrors' => 1]);
 
             // Perform background URL hit (Artisan command)
             Artisan::call('spnk:place-order');
@@ -2008,7 +2004,7 @@ if($status == "true"){
 
         switch ($currentbtnname) {
             case "ship_order";
-                bulkorders::whereIn('Single_Order_Id', $selectorders)->update(['apihitornot' => 0 ,'xberrors' =>1]);
+                bulkorders::whereIn('Single_Order_Id', $selectorders)->update(['apihitornot' => 0, 'xberrors' => 1]);
 
                 // Perform background URL hit (Artisan command)
                 Artisan::call('spnk:place-order');
@@ -2086,7 +2082,7 @@ if($status == "true"){
 
         switch ($currentbtnname) {
             case "ship_order";
-                bulkorders::whereIn('Single_Order_Id', $selectorders)->update(['apihitornot' => 0 ,'xberrors' =>1]);
+                bulkorders::whereIn('Single_Order_Id', $selectorders)->update(['apihitornot' => 0, 'xberrors' => 1]);
 
                 // Perform background URL hit (Artisan command)
                 Artisan::call('spnk:place-order');
