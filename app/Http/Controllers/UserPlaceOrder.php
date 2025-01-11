@@ -2087,7 +2087,7 @@ if($status == "true"){
                 // Perform background URL hit (Artisan command)
                 Artisan::call('spnk:place-order');
 
-
+             return redirect()->back();
             case "shippinglabel":
                 return response()->view("UserPanel.LabesPrintout.Search", ['params' => $selectorders]);
 
