@@ -4,8 +4,9 @@ namespace App\Exports;
 use App\Models\Consignment;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class ConsignmentsExport implements FromQuery
+class ConsignmentsExport implements FromQuery, WithHeadings
 {
 
     use Exportable;
@@ -49,6 +50,42 @@ class ConsignmentsExport implements FromQuery
             // "updated_at",
         ])->orderBy('id', 'desc')->limit($this->limit);
     }
+
+    public function headings(): array
+    {
+        return [
+            'ID',
+            "AWB",
+            "Order_ID",
+            "Customer Name",
+            "Address",
+            "Address2",
+            "Customer City",
+            "Customer State",
+            "Pincode",
+            "Mobile",
+            "Phone Mobile",
+            "Consignee Email",
+            "Product Name",
+            "Product Quantity",
+            "Product Value",
+            "SKU",
+            "Order Type",
+            "COD AMOUNT",
+            "Weight KG",
+            "Length",
+            "Width",
+            "Height",
+            "Invoice Value",
+            "Total Amount",
+            "Hub Code",
+            "Status",
+            "Admin ID",
+            "Dated",
+        ];
+    }
+
+
     // public function collection()
     // {
     //     return Consignment::all();

@@ -18,7 +18,7 @@ class ConsignmentController extends V1BaseController
         ini_set('memory_limit', '-1');
         ini_set('max_execution_time', 3600 * 3); // 3600 seconds = 60 minutes
         $date = Carbon::now();
-        return Excel::download(new ConsignmentsExport, "AWBList_$date.xlsx", \Maatwebsite\Excel\Excel::XLSX);
+        return Excel::download(new ConsignmentsExport(request('limit', 1000)), "AWBList_$date.xlsx", \Maatwebsite\Excel\Excel::XLSX);
     }
     /**
      * * Tracking page for AWB nos
