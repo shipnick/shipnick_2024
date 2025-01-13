@@ -6,9 +6,12 @@
         <div class="row g-5 align-items-center">
             <div class="col-xl-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>Track shipment status</h5>
-                        <span class="d-block m-t-5">Track Shipnick shipments</span>
+                    <div class="card-header" style="display: flex; justify-content: space-between;">
+                        <div>
+                            <h5>Track shipment status</h5>
+                            <span class="d-block m-t-5">Track Shipnick shipments</span>
+                        </div>
+                        <button class="btn" style="float: right" onclick="window.open('/v1/download-awb')">Download AWB (.csv)</button>
                     </div>
                     <div class="card-body">
                         <form action="" method="POST">
