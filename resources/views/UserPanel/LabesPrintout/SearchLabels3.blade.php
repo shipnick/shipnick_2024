@@ -332,7 +332,13 @@
             <tr style="line-height: 1.7;">
 
                 <td class="text-center">
-                    <h2>Rs.{{ ucwords($params[$i]['codamt']) }}</h2>
+                    <h2>Rs. @if($params[$i]['paymode'] == 'COD')
+                            {{ ucwords($params[$i]['codamt']) }}
+                            
+                            @else
+                                0
+                           
+                            @endif</h2>
                     <p>Amount to be Collected</p>
 
 

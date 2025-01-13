@@ -105,12 +105,13 @@ class UserDashboard extends Controller
       $todate = Carbon::parse($request->end_date)->endOfDay(); // End of the day for $ctodate
       $fromdate1 = date('Y-m-d');
       $todate1 = date('Y-m-d');
+      $todaynew = Carbon::today()->toDateString();
 
       // today order   
       $talluploaded = bulkorders::where('User_Id', $userid)
         ->where('order_cancel', '!=', '1')
         ->where('Awb_Number', '!=', '')
-        ->whereBetween('Last_Time_Stamp', array($fromdate1, $todate1))
+        ->whereDate('Last_Time_Stamp', '=', $todaynew)
         ->count('Single_Order_Id');
 
       $tallpending = bulkorders::where('User_Id', $userid)

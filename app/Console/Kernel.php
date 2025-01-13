@@ -32,7 +32,7 @@ class Kernel extends ConsoleKernel
         // // ->withoutOverlapping()
         // ->sendOutputTo(storage_path() . '/logs/place_order_jobs.log');
 
-        $schedule->command('spnk:consignment-status-update')->description('Shipnick Consignments Status updating..')->hourly();
+        $schedule->command('spnk:consignment-status-update')->description('Shipnick Consignments Status updating..')->everyFifteenMinutes();
 
         $schedule->command('spnk:ecom_job')->name('status_update_ECOM')->description('Schedules status update job for orders in ECOM api')->everyTwoHours();
         $schedule->command('spnk:xpressbee_job')->name('status_update_XPREBEE')->description('Schedules status update job for orders in Xpressbee api')->everyTwoHours();
