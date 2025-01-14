@@ -53,6 +53,7 @@ Route::group([
 	Route::post('/track', [ConsignmentController::class, 'postTrackConsignments']);
 	Route::get('/upload', [ConsignmentController::class, 'getUploadConsignments']);
 	Route::post('/upload', [ConsignmentController::class, 'postUploadConsignments']);
+	Route::get('/download-awb', [ConsignmentController::class, 'downloadConsignments']);
 });
 Route::group([
 	'prefix' => 'api/v1'

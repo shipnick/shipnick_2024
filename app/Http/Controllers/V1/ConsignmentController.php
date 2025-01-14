@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\V1;
 
+use App\Exports\ConsignmentsExport;
 use App\Models\Consignment;
 use App\Providers\ConsignmentProvider;
+use Carbon\Carbon;
+use Excel;
 use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -11,6 +14,12 @@ use Illuminate\Support\Facades\Validator;
 
 class ConsignmentController extends V1BaseController
 {
+    public function downloadConsignments(){
+        ini_set('memory_limit', '-1');
+        ini_set('max_execution_time', 3600 * 3); // 3600 seconds = 60 minutes
+        $date = Carbon::now();
+        return Excel::download(new ConsignmentsExport(request('limit', 1000)), "AWBList_$date.xlsx", \Maatwebsite\Excel\Excel::XLSX);
+    }
     /**
      * * Tracking page for AWB nos
      * @return mixed|\Illuminate\Contracts\View\View|\Illuminate\Http\JsonResponse
