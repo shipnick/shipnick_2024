@@ -274,6 +274,7 @@ class LabelsPrintOut extends Controller
                     'hubname' => $Hubs->hub_name,
                     'name' => $datas->Name,
                     'address' => $datas->Address,
+                    'address2' => $datas->Address2,
                     'city' => $datas->City,
                     'pincode' => $datas->Pincode,
                     'mobile' => $datas->Mobile,

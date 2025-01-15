@@ -963,7 +963,7 @@ class UserOrderManage extends Controller
 
         $cancel = bulkorders::where('User_Id', $userid)
             ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-            ->where('order_cancel', 1)
+            // ->where('order_cancel', 1)
             ->count();
 
         $ofd = bulkorders::where('User_Id', $userid)
@@ -1095,7 +1095,7 @@ class UserOrderManage extends Controller
 
         $cancel = bulkorders::where('User_Id', $userid)
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', 1)
+            // ->where('order_cancel', 1)
             ->count();
 
         $ofd = bulkorders::where('User_Id', $userid)
@@ -1227,7 +1227,7 @@ class UserOrderManage extends Controller
 
         $cancel = bulkorders::where('User_Id', $userid)
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', 1)
+            // ->where('order_cancel', 1)
             ->count();
 
         $ofd = bulkorders::where('User_Id', $userid)
@@ -1357,7 +1357,7 @@ class UserOrderManage extends Controller
 
         $cancel = bulkorders::where('User_Id', $userid)
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', 1)
+            // ->where('order_cancel', 1)
             ->count();
 
         $ofd = bulkorders::where('User_Id', $userid)
@@ -1487,7 +1487,7 @@ class UserOrderManage extends Controller
 
         $cancel = bulkorders::where('User_Id', $userid)
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', 1)
+            // ->where('order_cancel', 1)
             ->count();
 
         $ofd = bulkorders::where('User_Id', $userid)
@@ -1747,7 +1747,7 @@ class UserOrderManage extends Controller
 
         $cancel = bulkorders::where('User_Id', $userid)
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', 1)
+            // ->where('order_cancel', 1)
             ->count();
 
         $ofd = bulkorders::where('User_Id', $userid)
@@ -1879,7 +1879,7 @@ class UserOrderManage extends Controller
 
         $cancel = bulkorders::where('User_Id', $userid)
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', 1)
+            // ->where('order_cancel', 1)
             ->count();
 
         $ofd = bulkorders::where('User_Id', $userid)

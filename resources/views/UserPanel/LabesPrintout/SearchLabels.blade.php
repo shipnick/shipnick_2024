@@ -290,7 +290,7 @@
                     <p>Deliver To:</p>
                     <h4 class="mb5">{{ ucwords($params[$i]['name']) }}</h4>
                     <p style="line-height: 1.5em;">
-                        {{ ucwords($params[$i]['address']) }}<br />
+                        {{ ucwords($params[$i]['address']) }}<br />{{ ucwords($params[$i]['address2']) }}
                         {{ ucwords($params[$i]['city']) }} :-{{ ucwords($params[$i]['pincode']) }}<br />
                         {{ ucwords($params[$i]['mobile']) }} ,{{ ucwords($params[$i]['mobile2']) }}<br>
                         {{ ucwords($params[$i]['pemail']) }}</p>

@@ -86,10 +86,10 @@ AWB - {{ $params[$i]['awb'] }} <br>
 				<td colspan="2" class="leftmargin">
 					<b>Shipping Address</b> <br>
 					Name :  <b>{{ ucwords($params[$i]['name']) }}</b><br>
-					Address : <b>{{ ucwords($params[$i]['address']) }}</b><br><br>
+					Address : <b>{{ ucwords($params[$i]['address']) }}</b> {{ ucwords($params[$i]['address2']) }}<br><br>
 					City : <b>{{ ucwords($params[$i]['city']) }}</b><br>
 					Pincode : <b>{{ ucwords($params[$i]['pincode']) }}</b><br>
-					Mobile : <b>{{ ucwords($params[$i]['mobile']) }}</b><br>
+					Mobile : <b>{{ ucwords($params[$i]['mobile']) }} ,{{ ucwords($params[$i]['mobile2']) }}</b><br>
 				</td>
 				<td colspan="3" class="leftmargin">
 					<b>Invoice Details</b> <br>

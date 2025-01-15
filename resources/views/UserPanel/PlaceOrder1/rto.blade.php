@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <button class="button btn btn-outline-primary btn-sm">Date Range</button>
+                <button class="button btn btn-outline-primary btn-sm">FILTERS</button>
             </div>
         </div>
     </div>
@@ -203,39 +203,6 @@
                                                         <button type="submit" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Search</button>
                                                         <a href="{{ url('/booked-order') }}" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Clear</a>
                                                     </form>
-                                                    <script>
-                                                        $(function() {
-                                                            // Initialize the date range picker with the options
-                                                            $('#daterange').daterangepicker({
-                                                                opens: 'left', // Position the calendar to the left
-                                                                startDate: moment().subtract(6, 'days'), // Default to Last 7 Days
-                                                                endDate: moment(), // End on today
-                                                                locale: {
-                                                                    format: 'YYYY-MM-DD' // Format of the date
-                                                                },
-                                                                ranges: {
-                                                                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')], // Yesterday
-                                                                    'Tomorrow': [moment().add(1, 'days'), moment().add(1, 'days')], // Tomorrow
-                                                                    'Last 7 Days': [moment().subtract(6, 'days'), moment()], // Last 7 Days
-                                                                    'Last 30 Days': [moment().subtract(29, 'days'), moment()], // Last 30 Days
-                                                                    'This Month': [moment().startOf('month'), moment().endOf('month')], // This Month
-                                                                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')] // Last Month
-                                                                }
-                                                            }, function(start, end) {
-                                                                // When the date range is selected, update the input fields
-                                                                $('#daterange').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
-                                                                $('#start_date').val(start.format('YYYY-MM-DD'));
-                                                                $('#end_date').val(end.format('YYYY-MM-DD'));
-                                                            });
-
-                                                            // Set the initial value based on the selected range
-                                                            var start = moment().subtract(6, 'days'); // Default to Last 7 Days
-                                                            var end = moment(); // Today
-                                                            $('#daterange').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
-                                                            $('#start_date').val(start.format('YYYY-MM-DD'));
-                                                            $('#end_date').val(end.format('YYYY-MM-DD'));
-                                                        });
-                                                    </script>
 
                                                 </div>
                                             </div>
@@ -249,7 +216,7 @@
                                 display: none;
                             }
                         </style>
-                        <form method="post" action="{{ asset('/filter-selected-order') }}">
+                        <form method="post" action="{{ asset('/filter-selected-order') }}" target="_blank">
                             @csrf
                             <div id="myDiv" class="hidden">
                                 <div class="d-flex justify-content-start align-items-center header-new">
@@ -278,8 +245,10 @@
                                 <table class="table card-table display mb-4 dataTablesCard text-black" id="example1">
                                     <thead style="background-color:#17a2b89c;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
                                         <tr>
-                                            <th>
-                                                <div class="form-check">
+                                            <th style="padding-left: 2%;">
+
+                                                <div class="" style="line-height: 2;">
+                                                    <span id="selectedCountText">0</span>
                                                     <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="toggle(this);" style="border-color: black;">
                                                     <label class="form-check-label" for="checkAll"></label>
                                                 </div>
@@ -304,41 +273,39 @@
                                         <tr>
                                             <td>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="selectedorder[]" value="<?= $param->Awb_Number ?>" style="border-color: black;">
+                                                    <input class="form-check-input" type="checkbox" name="selectedorder[]" value="{{ $param->Awb_Number }}" style="border-color: black;">
                                                 </div>
                                             </td>
                                             <td><span>{{ $param->uploadtype }}</span></td>
-                                            <td><a href="/order/{{ $param->ordernoapi }}"><span> {{ Str::limit($param->orderno, 20) }}</span></a></td>
-                                                <td>
+                                            <td>
+                                                <a href="/order/{{ $param->ordernoapi }}"><span>{{ Str::limit($param->orderno, 20) }}</span></a>
+                                            </td>
                                             <td>
                                                 <span>{{ date('Y-m-d', strtotime($param->Last_Time_Stamp)) }}</span><br />
-                                                <span>
-                                                    {{ date('H:i:s', strtotime($param->Last_Time_Stamp)) }}
-                                                </span>
+                                                <span>{{ date('H:i:s', strtotime($param->Last_Time_Stamp)) }}</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div>
-                                                        <h6 class="fs-13 mb-0 text-nowrap"><span>{{ Str::limit($param->Name, 10) }}</span><br />
-                                                            <span>{{$param->Mobile}}</span>
+                                                        <h6 class="fs-13 mb-0 text-nowrap">
+                                                            <span>{{ Str::limit($param->Name, 10) }}</span><br />
+                                                            <span>{{ $param->Mobile }}</span>
                                                         </h6>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td><span title="{{$param->Item_Name}}">{{ Str::limit($param->Item_Name, 10) }}</span> </td>
+                                            <td><span title="{{ $param->Item_Name }}">{{ Str::limit($param->Item_Name, 10) }}</span></td>
                                             <td><span>{{ $param->Quantity }}</span></td>
                                             <td><span>{{ $param->Total_Amount }}</span></td>
                                             <td><span>{{ $param->Order_Type }}</span></td>
-                                            <td><span>{{ $param->Awb_Number }}</span> </td>
+                                            <td><span>{{ $param->Awb_Number }}</span></td>
                                             <td>{{ $param->awb_gen_by }}</td>
-
                                             <td>
-                                                <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-rounded light">{{ Str::limit($param->showerrors, 20) }}</a>
-
+                                                <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-rounded light" title="Show Errors">{{ Str::limit($param->showerrors, 20) }}</a>
                                             </td>
                                             <td class="text-end">
                                                 <div class="dropdown dropstart">
-                                                    <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More options for {{ $param->Awb_Number }}">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                                             <path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -346,29 +313,31 @@
                                                         </svg>
                                                     </a>
                                                     <div class="dropdown-menu">
-
-
                                                         <a class="dropdown-item" href="{{ asset('/UPAll_Cancel_Orders_Now/'.$param->Awb_Number) }}" title="Cancel">
-                                                            <i class="las la-times-circle text-danger scale5 me-3"></i>Cancel Order</a>
+                                                            <i class="las la-times-circle text-danger scale5 me-3"></i>Cancel Order
+                                                        </a>
 
-                                                        <form action=""></form>
-
-
-                                                        <form action="Labels_Print" method="post">
+                                                        <form action="Labels_Print" method="post" aria-label="Download Invoice">
                                                             @csrf
                                                             <input type="hidden" name="awbnoisa" value="{{ $param->Awb_Number }}">
-                                                            <button class="dropdown-item" type="submit"><i class="las la-info-circle scale5 me-3 "></i>Download Invoice</button>
+                                                            <button class="dropdown-item" type="submit">
+                                                                <i class="las la-info-circle scale5 me-3 "></i>Download Invoice
+                                                            </button>
                                                         </form>
+
                                                         <a class="dropdown-item" href="edit-order/{{ $param->Single_Order_Id }}" title="Edit Order">
-                                                            <i class="las fa-file-invoice  scale5 me-3"></i>Edit Order</a>
-                                                        <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Cancel">
-                                                            <i class="las fa-file-invoice  scale5 me-3"></i>Clone Order</a>
+                                                            <i class="las fa-file-invoice scale5 me-3"></i>Edit Order
+                                                        </a>
+                                                        <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Clone Order">
+                                                            <i class="las fa-file-invoice scale5 me-3"></i>Clone Order
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
+
                                 </table>
                             </div>
                         </form>
@@ -378,10 +347,10 @@
                                     <div class="mb-3 col-md-2">
                                         <label for="perPageSelect" class="form-label">Results per page</label>
                                         <select id="perPageSelect" name="per_page" class="form-control" onchange="updatePerPage()">
-                                            <option value="50" {{ request()->get('per_page') == '5' ? 'selected' : '' }}>50</option>
-                                            <option value="100" {{ request()->get('per_page') == '10' ? 'selected' : '' }}>100</option>
-                                            <option value="200" {{ request()->get('per_page') == '20' ? 'selected' : '' }}>200</option>
-                                            <option value="500" {{ request()->get('per_page') == '50' ? 'selected' : '' }}>500</option>
+                                            <option value="50" {{ request()->get('per_page') == '50' ? 'selected' : (request()->get('per_page') == null ? 'selected' : '') }}>50</option>
+                                            <option value="100" {{ request()->get('per_page') == '100' ? 'selected' : '' }}>100</option>
+                                            <option value="200" {{ request()->get('per_page') == '200' ? 'selected' : '' }}>200</option>
+                                            <option value="500" {{ request()->get('per_page') == '500' ? 'selected' : '' }}>500</option>
                                         </select>
                                     </div>
                                 </form>
@@ -428,7 +397,87 @@
 </div>
 
 
+<!-- checkbox count start -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const checkboxes = document.querySelectorAll('input.form-check-input[type="checkbox"]:not(#checkAll)');
+        const checkAllCheckbox = document.getElementById('checkAll');
+        const selectedCountText = document.getElementById('selectedCountText'); // This is the counter element
 
+        // Function to update the visibility of the counter
+        function updateSelectedCount() {
+            const selectedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+            selectedCountText.textContent = selectedCheckboxes.length; // Update count text
+        }
+
+        // Add event listeners to all checkboxes (excluding the "check all" checkbox)
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateSelectedCount);
+        });
+
+        // Add event listener to the "check all" checkbox
+        checkAllCheckbox.addEventListener('change', function() {
+            const isChecked = this.checked;
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = isChecked;
+            });
+            updateSelectedCount(); // Update the count after toggling
+        });
+    });
+</script>
+<!-- checkbox count end -->
+<!-- daterange filter  -->
+<script>
+    $(function() {
+        // Function to get the query parameter value by name
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.has(name) ? urlParams.get(name) : null;
+        }
+
+        // Get 'from' and 'to' dates from the URL query parameters
+        const fromDate = getQueryParameter('from');
+        const toDate = getQueryParameter('to');
+
+        // Initialize the date range picker with options
+        $('#daterange').daterangepicker({
+            opens: 'left', // Position the calendar to the left
+            locale: {
+                format: 'YYYY-MM-DD' // Format of the date
+            },
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, function(start, end) {
+            // When the date range is selected, update the input fields
+            $('#daterange').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
+            $('#start_date').val(start.format('YYYY-MM-DD'));
+            $('#end_date').val(end.format('YYYY-MM-DD'));
+        });
+
+        // Set the initial value based on the 'from' and 'to' query parameters
+        if (fromDate && toDate) {
+            var start = moment(fromDate, 'YYYY-MM-DD');
+            var end = moment(toDate, 'YYYY-MM-DD');
+            $('#daterange').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
+            $('#start_date').val(start.format('YYYY-MM-DD'));
+            $('#end_date').val(end.format('YYYY-MM-DD'));
+        } else {
+            // If no parameters are found, default to Last 7 Days
+            var start = moment().subtract(6, 'days');
+            var end = moment();
+            $('#daterange').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
+            $('#start_date').val(start.format('YYYY-MM-DD'));
+            $('#end_date').val(end.format('YYYY-MM-DD'));
+        }
+    });
+</script>
+<!-- end daterange filter  -->
 
 
 @endsection
