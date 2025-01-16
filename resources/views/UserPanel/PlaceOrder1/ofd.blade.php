@@ -1,6 +1,11 @@
 @extends("UserPanel/userpanel_layout1")
 @section("userpanel")
 <style>
+    .card-body {
+        padding: 1rem;
+    }
+</style>
+<style>
     .header-new {
         position: fixed;
         /* Change to fixed positioning */
@@ -61,7 +66,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <button class="button btn btn-outline-primary btn-sm">FILTERS</button>
+                <button class="button btn btn-outline-primary btn-sm"><i class="fa-solid fa-filter"></i></button>
             </div>
         </div>
     </div>
@@ -135,7 +140,7 @@
                                                 <div class="col-lg-12 order-lg-1">
                                                     <h4 class="mb-3">FILTERS</h4>
                                                     <form id="filterForm" action="{{ url('/ofd') }}" method="get">
-                                                        <input type="hidden" name="per_page" id="hiddenPerPage" value="{{ request()->get('per_page', 10) }}">
+                                                        <input type="hidden" name="per_page" id="hiddenPerPage" value="{{ request()->get('per_page', 50) }}">
                                                         <input type="hidden" name="from" id="start_date" value="{{ request()->get('from') }}">
                                                         <input type="hidden" name="to" id="end_date" value="{{ request()->get('to') }}">
 
@@ -158,7 +163,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
-                                                                <label class="form-label">Cannel</label>
+                                                                <label class="form-label">Channels</label>
                                                                 <select class="default-select form-control wide w-100" name="cannel">
                                                                     <option value="">Select...</option>
                                                                     <option value="Excel" {{ request()->get('cannel') == 'Excel' ? 'selected' : '' }}>Excel</option>
@@ -314,9 +319,7 @@
                                                         </svg>
                                                     </a>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="{{ asset('/UPAll_Cancel_Orders_Now/'.$param->Awb_Number) }}" title="Cancel">
-                                                            <i class="las la-times-circle text-danger scale5 me-3"></i>Cancel Order
-                                                        </a>
+                                                       
 
                                                         <form action="Labels_Print" method="post" aria-label="Download Invoice">
                                                             @csrf
@@ -326,9 +329,7 @@
                                                             </button>
                                                         </form>
 
-                                                        <a class="dropdown-item" href="edit-order/{{ $param->Single_Order_Id }}" title="Edit Order">
-                                                            <i class="las fa-file-invoice scale5 me-3"></i>Edit Order
-                                                        </a>
+                                                       
                                                         <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Clone Order">
                                                             <i class="las fa-file-invoice scale5 me-3"></i>Clone Order
                                                         </a>

@@ -168,7 +168,7 @@ Content body start
 
 
 											<select name="courier" class=" form-control wide w-100 ">
-											<option value="" selected>Select</option>
+												<option value="" selected>Select</option>
 												<option value="Xpressbee">Xpressbees</option>
 												<option value="Ecom">Ecom</option>
 												<option value="Bluedart">Bluedart</option>
@@ -176,15 +176,6 @@ Content body start
 											</select>
 										</div>
 									</div>
-
-
-
-
-
-
-
-
-
 
 
 									<hr class="mb-4">

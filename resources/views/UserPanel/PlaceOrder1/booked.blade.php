@@ -57,10 +57,48 @@
         }
     });
 </script>
+<style>
+    .card-body {
+        padding: 1rem;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".button").click(function() {
+            $(".p").toggle();
+        });
+    });
+</script>
 
+<script>
+    function showDiv(divId, element) {
+        document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
+    }
+</script>
 
+<script>
+    document.getElementById('downloadExcelBtn').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        document.getElementById('downloadExcelForm').submit(); // Submit the form manually
+    });
+</script>
+<script>
+    document.getElementById('downloadExcelBtn').addEventListener('click', function() {
+        var cfromdate = "{{ $cfromdate }}";
+        var ctodate = "{{ $ctodate }}";
+        var ftype = "Excel";
+
+        var url = "{{ asset('/today-placed-orders') }}";
+        url += "?cfromdate=" + encodeURIComponent(cfromdate);
+        url += "&ctodate=" + encodeURIComponent(ctodate);
+        url += "&ftype=" + encodeURIComponent(ftype);
+
+        window.location.href = url;
+    });
+</script>
 <div class="content-body">
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-top: 0;">
         <div class="d-flex flex-wrap align-items-center ">
             <div class="  me-auto">
                 <div class="card-tabs style-1 mt-3 mt-sm-0">
@@ -94,56 +132,11 @@
 
                 </div>
             </div>
-            <button class="button btn btn-outline-primary btn-sm">FILTERS</button>
+            <button class="button btn btn-outline-primary btn-sm"><i class="fa-solid fa-filter"></i></button>
         </div>
 
-
-
-
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $(".button").click(function() {
-                    $(".p").toggle();
-                });
-            });
-        </script>
-
-        <script>
-            function showDiv(divId, element) {
-                document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
-            }
-        </script>
-
-        <script>
-            document.getElementById('downloadExcelBtn').addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent the default form submission
-                document.getElementById('downloadExcelForm').submit(); // Submit the form manually
-            });
-        </script>
-        <script>
-            document.getElementById('downloadExcelBtn').addEventListener('click', function() {
-                var cfromdate = "{{ $cfromdate }}";
-                var ctodate = "{{ $ctodate }}";
-                var ftype = "Excel";
-
-                var url = "{{ asset('/today-placed-orders') }}";
-                url += "?cfromdate=" + encodeURIComponent(cfromdate);
-                url += "&ctodate=" + encodeURIComponent(ctodate);
-                url += "&ftype=" + encodeURIComponent(ftype);
-
-                window.location.href = url;
-            });
-        </script>
-
-
-
-
-
-
-        <div class="row " id="allordersshows">
-            <div class="col-xl-12 tab-content mt-2">
+        <div class="row mt-2" id="allordersshows">
+            <div class="col-xl-12 tab-content ">
                 <div class="tab-pane fade show active" id="booked" role="tabpanel" aria-labelledby="booked-tab">
                     <div class="row">
                         <div class="col-xl-12 tab-content">
@@ -156,25 +149,24 @@
                                                     <div class="col-lg-12 order-lg-1">
                                                         <h4 class="mb-3">FILTERS</h4>
                                                         <form id="filterForm" action="{{ url('/booked-order') }}" method="get">
-                                                            <input type="hidden" name="per_page" id="hiddenPerPage" value="{{ request()->get('per_page', 10) }}">
+                                                            <input type="hidden" name="per_page" id="hiddenPerPage" value="{{ request()->get('per_page', 50) }}">
                                                             <input type="hidden" name="from" id="start_date" value="{{ request()->get('from') }}">
                                                             <input type="hidden" name="to" id="end_date" value="{{ request()->get('to') }}">
 
                                                             <div class="row">
-                                                                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
+                                                                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
                                                                     <div class="example">
                                                                         <p class="mb-1">Date Range</p>
                                                                         <input type="text" id="daterange" class="form-control"
                                                                             value="{{ request()->get('from') && request()->get('to') ? request()->get('from') . ' - ' . request()->get('to') : '' }}">
                                                                     </div>
                                                                 </div>
-
-                                                                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 mb-1">
+                                                                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 ">
                                                                     <label for="product_name" class="form-label">Product Name</label>
                                                                     <input type="text" class="form-control" id="product_name" placeholder="Product Name" name="product_name" value="{{ request()->get('product_name') }}">
                                                                 </div>
-                                                                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 mb-1">
-                                                                    <label class="form-label">Cannel</label>
+                                                                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 ">
+                                                                    <label class="form-label">Channels</label>
                                                                     <select class="default-select form-control wide w-100" name="cannel">
                                                                         <option value="">Select...</option>
                                                                         <option value="Excel" {{ request()->get('cannel') == 'Excel' ? 'selected' : '' }}>Excel</option>
@@ -183,11 +175,11 @@
 
                                                                     </select>
                                                                 </div>
-                                                                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
+                                                                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
                                                                     <label for="waybill" class="form-label">ORDER ID</label>
                                                                     <input type="text" class="form-control" id="waybill" name="orderid" value="{{ request()->get('awb') }}">
                                                                 </div>
-                                                                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 mb-3">
+                                                                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 ">
                                                                     <label class="form-label">Order Type</label>
                                                                     <select class="default-select form-control wide w-100" name="order_type">
                                                                         <option value="">Select...</option>
@@ -197,9 +189,9 @@
                                                                 </div>
 
                                                             </div>
-                                                            <hr class="mb-4">
-                                                            <button type="submit" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Search</button>
-                                                            <a href="{{ url('/booked-order') }}" class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Clear</a>
+                                                            <!-- <hr class="mb-4"> -->
+                                                            <button type="submit" class="btn btn-secondary ms-sm-auto mt-1 mb-sm-0">Search</button>
+                                                            <a href="{{ url('/booked-order') }}" class="btn btn-secondary ms-sm-auto mt-1 mb-sm-0">Clear</a>
                                                         </form>
 
 
@@ -330,13 +322,7 @@
                                                                 <a class="dropdown-item" href="{{ asset('/UPAll_Cancel_Orders_Now/'.$param->Awb_Number) }}" title="Cancel">
                                                                     <i class="las la-times-circle text-danger scale5 me-3"></i>Cancel Order
                                                                 </a>
-                                                                <form action="Labels_Print" method="post">
-                                                                    @csrf
-                                                                    <input type="hidden" name="awbnoisa" value="{{ $param->Awb_Number }}">
-                                                                    <button class="dropdown-item" type="submit">
-                                                                        <i class="las la-info-circle scale5 me-3 "></i>Download Invoice
-                                                                    </button>
-                                                                </form>
+
                                                                 <a class="dropdown-item" href="edit-order/{{ $param->Single_Order_Id }}" title="Edit Order">
                                                                     <i class="las fa-file-invoice scale5 me-3"></i>Edit Order
                                                                 </a>

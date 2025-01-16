@@ -1,8 +1,52 @@
 @extends("UserPanel/userpanel_layout1")
 @section("userpanel")
+<style>
+    .card-body {
+        padding: 1rem;
+    }
+</style>
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
+<style>
+    #hidden_div {
+        display: none;
+    }
 
+    table.dataTable tbody td {
+        padding: 0px 0px;
+        font-weight: 600;
+        border-bottom: 0;
+    }
+
+    .btn-outline-primary {
+        color: var(--primary);
+        border-color: var(--primary);
+    }
+
+    .table thead th {
+
+        font-size: 12px;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".button").click(function() {
+            $(".p").toggle();
+        });
+    });
+</script>
+
+<script>
+    function showDiv(divId, element) {
+        document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
+    }
+</script>
 <div class="content-body">
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-top: 0;">
         <div class="d-flex flex-wrap align-items-center mb-3">
             <div class=" me-auto">
                 <div class="card-tabs style-1 mt-3 mt-sm-0">
@@ -36,72 +80,12 @@
                 </div>
             </div>
             <div class="form-group">
-                <button class="button btn btn-outline-primary btn-sm">FILTERS</button>
+                <button class="button btn btn-outline-primary btn-sm"><i class="fa-solid fa-filter"></i></button>
             </div>
         </div>
     </div>
 
-    <style>
-        #hidden_div {
-            display: none;
-        }
-
-        table.dataTable tbody td {
-            padding: 0px 0px;
-            font-weight: 600;
-            border-bottom: 0;
-        }
-
-        .btn-outline-primary {
-            color: var(--primary);
-            border-color: var(--primary);
-        }
-
-        .table thead th {
-
-            font-size: 12px;
-        }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $(".button").click(function() {
-                $(".p").toggle();
-            });
-        });
-    </script>
-
-    <script>
-        function showDiv(divId, element) {
-            document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
-        }
-    </script>
-
-
-    <!-- <script>
-    $(document).ready(function() {
-    $('#perPageSelect').change(function() {
-        var form = $('#searchForm1');
-        $.ajax({
-            url: form.attr('action'),
-            type: form.attr('method'),
-            data: form.serialize(),
-            success: function(response) {
-                // Assuming the server returns the updated content in the 'response' variable
-                $('#allordersshows').html(response);
-            },
-            error: function(xhr) {
-                console.log('Error:', xhr);
-            }
-        });
-    });
-}); -->
-
-    </script>
-
-
-
-    <div class="row " id="allordersshows">
+    <div class="row mt-2" id="allordersshows">
         <div class="col-xl-12 tab-content">
             <div class="tab-pane fade show active" id="booked" role="tabpanel" aria-labelledby="booked-tab">
                 <div class="row">
@@ -115,7 +99,7 @@
                                                 <div class="col-lg-12 order-lg-1">
                                                     <h4 class="mb-3">FILTERS</h4>
                                                     <form id="filterForm" action="{{ url('/cancelled') }}" method="get">
-                                                        <input type="hidden" name="per_page" id="hiddenPerPage" value="{{ request()->get('per_page', 10) }}">
+                                                        <input type="hidden" name="per_page" id="hiddenPerPage" value="{{ request()->get('per_page', 50) }}">
                                                         <input type="hidden" name="from" id="start_date" value="{{ request()->get('from') }}">
                                                         <input type="hidden" name="to" id="end_date" value="{{ request()->get('to') }}">
 
@@ -154,7 +138,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-1">
-                                                                <label class="form-label">Cannel</label>
+                                                                <label class="form-label">Channels</label>
                                                                 <select class="default-select form-control wide w-100" name="cannel">
                                                                     <option value="">Select...</option>
                                                                     <option value="Excel" {{ request()->get('cannel') == 'Excel' ? 'selected' : '' }}>Excel</option>
@@ -191,23 +175,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <style>
-                                .hidden {
-                                    display: none;
-                                }
-                            </style>
+
                             <form method="post" action="{{ asset('/filter-selected-order') }}" target="_blank">
                                 @csrf
                                 <div id="myDiv" class="hidden">
                                     <div class="d-flex justify-content-start align-items-center header-new">
-                                        <!--                  <button name="currentbtnname" value="shippinglabel" type="submit"-->
-                                        <!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
-                                        <!--	<i class="fa fa-calendar me-1"></i> Print Label-->
-                                        <!--</button>-->
-                                        <!--<button name="currentbtnname" value="cancelorders" type="submit"-->
-                                        <!--	class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">-->
-                                        <!--	<i class="fa fa-times-circle me-1"></i> Cancel Orders-->
-                                        <!--</button>-->
+
                                         <button name="currentbtnname" value="exportorderdetails" class="btn btn-outline-secondary btn-sm me-3 mb-2 button-clor-white">
                                             <i class="fa fa-download me-1 "></i> Export
                                         </button>
@@ -293,9 +266,7 @@
                                                             </svg>
                                                         </a>
                                                         <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="{{ asset('/UPAll_Cancel_Orders_Now/'.$param->Awb_Number) }}" title="Cancel">
-                                                                <i class="las la-times-circle text-danger scale5 me-3"></i>Cancel Order
-                                                            </a>
+
 
                                                             <form action="Labels_Print" method="post" aria-label="Download Invoice">
                                                                 @csrf
@@ -304,10 +275,6 @@
                                                                     <i class="las la-info-circle scale5 me-3 "></i>Download Invoice
                                                                 </button>
                                                             </form>
-
-                                                            <a class="dropdown-item" href="edit-order/{{ $param->Single_Order_Id }}" title="Edit Order">
-                                                                <i class="las fa-file-invoice scale5 me-3"></i>Edit Order
-                                                            </a>
                                                             <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Clone Order">
                                                                 <i class="las fa-file-invoice scale5 me-3"></i>Clone Order
                                                             </a>
