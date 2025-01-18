@@ -140,7 +140,7 @@
 				</div>
 			</div>
 			<div class="col-xl-6 col-xxl-6">
-				<div class="card" style="background-color: #4d81cc">
+				<div class="card" >
 					<div class="card-header border-0 pb-0 d-sm-flex flex-wrap d-block">
 						<div class="">
 							<h4 class="card-title ">Today's Shipment</h4>
