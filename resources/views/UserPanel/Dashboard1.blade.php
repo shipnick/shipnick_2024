@@ -112,7 +112,7 @@
 
 		</div>
 		<div class="row">
-			<div class="col-xl-9 col-xxl-12">
+			<div class="col-xl-6 col-xxl-6">
 				<div class="card">
 					<div class="card-body">
 						<div class="row align-items-center">
@@ -129,51 +129,56 @@
 											<!--<li><span class="bg-light circle"></span>Others<span>15%</span></li>-->
 										</ul>
 									</div>
-									<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-									<div class="col-md-6" style="height:200px">
-										<canvas id="pieChart"></canvas>
-									</div>
 
-									<script>
-										// Get the canvas element by its id
-										var canvas = document.getElementById('pieChart');
 
-										// Create an initial data object for the pie chart
-										var data = {
-											labels: ['COD', 'Prepaid'],
-											datasets: [{
-												label: 'Dataset 1',
-												data: [{
-													{
-														$codPercentage
-													}
-												}, {
-													{
-														$prepaidPercentage
-													}
-												}], // Pass percentages directly
-												backgroundColor: ['blue', 'green'],
-											}]
-										};
-
-										// Create configuration options for the pie chart
-										var options = {
-											responsive: true,
-											maintainAspectRatio: false,
-										};
-
-										// Create a new pie chart instance
-										var pieChart = new Chart(canvas, {
-											type: 'pie', // Change chart type to pie
-											data: data,
-											options: options
-										});
-									</script>
 
 
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-6 col-xxl-6">
+				<div class="card" style="background-color: #4d81cc">
+					<div class="card-header border-0 pb-0 d-sm-flex flex-wrap d-block">
+						<div class="">
+							<h4 class="card-title ">Today's Shipment</h4>
+						</div>
+
+					</div>
+					<div class="card-body tab-content orders-summary pt-3">
+						<div class="tab-pane fade show active" id="Monthly">
+
+							<div class="row text-center">
+								<div class="col-sm-4 ">
+									<div class="border border-3 px-1 py-2 rounded-xl bg-white">
+										<h2 class="fs-24  counter ">{{ $talluploaded }}</h2>
+
+									</div>
+									<p class="fs-16 mb-0 text-white">Booked</p>
+								</div>
+								<div class="col-sm-4 ">
+									<div class="border border-3 px-1 py-2 rounded-xl bg-white">
+										<h2 class="fs-24  counter">{{$tallpending}}</h2>
+
+									</div>
+									<p class="fs-16 mb-0 text-white">Pickup Pending</p>
+
+								</div>
+								<div class="col-sm-4 ">
+									<div class="border border-3 px-1 py-2 rounded-xl bg-white">
+										<h2 class="fs-24 counter">{{ $intransitupload }}</h2>
+
+									</div>
+									<p class="fs-16 mb-0 text-white">In-transit</p>
+								</div>
+
+
+							</div>
+
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -182,89 +187,6 @@
 	</div>
 	<div class="container-fluid">
 		<div class="row ">
-
-			<div class="col-xl-4 col-xxl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-				<div class="card  invoice-card" style="background-color: #4d81cc">
-					<div class="card-body d-flex">
-						<div class="icon me-3">
-							<svg width="33px" height="32px">
-								<path fill-rule="evenodd" fill="rgb(1, 0, 0)"
-									d="M31.963,30.931 C31.818,31.160 31.609,31.342 31.363,31.455 C31.175,31.538 30.972,31.582 30.767,31.583 C30.429,31.583 30.102,31.463 29.845,31.243 L25.802,27.786 L21.758,31.243 C21.502,31.463 21.175,31.583 20.837,31.583 C20.498,31.583 20.172,31.463 19.915,31.243 L15.872,27.786 L11.829,31.243 C11.622,31.420 11.370,31.534 11.101,31.572 C10.832,31.609 10.558,31.569 10.311,31.455 C10.065,31.342 9.857,31.160 9.710,30.931 C9.565,30.703 9.488,30.437 9.488,30.167 L9.488,17.416 L2.395,17.416 C2.019,17.416 1.658,17.267 1.392,17.001 C1.126,16.736 0.976,16.375 0.976,16.000 L0.976,6.083 C0.976,4.580 1.574,3.139 2.639,2.076 C3.703,1.014 5.146,0.417 6.651,0.417 L26.511,0.417 C28.016,0.417 29.459,1.014 30.524,2.076 C31.588,3.139 32.186,4.580 32.186,6.083 L32.186,30.167 C32.186,30.437 32.109,30.703 31.963,30.931 ZM9.488,6.083 C9.488,5.332 9.189,4.611 8.657,4.080 C8.125,3.548 7.403,3.250 6.651,3.250 C5.898,3.250 5.177,3.548 4.645,4.080 C4.113,4.611 3.814,5.332 3.814,6.083 L3.814,14.583 L9.488,14.583 L9.488,6.083 ZM29.348,6.083 C29.348,5.332 29.050,4.611 28.517,4.080 C27.985,3.548 27.263,3.250 26.511,3.250 L11.559,3.250 C12.059,4.111 12.324,5.088 12.325,6.083 L12.325,27.092 L14.950,24.840 C15.207,24.620 15.534,24.500 15.872,24.500 C16.210,24.500 16.537,24.620 16.794,24.840 L20.837,28.296 L24.880,24.840 C25.137,24.620 25.463,24.500 25.802,24.500 C26.140,24.500 26.467,24.620 26.724,24.840 L29.348,27.092 L29.348,6.083 ZM25.092,20.250 L16.581,20.250 C16.205,20.250 15.844,20.101 15.578,19.835 C15.312,19.569 15.162,19.209 15.162,18.833 C15.162,18.457 15.312,18.097 15.578,17.831 C15.844,17.566 16.205,17.416 16.581,17.416 L25.092,17.416 C25.469,17.416 25.829,17.566 26.096,17.831 C26.362,18.097 26.511,18.457 26.511,18.833 C26.511,19.209 26.362,19.569 26.096,19.835 C25.829,20.101 25.469,20.250 25.092,20.250 ZM25.092,14.583 L16.581,14.583 C16.205,14.583 15.844,14.434 15.578,14.168 C15.312,13.903 15.162,13.542 15.162,13.167 C15.162,12.791 15.312,12.430 15.578,12.165 C15.844,11.899 16.205,11.750 16.581,11.750 L25.092,11.750 C25.469,11.750 25.829,11.899 26.096,12.165 C26.362,12.430 26.511,12.791 26.511,13.167 C26.511,13.542 26.362,13.903 26.096,14.168 C25.829,14.434 25.469,14.583 25.092,14.583 ZM25.092,8.916 L16.581,8.916 C16.205,8.916 15.844,8.767 15.578,8.501 C15.312,8.236 15.162,7.875 15.162,7.500 C15.162,7.124 15.312,6.764 15.578,6.498 C15.844,6.232 16.205,6.083 16.581,6.083 L25.092,6.083 C25.469,6.083 25.829,6.232 26.096,6.498 C26.362,6.764 26.511,7.124 26.511,7.500 C26.511,7.875 26.362,8.236 26.096,8.501 C25.829,8.767 25.469,8.916 25.092,8.916 Z" />
-							</svg>
-
-						</div>
-						<div>
-							<h2 class="text-black invoice-num f-24">{{ $talluploaded }}</h2>
-							<span class="text-black fs-18">Today's Bookings</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xl-8 col-xxl-8 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-
-				<div class="card" style="background-color: #4d81cc">
-					<div class="card-header border-0 pb-0 d-sm-flex flex-wrap d-block">
-						<div class="">
-							<h4 class="card-title ">Shipment</h4>
-						</div>
-
-					</div>
-					<div class="card-body tab-content orders-summary pt-3">
-						<div class="tab-pane fade show active" id="Monthly">
-
-							<div class="row text-center">
-								<div class="col-sm-2 ">
-									<div class="border border-3 px-1 py-2 rounded-xl bg-white">
-										<h2 class="fs-24  counter ">{{ $talluploaded }}</h2>
-
-									</div>
-									<p class="fs-16 mb-0 text-white">Booked</p>
-								</div>
-								<div class="col-sm-2 ">
-									<div class="border border-3 px-1 py-2 rounded-xl bg-white">
-										<h2 class="fs-24  counter">{{$tallpending}}</h2>
-
-									</div>
-									<p class="fs-16 mb-0 text-white">Pickup Pending</p>
-
-								</div>
-								<div class="col-sm-2 ">
-									<div class="border border-3 px-1 py-2 rounded-xl bg-white">
-										<h2 class="fs-24 counter">{{ $intransitupload }}</h2>
-
-									</div>
-									<p class="fs-16 mb-0 text-white">In-transit</p>
-								</div>
-								<div class="col-sm-2 mb-4">
-									<div class="border border-3 px-1 py-2 rounded-xl bg-white">
-										<h2 class="fs-24 counter">{{ $tallcomplete }}</h2>
-
-									</div>
-									<p class="fs-16 mb-0 text-white">Delivered</p>
-								</div>
-								<div class="col-sm-2 ">
-									<div class="border border-3 px-1 py-2 rounded-xl bg-white">
-										<h2 class="fs-24 counter">{{$tallndr}}</h2>
-
-									</div>
-									<p class="fs-16 mb-0 text-white">NDR Pending</p>
-								</div>
-								<div class="col-sm-2">
-									<div class="border border-3 px-1 py-2 rounded-xl bg-white">
-										<h2 class="fs-24 counter">0</h2>
-
-									</div>
-									<p class="fs-16 mb-0 text-white">RTO</p>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-
 
 			<div class="row">
 				@if ($MonthlyOrder > 0)
@@ -284,63 +206,79 @@
 							<h4 class="card-title">Courier Split</h4>
 						</div>
 						<div class="card-body">
-							<div id="pie-chart" class="ct-chart ct-golden-section"></div>
+    <div id="pie-chart" class="ct-chart ct-golden-section"></div>
 
-							<style>
-								/* Custom colors for the pie chart slices */
-								.ct-series-a .ct-slice-pie {
-									fill: #FF5733;
-									/* Custom Color 1 (e.g., Orange) */
-								}
+    <style>
+        /* Custom colors for the pie chart slices */
+        .ct-series-a .ct-slice-pie {
+            fill: #FF5733; /* Custom Color 1 (e.g., Orange) */
+        }
+        .ct-series-b .ct-slice-pie {
+            fill: #ffbe33c9; /* Custom Color 2 (e.g., Lime Green) */
+        }
+        .ct-series-c .ct-slice-pie {
+            fill: #3357FF; /* Custom Color 3 (e.g., Blue) */
+        }
 
-								.ct-series-b .ct-slice-pie {
-									fill: #ffbe33c9;
-									/* Custom Color 2 (e.g., Lime Green) */
-								}
+        /* Optional: Responsive Chart */
+        #pie-chart {
+            width: 100%;
+            height: auto;
+        }
+    </style>
 
-								.ct-series-c .ct-slice-pie {
-									fill: #3357FF;
-									/* Custom Color 3 (e.g., Blue) */
-								}
-							</style>
+    <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.js"></script>
 
-							<script src="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.js"></script>
+    <script>
+        var percentageXpressbee = <?php echo isset($percentage_xpressbeeFormatted) ? $percentage_xpressbeeFormatted : 0; ?>;
+        var percentageEcom = <?php echo isset($percentage_ecomFormatted) ? $percentage_ecomFormatted : 0; ?>;
+        var percentageBluedart = <?php echo isset($percentage_bluedartFormatted) ? $percentage_bluedartFormatted : 0; ?>;
 
-							<script>
-								// Assuming these values are dynamically passed from your server or pre-set JavaScript variables
-								var percentageXpressbee = {
-									{
-										$percentage_xpressbeeFormatted ?? 0
-									}
-								};
-								var percentageEcom = {
-									{
-										$percentage_ecomFormatted ?? 0
-									}
-								};
-								var percentageBluedart = {
-									{
-										$percentage_bluedartFormatted ?? 0
-									}
-								};
+        // Ensure the percentages total 100 or adjust values if necessary
+        var total = percentageXpressbee + percentageEcom + percentageBluedart;
+        if (total !== 100) {
+            console.warn('Percentages do not sum to 100, adjusting values.');
+            // percentageXpressbee = (percentageXpressbee / total) * 100;
+			percentageXpressbee = (percentageXpressbee / total) * 100;
+            percentageEcom = (percentageEcom / total) * 100;
+            percentageBluedart = (percentageBluedart / total) * 100;
+        }
 
-								// Example data for the chart
-								var data = {
-									series: [percentageXpressbee, percentageEcom, percentageBluedart] // Numerical values for each series
-								};
+        // Data for the pie chart
+        var data = {
+            series: [percentageXpressbee, percentageEcom, percentageBluedart]
+        };
 
-								// Creating the pie chart
-								new Chartist.Pie('#pie-chart', data);
-							</script>
+        var options = {
+            showLabel: true,
+            chartPadding: 10,
+            animation: {
+                draw: function(data) {
+                    data.element.animate({
+                        d: {
+                            begin: 1000 * data.index,
+                            dur: 1000,
+                            from: data.path.clone().stringify(),
+                            to: data.path.clone().stringify()
+                        }
+                    });
+                }
+            }
+        };
 
-							<div class="chart-legend">
-								<ul>
-									<li><span style="color: #FF5733;">&#9679;</span> Xpressbees: {{ $percentage_xpressbeeFormatted ?? 0 }}%</li>
-									<li><span style="color: #ffbe33c9;">&#9679;</span> Ecomexpress: {{ $percentage_ecomFormatted ?? 0 }}%</li>
-									<li><span style="color: #3357FF;">&#9679;</span> Bluedart: {{ $percentage_bluedartFormatted ?? 0 }}%</li>
-								</ul>
-							</div>
-						</div>
+        // Create the pie chart
+        new Chartist.Pie('#pie-chart', data, options);
+    </script>
+
+    <div class="chart-legend">
+        <ul>
+            <li><span style="color: #FF5733;">&#9679;</span> Xpressbees: {{ $percentage_xpressbeeFormatted ?? 0 }}%</li>
+            <li><span style="color: #ffbe33c9;">&#9679;</span> Ecomexpress: {{ $percentage_ecomFormatted ?? 0 }}%</li>
+            <li><span style="color: #3357FF;">&#9679;</span> Bluedart: {{ $percentage_bluedartFormatted ?? 0 }}%</li>
+        </ul>
+    </div>
+</div>
+
 					</div>
 				</div>
 

@@ -4,16 +4,16 @@
 <head>
 
     <meta charset="utf-8">
-<meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipnick</title>
 
 
 
 
-<link href="{{asset('newtheme/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+    <link href="{{asset('newtheme/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
     <link href="{{asset('newtheme/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="{{asset('newtheme/vendor/nouislider/nouislider.min.css')}}">
     <link rel="stylesheet" href="{{asset('newtheme/./vendor/swiper/css/swiper-bundle.min.css')}}">
 
@@ -61,9 +61,9 @@
     ********************-->
 
     <div id="preloader"></div>
-        <div class="progress-bar">
-            <div class="bar" id="progress"></div>
-        </div>
+    <div class="progress-bar">
+        <div class="bar" id="progress"></div>
+    </div>
     </div>
 
     <!--*******************
@@ -86,7 +86,7 @@
         <!--**********************************
 			  Sidebar start
 		  ***********************************-->
-        
+
 
         <!--**********************************
 			  Sidebar end
@@ -101,8 +101,13 @@
         <div class="footer">
 
             <div class="copyright">
-                <p>Copyright © Shipnick.com. Designed &amp; Developed by <a href="https://philontechnologies.com/" target="_blank">Philon Technologies Pvt. Ltd.</a> 2023</p>
+                <p>Copyright © Shipnick.com. Designed &amp; Developed by <a href="https://www.shipnick.com/" target="_blank">Shipnick Technologies Pvt. Ltd.</a> <span id="current-year"></span></p>
             </div>
+
+            <script>
+                // Get the current year and set it dynamically
+                document.getElementById('current-year').textContent = new Date().getFullYear();
+            </script>
         </div>
         <!--**********************************
             Footer end

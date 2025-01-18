@@ -88,10 +88,15 @@
             Footer start
         ***********************************-->
         <div class="footer">
-		
+
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="https://shipnick.com/" target="_blank">shipnick</a> 2024</p>
+                <p>Copyright © Shipnick.com. Designed &amp; Developed by <a href="https://www.shipnick.com/" target="_blank">Shipnick Technologies Pvt. Ltd.</a> <span id="current-year"></span></p>
             </div>
+
+            <script>
+                // Get the current year and set it dynamically
+                document.getElementById('current-year').textContent = new Date().getFullYear();
+            </script>
         </div>
         <!--**********************************
             Footer end
