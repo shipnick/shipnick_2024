@@ -91,7 +91,7 @@
                 <div class="card-tabs style-1 mt-3 mt-sm-0">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" href="UPNDR_Report">NDR</a>
+                            <a class="nav-link " href="UPNDR_Report">NDR</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " href="report-ndr">NDR <span class="fs-12">(wrong Address/Phone)</span></a>
@@ -103,7 +103,7 @@
                             <a class="nav-link " href="report-rto">RTO </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="report-rto-delivered">RTO Delivered </a>
+                            <a class="nav-link active" href="report-rto-delivered">RTO Delivered </a>
                         </li>
                        
                     </ul>
@@ -140,15 +140,18 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 ">
-                                                                    <label for="product_name" class="form-label"> Customer name</label>
+                                                                    <label for="product_name" class="form-label">Product Name</label>
                                                                     <input type="text" class="form-control" id="product_name" placeholder="Product Name" name="product_name" value="{{ request()->get('product_name') }}">
                                                                 </div>
                                                                 
                                                                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
                                                                     <label for="waybill" class="form-label">ORDER ID</label>
+                                                                    <input type="text" class="form-control" id="waybill" name="orderid" value="{{ request()->get('awb') }}">
+                                                                </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 ">
+                                                                    <label class="form-label">AWB no.</label>
                                                                     <input type="text" class="form-control" id="waybill" name="orderid" >
                                                                 </div>
-                                                                
 
                                                             </div>
                                                             <!-- <hr class="mb-4"> -->

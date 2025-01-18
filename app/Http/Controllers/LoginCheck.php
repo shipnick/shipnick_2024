@@ -370,8 +370,9 @@ class LoginCheck extends Controller
         } else {
             $statusmsg = "Confirm password not match";
         }
-        $req->session()->flash('status', $statusmsg);
-        return redirect("/change-password");
+        $req->session()->flash('message', $statusmsg);
+        return redirect()->back();
+        // return redirect("/change-password");
     }
 
 

@@ -791,6 +791,11 @@ Route::get('/UPMIS_Report_ExcelN', [UserExcels::class, 'MIS_ReportN']);
 Route::get('/sku_summary', [UserExcels::class, 'skuSummary']);
 Route::get('/skunew', [UserExcels::class, 'skuNew']);
 
+
+Route::get('/report-ndr', [UserExcels::class, 'report_ndr']);
+Route::get('/report-ndr-delivered', [UserExcels::class, 'report_ndr_delivered']);
+Route::get('/report-rto', [UserExcels::class, 'report_rto']);
+Route::get('/report-rto-delivered', [UserExcels::class, 'report_rto_delivered']);
 // Reports
 
 

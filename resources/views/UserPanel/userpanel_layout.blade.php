@@ -89,9 +89,10 @@
         ***********************************-->
         <div class="footer">
 
-            <div class="copyright">
-                <p>Copyright © Shipnick.com. Designed &amp; Developed by <a href="https://www.shipnick.com/" target="_blank">Shipnick Technologies Pvt. Ltd.</a> <span id="current-year"></span></p>
-            </div>
+		<div class="copyright">
+            
+			<p>Copyright © Shipnick <span id="current-year"></span></p>
+		</div>
 
             <script>
                 // Get the current year and set it dynamically

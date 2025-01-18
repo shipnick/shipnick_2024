@@ -91,21 +91,21 @@
                 <div class="card-tabs style-1 mt-3 mt-sm-0">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" href="UPNDR_Report">NDR</a>
+                            <a class="nav-link " href="{{url('UPNDR_Report')}}">NDR</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="report-ndr">NDR <span class="fs-12">(wrong Address/Phone)</span></a>
+                            <a class="nav-link " href="{{url('report-ndr')}}">NDR <span class="fs-12">(wrong Address/Phone)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="report-ndr-delivered">NDR Delivered</a>
+                            <a class="nav-link" href="{{url('report-ndr-delivered')}}">NDR Delivered</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="report-rto">RTO </a>
+                            <a class="nav-link active" href="{{url('report-rto')}}">RTO </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="report-rto-delivered">RTO Delivered </a>
+                            <a class="nav-link " href="{{url('report-rto-delivered')}}">RTO Delivered </a>
                         </li>
-                       
+
                     </ul>
 
                 </div>
@@ -140,15 +140,18 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 ">
-                                                                    <label for="product_name" class="form-label"> Customer name</label>
+                                                                    <label for="product_name" class="form-label">Customer name</label>
                                                                     <input type="text" class="form-control" id="product_name" placeholder="Product Name" name="product_name" value="{{ request()->get('product_name') }}">
                                                                 </div>
                                                                 
                                                                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
                                                                     <label for="waybill" class="form-label">ORDER ID</label>
+                                                                    <input type="text" class="form-control" id="waybill" name="orderid" value="{{ request()->get('awb') }}">
+                                                                </div>
+                                                                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 ">
+                                                                    <label class="form-label">AWB no.</label>
                                                                     <input type="text" class="form-control" id="waybill" name="orderid" >
                                                                 </div>
-                                                                
 
                                                             </div>
                                                             <!-- <hr class="mb-4"> -->
@@ -176,11 +179,11 @@
                                     @csrf
                                     <div id="myDiv" class="hidden " style="margin-bottom: 5%;">
                                         <div class="d-flex justify-content-start align-items-center header-new button-clor-white ">
-                                            
+
                                             <button name="currentbtnname" value="exportorderdetails" class="btn btn-outline-secondary  me-3 mb-2 btn-sm button-clor-white">
                                                 <i class="fa fa-download me-1 "></i> Export
                                             </button>
-                                            
+
                                         </div>
                                     </div>
                                     <style>
@@ -211,8 +214,8 @@
                                                     <th>Tracking Info</th>
                                                     <th>NDR Details</th>
                                                     <th>Action</th>
-                                                    
-                                                    
+
+
                                                 </tr>
                                             </thead>
                                             <tbody></tbody>
@@ -222,40 +225,40 @@
                                 </form>
                                 <div class="row">
                                     <div class="col-md-6">
-                                    <form id="perPageForm" action="{{ url('/booked-order') }}" method="get">
-                                        <div class="mb-3 col-md-2">
-                                            <label for="perPageSelect" class="form-label" id="showingLabel">Showing 1 to 50</label>
-                                            <select id="perPageSelect" name="per_page" class="form-control" onchange="updatePerPage()">
-                                                <option value="50" {{ request()->get('per_page') == '50' ? 'selected' : (request()->get('per_page') == null ? 'selected' : '') }}>50</option>
-                                                <option value="100" {{ request()->get('per_page') == '100' ? 'selected' : '' }}>100</option>
-                                                <option value="200" {{ request()->get('per_page') == '200' ? 'selected' : '' }}>200</option>
-                                                <option value="500" {{ request()->get('per_page') == '500' ? 'selected' : '' }}>500</option>
-                                            </select>
-                                        </div>
-                                    </form>
+                                        <form id="perPageForm" action="{{ url('/booked-order') }}" method="get">
+                                            <div class="mb-3 col-md-2">
+                                                <label for="perPageSelect" class="form-label" id="showingLabel">Showing 1 to 50</label>
+                                                <select id="perPageSelect" name="per_page" class="form-control" onchange="updatePerPage()">
+                                                    <option value="50" {{ request()->get('per_page') == '50' ? 'selected' : (request()->get('per_page') == null ? 'selected' : '') }}>50</option>
+                                                    <option value="100" {{ request()->get('per_page') == '100' ? 'selected' : '' }}>100</option>
+                                                    <option value="200" {{ request()->get('per_page') == '200' ? 'selected' : '' }}>200</option>
+                                                    <option value="500" {{ request()->get('per_page') == '500' ? 'selected' : '' }}>500</option>
+                                                </select>
+                                            </div>
+                                        </form>
 
-                                    <script>
-                                        // Update the "Showing X to Y" label when the page loads
-                                        window.onload = function() {
-                                            updateShowingLabel();
-                                        };
+                                        <script>
+                                            // Update the "Showing X to Y" label when the page loads
+                                            window.onload = function() {
+                                                updateShowingLabel();
+                                            };
 
-                                        function updatePerPage() {
-                                            var perPage = document.getElementById('perPageSelect').value;
-                                            var url = new URL(window.location.href);
-                                            url.searchParams.set('per_page', perPage); // Update the per_page query parameter
-                                            window.location.href = url.toString(); // Navigate to the updated URL
-                                        }
+                                            function updatePerPage() {
+                                                var perPage = document.getElementById('perPageSelect').value;
+                                                var url = new URL(window.location.href);
+                                                url.searchParams.set('per_page', perPage); // Update the per_page query parameter
+                                                window.location.href = url.toString(); // Navigate to the updated URL
+                                            }
 
-                                        function updateShowingLabel() {
-                                            var perPage = new URLSearchParams(window.location.search).get('per_page') || '50'; // Default to 50 if not specified
-                                            var labelText = `Showing 1 to ${perPage}`;
-                                            document.getElementById('showingLabel').textContent = labelText;
-                                        }
-                                    </script>
+                                            function updateShowingLabel() {
+                                                var perPage = new URLSearchParams(window.location.search).get('per_page') || '50'; // Default to 50 if not specified
+                                                var labelText = `Showing 1 to ${perPage}`;
+                                                document.getElementById('showingLabel').textContent = labelText;
+                                            }
+                                        </script>
 
                                     </div>
-                                   
+
                                 </div>
 
                                 <script>

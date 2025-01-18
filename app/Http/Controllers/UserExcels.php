@@ -28,104 +28,7 @@ use App\Models\courierpermission;
 class UserExcels extends Controller
 {
 
-    public function skuSummary1(Request $request)
-    {
-        // Ensure the user ID is correctly retrieved
-        $userid = session()->get('UserLogin2id');
-
-        // Validate and parse dates from the request
-        $fromDate = Carbon::parse($request->fromdate)->startOfDay(); // Start of the day
-        $toDate = Carbon::parse($request->todate)->endOfDay(); // End of the day
-
-
-
-
-
-
-
-        // Extract filter inputs from the request
-        $orderType = $request->input('order_type');
-        $sku = $request->input('sku');
-        $amount = $request->input('amount');
-        $courier = $request->input('courier');
-
-        // Build filter array dynamically based on request data
-        $filters = array_filter([
-            'Order_Type' => $orderType,
-            'Item_Name' => $sku,
-            'Total_Amount' => $amount,
-            'awb_gen_by' => $courier,
-        ]);
-
-        // Helper function to get order counts by status
-        $getOrderCount = function ($statusArray) use ($userid, $fromDate, $toDate, $filters) {
-            $query = bulkorders::where('User_Id', $userid)
-                ->where('Awb_Number', '!=', '') // Ensure there is an AWB number
-                ->where('order_cancel', '!=', '1') // Exclude canceled orders
-                ->whereBetween('Rec_Time_Date', [$fromDate, $toDate]) // Date filter
-                ->whereIn('showerrors', $statusArray); // Match order statuses
-
-            // Apply additional filters dynamically
-            foreach ($filters as $key => $value) {
-                $query->where($key, $value);
-            }
-
-            // Return the count of orders based on the applied filters
-            return $query->count('Single_Order_Id');
-        };
-
-        // Define status arrays for different order statuses
-        $pendingStatus = ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'];
-        $intransitStatus = ['out for delivery', 'In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked'];
-        $ndrStatus = ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED'];
-        $deliveredStatus = ['delivered', 'Delivered'];
-        $rtoStatus = ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'];
-
-        // Get order counts by status using the helper function
-        $orderno = $getOrderCount([]); // Total orders
-        $pending = $getOrderCount($pendingStatus); // Pending orders
-        $intransit = $getOrderCount($intransitStatus); // In-transit orders
-        $ndr = $getOrderCount($ndrStatus); // NDR orders
-        $deliver = $getOrderCount($deliveredStatus); // Delivered orders
-        $rto = $getOrderCount($rtoStatus); // RTO orders
-
-
-
-        // Calculate delivery percentage
-        $deliverdpersentage = 0;
-        if ($orderno > 0) {
-            $deliveredOrders = $deliver; // Only delivered orders are considered
-            $deliverdpersentage = ($deliveredOrders / $orderno) * 100;
-        }
-
-
-
-        // Retrieve other necessary data (distinct values)
-        $sku1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('Item_Name');
-        $amount1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('Total_Amount');
-        $courier1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('awb_gen_by');
-        $type1 = bulkorders::where('User_Id', $userid)->distinct()->pluck('Order_Type');
-
-        // Return the view with the necessary data
-        return view('UserPanel.Reports.SkuSummary', compact(
-            'userid',
-            'sku',
-            'amount',
-            'courier',
-            'orderType',
-            'sku1',
-            'amount1',
-            'courier1',
-            'type1',
-            'deliverdpersentage',
-            'rto',
-            'deliver',
-            'ndr',
-            'intransit',
-            'pending',
-            'orderno'
-        ));
-    }
+   
     public function skuSummary(Request $request)
     {
         // Ensure the user ID is correctly retrieved
@@ -222,8 +125,6 @@ class UserExcels extends Controller
         ));
     }
 
-
-
     public function skuNew(Request $request)
     {
         $userid = session()->get('UserLogin2id');  // Get the user ID
@@ -268,6 +169,23 @@ class UserExcels extends Controller
             'courier' => $courier
         ]);
     }
+    public function report_ndr() 
+    {
+        return view('UserPanel.Reports.NDRReportAM');
+    }
+    public function report_ndr_delivered() 
+    {
+        return view('UserPanel.Reports.NDRDelivered');
+    }
+    public function report_rto() 
+    {
+        return view('UserPanel.Reports.RTOReport');
+    }
+    public function report_rto_delivered() 
+    {
+        return view('UserPanel.Reports.RTODelivered');
+    }
+
 
 
     public function POD()
@@ -1447,12 +1365,16 @@ class MISReportExportN implements WithHeadings, FromCollection
         'Awb Number',
         'Order No',
         'shipnick Id',
+        'channel',
         'Order Date',
+        
         'Name',
         'Address',
+        'Address2',
         'City',
         'State',
         'Pincode',
+        'mobile',
         'Order Type',
         'Cod Amount',
         'Width',
@@ -1469,6 +1391,7 @@ class MISReportExportN implements WithHeadings, FromCollection
         'Pickup City',
         'Pickup State',
         'Pickup Mobile',
+        'Invoice Total',
 
         'Zone',
         'Total Amount'
@@ -1588,12 +1511,15 @@ class MISReportExportN implements WithHeadings, FromCollection
                 'Awb_Number',
                 'orderno',
                 'ordernoapi',
+                'uploadtype',
                 'Rec_Time_Date',
                 'Name',
                 'Address',
+                'Address2',
                 'City',
                 'State',
                 'Pincode',
+                'Mobile',
                 'Order_Type',
                 'Cod_Amount',
                 'Width',
@@ -1604,13 +1530,13 @@ class MISReportExportN implements WithHeadings, FromCollection
                 'showerrors',
                 'Item_Name',
                 'awb_gen_courier',
-
                 'Rec_Time_Date as pickup_date',
                 'pickup_address',
                 'pickup_pincode',
                 'pickup_city',
                 'pickup_state',
                 'pickup_mobile',
+                'Invoice_Value',
                 'zone'
 
             ])->get();

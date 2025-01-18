@@ -124,9 +124,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="cancelled">All Orders ({{$cancel}})</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="failled">Failed ({{$failde}})</a>
-                        </li>
+                       
 
                     </ul>
 
@@ -341,25 +339,37 @@
                                 </form>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <form id="perPageForm" action="{{ url('/booked-order') }}" method="get">
-                                            <div class="mb-3 col-md-2">
-                                                <!-- <label for="perPageSelect" class="form-label">Showing 1 to 50 </label> -->
-                                                <select id="perPageSelect" name="per_page" class="form-control" onchange="updatePerPage()">
-                                                    <option value="50" {{ request()->get('per_page') == '50' ? 'selected' : (request()->get('per_page') == null ? 'selected' : '') }}>50</option>
-                                                    <option value="100" {{ request()->get('per_page') == '100' ? 'selected' : '' }}>100</option>
-                                                    <option value="200" {{ request()->get('per_page') == '200' ? 'selected' : '' }}>200</option>
-                                                    <option value="500" {{ request()->get('per_page') == '500' ? 'selected' : '' }}>500</option>
-                                                </select>
-                                            </div>
-                                        </form>
+                                    <form id="perPageForm" action="{{ url('/booked-order') }}" method="get">
+                                        <div class="mb-3 col-md-2">
+                                            <label for="perPageSelect" class="form-label" id="showingLabel">Showing 1 to 50</label>
+                                            <select id="perPageSelect" name="per_page" class="form-control" onchange="updatePerPage()">
+                                                <option value="50" {{ request()->get('per_page') == '50' ? 'selected' : (request()->get('per_page') == null ? 'selected' : '') }}>50</option>
+                                                <option value="100" {{ request()->get('per_page') == '100' ? 'selected' : '' }}>100</option>
+                                                <option value="200" {{ request()->get('per_page') == '200' ? 'selected' : '' }}>200</option>
+                                                <option value="500" {{ request()->get('per_page') == '500' ? 'selected' : '' }}>500</option>
+                                            </select>
+                                        </div>
+                                    </form>
 
-                                        <script>
-                                            function updatePerPage() {
-                                                var perPage = document.getElementById('perPageSelect').value;
-                                                document.getElementById('hiddenPerPage').value = perPage;
-                                                document.getElementById('filterForm').submit();
-                                            }
-                                        </script>
+                                    <script>
+                                        // Update the "Showing X to Y" label when the page loads
+                                        window.onload = function() {
+                                            updateShowingLabel();
+                                        };
+
+                                        function updatePerPage() {
+                                            var perPage = document.getElementById('perPageSelect').value;
+                                            var url = new URL(window.location.href);
+                                            url.searchParams.set('per_page', perPage); // Update the per_page query parameter
+                                            window.location.href = url.toString(); // Navigate to the updated URL
+                                        }
+
+                                        function updateShowingLabel() {
+                                            var perPage = new URLSearchParams(window.location.search).get('per_page') || '50'; // Default to 50 if not specified
+                                            var labelText = `Showing 1 to ${perPage}`;
+                                            document.getElementById('showingLabel').textContent = labelText;
+                                        }
+                                    </script>
 
                                     </div>
                                     <div class="col-md-6 ">

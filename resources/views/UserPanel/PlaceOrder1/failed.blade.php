@@ -18,7 +18,7 @@
         /* Ensure it stays above other content */
     }
 
-    
+
 
     .hidden {
         display: none;
@@ -64,39 +64,10 @@
 
 <div class="content-body">
     <div class="container-fluid">
-        <div class="d-flex flex-wrap align-items-center ">
-            <div class="  me-auto">
-                <div class="card-tabs style-1 mt-3 mt-sm-0">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link " href="booked-order">Ready To Ship({{$booked}})</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="pickup-pending">Pending Pickup({{$pending_pickup}})</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="intransit">In Transit ({{$in_transit}})</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ofd">OFD ({{$ofd}})</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="deliverd">Delivered ({{$deliver}})</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="rto">RTO/RTS ({{$rto}})</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="cancelled">All Orders ({{$cancel}})</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="failled">Failed ({{$failde}})</a>
-                        </li>
 
-                    </ul>
 
-                </div>
-            </div>
+        <div class="card-header">
+            <h4 class="card-title">Failed Orders ({{$failde}})</h4>
             <button class="button btn btn-outline-primary btn-sm"><i class="fa-solid fa-filter"></i></button>
         </div>
 
@@ -243,10 +214,10 @@
                                     display: none;
                                 }
                             </style>
-                            <form method="post" action="{{ asset('/filter-selected-order') }}" >
+                            <form method="post" action="{{ asset('/filter-selected-order') }}">
                                 @csrf
                                 <div id="myDiv" class="hidden " style="margin-bottom: 5%;">
-                                    <div class="d-flex justify-content-start align-items-center header-new button-clor-white " >
+                                    <div class="d-flex justify-content-start align-items-center header-new button-clor-white ">
                                         <!-- <button name="currentbtnname" value="shippinglabel" type="submit"
                                             class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">
                                             <i class="fa fa-calendar me-1"></i> Print Label
@@ -367,9 +338,11 @@
                             </form>
                             <div class="row">
                                 <div class="col-md-6">
+                                    
+
                                     <form id="perPageForm" action="{{ url('/failled') }}" method="get">
                                         <div class="mb-3 col-md-2">
-                                            <label for="perPageSelect" class="form-label">Showing 1 to 50 </label>
+                                            <label for="perPageSelect" class="form-label" id="showingLabel">Showing 1 to 50</label>
                                             <select id="perPageSelect" name="per_page" class="form-control" onchange="updatePerPage()">
                                                 <option value="50" {{ request()->get('per_page') == '50' ? 'selected' : (request()->get('per_page') == null ? 'selected' : '') }}>50</option>
                                                 <option value="100" {{ request()->get('per_page') == '100' ? 'selected' : '' }}>100</option>
@@ -380,10 +353,22 @@
                                     </form>
 
                                     <script>
+                                        // Update the "Showing X to Y" label when the page loads
+                                        window.onload = function() {
+                                            updateShowingLabel();
+                                        };
+
                                         function updatePerPage() {
                                             var perPage = document.getElementById('perPageSelect').value;
-                                            document.getElementById('hiddenPerPage').value = perPage;
-                                            document.getElementById('filterForm').submit();
+                                            var url = new URL(window.location.href);
+                                            url.searchParams.set('per_page', perPage); // Update the per_page query parameter
+                                            window.location.href = url.toString(); // Navigate to the updated URL
+                                        }
+
+                                        function updateShowingLabel() {
+                                            var perPage = new URLSearchParams(window.location.search).get('per_page') || '50'; // Default to 50 if not specified
+                                            var labelText = `Showing 1 to ${perPage}`;
+                                            document.getElementById('showingLabel').textContent = labelText;
                                         }
                                     </script>
 

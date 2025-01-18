@@ -101,7 +101,8 @@
         <div class="footer">
 
             <div class="copyright">
-                <p>Copyright © Shipnick.com. Designed &amp; Developed by <a href="https://www.shipnick.com/" target="_blank">Shipnick Technologies Pvt. Ltd.</a> <span id="current-year"></span></p>
+
+                <p>Copyright © Shipnick <span id="current-year"></span></p>
             </div>
 
             <script>
@@ -112,7 +113,62 @@
         <!--**********************************
             Footer end
             ***********************************-->
-
+        <div id="add_tax1" class="modal custom-modal fade" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Change Password</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="basic-form">
+                            <form action="{{url('/change-password')}}" method="post" class="form-valide-with-icon needs-validation" novalidate>
+                                <div class="mb-3">
+                                    <label class="text-label form-label" for="validationCustomUsername">Current Password<span class="required">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                        <input type="password" name="current_password" class="form-control border-left-end" id="validationCustomUsername" placeholder="Enter a Current Password" required>
+                                        <div class="invalid-feedback">
+                                            Please Enter a Current Password.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="text-label form-label" for="dlab-password">New Password <span class="required">*</span></label>
+                                    <div class="input-group transparent-append">
+                                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                        <input type="password" name="new_password" class="form-control" id="dlab-password" placeholder="Choose a safe one.." required>
+                                        <span class="input-group-text show-pass border-left-end">
+                                            <i class="fa fa-eye-slash"></i>
+                                            <i class="fa fa-eye"></i>
+                                        </span>
+                                        <div class="invalid-feedback">
+                                            Please Enter a New password.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="text-label form-label" for="dlab-password">Confirm New Password <span class="required">*</span></label>
+                                    <div class="input-group transparent-append">
+                                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                        <input type="password" name="confirm_password" class="form-control" id="dlab-password" placeholder="Choose a safe one.." required>
+                                        <span class="input-group-text show-pass border-left-end">
+                                            <i class="fa fa-eye-slash"></i>
+                                            <i class="fa fa-eye"></i>
+                                        </span>
+                                        <div class="invalid-feedback">
+                                            Please Enter a Password.
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn me-2 btn-primary">Submit</button>
+                                <!-- <button type="reseat" class="btn btn-danger light">Cancel</button> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
