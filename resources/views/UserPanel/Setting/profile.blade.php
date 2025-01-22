@@ -839,7 +839,7 @@
                                                                             <label
                                                                                 class="form-check-label mt-1 font-w700"
                                                                                 for="flexCheckDefault-6">
-                                                                                Support Mobile
+                                                                                Hide Support Mobile
                                                                             </label>
                                                                         </div>
                                                                         <pre></pre>
@@ -1225,7 +1225,7 @@
                                                                             <input class="form-check-input" type="checkbox" name="Support_Mobile" value="Support_Mobile1" id="flexCheckDefault-6"
                                                                                 {{ isset($label_setting1) && $label_setting1->Support_Mobile ? 'checked' : '' }}>
                                                                             <label class="form-check-label mt-1 font-w700" for="flexCheckDefault-6">
-                                                                                Support Mobile
+                                                                            Hide Support Mobile
                                                                             </label>
                                                                         </div>
                                                                         <pre></pre>
@@ -1491,7 +1491,7 @@
                                                                             <input class="form-check-input" type="checkbox" name="Support_Mobile" value="Support_Mobile2" id="flexCheckDefault-6"
                                                                                 {{ isset($label_setting2) && $label_setting2->Support_Mobile ? 'checked' : '' }}>
                                                                             <label class="form-check-label mt-1 font-w700" for="flexCheckDefault-6">
-                                                                                Support Mobile
+                                                                            Hide Support Mobile
                                                                             </label>
                                                                         </div>
                                                                         <pre></pre>

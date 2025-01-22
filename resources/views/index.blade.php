@@ -151,7 +151,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="view-all-btn text-end mb-40">
-                        <a href="#" class="btn btn-two">All Services <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                        <a href="/why-us" class="btn btn-two">All Services <img src="new1/assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
                     </div>
                 </div>
             </div>
@@ -321,10 +321,10 @@
                 <div class="col-lg-6">
                     <div class="achieved__content">
                         <div class="section__title mb-20">
-                            <span class="sub-title">What We Achieved!</span>
-                            <h2 class="title">We are logistics improving our skills to fulfill delivery of any level!</h2>
+                            <span class="sub-title">Bespoke Services</span>
+                            <h2 class="title"> Improving our skills to fulfill delivery of any level!</h2>
                         </div>
-                        <p>We believe in continuous improvement. Regular customer meetings, working on their sales, shipping and working on NDR performance is our duty.</p>
+                        <p>A courier service that offes bespoke services, the perfect delivery solution and support you by using the leading technologies around.</p>
                         <div class="progress__wrap">
                             <div class="progress__item">
                                 <div class="progress__item-top">

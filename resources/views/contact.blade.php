@@ -45,9 +45,9 @@
                     <div class="contact__info-item">
                         <h4 class="title">Corporate Office in Haryana </h4>
                         <p class="info-one">BK Tower, First Floor, Lal Sarak, Hansi., <br> Haryana</p>
-                        <h4 class="title"><a href="tel:0123456789">+(91) 9132165478</a></h4>
+                        <h4 class="title"><a href="tel:01169269862">011 69269862</a></h4>
                         <p class="info-two">Monday – Friday: 9:00-20:00 <br> Saturday: 11:00 – 15:00</p>
-                        <a href="mailto:info@shipnick.com">info@shipnick.com</a>
+                        <a href="mailto:shipnick11@gmail.com">shipnick11@gmail.com</a>
                     </div>
                 </div>
 

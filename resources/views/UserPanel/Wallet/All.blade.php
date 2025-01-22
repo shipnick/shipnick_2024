@@ -296,7 +296,7 @@
 											</div>
 										</div>
 									</div>
-									<h6>@if(isset($billing_data) && $billing_data->isNotEmpty()) Wallet Balance: -₹{{$billing_data_total['close_blance']}} @endif</h6>
+									<h6>@if(isset($billing_data) && $billing_data->isNotEmpty()) Wallet Balance: ₹{{$billing_data_total['close_blance']}} @endif</h6>
 									<div class="table-responsive">
 										<table class="table table-responsive-md">
 											<thead>
@@ -307,9 +307,10 @@
 													<th><strong>Tracking Info</strong></th>
 													<th><strong>Payment</strong></th>
 
-													<th><strong>Entered Weight & Dims</strong></th>
+													<th><strong>Entered Weight</strong></th>
+													<th><strong>CREDIT(₹)</strong></th>
 													<th><strong>DEBIT(₹)</strong></th>
-													<th><strong>CLOSING BALANCE(₹)</strong></th>
+													<th><strong>CLOSING BAL(₹)</strong></th>
 
 													<th><strong>DESCRIPTION</strong></th>
 
@@ -382,8 +383,8 @@
 															</div>
 														</div>
 													</td>
-
-													<td>{{ $data->debit }} </td>
+													<td>{{ $data->credit }} </td>
+													<td>-{{ $data->debit }} </td>
 													<td>{{ $data->close_blance }}</td>
 													<td>Freight Charges</td>
 												</tr>
