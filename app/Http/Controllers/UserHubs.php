@@ -33,15 +33,16 @@ class UserHubs extends Controller
     public function WalletDetails()
     {
         $userid = session()->get('UserLogin2id');
-        $reharge= Payment::where('user_id',$userid)->where('status','PAYMENT_SUCCESS')->get();
+        $reharge = Payment::where('user_id', $userid)->where('status', 'PAYMENT_SUCCESS')->get();
 
-        
+
 
         $billing_data = orderdetail::join('spark_single_order', 'orderdetails.awb_no', '=', 'spark_single_order.Awb_Number')
             ->where('orderdetails.user_id', $userid)
             ->orderby('orderdetails.orderid', 'DESC')
             ->select('orderdetails.*', 'spark_single_order.*')  // Select all columns from both tables
-            ->get();
+            ->paginate(50);  // Paginate with 50 items per page
+
 
         $billing_data_total = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->first();
         $params = price::where('user_id', $userid)->orderBy('id', 'DESC')->get();
@@ -68,7 +69,7 @@ class UserHubs extends Controller
             }
         }
 
-        return view('UserPanel.Wallet.All', ['finalParams' => $finalParams, 'params' => $params], compact('params', 'billing_data', 'billing_data_total','reharge'));
+        return view('UserPanel.Wallet.All', ['finalParams' => $finalParams, 'params' => $params], compact('params', 'billing_data', 'billing_data_total', 'reharge'));
     }
 
     public function NewHub()
