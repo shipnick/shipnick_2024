@@ -275,13 +275,13 @@ class UserDashboard extends Controller
 
       $zone = bulkorders::select('zone', \DB::raw('count(Single_Order_Id) as order_count'))
         ->where('User_Id', $userid)
-
+        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->groupBy('zone')
         ->get();
 
       $counts = bulkorders::select('zone', DB::raw('count(*) as count'))
         ->where('User_Id', $userid)
-        ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
+        // ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
         ->groupBy('zone')
         ->get()
         ->pluck('count', 'zone');

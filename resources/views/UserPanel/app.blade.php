@@ -490,9 +490,9 @@ $articles = orderdetail::where('user_id', $userid)->orderby('orderid', 'DESC')->
 					<i class="flaticon-043-menu"></i>
 					<span class="nav-text">Orders</span></a>
 				<ul aria-expanded="false">
-					<li><a href="{{ asset('/UPBulk_Order') }}">Create order</a></li>
+					<li><a href="{{ asset('/UPBulk_Order') }}">Create order/s</a></li>
 					<li><a href="{{ asset('/failled') }}">Failed order</a></li>
-					<li><a href="{{asset('/booked-order')}}">Shipment</a></li>
+					<li><a href="{{asset('/booked-order')}}">Shipments</a></li>
 				</ul>
 			</li>
 			<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">

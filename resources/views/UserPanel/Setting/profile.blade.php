@@ -236,6 +236,10 @@
                                 </li>
                                 <li class="nav-item font-weight-bold">
                                     <a style="font-weight: 700;" class="nav-link font-w700" data-bs-toggle="tab"
+                                        href="#Document"><i class="la la-wallet"></i>&nbsp;&nbsp;Documents</a>
+                                </li>
+                                <li class="nav-item font-weight-bold">
+                                    <a style="font-weight: 700;" class="nav-link font-w700" data-bs-toggle="tab"
                                         href="#label"><i class="la la-home me-2"></i>&nbsp;&nbsp;Label setting</a>
                                 </li>
                             </ul>
@@ -649,7 +653,7 @@
                                     <div class="col-xl-12 col-lg-12">
                                         <div class="card">
                                             <div class="card-header">
-                                                <h4 class="card-title">Select label formate</h4>
+                                                <h4 class="card-title">Select Label Format</h4>
                                             </div>
                                             <div class="card-body">
                                                 <form action="{{asset('shipping-label-select')}}" method="post">@csrf
@@ -761,7 +765,7 @@
                                                                             <label
                                                                                 class="form-check-label mt-1 font-w700"
                                                                                 for="flexCheckDefault-1">
-                                                                                Hide ShipNick Order ID
+                                                                                Hide Order ID
                                                                             </label>
                                                                         </div>
                                                                         <pre></pre>
@@ -850,7 +854,7 @@
                                                                             <label
                                                                                 class="form-check-label mt-1 font-w700"
                                                                                 for="flexCheckDefault-7">
-                                                                                Support Email
+                                                                                Hide Support Mail
                                                                             </label>
                                                                         </div>
                                                                     </div>
@@ -893,7 +897,7 @@
                                                                             </div>
                                                                             <div class="row ">
                                                                                 <div class="col-xl-12">
-                                                                                    <h6>Change Rto address</h6>
+                                                                                    <h6>Display Other RTO Address</h6>
                                                                                 </div>
 
                                                                                 <div class="col-xl-12">
@@ -1181,7 +1185,7 @@
                                                                             <input class="form-check-input" type="checkbox" name="order_id" value="order_id1" id="flexCheckDefault-1"
                                                                                 {{ isset($label_setting1) && $label_setting1->order_id ? 'checked' : '' }}>
                                                                             <label class="form-check-label mt-1 font-w700" for="flexCheckDefault-1">
-                                                                                Hide ShipNick Order ID
+                                                                                Hide Order ID
                                                                             </label>
                                                                         </div>
                                                                         <pre></pre>
@@ -1229,7 +1233,7 @@
                                                                             <input class="form-check-input" type="checkbox" name="Support_email" value="Support_email1" id="flexCheckDefault-7"
                                                                                 {{ isset($label_setting1) && $label_setting1->Support_email ? 'checked' : '' }}>
                                                                             <label class="form-check-label mt-1 font-w700" for="flexCheckDefault-7">
-                                                                                Support Email
+                                                                            Hide Support Mail
                                                                             </label>
                                                                         </div>
                                                                     </div>
@@ -1262,7 +1266,7 @@
                                                                             </div>
                                                                             <div class="row ">
                                                                                 <div class="col-xl-12">
-                                                                                    <h6>Change Rto address</h6>
+                                                                                    <h6>Display Other RTO Address</h6>
                                                                                 </div>
 
                                                                                 <div class="col-xl-12">
@@ -1447,7 +1451,7 @@
                                                                             <input class="form-check-input" type="checkbox" name="order_id" value="order_id2" id="flexCheckDefault-1"
                                                                                 {{ isset($label_setting2) && $label_setting2->order_id ? 'checked' : '' }}>
                                                                             <label class="form-check-label mt-1 font-w700" for="flexCheckDefault-1">
-                                                                                Hide ShipNick Order ID
+                                                                                Hide Order ID
                                                                             </label>
                                                                         </div>
                                                                         <pre></pre>
@@ -1495,7 +1499,7 @@
                                                                             <input class="form-check-input" type="checkbox" name="Support_email" value="Support_email2" id="flexCheckDefault-7"
                                                                                 {{ isset($label_setting2) && $label_setting2->Support_email ? 'checked' : '' }}>
                                                                             <label class="form-check-label mt-1 font-w700" for="flexCheckDefault-7">
-                                                                                Support Email
+                                                                            Hide Support Mail
                                                                             </label>
                                                                         </div>
                                                                     </div>
@@ -1528,7 +1532,7 @@
                                                                             </div>
                                                                             <div class="row ">
                                                                                 <div class="col-xl-12">
-                                                                                    <h6>Change Rto address</h6>
+                                                                                    <h6>Display Other RTO Address</h6>
                                                                                 </div>
 
                                                                                 <div class="col-xl-12">
@@ -1709,6 +1713,87 @@
                                         </form>
                                     </div>
 
+                                </div>
+                                <div class="tab-pane fade" id="Document">
+                                    <div class="card-body">
+                                        <div class="form-validation">
+                                            <form class="needs-validation" novalidate>
+                                                <div class="row"
+                                                    style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                        <div class="mb-2 row">
+                                                            <label class="col-lg-4 col-form-label"
+                                                                for="validationCustom01">GST Certificate/Company Incorporated Document
+                                                                <span class="text-danger">*</span>
+                                                            </label>
+                                                            <div class="col-lg-6">
+                                                                <input type="file" class="form-control"
+                                                                    id="validationCustom01"
+                                                                    placeholder="Enter address.." required>
+                                                                <div class="invalid-feedback">
+                                                                    
+                                                                   
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <!-- <div class="col-lg-2">
+                                                               
+                                                                <button class="form-control"><i class="fa-regular fa-eye"></i> View</button>
+                                                            </div> -->
+                                                        </div>
+                                                        <div class="mb-2 row">
+                                                            <label class="col-lg-4 col-form-label"
+                                                                for="validationCustom02">Photo or selfie<span
+                                                                    class="text-danger">*</span>
+                                                            </label>
+                                                            <div class="col-lg-6">
+                                                                <input type="file" class="form-control"
+                                                                    id="validationCustom02" placeholder="Your state.."
+                                                                    required>
+                                                                <div class="invalid-feedback">
+                                                                    Please enter state.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-2 row">
+                                                            <label class="col-lg-4 col-form-label"
+                                                                for="validationCustom03">PAN Card/Driving License
+                                                                <span class="text-danger">*</span>
+                                                            </label>
+                                                            <div class="col-lg-6">
+                                                                <input type="file" class="form-control"
+                                                                    id="validationCustom03"
+                                                                    placeholder="Please enter city" required>
+                                                                <div class="invalid-feedback">
+                                                                    Please enter City.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-2 row">
+                                                            <label class="col-lg-4 col-form-label"
+                                                                for="validationCustom04">Aadhaar Card/Passport/Voter ID Card
+                                                                <span class="text-danger">*</span>
+                                                            </label>
+                                                            <div class="col-lg-6">
+                                                                <input type="file" class="form-control"
+                                                                    id="validationCustom04"
+                                                                    placeholder="Please enter PIN" required>
+                                                                <div class="invalid-feedback">
+                                                                    Please enter PIN
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-xs-12 col-md-12 col-lg-12">
+                                                    <button type="button"
+                                                        class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Submit</button>
+                                                    <button type="button"
+                                                        class="btn btn-secondary ms-sm-auto mb-2 mb-sm-0">Cancel</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>

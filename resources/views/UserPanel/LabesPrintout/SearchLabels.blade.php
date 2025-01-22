@@ -228,56 +228,56 @@
     </div> -->
 
     @for($i=0; $i<$totalorders; $i++)
-    <table class="manifest-table template_border">
+        <table class="manifest-table template_border">
         <tbody>
             <tr>
                 <td colspan="3" style="text-align:center;">
                     <h3><b>
-                         @if(isset($label_setting)) 
-              {{$label_setting->display_name}}
-            @else
-                {{ ucwords($params[$i]['awbcourier']) }}.....
-            
-        @endif
+                            @if(isset($label_setting))
+                            {{$label_setting->display_name}}
+                            @else
+                            {{ ucwords($params[$i]['awbcourier']) }}.....
+
+                            @endif
                 </td>
                 <td class="text-center">
                     <h6 class="fulfilledby">Fulfilled By:</h6>
-                    
-                       @if($params[$i]['awbcourier'] == 'Ecom')
-                    
-                        <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('/img/ecom.jpg')}}`;" title="Hub Image" style="width: 170px;">
-                        @elseif($params[$i]['awbcourier'] == 'Xpressbee')
-                        <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('/img/Xpressbees.jpg')}}`;" title="Hub Image" style="width: 170px;">
-                        @elseif($params[$i]['awbcourier'] == 'Bluedart-sc')
-                         <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('/img/bluedart-logo.png')}}`;" title="Hub Image" style="width: 170px;">
-                         @elseif($params[$i]['awbcourier'] == 'Bluedart')
-                         <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('/img/bluedart-logo.png')}}`;" title="Hub Image" style="width: 170px;">
-                         @elseif($params[$i]['awbcourier'] == 'Ekart')
-                         <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('new1/assets/img/logo/ekart1.png')}}`;" title="Hub Image" style="width: 170px;">
-                        @endif
+
+                    @if($params[$i]['awbcourier'] == 'Ecom')
+
+                    <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('/img/ecom.jpg')}}`;" title="Hub Image" style="width: 170px;">
+                    @elseif($params[$i]['awbcourier'] == 'Xpressbee')
+                    <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('/img/Xpressbees.jpg')}}`;" title="Hub Image" style="width: 170px;">
+                    @elseif($params[$i]['awbcourier'] == 'Bluedart-sc')
+                    <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('/img/bluedart-logo.png')}}`;" title="Hub Image" style="width: 170px;">
+                    @elseif($params[$i]['awbcourier'] == 'Bluedart')
+                    <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('/img/bluedart-logo.png')}}`;" title="Hub Image" style="width: 170px;">
+                    @elseif($params[$i]['awbcourier'] == 'Ekart')
+                    <img src="{{ asset('HubDetails') }}/{{ $params[$i]['hfolder'] }}/{{ $params[$i]['hlogo'] }}" onerror="this.onerror=null;this.src=`{{asset('new1/assets/img/logo/ekart1.png')}}`;" title="Hub Image" style="width: 170px;">
+                    @endif
                 </td>
             </tr>
             <tr style="line-height: 1.7;">
                 <td colspan="4" class="text-center" style="border: none;">
                     <?php
-								$awbno = trim($params[$i]['awb']);
-								echo '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG($awbno, 'C128', 2, 33, array(1, 2, 3)) . '" alt="barcode" style="width:60%" />';
-								?>
+                    $awbno = trim($params[$i]['awb']);
+                    echo '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG($awbno, 'C128', 2, 33, array(1, 2, 3)) . '" alt="barcode" style="width:60%" />';
+                    ?>
                     <br />AWB - {{ $params[$i]['awb'] }} <br>
                     <span style="float: left;">
-                       <h6>{{ $params[$i]['route'] }} </h6> 
+                        <h6>{{ $params[$i]['route'] }} </h6>
                     </span>
                     <span style="float: right;">
-                         @if(isset($label_setting))
-                             @if($label_setting->order_id == 0)
-                            <h6>Order ID</h6>
-                        
-                            <h4>{{ ucwords($params[$i]['orderno']) }}</h4>
-                            @endif
+                        @if(isset($label_setting))
+                        @if($label_setting->order_id == 0)
+                        <h6>Order ID</h6>
+
+                        <h4>{{ ucwords($params[$i]['orderno']) }}</h4>
+                        @endif
                         @else
-                            <h6>Order ID</h6>
-                        
-                            <h4>{{ ucwords($params[$i]['orderno']) }}</h4>
+                        <h6>Order ID</h6>
+
+                        <h4>{{ ucwords($params[$i]['orderno']) }}</h4>
                         @endif
                     </span>
                     <!-- <span style="float: left;"><h6>Shipnick Order ID</h6>
@@ -293,44 +293,45 @@
                         {{ ucwords($params[$i]['address']) }}<br />{{ ucwords($params[$i]['address2']) }}
                         {{ ucwords($params[$i]['city']) }} :-{{ ucwords($params[$i]['pincode']) }}<br />
                         {{ ucwords($params[$i]['mobile']) }} ,{{ ucwords($params[$i]['mobile2']) }}<br>
-                        {{ ucwords($params[$i]['pemail']) }}</p>
+                        {{ ucwords($params[$i]['pemail']) }}
+                    </p>
                 </td>
 
-                <td class="text-center" >
+                <td class="text-center">
                     <h4> <b>{{ $params[$i]['paymode'] }}</b>
                     </h4>
                 </td>
-                
+
             </tr>
 
             <tr style="border: 1px solid #000;">
                 <td colspan="3" style="border: none; line-height:2em;">
                     <p>Ref./Invoice #: <br />
-                     @if(isset($label_setting))
-                    @if($label_setting->Dimensions == 0)
+                        @if(isset($label_setting))
+                        @if($label_setting->Dimensions == 0)
                         Size : {{ $params[$i]['h'] }} x {{ $params[$i]['w'] }} x {{ $params[$i]['l'] }} </p>
-                        @endif
-                        @else 
-                         Size : {{ $params[$i]['h'] }} x {{ $params[$i]['w'] }} x {{ $params[$i]['l'] }} </p>
-                        @endif
+                    @endif
+                    @else
+                    Size : {{ $params[$i]['h'] }} x {{ $params[$i]['w'] }} x {{ $params[$i]['l'] }} </p>
+                    @endif
                 </td>
                 <td style="border: none; line-height:2em;">
                     <p>Date: <?php
-                        $date = date_create($params[$i]['date']);
-                        echo date_format($date, "d-m-Y");
-                        ?> <br />
+                                $date = date_create($params[$i]['date']);
+                                echo date_format($date, "d-m-Y");
+                                ?> <br />
                         @if(isset($label_setting))
-                        
-                           @if($label_setting->Weight == 0)
-                              Weight: {{ $params[$i]['weight'] }} KG
-                           @endif
+
+                        @if($label_setting->Weight == 0)
+                        Weight: {{ $params[$i]['weight'] }} KG
+                        @endif
                         @else
                         Weight: {{ $params[$i]['weight'] }} KG
                         @endif
                     </p>
                 </td>
             </tr>
-             @if(isset($label_setting))
+            @if(isset($label_setting))
             @if($label_setting->Products_Details == 0)
 
             <tr>
@@ -403,67 +404,79 @@
             <tr style="line-height: 1.5em;">
                 <td colspan="4" class="address">
                     @if(isset($label_setting))
-                        @if($label_setting->Return_Address == 0)
+                    @if($label_setting->Return_Address == 0)
                     <p>If undelivered, please return to:<br />
-                    
-                    	@if($label_setting->rtoAddress != '')
-                    	
-							{{$label_setting->rtoAddress}}
-							
-							@else
+
+                        @if($label_setting->rtoAddress != '')
+
+                        {{$label_setting->rtoAddress}}
+
+                        @else
                         {{ ucwords($params[$i]['hname']) }}, <br>
-							{{ ucwords($params[$i]['haddress']) }},
-							{{ ucwords($params[$i]['hstate']) }},
-							{{ ucwords($params[$i]['hcity']) }}
-							-{{ ucwords($params[$i]['hpincode']) }}
-							<br>
-							Phone : <b>{{ ucwords($params[$i]['hmobile']) }}</b>
-						@endif	
-						
+                        {{ ucwords($params[$i]['haddress']) }},
+                        {{ ucwords($params[$i]['hstate']) }},
+                        {{ ucwords($params[$i]['hcity']) }}
+                        -{{ ucwords($params[$i]['hpincode']) }}
+                        <br>
+                        Phone : <b>{{ ucwords($params[$i]['hmobile']) }}</b>
+                        @endif
+
                     </p>
                     @endif
                     @else
-                     <p>If undelivered, please return to:<br />
+                    <p>If undelivered, please return to:<br />
                         {{ ucwords($params[$i]['hname']) }}, <br>
-							{{ ucwords($params[$i]['haddress']) }},
-							{{ ucwords($params[$i]['hstate']) }},
-							{{ ucwords($params[$i]['hcity']) }}
-							-{{ ucwords($params[$i]['hpincode']) }}
-							<br>
-							Phone : <b>{{ ucwords($params[$i]['hmobile']) }}</b>
+                        {{ ucwords($params[$i]['haddress']) }},
+                        {{ ucwords($params[$i]['hstate']) }},
+                        {{ ucwords($params[$i]['hcity']) }}
+                        -{{ ucwords($params[$i]['hpincode']) }}
+                        <br>
+                        Phone : <b>{{ ucwords($params[$i]['hmobile']) }}</b>
                     </p>
                     @endif
                     <span style="font-size:small ">
                         <br><b>For any query please contact</b>
-                         @if(isset($label_setting))
-                        
+                        @if(isset($label_setting))
+
                         @if($label_setting->Support_Mobile == 0)
-                        Mobile:{{$label_setting->supportnumber}} 
+                        Mobile:{{$label_setting->supportnumber}}
                         @endif
                         ,
                         @if($label_setting->Support_email == 0)
                         Email:{{$label_setting->supportemail}}
                         @endif
                         @endif
-        
-                        <hr style="border: 1px solid black; margin:0">
-                        This is computer generated document, hence does not require signature
-                        <br> <b>Note:</b> All disputes are subject to Delhi jurisdication. Goods once sold will only be
-                        taken back or exchanged as per the store's exchange/return policy
+                        <table>
+                            <tr>
+                                <td colspan="2" >
+                                    <hr style="border: 1px solid black; margin:0">
+                                    This is computer generated document, hence does not require signature
+                                    <br> <b>Note:</b> All disputes are subject to Delhi jurisdication. Goods once sold will only be
+                                    taken back or exchanged as per the store's exchange/return policy
+                                </td>
+                                <td>
+                                    <span style="float: right;font-size: 7px;">Powered By:<br> <img src="/Shipnick.png" alt="" style="height: 40px;width: 40px;"></span>
+                                </td>
+                            </tr>
+                        </table>
+
+
+
+
                     </span>
                 </td>
             </tr>
         </tbody>
-    </table>
-    @endfor
+        </table>
+        @endfor
 
 
-    <script>
-        function printpage() {
-            window.print()
-        }
-        printpage();
-    </script>
+        <script>
+            function printpage() {
+                window.print()
+            }
+            printpage();
+        </script>
 </body>
 
 </html>

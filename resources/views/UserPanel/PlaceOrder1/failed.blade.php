@@ -142,26 +142,8 @@
                                                                             value="{{ request()->get('from') && request()->get('to') ? request()->get('from') . ' - ' . request()->get('to') : '' }}">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 mb-1">
-                                                                    <label class="form-label">Courier</label>
-                                                                    <select class="default-select form-control wide w-100" name="courier">
-                                                                        <option value="">Select</option>
-                                                                        <option value="Ecom" {{ request()->get('courier') == 'Ecom' ? 'selected' : '' }}>Ecom</option>
-                                                                        <option value="Xpressbee" {{ request()->get('courier') == 'Xpressbee' ? 'selected' : '' }}>Xpressbee</option>
-                                                                        <option value="Bluedart" {{ request()->get('courier') == 'Bluedart' ? 'selected' : '' }}>Bluedart</option>
-                                                                        <option value="Ekart" {{ request()->get('courier') == 'Ekart' ? 'selected' : '' }}>Ekart</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 mb-1">
-                                                                    <label class="form-label">Channels</label>
-                                                                    <select class="default-select form-control wide w-100" name="cannel">
-                                                                        <option value="">Select</option>
-                                                                        <option value="Excel" {{ request()->get('cannel') == 'Excel' ? 'selected' : '' }}>Excel</option>
-                                                                        <option value="shopify" {{ request()->get('cannel') == 'shopify' ? 'selected' : '' }}>shopify</option>
-                                                                        <option value="Single" {{ request()->get('cannel') == 'single' ? 'selected' : '' }}>single order</option>
-
-                                                                    </select>
-                                                                </div>
+                                                                
+                                                                
                                                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 mb-3">
                                                                     <label class="form-label">Order Type</label>
                                                                     <select class="default-select form-control wide w-100" name="order_type">
@@ -189,10 +171,7 @@
                                                                     <label for="product_name" class="form-label">Product Name</label>
                                                                     <input type="text" class="form-control" id="product_name" placeholder="Product Name" name="product_name" value="{{ request()->get('product_name') }}">
                                                                 </div>
-                                                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 mb-1">
-                                                                    <label for="waybill" class="form-label">Waybill Number</label>
-                                                                    <input type="text" class="form-control" id="waybill" placeholder="AWB Number" name="awb" value="{{ request()->get('awb') }}">
-                                                                </div>
+                                                                
 
 
                                                             </div>
@@ -315,17 +294,12 @@
                                                         </a>
                                                         <div class="dropdown-menu">
 
-
-                                                            <form action="Labels_Print" method="post" aria-label="Download Invoice">
-                                                                @csrf
-                                                                <input type="hidden" name="awbnoisa" value="{{ $param->Awb_Number }}">
-                                                                <button class="dropdown-item" type="submit">
-                                                                    <i class="las la-info-circle scale5 me-3 "></i>Download Invoice
-                                                                </button>
-                                                            </form>
-                                                            <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Clone Order">
-                                                                <i class="las fa-file-invoice scale5 me-3"></i>Clone Order
-                                                            </a>
+                                                        <a class="dropdown-item" href="edit-order/{{ $param->Single_Order_Id }}" title="Edit Order">
+                                                                    <i class="las fa-file-invoice scale5 me-3"></i>Edit Order
+                                                                </a>
+                                                                <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Clone">
+                                                                    <i class="las fa-file-invoice scale5 me-3"></i>Clone Order
+                                                                </a>
                                                         </div>
                                                     </div>
                                                 </td>

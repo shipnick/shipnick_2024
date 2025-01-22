@@ -156,14 +156,14 @@
 										<h2 class="fs-24  counter ">{{ $talluploaded }}</h2>
 
 									</div>
-									<p class="fs-16 mb-0 text-white">Booked</p>
+									<p class="fs-16 mb-0 text-black">Booked</p>
 								</div>
 								<div class="col-sm-4 ">
 									<div class="border border-3 px-1 py-2 rounded-xl bg-white">
 										<h2 class="fs-24  counter">{{$tallpending}}</h2>
 
 									</div>
-									<p class="fs-16 mb-0 text-white">Pickup Pending</p>
+									<p class="fs-16 mb-0 text-black">Pickup Pending</p>
 
 								</div>
 								<div class="col-sm-4 ">
@@ -171,7 +171,7 @@
 										<h2 class="fs-24 counter">{{ $intransitupload }}</h2>
 
 									</div>
-									<p class="fs-16 mb-0 text-white">In-transit</p>
+									<p class="fs-16 mb-0 text-black">In-transit</p>
 								</div>
 
 

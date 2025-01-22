@@ -38,6 +38,9 @@
 									<a class="nav-link" data-bs-toggle="tab" href="#message"><i class="la la-envelope me-2"></i><strong>Wallet</strong></a>
 								</li>
 								<li class="nav-item">
+									<a class="nav-link" data-bs-toggle="tab" href="#recharge"><i class="la la-envelope me-2"></i><strong>All Recharges</strong></a>
+								</li>
+								<li class="nav-item">
 									<a class="nav-link" data-bs-toggle="tab" href="#CreditNotes"><i class="la la-envelope me-2"></i><strong>Credit Notes</strong></a>
 								</li>
 								<li class="nav-item">
@@ -85,10 +88,10 @@
 															<th style="font-size: 11px;"><strong>TYPE</strong></th>
 															<th style="font-size: 11px;"><span style="color:#915dd3;">ZONE(A)</span><strong><br>WITHIN <br> CITY</strong></th>
 															<th style="font-size: 11px;"><span style="color:#915dd3;">ZONE(B)</span><strong><br>WITHIN <br> STATE</strong></th>
-															<th style="font-size: 11px;"><span style="color:#915dd3;">ZONE(C)</span><strong><br>REGIONAL</strong></th>
-															<th style="font-size: 11px;"><span style="color:#915dd3;">ZONE(D)</span><strong><br>METRO TO <br> METRO</strong></th>
-															<th style="font-size: 11px;"><span style="color:#915dd3;">ZONE(E)</span><br><strong>ROI</strong></th>
-															<th style="font-size: 11px;"><span style="color:#915dd3;">ZONE(F)</span><strong><br>NE,J&K,KL,AN</strong></th>
+															<!-- <th style="font-size: 11px;"><span style="color:#915dd3;">ZONE(C)</span><strong><br>REGIONAL</strong></th> -->
+															<th style="font-size: 11px;"><span style="color:#915dd3;">ZONE(C)</span><strong><br>METRO TO <br> METRO</strong></th>
+															<th style="font-size: 11px;"><span style="color:#915dd3;">ZONE(D)</span><br><strong>ROI</strong></th>
+															<th style="font-size: 11px;"><span style="color:#915dd3;">ZONE(E)</span><strong><br>NE,J&K,KL,AN</strong></th>
 															<th style="font-size: 11px;"><strong>COD<br>CHARGES</strong></th>
 															<th style="font-size: 11px;"><strong>COD%</strong></th>
 														</tr>
@@ -99,7 +102,7 @@
 															<td>FWD</td>
 															<td>{{ $post->fwda }}</td>
 															<td>{{ $post->fwdb }}</td>
-															<td>{{ $post->fwdc }}</td>
+															<!-- <td>{{ $post->fwdc }}</td> -->
 															<td>{{ $post->fwdd }}</td>
 															<td>{{ $post->fwdf }}</td>
 															<td>{{ $post->fwde }}</td>
@@ -110,7 +113,7 @@
 															<td>RTO</td>
 															<td>{{ $post->rtoa }}</td>
 															<td>{{ $post->rtob }}</td>
-															<td>{{ $post->rtoc }}</td>
+															<!-- <td>{{ $post->rtoc }}</td> -->
 															<td>{{ $post->rtod }}</td>
 															<td>{{ $post->rtof }}</td>
 															<td>{{ $post->rtoe }}</td>
@@ -119,7 +122,7 @@
 															<td>Add Wt.</td>
 															<td>{{ $post->wta }}</td>
 															<td>{{ $post->wtb }}</td>
-															<td>{{ $post->wtc }}</td>
+															<!-- <td>{{ $post->wtc }}</td> -->
 															<td>{{ $post->wtd }}</td>
 															<td>{{ $post->wtf }}</td>
 															<td>{{ $post->wte }}</td>
@@ -287,26 +290,7 @@
 											<div class="cm-content-body form excerpt">
 												<div class="card-body">
 													<div class="row">
-														<div class="col-xl-3 col-sm-6">
-															<input type="text" class="form-control mb-xl-0 mb-3" id="exampleFormControlInput1" placeholder="Title">
-														</div>
-														<div class="col-xl-3  col-sm-6 mb-3 mb-xl-0">
-															<select class="nice-select form-control default-select dashboard-select-2 h-auto wide" aria-label="Default select example">
-																<option selected>Select Status</option>
-																<option value="1">Published</option>
-																<option value="2">Draft</option>
-																<option value="3">Trash</option>
-																<option value="4">Private</option>
-																<option value="5">Pending</option>
-															</select>
-														</div>
-														<div class="col-xl-3 col-sm-6">
-															<input type="text" class="form-control mb-3 mb-xl-0" placeholder="2017-06-04" id="datepicker">
-														</div>
-														<div class="col-xl-3 col-sm-6">
-															<button class="btn btn-primary" title="Click here to Search" type="button"><i class="fa fa-search me-1"></i>Filter</button>
-															<button class="btn btn-danger light" title="Click here to remove filter" type="button">Remove</button>
-														</div>
+
 													</div>
 												</div>
 											</div>
@@ -319,11 +303,11 @@
 												<tr>
 
 													<th><strong>DATE</strong></th>
-													<th><strong>TXN TYPE</strong></th>
-													<th><strong>REF NO#</strong></th>
-													<th><strong>TRANSACTION ID</strong></th>
+													<th><strong>ID & Type</strong></th>
+													<th><strong>Tracking Info</strong></th>
+													<th><strong>Payment</strong></th>
 
-													<th><strong>CREDIT(₹)</strong></th>
+													<th><strong>Entered Weight & Dims</strong></th>
 													<th><strong>DEBIT(₹)</strong></th>
 													<th><strong>CLOSING BALANCE(₹)</strong></th>
 
@@ -337,13 +321,67 @@
 												@if(isset($billing_data) && $billing_data->isNotEmpty())
 												@foreach($billing_data as $data)
 												<tr>
-													<td>{{ $data->date }}</td>
-													<td>Shipping</td>
 													<td>
-														{{ $data->awb_no }}</a>
+														<div class="d-flex align-items-center">
+															<div>
+																<h6 class="fs-13 mb-0 text-nowrap">
+																	<span>{{ $data->date }}
+
+																	</span><br />
+																	<span>{{ $data->uploadtype }}</span>
+																</h6>
+															</div>
+														</div>
 													</td>
-													<td>{{ $data->transaction }}</td>
-													<td> {{$data->credit}} </td>
+													<td>
+														<div class="d-flex align-items-center">
+															<div>
+																<h6 class="fs-13 mb-0 text-nowrap">
+																	<span>{{ $data->orderno }}
+
+																	</span><br />
+																	<span>{{ $data->showerrors }}</span>
+																</h6>
+															</div>
+														</div>
+													</td>
+													<td>
+														<div class="d-flex align-items-center">
+															<div>
+																<h6 class="fs-13 mb-0 text-nowrap">
+																	<span>{{ $data->awb_no }}
+
+																	</span><br />
+																	<span>{{ $data->awb_gen_by }}</span>
+																</h6>
+															</div>
+														</div>
+
+													</td>
+													<td>
+														<div class="d-flex align-items-center">
+															<div>
+																<h6 class="fs-13 mb-0 text-nowrap">
+																	<span>{{ $data->Invoice_Value }}
+
+																	</span><br />
+																	<span>{{ $data->Order_Type }}</span>
+																</h6>
+															</div>
+														</div>
+													</td>
+													<td>
+														<div class="d-flex align-items-center">
+															<div>
+																<h6 class="fs-13 mb-0 text-nowrap">
+																	<span>{{ $data->Actual_Weight }}
+
+																	</span><br />
+																	<span>{{ $data->Width }}*{{ $data->Height }}*{{ $data->Length }}</span>
+																</h6>
+															</div>
+														</div>
+													</td>
 
 													<td>{{ $data->debit }} </td>
 													<td>{{ $data->close_blance }}</td>
@@ -432,6 +470,36 @@
 												</tr>
 											</thead>
 											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="recharge">
+									<div class="table-responsive mt-3">
+										<table class="table table-responsive-md">
+											<thead>
+												<tr>
+													<th><strong>Date</strong></th>
+													<th><strong>Transaction ID</strong></th>
+													<th><strong>Amount(₹)</strong></th>
+													<th><strong>Transaction Type</strong></th>
+
+													<th><strong>Narration</strong></th>
+													<th><strong>Promo Code</strong></th>
+												</tr>
+											</thead>
+											<tbody>
+												@foreach($reharge as $data)
+												<tr>
+													<td>{{$data->created_at}}</td>
+													<td>{{$data->r_payment_id}}</td>
+													<td>{{$data->amount}}</td>
+													<td>UPI</td>
+													<td>{{$data->status}}</td>
+													<td>--</td>
+												</tr>
+												@endforeach
 
 											</tbody>
 										</table>

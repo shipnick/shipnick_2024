@@ -179,7 +179,7 @@
                                         </div>
                                         <div class="content">
                                             <span>Support:</span>
-                                            <a href="tel:0123456789">+91 9123654987</a>
+                                            <a href="tel:01169269862">+011 69269862</a>
                                         </div>
                                     </li>
                                     <li class="header-btn"><a href="/login" class="btn"><i class="fa-regular fa-user"></i>login</a></li>
@@ -389,7 +389,7 @@
                                     </li>
                                     <li>
                                         <i class="fa-solid fa-phone"></i>
-                                        <a href="tel:0123456789">+91 9187456237</a>
+                                        <a href="tel:01169269862">+011 69269862</a>
                                     </li>
                                     <li>
                                         <i class="fa-regular fa-clock"></i>

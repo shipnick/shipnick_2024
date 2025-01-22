@@ -220,7 +220,7 @@
         <table class="manifest-table template_border">
         <tbody>
             <tr>
-                <td colspan="3" style="text-align:center;">
+                <td colspan="4" style="text-align:center;">
                     <h3><b>
                             @if(isset($label_setting))
                             {{$label_setting->display_name}}
@@ -259,7 +259,7 @@
             </tr>
 
             <tr style="line-height: 20px;">
-                <td class="address-cell" colspan="3" style="border: none !important;">
+                <td class="address-cell" colspan="4" style="border: none !important;">
                     <!-- <p>Deliver To:</p> -->
                     <h4 class="mb5">{{ ucwords($params[$i]['name']) }}</h4>
                     <p style="line-height: 1.5em;">
@@ -297,7 +297,7 @@
 
             </tr>
             <tr style="line-height: 1.7;">
-                <td colspan="3" class="text-center"
+                <td colspan="4" class="text-center"
                     style="border-left: dotted 1px; border-top: none; border-right: none; border-bottom: none;border: dotted 2px;">
                     <span style="margin-top: 2%;">
                         <?php
@@ -333,17 +333,18 @@
 
                 <td class="text-center">
                     <h2>Rs. @if($params[$i]['paymode'] == 'COD')
-                            {{ ucwords($params[$i]['codamt']) }}
-                            
-                            @else
-                                0
-                           
-                            @endif</h2>
+                        {{ ucwords($params[$i]['codamt']) }}
+
+                        @else
+                        0
+
+                        @endif
+                    </h2>
                     <p>Amount to be Collected</p>
 
 
                 </td>
-                <td colspan="3" class="text-center">
+                <td colspan="4" class="text-center">
                     <h1>{{ $params[$i]['paymode'] }}</h1>
                 </td>
             </tr>
@@ -352,7 +353,7 @@
 
             <tr style="line-height: 1.5em;">
                 <td colspan="4" class="address">
-                @if(isset($label_setting))
+                    @if(isset($label_setting))
                     @if($label_setting->Return_Address == 0)
                     <p>If undelivered, please return to:<br />
 
@@ -395,13 +396,23 @@
                         Email:{{$label_setting->supportemail}}
                         @endif
                         @endif
+                    </span>
 
-                        <span style="font-size:small ">
 
-                            <hr style="border: 1px solid black; margin:0;">
-                            <span style="font-size: 7px;">All Disputes are subject to Delhi Jurisdication , Goods once sold will only be taken back or exchanged as per the store's exchange / return policy.</span>
+                    
 
-                        </span>
+
+                </td>
+            
+            </tr>
+            <tr >
+
+                <td class="text-center" colspan="4">
+                    <span style="font-size: 10px;">All Disputes are subject to Delhi Jurisdication , Goods once sold will only be taken back or exchanged as per the store's exchange / return policy.</span>
+
+                </td>
+                <td style="float: right;" >
+                    <span style="font-size: 8px;">Powered By:<br></span> <img src="/Shipnick.png" alt="" style="height: 40px;width: 50px;">
                 </td>
             </tr>
         </tbody>

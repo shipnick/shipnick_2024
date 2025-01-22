@@ -277,11 +277,12 @@
                     <span style="font-size: xx-large;"> {{ $params[$i]['paymode'] }}
                         <p style="font-size: x-large;margin-top: 4%;"> ₹ @if($params[$i]['paymode'] == 'COD')
                             {{ ucwords($params[$i]['codamt']) }}
-                            
+
                             @else
-                                0
-                           
-                            @endif</p>
+                            0
+
+                            @endif
+                        </p>
                     </span>
                 </td>
                 <td class="address-cell " colspan="3" style="text-align:center;">
@@ -390,10 +391,21 @@
                         @endif
                         <br>
 
-                        <hr style="border: 2px solid black; margin:0">
-                        This is computer generated document, hence does not require signature
-                        <br> <b>Note:</b> All disputes are subject to Delhi jurisdication. Goods once sold will only be
-                        taken back or exchanged as per the store's exchange/return policy
+
+
+                        <table>
+                            <tr>
+                                <td colspan="2" style="">
+                                    <!-- <hr style="border: 2px solid black; margin:0"> -->
+                                    This is computer generated document, hence does not require signature
+                                    <br> <b>Note:</b> All disputes are subject to Delhi jurisdication. Goods once sold will only be
+                                    taken back or exchanged as per the store's exchange/return policy
+                                </td>
+                                <td>
+                                    <span style="float: right;font-size: 7px;">Powered By:<br> <img src="/Shipnick.png" alt="" style="height: 40px;width: 40px;"></span>
+                                </td>
+                            </tr>
+                        </table>
                     </span>
                 </td>
             </tr>
