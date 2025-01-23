@@ -163,14 +163,18 @@ class UserHubs extends Controller
         echo "<br><pre>";
         print_r(($responseDatanew));
         echo "</pre><br>";
-       $PickupName = $responseDatanew['pickup_location_name'];
-        $RtoName=$responseDatanew['rto_location_name'];
-
-        $hunname = new smartship();
-        $hunname->token = $PickupName;
-        $hunname->courier= 'RapidShip';
-        $hunname->expire_in= $last_id;
-        $hunname->save();
+        if($responseDatanew['status'] == 'success')
+        {
+            $PickupName = $responseDatanew['pickup_location_name'];
+            $RtoName =$responseDatanew['rto_location_name'];
+    
+            $hunname = new smartship();
+            $hunname->token = $PickupName;
+            $hunname->courier= 'RapidShip';
+            $hunname->expire_in= $last_id;
+            $hunname->save();
+        }
+      
       
 
         $response = Http::post('https://www.shipclues.com/api/create-warehouse', [
@@ -195,16 +199,16 @@ class UserHubs extends Controller
 
         $shiprocket_hubid = $responseData['warehouseCode'];
 
-        $hunname = new smartship();
-        $hunname->token = $shiprocket_hubid;
-        $hunname->courier= 'shipclues';
-        $hunname->expire_in= $last_id;
-        $hunname->save();
+        $hunname1 = new smartship();
+        $hunname1->token = $shiprocket_hubid;
+        $hunname1->courier= 'shipclues';
+        $hunname1->expire_in= $last_id;
+        $hunname1->save();
 
         Hubs::where('hub_id', $last_id);
 
 
-        $req->session()->flash('Message', 'New Hub Added');
+        $req->session()->flash('message', 'New Hub Added');
         return redirect('/UPNew_Hub');
     }
 
