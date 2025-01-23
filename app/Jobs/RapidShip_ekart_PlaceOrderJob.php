@@ -235,7 +235,7 @@ class RapidShip_ekart_PlaceOrderJob implements ShouldQueue
 
                 bulkorders::where('Awb_Number', $awb)->update(['shferrors' => 1]);
             } else {
-                $errmessage = $responseData['remarks'];
+                $errmessage = $responseic['remarks'];
                 bulkorders::where('Single_Order_Id', $crtidis)->update([
                     'showerrors' => $errmessage,
                     'order_status_show' => $errmessage
