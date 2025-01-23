@@ -282,8 +282,8 @@
                 </div>
                 <div class="contact-list mb-30">
                     <h4>Phone Number</h4>
-                    <p>+91 9638527418</p>
-                    <p>+91 9876543219</p>
+                    <p>+011 69269862</p>
+                    
                 </div>
                 <div class="contact-list mb-30">
                     <h4>Email Address</h4>
