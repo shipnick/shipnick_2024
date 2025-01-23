@@ -1529,7 +1529,7 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->where('showerrors', 'Undelivered')
+            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype','Single_Order_Id');
 

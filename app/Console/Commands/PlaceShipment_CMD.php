@@ -46,7 +46,8 @@ class PlaceShipment_CMD extends Command
         'xpressbee03' => 'XPressBee03', // p=1
         'bluedart01' => 'Shipclues',  // p=3
         'bluedart0' => 'BlueDart',    // p=3
-         'dtdc01'=>'DTDCNimbus'
+         'dtdc01'=>'DTDCNimbus',
+         'EkartRS'=>'RapidShip_ekart'
     ];
     /**
      * Execute the console command.

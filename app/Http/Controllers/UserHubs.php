@@ -131,7 +131,47 @@ class UserHubs extends Controller
 
         Hubs::where('hub_id', $last_id)->update(['hub_code' => $hubcode, 'hub_title' => $hubtitle]);
 
+        $response = Http::withHeaders([
+			'Content-Type' => 'application/json',
+			'rapidshyp-token' => '57731822281d866169a9563742c0b806bbce5d34916c66eacfe41e00965924ca',
+		])
+		->post('https://api.rapidshyp.com/rapidshyp/apis/v1/create/pickup_location', [
+			'address_name' => $req->name,
+			'contact_name' => $req->name,
+			'contact_number' => $req->mobile,
+			'email' => 'john.doe@example.com',
+			'address_line' => $address,
+			'address_line2' => '',
+			'pincode' => $req->pincode,
+			'gstin' => $req->gstno,
+			'dropship_location' => true,
+			'use_alt_rto_address' => true,
+			'rto_address' => '',
+			'create_rto_address' => [
+				'rto_address_name' => $req->name.'new',
+				'rto_contact_name' => $req->name .'new',
+				'rto_contact_number' => $req->mobile,
+				'rto_email' => 'jane.smith@example.com',
+				'rto_address_line' => $address,
+				'rto_address_line2' => '',
+				'rto_pincode' => $req->pincode,
+				'rto_gstin' => $req->gstno,
+			]
+		]);
 
+		$responseDatanew = $response->json();
+        echo "<br><pre>";
+        print_r(($responseDatanew));
+        echo "</pre><br>";
+       $PickupName = $responseDatanew['pickup_location_name'];
+        $RtoName=$responseDatanew['rto_location_name'];
+
+        $hunname = new smartship();
+        $hunname->token = $PickupName;
+        $hunname->courier= 'RapidShip';
+        $hunname->expire_in= $last_id;
+        $hunname->save();
+      
 
         $response = Http::post('https://www.shipclues.com/api/create-warehouse', [
             'token' => 'TdRxkE0nJd4R78hfEGSz2P5CAIeqzUtZ84EFDUX9',
@@ -151,16 +191,20 @@ class UserHubs extends Controller
 
         $responseData = $response->json();
 
-        // echo "<br><pre>";
-        // print_r(($responseData)); 
-        // echo "</pre><br>";
+       
 
         $shiprocket_hubid = $responseData['warehouseCode'];
 
-        Hubs::where('hub_id', $last_id)->update(['Shiprocket_hub_id' => $shiprocket_hubid]);
+        $hunname = new smartship();
+        $hunname->token = $shiprocket_hubid;
+        $hunname->courier= 'shipclues';
+        $hunname->expire_in= $last_id;
+        $hunname->save();
+
+        Hubs::where('hub_id', $last_id);
 
 
-        $req->session()->flash('status', 'New Hub Added');
+        $req->session()->flash('Message', 'New Hub Added');
         return redirect('/UPNew_Hub');
     }
 

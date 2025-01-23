@@ -60,7 +60,7 @@
                     <div class="col-xl-7">
                         <ul class="tg-header__top-info left-side list-wrap">
                             <li><i class="fa-solid fa-location-dot"></i>C 2 78, Lal Sarak Hansi, Haryana</li>
-                            <li><i class="fa-regular fa-envelope"></i><a href="mailto:info@gmail.com">shipnick11@gmail.com</a></li>
+                            <li><i class="fa-regular fa-envelope"></i><a href="mailto:info@gmail.com">info@shipnick.com</a></li>
                             <li><i class="fa-regular fa-clock"></i>Mon – Sun: 9.00 am – 8.00pm</li>
                         </ul>
                     </div>
@@ -287,7 +287,7 @@
                 </div>
                 <div class="contact-list mb-30">
                     <h4>Email Address</h4>
-                    <p>shipnick11@gmail.com</p>
+                    <p>info@shipnick.com</p>
                     <!-- <p>example.mail@hum.com</p> -->
                 </div>
             </div>

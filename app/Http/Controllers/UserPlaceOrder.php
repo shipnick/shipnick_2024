@@ -639,14 +639,14 @@ class UserPlaceOrder extends Controller
             // Hub id
 
             /*
-    // Check API Active Or Not
-    $checkuser = Allusers::where('id',$userid)->first();
-    if($checkuser->Nimbus==0 AND $checkuser->Intargos==0){
-        $errorstatus = "Contact Shipdart";
-        $apistatus = 1;
-    }
-    // Check API Active Or Not
-*/
+            // Check API Active Or Not
+            $checkuser = Allusers::where('id',$userid)->first();
+            if($checkuser->Nimbus==0 AND $checkuser->Intargos==0){
+                $errorstatus = "Contact Shipdart";
+                $apistatus = 1;
+            }
+            // Check API Active Or Not
+        */
 
             $query = new bulkorders;
             $query->orderno = $req->orderno;
@@ -700,53 +700,27 @@ class UserPlaceOrder extends Controller
             $query->save();
             $last_id = $query->id;
 
+            $pincode1 = $req->cpin;
+            $pincode2 = $hubpincode;
+
+            if ($pincode1 && $pincode2) {
+                // Determine the zone
+                $zone = $this->determineZone($pincode1, $pincode2);
+            } else {
+                $zone = "D"; // Default zone if pincode details are missing
+            }
+
+
             $ordernois = "SDRT00" . $last_id;
-            bulkorders::where('Single_Order_Id', $last_id)->update(['ordernoapi' => $ordernois]);
+            bulkorders::where('Single_Order_Id', $last_id)->update(['ordernoapi' => $ordernois,'zone' => $zone]);
 
-
-
-            /*
-        $query = new orderdetail;
-        // $query->orderno = $req->orderno;
-        $query->hub_id = $req->hubid;
-        $query->hub_name = $hubname;
-        $query->lenth = $req->lenth;
-        $query->breadth = $req->breadth;
-        $query->height = $req->height;
-
-        $query->cname = $req->cname;
-        $query->cmobile = $req->cmobile;
-        $query->cemail = $req->cemail;
-        $query->caddress = $req->caddress;
-        $query->cstate = $req->cstate;
-        $query->ccity = $req->ccity;
-        $query->cpin = $req->cpin;
-
-        $query->itemname = $req->ItemName;
-        $query->itemquantity = $req->Quantity;
-        $query->itmecodamt = $req->CODAmount;
-        $query->iteminvoicevalue = $req->InvoiceValue;
-        $query->pweight = $req->ActualWeight;
-        $query->ptamt = $req->TotalAmount;
-        $query->additionaldetails = $req->AdditionalDetails;
-
-        $query->orderdata = date('Y-m-d');
-        $query->order_status = "Upload";
-        $query->order_upload_type = "Single Type";
-        $query->order_userid = $userid;
-        $query->order_username = $username;
-        $query->save();
-        $last_id = $query->id;
-        $ordernois = "LGST0".$last_id;
-        orderdetail::where('orderid',$last_id)->update(['orderno'=>$ordernois]);
-        */
-            $req->session()->flash('status', 'Order Details Added');
+            $req->session()->flash('message', 'Order Details Added');
             // Perform background URL hit
             Artisan::call('spnk:place-order');
-            return redirect('/UPSingle_Product');
+            return redirect('/booked-order')->with('message', 'Order successfully uploaded');
         } catch (\Exception $e) {
             $req->session()->flash('status', 'Not Added');
-            return redirect('/UPSingle_Product');
+            return redirect('/booked-order');
         }
     }
 
@@ -2087,7 +2061,7 @@ if($status == "true"){
                 // Perform background URL hit (Artisan command)
                 Artisan::call('spnk:place-order');
 
-             return redirect()->back();
+                return redirect()->back();
             case "shippinglabel":
                 return response()->view("UserPanel.LabesPrintout.Search", ['params' => $selectorders]);
 

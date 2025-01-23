@@ -313,25 +313,25 @@ class UserDashboard extends Controller
         ->where('Awb_Number', '!=', '')
         ->where('awb_gen_by', 'Xpressbee')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
+        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
         ->count('Single_Order_Id');
       $Ecom = BulkOrders::where('User_Id', $userid)
         ->where('Awb_Number', '!=', '')
         ->where('awb_gen_by', 'Ecom')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
+        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
         ->count('Single_Order_Id');
       $Bluedart = BulkOrders::where('User_Id', $userid)
         ->where('Awb_Number', '!=', '')
         ->where('awb_gen_by', 'bluedart')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
+        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
         ->count('Single_Order_Id');
 
       $MonthlyOrder = BulkOrders::where('User_Id', $userid)
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
+        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
         ->count('Single_Order_Id');
 
       // details for order 
