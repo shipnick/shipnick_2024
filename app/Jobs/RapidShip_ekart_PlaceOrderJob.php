@@ -145,7 +145,7 @@ class RapidShip_ekart_PlaceOrderJob implements ShouldQueue
 
             $responseic = $response->json(); // Decode JSON response
 
-            if (isset($responseData['status']) && $responseData['status'] == "SUCCESS") {
+            if (isset($responseic['status']) && $responseic['status'] == "SUCCESS") {
                 $orderno = $responseic['orderId'];
                 $awb = $responseic['shipment'][0]['awb'];
                 $shipno = $responseic['shipment'][0]['shipmentId'];
