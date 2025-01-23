@@ -487,21 +487,34 @@ class AdminClients extends Controller
     // Courier Assign
     public function ClientCourierPermissions(Request $req)
     {
-        $data = [
-            'courier_code' => $req->code,
-            'courier_by' => $req->courier,
-            'user_id' => $req->userid
-        ];
+        $code = $req->code;
+        $courier = $req->courier;
+        $userid = $req->userid;
+        $value = $req->value;
+        $courieridno = $req->courieridno;
+        
 
-        $courierPermission = courierpermission::firstOrNew($data);
 
-        $courierPermission->courier_idno = $req->courieridno;
-        $courierPermission->admin_flg = $req->value;
-        $courierPermission->user_flg = $courierPermission->exists ? $courierPermission->user_flg : "0";
-
-        $courierPermission->save();
+        $courierexistsornot = courierpermission::where('courier_code', $code)
+            ->where('courier_by', $courier)
+            ->where('user_id', $userid)
+            ->get();
+        if (count($courierexistsornot)) {
+            courierpermission::where('courier_code', $code)
+                ->where('courier_by', $courier)
+                ->where('user_id', $userid)
+                ->update(['admin_flg' => $value]);
+        } else {
+            $query = new courierpermission();
+            $query->courier_idno = $courieridno;
+            $query->courier_code = $code;
+            $query->courier_by = $courier;
+            $query->user_id = $userid;
+            $query->admin_flg = $value;
+            $query->user_flg = "0";
+            $query->save();
+        }
     }
-
     // Courier Assign
 
 
