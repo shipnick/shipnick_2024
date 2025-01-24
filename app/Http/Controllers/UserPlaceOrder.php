@@ -615,6 +615,7 @@ class UserPlaceOrder extends Controller
 
     public function SingleOrderAdd(Request $req)
     {
+        
         // error_reporting(1);
         // return $req->input();
         $username = session()->get('UserLogin2name');
@@ -624,104 +625,92 @@ class UserPlaceOrder extends Controller
         $errorstatus = "Upload";
         $apistatus = 0;
 
-        // echo $userid;
-        try {
-            // Hub id
-            $Hubs = Hubs::where('hub_id', $req->hubid)->first();
-            $hubalternateid = $Hubs['hub_id'];
-            $hubname = $Hubs['hub_name'];
-            $hubmobile = $Hubs['hub_mobile'];
-            $hubpincode = $Hubs['hub_pincode'];
-            $hubgstno = $Hubs['hub_gstno'];
-            $hubaddress = $Hubs['hub_address1'];
-            $hubstate = $Hubs['hub_state'];
-            $hubcity = $Hubs['hub_city'];
-            // Hub id
+        $Hubs = Hubs::where('hub_id', $req->hubid)->first();
+        $hubalternateid = $Hubs['hub_id'];
+        $hubname = $Hubs['hub_name'];
+        $hubmobile = $Hubs['hub_mobile'];
+        $hubpincode = $Hubs['hub_pincode'];
+        $hubgstno = $Hubs['hub_gstno'];
+        $hubaddress = $Hubs['hub_address1'];
+        $hubstate = $Hubs['hub_state'];
+        $hubcity = $Hubs['hub_city'];
+       
+        
+        $pincode1 = Pincode::where('pincode', $req->cpin)->first();
+            $pincode2 = Pincode::where('pincode', $hubpincode)->first();
 
-            /*
-            // Check API Active Or Not
-            $checkuser = Allusers::where('id',$userid)->first();
-            if($checkuser->Nimbus==0 AND $checkuser->Intargos==0){
-                $errorstatus = "Contact Shipdart";
-                $apistatus = 1;
-            }
-            // Check API Active Or Not
-        */
-
-            $query = new bulkorders;
-            $query->orderno = $req->orderno;
-            $query->Order_Type = $req->courierType;
-            $query->User_Id = $userid;
-            $query->Awb_Number = '';
-            $query->Name = $req->cname;
-            $query->Address = $req->caddress;
-            $query->State = $req->cstate;
-            $query->City = $req->ccity;
-            $query->Mobile = $req->cmobile;
-            $query->Pincode = $req->cpin;
-
-
-
-            $query->Item_Name = $req->itemName;
-            $query->Quantity = $req->quantity;
-            $query->Width = $req->breadth;
-            $query->Height = $req->height;
-            $query->Length = $req->lenth;
-            $query->Actual_Weight = $req->actualWeight;
-            $brthcm = $req->breadth;
-            $hethcm = $req->height;
-            $lnthcm = $req->lenth;
-            $volwt = ($brthcm * $hethcm * $lnthcm) / 5000;
-            $query->volumetric_weight = $volwt;
-            $query->Total_Amount = $req->totalAmount;
-            $query->Invoice_Value = $req->invoiceValue;
-            $query->Cod_Amount = $req->codAmount;
-            $query->additionaltype = $req->additionalDetails;
-
-            $query->Rec_Time_Stamp = $tdate;
-            $query->Rec_Time_Date = $tdate;
-            $query->uploadtype = 'Single';
-
-            $query->pickup_id = $req->hubid;
-            $query->Address_Id = $hubalternateid;
-            $query->pickup_name = $hubname;
-            $query->pickup_mobile = $hubmobile;
-            $query->pickup_pincode = $hubpincode;
-            $query->pickup_gstin = $hubgstno;
-            $query->pickup_address = $hubaddress;
-            $query->pickup_state = $hubstate;
-            $query->pickup_city = $hubcity;
-
-            $query->order_status = 'Upload';
-            $query->order_status1 = 'Upload';
-            $query->order_status_show = 'Upload';
-            $query->apihitornot = $apistatus;
-            $query->showerrors = $errorstatus;
-            $query->save();
-            $last_id = $query->id;
-
-            $pincode1 = $req->cpin;
-            $pincode2 = $hubpincode;
-
-            if ($pincode1 && $pincode2) {
-                // Determine the zone
-                $zone = $this->determineZone($pincode1, $pincode2);
-            } else {
-                $zone = "D"; // Default zone if pincode details are missing
-            }
-
-
-            $ordernois = "SDRT00" . $last_id;
-            bulkorders::where('Single_Order_Id', $last_id)->update(['ordernoapi' => $ordernois,'zone' => $zone]);
-
-            $req->session()->flash('message', 'Order Details Added');
-            // Perform background URL hit
-            Artisan::call('spnk:place-order');
-            return redirect('/booked-order')->with('message', 'Order successfully uploaded');
-        } catch (\Exception $e) {
-            $req->session()->flash('status', 'Not Added');
-            return redirect('/booked-order');
+        if ($pincode1 && $pincode2) {
+            // Determine the zone
+            $zone = $this->determineZone($pincode1, $pincode2);
+        } else {
+            $zone = "D"; // Default zone if pincode details are missing
         }
+
+        $query = new bulkorders;
+        $query->orderno = $req->orderno;
+        $query->Order_Type = $req->courierType;
+        $query->User_Id = $userid;
+        $query->Awb_Number = '';
+        $query->Name = $req->cname;
+        $query->Address = $req->caddress;
+        $query->State = $req->cstate;
+        $query->City = $req->ccity;
+        $query->Mobile = $req->cmobile;
+        $query->Pincode = $req->cpin;
+
+
+
+        $query->Item_Name = $req->itemName;
+        $query->Quantity = $req->quantity;
+        $query->Width = $req->breadth;
+        $query->Height = $req->height;
+        $query->Length = $req->lenth;
+        $query->Actual_Weight = $req->actualWeight;
+        $brthcm = $req->breadth;
+        $hethcm = $req->height;
+        $lnthcm = $req->lenth;
+        $volwt = ($brthcm * $hethcm * $lnthcm) / 5000;
+        $query->volumetric_weight = $volwt;
+        $query->Total_Amount = $req->totalAmount;
+        $query->Invoice_Value = $req->invoiceValue;
+        $query->Cod_Amount = $req->codAmount;
+        $query->additionaltype = $req->additionalDetails;
+
+        $query->Rec_Time_Stamp = $tdate;
+        $query->Rec_Time_Date = $tdate;
+        $query->uploadtype = 'Single';
+
+        $query->pickup_id = $req->hubid;
+        $query->Address_Id = $hubalternateid;
+        $query->pickup_name = $hubname;
+        $query->pickup_mobile = $hubmobile;
+        $query->pickup_pincode = $hubpincode;
+        $query->pickup_gstin = $hubgstno;
+        $query->pickup_address = $hubaddress;
+        $query->pickup_state = $hubstate;
+        $query->pickup_city = $hubcity;
+
+        $query->order_status = 'Upload';
+        $query->order_status1 = 'Upload';
+        $query->order_status_show = 'Upload';
+        $query->apihitornot = $apistatus;
+        $query->showerrors = $errorstatus;
+        $query->zone = $zone;
+        $query->save();
+        $last_id = $query->id;
+
+        
+
+
+        $ordernois = "SDRT00" . $last_id;
+
+        
+        bulkorders::where('Single_Order_Id', $last_id)->update(['ordernoapi' => $ordernois ]);
+
+        $req->session()->flash('message', 'Order Details Added');
+       
+        
+        return redirect('/booked-order')->with('message', 'Order successfully uploaded');
     }
 
 
