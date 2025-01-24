@@ -251,7 +251,7 @@ class LabelsPrintOut extends Controller
             $datas = bulkorders::where('Awb_Number', $value)->first();
             if (!empty($datas->orderno)) {
                 $Hubs = Hubs::where('hub_id', $datas->pickup_id)->first();
-                $smartshiptoken1 = smartship::where('id', 1)->first('token');
+                
                 $params[] = [
                     'route' => $datas->dtdcerrors,
                     'cancel' => $datas->order_cancel,
@@ -284,7 +284,7 @@ class LabelsPrintOut extends Controller
                     'item' => $datas->Item_Name,
                     'qlty' => $datas->Quantity,
                     'orderunq' => $datas->ordernoapi,
-                    'token' => $smartshiptoken1->token,
+                    
                     'shipc_no' => $datas->courier_ship_no,
                     'weight' => $datas->Actual_Weight,
                     'h' => $datas->Height,
