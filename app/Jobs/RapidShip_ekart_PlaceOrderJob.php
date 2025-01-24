@@ -47,101 +47,97 @@ class RapidShip_ekart_PlaceOrderJob implements ShouldQueue
             extract($this->data);
 
 
-            // Start order using Xpressbee API
-            if ($paymentmode == 'COD') {
-                $paymentmode = "COD";
-            }
-            if ($paymentmode == 'Prepaid') {
-                $paymentmode = "PREPAID";
-            }
-            if (strlen($damob) > 10 && substr($damob, 0, 2) === '91') {
-                // Remove the '91' prefix
-                $damob = substr($damob, 2);
-            }
-            // $pkpkmbl = trim($pkpkmbl);  
-            // $damob= trim($damob);
-            // $pkpkpinc = preg_replace('/[^0-9\']/', '', $pkpkpinc);
-            // $dapin = preg_replace('/[^0-9\']/', '', $dapin);
-
-            // Convert 0.3 kg to grams
-            $weightInGrams = $iacwt * 1000; // Convert 0.3 kg to grams
-            $weightInInteger = (int)$weightInGrams; // Convert to integer
-
-
-
-            $rapidshippickupname = smartship::where('expire_in', $pkpkid)->where('courier', 'RapidShip')->first()->token;
-
-            $response = Http::withHeaders([
-                'Content-Type' => 'application/json',
-                'rapidshyp-token' => '57731822281d866169a9563742c0b806bbce5d34916c66eacfe41e00965924ca',
-            ])
-                ->post('https://api.rapidshyp.com/rapidshyp/apis/v1/wrapper', [
-                    'orderId' => $autogenorderno,
-                    'orderDate' => $inputDate,
-                    'pickupAddressName' => $rapidshippickupname,
-                    'pickupLocation' => [
-                        'contactName' => '',
-                        'pickupName' => '',
-                        'pickupEmail' => '',
-                        'pickupPhone' => '',
-                        'pickupAddress1' => '',
-                        'pickupAddress2' => '',
-                        'pinCode' => '',
-                    ],
-                    'storeName' => 'DEFAULT',
-                    'billingIsShipping' => true,
-                    'shippingAddress' => [
-                        'firstName' => $daname,
-                        'lastName' => 'EXT',
-                        'addressLine1' => $daadrs,
-                        'addressLine2' => $daadrs2,
-                        'pinCode' => $dapin,
-                        'email' => 'mahesh.mehra@rapidshyp.com',
-                        'phone' => $damob,
-                    ],
-                    'billingAddress' => [
-                        'firstName' => $daname,
-                        'lastName' => 'PA',
-                        'addressLine1' => $daadrs,
-                        'addressLine2' => $daadrs2,
-                        'pinCode' => $dapin,
-                        'email' => 'mahesh.mehra@rapidshyp.com',
-                        'phone' =>  $damob,
-                    ],
-                    'orderItems' => [
-                        [
-                            'itemName' => $iname,
-                            'sku' => $iival,
-                            'description' => $iname,
-                            'units' => $iqlty,
-                            'unitPrice' => $itamt,
-                            'tax' => 0.0,
-                            'hsn' => '',
-                            'productLength' => 10.0,
-                            'productBreadth' => 10.0,
-                            'productHeight' => 10.0,
-                            'productWeight' => 10.5,
-                            'brand' => '',
-                            'imageURL' => 'http://example.com/product1.jpg',
-                            'isFragile' => false,
-                            'isPersonalisable' => false,
-                        ],
-                    ],
-                    'paymentMethod' => $paymentmode,
-                    'shippingCharges' => 0,
-                    'giftWrapCharges' => 0.0,
-                    'transactionCharges' => 0.0,
-                    'totalDiscount' => 0.0,
-                    'totalOrderValue' => $itamt,
-                    'codCharges' => 0.0,
-                    'prepaidAmount' => 0.0,
-                    'packageDetails' => [
-                        'packageLength' => $ilgth,
-                        'packageBreadth' => $iwith,
-                        'packageHeight' => $ihght,
-                        'packageWeight' => $iacwt,
-                    ],
-                ]);
+           if ($paymentmode == 'COD') {
+                        $paymentmode = "COD";
+                    }
+                    if ($paymentmode == 'Prepaid') {
+                        $paymentmode = "PREPAID";
+                    }
+                    if (strlen($damob) > 10 && substr($damob, 0, 2) === '91') {
+                        // Remove the '91' prefix
+                        $damob = substr($damob, 2);
+                    }
+                
+                    // Convert 0.3 kg to grams
+                    $weightInGrams = $iacwt * 1000; // Convert 0.3 kg to grams
+                    $weightInInteger = (int)$weightInGrams; // Convert to integer
+                
+                    // Fetch token for RapidShip
+                    $rapidshippickupname = smartship::where('expire_in', $pkpkid)->where('courier', 'RapidShip')->first()->token;
+                
+                    try {
+                        $response = Http::withHeaders([
+                            'Content-Type' => 'application/json',
+                            'rapidshyp-token' => '57731822281d866169a9563742c0b806bbce5d34916c66eacfe41e00965924ca'
+                        ])
+                        ->post('https://api.rapidshyp.com/rapidshyp/apis/v1/wrapper', [
+                            'orderId' => 'SDRT002489',
+                            'orderDate' => '2025-01-24',
+                            'pickupAddressName' => 'shashi kumar',
+                            'pickupLocation' => [
+                                'contactName' => '',
+                                'pickupName' => '',
+                                'pickupEmail' => '',
+                                'pickupPhone' => '',
+                                'pickupAddress1' => '',
+                                'pickupAddress2' => '',
+                                'pinCode' => ''
+                            ],
+                            'storeName' => 'DEFAULT',
+                            'billingIsShipping' => true,  // Set as boolean true instead of 1
+                            'shippingAddress' => [
+                                'firstName' => 'shashi kumar',
+                                'lastName' => 'EXT',
+                                'addressLine1' => 'House no. 163A',
+                                'addressLine2' => 'House no. 163A',
+                                'pinCode' => '110045',
+                                'email' => 'mahesh.mehra@rapidshyp.com',
+                                'phone' => '8980911659'
+                            ],
+                            'billingAddress' => [
+                                'firstName' => 'SANTOSH',
+                                'lastName' => 'PA',
+                                'addressLine1' => 'House no. 163A',
+                                'addressLine2' => 'House no. 163A',
+                                'pinCode' => '110045',
+                                'email' => 'mahesh.mehra@rapidshyp.com',
+                                'phone' => '8980911659'
+                            ],
+                            'orderItems' => [
+                                [
+                                    'itemName' => 'asdfa',
+                                    'sku' => '1',
+                                    'description' => 'asdfa',
+                                    'units' => 1,
+                                    'unitPrice' => 200,
+                                    'tax' => 0.0,
+                                    'hsn' => '',
+                                    'productLength' => 10.0,
+                                    'productBreadth' => 10.0,
+                                    'productHeight' => 10.0,
+                                    'productWeight' => 1,
+                                    'brand' => '',
+                                    'imageURL' => 'http://example.com/product1.jpg',
+                                    'isFragile' => false,
+                                    'isPersonalisable' => false
+                                ]
+                            ],
+                            'paymentMethod' => 'COD',
+                            'shippingCharges' => 0,
+                            'giftWrapCharges' => 0.0,
+                            'transactionCharges' => 0.0,
+                            'totalDiscount' => 0.0,
+                            'totalOrderValue' => 200,
+                            'codCharges' => 0.0,
+                            'prepaidAmount' => 0,
+                            'packageDetails' => [
+                                'packageLength' => 10.0,
+                                'packageBreadth' => 10.0,
+                                'packageHeight' => 10,
+                                'packageWeight' => 1
+                            ]
+                        ]);
+                        
 
             $responseic = $response->json(); // Decode JSON response
 
