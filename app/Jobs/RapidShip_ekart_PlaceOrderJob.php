@@ -71,87 +71,119 @@ class RapidShip_ekart_PlaceOrderJob implements ShouldQueue
 
             $rapidshippickupname = smartship::where('expire_in', $pkpkid)->where('courier', 'RapidShip')->first()->token;
 
-            $response = Http::withHeaders([
-                'Content-Type' => 'application/json',
-                'rapidshyp-token' => '57731822281d866169a9563742c0b806bbce5d34916c66eacfe41e00965924ca',
-            ])
-                ->post('https://api.rapidshyp.com/rapidshyp/apis/v1/wrapper', [
-                    'orderId' => $autogenorderno,
-                    'orderDate' => $inputDate,
-                    'pickupAddressName' => $rapidshippickupname,
-                    'pickupLocation' => [
-                        'contactName' => '',
-                        'pickupName' => '',
-                        'pickupEmail' => '',
-                        'pickupPhone' => '',
-                        'pickupAddress1' => '',
-                        'pickupAddress2' => '',
-                        'pinCode' => '',
-                    ],
-                    'storeName' => 'DEFAULT',
-                    'billingIsShipping' => true,
-                    'shippingAddress' => [
-                        'firstName' => $daname,
-                        'lastName' => 'EXT',
-                        'addressLine1' => $daadrs,
-                        'addressLine2' => $daadrs2,
-                        'pinCode' => $dapin,
-                        'email' => 'mahesh.mehra@rapidshyp.com',
-                        'phone' => $damob,
-                    ],
-                    'billingAddress' => [
-                        'firstName' => $daname,
-                        'lastName' => 'PA',
-                        'addressLine1' => $daadrs,
-                        'addressLine2' => $daadrs2,
-                        'pinCode' => $dapin,
-                        'email' => 'mahesh.mehra@rapidshyp.com',
-                        'phone' =>  $damob,
-                    ],
-                    'orderItems' => [
-                        [
-                            'itemName' => $iname,
-                            'sku' => $iival,
-                            'description' => $iname,
-                            'units' => $iqlty,
-                            'unitPrice' => $itamt,
-                            'tax' => 0.0,
-                            'hsn' => '',
-                            'productLength' => 10.0,
-                            'productBreadth' => 10.0,
-                            'productHeight' => 10.0,
-                            'productWeight' => 10.5,
-                            'brand' => '',
-                            'imageURL' => 'http://example.com/product1.jpg',
-                            'isFragile' => false,
-                            'isPersonalisable' => false,
-                        ],
-                    ],
-                    'paymentMethod' => $paymentmode,
-                    'shippingCharges' => 0,
-                    'giftWrapCharges' => 0.0,
-                    'transactionCharges' => 0.0,
-                    'totalDiscount' => 0.0,
-                    'totalOrderValue' => $itamt,
-                    'codCharges' => 0.0,
-                    'prepaidAmount' => 0.0,
-                    'packageDetails' => [
-                        'packageLength' => $ilgth,
-                        'packageBreadth' => $iwith,
-                        'packageHeight' => $ihght,
-                        'packageWeight' => $iacwt,
-                    ],
+            $curl = curl_init();
+
+            $data = [
+                "orderId" => $autogenorderno,
+                "orderDate" => $idate,
+                "pickupAddressName" => $rapidshippickupname,
+                "pickupLocation" => [
+                    "contactName" => "",
+                    "pickupName" => "",
+                    "pickupEmail" => "",
+                    "pickupPhone" => "",
+                    "pickupAddress1" => "",
+                    "pickupAddress2" => "",
+                    "pinCode" => ""
+                ],
+                "storeName" => "DEFAULT",
+                "billingIsShipping" => true,
+                "shippingAddress" => [
+                    "firstName" => $daname,
+                    "lastName" => "EXT",
+                    "addressLine1" => $daadrs,
+                    "addressLine2" => $daadrs . $daadrs2,
+                    "pinCode" => $dapin,
+                    "email" => "mahesh.mehra@rapidshyp.com",
+                    "phone" => $damob
+                ],
+                "billingAddress" => [
+                    "firstName" => $daname,
+                    "lastName" => "PA",
+                    "addressLine1" => $daadrs,
+                    "addressLine2" => $daadrs . $daadrs2,
+                    "pinCode" => $dapin,
+                    "email" => "mahesh.mehra@rapidshyp.com",
+                    "phone" => $damob
+                ],
+                "orderItems" => [
+                    [
+                        "itemName" => $iname,
+                        "sku" => $iname,
+                        "description" => $iname,
+                        "units" => $iqlty,
+                        "unitPrice" => $itamt,
+                        "tax" => 0,
+                        "hsn" => "",
+                        "productLength" => 10,
+                        "productBreadth" => 10,
+                        "productHeight" => 10,
+                        "productWeight" => 1,
+                        "brand" => "",
+                        "imageURL" => "http://example.com/product1.jpg",
+                        "isFragile" => false,
+                        "isPersonalisable" => false
+                    ]
+                ],
+                "paymentMethod" => $paymentmode,
+                "shippingCharges" => 0,
+                "giftWrapCharges" => 0,
+                "transactionCharges" => 0,
+                "totalDiscount" => 0,
+                "totalOrderValue" => $itamt,
+                "codCharges" => 0,
+                "prepaidAmount" => 0,
+                "packageDetails" => [
+                    "packageLength" => (float) $ilgth,
+                    "packageBreadth" => (float) $iwith,
+                    "packageHeight" => (float) $ihght,
+                    "packageWeight" => (float) $iacwt
+                ]
+            ];
+            
+            // Convert the array to a JSON string
+            $jsonData = json_encode($data);
+            
+            curl_setopt_array($curl, [
+                CURLOPT_URL => 'https://api.rapidshyp.com/rapidshyp/apis/v1/wrapper',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS => $jsonData,
+                CURLOPT_HTTPHEADER => [
+                    'Content-Type: application/json',
+                    'rapidshyp-token: 57731822281d866169a9563742c0b806bbce5d34916c66eacfe41e00965924ca'
+                ],
+            ]);
+            
+            $response = curl_exec($curl);
+            $response = json_decode($response, true);
+
+            curl_close($curl);
+
+           
+            if($response['status'] == 'FAILED'){
+                echo $remark = $response['remarks'];
+
+                bulkorders::where('Single_Order_Id', $crtidis)->update([
+                    
+                    'showerrors' => $remark,
+                    'shferrors' => $remark,
+                    
                 ]);
+            }
 
-            $responseic = $response->json(); // Decode JSON response
-
-            if (isset($responseData['status']) && $responseData['status'] == "SUCCESS") {
-                $orderno = $responseic['orderId'];
-                $awb = $responseic['shipment'][0]['awb'];
-                $shipno = $responseic['shipment'][0]['shipmentId'];
-                $courierName = $responseic['shipment'][0]['courierName'];
-                $appliedWeight = $responseic['shipment'][0]['appliedWeight'];
-                $routingCode = $responseic['shipment'][0]['routingCode'];
+            if (isset($response['status']) && $response['status'] == 'SUCCESS') {
+                $orderno = $response['orderId'];
+                 $awb = $response['shipment'][0]['awb'];
+                $shipno = $response['shipment'][0]['shipmentId'];
+                $courierName = $response['shipment'][0]['courierName'];
+                $appliedWeight = $response['shipment'][0]['appliedWeight'];
+                $routingCode = $response['shipment'][0]['routingCode'];
 
                 bulkorders::where('Single_Order_Id', $crtidis)->update([
                     'courier_ship_no' => $shipno,
