@@ -3594,6 +3594,7 @@ class APIBigShip extends Controller
 
             echo  $shipment_id = $param->shferrors;
             echo  $Awb = $param->Awb_Number;
+            echo  $order_id = $param->ordernoapi;
             echo  $courierare = $param->awb_gen_by;
             echo  $courierare1 = $param->awb_gen_courier;
             $courier_ship_no = $param->courier_ship_no;
@@ -3601,6 +3602,11 @@ class APIBigShip extends Controller
             if ($courierare == "Ecom") {
                 // Handle Ecom courier cancellation
                 $response = $this->cancelEcomOrder($Awb);
+
+                // Process response and update status accordingly
+            } elseif ($courierare == "EkartRS") {
+                // Handle Xpressbee courier cancellation
+                $response = $this->cancelEkartOrder($order_id,$Awb);
 
                 // Process response and update status accordingly
             } elseif ($courierare1 == "Xpressbee") {
@@ -3632,6 +3638,31 @@ class APIBigShip extends Controller
 
             // Additional processing or logging can be done here
         }
+    }
+    private function cancelEkartOrder($order_id ,$Awb)
+    {
+        $tdateis = date('Y-m-d');
+
+        $response = Http::withHeaders([
+            'content-type' => 'application/json',
+            'rapidshyp-token' => '57731822281d866169a9563742c0b806bbce5d34916c66eacfe41e00965924ca',
+        ])->post('https://api.rapidshyp.com/rapidshyp/apis/v1/cancel_order', [
+            'orderId' => $order_id,
+            'storeName' => 'DEFAULT',
+        ]);
+        $responseDatanew = $response->json();
+        $remark = $responseDatanew['remarks'];
+
+        $cancelstatus = "Cancel";
+       
+        $alertmsg = "Order delete please refresh page if not deleted";
+        bulkorders::where('Awb_Number', $Awb)
+            ->update([
+
+                'canceldate' => $tdateis,
+                'order_status_show' => $cancelstatus,
+                'order_cancel_reasion' => $remark
+            ]);
     }
 
     private function cancelEcomOrder($awb)
