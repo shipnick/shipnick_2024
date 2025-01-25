@@ -615,7 +615,7 @@ class UserPlaceOrder extends Controller
 
     public function SingleOrderAdd(Request $req)
     {
-        
+
         // error_reporting(1);
         // return $req->input();
         $username = session()->get('UserLogin2name');
@@ -634,10 +634,10 @@ class UserPlaceOrder extends Controller
         $hubaddress = $Hubs['hub_address1'];
         $hubstate = $Hubs['hub_state'];
         $hubcity = $Hubs['hub_city'];
-       
-        
+
+
         $pincode1 = Pincode::where('pincode', $req->cpin)->first();
-            $pincode2 = Pincode::where('pincode', $hubpincode)->first();
+        $pincode2 = Pincode::where('pincode', $hubpincode)->first();
 
         if ($pincode1 && $pincode2) {
             // Determine the zone
@@ -699,17 +699,17 @@ class UserPlaceOrder extends Controller
         $query->save();
         $last_id = $query->id;
 
-        
+
 
 
         $ordernois = "SDRT00" . $last_id;
 
-        
-        bulkorders::where('Single_Order_Id', $last_id)->update(['ordernoapi' => $ordernois ]);
+
+        bulkorders::where('Single_Order_Id', $last_id)->update(['ordernoapi' => $ordernois]);
 
         $req->session()->flash('message', 'Order Details Added');
-       
-        
+
+
         return redirect('/booked-order')->with('message', 'Order successfully uploaded');
     }
 
@@ -2017,7 +2017,7 @@ if($status == "true"){
                     $wellet->close_blance = $close_blance;
                     $wellet->save();
                 }
-
+                Artisan::call('spnk:cancel-order');
 
 
                 // Flash message and redirect back
@@ -2096,7 +2096,8 @@ if($status == "true"){
                     $wellet->save();
                 }
 
-
+                // Perform background URL hit (Artisan command)
+                
 
                 // Flash message and redirect back
                 return redirect()->back()->with('message', 'Orders successfully canceled.');

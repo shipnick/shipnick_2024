@@ -39,6 +39,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('spnk:xpressbee_job2')->name('status_update_XPREBEE2')->description('Schedules status update job for orders in Xpressbee2 api')->everyTwoHours();
         $schedule->command('spnk:xpressbee_job3')->name('status_update_XPREBEE3')->description('Schedules status update job for orders in Xpressbee2 api')->everyTwoHours();
         $schedule->command('spnk:ekart_job')->name('status_update_eKart')->description('Schedules status update job for orders in eKart api')->everyTwoHours();
+        $schedule->command('spnk:rapidship_job')->name('status_update_rapidship')->description('Schedules status update job for orders in rapidship api')->everyTwoHours();
 
 
 
