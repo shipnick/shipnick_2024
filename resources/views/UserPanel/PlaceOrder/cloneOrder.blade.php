@@ -22,7 +22,7 @@
                             <div class="custom-tab-1">
 
                                 <form method="POST" action="{{ asset('/clone-order-new') }}">@csrf
-                                    
+
                                     <div id="wizard_Service" class="tab-pane" role="tabpanel">
                                         <div class="row">
                                             <div class="col-lg-6 mb-2">
@@ -225,18 +225,17 @@
                                                 </h4>
 
                                             </div>
+                                            
                                             <div class="col-lg-6 mb-2">
-                                                <div class="mb-3">
-                                                    <label class="text-label form-label"><strong>Select Pick-up address
-                                                            (Hub)</strong><span class="required">*</span></label>
-                                                    <select class="default-select form-control wide mb-3" name="hubid">
-                                                        <option value="">- * - Select Pickup Hub Addresss - * -</option>
+                                                <label class="text-label form-label"><strong>Select Pick-up address
+                                                (Hub)</strong><span class="required">*</span></label>
+                                                    <select name="sku" id="sku" class="form-control wide w-100">
+                                                        <option value="">Select</option>
                                                         @foreach($Hubs as $Hub)
                                                         <option value="{{ ucwords($Hub->hub_id) }}">{{ ucwords($Hub->hub_name) }} ({{ ucwords($Hub->hub_code) }})</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>
                                         </div>
 
                                         <div class="row">

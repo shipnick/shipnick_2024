@@ -140,7 +140,7 @@
 				</div>
 			</div>
 			<div class="col-xl-6 col-xxl-6">
-				<div class="card" >
+				<div class="card">
 					<div class="card-header border-0 pb-0 d-sm-flex flex-wrap d-block">
 						<div class="">
 							<h4 class="card-title ">Today's Shipment</h4>
@@ -206,78 +206,83 @@
 							<h4 class="card-title">Courier Split</h4>
 						</div>
 						<div class="card-body">
-    <div id="pie-chart" class="ct-chart ct-golden-section"></div>
+							<div id="pie-chart" class="ct-chart ct-golden-section"></div>
 
-    <style>
-        /* Custom colors for the pie chart slices */
-        .ct-series-a .ct-slice-pie {
-            fill: #FF5733; /* Custom Color 1 (e.g., Orange) */
-        }
-        .ct-series-b .ct-slice-pie {
-            fill: #ffbe33c9; /* Custom Color 2 (e.g., Lime Green) */
-        }
-        .ct-series-c .ct-slice-pie {
-            fill: #3357FF; /* Custom Color 3 (e.g., Blue) */
-        }
+							<style>
+								/* Custom colors for the pie chart slices */
+								.ct-series-a .ct-slice-pie {
+									fill: #FF5733;
+									/* Custom Color 1 (e.g., Orange) */
+								}
 
-        /* Optional: Responsive Chart */
-        #pie-chart {
-            width: 100%;
-            height: auto;
-        }
-    </style>
+								.ct-series-b .ct-slice-pie {
+									fill: #ffbe33c9;
+									/* Custom Color 2 (e.g., Lime Green) */
+								}
 
-    <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.js"></script>
+								.ct-series-c .ct-slice-pie {
+									fill: #3357FF;
+									/* Custom Color 3 (e.g., Blue) */
+								}
 
-    <script>
-        var percentageXpressbee = <?php echo isset($percentage_xpressbeeFormatted) ? $percentage_xpressbeeFormatted : 0; ?>;
-        var percentageEcom = <?php echo isset($percentage_ecomFormatted) ? $percentage_ecomFormatted : 0; ?>;
-        var percentageBluedart = <?php echo isset($percentage_bluedartFormatted) ? $percentage_bluedartFormatted : 0; ?>;
+								/* Optional: Responsive Chart */
+								#pie-chart {
+									width: 100%;
+									height: auto;
+								}
+							</style>
 
-        // Ensure the percentages total 100 or adjust values if necessary
-        var total = percentageXpressbee + percentageEcom + percentageBluedart;
-        if (total !== 100) {
-            console.warn('Percentages do not sum to 100, adjusting values.');
-            // percentageXpressbee = (percentageXpressbee / total) * 100;
-			percentageXpressbee = (percentageXpressbee / total) * 100;
-            percentageEcom = (percentageEcom / total) * 100;
-            percentageBluedart = (percentageBluedart / total) * 100;
-        }
+							<script src="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.js"></script>
 
-        // Data for the pie chart
-        var data = {
-            series: [percentageXpressbee, percentageEcom, percentageBluedart]
-        };
+							<script>
+								var percentageXpressbee = <?php echo isset($percentage_xpressbeeFormatted) ? $percentage_xpressbeeFormatted : 0; ?>;
+								var percentageEcom = <?php echo isset($percentage_ecomFormatted) ? $percentage_ecomFormatted : 0; ?>;
+								var percentageBluedart = <?php echo isset($percentage_bluedartFormatted) ? $percentage_bluedartFormatted : 0; ?>;
 
-        var options = {
-            showLabel: true,
-            chartPadding: 10,
-            animation: {
-                draw: function(data) {
-                    data.element.animate({
-                        d: {
-                            begin: 1000 * data.index,
-                            dur: 1000,
-                            from: data.path.clone().stringify(),
-                            to: data.path.clone().stringify()
-                        }
-                    });
-                }
-            }
-        };
+								// Ensure the percentages total 100 or adjust values if necessary
+								var total = percentageXpressbee + percentageEcom + percentageBluedart;
+								if (total !== 100) {
+									console.warn('Percentages do not sum to 100, adjusting values.');
+									// percentageXpressbee = (percentageXpressbee / total) * 100;
+									percentageXpressbee = (percentageXpressbee / total) * 100;
+									percentageEcom = (percentageEcom / total) * 100;
+									percentageBluedart = (percentageBluedart / total) * 100;
+								}
 
-        // Create the pie chart
-        new Chartist.Pie('#pie-chart', data, options);
-    </script>
+								// Data for the pie chart
+								var data = {
+									series: [percentageXpressbee, percentageEcom, percentageBluedart]
+								};
 
-    <div class="chart-legend">
-        <ul>
-            <li><span style="color: #FF5733;">&#9679;</span> Xpressbees: {{ $percentage_xpressbeeFormatted ?? 0 }}%</li>
-            <li><span style="color: #ffbe33c9;">&#9679;</span> Ecomexpress: {{ $percentage_ecomFormatted ?? 0 }}%</li>
-            <li><span style="color: #3357FF;">&#9679;</span> Bluedart: {{ $percentage_bluedartFormatted ?? 0 }}%</li>
-        </ul>
-    </div>
-</div>
+								var options = {
+									showLabel: true,
+									chartPadding: 10,
+									animation: {
+										draw: function(data) {
+											data.element.animate({
+												d: {
+													begin: 1000 * data.index,
+													dur: 1000,
+													from: data.path.clone().stringify(),
+													to: data.path.clone().stringify()
+												}
+											});
+										}
+									}
+								};
+
+								// Create the pie chart
+								new Chartist.Pie('#pie-chart', data, options);
+							</script>
+
+							<div class="chart-legend">
+								<ul>
+									<li><span style="color: #FF5733;">&#9679;</span> Xpressbees: {{ $percentage_xpressbeeFormatted ?? 0 }}%</li>
+									<li><span style="color: #ffbe33c9;">&#9679;</span> Ecomexpress: {{ $percentage_ecomFormatted ?? 0 }}%</li>
+									<li><span style="color: #3357FF;">&#9679;</span> Bluedart: {{ $percentage_bluedartFormatted ?? 0 }}%</li>
+								</ul>
+							</div>
+						</div>
 
 					</div>
 				</div>

@@ -9,7 +9,7 @@
     .header-new {
         position: fixed;
         /* Change to fixed positioning */
-        top: 185px;
+        top: 218px;
         /* Always stick to the top */
         width: 100%;
         /* background-color: white; */
@@ -142,8 +142,8 @@
                                                                             value="{{ request()->get('from') && request()->get('to') ? request()->get('from') . ' - ' . request()->get('to') : '' }}">
                                                                     </div>
                                                                 </div>
-                                                                
-                                                                
+
+
                                                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 mb-3">
                                                                     <label class="form-label">Order Type</label>
                                                                     <select class="default-select form-control wide w-100" name="order_type">
@@ -171,9 +171,6 @@
                                                                     <label for="product_name" class="form-label">Product Name</label>
                                                                     <input type="text" class="form-control" id="product_name" placeholder="Product Name" name="product_name" value="{{ request()->get('product_name') }}">
                                                                 </div>
-                                                                
-
-
                                                             </div>
 
                                                             <button type="submit" class="btn btn-secondary ms-sm-auto mb-1 mb-sm-0">Search</button>
@@ -200,11 +197,11 @@
                                         <!-- <button name="currentbtnname" value="shippinglabel" type="submit"
                                             class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">
                                             <i class="fa fa-calendar me-1"></i> Print Label
-                                        </button>
+                                        </button> -->
                                         <button name="currentbtnname" value="cancelorders" type="submit"
                                             class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">
                                             <i class="fa fa-times-circle me-1"></i> Cancel Orders
-                                        </button> -->
+                                        </button>
                                         <button name="currentbtnname" value="exportorderdetails" class="btn btn-outline-secondary  me-3 mb-2 btn-sm button-clor-white">
                                             <i class="fa fa-download me-1 "></i> Export
                                         </button>
@@ -294,12 +291,12 @@
                                                         </a>
                                                         <div class="dropdown-menu">
 
-                                                        <a class="dropdown-item" href="edit-order/{{ $param->Single_Order_Id }}" title="Edit Order">
-                                                                    <i class="las fa-file-invoice scale5 me-3"></i>Edit Order
-                                                                </a>
-                                                                <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Clone">
-                                                                    <i class="las fa-file-invoice scale5 me-3"></i>Clone Order
-                                                                </a>
+                                                            <a class="dropdown-item" href="edit-order/{{ $param->Single_Order_Id }}" title="Edit Order">
+                                                                <i class="las fa-file-invoice scale5 me-3"></i>Edit Order
+                                                            </a>
+                                                            <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Clone">
+                                                                <i class="las fa-file-invoice scale5 me-3"></i>Clone Order
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -312,7 +309,7 @@
                             </form>
                             <div class="row">
                                 <div class="col-md-6">
-                                    
+
 
                                     <form id="perPageForm" action="{{ url('/failled') }}" method="get">
                                         <div class="mb-3 col-md-2">
