@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>  
+<head>
 	<!-- All Meta -->
 	<meta charset="utf-8">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -31,7 +31,7 @@
 	<!-- Custom Stylesheet -->
 	<link href="{{asset('newtheme/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
 	<link href="{{asset('newtheme/css/style.css')}}" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 
@@ -130,23 +130,30 @@
 												<div class="card-body">
 													<div id="smartwizard" class="form-wizard order-create">
 
-														<form method="POST" action="{{ asset('/UPSingle_Product_Add') }}">@csrf
+														<form method="POST" action="{{ asset('/UPSingle_Product_Add') }}">
+															@csrf
+															<!-- Customer Details -->
 															<div id="wizard_Service" class="tab-pane" role="tabpanel">
 																<div class="row">
+																	<!-- Name -->
 																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
-																			<label class="text-label form-label"><strong> Name</strong><span class="required">*</span></label>
+																			<label class="text-label form-label"><strong>Name</strong><span class="required">*</span></label>
 																			<input type="text" name="cname" style="border-color: black;" class="form-control" placeholder="Enter Name" required>
 																			<p class="text-sm text-red-600 ">@error('cname'){{$message}}@enderror</p>
 																		</div>
 																	</div>
+
+																	<!-- Address -->
 																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
-																			<label class="text-label form-label"><strong>Address</strong> <span class="required">*</span></label>
+																			<label class="text-label form-label"><strong>Address</strong><span class="required">*</span></label>
 																			<input type="text" name="caddress" style="border-color: black;" class="form-control" placeholder="Fill Address" required>
-																			<p class="text-sm text-red-600 ">@error('cname'){{$message}}@enderror</p>
+																			<p class="text-sm text-red-600 ">@error('caddress'){{$message}}@enderror</p>
 																		</div>
 																	</div>
+
+																	<!-- Phone Number -->
 																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
 																			<label class="text-label form-label"><strong>Phone Number</strong><span class="required">*</span></label>
@@ -154,107 +161,89 @@
 																			<p class="text-sm text-red-600 ">@error('cmobile'){{$message}}@enderror</p>
 																		</div>
 																	</div>
+
+																	<!-- PIN Code -->
 																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
 																			<label class="text-label form-label"><strong>PIN</strong><span class="required">*</span></label>
-																			<input type="text" class="form-control" style="border-color: black;" id="pincodeInput" name="cpin" aria-describedby="inputGroupPrepend2" placeholder="Enter Pin Code" required>
+																			<input type="text" class="form-control" style="border-color: black;" id="pincodeInput" name="cpin" placeholder="Enter Pin Code" required>
 																			<p class="text-sm text-red-600 ">@error('cpin'){{$message}}@enderror</p>
 																		</div>
 																	</div>
+
+																	<!-- City -->
 																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
 																			<label class="text-label form-label"><strong>City</strong><span class="required">*</span></label>
-																			<input type="text" name="ccity" id="stateInput" style="border-color: black;" class="form-control" placeholder="Enter City" required>
+																			<input type="text" name="ccity" id="cityInput" style="border-color: black;" class="form-control" placeholder="Enter City" required>
 																		</div>
 																	</div>
+
+																	<!-- State -->
 																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
 																			<label class="text-label form-label"><strong>State</strong><span class="required">*</span></label>
-																			<input type="text" class="form-control" style="border-color: black;" id="cityInput" name="cstate" aria-describedby="inputGroupPrepend2" placeholder="Enter State" required>
+																			<input type="text" class="form-control" style="border-color: black;" id="stateInput" name="cstate" placeholder="Enter State" required>
 																		</div>
 																	</div>
 																</div>
 															</div>
 
-															<script>
-																// pincode.js
-
-																$(document).ready(function() {
-																	$('#pincodeInput').on('input', function() {
-																		var pincode = $(this).val();
-
-																		$.ajax({
-																			url: 'get-state-city',
-																			type: 'GET',
-																			data: {
-																				pincode: pincode
-																			},
-																			success: function(response) {
-																				if (response.success) {
-																					$('#stateInput').val(response.city);
-																					$('#cityInput').val(response.state);
-																				} else {
-																					// alert(response.message);
-																				}
-																			},
-																			error: function(xhr, status, error) {
-																				console.error(error);
-																			}
-																		});
-																	});
-																});
-															</script>
+															<!-- Shipment Details -->
 															<div id="wizard_Time" class="tab-pane" role="tabpanel">
 																<div class="row">
 																	<div class="mt-2">
 																		<h4 class="card-title text-primary">Shipment Details
 																			<hr>
 																		</h4>
-
 																	</div>
-																	<div class="col-lg-6 mb-2">
 
+																	<!-- Order Number -->
+																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
 																			<label class="text-label form-label"><strong>Order Number</strong><span class="required">*</span></label>
 																			<input type="text" name="orderno" style="border-color: black;" class="form-control" placeholder="Enter order details" required>
 																			<p class="text-sm text-red-600 ">@error('orderno'){{$message}}@enderror</p>
 																		</div>
 																	</div>
+
+																	<!-- Product Name -->
 																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
 																			<label class="text-label form-label"><strong>Product Name</strong><span class="required">*</span></label>
 																			<input type="text" name="itemName" style="border-color: black;" class="form-control" placeholder="Enter product name" required>
 																		</div>
 																	</div>
-																	<div class="col-lg-6 mb-2">
-																		<div class="mb-3">
-																			<label class="text-label form-label"><strong>Invoice Value</strong><span class="required">*</span></label>
-																			<input type="text" name="invoiceValue" style="border-color: black;" class="form-control" placeholder="Enter invoice value" required>
-																		</div>
-																	</div>
+
+																	<!-- Payment Method -->
 																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
 																			<label class="text-label form-label"><strong>Payment Method</strong><span class="required">*</span></label>
-
-																			<select class="default-select form-control wide" id="courierType" name="courierType" style="border-color: black;" required>
+																			<select class="default-select form-control wide" id="paymentMethod" name="courierType" style="border-color: black;" required>
 																				<option value="">--Select method--</option>
 																				<option value="COD">COD</option>
 																				<option value="Prepaid">Prepaid</option>
 																			</select>
 																		</div>
 																	</div>
+
+																	<!-- Quantity -->
 																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
 																			<label class="text-label form-label"><strong>Quantity</strong><span class="required">*</span></label>
 																			<input type="text" name="quantity" style="border-color: black;" class="form-control" placeholder="Enter quantity" required>
 																		</div>
 																	</div>
-																	<div class="col-lg-6 mb-2">
+
+																	<!-- COD Amount (Hidden unless COD is selected) -->
+																	<div class="col-lg-6 mb-2" id="codAmountContainer" style="display: none;">
 																		<div class="mb-3">
 																			<label class="text-label form-label"><strong>COD Amount</strong><span class="required">*</span></label>
 																			<input type="text" name="codAmount" style="border-color: black;" class="form-control" required>
 																		</div>
 																	</div>
+
+																	<!-- Total Amount -->
 																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
 																			<label class="text-label form-label"><strong>Total Amount</strong><span class="required">*</span></label>
@@ -263,80 +252,81 @@
 																	</div>
 																</div>
 															</div>
+
+															<!-- Package Details -->
 															<div id="wizard_Details" class="tab-pane" role="tabpanel">
 																<div class="mt-2">
 																	<h4 class="card-title text-primary">Package Details
 																		<hr>
 																	</h4>
-
 																</div>
+
+																<!-- Weight -->
 																<div class="row align-items-center">
 																	<div class="col-sm-4 mb-2">
 																		<span><strong>Weight (in kg)</strong><span class="required">*</span></span>
 																	</div>
-
 																	<div class="col-6 col-sm-4 mb-2">
 																		<div class="mb-3 input-group">
-																			<input type="text" class="form-control" value="0.00" name="actualWeight" id="input1" style="border-color: black;">
-																			<span class="input-group-text text-white bg-primary text-white">KG</span>
-
+																			<input type="text" class="form-control" value="0.00" name="actualWeight" style="border-color: black;">
+																			<span class="input-group-text text-white bg-primary">KG</span>
 																		</div>
 																	</div>
-
 																</div>
+
+																<!-- Dimension Length -->
 																<div class="row align-items-center">
 																	<div class="col-sm-4 mb-2">
 																		<span><strong>Dimension (Length - cm)</strong><span class="required">*</span></span>
 																	</div>
 																	<div class="col-6 col-sm-4 mb-2">
-
 																		<div class="mb-3 input-group">
-																			<input type="number" class="form-control" value="0" name="lenth" id="input3" style="border-color: black;">
-																			<span class="input-group-text text-white bg-primary text-white">CM</span>
-
+																			<input type="number" class="form-control" value="0" name="length" style="border-color: black;">
+																			<span class="input-group-text text-white bg-primary">CM</span>
 																		</div>
 																	</div>
 																</div>
+
+																<!-- Dimension Breadth -->
 																<div class="row align-items-center">
 																	<div class="col-sm-4 mb-2">
 																		<span><strong>Dimension (Breadth - cm)</strong><span class="required">*</span></span>
 																	</div>
 																	<div class="col-6 col-sm-4 mb-2">
-
 																		<div class="mb-3 input-group">
-																			<input type="number" class="form-control" value="0" name="breadth" id="input5" style="border-color: black;">
-																			<span class="input-group-text text-white bg-primary text-white">CM</span>
-
+																			<input type="number" class="form-control" value="0" name="breadth" style="border-color: black;">
+																			<span class="input-group-text text-white bg-primary">CM</span>
 																		</div>
 																	</div>
 																</div>
+
+																<!-- Dimension Height -->
 																<div class="row align-items-center">
 																	<div class="col-sm-4 mb-2">
 																		<span><strong>Dimension (Height - cm)</strong><span class="required">*</span></span>
 																	</div>
 																	<div class="col-6 col-sm-4 mb-2">
-
-
 																		<div class="mb-3 input-group">
-																			<input type="number" class="form-control" value="0" name="height" id="input8" style="border-color: black;">
-																			<span class="input-group-text text-white bg-primary text-white">CM</span>
-
+																			<input type="number" class="form-control" value="0" name="height" style="border-color: black;">
+																			<span class="input-group-text text-white bg-primary">CM</span>
 																		</div>
 																	</div>
 																</div>
 															</div>
+
+															<!-- Payment Details -->
 															<div id="wizard_Payment" class="tab-pane" role="tabpanel">
 																<div class="row">
 																	<div class="mt-2">
 																		<h4 class="card-title text-primary">Pickup Details
 																			<hr>
 																		</h4>
-
 																	</div>
+
+																	<!-- Pickup Hub -->
 																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
-																			<label class="text-label form-label"><strong>Select Pick-up address
-																					(Hub)</strong><span class="required">*</span></label>
+																			<label class="text-label form-label"><strong>Select Pick-up address (Hub)</strong><span class="required">*</span></label>
 																			<select class="default-select form-control wide mb-3" name="hubid">
 																				<option value="">- * - Select Pickup Hub Addresss - * -</option>
 																				@foreach($Hubs as $Hub)
@@ -347,18 +337,52 @@
 																	</div>
 																</div>
 
+																<!-- Action Buttons -->
 																<div class="row">
 																	<div class="col-6">
-																		<div class="skip-email ">
-																			<p>Press proceed to continue or press cancel to exit.</p>
-																			<button type="submit" class="btn btn-primary">Proceed</button>&nbsp;&nbsp;
-
-																			<button type="reset" class="btn btn-primary">Cancel</button>
-																		</div>
+																		<p>Press proceed to continue or press cancel to exit.</p>
+																		<button type="submit" class="btn btn-primary">Proceed</button>&nbsp;&nbsp;
+																		<button type="reset" class="btn btn-primary">Cancel</button>
 																	</div>
 																</div>
 															</div>
 														</form>
+
+														<script>
+															$(document).ready(function() {
+																// Payment method change
+																$('#paymentMethod').on('change', function() {
+																	if ($(this).val() === 'COD') {
+																		$('#codAmountContainer').show();
+																	} else {
+																		$('#codAmountContainer').hide();
+																	}
+																});
+
+																// Handle PIN code input for State and City
+																$('#pincodeInput').on('input', function() {
+																	var pincode = $(this).val();
+
+																	$.ajax({
+																		url: 'get-state-city',
+																		type: 'GET',
+																		data: {
+																			pincode: pincode
+																		},
+																		success: function(response) {
+																			if (response.success) {
+																				$('#stateInput').val(response.state);
+																				$('#cityInput').val(response.city);
+																			}
+																		},
+																		error: function(xhr, status, error) {
+																			console.error(error);
+																		}
+																	});
+																});
+															});
+														</script>
+
 													</div>
 												</div>
 											</div>
@@ -388,7 +412,7 @@
 											<tr>
 												<th>Sno</th>
 												<th>Hub Code</th>
-												<th>Logo</th>
+												
 												<th>Hub Name</th>
 												<th>GST No.</th>
 												<th>Address</th>
@@ -412,7 +436,7 @@
 												<?php  } else { ?>
 													<td>{{ $param->hub_code }}</td>
 												<?php }  ?>
-												<td><img src="{{ asset('HubDetails') }}/{{ $param->hub_folder }}/{{ $param->hub_img }}" title="Hub Image" alt="Not Available" style="width:50px;height:50px;"></td>
+												
 												<td>{{ $param->hub_name }}</td>
 												<td>{{ $param->hub_gstno }}</td>
 												<td>{{ $param->hub_address1 }}</td>
@@ -965,8 +989,8 @@
 			$('#smartwizard').smartWizard();
 		});
 	</script>
-	
 
-</body> 
+
+</body>
 
 </html>

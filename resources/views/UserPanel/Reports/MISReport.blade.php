@@ -43,13 +43,8 @@ Content body start
 												</div>
 											</div>
 										</div>
-
-
 									</div>
 									<div class="row">
-
-
-
 										<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 mb-3">
 											<label for="orderType" class="form-label">Order Type</label>
 											<select name="order_type" id="orderType" class="form-control w-100" aria-label="Select Order Type">

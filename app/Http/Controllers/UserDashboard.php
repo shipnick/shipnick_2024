@@ -275,12 +275,13 @@ class UserDashboard extends Controller
 
       $zone = bulkorders::select('zone', \DB::raw('count(Single_Order_Id) as order_count'))
         ->where('User_Id', $userid)
-        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
+
         ->groupBy('zone')
         ->get();
 
       $counts = bulkorders::select('zone', DB::raw('count(*) as count'))
         ->where('User_Id', $userid)
+        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         // ->whereBetween('Rec_Time_Date', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
         ->groupBy('zone')
         ->get()
@@ -313,25 +314,25 @@ class UserDashboard extends Controller
         ->where('Awb_Number', '!=', '')
         ->where('awb_gen_by', 'Xpressbee')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
+        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
       $Ecom = BulkOrders::where('User_Id', $userid)
         ->where('Awb_Number', '!=', '')
         ->where('awb_gen_by', 'Ecom')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
+        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
       $Bluedart = BulkOrders::where('User_Id', $userid)
         ->where('Awb_Number', '!=', '')
         ->where('awb_gen_by', 'bluedart')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
+        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
 
       $MonthlyOrder = BulkOrders::where('User_Id', $userid)
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
-        ->whereBetween('Rec_Time_Date', array($cfromdate, $ctodate))
+        ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
 
       // details for order 
@@ -351,7 +352,7 @@ class UserDashboard extends Controller
         ['order_cancel', '!=', '1'],
         ['Last_Time_Stamp', '>=', $cfromdateObj],
         ['Last_Time_Stamp', '<=', $ctodateObj]
-        
+
       ];
 
       // Get the selected date filter from the request
@@ -361,7 +362,7 @@ class UserDashboard extends Controller
       // Initialize an empty array to store results for each courier
       $orderDetails = [];
 
-      
+
       // Loop through each courier and get the order details
       foreach ($awbGenBy as $courier) {
         $orderDetails[$courier] = [
@@ -1976,35 +1977,35 @@ class UserDashboard extends Controller
 
 
 
-     // Bluedart orders
-     $Ekart = $getCount('Ekart');
-     $EkartPending = $getCount('Ekart', null, $statusCategories['Pending']);
-     $EkartIntransit = $getCount('Ekart', null, $statusCategories['Intransit']);
-     $EkartOfd = $getCount('Ekart', null, $statusCategories['Ofd']);
-     $EkartNdr = $getCount('Ekart', null, $statusCategories['NDR']);
-     $EkartDeliverd = $getCount('Ekart', null, $statusCategories['Delivered']);
-     $EkartRto = $getCount('Ekart', null, $statusCategories['Rto']);
-     $EkartDeliverdPresent = $Ekart - $EkartPending - $EkartIntransit - $EkartOfd;
- 
-     // Bluedart Prepaid orders
-     $EkartPrepaid = $getCount('Ekart', 'Prepaid');
-     $EkartPrepaidPending = $getCount('Ekart', 'Prepaid', $statusCategories['Pending']);
-     $EkartPrepaidIntransit = $getCount('Ekart', 'Prepaid', $statusCategories['Intransit']);
-     $EkartPrepaidOfd = $getCount('Ekart', 'Prepaid', $statusCategories['Ofd']);
-     $EkartPrepaidNdr = $getCount('Ekart', 'Prepaid', $statusCategories['NDR']);
-     $EkartPrepaidDelivered = $getCount('Ekart', 'Prepaid', $statusCategories['Delivered']);
-     $EkartPrepaidRto = $getCount('Ekart', 'Prepaid', $statusCategories['Rto']);
-     $EkartPrepaidDeliveredPresent = $EkartPrepaid - $EkartPrepaidPending - $EkartPrepaidIntransit - $EkartPrepaidOfd;
- 
-     // Bluedart COD orders
-     $EkartCod = $getCount('Ekart', 'COD');
-     $EkartCodPending = $getCount('Ekart', 'COD', $statusCategories['Pending']);
-     $EkartCodIntransit = $getCount('Ekart', 'COD', $statusCategories['Intransit']);
-     $EkartCodOfd = $getCount('Ekart', 'COD', $statusCategories['Ofd']);
-     $EkartCodNdr = $getCount('Ekart', 'COD', $statusCategories['NDR']);
-     $EkartCodDelivered = $getCount('Ekart', 'COD', $statusCategories['Delivered']);
-     $EkartCodRto = $getCount('Ekart', 'COD', $statusCategories['Rto']);
-     $EkartCodDeliveredPresent = $EkartCod - $EkartCodPending - $EkartCodIntransit - $EkartCodOfd;
+    // Bluedart orders
+    $Ekart = $getCount('Ekart');
+    $EkartPending = $getCount('Ekart', null, $statusCategories['Pending']);
+    $EkartIntransit = $getCount('Ekart', null, $statusCategories['Intransit']);
+    $EkartOfd = $getCount('Ekart', null, $statusCategories['Ofd']);
+    $EkartNdr = $getCount('Ekart', null, $statusCategories['NDR']);
+    $EkartDeliverd = $getCount('Ekart', null, $statusCategories['Delivered']);
+    $EkartRto = $getCount('Ekart', null, $statusCategories['Rto']);
+    $EkartDeliverdPresent = $Ekart - $EkartPending - $EkartIntransit - $EkartOfd;
+
+    // Bluedart Prepaid orders
+    $EkartPrepaid = $getCount('Ekart', 'Prepaid');
+    $EkartPrepaidPending = $getCount('Ekart', 'Prepaid', $statusCategories['Pending']);
+    $EkartPrepaidIntransit = $getCount('Ekart', 'Prepaid', $statusCategories['Intransit']);
+    $EkartPrepaidOfd = $getCount('Ekart', 'Prepaid', $statusCategories['Ofd']);
+    $EkartPrepaidNdr = $getCount('Ekart', 'Prepaid', $statusCategories['NDR']);
+    $EkartPrepaidDelivered = $getCount('Ekart', 'Prepaid', $statusCategories['Delivered']);
+    $EkartPrepaidRto = $getCount('Ekart', 'Prepaid', $statusCategories['Rto']);
+    $EkartPrepaidDeliveredPresent = $EkartPrepaid - $EkartPrepaidPending - $EkartPrepaidIntransit - $EkartPrepaidOfd;
+
+    // Bluedart COD orders
+    $EkartCod = $getCount('Ekart', 'COD');
+    $EkartCodPending = $getCount('Ekart', 'COD', $statusCategories['Pending']);
+    $EkartCodIntransit = $getCount('Ekart', 'COD', $statusCategories['Intransit']);
+    $EkartCodOfd = $getCount('Ekart', 'COD', $statusCategories['Ofd']);
+    $EkartCodNdr = $getCount('Ekart', 'COD', $statusCategories['NDR']);
+    $EkartCodDelivered = $getCount('Ekart', 'COD', $statusCategories['Delivered']);
+    $EkartCodRto = $getCount('Ekart', 'COD', $statusCategories['Rto']);
+    $EkartCodDeliveredPresent = $EkartCod - $EkartCodPending - $EkartCodIntransit - $EkartCodOfd;
 
     // Return the counts to the view or as needed
     return view('UserPanel.DashboardData.analytics', compact(

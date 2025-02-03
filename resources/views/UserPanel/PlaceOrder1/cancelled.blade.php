@@ -1,6 +1,11 @@
 @extends("UserPanel/userpanel_layout1")
 @section("userpanel")
 <style>
+    .hidden {
+        display: none;
+    }
+</style>
+<style>
     .card-body {
         padding: 1rem;
     }
@@ -9,7 +14,7 @@
     .header-new {
         position: fixed;
         /* Change to fixed positioning */
-        top: 185px;
+        top: 200px;
         /* Always stick to the top */
         width: 100%;
         /* background-color: white; */
@@ -17,8 +22,6 @@
         z-index: 1000;
         /* Ensure it stays above other content */
     }
-
-
 
     .hidden {
         display: none;
@@ -89,7 +92,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="cancelled">All Orders ({{$cancel}})</a>
                         </li>
-                        
+
 
                     </ul>
 
@@ -236,20 +239,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <style>
-                                .hidden {
-                                    display: none;
-                                }
-                            </style>
+
                             <form method="post" action="{{ asset('/filter-selected-order') }}">
                                 @csrf
                                 <div id="myDiv" class="hidden " style="margin-bottom: 5%;">
                                     <div class="d-flex justify-content-start align-items-center header-new button-clor-white ">
-                                        <!-- <button name="currentbtnname" value="shippinglabel" type="submit"
+                                        <button name="currentbtnname" value="shippinglabel" type="submit"
                                             class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">
                                             <i class="fa fa-calendar me-1"></i> Print Label
                                         </button>
-                                        <button name="currentbtnname" value="cancelorders" type="submit"
+                                        <!-- <button name="currentbtnname" value="cancelorders" type="submit"
                                             class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">
                                             <i class="fa fa-times-circle me-1"></i> Cancel Orders
                                         </button> -->

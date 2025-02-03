@@ -890,7 +890,7 @@ class UserOrderManage extends Controller
             ->whereNull('xberrors')
             ->where('Awb_Number', '')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Single_Order_Id','Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','Actual_Weight' ,'Height' , 'Width', 'Length' , 'orderno', 'Quantity', 'Total_Amount','uploadtype');
+            ->select('Single_Order_Id', 'Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'Actual_Weight', 'Height', 'Width', 'Length', 'orderno', 'Quantity', 'Total_Amount', 'uploadtype');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -916,7 +916,7 @@ class UserOrderManage extends Controller
         if ($req->filled('orderid')) {
             $query->where('orderno', 'like', '%' . $req->orderid . '%');
         }
-        
+
 
 
         $perPage = $req->input('per_page', 50);
@@ -933,11 +933,9 @@ class UserOrderManage extends Controller
 
         // Calculate various counts
         $booked = bulkorders::where('User_Id', $userid)
-            ->where('Awb_Number', '!=', '')
             ->whereNull('xberrors')
-            ->where('Awb_Number', '')
+            ->whereNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->where('order_cancel', '!=', '1')
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
@@ -948,7 +946,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated','Booked'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
             ->where('order_cancel', '!=', '1')
@@ -994,8 +992,6 @@ class UserOrderManage extends Controller
             'ctodate' => $req->to
         ])->with($data);
     }
-
-    
     public function Pickup_pending(Request $req)
     {
         $userid = session()->get('UserLogin2id');
@@ -1007,9 +1003,9 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->whereIn('showerrors', ['Booked','Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Booked', 'Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype','Single_Order_Id');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1066,10 +1062,9 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
-             ->whereNull('xberrors')
-            ->where('Awb_Number', '!=', '')
+            ->whereNull('xberrors')
+            ->whereNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->where('order_cancel', '!=', '1')
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
@@ -1080,7 +1075,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated','Booked'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1141,7 +1136,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype','Single_Order_Id');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1198,10 +1193,9 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
-            ->where('Awb_Number', '!=', '')
-             ->whereNull('xberrors')
+            ->whereNull('xberrors')
+            ->whereNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->where('order_cancel', '!=', '1')
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
@@ -1212,7 +1206,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated','Booked'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1271,7 +1265,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype','Single_Order_Id');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1328,10 +1322,9 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
-            ->where('Awb_Number', '!=', '')
-             ->whereNull('xberrors')
+            ->whereNull('xberrors')
+            ->whereNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->where('order_cancel', '!=', '1')
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
@@ -1342,7 +1335,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated','Booked'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1401,7 +1394,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->where('showerrors', 'Delivered')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype','Single_Order_Id');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1458,10 +1451,9 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
-             ->whereNull('xberrors')
-            ->where('Awb_Number', '!=', '')
+            ->whereNull('xberrors')
+            ->whereNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->where('order_cancel', '!=', '1')
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
@@ -1472,7 +1464,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated','Booked'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1531,7 +1523,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype','Single_Order_Id');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1588,10 +1580,9 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
-             ->whereNull('xberrors')
-            ->where('Awb_Number', '!=', '')
+            ->whereNull('xberrors')
+            ->whereNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->where('order_cancel', '!=', '1')
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
@@ -1602,7 +1593,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated','Booked'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1659,9 +1650,9 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
 
-           
+
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype','Single_Order_Id');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj1 && $ctodateObj1) {
@@ -1718,10 +1709,9 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
-             ->whereNull('xberrors')
-            ->where('Awb_Number', '!=', '')
+            ->whereNull('xberrors')
+            ->whereNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->where('order_cancel', '!=', '1')
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
@@ -1732,7 +1722,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated','Booked'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1792,7 +1782,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->where('Awb_Number', '')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name','awb_gen_by','Awb_Number','Quantity', 'Total_Amount','orderno','uploadtype','Single_Order_Id');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1850,7 +1840,7 @@ class UserOrderManage extends Controller
 
         // booked of today order count
         $booked = bulkorders::where('User_Id', $userid)
-             ->whereNull('xberrors')
+            ->whereNull('xberrors')
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->where('order_cancel', '!=', '1')
@@ -1864,7 +1854,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated','Booked'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')

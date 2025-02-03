@@ -1980,12 +1980,12 @@ if($status == "true"){
 
             case "cancelorders":
                 // Update orders to be canceled
-                bulkorders::whereIn('Awb_Number', $selectorders)->update(['order_cancel' => 1]);
+                
                 foreach ($selectorders as $selectorders) {
                     $awb = $selectorders;
                     $order = bulkorders::whereIn('Awb_Number', $awb)->first();
                     $date = date('Y-m-d');
-
+                    bulkorders::whereIn('Awb_Number', $selectorders)->update(['order_cancel' => 1]);
                     $credit1 = orderdetail::where('awb_no', $awb)->first()->debit;
 
                     $transactionCode = "TR" . $selectorders;
