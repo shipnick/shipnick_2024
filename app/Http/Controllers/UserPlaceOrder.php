@@ -203,6 +203,16 @@ class UserPlaceOrder extends Controller
             $hubcity = $Hubs['hub_city'];
             // Hub id
 
+            $pincode1 = Pincode::where('pincode', $req->cpin)->first();
+            $pincode2 = Pincode::where('pincode', $hubpincode)->first();
+
+            if ($pincode1 && $pincode2) {
+                // Determine the zone
+                $zone = $this->determineZone($pincode1, $pincode2);
+            } else {
+                $zone = "D"; // Default zone if pincode details are missing
+            }
+
             $query = new bulkorders;
             $query->orderno = $req->orderno;
             $query->Order_Type = $req->courierType;
@@ -250,6 +260,7 @@ class UserPlaceOrder extends Controller
             $query->order_status_show = 'Upload';
             $query->apihitornot = $apistatus;
             $query->showerrors = $errorstatus;
+            $query->zone = $zone;
             $query->save();
 
             $last_id = $query->id;
@@ -265,6 +276,7 @@ class UserPlaceOrder extends Controller
             return redirect('/booked-order');
         }
     }
+
 
     public function edit_order($id)
     {
