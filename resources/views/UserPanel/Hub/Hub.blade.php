@@ -50,7 +50,7 @@
                                         <th>Pincode</th>
                                         <th>State</th>
                                         <th>City</th>
-                                        <th>Delivery Type</th>
+                                        <!-- <th>Delivery Type</th> -->
                                         <th>Action</th>
                                             </tr>
                                         </thead>
@@ -74,16 +74,14 @@
                                         <td>{{ $param->hub_pincode }}</td>
                                         <td>{{ $param->hub_state }}</td>
                                         <td>{{ $param->hub_city }}</td>
-                                        <td>{{ $param->hub_deliverytype }}</td>
+                                        <!-- <td>{{ $param->hub_deliverytype }}</td> -->
                                         
                                        
                                         <td >
                                                <a href="{{ asset('UPHub_Edit/'.$param->hub_id) }}" title="Click here to edit hub detail">
                                                     <i class="far fa-edit me-2"></i>Edit
                                                 </a>
-                                                <a href="{{ asset('UPHub_Delete/'.$param->hub_id) }}" title="Click here to delete hub detail">
-                                                    <i class="far fa-trash-alt me-2"></i>Delete
-                                                </a>
+                                                
                                         </td>
                                        
                                         <!--<td>-->
