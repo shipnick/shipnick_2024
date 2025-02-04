@@ -239,8 +239,8 @@
                                                 <th>QTY</th>
                                                 <th>AMT</th>
                                                 <th>TYPE</th>
-                                                <th>AWB</th>
-                                                <th>CARRIER</th>
+                                                
+                                                
                                                 <th>STATUS</th>
                                                 <th class="text-end"> </th>
                                             </tr>
@@ -275,10 +275,9 @@
                                                 <td><span>{{ $param->Quantity }}</span></td>
                                                 <td><span>{{ $param->Total_Amount }}</span></td>
                                                 <td><span>{{ $param->Order_Type }}</span></td>
-                                                <td><span>{{ $param->Awb_Number }}</span></td>
-                                                <td>{{ $param->awb_gen_by }}</td>
+                                                
                                                 <td>
-                                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-rounded light" title="Show Errors">{{ Str::limit($param->showerrors, 20) }}</a>
+                                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-rounded light" title="{{ $param->showerrors }}">{{ Str::limit($param->showerrors, 20) }}</a>
                                                 </td>
                                                 <td class="text-end">
                                                     <div class="dropdown dropstart">
@@ -291,12 +290,12 @@
                                                         </a>
                                                         <div class="dropdown-menu">
 
-                                                            <a class="dropdown-item" href="edit-order/{{ $param->Single_Order_Id }}" title="Edit Order">
-                                                                <i class="las fa-file-invoice scale5 me-3"></i>Edit Order
-                                                            </a>
-                                                            <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Clone">
-                                                                <i class="las fa-file-invoice scale5 me-3"></i>Clone Order
-                                                            </a>
+                                                        <a class="dropdown-item" href="edit-order/{{ $param->Single_Order_Id }}" title="Edit Order">
+                                                                    <i class="las fa-file-invoice scale5 me-3"></i>Edit Order
+                                                                </a>
+                                                                <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Clone">
+                                                                    <i class="las fa-file-invoice scale5 me-3"></i>Clone Order
+                                                                </a>
                                                         </div>
                                                     </div>
                                                 </td>

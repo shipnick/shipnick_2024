@@ -328,7 +328,7 @@
                                                 <td><span>{{ $param->Awb_Number }}</span></td>
                                                 <td>{{ $param->awb_gen_by }}</td>
                                                 <td>
-                                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-rounded light" title="Show Errors">{{ Str::limit($param->showerrors, 20) }}</a>
+                                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-rounded light" title="{{ $param->showerrors }}">{{ Str::limit($param->showerrors, 20) }}</a>
                                                 </td>
                                                 <td class="text-end">
                                                     <div class="dropdown dropstart">

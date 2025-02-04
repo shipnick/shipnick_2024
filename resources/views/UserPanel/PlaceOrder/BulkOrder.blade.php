@@ -144,6 +144,15 @@
 																		</div>
 																	</div>
 
+																	<!-- Phone Number -->
+																	<div class="col-lg-6 mb-2">
+																		<div class="mb-3">
+																			<label class="text-label form-label"><strong>Phone Number</strong><span class="required">*</span></label>
+																			<input type="text" name="cmobile" style="border-color: black;" class="form-control" placeholder="(+91)" required>
+																			<p class="text-sm text-red-600 ">@error('cmobile'){{$message}}@enderror</p>
+																		</div>
+																	</div>
+
 																	<!-- Address -->
 																	<div class="col-lg-6 mb-2">
 																		<div class="mb-3">
@@ -153,14 +162,7 @@
 																		</div>
 																	</div>
 
-																	<!-- Phone Number -->
-																	<div class="col-lg-6 mb-2">
-																		<div class="mb-3">
-																			<label class="text-label form-label"><strong>Phone Number</strong><span class="required">*</span></label>
-																			<input type="text" name="cmobile" style="border-color: black;" class="form-control" placeholder="(+91)" required>
-																			<p class="text-sm text-red-600 ">@error('cmobile'){{$message}}@enderror</p>
-																		</div>
-																	</div>
+																	
 
 																	<!-- PIN Code -->
 																	<div class="col-lg-6 mb-2">
@@ -239,7 +241,7 @@
 																	<div class="col-lg-6 mb-2" id="codAmountContainer" style="display: none;">
 																		<div class="mb-3">
 																			<label class="text-label form-label"><strong>COD Amount</strong><span class="required">*</span></label>
-																			<input type="text" name="codAmount" style="border-color: black;" class="form-control" >
+																			<input type="text" name="codAmount" value="0" style="border-color: black;" class="form-control" >
 																		</div>
 																	</div>
 
@@ -313,6 +315,7 @@
 																	</div>
 																</div>
 															</div>
+															<input type="hidden" name="invoiceValue" value="0">
 
 															<!-- Payment Details -->
 															<div id="wizard_Payment" class="tab-pane" role="tabpanel">

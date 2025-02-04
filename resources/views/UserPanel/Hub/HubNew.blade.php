@@ -109,7 +109,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="mb-3 row">
+                                        <!-- <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label text-black" for="validationCustom05">Hub Pickup type
                                                 <span class="text-danger">*</span>
                                             </label>
@@ -123,7 +123,7 @@
                                                     Please select hub type.
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="mb-3 row">
                                             <div class="col-lg-8 ms-auto">
                                                 <button type="submit" class="btn btn-primary">Submit</button>
