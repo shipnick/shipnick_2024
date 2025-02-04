@@ -241,7 +241,7 @@
 																	<div class="col-lg-6 mb-2" id="codAmountContainer" style="display: none;">
 																		<div class="mb-3">
 																			<label class="text-label form-label"><strong>COD Amount</strong><span class="required">*</span></label>
-																			<input type="text" name="codAmount" style="border-color: black;" class="form-control" >
+																			<input type="text" name="codAmount" style="border-color: black;" class="form-control" value="0">
 																		</div>
 																	</div>
 
