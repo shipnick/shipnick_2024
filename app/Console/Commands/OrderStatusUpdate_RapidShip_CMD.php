@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use App\Jobs\OrderStatusUpdate_RapidShipJob;
 use Illuminate\Support\Facades\Queue;
 use App\Models\bulkorders;
+use Carbon\Carbon;
 
 class OrderStatusUpdate_RapidShip_CMD extends Command
 {
@@ -57,6 +58,7 @@ class OrderStatusUpdate_RapidShip_CMD extends Command
             ->where('order_cancel', '!=', '1')
             ->where('Awb_Number', '!=', '')
             ->whereNotNull('Awb_Number')
+            ->where('created_at', '>=', Carbon::now()->subDays(15)) 
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number')
             ->get();

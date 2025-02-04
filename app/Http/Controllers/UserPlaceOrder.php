@@ -1983,7 +1983,7 @@ if($status == "true"){
 
                 // Perform background URL hit (Artisan command)
                 Artisan::call('spnk:place-order');
-
+                return redirect()->back();
 
             case "shippinglabel":
                 return response()->view("UserPanel.LabesPrintout.Search", ['params' => $selectorders]);
@@ -2029,7 +2029,7 @@ if($status == "true"){
                     $wellet->close_blance = $close_blance;
                     $wellet->save();
                 }
-                Artisan::call('spnk:cancel-order');
+                
 
 
                 // Flash message and redirect back
@@ -2065,9 +2065,6 @@ if($status == "true"){
                 return redirect()->back();
             case "shippinglabel":
                 return response()->view("UserPanel.LabesPrintout.Search", ['params' => $selectorders]);
-
-
-
             case "cancelorders":
                 // Update orders to be canceled
                 bulkorders::whereIn('Awb_Number', $selectorders)->update(['order_cancel' => 1]);

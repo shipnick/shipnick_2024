@@ -6,6 +6,7 @@ use App\Jobs\OrderStatusUpdate_XPREBEE3;
 use App\Models\bulkorders;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Queue;
+use Carbon\Carbon;
 
 
 
@@ -57,9 +58,9 @@ class OrderStatusUpdateXpress3CMD extends Command
         $orders = bulkorders::where('awb_gen_by', 'Xpressbee')
             ->whereNotIn('showerrors', ['delivered', 'cancelled'])
             ->where('order_cancel', '!=', '1')
-            
             ->whereNotNull('Awb_Number')
             ->orderBy('Single_Order_Id', 'desc')
+            ->where('created_at', '>=', Carbon::now()->subDays(15)) 
             ->select('Awb_Number')
             ->get();
 
