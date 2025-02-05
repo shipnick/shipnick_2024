@@ -300,7 +300,7 @@
                                             <tr>
                                                 <td>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="selectedorder[]" value="{{ $param->Awb_Number }}" style="border-color: black;">
+                                                        <input class="form-check-input" type="checkbox" name="selectedorder[]" value="{{ $param->Single_Order_Id }}" style="border-color: black;">
                                                     </div>
                                                 </td>
                                                 <td><span>{{ $param->uploadtype }}</span></td>

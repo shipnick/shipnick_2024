@@ -1363,7 +1363,7 @@ class UserPlaceOrder extends Controller
                 $query->order_status_show = 'Upload';
                 $query->apihitornot = UtilityHelper::sanitize($apistatus);
                 $query->showerrors = UtilityHelper::sanitize($errorstatus);
-                $query->zone = UtilityHelper::sanitize($zone);
+                $query->zone = $zone;
                 $query->save();
                 $last_id = $query->id;
 
@@ -1978,7 +1978,7 @@ if($status == "true"){
         ]);
 
         switch ($currentbtnname) {
-            case "ship_order";
+            case "ship_order":
                 bulkorders::whereIn('Single_Order_Id', $selectorders)->update(['apihitornot' => 0, 'xberrors' => 1]);
 
                 // Perform background URL hit (Artisan command)
@@ -1986,13 +1986,17 @@ if($status == "true"){
                 return redirect()->back();
 
             case "shippinglabel":
-                return response()->view("UserPanel.LabesPrintout.Search", ['params' => $selectorders]);
+                
+                $awbRecords = bulkorders::whereIn('Single_Order_Id', $selectorders)->get();
 
+                // Extract the AWB numbers from the result
+                $awbNumbers = $awbRecords->pluck('Awb_Number')->toArray();
 
+                return response()->view("UserPanel.LabesPrintout.Search", ['params' => $awbNumbers]);
 
             case "cancelorders":
                 // Update orders to be canceled
-                
+
                 foreach ($selectorders as $selectorders) {
                     $awb = $selectorders;
                     $order = bulkorders::whereIn('Awb_Number', $awb)->first();
@@ -2029,7 +2033,7 @@ if($status == "true"){
                     $wellet->close_blance = $close_blance;
                     $wellet->save();
                 }
-                
+
 
 
                 // Flash message and redirect back
@@ -2056,7 +2060,7 @@ if($status == "true"){
         ]);
 
         switch ($currentbtnname) {
-            case "ship_order";
+            case "ship_order":
                 bulkorders::whereIn('Single_Order_Id', $selectorders)->update(['apihitornot' => 0, 'xberrors' => 1]);
 
                 // Perform background URL hit (Artisan command)
@@ -2064,7 +2068,13 @@ if($status == "true"){
 
                 return redirect()->back();
             case "shippinglabel":
-                return response()->view("UserPanel.LabesPrintout.Search", ['params' => $selectorders]);
+
+                $awbRecords = bulkorders::whereIn('Single_Order_Id', $selectorders)->get();
+
+                // Extract the AWB numbers from the result
+                $awbNumbers = $awbRecords->pluck('Awb_Number')->toArray();
+
+                return response()->view("UserPanel.LabesPrintout.Search", ['params' => $awbNumbers]);
             case "cancelorders":
                 // Update orders to be canceled
                 bulkorders::whereIn('Awb_Number', $selectorders)->update(['order_cancel' => 1]);
@@ -2106,7 +2116,7 @@ if($status == "true"){
                 }
 
                 // Perform background URL hit (Artisan command)
-                
+
 
                 // Flash message and redirect back
                 return redirect()->back()->with('message', 'Orders successfully canceled.');
@@ -2960,7 +2970,7 @@ class PlacedOrdersExport implements WithHeadings, FromCollection
         $awbno = $this->awbno;
 
         $products = Bulkorders::select('Order_Type', 'orderno', 'ordernoapi', 'Awb_Number', 'awb_gen_courier', 'Name', 'Address', 'State', 'City', 'Mobile', 'Pincode', 'Item_Name', 'Quantity', 'Width', 'Height', 'Length', 'Actual_Weight', 'volumetric_weight', 'Total_Amount', 'Invoice_Value', 'Cod_Amount', 'Rec_Time_Date', 'uploadtype', 'pickup_id', 'order_status_show', 'showerrors')
-            ->whereIn('Awb_Number', $awbno)
+            ->whereIn('Single_Order_Id', $awbno)
             ->where('user_id', session()->has('UserLogin2id') ? session()->get('UserLogin2id') : null)
             ->where('apihitornot', '1')
             ->where('order_cancel', '!=', '1')

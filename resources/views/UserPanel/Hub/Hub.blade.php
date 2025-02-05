@@ -50,7 +50,7 @@
                                         <th>Pincode</th>
                                         <th>State</th>
                                         <th>City</th>
-                                        <!-- <th>Delivery Type</th> -->
+                                        <th>Date</th>
                                         <th>Action</th>
                                             </tr>
                                         </thead>
@@ -74,9 +74,7 @@
                                         <td>{{ $param->hub_pincode }}</td>
                                         <td>{{ $param->hub_state }}</td>
                                         <td>{{ $param->hub_city }}</td>
-                                        <!-- <td>{{ $param->hub_deliverytype }}</td> -->
-                                        
-                                       
+                                        <td>{{ $param->hub_folder }}</td>
                                         <td >
                                                <a href="{{ asset('UPHub_Edit/'.$param->hub_id) }}" title="Click here to edit hub detail">
                                                     <i class="far fa-edit me-2"></i>Edit
