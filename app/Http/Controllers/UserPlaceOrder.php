@@ -1363,7 +1363,7 @@ class UserPlaceOrder extends Controller
                 $query->order_status_show = 'Upload';
                 $query->apihitornot = UtilityHelper::sanitize($apistatus);
                 $query->showerrors = UtilityHelper::sanitize($errorstatus);
-                $query->zone = UtilityHelper::sanitize($zone);
+                $query->zone = $zone;
                 $query->save();
                 $last_id = $query->id;
 
