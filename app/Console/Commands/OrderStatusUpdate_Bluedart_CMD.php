@@ -58,7 +58,7 @@ class OrderStatusUpdate_Bluedart_CMD extends Command
             ->where('order_cancel', '!=', '1')
             ->where('Awb_Number', '!=', '')
             ->whereNotNull('Awb_Number')
-            ->where('created_at', '>=', Carbon::now()->subDays(15)) 
+            ->where('Last_Time_Stamp', '>=', Carbon::now()->subDays(15)) 
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number')
             ->get();

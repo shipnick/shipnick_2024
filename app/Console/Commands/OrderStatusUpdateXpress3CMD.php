@@ -60,7 +60,7 @@ class OrderStatusUpdateXpress3CMD extends Command
             ->where('order_cancel', '!=', '1')
             ->whereNotNull('Awb_Number')
             ->orderBy('Single_Order_Id', 'desc')
-            ->where('created_at', '>=', Carbon::now()->subDays(15)) 
+            ->where('Last_Time_Stamp', '>=', Carbon::now()->subDays(15)) 
             ->select('Awb_Number')
             ->get();
 

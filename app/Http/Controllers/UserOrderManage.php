@@ -938,7 +938,7 @@ class UserOrderManage extends Controller
         $booked = bulkorders::where('User_Id', $userid)
             ->whereNull('xberrors')
             ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
@@ -1067,7 +1067,7 @@ class UserOrderManage extends Controller
         $booked = bulkorders::where('User_Id', $userid)
             ->whereNull('xberrors')
             ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
@@ -1198,7 +1198,7 @@ class UserOrderManage extends Controller
         $booked = bulkorders::where('User_Id', $userid)
             ->whereNull('xberrors')
             ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
@@ -1327,7 +1327,7 @@ class UserOrderManage extends Controller
         $booked = bulkorders::where('User_Id', $userid)
             ->whereNull('xberrors')
             ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
@@ -1456,7 +1456,7 @@ class UserOrderManage extends Controller
         $booked = bulkorders::where('User_Id', $userid)
             ->whereNull('xberrors')
             ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
@@ -1585,7 +1585,7 @@ class UserOrderManage extends Controller
         $booked = bulkorders::where('User_Id', $userid)
             ->whereNull('xberrors')
             ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
@@ -1714,7 +1714,7 @@ class UserOrderManage extends Controller
         $booked = bulkorders::where('User_Id', $userid)
             ->whereNull('xberrors')
             ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->count();
 
         // dd($booked);
@@ -1847,7 +1847,7 @@ class UserOrderManage extends Controller
         $booked = bulkorders::where('User_Id', $userid)
             ->whereNull('xberrors')
             ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
