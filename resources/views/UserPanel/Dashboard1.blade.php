@@ -182,6 +182,91 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="col-xl-12 col-xxl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+				<div class="card" >
+					<div class="card-header border-0 pb-0 d-sm-flex flex-wrap d-block">
+						<div class="">
+							<h4 class="card-title ">Shipment</h4>
+						</div>
+
+					</div>
+					<div class="card-body tab-content orders-summary pt-3">
+						<div class="tab-pane fade show active" id="Monthly">
+							<!-- new detials  -->
+							<div class="row text-center">
+								<div class="col-md-6 row">
+									<div class="col-sm-3 ">
+										<div class="border border-3 px-1 py-2 rounded-xl bg-white">
+											<h2 class="fs-24  counter ">{{ $talluploaded }}</h2>
+
+										</div>
+										<p class="fs-16 mb-0 text-black">Booked</p>
+									</div>
+									<div class="col-sm-3 ">
+										<div class="border border-3 px-1 py-2 rounded-xl bg-white">
+											<h2 class="fs-24  counter">{{$tallpending}}</h2>
+
+										</div>
+										<p class="fs-16 mb-0 text-black">Pickup Pending</p>
+
+									</div>
+									<div class="col-sm-3 ">
+										<div class="border border-3 px-1 py-2 rounded-xl bg-white">
+											<h2 class="fs-24 counter">{{ $intransitupload }}</h2>
+
+										</div>
+										<p class="fs-16 mb-0 text-black">In-transit</p>
+									</div>
+									<div class="col-sm-3 mb-4">
+										<div class="border border-3 px-1 py-2 rounded-xl bg-white">
+											<h2 class="fs-24 counter">{{ $tallcomplete }}</h2>
+
+										</div>
+										<p class="fs-16 mb-0 text-black">Delivered</p>
+									</div>
+								</div>
+								<div class="col-md-6 row">
+									<div class="col-sm-3 ">
+										<div class="border border-3 px-1 py-2 rounded-xl bg-white">
+											<h2 class="fs-24 counter">{{$tallndr}}</h2>
+
+										</div>
+										<p class="fs-16 mb-0 text-black">NDR Pending</p>
+									</div>
+									<div class="col-sm-3">
+										<div class="border border-3 px-1 py-2 rounded-xl bg-white">
+											<h2 class="fs-24 counter">{{ $tallcancel }}</h2>
+
+										</div>
+										<p class="fs-16 mb-0 text-black">RTO</p>
+									</div>
+									<div class="col-sm-3">
+										<div class="border border-3 px-1 py-2 rounded-xl bg-white">
+											<h2 class="fs-24 counter">{{ $tallcancel }}</h2>
+
+										</div>
+										<p class="fs-16 mb-0 text-black">failed</p>
+									</div>
+									<div class="col-sm-3">
+										<div class="border border-3 px-1 py-2 rounded-xl bg-white">
+											<h2 class="fs-24 counter">{{ $tallcancel }}</h2>
+
+										</div>
+										<p class="fs-16 mb-0 text-black">cancelled</p>
+									</div>
+								</div>
+
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+			</div>
 		</div>
 
 	</div>

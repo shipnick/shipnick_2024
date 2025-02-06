@@ -177,9 +177,7 @@ class UserPlaceOrder extends Controller
 
     public function clone_order_Update(Request $req)
     {
-        // dd($req->all());
-        // error_reporting(1);
-        // return $req->input();
+        
         $username = session()->get('UserLogin2name');
         $userid = session()->get('UserLogin2id');
         $tdate = date('Y-m-d');
