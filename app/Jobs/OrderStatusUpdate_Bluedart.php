@@ -90,11 +90,8 @@ class OrderStatusUpdate_Bluedart implements ShouldQueue
 			$jsonContent = json_decode($response, true);
 
 			echo $status = $jsonContent['ShipmentData']['Shipment'][0]['Status'];
-			echo $weight = $jsonContent['ShipmentData']['Shipment'][0]['Weight'];
-			echo $awb = $jsonContent['ShipmentData']['Shipment'][0]['WaybillNo'];
-
-			echo $date = $jsonContent['ShipmentData']['Shipment'][0]['Scans'][0]['ScanDetail']['ScanDate'];
-			echo $time = $jsonContent['ShipmentData']['Shipment'][0]['Scans'][0]['ScanDetail']['ScanTime'];
+			
+			
 
 			bulkorders::where('Awb_Number', $awbNumber)->update([
 				'showerrors' => $status,
