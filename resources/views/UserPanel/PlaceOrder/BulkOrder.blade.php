@@ -283,7 +283,7 @@
 																	</div>
 																	<div class="col-6 col-sm-4 mb-2">
 																		<div class="mb-3 input-group">
-																			<input type="number" class="form-control" value="0" name="length" style="border-color: black;">
+																			<input type="number" class="form-control" value="0" name="lenth" style="border-color: black;">
 																			<span class="input-group-text text-white bg-primary">CM</span>
 																		</div>
 																	</div>
