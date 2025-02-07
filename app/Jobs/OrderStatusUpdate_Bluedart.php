@@ -123,7 +123,7 @@ class OrderStatusUpdate_Bluedart implements ShouldQueue
 						'scan' => $scan_value,
 						'scan_location' => $scan_location,
 						'status_code' => $status_code,
-						'awb' => $awb,
+						'awb' => $awbNumber,
 						// 'order_id' => $order_id,
 						'courier' => $courier,
 
