@@ -134,10 +134,6 @@ class OrderStatusUpdate_Bluedart implements ShouldQueue
 				}
 			}
 
-			
-
-
-
 		} else {
 			// Handle failure response (if the request was not successful)
 			return response()->json(['error' => 'Failed to retrieve shipment data'], 500);
