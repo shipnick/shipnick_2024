@@ -28,6 +28,8 @@ use App\Jobs\UploadOrder;
 use App\Jobs\cancelordersProcess;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
+use PDF;
+
 
 class UserPlaceOrder extends Controller
 {
@@ -177,7 +179,7 @@ class UserPlaceOrder extends Controller
 
     public function clone_order_Update(Request $req)
     {
-        
+
         $username = session()->get('UserLogin2name');
         $userid = session()->get('UserLogin2id');
         $tdate = date('Y-m-d');
@@ -267,7 +269,7 @@ class UserPlaceOrder extends Controller
 
             $req->session()->flash('status', 'Order Details Added');
             // Perform background URL hit
-            Artisan::call('spnk:place-order');
+
             return redirect('/booked-order');
         } catch (\Exception $e) {
             $req->session()->flash('status', 'Not Added');
@@ -296,7 +298,7 @@ class UserPlaceOrder extends Controller
             ->update([
                 'orderno' => $request->orderno,
                 'Order_Type' => $request->courierType,
-                'User_Id' => $request->orderno,
+
                 'Name' => $request->cname,
                 'Address' => $request->caddress,
                 'State' => $request->cstate,
@@ -315,10 +317,11 @@ class UserPlaceOrder extends Controller
                 'Total_Amount' => $request->totalAmount,
                 'Cod_Amount' => $request->codAmount,
                 'apihitornot' => 0,
+                'xberrors' => NULL,
 
 
             ]);
-        // Artisan::call('spnk:place-order');
+
         return redirect('/booked-order');
     }
 
@@ -1972,10 +1975,24 @@ if($status == "true"){
         // Validate the request
         $req->validate([
             'selectedorder' => 'required|array',
-            'currentbtnname' => 'required|string'
+            'currentbtnname' => 'required|string',
+
         ]);
 
         switch ($currentbtnname) {
+            case "manifest":
+                $selectorders = bulkorders::whereIn('Single_Order_Id', $selectorders)->get();
+                $pdf = PDF::loadView('UserPanel.PDF.manifest', compact('selectorders'));
+
+                // Return the PDF as a downloadable file
+                return $pdf->download('manifest_orders.pdf');
+            case "invoiceorderdetails":
+                $selectorders = bulkorders::whereIn('Single_Order_Id', $selectorders)->get();
+                $pdf = PDF::loadView('UserPanel.PDF.invoice', compact('selectorders'));
+
+                // Return the PDF as a downloadable file
+                return $pdf->download('placed_orders.pdf');
+                // dd($selectorders);
             case "ship_order":
                 bulkorders::whereIn('Single_Order_Id', $selectorders)->update(['apihitornot' => 0, 'xberrors' => 1]);
 
@@ -1984,7 +2001,7 @@ if($status == "true"){
                 return redirect()->back();
 
             case "shippinglabel":
-                
+
                 $awbRecords = bulkorders::whereIn('Single_Order_Id', $selectorders)->get();
 
                 // Extract the AWB numbers from the result

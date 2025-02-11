@@ -199,7 +199,7 @@
 								<div class="col-md-6 row">
 									<div class="col-sm-3 ">
 										<div class="border border-3 px-1 py-2 rounded-xl bg-white">
-											<h2 class="fs-24  counter ">{{ $talluploaded }}</h2>
+											<h2 class="fs-24  counter ">{{ $tallnewcomplete }}</h2>
 
 										</div>
 										<p class="fs-16 mb-0 text-black">Booked</p>

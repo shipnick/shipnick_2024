@@ -191,7 +191,11 @@ class UserDashboard extends Controller
       $cfromdateObj = $startDate;
       $ctodateObj = $endDate;
 
-
+      $tallnewcomplete = bulkorders::where('User_Id', $userid)
+      ->where('showerrors', '!=', 'cancelled')
+      ->where('order_cancel', '!=', '1')
+      ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
+      ->count('Single_Order_Id');
       // top six boxes start 
       $callcomplete = bulkorders::where('User_Id', $userid)
         //   ->where('order_status_show','Delivered')
@@ -238,8 +242,6 @@ class UserDashboard extends Controller
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-
-
         ->count('Single_Order_Id');
 
 
@@ -412,7 +414,7 @@ class UserDashboard extends Controller
 
 
       $data = [
-
+        'tallnewcomplete'=>$tallnewcomplete,
         'tallndr' => $tallNDR,
         'tallcomplete' => $tallcomplete,
         'tallpending' => $tallpending,
