@@ -348,13 +348,9 @@
                                                         <div class="dropdown-menu">
 
 
-                                                            <form action="Labels_Print" method="post" aria-label="Download Invoice">
-                                                                @csrf
-                                                                <input type="hidden" name="awbnoisa" value="{{ $param->Awb_Number }}">
-                                                                <button class="dropdown-item" type="submit">
-                                                                    <i class="las la-info-circle scale5 me-3 "></i>Download Invoice
-                                                                </button>
-                                                            </form>
+                                                        <a class="dropdown-item" href="single-invoice/{{ $param->Single_Order_Id }}" title="Edit Order">
+                                                                <i class="las fa-file-invoice scale5 me-3"></i>Download Invoice
+                                                            </a>
                                                             <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Clone Order">
                                                                 <i class="las fa-file-invoice scale5 me-3"></i>Clone Order
                                                             </a>

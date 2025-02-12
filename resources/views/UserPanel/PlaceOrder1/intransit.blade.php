@@ -18,7 +18,7 @@
         /* Ensure it stays above other content */
     }
 
-    
+
 
     .hidden {
         display: none;
@@ -89,7 +89,7 @@
                         <li class="nav-item">
                             <a class="nav-link " href="cancelled">All Orders ({{$cancel}})</a>
                         </li>
-                        
+
 
                     </ul>
 
@@ -241,10 +241,10 @@
                                     display: none;
                                 }
                             </style>
-                            <form method="post" action="{{ asset('/filter-selected-order') }}" >
+                            <form method="post" action="{{ asset('/filter-selected-order') }}">
                                 @csrf
                                 <div id="myDiv" class="hidden " style="margin-bottom: 5%;">
-                                    <div class="d-flex justify-content-start align-items-center header-new button-clor-white " >
+                                    <div class="d-flex justify-content-start align-items-center header-new button-clor-white ">
                                         <!-- <button name="currentbtnname" value="shippinglabel" type="submit"
                                             class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">
                                             <i class="fa fa-calendar me-1"></i> Print Label
@@ -343,13 +343,9 @@
                                                         <div class="dropdown-menu">
 
 
-                                                            <form action="Labels_Print" method="post" aria-label="Download Invoice">
-                                                                @csrf
-                                                                <input type="hidden" name="awbnoisa" value="{{ $param->Awb_Number }}">
-                                                                <button class="dropdown-item" type="submit">
-                                                                    <i class="las la-info-circle scale5 me-3 "></i>Download Invoice
-                                                                </button>
-                                                            </form>
+                                                            <a class="dropdown-item" href="single-invoice/{{ $param->Single_Order_Id }}" title="Edit Order">
+                                                                <i class="las fa-file-invoice scale5 me-3"></i>Download Invoice
+                                                            </a>
                                                             <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Clone Order">
                                                                 <i class="las fa-file-invoice scale5 me-3"></i>Clone Order
                                                             </a>
@@ -365,7 +361,7 @@
                             </form>
                             <div class="row">
                                 <div class="col-md-6">
-                                <form id="perPageForm" action="{{ url('/intransit') }}" method="get">
+                                    <form id="perPageForm" action="{{ url('/intransit') }}" method="get">
                                         <div class="mb-3 col-md-2">
                                             <label for="perPageSelect" class="form-label" id="showingLabel">Showing 1 to 50</label>
                                             <select id="perPageSelect" name="per_page" class="form-control" onchange="updatePerPage()">
