@@ -1981,17 +1981,30 @@ if($status == "true"){
 
         switch ($currentbtnname) {
             case "manifest":
-                $selectorders = bulkorders::whereIn('Single_Order_Id', $selectorders)->get();
+                $awbRecords = bulkorders::whereIn('Single_Order_Id', $selectorders)->get();
+
+                // Step 2: Extract the AWB numbers from the result and filter out empty values
+                $awbNumbers = $awbRecords->pluck('Awb_Number')->filter()->toArray();
+
+                // Step 3: Retrieve the orders using the filtered AWB numbers
+                $selectorders = bulkorders::whereIn('Awb_Number', $awbNumbers)->get();
+
                 $pdf = PDF::loadView('UserPanel.PDF.manifest', compact('selectorders'));
 
                 // Return the PDF as a downloadable file
                 return $pdf->download('manifest_orders.pdf');
             case "invoiceorderdetails":
-                $selectorders = bulkorders::whereIn('Single_Order_Id', $selectorders)->get();
+                $awbRecords = bulkorders::whereIn('Single_Order_Id', $selectorders)->get();
+
+                // Step 2: Extract the AWB numbers from the result and filter out empty values
+                $awbNumbers = $awbRecords->pluck('Awb_Number')->filter()->toArray();
+
+                // Step 3: Retrieve the orders using the filtered AWB numbers
+                $selectorders = bulkorders::whereIn('Awb_Number', $awbNumbers)->get();
                 $pdf = PDF::loadView('UserPanel.PDF.invoice', compact('selectorders'));
 
                 // Return the PDF as a downloadable file
-                return $pdf->download('placed_orders.pdf');
+                return $pdf->download('invoice.pdf');
                 // dd($selectorders);
             case "ship_order":
                 bulkorders::whereIn('Single_Order_Id', $selectorders)->update(['apihitornot' => 0, 'xberrors' => 1]);
@@ -2150,38 +2163,51 @@ if($status == "true"){
     {
         // Ensure $id is always an array
         $id = (array) $id;
-    
-        $selectorders = bulkorders::whereIn('Single_Order_Id', $id)->get();
-    
+
+
+        $awbRecords = bulkorders::whereIn('Single_Order_Id', $id)->get();
+
+        // Step 2: Extract the AWB numbers from the result and filter out empty values
+        $awbNumbers = $awbRecords->pluck('Awb_Number')->filter()->toArray();
+
+        // Step 3: Retrieve the orders using the filtered AWB numbers
+        $selectorders = bulkorders::whereIn('Awb_Number', $awbNumbers)->get();
+
         // Check if any orders are found
         if ($selectorders->isEmpty()) {
             return response()->json(['message' => 'No orders found for the given ID'], 404);
         }
-    
+
         $pdf = PDF::loadView('UserPanel.PDF.manifest', compact('selectorders'));
-    
+
         // Return the PDF as a downloadable file with a timestamp for uniqueness
         return $pdf->download('manifest_orders_' . now()->timestamp . '.pdf');
     }
-    
+
     public function MultipleInvoice($id)
     {
         // Ensure $id is always an array
         $id = (array) $id;
-    
-        $selectorders = bulkorders::whereIn('Single_Order_Id', $id)->get();
-    
+
+        $awbRecords = bulkorders::whereIn('Single_Order_Id', $id)->get();
+
+        // Step 2: Extract the AWB numbers from the result and filter out empty values
+        $awbNumbers = $awbRecords->pluck('Awb_Number')->filter()->toArray();
+
+        // Step 3: Retrieve the orders using the filtered AWB numbers
+        $selectorders = bulkorders::whereIn('Awb_Number', $awbNumbers)->get();
+
         // Check if any orders are found
         if ($selectorders->isEmpty()) {
             return response()->json(['message' => 'No orders found for the given ID'], 404);
         }
-    
+
         $pdf = PDF::loadView('UserPanel.PDF.invoice', compact('selectorders'));
-    
+
         // Return the PDF as a downloadable file with a timestamp for uniqueness
-        return $pdf->download('invoice_orders_' . now()->timestamp . '.pdf');
+        return $pdf->download('invoice' . now()->timestamp . '.pdf');
     }
-    
+
 
 
 

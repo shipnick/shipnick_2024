@@ -45,18 +45,24 @@
         font-weight: bold;
 
     }
+    .mt-5{
+        margin-top: 10%;
+    }
+    .mt-15{
+        margin-top: 35%;
+    }
 </style>
 
 <body>
 @foreach($selectorders as $order)
     <div class="">
         <div class="center">
-            <h1>TAX INVOICE</h1>
+            <h2>TAX INVOICE</h2>
         </div>
 
 
 
-        <table>
+        <table class="mt-5">
 
             <tr>
                 <td class="bold">Order Information</td>
@@ -99,7 +105,7 @@
                 <td class="left">{{ $order->Pincode }}</td>
             </tr>
             <tr>
-                <td>gst:{{ $order->pickup_gstin }} </td>
+                <td>GST:{{ $order->pickup_gstin }} </td>
                 
             </tr>
 
@@ -128,9 +134,9 @@
 
         </table>
 
-        <table class="new mt">
+        <table class="new mt-5">
             <tr>
-                <th>Weight (gram) </th>
+                <th>Weight (KG) </th>
                 <th>Length (cm) </th>
                 <th>Breadth (cm)</th>
                 <th>Height (cm) </th>
@@ -148,7 +154,7 @@
 
 
         </table>
-        <table class="mt">
+        <table class="mt-5">
             <th>Shipping Charges</th>
         </table>
         <table class="new  mb">
@@ -164,7 +170,7 @@
 
 
             <tr>
-                <td>0 </td>
+                <td>996812</td>
                 <td> 0</td>
                 <td>0</td>
                 <td>0</td>
@@ -174,7 +180,7 @@
 
 
         </table>
-        <div class="center">This is a computer generated invoice no signature is required.</div>
+        <div class="center mt-15">This is a computer generated invoice no signature is required.</div>
 
     </div>
 @endforeach    
