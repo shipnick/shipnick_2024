@@ -50,6 +50,7 @@
                 <th>Item Name</th>
                 <th>Order ID</th>
                 <th>AWB</th>
+                <th>Courier</th>
             </tr>
             @foreach($selectorders as $index => $order)
             <tr>
@@ -58,6 +59,7 @@
                 <td>{{ $order->Item_Name }}</td>
                 <td>{{ $order->orderno }}</td>
                 <td>{{ $order->Awb_Number }}</td>
+                <td>{{ $order->awb_gen_by }}</td>
             </tr>
             @endforeach
 
