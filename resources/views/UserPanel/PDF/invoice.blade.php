@@ -139,7 +139,7 @@
 
 
             <tr>
-                <td>{{ $order->Width }} </td>
+                <td>{{ $order->Actual_Weight }}</td>
                 <td> {{ $order->Length }}</td>
                 <td>{{ $order->Width }}</td>
                 <td>{{ $order->Height }}</td>

@@ -690,6 +690,9 @@ Route::get('/BulkOrderDeletesmannual/{id}', [UserPlaceOrder::class, 'BulkOrderDe
 Route::post('/filter-selected-order', [UserPlaceOrder::class, 'MultipleOrderDelete']);
 Route::post('/filter-selected-order1', [UserPlaceOrder::class, 'MultipleOrderDelete1']);
 
+Route::get('/single-manifest/{id}', [UserPlaceOrder::class, 'singleManifest']);
+Route::get('/single-invoice/{id}', [UserPlaceOrder::class, 'MultipleInvoice']);
+
 Route::post('/search-order', [UserPlaceOrder::class, 'search_order']);
 
 

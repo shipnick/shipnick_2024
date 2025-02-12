@@ -47,6 +47,18 @@
         border-color: var(--primary);
     }
 </style>
+<style>
+    .table td {
+        font-weight: 700;
+        border-color: #e6e6e6;
+        padding: 0px 10px;
+    }
+</style>
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
 
 <script>
     window.addEventListener('scroll', function() {
@@ -91,7 +103,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="cancelled">All Orders ({{$cancel}})</a>
                         </li>
-                        
+
 
                     </ul>
 
@@ -222,10 +234,10 @@
                                                                     <label for="waybill" class="form-label">Waybill Number</label>
                                                                     <input type="text" class="form-control" id="waybill" placeholder="AWB Number" name="awb" value="{{ request()->get('awb') }}">
                                                                 </div>
-                                                                
-                                                                
+
+
                                                             </div>
-                                                           
+
                                                             <button type="submit" class="btn btn-secondary ms-sm-auto mb-1 mb-sm-0">Search</button>
                                                             <a href="{{ url('/booked-order') }}" class="btn btn-secondary ms-sm-auto mb-1 mb-sm-0">Clear</a>
                                                         </form>
@@ -238,11 +250,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <style>
-                                .hidden {
-                                    display: none;
-                                }
-                            </style>
+
                             <form method="post" action="{{ asset('/filter-selected-order') }}" target="_blank">
                                 @csrf
                                 <div id="myDiv" class="hidden " style="margin-bottom: 5%;">
@@ -261,15 +269,15 @@
                                         <button id="downloadExcelBtn" class="btn btn-outline-secondary  mb-2 btn-sm button-clor-white">
                                             <i class="fa fa-download me-1"></i> Export All
                                         </button>
+                                        <button name="currentbtnname" value="invoiceorderdetails" class="btn btn-outline-secondary  me-3 mb-2 btn-sm button-clor-white">
+                                            <i class="fa fa-download me-1 "></i> Invoice
+                                        </button>
+                                        <button name="currentbtnname" value="manifest" class="btn btn-outline-secondary  me-3 mb-2 btn-sm button-clor-white">
+                                            <i class="fa fa-download me-1 "></i> Manifest
+                                        </button>
                                     </div>
                                 </div>
-                                <style>
-                                    .table td {
-                                        font-weight: 700;
-                                        border-color: #e6e6e6;
-                                        padding: 0px 10px;
-                                    }
-                                </style>
+
 
                                 <div class="table-responsive fs-13 card  fc-view ">
                                     <table class="table card-table display mb-4 dataTablesCard text-black" id="example1">
@@ -347,15 +355,18 @@
                                                                 <i class="las la-times-circle text-danger scale5 me-3"></i>Cancel Order
                                                             </a>
 
-                                                            <form action="Labels_Print" method="post" aria-label="Download Invoice">
+                                                            <!-- <form action="Labels_Print" method="post" aria-label="Download Invoice">
                                                                 @csrf
                                                                 <input type="hidden" name="awbnoisa" value="{{ $param->Awb_Number }}">
                                                                 <button class="dropdown-item" type="submit">
                                                                     <i class="las la-info-circle scale5 me-3 "></i>Download Invoice
                                                                 </button>
-                                                            </form>
+                                                            </form> -->
+                                                            <a class="dropdown-item" href="single-invoice/{{ $param->Single_Order_Id }}" title="Edit Order">
+                                                                <i class="las fa-file-invoice scale5 me-3"></i>Download Invoice
+                                                            </a>
 
-                                                            <a class="dropdown-item" href="#" title="Edit Order">
+                                                            <a class="dropdown-item" href="single-manifest/{{ $param->Single_Order_Id }}" title="Edit Order">
                                                                 <i class="las fa-file-invoice scale5 me-3"></i>Download Manifest
                                                             </a>
                                                             <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Clone Order">
@@ -373,7 +384,7 @@
                             </form>
                             <div class="row">
                                 <div class="col-md-6">
-                                <form id="perPageForm" action="{{ url('/pickup-pending') }}" method="get">
+                                    <form id="perPageForm" action="{{ url('/pickup-pending') }}" method="get">
                                         <div class="mb-3 col-md-2">
                                             <label for="perPageSelect" class="form-label" id="showingLabel">Showing 1 to 50</label>
                                             <select id="perPageSelect" name="per_page" class="form-control" onchange="updatePerPage()">

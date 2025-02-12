@@ -2146,7 +2146,42 @@ if($status == "true"){
 
     // Multiple Checkbox Select Orders
 
-
+    public function singleManifest($id)
+    {
+        // Ensure $id is always an array
+        $id = (array) $id;
+    
+        $selectorders = bulkorders::whereIn('Single_Order_Id', $id)->get();
+    
+        // Check if any orders are found
+        if ($selectorders->isEmpty()) {
+            return response()->json(['message' => 'No orders found for the given ID'], 404);
+        }
+    
+        $pdf = PDF::loadView('UserPanel.PDF.manifest', compact('selectorders'));
+    
+        // Return the PDF as a downloadable file with a timestamp for uniqueness
+        return $pdf->download('manifest_orders_' . now()->timestamp . '.pdf');
+    }
+    
+    public function MultipleInvoice($id)
+    {
+        // Ensure $id is always an array
+        $id = (array) $id;
+    
+        $selectorders = bulkorders::whereIn('Single_Order_Id', $id)->get();
+    
+        // Check if any orders are found
+        if ($selectorders->isEmpty()) {
+            return response()->json(['message' => 'No orders found for the given ID'], 404);
+        }
+    
+        $pdf = PDF::loadView('UserPanel.PDF.invoice', compact('selectorders'));
+    
+        // Return the PDF as a downloadable file with a timestamp for uniqueness
+        return $pdf->download('invoice_orders_' . now()->timestamp . '.pdf');
+    }
+    
 
 
 
