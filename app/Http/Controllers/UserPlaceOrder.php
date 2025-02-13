@@ -1234,15 +1234,12 @@ class UserPlaceOrder extends Controller
                 $cleanemail = trim($value[9]);
 
                 $custmmobile = trim($cleanMobile);
-                $prodname = trim($value[10]);
+                $prodname = preg_replace('/[^A-Za-z0-9 .\/]/', '', $value[10]);
                 $prodqlty = trim($value[11]);
                 $productvalue = trim($value[12]);
                 $Productsku = preg_replace('/[^A-Za-z0-9 ]/', '', $value[13]);
                 $paymentmode = (strtolower($value[14]) === 'cod') ? 'COD' : 'Prepaid';
                 // $paymentmode = strtoupper(trim($value[10]));
-
-
-
                 $prodcodamt = trim($value[15]);
                 $prodweight = trim($value[16]);
                 $prodlength = trim($value[17]);
@@ -1992,7 +1989,7 @@ if($status == "true"){
                 $pdf = PDF::loadView('UserPanel.PDF.manifest', compact('selectorders'));
 
                 // Return the PDF as a downloadable file
-                return $pdf->download('manifest_orders.pdf');
+                return $pdf->download('Manifest.pdf');
             case "invoiceorderdetails":
                 $awbRecords = bulkorders::whereIn('Single_Order_Id', $selectorders)->get();
 
@@ -2004,7 +2001,7 @@ if($status == "true"){
                 $pdf = PDF::loadView('UserPanel.PDF.invoice', compact('selectorders'));
 
                 // Return the PDF as a downloadable file
-                return $pdf->download('invoice.pdf');
+                return $pdf->download('Invoice.pdf');
                 // dd($selectorders);
             case "ship_order":
                 bulkorders::whereIn('Single_Order_Id', $selectorders)->update(['apihitornot' => 0, 'xberrors' => 1]);
@@ -2181,7 +2178,7 @@ if($status == "true"){
         $pdf = PDF::loadView('UserPanel.PDF.manifest', compact('selectorders'));
 
         // Return the PDF as a downloadable file with a timestamp for uniqueness
-        return $pdf->download('manifest_orders_' . now()->timestamp . '.pdf');
+        return $pdf->download('Manifest_orders_' . now()->timestamp . '.pdf');
     }
 
     public function MultipleInvoice($id)
@@ -2205,7 +2202,7 @@ if($status == "true"){
         $pdf = PDF::loadView('UserPanel.PDF.invoice', compact('selectorders'));
 
         // Return the PDF as a downloadable file with a timestamp for uniqueness
-        return $pdf->download('invoice' . now()->timestamp . '.pdf');
+        return $pdf->download('Invoice' . now()->timestamp . '.pdf');
     }
 
 

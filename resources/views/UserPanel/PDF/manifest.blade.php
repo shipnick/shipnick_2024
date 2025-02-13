@@ -38,7 +38,7 @@
 
 <body>
     <div class="center">
-        <h1>manifest of {{ session('UserLogin2name') }}</h1>
+        <h1>Manifest of {{ session('UserLogin2name') }}</h1>
     </div>
     <div class=""></div>
 
