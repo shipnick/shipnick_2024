@@ -200,7 +200,7 @@ class UserHubs extends Controller
         ]);
         $responseDatanew = $response->json();
           
-        if($responseDatanew['status'] == 'success')
+        if($responseDatanew['status'] )
         {
             $PickupName = $responseDatanew['warehouse_response']['warehouse_id'];
             
