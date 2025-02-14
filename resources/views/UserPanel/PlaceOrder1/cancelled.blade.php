@@ -262,7 +262,9 @@
                                         <button name="currentbtnname" value="exportorderdetails" class="btn btn-outline-secondary  me-3 mb-2 btn-sm button-clor-white">
                                             <i class="fa fa-download me-1 "></i> Export
                                         </button>
-                                        <a href="today-failed-orders" class="btn btn-outline-secondary  me-3 mb-2 btn-sm button-clor-white"><i class="fa fa-download me-1 "></i>  Export All</a>
+                                        <button id="downloadExcelBtn" class="btn btn-outline-secondary  mb-2 btn-sm button-clor-white">
+                                            <i class="fa fa-download me-1"></i> Export All
+                                        </button>
                                        
                                     </div>
                                 </div>

@@ -47,7 +47,8 @@ class PlaceShipment_CMD extends Command
         'bluedart01' => 'Shipclues',  // p=3
         'bluedart0' => 'BlueDart',    // p=3
          'dtdc01'=>'DTDCNimbus',
-         'EkartRS'=>'RapidShip_ekart'
+         'EkartRS'=>'RapidShip_ekart',
+         'AWShip'=>'ShipwayAmazonShip'
     ];
     /**
      * Execute the console command.

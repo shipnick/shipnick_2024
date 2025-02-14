@@ -173,6 +173,34 @@ Hubs::where('hub_id',$last_id)->update(['intargos_hubid'=>$IntargosHubid]);
 							'hub_city' => $req->city,
 							'hub_deliverytype' => $req->deliverytype
                         ]);
+
+                        $response = Http::post('https://www.shipclues.com/api/create-warehouse', [
+                            'token' => 'TdRxkE0nJd4R78hfEGSz2P5CAIeqzUtZ84EFDUX9',
+                            'warehouse_name' => $hubtitle,
+                            'contact_person' => $req->name,
+                            'address_line1' => $address,
+                            'city' => $req->city,
+                            'state' => $req->state,
+                            'country' => 'India',
+                            'pincode' => $req->pincode,
+                            'contact_code' => '91',
+                            'contact_number' => $req->mobile,
+                            'support_email' => 'abc@gmail.com',
+                            'support_phone' => '1234567890',
+                            'gst' => $req->gstno,
+                        ]);
+                
+                        $responseData = $response->json();
+                
+                       
+                
+                        $shiprocket_hubid = $responseData['warehouseCode'];
+                
+                        $hunname1 = new smartship();
+                        $hunname1->token = $shiprocket_hubid;
+                        $hunname1->courier= 'shipclues';
+                        $hunname1->expire_in= $last_id;
+                        $hunname1->save();
         $req->session()->flash('status','Hub Details Update');
         return redirect("/UPHub_Edit/$req->hubid");
         // $params = AdminLoginCheck::where('id',$id)->first();

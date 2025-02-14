@@ -8,22 +8,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Console\Commands\PlaceShipment_CMD;
-use Illuminate\Support\Facades\Http;
+use App\Models\courierpermission;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
+use App\Console\Commands\PlaceShipment_CMD;
 use App\Models\bulkorders;
 use App\Models\price;
 use App\Models\orderdetail;
-use App\Models\BulkPincode;
-use App\Models\courierpermission;
-use App\Models\Hubs;
 use App\Models\smartship;
-use DateTime;
 
-class RapidShip_ekart_PlaceOrderJob implements ShouldQueue
+class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     protected $data;
+
     /**
      * Create a new job instance.
      *
@@ -49,153 +47,95 @@ class RapidShip_ekart_PlaceOrderJob implements ShouldQueue
 
             // Start order using Xpressbee API
             if ($paymentmode == 'COD') {
-                $paymentmode = "COD";
+                $paymentmode = "C";
             }
             if ($paymentmode == 'Prepaid') {
-                $paymentmode = "PREPAID";
+                $paymentmode = "P";
             }
             if (strlen($damob) > 10 && substr($damob, 0, 2) === '91') {
                 // Remove the '91' prefix
                 $damob = substr($damob, 2);
             }
-            // $pkpkmbl = trim($pkpkmbl);  
-            // $damob= trim($damob);
-            // $pkpkpinc = preg_replace('/[^0-9\']/', '', $pkpkpinc);
-            // $dapin = preg_replace('/[^0-9\']/', '', $dapin);
-
+            
             // Convert 0.3 kg to grams
             $weightInGrams = $iacwt * 1000; // Convert 0.3 kg to grams
             $weightInInteger = (int)$weightInGrams; // Convert to integer
 
+            $rapidshippickupname = smartship::where('expire_in', $pkpkid)->where('courier', 'shipway')->first()->token;
 
-
-            $rapidshippickupname = smartship::where('expire_in', $pkpkid)->where('courier', 'RapidShip')->first()->token;
-
-            $curl = curl_init();
+            // Define your request URL
+            $url = 'https://app.shipway.com/api/v2orders';
 
             $data = [
-                "orderId" => $autogenorderno,
-                "orderDate" => $idate,
-                "pickupAddressName" => $rapidshippickupname,
-                "pickupLocation" => [
-                    "contactName" => "",
-                    "pickupName" => "",
-                    "pickupEmail" => "",
-                    "pickupPhone" => "",
-                    "pickupAddress1" => "",
-                    "pickupAddress2" => "",
-                    "pinCode" => ""
-                ],
-                "storeName" => "DEFAULT",
-                "billingIsShipping" => true,
-                "shippingAddress" => [
-                    "firstName" => $daname,
-                    "lastName" => "EXT",
-                    "addressLine1" => $daadrs,
-                    "addressLine2" => $daadrs . $daadrs2,
-                    "pinCode" => $dapin,
-                    "email" => "mahesh.mehra@rapidshyp.com",
-                    "phone" => $damob
-                ],
-                "billingAddress" => [
-                    "firstName" => $daname,
-                    "lastName" => "",
-                    "addressLine1" => $daadrs,
-                    "addressLine2" => $daadrs . $daadrs2,
-                    "pinCode" => $dapin,
-                    "email" => "mahesh.mehra@rapidshyp.com",
-                    "phone" => $damob
-                ],
-                "orderItems" => [
+                "order_id" => $autogenorderno,
+                "carrier_id" => 81358,
+                "warehouse_id" => $rapidshippickupname,
+                "return_warehouse_id" => $rapidshippickupname, 
+                "products" => [
                     [
-                        "itemName" => $iname,
-                        "sku" => $iname,
-                        "description" => $iname,
-                        "units" => $iqlty,
-                        "unitPrice" => $itamt,
-                        "tax" => 0,
-                        "hsn" => "",
-                        "productLength" => 10,
-                        "productBreadth" => 10,
-                        "productHeight" => 10,
-                        "productWeight" => 1,
-                        "brand" => "",
-                        "imageURL" => "http://example.com/product1.jpg",
-                        "isFragile" => false,
-                        "isPersonalisable" => false
+                        "product" => $iname,
+                        "price" => $itamt,
+                        "product_code" => "JSN909",
+                        "product_quantity" => $iqlty,
+                        "discount" => "0",
+                        "tax_rate" => "",
+                        "tax_title" => "IGST"
                     ]
                 ],
-                "paymentMethod" => $paymentmode,
-                "shippingCharges" => 0,
-                "giftWrapCharges" => 0,
-                "transactionCharges" => 0,
-                "totalDiscount" => 0,
-                "totalOrderValue" => $itamt,
-                "codCharges" => 0,
-                "prepaidAmount" => 0,
-                "packageDetails" => [
-                    "packageLength" => (float) $ilgth,
-                    "packageBreadth" => (float) $iwith,
-                    "packageHeight" => (float) $ihght,
-                    "packageWeight" => (float) $iacwt
-                ]
+                "discount" => "0",
+                "shipping" => "0",
+                "order_total" => $itamt,
+                "gift_card_amt" => "0",
+                "taxes" => "0",
+                "payment_type" => $paymentmode,
+                "email" => "customer@email.com",
+                "billing_address" => $daadrs,
+                "billing_address2" => $daadrs . $daadrs2,
+                "billing_city" => $dacity,
+                "billing_state" => $dastate,
+                "billing_country" => "India",
+                "billing_firstname" => $daname,
+                "billing_lastname" => "",
+                "billing_phone" => $damob,
+                "billing_zipcode" => $dapin,
+                "billing_latitude" => "",
+                "billing_longitude" => "",
+                "shipping_address" => $daadrs,
+                "shipping_address2" => $daadrs . $daadrs2,
+                "shipping_city" => $dacity,
+                "shipping_state" => $dastate,
+                "shipping_country" => "India",
+                "shipping_firstname" => $daname,
+                "shipping_lastname" => "",
+                "shipping_phone" => $damob,
+                "shipping_zipcode" => $dapin,
+                "shipping_latitude" => "",
+                "shipping_longitude" => "",
+                "order_weight" => $iacwt,
+                "box_length" => $ilgth,
+                "box_breadth" => $iwith,
+                "box_height" => $ihght,
+                "order_date" => "2022-06-21 15:35:02"
             ];
-            
-            // Convert the array to a JSON string
-            $jsonData = json_encode($data);
-            
-            curl_setopt_array($curl, [
-                CURLOPT_URL => 'https://api.rapidshyp.com/rapidshyp/apis/v1/wrapper',
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => $jsonData,
-                CURLOPT_HTTPHEADER => [
-                    'Content-Type: application/json',
-                    'rapidshyp-token: 57731822281d866169a9563742c0b806bbce5d34916c66eacfe41e00965924ca'
-                ],
-            ]);
-            
-            $response = curl_exec($curl);
-            $response = json_decode($response, true);
-
-            curl_close($curl);
-
-           
-            if($response['status'] == 'FAILED'){
-                echo $remark = $response['remarks'];
+            $response = Http::withHeaders([
+                'Authorization' => 'Basic R3RoYWtyYWw0ODBAZ21haWwuY29tOms0OTJYMzFsUUwzNXFUUTd3NWwzNlNuZFkwdjExMjQy',
+                'Content-Type' => 'application/json',
+            ])->post($url, $data);
+            $responseDatanew = $response->json();
+            if($responseDatanew['$responseDatanew']['success']== true)
+            {
+                echo $awb = $responseDatanew['$responseDatanew']['AWB'];
+                echo $carrier_id = $responseDatanew['$responseDatanew']['carrier_id'];
+                echo $$courier = $responseDatanew['$responseDatanew']['carrier_name'];
 
                 bulkorders::where('Single_Order_Id', $crtidis)->update([
-                    
-                    'showerrors' => $remark,
-                    'shferrors' => $remark,
-                    
-                ]);
-            }
-
-            if (isset($response['status']) && $response['status'] == 'SUCCESS') {
-                $orderno = $response['orderId'];
-                 $awb = $response['shipment'][0]['awb'];
-                $shipno = $response['shipment'][0]['shipmentId'];
-                $courierName = $response['shipment'][0]['courierName'];
-                $appliedWeight = $response['shipment'][0]['appliedWeight'];
-                $routingCode = $response['shipment'][0]['routingCode'];
-
-                bulkorders::where('Single_Order_Id', $crtidis)->update([
-                    'courier_ship_no' => $shipno,
+                    'courier_ship_no' => $carrier_id,
                     'Awb_Number' => $awb,
-                    'awb_gen_by' => 'EkartRS',
-                    'awb_gen_courier' => $courierName,
-                    'showerrors' => 'pending pickup',
-                    'courier_actual_weight' => $appliedWeight,
-                    'dtdcerrors' => $routingCode,
-                    'Clinet_Order_Id' => $orderno
+                    'awb_gen_by' => 'Amazon ship',
+                    'awb_gen_courier' => $courier,
+                    
+                    'showerrors' => 'Pickup Pending'
                 ]);
-
                 $param = bulkorders::where('Awb_Number', $awb)->first();
 
                 $zone = $param->zone;
@@ -266,24 +206,27 @@ class RapidShip_ekart_PlaceOrderJob implements ShouldQueue
                 $wellet->save();
 
                 bulkorders::where('Awb_Number', $awb)->update(['shferrors' => 1]);
-            } else {
-                $errmessage = $responseData['remarks'];
+            }else{
+                $this->ifErrorThenNextApi();
+                $errmessage = $responseDatanew['$responseDatanew']['error'][0];
                 bulkorders::where('Single_Order_Id', $crtidis)->update([
                     'showerrors' => $errmessage,
                     'order_status_show' => $errmessage
                 ]);
-                $this->ifErrorThenNextApi();
             }
-        } catch (\Throwable $th) {
+
+        }catch (\Throwable $th) {
             $msg = __FILE__ . __METHOD__ . ", Line:" . $th->getLine() . ", Msg:" . $th->getMessage();
             Log::error($msg);
             // $this->ifErrorThenNextApi();
             $this->fail($th);
             throw $th;
         }
+
+
     }
 
-    public function ifErrorThenNextApi($currentCourier = 'EkartRS')
+    public function ifErrorThenNextApi($currentCourier = 'AWShip')
     {
         try {
             extract($this->data);

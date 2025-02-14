@@ -174,36 +174,46 @@ class UserHubs extends Controller
             $hunname->expire_in= $last_id;
             $hunname->save();
         }
-      
-      
 
-        $response = Http::post('https://www.shipclues.com/api/create-warehouse', [
-            'token' => 'TdRxkE0nJd4R78hfEGSz2P5CAIeqzUtZ84EFDUX9',
-            'warehouse_name' => $hubtitle,
-            'contact_person' => $req->name,
-            'address_line1' => $address,
+        $response = Http::withHeaders([
+            'Authorization' => 'Basic R3RoYWtyYWw0ODBAZ21haWwuY29tOms0OTJYMzFsUUwzNXFUUTd3NWwzNlNuZFkwdjExMjQy',
+            'Content-Type' => 'application/json',
+            'Cookie' => 'AWSALB=XIZowALK43Iz+hniAdKm8R+jdQrfN00xU6grRW9ApqmiT15928/qNupgLNajhmejHCfZ/mxXZ2YEmbkMwTDFlJzx8NzbW5VarPRtVg8/tVY1o+o3z+YPZAGkfBQi; AWSALBCORS=XIZowALK43Iz+hniAdKm8R+jdQrfN00xU6grRW9ApqmiT15928/qNupgLNajhmejHCfZ/mxXZ2YEmbkMwTDFlJzx8NzbW5VarPRtVg8/tVY1o+o3z+YPZAGkfBQi'
+        ])
+        ->post('https://app.shipway.com/api/warehouse/', [
+            'title' => $req->name,
+            'company' => $req->name,
+            'contact_person_name' => $req->name,
+            'email' => 'contact@ezyslips.com',
+            'phone' => $req->mobile,
+            'phone_print' => '',
+            'address_1' => $address,
+            'address_2' => '10 Floor',
             'city' => $req->city,
             'state' => $req->state,
-            'country' => 'India',
+            'country' => 'IN',
             'pincode' => $req->pincode,
-            'contact_code' => '91',
-            'contact_number' => $req->mobile,
-            'support_email' => 'abc@gmail.com',
-            'support_phone' => '1234567890',
-            'gst' => $req->gstno,
+            'longitude' => '',
+            'latitude' => '',
+            'gst_no' => $req->gstno,
+            'fssai_code' => '47656587'
         ]);
+        $responseDatanew = $response->json();
+          
+        if($responseDatanew['status'] == 'success')
+        {
+            $PickupName = $responseDatanew['warehouse_response']['warehouse_id'];
+            
+    
+            $hunname = new smartship();
+            $hunname->token = $PickupName;
+            $hunname->courier= 'shipway';
+            $hunname->expire_in= $last_id;
+            $hunname->save();
+        }
+      
 
-        $responseData = $response->json();
-
-       
-
-        $shiprocket_hubid = $responseData['warehouseCode'];
-
-        $hunname1 = new smartship();
-        $hunname1->token = $shiprocket_hubid;
-        $hunname1->courier= 'shipclues';
-        $hunname1->expire_in= $last_id;
-        $hunname1->save();
+        
 
         Hubs::where('hub_id', $last_id);
 
