@@ -223,13 +223,12 @@
                                                 <h4 class="card-title text-primary">Pickup Details
                                                     <hr>
                                                 </h4>
-
                                             </div>
                                             
                                             <div class="col-lg-6 mb-2">
                                                 <label class="text-label form-label"><strong>Select Pick-up address
                                                 (Hub)</strong><span class="required">*</span></label>
-                                                    <select name="sku" id="sku" class="form-control wide w-100">
+                                                    <select name="hubid" id="sku" class="form-control wide w-100">
                                                         <option value="">Select</option>
                                                         @foreach($Hubs as $Hub)
                                                         <option value="{{ ucwords($Hub->hub_id) }}">{{ ucwords($Hub->hub_name) }} ({{ ucwords($Hub->hub_code) }})</option>

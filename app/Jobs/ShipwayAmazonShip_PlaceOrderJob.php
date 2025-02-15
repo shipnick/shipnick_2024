@@ -136,6 +136,12 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                     
                     'showerrors' => 'Pickup Pending'
                 ]);
+                echo $label = $responseDatanew['$responseDatanew']['shipping_url'];
+                bulkorders::where('Single_Order_Id', $crtidis)->update([
+                    'dhlerrors' => $label,
+                    
+                ]);
+
                 $param = bulkorders::where('Awb_Number', $awb)->first();
 
                 $zone = $param->zone;
