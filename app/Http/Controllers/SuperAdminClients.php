@@ -17,12 +17,63 @@ use App\Models\BulkPincode;
 use App\Models\PincodeFile;
 use App\Models\OrderStatusLabel;
 use App\Models\orderdetail;
-
+use App\Models\smartship;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;;
 
 class SuperAdminClients extends Controller
 {
+    public function all_user_list()
+    {
+        $user = Allusers::where('usertype', 'user')->get();
+        return view('super-admin.userDetails.alluser', compact('user'));
+    }
+    public function user_details($id)
+    {
+        $user = Allusers::where('id', $id)->first();
+        return view('super-admin.userDetails.userdetails', compact('user'));
+    }
+    public function user_weight_add(Request $request)
+    {
+        $user_id = $request->user_id;
+        $awb = $request->awb;
+        $type = $request->Type;
+        $amount =  $request->amount;
+        $desc = $request->description;
+        $weight = $request->weight;
+
+        $randomCode = Str::random(8);
+        $transaction = "SHIP" . $randomCode;
+        // Fetch the most recent balance record for the given user
+        $blance = orderdetail::where('user_id', $user_id)
+            ->orderBy('orderid', 'DESC')
+            ->first();
+        $close_blance = $request->amount;
+        // Check if a balance record exists and update $close_blance accordingly
+        if ($blance) {
+            // Ensure close_blance is a number, default to 0 if null
+            $previous_blance = $blance->close_blance ?? 0;
+
+            $close_blance = $previous_blance - $request->amount;
+        }
+
+        $query = new orderdetail();
+        $query->user_id = $user_id;
+        $query->awb_no = $awb;
+        $query->transaction = $transaction;
+        $query->debit = $amount;
+        $query->close_blance = $close_blance;
+        $query->applied_wet = $weight;
+        $query->description = $desc;
+        $query->save();
+        return redirect('/super-all-user');
+    }
+    public function weightdiscrepancies($id)
+    {
+        $user = Allusers::where('id', $id)->first();
+        return view('super-admin.userDetails.weightdiscrepancies', compact('user'));
+    }
     public function AllClient()
     {
         $userid = session()->get('UserLoginid');
@@ -336,7 +387,7 @@ class SuperAdminClients extends Controller
             ->where('id', $userida)
             ->first();
 
-        $params = couriers::where('courier_added', 'Shipnick')->where('courier_added','Shipnick')->orderby('courierid', 'DESC')->get();
+        $params = couriers::where('courier_added', 'Shipnick')->where('courier_added', 'Shipnick')->orderby('courierid', 'DESC')->get();
         $params1 =  price::where('admin_id', $userida)->get();
         return view('super-admin.Couriers.api-list', ['params' => $params, 'crtusers' => $crtusers,], compact('params1'));
     }
@@ -828,31 +879,31 @@ class SuperAdminClients extends Controller
         return view('super-admin.userDetails.addUserBlance', ['params' => $params]);
     }
 
-   public function addNewUserBlance(Request $request, $id)
+    public function addNewUserBlance(Request $request, $id)
     {
         try {
             $date = date('Y-m-d');
             $transactionCode = "TR00" . $request->amount;
-    
+
             // Validate request data
             $request->validate([
                 'amount' => 'required|numeric',
                 'Type' => 'required|string',
                 'description' => 'nullable|string',
             ]);
-    
+
             // Log the request data to check if it is coming through correctly
             \Log::info('Request Data: ', $request->all());
-    
+
             // Fetch the most recent balance record for the given user
             $blance = orderdetail::where('user_id', $id)
                 ->orderBy('orderid', 'DESC')
                 ->first();
-    
+
             \Log::info('Fetched balance: ', $blance ? $blance->toArray() : 'No balance found');
-    
+
             $close_blance = $request->amount;
-    
+
             // Check if a balance record exists and update $close_blance accordingly
             if ($blance) {
                 // Ensure close_blance is a number, default to 0 if null
@@ -860,7 +911,7 @@ class SuperAdminClients extends Controller
                 \Log::info('Previous balance: ' . $previous_blance);
                 $close_blance = $previous_blance + $request->amount;
             }
-    
+
             // Create a new order detail record
             $wellet = new orderdetail;
             $wellet->credit = $request->amount;
@@ -870,12 +921,12 @@ class SuperAdminClients extends Controller
             $wellet->transaction = $transactionCode;
             $wellet->close_blance = $close_blance;
             $wellet->description = $request->description;
-    
+
             \Log::info('Saving wallet data: ', $wellet->toArray());
-    
+
             // Save the record
             $wellet->save();
-    
+
             // Return success message
             $request->session()->flash('message', 'Wallet Amount Added successfully');
             return redirect()->back();
@@ -885,11 +936,9 @@ class SuperAdminClients extends Controller
                 'stack' => $e->getTraceAsString(),
                 'request_data' => $request->all()
             ]);
-    
+
             // Return error message to the user
             return redirect()->back()->with('error', 'Something went wrong, please try again later.');
         }
     }
-
-
 }

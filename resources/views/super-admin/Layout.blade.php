@@ -129,6 +129,18 @@
                         </ul>
                     </li>
                     <li class="nav-item pcoded-menu-caption">
+                        <label>Client</label>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i
+                                    class="feather icon-box"></i></span><span class="pcoded-mtext">All  client</span></a>
+                        <ul class="pcoded-submenu">
+                            
+                            <li><a href="{{ asset('/super-all-user') }}">Client Details</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-menu-caption">
                         <label>Pincode &amp; </label>
                     </li>
                     <li class="nav-item">

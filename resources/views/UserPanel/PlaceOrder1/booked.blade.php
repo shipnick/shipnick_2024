@@ -4,7 +4,7 @@
     .header-new {
         position: fixed;
         /* Change to fixed positioning */
-        top: 178px;
+        top: 190px;
         /* Always stick to the top */
         width: 100%;
         /* background-color: white; */

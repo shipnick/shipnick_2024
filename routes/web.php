@@ -254,6 +254,12 @@ Route::get('/super-all-admin', [SuperAdminClients::class, 'AllClient']);
 Route::get('/super-all-admin-new', [SuperAdminClients::class, 'allAdmin']);
 Route::get('/admin-user-list/{id}', [SuperAdminClients::class, 'allAdminUser']);
 
+Route::get('/super-all-user', [SuperAdminClients::class, 'all_user_list']);
+Route::get('/user-details/{id}', [SuperAdminClients::class, 'user_details']);
+Route::post('/user-weight-add', [SuperAdminClients::class, 'user_weight_add']);
+
+
+
 // add wallet blance limit if incress than stop order punch 
 Route::get('/user-wallet-limit/{id}', [SuperAdminClients::class, 'userWalletLimit']);
 Route::post('/user-wallet-limit-add/{id}', [SuperAdminClients::class, 'userAddWalletLimit']);

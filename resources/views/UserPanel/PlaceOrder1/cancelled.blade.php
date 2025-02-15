@@ -4,6 +4,10 @@
     .hidden {
         display: none;
     }
+
+    .white {
+        background-color: rgb(255, 255, 255)
+    }
 </style>
 <style>
     .card-body {
@@ -14,7 +18,7 @@
     .header-new {
         position: fixed;
         /* Change to fixed positioning */
-        top: 200px;
+        top: 190px;
         /* Always stick to the top */
         width: 100%;
         /* background-color: white; */
@@ -245,27 +249,27 @@
                                 <div id="myDiv" class="hidden " style="margin-bottom: 5%;">
                                     <div class="d-flex justify-content-start align-items-center header-new button-clor-white ">
                                         <button name="currentbtnname" value="shippinglabel" type="submit"
-                                            class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">
+                                            class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white white">
                                             <i class="fa fa-calendar me-1"></i> Print Label
                                         </button>
                                         <button name="currentbtnname" value="cancelorders" type="submit"
-                                            class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white">
+                                            class="btn btn-outline-primary mt-1 me-3 mb-3 btn-sm button-clor-white white">
                                             <i class="fa fa-times-circle me-1"></i> Cancel Orders
                                         </button>
-                                        <button name="currentbtnname" value="invoiceorderdetails" class="btn btn-outline-secondary  me-3 mb-2 btn-sm button-clor-white">
+                                        <button name="currentbtnname" value="invoiceorderdetails" class="btn btn-outline-secondary  me-3 mb-2 btn-sm button-clor-white white">
                                             <i class="fa fa-download me-1 "></i> Invoice
                                         </button>
-                                        <button name="currentbtnname" value="manifest" class="btn btn-outline-secondary  me-3 mb-2 btn-sm button-clor-white">
+                                        <button name="currentbtnname" value="manifest" class="btn btn-outline-secondary  me-3 mb-2 btn-sm button-clor-white white">
                                             <i class="fa fa-download me-1 "></i> Manifest
                                         </button>
-                                        
-                                        <button name="currentbtnname" value="exportorderdetails" class="btn btn-outline-secondary  me-3 mb-2 btn-sm button-clor-white">
+
+                                        <button name="currentbtnname" value="exportorderdetails" class="btn btn-outline-secondary  me-3 mb-2 btn-sm button-clor-white white">
                                             <i class="fa fa-download me-1 "></i> Export
                                         </button>
-                                        <button id="downloadExcelBtn" class="btn btn-outline-secondary  mb-2 btn-sm button-clor-white">
+                                        <button id="downloadExcelBtn" class="btn btn-outline-secondary  mb-2 btn-sm button-clor-white white">
                                             <i class="fa fa-download me-1"></i> Export All
                                         </button>
-                                       
+
                                     </div>
                                 </div>
                                 <style>
@@ -350,7 +354,7 @@
                                                         <div class="dropdown-menu">
 
 
-                                                        <a class="dropdown-item" href="single-invoice/{{ $param->Single_Order_Id }}" title="Edit Order">
+                                                            <a class="dropdown-item" href="single-invoice/{{ $param->Single_Order_Id }}" title="Edit Order">
                                                                 <i class="las fa-file-invoice scale5 me-3"></i>Download Invoice
                                                             </a>
                                                             <a class="dropdown-item" href="clone-order/{{ $param->Single_Order_Id }}" title="Clone Order">

@@ -185,10 +185,10 @@ class UserHubs extends Controller
             'company' => $req->name,
             'contact_person_name' => $req->name,
             'email' => 'contact@ezyslips.com',
-            'phone' => $req->mobile,
+            'phone' => +91-$req->mobile,
             'phone_print' => '',
             'address_1' => $address,
-            'address_2' => '10 Floor',
+            'address_2' => '',
             'city' => $req->city,
             'state' => $req->state,
             'country' => 'IN',
@@ -200,7 +200,7 @@ class UserHubs extends Controller
         ]);
         $responseDatanew = $response->json();
           
-        if($responseDatanew['status'] == 'success')
+        if($responseDatanew['status'])
         {
             $PickupName = $responseDatanew['warehouse_response']['warehouse_id'];
             
