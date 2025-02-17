@@ -109,7 +109,7 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 "gift_card_amt" => "0",
                 "taxes" => "0",
                 
-                "payment_type" => $newpaymentmode,  // Set payment type to 'C' or 'P'
+                "payment_type" => $paymentModeMapping[$paymentmode],  // Set payment type to 'C' or 'P'
                 "email" => "customer@email.com",
                 "billing_address" => $daadrs,
                 "billing_address2" => $daadrs . $daadrs2,
