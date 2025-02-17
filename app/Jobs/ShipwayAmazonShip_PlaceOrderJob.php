@@ -53,7 +53,8 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
             // }
             $paymentModeMapping = [
                 'COD' => 'C',
-                'Prepaid' => 'P'
+                'Prepaid' => 'P',
+                'prepaid'=>'P'
             ];
             
             // Check if $paymentmode is in the mapping
