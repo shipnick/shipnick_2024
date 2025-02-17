@@ -51,6 +51,14 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
             // } elseif ($paymentmode == 'Prepaid') {
             //     $paymentmode = "P";  // Prepaid -> P
             // }
+            $paymentModeMapping = [
+                'COD' => 'C',
+                'Prepaid' => 'P'
+            ];
+            
+            // Check if $paymentmode is in the mapping
+            $newpaymentmode = isset($paymentModeMapping[$paymentmode]) ? $paymentModeMapping[$paymentmode] : '';
+            
 
             // Ensure mobile number doesn't have the '91' prefix, and only keep the part after it.
             if (strlen($damob) > 10 && substr($damob, 0, 2) === '91') {
@@ -69,11 +77,11 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 ->token;
 
                  // Create data array for API request
-            if ($paymentmode == 'COD') {
-                $newpaymentmode = "C";  // COD -> C
-            } elseif ($paymentmode == 'Prepaid') {
-                $newpaymentmode = "P";  // Prepaid -> P
-            }
+            // if ($paymentmode == 'COD') {
+            //     $newpaymentmode = "C";  // COD -> C
+            // } elseif ($paymentmode == 'Prepaid') {
+            //     $newpaymentmode = "P";  // Prepaid -> P
+            // }
 
             // Define request URL for Shipway API
             $url = 'https://app.shipway.com/api/v2orders';
