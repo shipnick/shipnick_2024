@@ -115,7 +115,7 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 "box_length" => $ilgth,
                 "box_breadth" => $iwith,
                 "box_height" => $ihght,
-                "order_date" => "2022-06-21 15:35:02"
+                "order_date" => $inputDate
             ];
             $response = Http::withHeaders([
                 'Authorization' => 'Basic R3RoYWtyYWw0ODBAZ21haWwuY29tOms0OTJYMzFsUUwzNXFUUTd3NWwzNlNuZFkwdjExMjQy',
@@ -214,9 +214,11 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 bulkorders::where('Awb_Number', $awb)->update(['shferrors' => 1]);
             } else {
                 $this->ifErrorThenNextApi();
-                echo "<br><pre>";
-                print_r(($responseDatanew));
-                echo "</pre><br>";
+                $responseDataString = "<br><pre>" . print_r($responseDatanew, true) . "</pre><br>";
+
+                // Log the response data
+                Log::error('Shipway API error response: ' . $responseDataString);
+
                 $errmessage = $responseDatanew['awb_response']['error'][0];
                 bulkorders::where('Single_Order_Id', $crtidis)->update([
                     'showerrors' => $errmessage,
