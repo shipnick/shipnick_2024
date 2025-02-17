@@ -47,25 +47,31 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
 
             // Start order using Xpressbee API
             if ($paymentmode == 'COD') {
-                $paymentmode = "C";
+                $paymentmode = "C";  // COD -> C
+            } elseif ($paymentmode == 'Prepaid') {
+                $paymentmode = "P";  // Prepaid -> P
             }
-            if ($paymentmode == 'Prepaid') {
-                $paymentmode = "P";
-            }
+
+            // Ensure mobile number doesn't have the '91' prefix, and only keep the part after it.
             if (strlen($damob) > 10 && substr($damob, 0, 2) === '91') {
                 // Remove the '91' prefix
                 $damob = substr($damob, 2);
             }
 
-            // Convert 0.3 kg to grams
+            // Convert weight from kg to grams
             $weightInGrams = $iacwt * 1000; // Convert 0.3 kg to grams
             $weightInInteger = (int)$weightInGrams; // Convert to integer
 
-            $rapidshippickupname = smartship::where('expire_in', $pkpkid)->where('courier', 'shipway')->first()->token;
+            // Retrieve the 'warehouse_id' or 'token' from the smartship database
+            $rapidshippickupname = smartship::where('expire_in', $pkpkid)
+                ->where('courier', 'shipway')
+                ->first()
+                ->token;
 
-            // Define your request URL
+            // Define request URL for Shipway API
             $url = 'https://app.shipway.com/api/v2orders';
 
+            // Create data array for API request
             $data = [
                 "order_id" => $autogenorderno,
                 "carrier_id" => 81358,
@@ -87,7 +93,7 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 "order_total" => $itamt,
                 "gift_card_amt" => "0",
                 "taxes" => "0",
-                "payment_type" => $paymentmode,
+                "payment_type" => $paymentmode,  // Set payment type to 'C' or 'P'
                 "email" => "customer@email.com",
                 "billing_address" => $daadrs,
                 "billing_address2" => $daadrs . $daadrs2,
@@ -117,11 +123,16 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 "box_height" => $ihght,
                 "order_date" => $inputDate
             ];
+
+            // Send POST request to Shipway API
             $response = Http::withHeaders([
                 'Authorization' => 'Basic R3RoYWtyYWw0ODBAZ21haWwuY29tOms0OTJYMzFsUUwzNXFUUTd3NWwzNlNuZFkwdjExMjQy',
                 'Content-Type' => 'application/json',
             ])->post($url, $data);
+
+            // Parse the response from the API
             $responseDatanew = $response->json();
+
 
             if (isset($responseDatanew['awb_response']['success']) && $responseDatanew['awb_response']['success'] == true) {
                 echo $awb = $responseDatanew['awb_response']['AWB'];
