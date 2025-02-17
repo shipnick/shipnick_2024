@@ -185,7 +185,7 @@ class UserHubs extends Controller
             'company' => $req->name,
             'contact_person_name' => $req->name,
             'email' => 'contact@ezyslips.com',
-            'phone' => +91-$req->mobile,
+            'phone' => '+91-'.$req->mobile,
             'phone_print' => '',
             'address_1' => $address,
             'address_2' => '',
@@ -199,6 +199,9 @@ class UserHubs extends Controller
             'fssai_code' => '47656587'
         ]);
         $responseDatanew = $response->json();
+        echo "<br><pre>";
+        print_r(($responseDatanew));
+        echo "</pre><br>";
           
         if($responseDatanew['status'])
         {
@@ -210,6 +213,8 @@ class UserHubs extends Controller
             $hunname->courier= 'shipway';
             $hunname->expire_in= $last_id;
             $hunname->save();
+
+            
         }
       
 
