@@ -122,6 +122,7 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 'Content-Type' => 'application/json',
             ])->post($url, $data);
             $responseDatanew = $response->json();
+
             if (isset($responseDatanew['awb_response']['success']) && $responseDatanew['awb_response']['success'] == true) {
                 echo $awb = $responseDatanew['awb_response']['AWB'];
                 echo $carrier_id = $responseDatanew['awb_response']['carrier_id'];
@@ -213,6 +214,9 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 bulkorders::where('Awb_Number', $awb)->update(['shferrors' => 1]);
             } else {
                 $this->ifErrorThenNextApi();
+                echo "<br><pre>";
+                print_r(($responseDatanew));
+                echo "</pre><br>";
                 $errmessage = $responseDatanew['awb_response']['error'][0];
                 bulkorders::where('Single_Order_Id', $crtidis)->update([
                     'showerrors' => $errmessage,
