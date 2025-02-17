@@ -87,7 +87,8 @@ class UserHubs extends Controller
 
     public function NewHubAdd(Request $req)
     {
-        error_reporting(1);
+
+        // error_reporting(1);
         $useridis = session()->get('UserLogin2id');
         if ($req->deliverytype == "Express") {
             $deliverytypeval = 1;
@@ -132,46 +133,45 @@ class UserHubs extends Controller
         Hubs::where('hub_id', $last_id)->update(['hub_code' => $hubcode, 'hub_title' => $hubtitle]);
 
         $response = Http::withHeaders([
-			'Content-Type' => 'application/json',
-			'rapidshyp-token' => '57731822281d866169a9563742c0b806bbce5d34916c66eacfe41e00965924ca',
-		])
-		->post('https://api.rapidshyp.com/rapidshyp/apis/v1/create/pickup_location', [
-			'address_name' => $req->name,
-			'contact_name' => $req->name,
-			'contact_number' => $req->mobile,
-			'email' => 'john.doe@example.com',
-			'address_line' => $address,
-			'address_line2' => '',
-			'pincode' => $req->pincode,
-			'gstin' => $req->gstno,
-			'dropship_location' => true,
-			'use_alt_rto_address' => true,
-			'rto_address' => '',
-			'create_rto_address' => [
-				'rto_address_name' => $req->name.'new',
-				'rto_contact_name' => $req->name .'new',
-				'rto_contact_number' => $req->mobile,
-				'rto_email' => 'jane.smith@example.com',
-				'rto_address_line' => $address,
-				'rto_address_line2' => '',
-				'rto_pincode' => $req->pincode,
-				'rto_gstin' => $req->gstno,
-			]
-		]);
+            'Content-Type' => 'application/json',
+            'rapidshyp-token' => '57731822281d866169a9563742c0b806bbce5d34916c66eacfe41e00965924ca',
+        ])
+            ->post('https://api.rapidshyp.com/rapidshyp/apis/v1/create/pickup_location', [
+                'address_name' => $req->name,
+                'contact_name' => $req->name,
+                'contact_number' => $req->mobile,
+                'email' => 'john.doe@example.com',
+                'address_line' => $address,
+                'address_line2' => '',
+                'pincode' => $req->pincode,
+                'gstin' => $req->gstno,
+                'dropship_location' => true,
+                'use_alt_rto_address' => true,
+                'rto_address' => '',
+                'create_rto_address' => [
+                    'rto_address_name' => $req->name . 'new',
+                    'rto_contact_name' => $req->name . 'new',
+                    'rto_contact_number' => $req->mobile,
+                    'rto_email' => 'jane.smith@example.com',
+                    'rto_address_line' => $address,
+                    'rto_address_line2' => '',
+                    'rto_pincode' => $req->pincode,
+                    'rto_gstin' => $req->gstno,
+                ]
+            ]);
 
-		$responseDatanew = $response->json();
+        $responseDatanew = $response->json();
         echo "<br><pre>";
         print_r(($responseDatanew));
         echo "</pre><br>";
-        if($responseDatanew['status'] == 'success')
-        {
+        if ($responseDatanew['status'] == 'success') {
             $PickupName = $responseDatanew['pickup_location_name'];
-            $RtoName =$responseDatanew['rto_location_name'];
-    
+            $RtoName = $responseDatanew['rto_location_name'];
+
             $hunname = new smartship();
             $hunname->token = $PickupName;
-            $hunname->courier= 'RapidShip';
-            $hunname->expire_in= $last_id;
+            $hunname->courier = 'RapidShip';
+            $hunname->expire_in = $last_id;
             $hunname->save();
         }
 
@@ -180,51 +180,54 @@ class UserHubs extends Controller
             'Content-Type' => 'application/json',
             'Cookie' => 'AWSALB=XIZowALK43Iz+hniAdKm8R+jdQrfN00xU6grRW9ApqmiT15928/qNupgLNajhmejHCfZ/mxXZ2YEmbkMwTDFlJzx8NzbW5VarPRtVg8/tVY1o+o3z+YPZAGkfBQi; AWSALBCORS=XIZowALK43Iz+hniAdKm8R+jdQrfN00xU6grRW9ApqmiT15928/qNupgLNajhmejHCfZ/mxXZ2YEmbkMwTDFlJzx8NzbW5VarPRtVg8/tVY1o+o3z+YPZAGkfBQi'
         ])
-        ->post('https://app.shipway.com/api/warehouse/', [
-            'title' => $req->name,
-            'company' => $req->name,
-            'contact_person_name' => $req->name,
-            'email' => 'contact@ezyslips.com',
-            'phone' => '+91-'.$req->mobile,
-            'phone_print' => '',
-            'address_1' => $address,
-            'address_2' => '',
-            'city' => $req->city,
-            'state' => $req->state,
-            'country' => 'IN',
-            'pincode' => $req->pincode,
-            'longitude' => '',
-            'latitude' => '',
-            'gst_no' => $req->gstno,
-            'fssai_code' => '47656587'
-        ]);
+            ->post('https://app.shipway.com/api/warehouse/', [
+                'title' => $req->name,
+                'company' => $req->name,
+                'contact_person_name' => $req->name,
+                'email' => 'contact@ezyslips.com',
+                'phone' => '+91-' . $req->mobile,
+                'phone_print' => '',
+                'address_1' => $address,
+                'address_2' => '',
+                'city' => strtolower($req->city),  // Convert city to lowercase
+                'state' => strtolower($req->state),  // Convert state to lowercase
+                'country' => 'IN',
+                'pincode' => $req->pincode,
+                'longitude' => '',
+                'latitude' => '',
+                'gst_no' => $req->gstno,
+                'fssai_code' => ''
+            ]);
         $responseDatanew = $response->json();
         echo "<br><pre>";
         print_r(($responseDatanew));
         echo "</pre><br>";
-          
-        if($responseDatanew['status'])
-        {
-            $PickupName = $responseDatanew['warehouse_response']['warehouse_id'];
-            
-    
+
+
+
+
+
+
+
+        if ($responseDatanew['success']) {
+            echo  $PickupName = $responseDatanew['warehouse_response']['warehouse_id'];
+
+
             $hunname = new smartship();
             $hunname->token = $PickupName;
-            $hunname->courier= 'shipway';
-            $hunname->expire_in= $last_id;
+            $hunname->courier = 'shipway';
+            $hunname->expire_in = $last_id;
             $hunname->save();
-
-            
         }
-      
 
-        
+
+
 
         Hubs::where('hub_id', $last_id);
 
 
         $req->session()->flash('message', 'New Hub Added');
-        return redirect('/UPNew_Hub');
+        // return redirect('/UPNew_Hub');
     }
 
     public function HubEdit(Request $req, $id)
