@@ -227,7 +227,7 @@ class UserHubs extends Controller
 
 
         $req->session()->flash('message', 'New Hub Added');
-        // return redirect('/UPNew_Hub');
+        return redirect('/UPNew_Hub');
     }
 
     public function HubEdit(Request $req, $id)
