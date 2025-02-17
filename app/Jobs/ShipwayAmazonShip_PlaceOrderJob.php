@@ -46,11 +46,11 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
 
 
             // Start order using Xpressbee API
-            if ($paymentmode == 'COD') {
-                $paymentmode = "C";  // COD -> C
-            } elseif ($paymentmode == 'Prepaid') {
-                $paymentmode = "P";  // Prepaid -> P
-            }
+            // if ($paymentmode == 'COD') {
+            //     $paymentmode = "C";  // COD -> C
+            // } elseif ($paymentmode == 'Prepaid') {
+            //     $paymentmode = "P";  // Prepaid -> P
+            // }
 
             // Ensure mobile number doesn't have the '91' prefix, and only keep the part after it.
             if (strlen($damob) > 10 && substr($damob, 0, 2) === '91') {
@@ -68,10 +68,17 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 ->first()
                 ->token;
 
+                 // Create data array for API request
+            if ($paymentmode == 'COD') {
+                $newpaymentmode = "C";  // COD -> C
+            } elseif ($paymentmode == 'Prepaid') {
+                $newpaymentmode = "P";  // Prepaid -> P
+            }
+
             // Define request URL for Shipway API
             $url = 'https://app.shipway.com/api/v2orders';
 
-            // Create data array for API request
+           
             $data = [
                 "order_id" => $autogenorderno,
                 "carrier_id" => 81358,
@@ -93,7 +100,8 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 "order_total" => $itamt,
                 "gift_card_amt" => "0",
                 "taxes" => "0",
-                "payment_type" => $paymentmode,  // Set payment type to 'C' or 'P'
+                
+                "payment_type" => $newpaymentmode,  // Set payment type to 'C' or 'P'
                 "email" => "customer@email.com",
                 "billing_address" => $daadrs,
                 "billing_address2" => $daadrs . $daadrs2,
