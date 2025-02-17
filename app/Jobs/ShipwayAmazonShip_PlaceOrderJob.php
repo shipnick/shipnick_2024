@@ -122,7 +122,7 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 'Content-Type' => 'application/json',
             ])->post($url, $data);
             $responseDatanew = $response->json();
-            if ($responseDatanew['awb_response']['success'] == true) {
+            if (isset($responseDatanew['awb_response']['success']) && $responseDatanew['awb_response']['success'] == true) {
                 echo $awb = $responseDatanew['awb_response']['AWB'];
                 echo $carrier_id = $responseDatanew['awb_response']['carrier_id'];
                 echo $carrier_id = $responseDatanew['awb_response']['carrier_name'];
