@@ -56,7 +56,7 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 // Remove the '91' prefix
                 $damob = substr($damob, 2);
             }
-            
+
             // Convert 0.3 kg to grams
             $weightInGrams = $iacwt * 1000; // Convert 0.3 kg to grams
             $weightInInteger = (int)$weightInGrams; // Convert to integer
@@ -70,7 +70,7 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 "order_id" => $autogenorderno,
                 "carrier_id" => 81358,
                 "warehouse_id" => $rapidshippickupname,
-                "return_warehouse_id" => $rapidshippickupname, 
+                "return_warehouse_id" => $rapidshippickupname,
                 "products" => [
                     [
                         "product" => $iname,
@@ -122,24 +122,23 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 'Content-Type' => 'application/json',
             ])->post($url, $data);
             $responseDatanew = $response->json();
-            if($responseDatanew['$responseDatanew']['success']== true)
-            {
-                echo $awb = $responseDatanew['$responseDatanew']['AWB'];
-                echo $carrier_id = $responseDatanew['$responseDatanew']['carrier_id'];
-                echo $$courier = $responseDatanew['$responseDatanew']['carrier_name'];
+            if ($responseDatanew['awb_response']['success'] == true) {
+                echo $awb = $responseDatanew['awb_response']['AWB'];
+                echo $carrier_id = $responseDatanew['awb_response']['carrier_id'];
+                echo $carrier_id = $responseDatanew['awb_response']['carrier_name'];
 
                 bulkorders::where('Single_Order_Id', $crtidis)->update([
                     'courier_ship_no' => $carrier_id,
                     'Awb_Number' => $awb,
                     'awb_gen_by' => 'Amazon ship',
                     'awb_gen_courier' => $courier,
-                    
+
                     'showerrors' => 'Pickup Pending'
                 ]);
-                echo $label = $responseDatanew['$responseDatanew']['shipping_url'];
+                echo $label = $responseDatanew['awb_response']['shipping_url'];
                 bulkorders::where('Single_Order_Id', $crtidis)->update([
                     'dhlerrors' => $label,
-                    
+
                 ]);
 
                 $param = bulkorders::where('Awb_Number', $awb)->first();
@@ -212,24 +211,21 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 $wellet->save();
 
                 bulkorders::where('Awb_Number', $awb)->update(['shferrors' => 1]);
-            }else{
+            } else {
                 $this->ifErrorThenNextApi();
-                $errmessage = $responseDatanew['$responseDatanew']['error'][0];
+                $errmessage = $responseDatanew['awb_response']['error'][0];
                 bulkorders::where('Single_Order_Id', $crtidis)->update([
                     'showerrors' => $errmessage,
                     'order_status_show' => $errmessage
                 ]);
             }
-
-        }catch (\Throwable $th) {
+        } catch (\Throwable $th) {
             $msg = __FILE__ . __METHOD__ . ", Line:" . $th->getLine() . ", Msg:" . $th->getMessage();
             Log::error($msg);
             // $this->ifErrorThenNextApi();
             $this->fail($th);
             throw $th;
         }
-
-
     }
 
     public function ifErrorThenNextApi($currentCourier = 'AWShip')
