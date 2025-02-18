@@ -134,7 +134,7 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 "shipping_zipcode" => $dapin,
                 "shipping_latitude" => "",
                 "shipping_longitude" => "",
-                "order_weight" => $iacwt,
+                "order_weight" => $iacwt*1000,
                 "box_length" => $ilgth,
                 "box_breadth" => $iwith,
                 "box_height" => $ihght,

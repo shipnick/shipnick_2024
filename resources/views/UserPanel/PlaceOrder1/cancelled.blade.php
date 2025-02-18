@@ -352,6 +352,9 @@
                                                             </svg>
                                                         </a>
                                                         <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="{{ $param->dhlerrors }}" title="Amazon label  Order">
+                                                                <i class="las fa-file-invoice scale5 me-3"></i>Download label Amazon
+                                                            </a>
 
 
                                                             <a class="dropdown-item" href="single-invoice/{{ $param->Single_Order_Id }}" title="Edit Order">

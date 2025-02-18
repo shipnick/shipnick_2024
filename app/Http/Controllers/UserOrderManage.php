@@ -1008,7 +1008,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['Booked', 'Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id','dhlerrors');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1139,7 +1139,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id','dhlerrors');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1268,7 +1268,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id','dhlerrors');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1397,7 +1397,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->where('showerrors', 'Delivered')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id','dhlerrors');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1526,7 +1526,7 @@ class UserOrderManage extends Controller
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id','dhlerrors','dhlerrors');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1655,7 +1655,7 @@ class UserOrderManage extends Controller
 
 
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id');
+            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id','dhlerrors');
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj1 && $ctodateObj1) {
