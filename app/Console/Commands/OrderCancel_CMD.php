@@ -54,7 +54,7 @@ class OrderCancel_CMD extends Command
         $this->info("Scheduling cancel orders at " . date('c'));
         $orders = bulkorders::where('order_cancel',  '1')
             ->whereNull('order_cancel_reasion')
-            ->whereNoNull('Awb_Number')
+            ->whereNotNull('Awb_Number')
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number','courier_ship_no','awb_gen_courier','ordernoapi','awb_gen_by')
             ->get();
