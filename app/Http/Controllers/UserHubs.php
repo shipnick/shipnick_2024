@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Http;
 use App\Models\price;
 use App\Models\orderdetail;
 use App\Models\bulkorders;
+use Illuminate\Support\Str;
 
 use App\Models\Payment;
 
@@ -84,9 +85,12 @@ class UserHubs extends Controller
         return view('UserPanel.Hub.Hub', ['params' => $params]);
     }
 
-
+   
     public function NewHubAdd(Request $req)
     {
+        
+        $randomnew = Str::random(5);
+        $randomString = $randomnew;
 
         // error_reporting(1);
         $useridis = session()->get('UserLogin2id');
@@ -109,8 +113,10 @@ class UserHubs extends Controller
         $query->hub_name = $req->name;
         $query->hub_gstno = $req->gstno;
         $query->hub_address1 = $req->address1;
-        // $query->hub_address2 = $req->address2;
+        $query->hub_address2 = $req->address2;
         $query->hub_mobile = $req->mobile;
+        $query->nimbus_hubid = $req->alt_mobile;
+        $query->smartship_hubid = $req->C_name;
         $query->hub_pincode = $req->pincode;
         $query->hub_state = $req->state;
         $query->hub_city = $req->city;
@@ -137,8 +143,8 @@ class UserHubs extends Controller
             'rapidshyp-token' => '57731822281d866169a9563742c0b806bbce5d34916c66eacfe41e00965924ca',
         ])
             ->post('https://api.rapidshyp.com/rapidshyp/apis/v1/create/pickup_location', [
-                'address_name' => $req->name,
-                'contact_name' => $req->name,
+                'address_name' => $req->name.$randomString,
+                'contact_name' => $req->name.$randomString,
                 'contact_number' => $req->mobile,
                 'email' => 'john.doe@example.com',
                 'address_line' => $address,
@@ -149,7 +155,7 @@ class UserHubs extends Controller
                 'use_alt_rto_address' => true,
                 'rto_address' => '',
                 'create_rto_address' => [
-                    'rto_address_name' => $req->name . 'new',
+                    'rto_address_name' => $req->name .$randomString. 'new',
                     'rto_contact_name' => $req->name . 'new',
                     'rto_contact_number' => $req->mobile,
                     'rto_email' => 'jane.smith@example.com',

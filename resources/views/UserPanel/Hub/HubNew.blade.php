@@ -58,9 +58,20 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label text-black" for="validationCustom08">Alternate Contact Number
+                                                <!-- <span class="text-danger">*</span> -->
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" name="alt_mobile" id="validationCustom08"  >
+                                                <div class="invalid-feedback">
+                                                    Please enter mobile no.
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         <div class="mb-3 row">
-                                            <label class="col-lg-4 col-form-label text-black" for="validationCustom04">to Address <span
+                                            <label class="col-lg-4 col-form-label text-black" for="validationCustom04">Address <span
                                                     class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
@@ -70,8 +81,21 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                     <div class="col-xl-6">
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label text-black" for="validationCustom08">Contact Person Name
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" name="C_name" id="validationCustom08" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter Contact Person Name
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
 
 
 
@@ -80,7 +104,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" name="city"  id="cityInput" required>
+                                                <input type="text" class="form-control" name="city" id="cityInput" required>
                                                 <div class="invalid-feedback">
                                                     Please enter city.
                                                 </div>
@@ -97,14 +121,28 @@
                                                 </div>
                                             </div>
                                         </div>
+
+
+                                        
                                         <div class="mb-3 row">
                                             <label class="col-lg-4 col-form-label text-black" for="validationCustom08">GSTIN
-                                                <!--<span class="text-danger">*</span>-->
+                                                <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" name="gstno" id="validationCustom08" value="0000" required>
                                                 <div class="invalid-feedback">
                                                     Please enter GSTIN
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label text-black" for="validationCustom04">Address2
+
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <textarea class="form-control" name="address2"  id="validationCustom04" rows="5" ></textarea>
+                                                <div class="invalid-feedback">
+                                                    Please Enter a Address2.
                                                 </div>
                                             </div>
                                         </div>
@@ -175,24 +213,24 @@
 </script>
 
 <script>
-		(function () {
-		  'use strict'
+    (function() {
+        'use strict'
 
-		  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-		  var forms = document.querySelectorAll('.needs-validation')
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
 
-		  // Loop over them and prevent submission
-		  Array.prototype.slice.call(forms)
-			.forEach(function (form) {
-			  form.addEventListener('submit', function (event) {
-				if (!form.checkValidity()) {
-				  event.preventDefault()
-				  event.stopPropagation()
-				}
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
 
-				form.classList.add('was-validated')
-			  }, false)
-			})
-		})()
-	</script>
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
 @endsection

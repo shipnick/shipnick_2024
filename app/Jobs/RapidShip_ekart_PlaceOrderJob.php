@@ -90,7 +90,7 @@ class RapidShip_ekart_PlaceOrderJob implements ShouldQueue
                 "billingIsShipping" => true,
                 "shippingAddress" => [
                     "firstName" => $daname,
-                    "lastName" => "EXT",
+                    "lastName" => "",
                     "addressLine1" => $daadrs,
                     "addressLine2" => $daadrs . $daadrs2,
                     "pinCode" => $dapin,
@@ -118,7 +118,7 @@ class RapidShip_ekart_PlaceOrderJob implements ShouldQueue
                         "productLength" => 10,
                         "productBreadth" => 10,
                         "productHeight" => 10,
-                        "productWeight" => 1,
+                        "productWeight" =>(float) $iacwt,
                         "brand" => "",
                         "imageURL" => "http://example.com/product1.jpg",
                         "isFragile" => false,
