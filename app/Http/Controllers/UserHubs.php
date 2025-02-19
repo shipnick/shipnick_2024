@@ -115,6 +115,7 @@ class UserHubs extends Controller
         $query->hub_address1 = $req->address1;
         $query->hub_address2 = $req->address2;
         $query->hub_mobile = $req->mobile;
+        $query->intargos_hubid = $req->email_id;
         $query->nimbus_hubid = $req->alt_mobile;
         $query->smartship_hubid = $req->C_name;
         $query->hub_pincode = $req->pincode;

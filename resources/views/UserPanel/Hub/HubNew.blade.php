@@ -95,6 +95,17 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="mb-3 row">
+                                            <label class="col-lg-4 col-form-label text-black" for="validationCustom08">Email
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" name="email_id" id="validationCustom08" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter Email_Id
+                                                </div>
+                                            </div>
+                                        </div>
                                         
 
 
