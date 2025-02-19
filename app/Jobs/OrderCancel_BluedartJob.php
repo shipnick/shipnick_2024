@@ -10,6 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 use App\Models\bulkorders;
+use Illuminate\Support\Facades\Log;
 
 class OrderCancel_BluedartJob implements ShouldQueue
 {
@@ -23,7 +24,7 @@ class OrderCancel_BluedartJob implements ShouldQueue
     public function __construct($data)
     {
         //
-        
+
         $this->order = $data;
     }
 
@@ -52,7 +53,18 @@ class OrderCancel_BluedartJob implements ShouldQueue
                     'Api_type' => 'S',
                 ]
             ]);
-        
+
         echo $response->body();
+        $responseDatanew = $response->json();
+        $responseDataString = "<br><pre>" . print_r($responseDatanew, true) . "</pre><br>";
+
+        // Log the response data
+        Log::error('bluedart API error response: ' . $responseDataString);
+
+        $errmessage = $responseDatanew['awb_response']['error'][0];
+        bulkorders::where('Awb_Number', $awb)->update([
+            'showerrors' => $errmessage,
+            'order_status_show' => $errmessage
+        ]);
     }
 }

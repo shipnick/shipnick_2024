@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Http;
 use App\Models\bulkorders;
 use Illuminate\Support\Facades\Log;
 
-class OrderCancel_RapidShipJob implements ShouldQueue
+class OrderCancel_XpresbeeJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     protected $order;
@@ -23,8 +23,6 @@ class OrderCancel_RapidShipJob implements ShouldQueue
      */
     public function __construct($data)
     {
-        //
-
         $this->order = $data;
     }
 
@@ -38,16 +36,29 @@ class OrderCancel_RapidShipJob implements ShouldQueue
         //
         $awbNumber = $this->order['ordernoapi'];
         $awb = $this->order['Awb_Number'];
-        
-        $tdateis = date('Y-m-d');
+
+
+        $response = Http::withoutVerifying()->withHeaders([
+            'Content-Type' => 'application/json',
+        ])->post('https://shipment.xpressbees.com/api/users/login', [
+              'email' => 'Ballyfashion77@gmail.com',
+              'password' => 'shyam104A@',
+        ]); 
+
+        $responseic = $response->json(); // Decode JSON response
+        $xpressbeetoken = $responseic['data']; // Extract token from response data
+        return $xpressbeetoken;
+
 
         $response = Http::withHeaders([
-            'content-type' => 'application/json',
-            'rapidshyp-token' => '57731822281d866169a9563742c0b806bbce5d34916c66eacfe41e00965924ca',
-        ])->post('https://api.rapidshyp.com/rapidshyp/apis/v1/cancel_order', [
-            'orderId' => $awbNumber,
-            'storeName' => 'DEFAULT',
-        ]);
+           'Authorization' => 'Bearer ' . $xpressbeetoken,
+        ])
+            ->post('https://shipment.xpressbees.com/api/shipments2/cancel', [
+                'awb' => $awb,
+            ]);
+
+        // You can now use $response for further processing
+        echo $response->body(); // Output the response content
         $responseDatanew = $response->json();
        
         $responseDataString = "<br><pre>" . print_r($responseDatanew, true) . "</pre><br>";
@@ -66,5 +77,6 @@ class OrderCancel_RapidShipJob implements ShouldQueue
                 'order_status_show' => $cancelstatus,
                 'order_cancel_reasion' => $remark
             ]);
+
     }
 }

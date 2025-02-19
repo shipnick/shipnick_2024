@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Queue;
 use App\Models\bulkorders;
 use App\Jobs\OrderCancel_RapidShipJob;
 use App\Jobs\OrderCancel_BluedartJob;
+use App\Jobs\OrderCancel_XpresbeeJob;
 
 class OrderCancel_CMD extends Command
 {
@@ -71,6 +72,10 @@ class OrderCancel_CMD extends Command
             if($order->awb_gen_by == 'EkartRS')
             {
                 OrderCancel_RapidShipJob::dispatch($order->toArray())->onQueue(self::QUEUE_NAME);
+            }
+            if($order->awb_gen_by == 'Xpressbee')
+            {
+                OrderCancel_XpresbeeJob::dispatch($order->toArray())->onQueue(self::QUEUE_NAME);
             }
 
             
