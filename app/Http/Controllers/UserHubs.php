@@ -144,7 +144,7 @@ class UserHubs extends Controller
         ])
             ->post('https://api.rapidshyp.com/rapidshyp/apis/v1/create/pickup_location', [
                 'address_name' => $req->name.$randomString,
-                'contact_name' => $req->name.$randomString,
+                'contact_name' => $req->name,
                 'contact_number' => $req->mobile,
                 'email' => 'john.doe@example.com',
                 'address_line' => $address,
