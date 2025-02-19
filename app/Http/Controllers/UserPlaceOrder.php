@@ -2018,40 +2018,47 @@ if($status == "true"){
                 // Update orders to be canceled
 
                 foreach ($selectorders as $selectorders) {
-                    $awb = $selectorders;
-                    $order = bulkorders::whereIn('Single_Order_Id', $awb)->first();
-                    $date = date('Y-m-d');
-                    bulkorders::whereIn('Single_Order_Id', $selectorders)->update(['order_cancel' => 1]);
-                    $credit1 = orderdetail::where('awb_no', $awb)->first()->debit;
+                    bulkorders::where('Single_Order_Id', $selectorders)->update(['order_cancel' => 1,'showerrors' => 'cancel']);
 
-                    $transactionCode = "TR" . $selectorders;
+                    $order = bulkorders::where('Single_Order_Id', $selectorders)->first();
+                    if($order->Awb_Number)
+                    {
+                        $date = date('Y-m-d');
+                        $awb = $order->Awb_Number;
+                        $credit1 = orderdetail::where('awb_no', $awb)->first()->debit;
 
-
-                    // Fetch the most recent balance record for the given user
-                    $blance = orderdetail::where('awb_no', $awb)
-                        ->orderBy('orderid', 'DESC')
-                        ->first();
-
-
-                    // Initialize $close_blance with $credit1
-                    $close_blance = $credit1;
-
-                    // Check if a balance record exists and update $close_blance accordingly
-                    if ($blance && isset($blance->close_blance)) {
-                        // Ensure close_blance is a number, default to 0 if null
-                        $previous_blance = $blance->close_blance ?? 0;
-                        $close_blance = $previous_blance + $credit1;
+                        $transactionCode = "TR" . $selectorders;
+    
+    
+                        // Fetch the most recent balance record for the given user
+                        $blance = orderdetail::where('awb_no', $awb)
+                            ->orderBy('orderid', 'DESC')
+                            ->first();
+    
+    
+                        // Initialize $close_blance with $credit1
+                        $close_blance = $credit1;
+    
+                        // Check if a balance record exists and update $close_blance accordingly
+                        if ($blance && isset($blance->close_blance)) {
+                            // Ensure close_blance is a number, default to 0 if null
+                            $previous_blance = $blance->close_blance ?? 0;
+                            $close_blance = $previous_blance + $credit1;
+                        }
+    
+    
+                        $wellet = new orderdetail;
+                        $wellet->credit = $credit1;
+                        $wellet->awb_no = $awb;
+                        $wellet->date = $date;
+                        $wellet->user_id =  $order->User_Id;
+                        $wellet->transaction = $transactionCode;
+                        $wellet->close_blance = $close_blance;
+                        $wellet->save();
                     }
-
-
-                    $wellet = new orderdetail;
-                    $wellet->credit = $credit1;
-                    $wellet->awb_no = $awb;
-                    $wellet->date = $date;
-                    $wellet->user_id =  $order->User_Id;
-                    $wellet->transaction = $transactionCode;
-                    $wellet->close_blance = $close_blance;
-                    $wellet->save();
+                    
+                    
+                    
                 }
 
 
