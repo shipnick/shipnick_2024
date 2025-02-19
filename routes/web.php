@@ -45,6 +45,7 @@ use App\Http\Controllers\APIBigShip;
 use App\Http\Controllers\APITest;
 use App\Http\Controllers\V1\ConsignmentController;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Artisan;
 
 Route::group([
 	'prefix' => 'v1'
@@ -76,7 +77,12 @@ Route::get('/server-stats', function () {
 	return response()->json($data);
 });
 
-
+Route::get('/cancel-order-new', function () {
+    // Run the Artisan command to cancel the order
+    Artisan::call('spnk:cancel-order');
+    
+    
+});
 // Awb Uplaods
 Route::get('/awb-details', [AwbUploads::class, 'Home']);
 Route::post('/awb-details-upload', [AwbUploads::class, 'Add']);
