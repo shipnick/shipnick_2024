@@ -57,7 +57,7 @@ class OrderCancel_CMD extends Command
         
         // Fetch orders to be canceled
         $orders = bulkorders::where('order_cancel', '1')
-            ->whereNull('order_cancel_reason')
+            ->whereNull('order_cancel_reasion')
             ->whereNotNull('Awb_Number')
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number', 'courier_ship_no', 'awb_gen_courier', 'ordernoapi', 'awb_gen_by')
