@@ -56,7 +56,7 @@ class OrderCancel_CMD extends Command
         $this->info("Scheduling cancel orders at " . \Carbon\Carbon::now()->toIso8601String());
         
         // Fetch orders to be canceled
-        $orders = BulkOrder::where('order_cancel', '1')
+        $orders = bulkorders::where('order_cancel', '1')
             ->whereNull('order_cancel_reason')
             ->whereNotNull('Awb_Number')
             ->orderBy('Single_Order_Id', 'desc')
