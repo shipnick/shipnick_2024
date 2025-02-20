@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Queue;
-use App\Models\BulkOrder; // Assuming your model is named BulkOrder
+use App\Models\bulkorders;
 use App\Jobs\OrderCancel_RapidShipJob;
 use App\Jobs\OrderCancel_BluedartJob;
 use App\Jobs\OrderCancel_XpresbeeJob;
