@@ -45,21 +45,16 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
             extract($this->data);
 
 
-            // Start order using Xpressbee API
-            // if ($paymentmode == 'COD') {
-            //     $paymentmode = "C";  // COD -> C
-            // } elseif ($paymentmode == 'Prepaid') {
-            //     $paymentmode = "P";  // Prepaid -> P
-            // }
+
             $paymentModeMapping = [
                 'COD' => 'C',
                 'Prepaid' => 'P',
-                'prepaid'=>'P'
+                'prepaid' => 'P'
             ];
-            
+
             // Check if $paymentmode is in the mapping
             $newpaymentmode = isset($paymentModeMapping[$paymentmode]) ? $paymentModeMapping[$paymentmode] : '';
-            
+
 
             // Ensure mobile number doesn't have the '91' prefix, and only keep the part after it.
             if (strlen($damob) > 10 && substr($damob, 0, 2) === '91') {
@@ -74,10 +69,11 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
             // Retrieve the 'warehouse_id' or 'token' from the smartship database
             $rapidshippickupname = smartship::where('expire_in', $pkpkid)
                 ->where('courier', 'shipway')
-                ->first()
-                ->token;
+                ->first();
 
-                 // Create data array for API request
+            $rapidshippickupname = $rapidshippickupname ? $rapidshippickupname->token : '0000';
+
+            // Create data array for API request
             // if ($paymentmode == 'COD') {
             //     $newpaymentmode = "C";  // COD -> C
             // } elseif ($paymentmode == 'Prepaid') {
@@ -87,7 +83,7 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
             // Define request URL for Shipway API
             $url = 'https://app.shipway.com/api/v2orders';
 
-           
+
             $data = [
                 "order_id" => $autogenorderno,
                 "carrier_id" => 81358,
@@ -109,7 +105,7 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 "order_total" => $itamt,
                 "gift_card_amt" => "0",
                 "taxes" => "0",
-                
+
                 "payment_type" => $paymentModeMapping[$paymentmode],  // Set payment type to 'C' or 'P'
                 "email" => "customer@email.com",
                 "billing_address" => $daadrs,
@@ -134,7 +130,7 @@ class ShipwayAmazonShip_PlaceOrderJob implements ShouldQueue
                 "shipping_zipcode" => $dapin,
                 "shipping_latitude" => "",
                 "shipping_longitude" => "",
-                "order_weight" => $iacwt*1000,
+                "order_weight" => $iacwt * 1000,
                 "box_length" => $ilgth,
                 "box_breadth" => $iwith,
                 "box_height" => $ihght,
