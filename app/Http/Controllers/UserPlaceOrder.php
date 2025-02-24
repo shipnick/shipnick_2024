@@ -2055,6 +2055,8 @@ if($status == "true"){
                         $wellet->transaction = $transactionCode;
                         $wellet->close_blance = $close_blance;
                         $wellet->save();
+
+                        Artisan::call('spnk:cancel-order');
                     }
                     
                     

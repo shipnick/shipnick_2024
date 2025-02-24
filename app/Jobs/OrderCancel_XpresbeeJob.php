@@ -65,7 +65,7 @@ class OrderCancel_XpresbeeJob implements ShouldQueue
 
         // Log the response data
         Log::error('bluedart API error response: ' . $responseDataString);
-        $remark = $responseDatanew['remarks'];
+        $remark = $responseDatanew['message'];
 
         $cancelstatus = "Cancel";
        
