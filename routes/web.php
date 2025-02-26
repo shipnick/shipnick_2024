@@ -78,10 +78,8 @@ Route::get('/server-stats', function () {
 });
 
 Route::get('/cancel-order-new', function () {
-    // Run the Artisan command to cancel the order
-    Artisan::call('spnk:cancel-order');
-    
-    
+	// Run the Artisan command to cancel the order
+	Artisan::call('spnk:cancel-order');
 });
 // Awb Uplaods
 Route::get('/awb-details', [AwbUploads::class, 'Home']);

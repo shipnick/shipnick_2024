@@ -85,7 +85,8 @@ class OrderStatusUpdate_Bluedart implements ShouldQueue
 
 		// Sending GET request using Laravel's HTTP Client
 		$response = Http::withHeaders($headers)->get($url, $params);
-        if ($response->successful()) {
+		$jsonContent = json_decode($response, true);
+        if ($jsonContent['ShipmentData']['Shipment'][0]['Status']) {
 
 			$jsonContent = json_decode($response, true);
 

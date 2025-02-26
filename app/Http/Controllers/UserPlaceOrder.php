@@ -2018,35 +2018,34 @@ if($status == "true"){
                 // Update orders to be canceled
 
                 foreach ($selectorders as $selectorders) {
-                    bulkorders::where('Single_Order_Id', $selectorders)->update(['order_cancel' => 1,'showerrors' => 'cancel']);
+                    bulkorders::where('Single_Order_Id', $selectorders)->update(['order_cancel' => 1, 'showerrors' => 'cancel']);
 
                     $order = bulkorders::where('Single_Order_Id', $selectorders)->first();
-                    if($order->Awb_Number)
-                    {
+                    if ($order->Awb_Number) {
                         $date = date('Y-m-d');
                         $awb = $order->Awb_Number;
                         $credit1 = orderdetail::where('awb_no', $awb)->first()->debit;
 
                         $transactionCode = "TR" . $selectorders;
-    
-    
+
+
                         // Fetch the most recent balance record for the given user
                         $blance = orderdetail::where('awb_no', $awb)
                             ->orderBy('orderid', 'DESC')
                             ->first();
-    
-    
+
+
                         // Initialize $close_blance with $credit1
                         $close_blance = $credit1;
-    
+
                         // Check if a balance record exists and update $close_blance accordingly
                         if ($blance && isset($blance->close_blance)) {
                             // Ensure close_blance is a number, default to 0 if null
                             $previous_blance = $blance->close_blance ?? 0;
                             $close_blance = $previous_blance + $credit1;
                         }
-    
-    
+
+
                         $wellet = new orderdetail;
                         $wellet->credit = $credit1;
                         $wellet->awb_no = $awb;
@@ -2058,9 +2057,6 @@ if($status == "true"){
 
                         Artisan::call('spnk:cancel-order');
                     }
-                    
-                    
-                    
                 }
 
 

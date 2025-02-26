@@ -39,8 +39,22 @@ class OrderCancel_BluedartJob implements ShouldQueue
         $awb = $this->order['Awb_Number'];
 
         $response = Http::withHeaders([
+            'ClientID' => '9JdKNQXv45xuI2mCzFFVSGDdPh4in1ku',
+            'clientSecret' => 'JdzNoBQLokmGU6VO',
+            'Cookie' => 'BIGipServerpl_netconnect-bluedart.dhl.com_443=!+fTysYqXKJd2sXXfR3BsqrvQUUbjCCBOfXLGrfoTQlQpURtCxgFF1NmiMtHVF5+Xekt82FCu9qga4J8='
+        ])->get('https://apigateway.bluedart.com/in/transportation/token/v1/login');
+
+        $responseData1 = $response->json();
+
+        // echo "<br><pre>";
+        // print_r($responseData1);
+        // echo "</pre><br>";
+
+        echo $token = $responseData1['JWTToken'];
+
+        $response = Http::withHeaders([
             'Content-Type' => 'application/json',
-            'JWTToken' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdWJqZWN0LXN1YmplY3QiLCJhdWQiOlsiYXVkaWVuY2UxIiwiYXVkaWVuY2UyIl0sImlzcyI6InVybjpcL1wvYXBpZ2VlLWVkZ2UtSldULXBvbGljeS10ZXN0IiwiZXhwIjoxNzM3ODk0NDIzLCJpYXQiOjE3Mzc4MDgwMjMsImp0aSI6ImJiNjM0MDBlLWEzZmItNDA5Yy1hNmM1LTY0OTdiODljYjU5MSJ9.vmNkp3gCeEKPYglv6u6jJXLxiGbt-9wsYGx_8ps6e1U',
+            'JWTToken' =>  $token,
             'Cookie' => 'BIGipServerpl_netconnect-bluedart.dhl.com_443=!+6q63SyHCEbqTrHfR3BsqrvQUUbjCKtA6Y6Ec3z//8GKEutwQ6+cvlddVu4mayM844XL4+GsCC532oM=',
         ])
             ->post('https://apigateway.bluedart.com/in/transportation/waybill/v1/CancelWaybill', [
@@ -60,6 +74,7 @@ class OrderCancel_BluedartJob implements ShouldQueue
 
         // Log the response data
         Log::error('bluedart API error response: ' . $responseDataString);
+
 
         $errmessage = $responseDatanew['awb_response']['error'][0];
         bulkorders::where('Awb_Number', $awb)->update([
