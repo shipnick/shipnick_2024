@@ -241,6 +241,8 @@ Route::get('/superlogin', [LoginCheck::class, 'SuperLoginCheck']);
 Route::post('/superlogin', [LoginCheck::class, 'SuperLoginCheckIt']);
 
 Route::post('/request-quote', [LoginCheck::class, 'requestQuote']);
+Route::post('singup_new', [LoginCheck::class, 'singup_new']);
+
 
 
 Route::get('/superpanel', [Dashboard::class, 'SuperHome']);

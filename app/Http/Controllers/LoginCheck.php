@@ -16,6 +16,8 @@ use App\Models\Pincode;
 use App\Models\ShippindLabel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use App\Mail\SignUpMail;
+use Illuminate\Support\Facades\Mail;
 
 class LoginCheck extends Controller
 {
@@ -23,6 +25,32 @@ class LoginCheck extends Controller
     {
         // return view('Admin.Login');
         return view('Login.Login');
+    }
+    public function singup_new(Request $request)
+    {
+        
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'mobile' => 'required|numeric',
+            'pass' => 'required|string|min:8',
+        ]);
+
+        Mail::to('shipnick11@gmail.com')->send(new SignUpMail($validatedData));
+        
+
+
+        $query = new AdminLoginCheck();
+        $query->username = $request->email;
+        $query->password = $request->pass;
+        $query->name = $request->name;
+        $query->mobile = $request->mobile;
+        $query->usertype = "user";
+        $query->crtuid = 170;
+        $query->status = 1;
+        $query->save();
+
+        return redirect()->back()->with('message', 'you have successfully completed the registration process and can now access the platform by logging in using your newly created account details ');
     }
 
 
@@ -236,19 +264,19 @@ class LoginCheck extends Controller
     public function setting()
     {
         $userid = session()->get('UserLogin2id');
-        $label_setting = ShippindLabel::where('user_id', $userid)->where('label_type','defult')->first();
-        $label_setting1 = ShippindLabel::where('user_id', $userid)->where('label_type','label_first')->first();
-        $label_setting2 = ShippindLabel::where('user_id', $userid)->where('label_type','label_second')->first();
+        $label_setting = ShippindLabel::where('user_id', $userid)->where('label_type', 'defult')->first();
+        $label_setting1 = ShippindLabel::where('user_id', $userid)->where('label_type', 'label_first')->first();
+        $label_setting2 = ShippindLabel::where('user_id', $userid)->where('label_type', 'label_second')->first();
 
-        $selectLabel = ShippindLabel::where('user_id', $userid)->where('status',1)->first();
-        
+        $selectLabel = ShippindLabel::where('user_id', $userid)->where('status', 1)->first();
+
         $couriers = courierlist::where('active_flg', 1)->get();
         $param = courierpermission::where('user_id', $userid)
             ->where('admin_flg', 1)
             ->orderby('courier_code', 'ASC')->orderby('courier_by', 'ASC')->get();
 
         $params = Allusers::where('id', $userid)->first();
-        return view('UserPanel.Setting.profile', ["params" => $params, "param" => $param, 'couriers' => $couriers, 'id' => $userid, 'label_setting' => $label_setting , 'label_setting1' => $label_setting1 , 'label_setting2' => $label_setting2 ,'selectLabel'=>$selectLabel]);
+        return view('UserPanel.Setting.profile', ["params" => $params, "param" => $param, 'couriers' => $couriers, 'id' => $userid, 'label_setting' => $label_setting, 'label_setting1' => $label_setting1, 'label_setting2' => $label_setting2, 'selectLabel' => $selectLabel]);
     }
     public function settingupt(Request $req)
     {

@@ -379,8 +379,95 @@ background text
   }
 </style>
 
+<style>
+  /* Styling the alert container */
+.alert {
+  border-radius: 8px;
+  padding: 15px;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+/* Styling the alert success message */
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+/* Left icon styling */
+.alert-left-icon-big {
+  font-size: 30px;
+  margin-right: 15px;
+  color: #28a745; /* Success green color */
+}
+
+.alert-left-icon-big i {
+  font-size: 30px;
+}
+
+/* Media body styling */
+.media-body h5 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #155724;
+}
+
+.media-body p {
+  font-size: 14px;
+  color: #155724;
+}
+
+/* Close button styling */
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+}
+
+.btn-close i {
+  font-size: 18px;
+  color: #155724;
+}
+
+/* Optional: Fade-in effect when the alert appears */
+.alert.show {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+</style>
+
 <body>
+@if(session()->has('message'))
+    <div class="alert alert-success left-icon-big alert-dismissible fade show">
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"><span><i class="mdi mdi-btn-close"></i></span>
+      </button>
+      <div class="media">
+        <div class="alert-left-icon-big">
+          <span><i class="mdi mdi-check-circle-outline"></i></span>
+        </div>
+        <div class="media-body">
+          <h5 class="mt-1 mb-2">successfully</h5>
+          <p class="mb-0">{{ session()->get('message') }}</p>
+        </div>
+      </div>
+    </div>
+
+    @endif
   <div class="cotn_principal">
+    
 
 
     <div class="cont_centrar">
@@ -429,41 +516,32 @@ background text
           </div>
           <form action="{{ asset('/AdminLogin') }}" method="post" class="cont_form_login">
             @csrf
-              <a href="#" onclick="hidden_login_and_sign_up()"><i class="fa-solid fa-xmark"></i></a>
-              <h2>LOGIN</h2>
-              <input type="text" placeholder="Email" name="email" />
-              <input type="password" placeholder="Password" name="pass" />
-              <button class="btn_login" onclick="change_to_login()">LOGIN</button>
-            </form>
+            <a href="#" onclick="hidden_login_and_sign_up()"><i class="fa-solid fa-xmark"></i></a>
+            <h2>LOGIN</h2>
+            <input type="text" placeholder="Email" name="email" />
+            <input type="password" placeholder="Password" name="pass" />
+            <button class="btn_login" onclick="change_to_login()">LOGIN</button>
+          </form>
 
-          
 
-          <div class="cont_form_sign_up">
+
+          <form class="cont_form_sign_up" action="singup_new" method="post">@csrf
             <a href="#" onclick="hidden_login_and_sign_up()"><i class="fa-solid fa-xmark"></i></a>
             <h2>SIGN UP</h2>
-            <input type="text" placeholder="Name" />
+            <input type="text" placeholder="Name" name="name" />
             <!-- <input type="text" placeholder="Company Name" /> -->
-            <input type="text" placeholder="Email" />
-            <input type="text" placeholder="Mobile no" />
-
-            <div class="" style="    margin-top: 20px;    text-align: left;
-                         padding: 15px 18px;
-                         margin-left: 10px;    width: 260px;">
-              <select name="" id="" style="height: 40PX;width: 260;">
-                <option value="">Order volume</option>
-                <option value="">0-25</option>
-                <option value="">26-100</option>
-                <option value="">101-500</option>
-                <option value="">More Than 500</option>
-              </select>
-            </div>
+            <input type="email" placeholder="Email" name="email" />
+            <input type="text" placeholder="Mobile no" name="mobile" pattern="\d{10}" title="Mobile number should be 10 digits" />
+            <input type="password" placeholder="Password" name="pass" pattern=".{8,}" title="Password must be at least 8 characters long" />
 
 
 
 
-            <button class="btn_sign_up" onclick="change_to_sign_up()">SIGN UP</button>
 
-          </div>
+
+            <button type="submit" class="btn_sign_up" onclick="change_to_sign_up()">SIGN UP</button>
+
+          </form>
 
         </div>
 
