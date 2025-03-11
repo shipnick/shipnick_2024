@@ -36,6 +36,7 @@ class OrderCancel_XpresbeeJob implements ShouldQueue
         //
         $awbNumber = $this->order['ordernoapi'];
         $awb = $this->order['Awb_Number'];
+        $tdateis = date('Y-m-d');
 
 
         $response = Http::withoutVerifying()->withHeaders([
@@ -47,7 +48,7 @@ class OrderCancel_XpresbeeJob implements ShouldQueue
 
         $responseic = $response->json(); // Decode JSON response
         $xpressbeetoken = $responseic['data']; // Extract token from response data
-        return $xpressbeetoken;
+        
 
 
         $response = Http::withHeaders([
