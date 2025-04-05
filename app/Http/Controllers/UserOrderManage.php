@@ -175,7 +175,7 @@ class UserOrderManage extends Controller
 
         // Query using Laravel Eloquent
         $params = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered'])
+            ->whereIn('showerrors', ['delivered', 'Delivered','SHIPMENT DELIVERED'])
             ->where('order_cancel', '!=', '1')
             ->orderBy('Single_Order_Id', 'desc')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
@@ -322,7 +322,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered'])
+            ->whereIn('showerrors', ['delivered', 'Delivered','SHIPMENT DELIVERED'])
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('Awb_Number', '!=', '')
             ->where('order_cancel', '!=', '1')
@@ -336,7 +336,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+           ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -358,7 +358,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
+            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked','WRONG PINCODE, WILL IMPACT DELIVERY','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','SHIPMENT DETAINED BY REGULATORY AUTHORITIES','NEED DEPARTMENT NAME/EXTENTION NUMBER','DELIVERY DELAYED','SHIPMENT REDIRECTED ON SAME AWB','SHIPMENT REDIRECTED ON NEW AIRWAY BILL','SHIPMENT ARRIVED','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','In Transit. Await delivery information'])
 
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->count();
@@ -942,21 +942,21 @@ class UserOrderManage extends Controller
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered'])
+            ->whereIn('showerrors', ['delivered', 'Delivered','SHIPMENT DELIVERED'])
             ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
             ->where('Awb_Number', '!=', '')
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
+             ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked','Online shipment booked','SHIPMENT MANIFESTED - NOT RECEIVED'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+           ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
             ->where('order_cancel', '!=', '1')
@@ -1006,7 +1006,7 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->whereIn('showerrors', ['Booked', 'Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+            ->whereIn('showerrors', ['Booked', 'Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated','Online shipment booked','SHIPMENT MANIFESTED - NOT RECEIVED'])
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id','dhlerrors');
 
@@ -1071,21 +1071,21 @@ class UserOrderManage extends Controller
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered'])
+            ->whereIn('showerrors', ['delivered', 'Delivered','SHIPMENT DELIVERED'])
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('Awb_Number', '!=', '')
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
+            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked','Online shipment booked','SHIPMENT MANIFESTED - NOT RECEIVED'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+           ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1097,7 +1097,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $ofd = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
+            ->whereIn('showerrors', ['out for delivery', 'Out For Delivery',`OUT FOR DELIVERY,  DETAILS AWAITED`])
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->count();
 
@@ -1107,7 +1107,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
+            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked','WRONG PINCODE, WILL IMPACT DELIVERY','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','SHIPMENT DETAINED BY REGULATORY AUTHORITIES','NEED DEPARTMENT NAME/EXTENTION NUMBER','DELIVERY DELAYED','SHIPMENT REDIRECTED ON SAME AWB','SHIPMENT REDIRECTED ON NEW AIRWAY BILL','SHIPMENT ARRIVED','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','In Transit. Await delivery information'])
 
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->count();
@@ -1137,7 +1137,7 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
+            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked','WRONG PINCODE, WILL IMPACT DELIVERY','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','SHIPMENT DETAINED BY REGULATORY AUTHORITIES','NEED DEPARTMENT NAME/EXTENTION NUMBER','DELIVERY DELAYED','SHIPMENT REDIRECTED ON SAME AWB','SHIPMENT REDIRECTED ON NEW AIRWAY BILL','SHIPMENT ARRIVED','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','In Transit. Await delivery information'])
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id','dhlerrors');
 
@@ -1202,21 +1202,21 @@ class UserOrderManage extends Controller
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered'])
+            ->whereIn('showerrors', ['delivered', 'Delivered','SHIPMENT DELIVERED'])
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('Awb_Number', '!=', '')
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
+             ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked','Online shipment booked','SHIPMENT MANIFESTED - NOT RECEIVED'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+           ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1238,7 +1238,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
+            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked','WRONG PINCODE, WILL IMPACT DELIVERY','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','SHIPMENT DETAINED BY REGULATORY AUTHORITIES','NEED DEPARTMENT NAME/EXTENTION NUMBER','DELIVERY DELAYED','SHIPMENT REDIRECTED ON SAME AWB','SHIPMENT REDIRECTED ON NEW AIRWAY BILL','SHIPMENT ARRIVED','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','In Transit. Await delivery information'])
 
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->count();
@@ -1331,21 +1331,21 @@ class UserOrderManage extends Controller
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered'])
+            ->whereIn('showerrors', ['delivered', 'Delivered','SHIPMENT DELIVERED'])
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('Awb_Number', '!=', '')
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
+             ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked','Online shipment booked','SHIPMENT MANIFESTED - NOT RECEIVED'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+           ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1367,7 +1367,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
+            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked','WRONG PINCODE, WILL IMPACT DELIVERY','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','SHIPMENT DETAINED BY REGULATORY AUTHORITIES','NEED DEPARTMENT NAME/EXTENTION NUMBER','DELIVERY DELAYED','SHIPMENT REDIRECTED ON SAME AWB','SHIPMENT REDIRECTED ON NEW AIRWAY BILL','SHIPMENT ARRIVED','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','In Transit. Await delivery information'])
 
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->count();
@@ -1395,7 +1395,7 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->where('showerrors', 'Delivered')
+            ->where('showerrors', 'Delivered','SHIPMENT DELIVERED')
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id','dhlerrors');
 
@@ -1460,21 +1460,21 @@ class UserOrderManage extends Controller
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered'])
+            ->whereIn('showerrors', ['delivered', 'Delivered','SHIPMENT DELIVERED'])
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('Awb_Number', '!=', '')
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
+             ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked','Online shipment booked','SHIPMENT MANIFESTED - NOT RECEIVED'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+           ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1496,7 +1496,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
+            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked','WRONG PINCODE, WILL IMPACT DELIVERY','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','SHIPMENT DETAINED BY REGULATORY AUTHORITIES','NEED DEPARTMENT NAME/EXTENTION NUMBER','DELIVERY DELAYED','SHIPMENT REDIRECTED ON SAME AWB','SHIPMENT REDIRECTED ON NEW AIRWAY BILL','SHIPMENT ARRIVED','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','In Transit. Await delivery information'])
 
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->count();
@@ -1521,10 +1521,12 @@ class UserOrderManage extends Controller
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
         $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
+       
+
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id','dhlerrors','dhlerrors');
 
@@ -1589,21 +1591,21 @@ class UserOrderManage extends Controller
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered'])
+            ->whereIn('showerrors', ['delivered', 'Delivered','SHIPMENT DELIVERED'])
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('Awb_Number', '!=', '')
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
+             ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked','Online shipment booked','SHIPMENT MANIFESTED - NOT RECEIVED'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1625,7 +1627,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
+            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked','WRONG PINCODE, WILL IMPACT DELIVERY','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','SHIPMENT DETAINED BY REGULATORY AUTHORITIES','NEED DEPARTMENT NAME/EXTENTION NUMBER','DELIVERY DELAYED','SHIPMENT REDIRECTED ON SAME AWB','SHIPMENT REDIRECTED ON NEW AIRWAY BILL','SHIPMENT ARRIVED','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','In Transit. Await delivery information'])
 
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->count();
@@ -1720,21 +1722,21 @@ class UserOrderManage extends Controller
         // dd($booked);
 
         $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered'])
+            ->whereIn('showerrors', ['delivered', 'Delivered','SHIPMENT DELIVERED'])
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('Awb_Number', '!=', '')
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
+             ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked','Online shipment booked','SHIPMENT MANIFESTED - NOT RECEIVED'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+           ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1756,7 +1758,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
+            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked','WRONG PINCODE, WILL IMPACT DELIVERY','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','SHIPMENT DETAINED BY REGULATORY AUTHORITIES','NEED DEPARTMENT NAME/EXTENTION NUMBER','DELIVERY DELAYED','SHIPMENT REDIRECTED ON SAME AWB','SHIPMENT REDIRECTED ON NEW AIRWAY BILL','SHIPMENT ARRIVED','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','In Transit. Await delivery information'])
 
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->count();
@@ -1851,21 +1853,21 @@ class UserOrderManage extends Controller
             ->count();
 
         $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered'])
+            ->whereIn('showerrors', ['delivered', 'Delivered','SHIPMENT DELIVERED'])
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('Awb_Number', '!=', '')
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked'])
+             ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked','Online shipment booked','SHIPMENT MANIFESTED - NOT RECEIVED'])
             ->whereNotNull('Awb_Number')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
             ->count();
 
         $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+           ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
             ->where('Awb_Number', '!=', '')
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->where('order_cancel', '!=', '1')
@@ -1887,7 +1889,7 @@ class UserOrderManage extends Controller
             ->count();
 
         $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked'])
+            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked','WRONG PINCODE, WILL IMPACT DELIVERY','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','SHIPMENT DETAINED BY REGULATORY AUTHORITIES','NEED DEPARTMENT NAME/EXTENTION NUMBER','DELIVERY DELAYED','SHIPMENT REDIRECTED ON SAME AWB','SHIPMENT REDIRECTED ON NEW AIRWAY BILL','SHIPMENT ARRIVED','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','In Transit. Await delivery information'])
 
             ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
             ->count();

@@ -115,7 +115,7 @@ class UserDashboard extends Controller
         ->count('Single_Order_Id');
 
       $tallpending = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+        ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated','Online shipment booked','SHIPMENT MANIFESTED - NOT RECEIVED'])
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Rec_Time_Date', array($fromdate1, $todate1))
@@ -205,31 +205,31 @@ class UserDashboard extends Controller
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
       $monthpickup = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'])
+        ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated','Online shipment booked','SHIPMENT MANIFESTED - NOT RECEIVED'])
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
       $callintransit = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',  'Shipment Booked'])
+        ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',  'Shipment Booked','WRONG PINCODE, WILL IMPACT DELIVERY','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','SHIPMENT DETAINED BY REGULATORY AUTHORITIES','NEED DEPARTMENT NAME/EXTENTION NUMBER','DELIVERY DELAYED','SHIPMENT REDIRECTED ON SAME AWB','SHIPMENT REDIRECTED ON NEW AIRWAY BILL','SHIPMENT ARRIVED','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','In Transit. Await delivery information'])
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
       $calldeliverd = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['delivered', 'Delivered'])
+        ->whereIn('showerrors', ['delivered', 'Delivered','SHIPMENT DELIVERED'])
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
       $monthndr = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED'])
+        ->whereIn('showerrors', ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED',`CONSIGNEE'S ADDRESS INCORRECT/INCORRECT`,`NO SUCH CONSIGNEE AT THE GIVEN ADDRESS`,`CONSIGNEE NOT AVAILABLE`,`CONSIGNEE REFUSED TO ACCEPT`,`PROHIBITED AREA-ENTRY RESTRICTED FOR DELIVERY`,`OFFICE CLOSED; UNABLE TO DELIVER`,`OUT OF DELIVERY AREA`,`DELIVERY ATTEMPTED-PREMISES CLOSED`])
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
 
       $tallcancel = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+        ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
@@ -238,7 +238,7 @@ class UserDashboard extends Controller
 
 
       $callretrun = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'])
+        ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
@@ -339,12 +339,12 @@ class UserDashboard extends Controller
         ->count('Single_Order_Id');
 
       // details for order 
-      $pending_pickup = ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated'];
-      $In_Transit = ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked'];
-      $ofd = ['out for delivery'];
-      $delivered = ['delivered', 'Delivered'];
-      $rto = ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto'];
-      $ndr = ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED'];
+      $pending_pickup = ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated','Online shipment booked','SHIPMENT MANIFESTED - NOT RECEIVED'];
+      $In_Transit = ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked','WRONG PINCODE, WILL IMPACT DELIVERY','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','SHIPMENT DETAINED BY REGULATORY AUTHORITIES','NEED DEPARTMENT NAME/EXTENTION NUMBER','DELIVERY DELAYED','SHIPMENT REDIRECTED ON SAME AWB','SHIPMENT REDIRECTED ON NEW AIRWAY BILL','SHIPMENT ARRIVED','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','In Transit. Await delivery information'];
+      $ofd = ['out for delivery',`OUT FOR DELIVERY,  DETAILS AWAITED`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`];
+      $delivered = ['delivered', 'Delivered','SHIPMENT DELIVERED'];
+      $rto = ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,];
+      $ndr = ['exception', 'Undelivered', 'RTO_NDR', 'QC FAILED',`CONSIGNEE'S ADDRESS INCORRECT/INCORRECT`,`NO SUCH CONSIGNEE AT THE GIVEN ADDRESS`,`CONSIGNEE NOT AVAILABLE`,`CONSIGNEE REFUSED TO ACCEPT`,`PROHIBITED AREA-ENTRY RESTRICTED FOR DELIVERY`,`OFFICE CLOSED; UNABLE TO DELIVER`,`OUT OF DELIVERY AREA`,`DELIVERY ATTEMPTED-PREMISES CLOSED`];
       // start all dertils courier 
       $awbGenBy = ['Ecom', 'Xpressbee', 'Bluedart', 'Ekart', 'Bluedart-sc'];
 
