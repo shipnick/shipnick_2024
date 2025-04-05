@@ -94,7 +94,7 @@ class BlueDart_PlaceOrderJob implements ShouldQueue
                         'AvailableDays' => '',
                         'AvailableTiming' => '',
                         'ConsigneeAddress1' => $daadrs,
-                        'ConsigneeAddress2' => '',
+                        'ConsigneeAddress2' => $daadrs2,
                         'ConsigneeAddress3' => '',
                         'ConsigneeAddressType' => '',
                         'ConsigneeAddressinfo' => '',
