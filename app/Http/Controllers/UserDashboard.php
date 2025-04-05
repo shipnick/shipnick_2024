@@ -210,11 +210,37 @@ class UserDashboard extends Controller
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
-      $callintransit = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',  'Shipment Booked','WRONG PINCODE, WILL IMPACT DELIVERY','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','SHIPMENT DETAINED BY REGULATORY AUTHORITIES','NEED DEPARTMENT NAME/EXTENTION NUMBER','DELIVERY DELAYED','SHIPMENT REDIRECTED ON SAME AWB','SHIPMENT REDIRECTED ON NEW AIRWAY BILL','SHIPMENT ARRIVED','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','In Transit. Await delivery information'])
+        $callintransit = bulkorders::where('User_Id', $userid)
+        ->whereIn('showerrors', [
+            'In-Transit', 
+            'in transit', 
+            'Connected', 
+            'intranit', 
+            'Ready for Connection', 
+            'Shipped', 
+            'Delayed', 
+            'Partial_Delivered', 
+            'REACHED AT DESTINATION HUB', 
+            'MISROUTED', 
+            'PICKED UP', 
+            'Reached Warehouse', 
+            'Custom Cleared', 
+            'In Flight',  
+            'Shipment Booked',
+            'WRONG PINCODE, WILL IMPACT DELIVERY',
+            'DELIVERY  SCHEDULED FOR NEXT WORKING DAY',
+            'SHIPMENT DETAINED BY REGULATORY AUTHORITIES',
+            'NEED DEPARTMENT NAME/EXTENTION NUMBER',
+            'DELIVERY DELAYED',
+            'SHIPMENT REDIRECTED ON SAME AWB',
+            'SHIPMENT REDIRECTED ON NEW AIRWAY BILL',
+            'SHIPMENT ARRIVED',
+            'In Transit. Await delivery information'
+        ])
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
         ->count('Single_Order_Id');
+    
       $calldeliverd = bulkorders::where('User_Id', $userid)
         ->whereIn('showerrors', ['delivered', 'Delivered','SHIPMENT DELIVERED'])
         ->where('Awb_Number', '!=', '')
@@ -339,8 +365,47 @@ class UserDashboard extends Controller
         ->count('Single_Order_Id');
 
       // details for order 
-      $pending_pickup = ['Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated','Online shipment booked','SHIPMENT MANIFESTED - NOT RECEIVED'];
-      $In_Transit = ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked','WRONG PINCODE, WILL IMPACT DELIVERY','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','SHIPMENT DETAINED BY REGULATORY AUTHORITIES','NEED DEPARTMENT NAME/EXTENTION NUMBER','DELIVERY DELAYED','SHIPMENT REDIRECTED ON SAME AWB','SHIPMENT REDIRECTED ON NEW AIRWAY BILL','SHIPMENT ARRIVED','DELIVERY  SCHEDULED FOR NEXT WORKING DAY','In Transit. Await delivery information'];
+      $pending_pickup = [
+        'Shipment Not Handed Over', 
+        'Pending Pickup', 
+        'AWB Assigned', 
+        'Pickup Error', 
+        'Pickup Rescheduled', 
+        'Out for Pickup', 
+        'Pickup Exception', 
+        'Pickup Booked', 
+        'Shipment Booked', 
+        'Pickup Generated',
+        'Online Shipment Booked',
+        'Shipment Manifested - Not Received'
+    ];
+    
+      $In_Transit = [
+        'In Transit', 
+        'Connected', 
+        'Intranit', 
+        'Ready for Connection', 
+        'Shipped', 
+        'Delayed', 
+        'Partial Delivered', 
+        'Reached at Destination Hub', 
+        'Misdirected', 
+        'Picked Up', 
+        'Reached Warehouse', 
+        'Custom Cleared', 
+        'In Flight', 
+        'Shipment Booked', 
+        'Wrong Pincode, Will Impact Delivery', 
+        'Delivery Scheduled for Next Working Day', 
+        'Shipment Detained by Regulatory Authorities', 
+        'Need Department Name/Extension Number', 
+        'Delivery Delayed', 
+        'Shipment Redirected on Same AWB', 
+        'Shipment Redirected on New Airway Bill', 
+        'Shipment Arrived', 
+        'In Transit, Awaiting Delivery Information'
+      ];
+    
       $ofd = ['out for delivery',`OUT FOR DELIVERY,  DETAILS AWAITED`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`];
       $delivered = ['delivered', 'Delivered','SHIPMENT DELIVERED'];
       $rto = ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,];
