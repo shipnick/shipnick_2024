@@ -319,7 +319,15 @@ class UserDashboard extends Controller
 
 
       $callretrun = bulkorders::where('User_Id', $userid)
-        ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto',`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`,`RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
+        ->whereIn('showerrors', ['Shipment Redirected',
+            'Undelivered',
+            'RTO Initiated',
+            'RTO Delivered',
+            'RTO Acknowledged',
+            'RTO_OFD',
+            'RTO IN INTRANSIT',
+            'rto',
+            'RETURNED TO ORIGIN AT SHIPPER\'S REQUEST'])
         ->where('Awb_Number', '!=', '')
         ->where('order_cancel', '!=', '1')
         ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
