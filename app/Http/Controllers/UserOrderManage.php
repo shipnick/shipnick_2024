@@ -961,7 +961,7 @@ class UserOrderManage extends Controller
 
         // Count various order statuses
         $booked = $getCount(['Booked'], ['Awb_Number' => '']);
-        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED'], ['Awb_Number' => '!=']);
+        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED']);
         $pending_pickup = $getCount([
             'Pickup Scheduled',
             'Shipment Not Handed over',
@@ -1136,7 +1136,7 @@ class UserOrderManage extends Controller
 
         // Count various order statuses
         $booked = $getCount(['Booked'], ['Awb_Number' => '']);
-        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED'], ['Awb_Number' => '!=', 'order_cancel' => '!=']);
+        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED']);
         $pending_pickup = $getCount([
             'Pickup Scheduled',
             'Shipment Not Handed over',
@@ -1321,7 +1321,7 @@ class UserOrderManage extends Controller
 
         // Count various order statuses
         $booked = $getCount(['Booked'], ['Awb_Number' => '']);
-        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED'], ['Awb_Number' => '!=', 'order_cancel' => '!=']);
+        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED']);
         $pending_pickup = $getCount([
             'Pickup Scheduled',
             'Shipment Not Handed over',
@@ -1475,7 +1475,7 @@ class UserOrderManage extends Controller
 
         // Count various order statuses
         $booked = $getCount(['Booked'], ['Awb_Number' => '']);
-        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED'], ['Awb_Number' => '!=']);
+        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED']);
         $pending_pickup = $getCount([
             'Pickup Scheduled',
             'Shipment Not Handed over',
@@ -1561,7 +1561,7 @@ class UserOrderManage extends Controller
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
             ->whereIn('showerrors', [
-                'showerrors',
+                'delivered',
                 'Delivered',
                 'SHIPMENT DELIVERED'
             ])
@@ -1640,7 +1640,7 @@ class UserOrderManage extends Controller
 
         // Count various order statuses
         $booked = $getCount(['Booked'], ['Awb_Number' => '']);
-        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED'], ['Awb_Number' => '!=', 'order_cancel' => '!=']);
+        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED']);
         $pending_pickup = $getCount([
             'Pickup Scheduled',
             'Shipment Not Handed over',
@@ -1808,7 +1808,7 @@ class UserOrderManage extends Controller
 
         // Count various order statuses
         $booked = $getCount(['Booked'], ['Awb_Number' => '']);
-        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED'], ['Awb_Number' => '!=', 'order_cancel' => '!=']);
+        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED']);
         $pending_pickup = $getCount([
             'Pickup Scheduled',
             'Shipment Not Handed over',
@@ -1945,7 +1945,7 @@ class UserOrderManage extends Controller
 
         // Count various order statuses
         $booked = $getCount(['Booked'], ['Awb_Number' => '']);
-        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED'], ['Awb_Number' => '!=', 'order_cancel' => '!=']);
+        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED']);
         $pending_pickup = $getCount([
             'Pickup Scheduled',
             'Shipment Not Handed over',
