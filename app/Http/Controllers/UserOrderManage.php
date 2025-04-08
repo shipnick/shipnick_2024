@@ -880,19 +880,44 @@ class UserOrderManage extends Controller
     {
         $userid = session()->get('UserLogin2id');
         $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
-        // Determine the date range based on request parameters or default to today
-        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::today()->startOfDay();
-        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::today()->endOfDay();
 
-        // Query using Laravel Eloquent
+        // Set default date range (current month) if not provided
+        $currentMonthStart = Carbon::now()->startOfMonth();
+        $currentMonthEnd = Carbon::now()->endOfMonth();
+
+        // Use provided date range or default to current month
+        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : $currentMonthStart;
+        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : $currentMonthEnd;
+
+        // Query to fetch orders with specific conditions
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
             ->whereNull('xberrors')
             ->where('Awb_Number', '')
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Single_Order_Id', 'Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'Actual_Weight', 'Height', 'Width', 'Length', 'orderno', 'Quantity', 'Total_Amount', 'uploadtype');
+            ->select(
+                'Single_Order_Id',
+                'Awb_Number',
+                'ordernoapi',
+                'Last_Time_Stamp',
+                'Name',
+                'Mobile',
+                'Address',
+                'awb_gen_by',
+                'showerrors',
+                'Order_Type',
+                'Item_Name',
+                'Actual_Weight',
+                'Height',
+                'Width',
+                'Length',
+                'orderno',
+                'Quantity',
+                'Total_Amount',
+                'uploadtype'
+            );
 
-        // Apply additional filters based on request parameters
+        // Apply additional filters if any
         if ($cfromdateObj && $ctodateObj) {
             $query->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj]);
         }
@@ -905,10 +930,8 @@ class UserOrderManage extends Controller
         if ($req->filled('awb')) {
             $query->where('Awb_Number', $req->awb);
         }
-        if ($req->filled('warehouse')) {
-            // $Hubs1 = Hubs::where('hub_code', $req->warehouse)->first();
-            // dd($req->warehouse);
-            $query->where('pickup_id', $req->warehouse);
+        if ($req->filled('courier')) {
+            $query->where('awb_gen_by', 'like', '%' . $req->courier . '%');
         }
         if ($req->filled('cannel')) {
             $query->where('uploadtype', 'like', '%' . $req->cannel . '%');
@@ -917,8 +940,7 @@ class UserOrderManage extends Controller
             $query->where('orderno', 'like', '%' . $req->orderid . '%');
         }
 
-
-
+        // Pagination
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
 
@@ -927,64 +949,78 @@ class UserOrderManage extends Controller
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
 
-        // Determine the current month's start and end dates
-        $currentMonthStart = Carbon::now()->startOfMonth();
-        $currentMonthEnd = Carbon::now()->endOfMonth();
+        // Reusable function to get order counts
+        $getCount = function ($showErrors, $additionalConditions = []) use ($userid, $cfromdateObj, $ctodateObj) {
+            return bulkorders::where('User_Id', $userid)
+                ->whereIn('showerrors', $showErrors)
+                ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
+                ->where('order_cancel', '!=', '1')
+                ->where($additionalConditions)
+                ->count();
+        };
 
-        $cfromdateObj1 = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth(); // Start of the day for $cfromdate
-        $ctodateObj1 = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth(); // End of the day for $ctodate
+        // Count various order statuses
+        $booked = $getCount(['Booked'], ['Awb_Number' => '']);
+        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED'], ['Awb_Number' => '!=']);
+        $pending_pickup = $getCount([
+            'Pickup Scheduled',
+            'Shipment Not Handed over',
+            'pending pickup',
+            'AWB Assigned',
+            'Pickup Error',
+            'Pickup Rescheduled',
+            'Out For Pickup',
+            'Pickup Exception',
+            'Pickup Booked',
+            'Shipment Booked',
+            'Pickup Generated',
+            'Online shipment booked',
+            'PICKUP HAS BEEN REGISTERED',
+            'SHIPMENT MANIFESTED - NOT RECEIVED'
+        ], ['Awb_Number' => '!=']);
+        $rto = $getCount([
+            'Shipment Redirected',
+            'Undelivered',
+            'RTO Initiated',
+            'RTO Delivered',
+            'RTO Acknowledged',
+            'RTO_OFD',
+            'RTO IN INTRANSIT',
+            'rto',
+            'RETURNED TO ORIGIN AT SHIPPER\'S REQUEST'
+        ], ['Awb_Number' => '!=']);
+        $cancel = $getCount([], []);
+        $ofd = $getCount(['out for delivery', 'Out For Delivery', 'OUT FOR DELIVERY, DETAILS AWAITED'], []);
+        $failde = $getCount([], ['Awb_Number' => '']);
+        $in_transit = $getCount([
+            'In-Transit',
+            'in transit',
+            'Connected',
+            'intranit',
+            'Ready for Connection',
+            'Shipped',
+            'In Transit',
+            'Delayed',
+            'Partial_Delivered',
+            'REACHED AT DESTINATION HUB',
+            'MISROUTED',
+            'PICKED UP',
+            'Reached Warehouse',
+            'Custom Cleared',
+            'In Flight',
+            'Shipment Booked',
+            'In Transit. Await delivery information',
+            'DELIVERY SCHEDULED FOR NEXT WORKING DAY',
+            'SHIPMENT ARRIVED',
+            'SHIPMENT REDIRECTED ON NEW AIRWAY BILL',
+            'SHIPMENT REDIRECTED ON SAME AWB',
+            'DELIVERY DELAYED'
+        ], []);
 
-        // Calculate various counts
-        $booked = bulkorders::where('User_Id', $userid)
-            ->whereNull('xberrors')
-            ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->count();
-
-        $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered', 'SHIPMENT DELIVERED'])
-            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-            ->where('Awb_Number', '!=', '')
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked', 'Online shipment booked', 'SHIPMENT MANIFESTED - NOT RECEIVED'])
-            ->whereNotNull('Awb_Number')
-            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto', `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`, `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
-            ->where('Awb_Number', '!=', '')
-            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $cancel = bulkorders::where('User_Id', $userid)
-            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-            // ->where('order_cancel', 1)
-            ->count();
-
-        $ofd = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
-            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-            ->count();
-
-        $failde = bulkorders::where('User_Id', $userid)
-            ->where('Awb_Number', '')
-            ->whereDate('Rec_Time_Date', Carbon::today())
-            ->count();
-
-        $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight', 'Shipment Booked'])
-            ->whereBetween('Last_Time_Stamp', [$currentMonthStart, $currentMonthEnd])
-            ->count();
-
-        // Prepare data for the view
+        // Prepare data to send to view
         $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
 
+        // Return the view with required data
         return view('UserPanel.PlaceOrder1.booked', [
             'params' => $orders,
             'Hubs' => $Hubs,
@@ -995,10 +1031,12 @@ class UserOrderManage extends Controller
             'ctodate' => $req->to
         ])->with($data);
     }
+
     public function Pickup_pending(Request $req)
     {
         $userid = session()->get('UserLogin2id');
         $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
+
         // Convert date range inputs to Carbon objects if they are set
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
         $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
@@ -1006,9 +1044,43 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->whereIn('showerrors', ['Booked', 'Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Online shipment booked', 'SHIPMENT MANIFESTED - NOT RECEIVED'])
+            ->whereIn('showerrors', [
+                'Booked',
+                'Pickup Scheduled',
+                'Shipment Not Handed over',
+                'pending pickup',
+                'AWB Assigned',
+                'Pickup Error',
+                'Pickup Rescheduled',
+                'Out For Pickup',
+                'Pickup Exception',
+                'Pickup Booked',
+                'Shipment Booked',
+                'Pickup Generated',
+                'Online shipment booked',
+                'PICKUP HAS BEEN REGISTERED',
+                'SHIPMENT MANIFESTED - NOT RECEIVED'
+            ])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id', 'dhlerrors');
+            ->select(
+                'Awb_Number',
+                'ordernoapi',
+                'Last_Time_Stamp',
+                'Name',
+                'Mobile',
+                'Address',
+                'awb_gen_by',
+                'showerrors',
+                'Order_Type',
+                'Item_Name',
+                'Awb_Number',
+                'Quantity',
+                'Total_Amount',
+                'orderno',
+                'uploadtype',
+                'Single_Order_Id',
+                'dhlerrors'
+            );
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1041,80 +1113,86 @@ class UserOrderManage extends Controller
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
 
-        $tdate = date('Y-m-d');
-        $userid = session()->get('UserLogin2id');
-        $cfromdate = date('Y-m-d');
-        $ctodate = date('Y-m-d');
-        $cfromdateObj = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
-        $ctodateObj = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
-
-        // Current Month
+        // Fetch the current month start and end
         $crtmonth = date("m");
         $crtyear = date("Y");
         $crtmdays = cal_days_in_month(CAL_GREGORIAN, $crtmonth, $crtyear);
-        $currentmonthstart = "1-$crtmonth-$crtyear";
-        $currentmonthstend = "$crtmdays-$crtmonth-$crtyear";
-        $currentmonthstart = date('d-m-Y', strtotime($currentmonthstart));
-        $currentmonthstend = date('d-m-Y', strtotime($currentmonthstend));
+        $currentmonthstart = date('Y-m-d', strtotime("1-$crtmonth-$crtyear"));
+        $currentmonthstend = date('Y-m-d', strtotime("$crtmdays-$crtmonth-$crtyear"));
 
-        $cfromdate = date('Y-m-d', strtotime($currentmonthstart));
-        $ctodate = date('Y-m-d', strtotime($currentmonthstend));
+        // Prepare date range objects for queries
+        $cfromdateObj1 = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::parse($currentmonthstart)->startOfDay();
+        $ctodateObj1 = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::parse($currentmonthstend)->endOfDay();
 
-        $cfromdateObj1 = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth(); // Start of the day for $cfromdate
-        $ctodateObj1 = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth(); // End of the day for $ctodate
+        // Reusable function to get order counts
+        $getCount = function ($showErrors, $additionalConditions = []) use ($userid, $cfromdateObj1, $ctodateObj1) {
+            return bulkorders::where('User_Id', $userid)
+                ->whereIn('showerrors', $showErrors)
+                ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+                ->where('order_cancel', '!=', '1')
+                ->where($additionalConditions)
+                ->count();
+        };
 
-        // booked of today order count
-        $booked = bulkorders::where('User_Id', $userid)
-            ->whereNull('xberrors')
-            ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->count();
-
-        $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered', 'SHIPMENT DELIVERED'])
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('Awb_Number', '!=', '')
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked', 'Online shipment booked', 'SHIPMENT MANIFESTED - NOT RECEIVED'])
-            ->whereNotNull('Awb_Number')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto', `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`, `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
-            ->where('Awb_Number', '!=', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $cancel = bulkorders::where('User_Id', $userid)
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            // ->where('order_cancel', 1)
-            ->count();
-
-        $ofd = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['out for delivery', 'Out For Delivery', `OUT FOR DELIVERY,  DETAILS AWAITED`])
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->count();
-
-        $failde = bulkorders::where('User_Id', $userid)
-            ->where('Awb_Number', '')
-            ->where('Rec_Time_Date', $tdate)
-            ->count();
-
-        $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked', 'WRONG PINCODE, WILL IMPACT DELIVERY', 'DELIVERY  SCHEDULED FOR NEXT WORKING DAY', 'SHIPMENT DETAINED BY REGULATORY AUTHORITIES', 'NEED DEPARTMENT NAME/EXTENTION NUMBER', 'DELIVERY DELAYED', 'SHIPMENT REDIRECTED ON SAME AWB', 'SHIPMENT REDIRECTED ON NEW AIRWAY BILL', 'SHIPMENT ARRIVED', 'DELIVERY  SCHEDULED FOR NEXT WORKING DAY', 'In Transit. Await delivery information'])
-
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->count();
+        // Count various order statuses
+        $booked = $getCount(['Booked'], ['Awb_Number' => '']);
+        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED'], ['Awb_Number' => '!=', 'order_cancel' => '!=']);
+        $pending_pickup = $getCount([
+            'Pickup Scheduled',
+            'Shipment Not Handed over',
+            'pending pickup',
+            'AWB Assigned',
+            'Pickup Error',
+            'Pickup Rescheduled',
+            'Out For Pickup',
+            'Pickup Exception',
+            'Pickup Booked',
+            'Shipment Booked',
+            'Pickup Generated',
+            'Online shipment booked',
+            'PICKUP HAS BEEN REGISTERED',
+            'SHIPMENT MANIFESTED - NOT RECEIVED'
+        ], ['Awb_Number' => '!=']);
+        $rto = $getCount([
+            'Shipment Redirected',
+            'Undelivered',
+            'RTO Initiated',
+            'RTO Delivered',
+            'RTO Acknowledged',
+            'RTO_OFD',
+            'RTO IN INTRANSIT',
+            'rto',
+            'RETURNED TO ORIGIN AT SHIPPER\'S REQUEST'
+        ], ['Awb_Number' => '!=']);
+        $cancel = $getCount([], []);
+        $ofd = $getCount(['out for delivery', 'Out For Delivery', 'OUT FOR DELIVERY,  DETAILS AWAITED'], []);
+        $failde = $getCount([], ['Awb_Number' => '']);
+        $in_transit = $getCount([
+            'In-Transit',
+            'in transit',
+            'Connected',
+            'intranit',
+            'Ready for Connection',
+            'Shipped',
+            'In Transit',
+            'Delayed',
+            'Partial_Delivered',
+            'REACHED AT DESTINATION HUB',
+            'MISROUTED',
+            'PICKED UP',
+            'Reached Warehouse',
+            'Custom Cleared',
+            'In Flight',
+            'Shipment Booked',
+            'In Transit. Await delivery information',
+            'DELIVERY  SCHEDULED FOR NEXT WORKING DAY',
+            'SHIPMENT ARRIVED',
+            'SHIPMENT REDIRECTED ON NEW AIRWAY BILL',
+            'SHIPMENT REDIRECTED ON SAME AWB',
+            'DELIVERY DELAYED'
+        ], []);
 
         $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
-
-
 
         return view('UserPanel.PlaceOrder1.pickup-pending', [
             'params' => $orders,
@@ -1126,10 +1204,12 @@ class UserOrderManage extends Controller
             'ctodate' => $req->to
         ])->with($data);
     }
+
     public function Intransit(Request $req)
     {
         $userid = session()->get('UserLogin2id');
         $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
+
         // Convert date range inputs to Carbon objects if they are set
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
         $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
@@ -1137,9 +1217,55 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked', 'WRONG PINCODE, WILL IMPACT DELIVERY', 'DELIVERY  SCHEDULED FOR NEXT WORKING DAY', 'SHIPMENT DETAINED BY REGULATORY AUTHORITIES', 'NEED DEPARTMENT NAME/EXTENTION NUMBER', 'DELIVERY DELAYED', 'SHIPMENT REDIRECTED ON SAME AWB', 'SHIPMENT REDIRECTED ON NEW AIRWAY BILL', 'SHIPMENT ARRIVED', 'DELIVERY  SCHEDULED FOR NEXT WORKING DAY', 'In Transit. Await delivery information'])
+            ->whereIn('showerrors', [
+                'In-Transit',
+                'in transit',
+                'Connected',
+                'intranit',
+                'Ready for Connection',
+                'Shipped',
+                'In Transit',
+                'Delayed',
+                'Partial_Delivered',
+                'REACHED AT DESTINATION HUB',
+                'MISROUTED',
+                'PICKED UP',
+                'Reached Warehouse',
+                'Custom Cleared',
+                'In Flight',
+                'Shipment Booked',
+                'In Transit. Await delivery information',
+                'DELIVERY  SCHEDULED FOR NEXT WORKING DAY',
+                'SHIPMENT ARRIVED',
+                'SHIPMENT REDIRECTED ON NEW AIRWAY BILL',
+                'SHIPMENT REDIRECTED ON SAME AWB',
+                'DELIVERY DELAYED',
+                'NEED DEPARTMENT NAME/EXTENTION NUMBER',
+                'NETWORK DELAY, WILL IMPACT DELIVERY',
+                'SHIPMENT DETAINED BY REGULATORY AUTHORITIES',
+                'DELIVERY  SCHEDULED FOR NEXT WORKING DAY',
+                'WRONG PINCODE, WILL IMPACT DELIVERY'
+            ])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id', 'dhlerrors');
+            ->select(
+                'Awb_Number',
+                'ordernoapi',
+                'Last_Time_Stamp',
+                'Name',
+                'Mobile',
+                'Address',
+                'awb_gen_by',
+                'showerrors',
+                'Order_Type',
+                'Item_Name',
+                'Awb_Number',
+                'Quantity',
+                'Total_Amount',
+                'orderno',
+                'uploadtype',
+                'Single_Order_Id',
+                'dhlerrors'
+            );
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1172,76 +1298,84 @@ class UserOrderManage extends Controller
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
 
-        $tdate = date('Y-m-d');
-        $userid = session()->get('UserLogin2id');
-        $cfromdate = date('Y-m-d');
-        $ctodate = date('Y-m-d');
-        $cfromdateObj = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
-        $ctodateObj = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
-
-        // Current Month
+        // Fetch the current month start and end
         $crtmonth = date("m");
         $crtyear = date("Y");
         $crtmdays = cal_days_in_month(CAL_GREGORIAN, $crtmonth, $crtyear);
-        $currentmonthstart = "1-$crtmonth-$crtyear";
-        $currentmonthstend = "$crtmdays-$crtmonth-$crtyear";
-        $currentmonthstart = date('d-m-Y', strtotime($currentmonthstart));
-        $currentmonthstend = date('d-m-Y', strtotime($currentmonthstend));
+        $currentmonthstart = date('Y-m-d', strtotime("1-$crtmonth-$crtyear"));
+        $currentmonthstend = date('Y-m-d', strtotime("$crtmdays-$crtmonth-$crtyear"));
 
-        $cfromdate = date('Y-m-d', strtotime($currentmonthstart));
-        $ctodate = date('Y-m-d', strtotime($currentmonthstend));
+        // Prepare date range objects for queries
+        $cfromdateObj1 = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::parse($currentmonthstart)->startOfDay();
+        $ctodateObj1 = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::parse($currentmonthstend)->endOfDay();
 
-        $cfromdateObj1 = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
-        $ctodateObj1 = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
+        // Reusable function to get order counts
+        $getCount = function ($showErrors, $additionalConditions = []) use ($userid, $cfromdateObj1, $ctodateObj1) {
+            return bulkorders::where('User_Id', $userid)
+                ->whereIn('showerrors', $showErrors)
+                ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+                ->where('order_cancel', '!=', '1')
+                ->where($additionalConditions)
+                ->count();
+        };
 
-        // booked of today order count
-        $booked = bulkorders::where('User_Id', $userid)
-            ->whereNull('xberrors')
-            ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->count();
-
-        $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered', 'SHIPMENT DELIVERED'])
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('Awb_Number', '!=', '')
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked', 'Online shipment booked', 'SHIPMENT MANIFESTED - NOT RECEIVED'])
-            ->whereNotNull('Awb_Number')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto', `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`, `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
-            ->where('Awb_Number', '!=', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $cancel = bulkorders::where('User_Id', $userid)
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            // ->where('order_cancel', 1)
-            ->count();
-
-        $ofd = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->count();
-
-        $failde = bulkorders::where('User_Id', $userid)
-            ->where('Awb_Number', '')
-            ->where('Rec_Time_Date', $tdate)
-            ->count();
-
-        $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked', 'WRONG PINCODE, WILL IMPACT DELIVERY', 'DELIVERY  SCHEDULED FOR NEXT WORKING DAY', 'SHIPMENT DETAINED BY REGULATORY AUTHORITIES', 'NEED DEPARTMENT NAME/EXTENTION NUMBER', 'DELIVERY DELAYED', 'SHIPMENT REDIRECTED ON SAME AWB', 'SHIPMENT REDIRECTED ON NEW AIRWAY BILL', 'SHIPMENT ARRIVED', 'DELIVERY  SCHEDULED FOR NEXT WORKING DAY', 'In Transit. Await delivery information'])
-
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->count();
+        // Count various order statuses
+        $booked = $getCount(['Booked'], ['Awb_Number' => '']);
+        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED'], ['Awb_Number' => '!=', 'order_cancel' => '!=']);
+        $pending_pickup = $getCount([
+            'Pickup Scheduled',
+            'Shipment Not Handed over',
+            'pending pickup',
+            'AWB Assigned',
+            'Pickup Error',
+            'Pickup Rescheduled',
+            'Out For Pickup',
+            'Pickup Exception',
+            'Pickup Booked',
+            'Shipment Booked',
+            'Pickup Generated',
+            'Online shipment booked',
+            'PICKUP HAS BEEN REGISTERED',
+            'SHIPMENT MANIFESTED - NOT RECEIVED'
+        ], ['Awb_Number' => '!=']);
+        $rto = $getCount([
+            'Shipment Redirected',
+            'Undelivered',
+            'RTO Initiated',
+            'RTO Delivered',
+            'RTO Acknowledged',
+            'RTO_OFD',
+            'RTO IN INTRANSIT',
+            'rto',
+            'RETURNED TO ORIGIN AT SHIPPER\'S REQUEST'
+        ], ['Awb_Number' => '!=']);
+        $cancel = $getCount([], []);
+        $ofd = $getCount(['out for delivery', 'Out For Delivery', 'OUT FOR DELIVERY,  DETAILS AWAITED'], []);
+        $failde = $getCount([], ['Awb_Number' => '']);
+        $in_transit = $getCount([
+            'In-Transit',
+            'in transit',
+            'Connected',
+            'intranit',
+            'Ready for Connection',
+            'Shipped',
+            'In Transit',
+            'Delayed',
+            'Partial_Delivered',
+            'REACHED AT DESTINATION HUB',
+            'MISROUTED',
+            'PICKED UP',
+            'Reached Warehouse',
+            'Custom Cleared',
+            'In Flight',
+            'Shipment Booked',
+            'In Transit. Await delivery information',
+            'DELIVERY  SCHEDULED FOR NEXT WORKING DAY',
+            'SHIPMENT ARRIVED',
+            'SHIPMENT REDIRECTED ON NEW AIRWAY BILL',
+            'SHIPMENT REDIRECTED ON SAME AWB',
+            'DELIVERY DELAYED'
+        ], []);
 
         $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
 
@@ -1255,23 +1389,50 @@ class UserOrderManage extends Controller
             'ctodate' => $req->to
         ])->with($data);
     }
+
     public function Ofd(Request $req)
     {
         $userid = session()->get('UserLogin2id');
         $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
-        // Convert date range inputs to Carbon objects if they are set
-        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
-        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
+
+        // Set default date range
+        $currentMonthStart = Carbon::now()->startOfMonth();
+        $currentMonthEnd = Carbon::now()->endOfMonth();
+
+        // Use provided date range or default to current month
+        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : $currentMonthStart;
+        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : $currentMonthEnd;
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
+            ->whereIn('showerrors', [
+                'out for delivery',
+                'Out For Delivery',
+                'OUT FOR DELIVERY, DETAILS AWAITED'
+            ])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id', 'dhlerrors');
+            ->select(
+                'Awb_Number',
+                'ordernoapi',
+                'Last_Time_Stamp',
+                'Name',
+                'Mobile',
+                'Address',
+                'awb_gen_by',
+                'showerrors',
+                'Order_Type',
+                'Item_Name',
+                'Quantity',
+                'Total_Amount',
+                'orderno',
+                'uploadtype',
+                'Single_Order_Id',
+                'dhlerrors'
+            );
 
         // Apply additional filters based on request parameters
-        if ($cfromdateObj && $ctodateObj) {
+        if ($req->filled('from') && $req->filled('to')) {
             $query->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj]);
         }
         if ($req->filled('order_type')) {
@@ -1293,6 +1454,7 @@ class UserOrderManage extends Controller
             $query->where('orderno', 'like', '%' . $req->orderid . '%');
         }
 
+        // Pagination
         $perPage = $req->input('per_page', 50);
         $orders = $query->paginate($perPage);
 
@@ -1301,79 +1463,78 @@ class UserOrderManage extends Controller
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
 
-        $tdate = date('Y-m-d');
-        $userid = session()->get('UserLogin2id');
-        $cfromdate = date('Y-m-d');
-        $ctodate = date('Y-m-d');
-        $cfromdateObj = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
-        $ctodateObj = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
+        // Reusable function to get order counts for different statuses
+        $getCount = function ($showErrors, $additionalConditions = []) use ($userid, $cfromdateObj, $ctodateObj) {
+            return bulkorders::where('User_Id', $userid)
+                ->whereIn('showerrors', $showErrors)
+                ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
+                ->where('order_cancel', '!=', '1')
+                ->where($additionalConditions)
+                ->count();
+        };
 
-        // Current Month
-        $crtmonth = date("m");
-        $crtyear = date("Y");
-        $crtmdays = cal_days_in_month(CAL_GREGORIAN, $crtmonth, $crtyear);
-        $currentmonthstart = "1-$crtmonth-$crtyear";
-        $currentmonthstend = "$crtmdays-$crtmonth-$crtyear";
-        $currentmonthstart = date('d-m-Y', strtotime($currentmonthstart));
-        $currentmonthstend = date('d-m-Y', strtotime($currentmonthstend));
+        // Count various order statuses
+        $booked = $getCount(['Booked'], ['Awb_Number' => '']);
+        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED'], ['Awb_Number' => '!=']);
+        $pending_pickup = $getCount([
+            'Pickup Scheduled',
+            'Shipment Not Handed over',
+            'pending pickup',
+            'AWB Assigned',
+            'Pickup Error',
+            'Pickup Rescheduled',
+            'Out For Pickup',
+            'Pickup Exception',
+            'Pickup Booked',
+            'Shipment Booked',
+            'Pickup Generated',
+            'Online shipment booked',
+            'PICKUP HAS BEEN REGISTERED',
+            'SHIPMENT MANIFESTED - NOT RECEIVED'
+        ], ['Awb_Number' => '!=']);
+        $rto = $getCount([
+            'Shipment Redirected',
+            'Undelivered',
+            'RTO Initiated',
+            'RTO Delivered',
+            'RTO Acknowledged',
+            'RTO_OFD',
+            'RTO IN INTRANSIT',
+            'rto',
+            'RETURNED TO ORIGIN AT SHIPPER\'S REQUEST'
+        ], ['Awb_Number' => '!=']);
+        $cancel = $getCount([], []);
+        $ofd = $getCount(['out for delivery', 'Out For Delivery', 'OUT FOR DELIVERY, DETAILS AWAITED'], []);
+        $failde = $getCount([], ['Awb_Number' => '']);
+        $in_transit = $getCount([
+            'In-Transit',
+            'in transit',
+            'Connected',
+            'intranit',
+            'Ready for Connection',
+            'Shipped',
+            'In Transit',
+            'Delayed',
+            'Partial_Delivered',
+            'REACHED AT DESTINATION HUB',
+            'MISROUTED',
+            'PICKED UP',
+            'Reached Warehouse',
+            'Custom Cleared',
+            'In Flight',
+            'Shipment Booked',
+            'In Transit. Await delivery information',
+            'DELIVERY SCHEDULED FOR NEXT WORKING DAY',
+            'SHIPMENT ARRIVED',
+            'SHIPMENT REDIRECTED ON NEW AIRWAY BILL',
+            'SHIPMENT REDIRECTED ON SAME AWB',
+            'DELIVERY DELAYED'
+        ], []);
 
-        $cfromdate = date('Y-m-d', strtotime($currentmonthstart));
-        $ctodate = date('Y-m-d', strtotime($currentmonthstend));
-
-        $cfromdateObj1 = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
-        $ctodateObj1 = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
-
-        // booked of today order count
-        $booked = bulkorders::where('User_Id', $userid)
-            ->whereNull('xberrors')
-            ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->count();
-
-        $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered', 'SHIPMENT DELIVERED'])
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('Awb_Number', '!=', '')
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked', 'Online shipment booked', 'SHIPMENT MANIFESTED - NOT RECEIVED'])
-            ->whereNotNull('Awb_Number')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto', `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`, `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
-            ->where('Awb_Number', '!=', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $cancel = bulkorders::where('User_Id', $userid)
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            // ->where('order_cancel', 1)
-            ->count();
-
-        $ofd = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->count();
-
-        $failde = bulkorders::where('User_Id', $userid)
-            ->where('Awb_Number', '')
-            ->where('Rec_Time_Date', $tdate)
-            ->count();
-
-        $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked', 'WRONG PINCODE, WILL IMPACT DELIVERY', 'DELIVERY  SCHEDULED FOR NEXT WORKING DAY', 'SHIPMENT DETAINED BY REGULATORY AUTHORITIES', 'NEED DEPARTMENT NAME/EXTENTION NUMBER', 'DELIVERY DELAYED', 'SHIPMENT REDIRECTED ON SAME AWB', 'SHIPMENT REDIRECTED ON NEW AIRWAY BILL', 'SHIPMENT ARRIVED', 'DELIVERY  SCHEDULED FOR NEXT WORKING DAY', 'In Transit. Await delivery information'])
-
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->count();
-
+        // Prepare data to send to view
         $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
 
+        // Return the view with required data
         return view('UserPanel.PlaceOrder1.ofd', [
             'params' => $orders,
             'Hubs' => $Hubs,
@@ -1384,10 +1545,14 @@ class UserOrderManage extends Controller
             'ctodate' => $req->to
         ])->with($data);
     }
+
+
+
     public function Deliverd(Request $req)
     {
         $userid = session()->get('UserLogin2id');
         $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
+
         // Convert date range inputs to Carbon objects if they are set
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
         $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
@@ -1395,9 +1560,31 @@ class UserOrderManage extends Controller
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->where('showerrors', 'Delivered', 'SHIPMENT DELIVERED')
+            ->whereIn('showerrors', [
+                'showerrors',
+                'Delivered',
+                'SHIPMENT DELIVERED'
+            ])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id', 'dhlerrors');
+            ->select(
+                'Awb_Number',
+                'ordernoapi',
+                'Last_Time_Stamp',
+                'Name',
+                'Mobile',
+                'Address',
+                'awb_gen_by',
+                'showerrors',
+                'Order_Type',
+                'Item_Name',
+                'Awb_Number',
+                'Quantity',
+                'Total_Amount',
+                'orderno',
+                'uploadtype',
+                'Single_Order_Id',
+                'dhlerrors'
+            );
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1430,76 +1617,84 @@ class UserOrderManage extends Controller
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
 
-        $tdate = date('Y-m-d');
-        $userid = session()->get('UserLogin2id');
-        $cfromdate = date('Y-m-d');
-        $ctodate = date('Y-m-d');
-        $cfromdateObj = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
-        $ctodateObj = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
-
-        // Current Month
+        // Fetch the current month start and end
         $crtmonth = date("m");
         $crtyear = date("Y");
         $crtmdays = cal_days_in_month(CAL_GREGORIAN, $crtmonth, $crtyear);
-        $currentmonthstart = "1-$crtmonth-$crtyear";
-        $currentmonthstend = "$crtmdays-$crtmonth-$crtyear";
-        $currentmonthstart = date('d-m-Y', strtotime($currentmonthstart));
-        $currentmonthstend = date('d-m-Y', strtotime($currentmonthstend));
+        $currentmonthstart = date('Y-m-d', strtotime("1-$crtmonth-$crtyear"));
+        $currentmonthstend = date('Y-m-d', strtotime("$crtmdays-$crtmonth-$crtyear"));
 
-        $cfromdate = date('Y-m-d', strtotime($currentmonthstart));
-        $ctodate = date('Y-m-d', strtotime($currentmonthstend));
+        // Prepare date range objects for queries
+        $cfromdateObj1 = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::parse($currentmonthstart)->startOfDay();
+        $ctodateObj1 = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::parse($currentmonthstend)->endOfDay();
 
-        $cfromdateObj1 = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
-        $ctodateObj1 = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
+        // Reusable function to get order counts
+        $getCount = function ($showErrors, $additionalConditions = []) use ($userid, $cfromdateObj1, $ctodateObj1) {
+            return bulkorders::where('User_Id', $userid)
+                ->whereIn('showerrors', $showErrors)
+                ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+                ->where('order_cancel', '!=', '1')
+                ->where($additionalConditions)
+                ->count();
+        };
 
-        // booked of today order count
-        $booked = bulkorders::where('User_Id', $userid)
-            ->whereNull('xberrors')
-            ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->count();
-
-        $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered', 'SHIPMENT DELIVERED'])
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('Awb_Number', '!=', '')
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked', 'Online shipment booked', 'SHIPMENT MANIFESTED - NOT RECEIVED'])
-            ->whereNotNull('Awb_Number')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto', `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`, `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
-            ->where('Awb_Number', '!=', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $cancel = bulkorders::where('User_Id', $userid)
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            // ->where('order_cancel', 1)
-            ->count();
-
-        $ofd = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->count();
-
-        $failde = bulkorders::where('User_Id', $userid)
-            ->where('Awb_Number', '')
-            ->where('Rec_Time_Date', $tdate)
-            ->count();
-
-        $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked', 'WRONG PINCODE, WILL IMPACT DELIVERY', 'DELIVERY  SCHEDULED FOR NEXT WORKING DAY', 'SHIPMENT DETAINED BY REGULATORY AUTHORITIES', 'NEED DEPARTMENT NAME/EXTENTION NUMBER', 'DELIVERY DELAYED', 'SHIPMENT REDIRECTED ON SAME AWB', 'SHIPMENT REDIRECTED ON NEW AIRWAY BILL', 'SHIPMENT ARRIVED', 'DELIVERY  SCHEDULED FOR NEXT WORKING DAY', 'In Transit. Await delivery information'])
-
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->count();
+        // Count various order statuses
+        $booked = $getCount(['Booked'], ['Awb_Number' => '']);
+        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED'], ['Awb_Number' => '!=', 'order_cancel' => '!=']);
+        $pending_pickup = $getCount([
+            'Pickup Scheduled',
+            'Shipment Not Handed over',
+            'pending pickup',
+            'AWB Assigned',
+            'Pickup Error',
+            'Pickup Rescheduled',
+            'Out For Pickup',
+            'Pickup Exception',
+            'Pickup Booked',
+            'Shipment Booked',
+            'Pickup Generated',
+            'Online shipment booked',
+            'PICKUP HAS BEEN REGISTERED',
+            'SHIPMENT MANIFESTED - NOT RECEIVED'
+        ], ['Awb_Number' => '!=']);
+        $rto = $getCount([
+            'Shipment Redirected',
+            'Undelivered',
+            'RTO Initiated',
+            'RTO Delivered',
+            'RTO Acknowledged',
+            'RTO_OFD',
+            'RTO IN INTRANSIT',
+            'rto',
+            'RETURNED TO ORIGIN AT SHIPPER\'S REQUEST'
+        ], ['Awb_Number' => '!=']);
+        $cancel = $getCount([], []);
+        $ofd = $getCount(['out for delivery', 'Out For Delivery', 'OUT FOR DELIVERY,  DETAILS AWAITED'], []);
+        $failde = $getCount([], ['Awb_Number' => '']);
+        $in_transit = $getCount([
+            'In-Transit',
+            'in transit',
+            'Connected',
+            'intranit',
+            'Ready for Connection',
+            'Shipped',
+            'In Transit',
+            'Delayed',
+            'Partial_Delivered',
+            'REACHED AT DESTINATION HUB',
+            'MISROUTED',
+            'PICKED UP',
+            'Reached Warehouse',
+            'Custom Cleared',
+            'In Flight',
+            'Shipment Booked',
+            'In Transit. Await delivery information',
+            'DELIVERY  SCHEDULED FOR NEXT WORKING DAY',
+            'SHIPMENT ARRIVED',
+            'SHIPMENT REDIRECTED ON NEW AIRWAY BILL',
+            'SHIPMENT REDIRECTED ON SAME AWB',
+            'DELIVERY DELAYED'
+        ], []);
 
         $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
 
@@ -1513,22 +1708,51 @@ class UserOrderManage extends Controller
             'ctodate' => $req->to
         ])->with($data);
     }
+
+
     public function Rto(Request $req)
     {
         $userid = session()->get('UserLogin2id');
         $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
+
         // Convert date range inputs to Carbon objects if they are set
         $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
         $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
-
-
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
             ->where('order_cancel', '!=', '1')
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto', `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`, `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
+            ->whereIn('showerrors', [
+                'Shipment Redirected',
+                'Undelivered',
+                'RTO Initiated',
+                'RTO Delivered',
+                'RTO Acknowledged',
+                'RTO_OFD',
+                'RTO IN INTRANSIT',
+                'rto',
+                'RETURNED TO ORIGIN AT SHIPPER\'S REQUEST'
+            ])
             ->orderBy('Single_Order_Id', 'desc')
-            ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id', 'dhlerrors', 'dhlerrors');
+            ->select(
+                'Awb_Number',
+                'ordernoapi',
+                'Last_Time_Stamp',
+                'Name',
+                'Mobile',
+                'Address',
+                'awb_gen_by',
+                'showerrors',
+                'Order_Type',
+                'Item_Name',
+                'Awb_Number',
+                'Quantity',
+                'Total_Amount',
+                'orderno',
+                'uploadtype',
+                'Single_Order_Id',
+                'dhlerrors'
+            );
 
         // Apply additional filters based on request parameters
         if ($cfromdateObj && $ctodateObj) {
@@ -1561,76 +1785,84 @@ class UserOrderManage extends Controller
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
 
-        $tdate = date('Y-m-d');
-        $userid = session()->get('UserLogin2id');
-        $cfromdate = date('Y-m-d');
-        $ctodate = date('Y-m-d');
-        $cfromdateObj = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
-        $ctodateObj = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
-
-        // Current Month
+        // Fetch the current month start and end
         $crtmonth = date("m");
         $crtyear = date("Y");
         $crtmdays = cal_days_in_month(CAL_GREGORIAN, $crtmonth, $crtyear);
-        $currentmonthstart = "1-$crtmonth-$crtyear";
-        $currentmonthstend = "$crtmdays-$crtmonth-$crtyear";
-        $currentmonthstart = date('d-m-Y', strtotime($currentmonthstart));
-        $currentmonthstend = date('d-m-Y', strtotime($currentmonthstend));
+        $currentmonthstart = date('Y-m-d', strtotime("1-$crtmonth-$crtyear"));
+        $currentmonthstend = date('Y-m-d', strtotime("$crtmdays-$crtmonth-$crtyear"));
 
-        $cfromdate = date('Y-m-d', strtotime($currentmonthstart));
-        $ctodate = date('Y-m-d', strtotime($currentmonthstend));
+        // Prepare date range objects for queries
+        $cfromdateObj1 = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::parse($currentmonthstart)->startOfDay();
+        $ctodateObj1 = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::parse($currentmonthstend)->endOfDay();
 
-        $cfromdateObj1 = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
-        $ctodateObj1 = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
+        // Reusable function to get order counts
+        $getCount = function ($showErrors, $additionalConditions = []) use ($userid, $cfromdateObj1, $ctodateObj1) {
+            return bulkorders::where('User_Id', $userid)
+                ->whereIn('showerrors', $showErrors)
+                ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+                ->where('order_cancel', '!=', '1')
+                ->where($additionalConditions)
+                ->count();
+        };
 
-        // booked of today order count
-        $booked = bulkorders::where('User_Id', $userid)
-            ->whereNull('xberrors')
-            ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->count();
-
-        $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered', 'SHIPMENT DELIVERED'])
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('Awb_Number', '!=', '')
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked', 'Online shipment booked', 'SHIPMENT MANIFESTED - NOT RECEIVED'])
-            ->whereNotNull('Awb_Number')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto', `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`, `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
-            ->where('Awb_Number', '!=', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $cancel = bulkorders::where('User_Id', $userid)
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', 1)
-            ->count();
-
-        $ofd = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->count();
-
-        $failde = bulkorders::where('User_Id', $userid)
-            ->where('Awb_Number', '')
-            ->where('Rec_Time_Date', $tdate)
-            ->count();
-
-        $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked', 'WRONG PINCODE, WILL IMPACT DELIVERY', 'DELIVERY  SCHEDULED FOR NEXT WORKING DAY', 'SHIPMENT DETAINED BY REGULATORY AUTHORITIES', 'NEED DEPARTMENT NAME/EXTENTION NUMBER', 'DELIVERY DELAYED', 'SHIPMENT REDIRECTED ON SAME AWB', 'SHIPMENT REDIRECTED ON NEW AIRWAY BILL', 'SHIPMENT ARRIVED', 'DELIVERY  SCHEDULED FOR NEXT WORKING DAY', 'In Transit. Await delivery information'])
-
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->count();
+        // Count various order statuses
+        $booked = $getCount(['Booked'], ['Awb_Number' => '']);
+        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED'], ['Awb_Number' => '!=', 'order_cancel' => '!=']);
+        $pending_pickup = $getCount([
+            'Pickup Scheduled',
+            'Shipment Not Handed over',
+            'pending pickup',
+            'AWB Assigned',
+            'Pickup Error',
+            'Pickup Rescheduled',
+            'Out For Pickup',
+            'Pickup Exception',
+            'Pickup Booked',
+            'Shipment Booked',
+            'Pickup Generated',
+            'Online shipment booked',
+            'PICKUP HAS BEEN REGISTERED',
+            'SHIPMENT MANIFESTED - NOT RECEIVED'
+        ], ['Awb_Number' => '!=']);
+        $rto = $getCount([
+            'Shipment Redirected',
+            'Undelivered',
+            'RTO Initiated',
+            'RTO Delivered',
+            'RTO Acknowledged',
+            'RTO_OFD',
+            'RTO IN INTRANSIT',
+            'rto',
+            'RETURNED TO ORIGIN AT SHIPPER\'S REQUEST'
+        ], ['Awb_Number' => '!=']);
+        $cancel = $getCount([], []);
+        $ofd = $getCount(['out for delivery', 'Out For Delivery', 'OUT FOR DELIVERY,  DETAILS AWAITED'], []);
+        $failde = $getCount([], ['Awb_Number' => '']);
+        $in_transit = $getCount([
+            'In-Transit',
+            'in transit',
+            'Connected',
+            'intranit',
+            'Ready for Connection',
+            'Shipped',
+            'In Transit',
+            'Delayed',
+            'Partial_Delivered',
+            'REACHED AT DESTINATION HUB',
+            'MISROUTED',
+            'PICKED UP',
+            'Reached Warehouse',
+            'Custom Cleared',
+            'In Flight',
+            'Shipment Booked',
+            'In Transit. Await delivery information',
+            'DELIVERY  SCHEDULED FOR NEXT WORKING DAY',
+            'SHIPMENT ARRIVED',
+            'SHIPMENT REDIRECTED ON NEW AIRWAY BILL',
+            'SHIPMENT REDIRECTED ON SAME AWB',
+            'DELIVERY DELAYED'
+        ], []);
 
         $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
 
@@ -1644,24 +1876,24 @@ class UserOrderManage extends Controller
             'ctodate' => $req->to
         ])->with($data);
     }
+
     public function Canceled(Request $req)
     {
         $userid = session()->get('UserLogin2id');
         $Hubs1 = Hubs::where('hub_created_by', $userid)->get();
+
         // Convert date range inputs to Carbon objects if they are set
-        $cfromdateObj1 = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
-        $ctodateObj1 = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
+        $cfromdateObj = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::now()->startOfMonth();
+        $ctodateObj = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::now()->endOfMonth();
 
         // Query using Laravel Eloquent
         $query = bulkorders::where('User_Id', $userid)
-
-
             ->orderBy('Single_Order_Id', 'desc')
             ->select('Awb_Number', 'ordernoapi', 'Last_Time_Stamp', 'Name', 'Mobile', 'Address', 'awb_gen_by', 'showerrors', 'Order_Type', 'Item_Name', 'awb_gen_by', 'Awb_Number', 'Quantity', 'Total_Amount', 'orderno', 'uploadtype', 'Single_Order_Id', 'dhlerrors');
 
         // Apply additional filters based on request parameters
-        if ($cfromdateObj1 && $ctodateObj1) {
-            $query->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1]);
+        if ($cfromdateObj && $ctodateObj) {
+            $query->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj]);
         }
         if ($req->filled('order_type')) {
             $query->where('Order_Type', 'like', '%' . $req->order_type . '%');
@@ -1690,78 +1922,84 @@ class UserOrderManage extends Controller
         $courierapids = CourierApiDetail::all();
         $allusers = Allusers::where('usertype', 'user')->get();
 
-        $tdate = date('Y-m-d');
-        $userid = session()->get('UserLogin2id');
-        $cfromdate = date('Y-m-d');
-        $ctodate = date('Y-m-d');
-        $cfromdateObj = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
-        $ctodateObj = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
-
-        // Current Month
+        // Fetch the current month start and end
         $crtmonth = date("m");
         $crtyear = date("Y");
         $crtmdays = cal_days_in_month(CAL_GREGORIAN, $crtmonth, $crtyear);
-        $currentmonthstart = "1-$crtmonth-$crtyear";
-        $currentmonthstend = "$crtmdays-$crtmonth-$crtyear";
-        $currentmonthstart = date('d-m-Y', strtotime($currentmonthstart));
-        $currentmonthstend = date('d-m-Y', strtotime($currentmonthstend));
+        $currentmonthstart = date('Y-m-d', strtotime("1-$crtmonth-$crtyear"));
+        $currentmonthstend = date('Y-m-d', strtotime("$crtmdays-$crtmonth-$crtyear"));
 
-        $cfromdate = date('Y-m-d', strtotime($currentmonthstart));
-        $ctodate = date('Y-m-d', strtotime($currentmonthstend));
+        // Prepare date range objects for queries
+        $cfromdateObj1 = $req->filled('from') ? Carbon::parse($req->from)->startOfDay() : Carbon::parse($currentmonthstart)->startOfDay();
+        $ctodateObj1 = $req->filled('to') ? Carbon::parse($req->to)->endOfDay() : Carbon::parse($currentmonthstend)->endOfDay();
 
-        $cfromdateObj1 = Carbon::parse($cfromdate)->startOfDay(); // Start of the day for $cfromdate
-        $ctodateObj1 = Carbon::parse($ctodate)->endOfDay(); // End of the day for $ctodate
+        // Reusable function to get order counts
+        $getCount = function ($showErrors, $additionalConditions = []) use ($userid, $cfromdateObj1, $ctodateObj1) {
+            return bulkorders::where('User_Id', $userid)
+                ->whereIn('showerrors', $showErrors)
+                ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+                ->where('order_cancel', '!=', '1')
+                ->where($additionalConditions)
+                ->count();
+        };
 
-        // booked of today order count
-        $booked = bulkorders::where('User_Id', $userid)
-            ->whereNull('xberrors')
-            ->where('Awb_Number', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
-            ->count();
-
-        // dd($booked);
-
-        $deliver = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['delivered', 'Delivered', 'SHIPMENT DELIVERED'])
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('Awb_Number', '!=', '')
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $pending_pickup = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Pickup Scheduled', 'Shipment Not Handed over', 'pending pickup', 'AWB Assigned', 'Pickup Error', 'Pickup Rescheduled', 'Out For Pickup', 'Pickup Exception', 'Pickup Booked', 'Shipment Booked', 'Pickup Generated', 'Booked', 'Online shipment booked', 'SHIPMENT MANIFESTED - NOT RECEIVED'])
-            ->whereNotNull('Awb_Number')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $rto = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['Shipment Redirected', 'Undelivered', 'RTO Initiated', 'RTO Delivered', 'RTO Acknowledged', 'RTO_OFD', 'RTO IN INTRANSIT', 'rto', `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`, `RETURNED TO ORIGIN AT SHIPPER'S REQUEST`])
-            ->where('Awb_Number', '!=', '')
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->where('order_cancel', '!=', '1')
-            ->count();
-
-        $cancel = bulkorders::where('User_Id', $userid)
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            // ->where('order_cancel', 1)
-            ->count();
-
-        $ofd = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['out for delivery', 'Out For Delivery'])
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->count();
-
-        $failde = bulkorders::where('User_Id', $userid)
-            ->where('Awb_Number', '')
-            ->where('Rec_Time_Date', $tdate)
-            ->count();
-
-        $in_transit = bulkorders::where('User_Id', $userid)
-            ->whereIn('showerrors', ['In-Transit', 'in transit', 'Connected', 'intranit', 'Ready for Connection', 'Shipped', 'In Transit', 'Delayed', 'Partial_Delivered', 'REACHED AT DESTINATION HUB', 'MISROUTED', 'PICKED UP', 'Reached Warehouse', 'Custom Cleared', 'In Flight',    'Shipment Booked', 'WRONG PINCODE, WILL IMPACT DELIVERY', 'DELIVERY  SCHEDULED FOR NEXT WORKING DAY', 'SHIPMENT DETAINED BY REGULATORY AUTHORITIES', 'NEED DEPARTMENT NAME/EXTENTION NUMBER', 'DELIVERY DELAYED', 'SHIPMENT REDIRECTED ON SAME AWB', 'SHIPMENT REDIRECTED ON NEW AIRWAY BILL', 'SHIPMENT ARRIVED', 'DELIVERY  SCHEDULED FOR NEXT WORKING DAY', 'In Transit. Await delivery information'])
-
-            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
-            ->count();
+        // Count various order statuses
+        $booked = $getCount(['Booked'], ['Awb_Number' => '']);
+        $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED'], ['Awb_Number' => '!=', 'order_cancel' => '!=']);
+        $pending_pickup = $getCount([
+            'Pickup Scheduled',
+            'Shipment Not Handed over',
+            'pending pickup',
+            'AWB Assigned',
+            'Pickup Error',
+            'Pickup Rescheduled',
+            'Out For Pickup',
+            'Pickup Exception',
+            'Pickup Booked',
+            'Shipment Booked',
+            'Pickup Generated',
+            'Online shipment booked',
+            'PICKUP HAS BEEN REGISTERED',
+            'SHIPMENT MANIFESTED - NOT RECEIVED'
+        ], ['Awb_Number' => '!=']);
+        $rto = $getCount([
+            'Shipment Redirected',
+            'Undelivered',
+            'RTO Initiated',
+            'RTO Delivered',
+            'RTO Acknowledged',
+            'RTO_OFD',
+            'RTO IN INTRANSIT',
+            'rto',
+            'RETURNED TO ORIGIN AT SHIPPER\'S REQUEST'
+        ], ['Awb_Number' => '!=']);
+        $cancel = $getCount([], []);
+        $ofd = $getCount(['out for delivery', 'Out For Delivery', 'OUT FOR DELIVERY,  DETAILS AWAITED'], []);
+        $failde = $getCount([], ['Awb_Number' => '']);
+        $in_transit = $getCount([
+            'In-Transit',
+            'in transit',
+            'Connected',
+            'intranit',
+            'Ready for Connection',
+            'Shipped',
+            'In Transit',
+            'Delayed',
+            'Partial_Delivered',
+            'REACHED AT DESTINATION HUB',
+            'MISROUTED',
+            'PICKED UP',
+            'Reached Warehouse',
+            'Custom Cleared',
+            'In Flight',
+            'Shipment Booked',
+            'In Transit. Await delivery information',
+            'DELIVERY  SCHEDULED FOR NEXT WORKING DAY',
+            'SHIPMENT ARRIVED',
+            'SHIPMENT REDIRECTED ON NEW AIRWAY BILL',
+            'SHIPMENT REDIRECTED ON SAME AWB',
+            'DELIVERY DELAYED'
+        ], []);
 
         $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
 
@@ -1775,6 +2013,8 @@ class UserOrderManage extends Controller
             'ctodate' => $req->to
         ])->with($data);
     }
+
+
 
     public function Failled(Request $req)
     {
