@@ -46,6 +46,7 @@
 									</div>
 								</div>
 								<div class="">
+									Address2 : {{$order->Address2}}
 									<hr>
 									<div> <strong>Courier:
 										</strong>{{$order->awb_gen_by}}</div>
