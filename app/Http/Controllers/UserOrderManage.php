@@ -960,7 +960,7 @@ class UserOrderManage extends Controller
         };
 
         // Count various order statuses
-        $booked = $getCount(['Booked'], ['Awb_Number' => '']);
+        
         $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED']);
         $pending_pickup = $getCount([
             'Pickup Scheduled',
@@ -989,7 +989,7 @@ class UserOrderManage extends Controller
             'rto',
             'RETURNED TO ORIGIN AT SHIPPER\'S REQUEST'
         ], ['Awb_Number' => '!=']);
-        $cancel = $getCount([], []);
+
         $ofd = $getCount(['out for delivery', 'Out For Delivery', 'OUT FOR DELIVERY, DETAILS AWAITED'], []);
         $failde = $getCount([], ['Awb_Number' => '']);
         $in_transit = $getCount([
@@ -1016,6 +1016,15 @@ class UserOrderManage extends Controller
             'SHIPMENT REDIRECTED ON SAME AWB',
             'DELIVERY DELAYED'
         ], []);
+        $cancel = bulkorders::where('User_Id', $userid)
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
+            // ->where('order_cancel', 1)
+            ->count();
+        $booked = bulkorders::where('User_Id', $userid)
+            ->whereNull('xberrors')
+            ->where('Awb_Number', '')
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
+            ->count();
 
         // Prepare data to send to view
         $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
@@ -1135,7 +1144,7 @@ class UserOrderManage extends Controller
         };
 
         // Count various order statuses
-        $booked = $getCount(['Booked'], ['Awb_Number' => '']);
+
         $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED']);
         $pending_pickup = $getCount([
             'Pickup Scheduled',
@@ -1164,7 +1173,7 @@ class UserOrderManage extends Controller
             'rto',
             'RETURNED TO ORIGIN AT SHIPPER\'S REQUEST'
         ], ['Awb_Number' => '!=']);
-        $cancel = $getCount([], []);
+
         $ofd = $getCount(['out for delivery', 'Out For Delivery', 'OUT FOR DELIVERY,  DETAILS AWAITED'], []);
         $failde = $getCount([], ['Awb_Number' => '']);
         $in_transit = $getCount([
@@ -1191,6 +1200,15 @@ class UserOrderManage extends Controller
             'SHIPMENT REDIRECTED ON SAME AWB',
             'DELIVERY DELAYED'
         ], []);
+        $cancel = bulkorders::where('User_Id', $userid)
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
+            // ->where('order_cancel', 1)
+            ->count();
+        $booked = bulkorders::where('User_Id', $userid)
+            ->whereNull('xberrors')
+            ->where('Awb_Number', '')
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            ->count();
 
         $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
 
@@ -1320,7 +1338,7 @@ class UserOrderManage extends Controller
         };
 
         // Count various order statuses
-        $booked = $getCount(['Booked'], ['Awb_Number' => '']);
+
         $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED']);
         $pending_pickup = $getCount([
             'Pickup Scheduled',
@@ -1376,6 +1394,14 @@ class UserOrderManage extends Controller
             'SHIPMENT REDIRECTED ON SAME AWB',
             'DELIVERY DELAYED'
         ], []);
+        $cancel = bulkorders::where('User_Id', $userid)
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            ->count();
+        $booked = bulkorders::where('User_Id', $userid)
+            ->whereNull('xberrors')
+            ->where('Awb_Number', '')
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            ->count();
 
         $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
 
@@ -1639,7 +1665,7 @@ class UserOrderManage extends Controller
         };
 
         // Count various order statuses
-        $booked = $getCount(['Booked'], ['Awb_Number' => '']);
+        
         $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED']);
         $pending_pickup = $getCount([
             'Pickup Scheduled',
@@ -1668,7 +1694,7 @@ class UserOrderManage extends Controller
             'rto',
             'RETURNED TO ORIGIN AT SHIPPER\'S REQUEST'
         ], ['Awb_Number' => '!=']);
-        $cancel = $getCount([], []);
+
         $ofd = $getCount(['out for delivery', 'Out For Delivery', 'OUT FOR DELIVERY,  DETAILS AWAITED'], []);
         $failde = $getCount([], ['Awb_Number' => '']);
         $in_transit = $getCount([
@@ -1695,6 +1721,15 @@ class UserOrderManage extends Controller
             'SHIPMENT REDIRECTED ON SAME AWB',
             'DELIVERY DELAYED'
         ], []);
+        $cancel = bulkorders::where('User_Id', $userid)
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            // ->where('order_cancel', 1)
+            ->count();
+        $booked = bulkorders::where('User_Id', $userid)
+            ->whereNull('xberrors')
+            ->where('Awb_Number', '')
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            ->count();
 
         $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
 
@@ -1944,7 +1979,7 @@ class UserOrderManage extends Controller
         };
 
         // Count various order statuses
-        $booked = $getCount(['Booked'], ['Awb_Number' => '']);
+
         $deliver = $getCount(['delivered', 'Delivered', 'SHIPMENT DELIVERED']);
         $pending_pickup = $getCount([
             'Pickup Scheduled',
@@ -1973,7 +2008,7 @@ class UserOrderManage extends Controller
             'rto',
             'RETURNED TO ORIGIN AT SHIPPER\'S REQUEST'
         ], ['Awb_Number' => '!=']);
-        $cancel = $getCount([], []);
+
         $ofd = $getCount(['out for delivery', 'Out For Delivery', 'OUT FOR DELIVERY,  DETAILS AWAITED'], []);
         $failde = $getCount([], ['Awb_Number' => '']);
         $in_transit = $getCount([
@@ -2000,6 +2035,15 @@ class UserOrderManage extends Controller
             'SHIPMENT REDIRECTED ON SAME AWB',
             'DELIVERY DELAYED'
         ], []);
+        $cancel = bulkorders::where('User_Id', $userid)
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj1, $ctodateObj1])
+            // ->where('order_cancel', 1)
+            ->count();
+        $booked = bulkorders::where('User_Id', $userid)
+            ->whereNull('xberrors')
+            ->where('Awb_Number', '')
+            ->whereBetween('Last_Time_Stamp', [$cfromdateObj, $ctodateObj])
+            ->count();
 
         $data = compact('in_transit', 'failde', 'ofd', 'cancel', 'rto', 'pending_pickup', 'deliver', 'booked');
 
